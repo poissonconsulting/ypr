@@ -1,18 +1,18 @@
 #' Yield-Per-Recruit
 #'
-#' The default values are for large piscivorous Rainbow Trout.
-#'
-#' @param k A number of the growth coefficient.
-#' @param Linf A number of the mean maximum length.
-#' @param t0 A number of the time at zero length.
-#' @param alpha A number of the length weight coefficient
-#' @param beta A number of the length weight power term.
-#' @param Lm A number of the length when mature.
-#' @param Lv A number of the length when vulnerable to capture.
-#' # need fecundity
-#' # M natural mortality
-#' # F fishing mortality
+#' @param tmax The maximum age.
+#' @inheritParams ypr_length
+#' @inheritParams ypr_weight
 #' @export
-ypr <- function(k, Linf = 1000, t0 = 0, alpha = 1, beta = 3, Lm = 500, Lv = 400) {
+#' @examples
+#' ypr()
+ypr <- function(tmax = 20L, k = 0.5, Linf = 1000, t0 = 0, a = 1e-05, b = 3) {
+  check_scalar(tmax, c(1L, 100L))
+  t <- 0:tmax
+  L <- ypr_length(t, k = k, Linf = Linf, t0 = t0)
+  W <- ypr_weight(L, a = a, b = b)
 
+  tibble::tibble(t = t, L = L, W = W)
 }
+# need plot of growth, abundance, biomass
+# return 1 data frame of Age, Length, Weight, Fecundity, Survivorship, Biomass, FishedSurvivorship, FishedBiomass

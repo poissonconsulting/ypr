@@ -5,6 +5,14 @@ Description: Performs simple yield per recruit calculations.
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
 License: MIT + file LICENSE
 Encoding: UTF-8
+Additional_Repositories: http://poissonconsulting.github.io/drat
+Depends:
+    R (>= 3.3.1)
+Imports:
+    checkr (>= 0.2.0.9003),
+    tibble
 LazyData: true
 ByteCompile: true
 RoxygenNote: 6.0.1
+Suggests: 
+    testthat

@@ -4,23 +4,24 @@
 \alias{ypr}
 \title{Yield-Per-Recruit}
 \usage{
-ypr(k, Linf = 1000, t0 = 0, alpha = 1, beta = 3, Lm = 500, Lv = 400)
+ypr(tmax = 20L, k = 0.5, Linf = 1000, t0 = 0, a = 1e-05, b = 3)
 }
 \arguments{
-\item{k}{A number of the growth coefficient.}
+\item{tmax}{The maximum age.}
 
-\item{Linf}{A number of the mean maximum length.}
+\item{k}{The growth coefficient.}
 
-\item{t0}{A number}
+\item{Linf}{The mean maximum length.}
 
-\item{alpha}{A number of the}
+\item{t0}{The age at length 0.}
 
-\item{beta}{A number of the}
+\item{a}{The condition factor.}
 
-\item{Lm}{A number of the length at maturity.}
-
-\item{Lv}{A number of the length at vulnerable to capture.}
+\item{b}{The scaling exponent.}
 }
 \description{
-The default values are for large piscivorous Rainbow Trout.
+Yield-Per-Recruit
+}
+\examples{
+ypr()
 }
