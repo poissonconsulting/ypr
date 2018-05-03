@@ -2,6 +2,7 @@
 
 export(ypr)
 export(ypr_length)
+export(ypr_survivorship)
 export(ypr_vulnerability)
 export(ypr_weight)
 import(checkr)

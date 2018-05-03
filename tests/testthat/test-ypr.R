@@ -8,7 +8,8 @@ test_that("ypr", {
                               values = list(t = c(0L, 20L),
                                             L = c(0, 100),
                                             W = c(0, 10),
-                                            V = c(0, 1)),
+                                            V = c(0, 1),
+                                            S = c(0, 1)),
                               exclusive = TRUE,
                               order = TRUE), ypr)
 })

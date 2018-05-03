@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yield-Per-Recruit — ypr • ypr</title>
+<title>Calculate Survivorship — ypr_survivorship • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Yield-Per-Recruit — ypr" />
+<meta property="og:title" content="Calculate Survivorship — ypr_survivorship" />
 
-<meta property="og:description" content="Yield-Per-Recruit" />
+<meta property="og:description" content="Calculates the expected survivorship to age t." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -93,52 +93,23 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Yield-Per-Recruit</h1>
-    <small>Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/ypr.R'><code>R/ypr.R</code></a></small>
-    <div class="hidden name"><code>ypr.Rd</code></div>
+    <h1>Calculate Survivorship</h1>
+    <small>Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/survivorship.R'><code>R/survivorship.R</code></a></small>
+    <div class="hidden name"><code>ypr_survivorship.Rd</code></div>
     </div>
 
     
-    <p>Yield-Per-Recruit</p>
+    <p>Calculates the expected survivorship to age t.</p>
     
 
-    <pre class="usage"><span class='fu'>ypr</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1e-05</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_survivorship</span>(<span class='no'>t</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>tmax</th>
-      <td><p>The maximum age.</p></td>
-    </tr>
-    <tr>
-      <th>k</th>
-      <td><p>The growth coefficient.</p></td>
-    </tr>
-    <tr>
-      <th>Linf</th>
-      <td><p>The mean maximum length.</p></td>
-    </tr>
-    <tr>
-      <th>t0</th>
-      <td><p>The age at length 0.</p></td>
-    </tr>
-    <tr>
-      <th>a</th>
-      <td><p>The condition factor.</p></td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td><p>The scaling exponent.</p></td>
-    </tr>
-    <tr>
-      <th>Llo</th>
-      <td><p>The lower harvest length.</p></td>
-    </tr>
-    <tr>
-      <th>Lup</th>
-      <td><p>The upper harvest length.</p></td>
+      <th>t</th>
+      <td><p>The age.</p></td>
     </tr>
     <tr>
       <th>mu</th>
@@ -146,28 +117,21 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The expected survivorship.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr</span>()</div><div class='output co'>#&gt; # A tibble: 21 x 5
-#&gt;        t     L       W     V     S
-#&gt;    &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1     0  0.   0.         0. 1.00 
-#&gt;  2     1  9.52 0.00862    0. 0.800
-#&gt;  3     2 18.1  0.0596     0. 0.640
-#&gt;  4     3 25.9  0.174      0. 0.512
-#&gt;  5     4 33.0  0.358      0. 0.410
-#&gt;  6     5 39.3  0.609      0. 0.328
-#&gt;  7     6 45.1  0.918      0. 0.262
-#&gt;  8     7 50.3  1.28       1. 0.210
-#&gt;  9     8 55.1  1.67       1. 0.168
-#&gt; 10     9 59.3  2.09       1. 0.134
-#&gt; # ... with 11 more rows</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>plot</span>(<span class='fl'>0</span>:<span class='fl'>10</span>, <span class='fu'>ypr_survivorship</span>(<span class='fl'>0</span>:<span class='fl'>10</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>)</div><div class='img'><img src='ypr_survivorship-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

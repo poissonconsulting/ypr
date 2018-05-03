@@ -5,7 +5,7 @@
 \title{Yield-Per-Recruit}
 \usage{
 ypr(tmax = 20L, k = 0.1, Linf = 100, t0 = 0, a = 1e-05, b = 3,
-  Llo = Linf/2, Lup = Linf)
+  Llo = Linf/2, Lup = Linf, mu = 0.2)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -23,6 +23,8 @@ ypr(tmax = 20L, k = 0.1, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 \item{Llo}{The lower harvest length.}
 
 \item{Lup}{The upper harvest length.}
+
+\item{mu}{The annual interval mortality rate.}
 }
 \description{
 Yield-Per-Recruit
