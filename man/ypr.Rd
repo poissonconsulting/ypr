@@ -4,7 +4,7 @@
 \alias{ypr}
 \title{Yield-Per-Recruit}
 \usage{
-ypr(tmax = 20L, k = 0.1, Linf = 100, t0 = 0, a = 1e-05, b = 3,
+ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   Llo = Linf/2, Lup = Linf, mu = 0.2, Lm = Linf/2, fa = a, fb = b)
 }
 \arguments{

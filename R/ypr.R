@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' ypr()
-ypr <- function(tmax = 20L, k = 0.1, Linf = 100, t0 = 0, a = 1e-05, b = 3,
+ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
                 Llo = Linf/2, Lup = Linf, mu = 0.2,
                 Lm = Linf/2, fa = a, fb = b) {
   check_scalar(tmax, c(1L, .t_max))
@@ -24,9 +24,11 @@ ypr <- function(tmax = 20L, k = 0.1, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   V <- ypr_vulnerability(L, Llo = Llo, Lup = Lup)
   S <- ypr_survivorship(t, mu = mu)
   f <- ypr_fecundity(L, Lm = Lm, fa = fa, fb = fb)
+  Sf <- S * f
 
   tibble::tibble(Age = t, Length = L, Weight = W,
-                 Vulnerability = V, Survivorship = S, Fecundity = f)
+                 Vulnerability = V, Survivorship = S, Fecundity = f,
+                 RelativeFecundity = Sf)
 }
 # need plot of growth, abundance, biomass
 # return 1 data frame of Age, Length, Weight, Fecundity, Survivorship, Biomass, FishedSurvivorship, FishedBiomass

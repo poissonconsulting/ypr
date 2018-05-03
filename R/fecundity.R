@@ -18,6 +18,6 @@ ypr_fecundity <- function(L, Lm = 50,  fa = 1e-05, fb = 3) {
   check_scalar(fb, c(2, 4))
 
   f <- fa * L^{fb}
-  f[f < Lm] <- 0
+  f[L < Lm] <- 0
   f
 }
