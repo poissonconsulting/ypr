@@ -5,51 +5,54 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 
+
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
+[![Coverage status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 # ypr
 
-The goal of ypr is to ...
+An R package to perform simple yield per recruit calculations
 
-## Installation
-
-You can install the released version of ypr from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("ypr")
+To install the latest development version from [GitHub](https://github.com/poissonconsulting/ypr)
 ```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
 # install.packages("devtools")
 devtools::install_github("poissonconsulting/ypr")
 ```
-## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-
-```r
-## basic example code
+To install the latest development version from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
+```
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("ypr")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Citation
 
 
-```r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+To cite package 'ypr' in publications use:
 
-You can also embed plots, for example:
+  Joe Thorley (0002). ypr: Yield Per Recruit. R package version
+  0.0.0.9001. https://github.com/poissonconsulting/ypr
 
-<img src="man/figures/README-pressure-1.png" title="plot of chunk pressure" alt="plot of chunk pressure" width="100%" />
+A BibTeX entry for LaTeX users is
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+  @Manual{,
+    title = {ypr: Yield Per Recruit},
+    author = {Joe Thorley},
+    year = {0002},
+    note = {R package version 0.0.0.9001},
+    url = {https://github.com/poissonconsulting/ypr},
+  }
+```
+
+## Contribution
+
+Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
+
+[Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

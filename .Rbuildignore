@@ -6,3 +6,6 @@
 ^codemeta\.json$
 ^_pkgdown\.yml$
 ^docs$
+^\.travis\.yml$
+^codecov\.yml$
+^CODE_OF_CONDUCT\.md$

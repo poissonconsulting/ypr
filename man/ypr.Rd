@@ -4,7 +4,8 @@
 \alias{ypr}
 \title{Yield-Per-Recruit}
 \usage{
-ypr(tmax = 20L, k = 0.5, Linf = 1000, t0 = 0, a = 1e-05, b = 3)
+ypr(tmax = 20L, k = 0.1, Linf = 100, t0 = 0, a = 1e-05, b = 3,
+  Llo = Linf/2, Lup = Linf)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -18,6 +19,10 @@ ypr(tmax = 20L, k = 0.5, Linf = 1000, t0 = 0, a = 1e-05, b = 3)
 \item{a}{The condition factor.}
 
 \item{b}{The scaling exponent.}
+
+\item{Llo}{The lower harvest length.}
+
+\item{Lup}{The upper harvest length.}
 }
 \description{
 Yield-Per-Recruit

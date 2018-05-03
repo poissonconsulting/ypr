@@ -12,44 +12,39 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
+[![Coverage status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 # ypr
 
-The goal of ypr is to ...
+An R package to perform simple yield per recruit calculations
 
-## Installation
-
-You can install the released version of ypr from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("ypr")
+To install the latest development version from [GitHub](https://github.com/poissonconsulting/ypr)
 ```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
 # install.packages("devtools")
 devtools::install_github("poissonconsulting/ypr")
 ```
-## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-## basic example code
+To install the latest development version from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
+```
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("ypr")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Citation
 
-```{r cars}
-summary(cars)
+```{r, comment="", echo=FALSE}
+citation(package = "ypr")
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+## Contribution
 
-You can also embed plots, for example:
+Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+[Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

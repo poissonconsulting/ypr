@@ -8,7 +8,7 @@
   "description": "Performs simple yield per recruit calculations.",
   "name": "ypr: Yield Per Recruit",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9000",
+  "version": "0.0.0.9001",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -35,6 +35,17 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -75,6 +86,9 @@
     }
   ],
   "readme": "https://github.com/poissonconsulting/ypr/blob/master/README.md",
-  "fileSize": "45.1KB",
-  "codeRepository": "https://github.com/poissonconsulting/ypr"
+  "fileSize": "45.842KB",
+  "codeRepository": "https://github.com/poissonconsulting/ypr",
+  "issueTracker": "https://github.com/poissonconsulting/ypr/issues",
+  "datePublished": "02-05-2018",
+  "contIntegration": "https://travis-ci.org/poissonconsulting/ypr"
 }

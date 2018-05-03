@@ -57,7 +57,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9001</span>
       </span>
     </div>
 
@@ -75,7 +75,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/poissonconsulting/ypr">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -89,7 +94,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Yield-Per-Recruit</h1>
-    
+    <small>Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/ypr.R'><code>R/ypr.R</code></a></small>
     <div class="hidden name"><code>ypr.Rd</code></div>
     </div>
 
@@ -97,7 +102,8 @@
     <p>Yield-Per-Recruit</p>
     
 
-    <pre class="usage"><span class='fu'>ypr</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1e-05</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1e-05</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -126,23 +132,31 @@
       <th>b</th>
       <td><p>The scaling exponent.</p></td>
     </tr>
+    <tr>
+      <th>Llo</th>
+      <td><p>The lower harvest length.</p></td>
+    </tr>
+    <tr>
+      <th>Lup</th>
+      <td><p>The upper harvest length.</p></td>
+    </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr</span>()</div><div class='output co'>#&gt; # A tibble: 21 x 3
-#&gt;        t     L     W
-#&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1     0    0.    0.
-#&gt;  2     1  393.  609.
-#&gt;  3     2  632. 2526.
-#&gt;  4     3  777. 4689.
-#&gt;  5     4  865. 6465.
-#&gt;  6     5  918. 7734.
-#&gt;  7     6  950. 8580.
-#&gt;  8     7  970. 9121.
-#&gt;  9     8  982. 9461.
-#&gt; 10     9  989. 9670.
+    <pre class="examples"><div class='input'><span class='fu'>ypr</span>()</div><div class='output co'>#&gt; # A tibble: 21 x 4
+#&gt;        t     L       W     V
+#&gt;    &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+#&gt;  1     0  0.   0.         0.
+#&gt;  2     1  9.52 0.00862    0.
+#&gt;  3     2 18.1  0.0596     0.
+#&gt;  4     3 25.9  0.174      0.
+#&gt;  5     4 33.0  0.358      0.
+#&gt;  6     5 39.3  0.609      0.
+#&gt;  7     6 45.1  0.918      0.
+#&gt;  8     7 50.3  1.28       1.
+#&gt;  9     8 55.1  1.67       1.
+#&gt; 10     9 59.3  2.09       1.
 #&gt; # ... with 11 more rows</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
