@@ -24,12 +24,14 @@
       "email": "joe@poissonconsulting.ca"
     }
   ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Joe",
-    "familyName": "Thorley",
-    "email": "joe@poissonconsulting.ca"
-  },
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Joe",
+      "familyName": "Thorley",
+      "email": "joe@poissonconsulting.ca"
+    }
+  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -38,9 +40,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     },
     {
       "@type": "SoftwareApplication",
@@ -49,23 +52,31 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
     }
   ],
   "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.4.0"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "checkr",
       "name": "checkr",
-      "version": "0.2.0.9003",
+      "version": ">= 0.2.0.9003",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=checkr"
     },
     {
       "@type": "SoftwareApplication",
@@ -74,21 +85,16 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": "3.4.0"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     }
   ],
   "readme": "https://github.com/poissonconsulting/ypr/blob/master/README.md",
-  "fileSize": "46.677KB",
+  "fileSize": "46.794KB",
   "codeRepository": "https://github.com/poissonconsulting/ypr",
   "issueTracker": "https://github.com/poissonconsulting/ypr/issues",
-  "datePublished": "02-05-2018",
-  "contIntegration": "https://travis-ci.org/poissonconsulting/ypr"
+  "contIntegration": "https://travis-ci.org/poissonconsulting/ypr",
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#experimental"
 }

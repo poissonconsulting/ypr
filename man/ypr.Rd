@@ -5,7 +5,8 @@
 \title{Yield-Per-Recruit}
 \usage{
 ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
-  Llo = Linf/2, Lup = Linf, mu = 0.2, Lm = Linf/2, fa = a, fb = b)
+  Llo = Linf/2, Lup = Linf, mu = 0.2, Lm = Linf/2, fa = a, fb = b,
+  Rt = 1L)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -31,6 +32,8 @@ ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 \item{fa}{The fecundity factor.}
 
 \item{fb}{The fecundity scaling exponent.}
+
+\item{Rt}{A count of the recruitment age for the stock recruitment relationship.}
 }
 \description{
 Yield-Per-Recruit

@@ -14,7 +14,7 @@
 #' plot(0:10, ypr_length(0:10), type = "l")
 ypr_length <- function(t, k = 1/2, Linf = 100, t0 = 0) {
   check_scalar(k, c(0, 10))
-  check_scalar(Linf, c(0, .L_max))
+  check_scalar(Linf, c(0, .Lmax))
   check_scalar(t0, c(-10, 10))
 
   L <- Linf * (1 - exp(-k * (t-t0)))
