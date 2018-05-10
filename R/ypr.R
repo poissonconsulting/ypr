@@ -10,7 +10,7 @@
 #' @examples
 #' ypr()
 ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
-                Llo = Linf/2, Lup = Linf, mu = 0.2,
+                Llo = Linf/2, Lup = Linf, nu = 0.2,
                 Lm = Linf/2, fa = a, fb = b, Rt = 1L) {
   check_scalar(tmax, c(1L, .tmax))
   check_scalar(Linf, c(0, 1000))
@@ -23,7 +23,7 @@ ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   L <- ypr_length(t, k = k, Linf = Linf, t0 = t0)
   W <- ypr_weight(L, a = a, b = b)
   V <- ypr_vulnerability(L, Llo = Llo, Lup = Lup)
-  S <- ypr_survivorship(t, mu = mu, Rt = Rt)
+  S <- ypr_survivorship(t, nu = nu, Rt = Rt)
   f <- ypr_fecundity(L, Lm = Lm, fa = fa, fb = fb)
 
   Sf <- S * f

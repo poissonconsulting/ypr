@@ -4,12 +4,12 @@
 \alias{ypr_survivorship}
 \title{Calculate Survivorship}
 \usage{
-ypr_survivorship(t, mu = 0.2, Rt = 1L)
+ypr_survivorship(t, nu = 0.2, Rt = 1L)
 }
 \arguments{
 \item{t}{The age.}
 
-\item{mu}{The annual interval mortality rate.}
+\item{nu}{The annual interval natural mortality rate.}
 
 \item{Rt}{A count of the recruitment age for the stock recruitment relationship.}
 }

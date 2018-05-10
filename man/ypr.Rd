@@ -5,7 +5,7 @@
 \title{Yield-Per-Recruit}
 \usage{
 ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
-  Llo = Linf/2, Lup = Linf, mu = 0.2, Lm = Linf/2, fa = a, fb = b,
+  Llo = Linf/2, Lup = Linf, nu = 0.2, Lm = Linf/2, fa = a, fb = b,
   Rt = 1L)
 }
 \arguments{
@@ -25,7 +25,7 @@ ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 
 \item{Lup}{The upper harvest length.}
 
-\item{mu}{The annual interval mortality rate.}
+\item{nu}{The annual interval natural mortality rate.}
 
 \item{Lm}{The length at maturity.}
 
