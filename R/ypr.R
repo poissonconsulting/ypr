@@ -26,8 +26,10 @@ ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   S <- ypr_survivorship(t, mu = mu, Rt = Rt)
   f <- ypr_fecundity(L, Lm = Lm, fa = fa, fb = fb)
 
-  tibble::tibble(Age = t, Length = L, Weight = W,
-                 Vulnerability = V, Survivorship = S, Fecundity = f)
+  Sf <- S * f
+
+  tibble::tibble(Age = t, Length = L, Weight = W, Fecundity = f,
+                 Survivorship = S, Vulnerability = V)
 }
 # need plot of growth, abundance, biomass
 # return 1 data frame of Age, Length, Weight, Fecundity, Survivorship, Biomass, FishedSurvivorship, FishedBiomass

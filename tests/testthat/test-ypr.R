@@ -8,9 +8,9 @@ test_that("ypr", {
                               values = list(Age = c(1L, 20L),
                                             Length = c(13, 100),
                                             Weight = c(0.02, 10),
-                                            Vulnerability = c(0, 1),
+                                            Fecundity = c(0, 10),
                                             Survivorship = c(0, 1),
-                                            Fecundity = c(0, 10)),
+                                            Vulnerability = c(0, 1)),
                               exclusive = TRUE,
                               order = TRUE), ypr)
 })
