@@ -26,26 +26,6 @@ To install the latest development version from the Poisson drat
     drat::addRepo("poissonconsulting")
     install.packages("ypr")
 
-## Citation
-
-``` 
-
-To cite package 'ypr' in publications use:
-
-  Joe Thorley (2018). ypr: Yield Per Recruit. R package version
-  0.0.0.9002. https://github.com/poissonconsulting/ypr
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {ypr: Yield Per Recruit},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.0.0.9002},
-    url = {https://github.com/poissonconsulting/ypr},
-  }
-```
-
 ## Contribution
 
 Please report any

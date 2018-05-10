@@ -6,7 +6,7 @@
 \usage{
 ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   Lm = Linf/2, fa = 1, fb = 1, Rt = 1L, nu = 0.2, Lv = Linf/2,
-  Llo = 0, Lup = Linf, mu = 0.1, rho = 0, eta = 0.1)
+  Llo = 0, Lup = Linf, mu = 0.1, rho = 0, eta = 0.1, Rk = 5)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -27,7 +27,7 @@ ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 
 \item{fb}{The fecundity scaling exponent.}
 
-\item{Rt}{A count of the recruitment age for the stock recruitment relationship.}
+\item{Rt}{The recruitment age for the stock recruitment relationship.}
 
 \item{nu}{The annual probability of dying due to natural causes.}
 
@@ -42,6 +42,8 @@ ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 \item{rho}{The release probability.}
 
 \item{eta}{The hooking mortality probability.}
+
+\item{Rk}{The numbers of spawners per spawner at low density.}
 }
 \description{
 Yield-Per-Recruit

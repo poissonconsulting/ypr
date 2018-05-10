@@ -7,16 +7,16 @@ Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c
 License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/ypr
 BugReports: https://github.com/poissonconsulting/ypr/issues
+Additional_Repositories: http://poissonconsulting.github.io/drat
 Depends:
     R (>= 3.4.0)
 Imports:
     checkr (>= 0.2.0.9003),
     tibble
-Encoding: UTF-8
-Additional_Repositories: http://poissonconsulting.github.io/drat
-LazyData: true
-ByteCompile: true
-RoxygenNote: 6.0.1
 Suggests: 
     testthat,
     covr
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+RoxygenNote: 6.0.1

@@ -4,7 +4,7 @@
 #' @inheritParams ypr_length
 #' @inheritParams ypr_weight
 #' @inheritParams ypr_fecundity
-#' @param Rt A count of the recruitment age for the stock recruitment relationship.
+#' @param Rt The recruitment age for the stock recruitment relationship.
 #' @param nu The annual probability of dying due to natural causes.
 #' @param Lv The length at which vulnerable to harvest.
 #' @param Llo The lower harvest length.
@@ -12,6 +12,7 @@
 #' @param mu The annual probability of being captured.
 #' @param rho The release probability.
 #' @param eta The hooking mortality probability.
+#' @param Rk The numbers of spawners per spawner at low density.
 #' @export
 #' @examples
 #' ypr()
@@ -19,7 +20,8 @@ ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
                 Lm = Linf/2, fa = 1, fb = 1,
                 Rt = 1L, nu = 0.2,
                 Lv = Linf/2, Llo = 0, Lup = Linf,
-                mu = 0.1, rho = 0, eta = 0.1
+                mu = 0.1, rho = 0, eta = 0.1,
+                Rk = 5
                 ) {
   check_scalar(tmax, c(1L, .tmax))
   check_scalar(Linf, c(0, .Lmax))
@@ -32,6 +34,7 @@ ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   check_probability(mu)
   check_probability(rho)
   check_probability(eta)
+  check_scalar(Rk, c(1, 10))
 
   t <- Rt:tmax
   L <- ypr_length(t, k = k, Linf = Linf, t0 = t0)
@@ -47,6 +50,14 @@ ypr <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
   U[V & !H] <- 1 - (1 - N[V & !H]) * (1 - mu * eta)
   FS <- cumprod(c(1,1-U))
   FS <- FS[-length(FS)]
+
+  phi <- sum(E * S)
+  phiF <- sum(E * FS)
+  R0 <- 1 / sum(S) # Unfished age-1 recruits as proportion of total unfished fish population
+  alpha <-  Rk * 1/phi
+  beta <- (Rk - 1) / (R0 * phi)
+  R0F <- (alpha * phiF - 1) / (beta * phiF)
+
 
   tibble::tibble(Age = t, Length = L, Weight = W, Fecundity = E,
                  Mortality = N, Survivorship = S,
