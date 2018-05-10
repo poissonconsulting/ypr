@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 # ypr
 
-An R package to perform simple yield per recruit calculations
+An R package to perform simple yield per recruit calculations.
 
 To install the latest development version from [GitHub](https://github.com/poissonconsulting/ypr)
 ```

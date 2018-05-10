@@ -5,8 +5,8 @@
 \title{Yield-Per-Recruit}
 \usage{
 ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
-  Llo = Linf/2, Lup = Linf, nu = 0.2, Lm = Linf/2, fa = a, fb = b,
-  Rt = 1L)
+  Lm = Linf/2, fa = 1, fb = 1, Rt = 1L, nu = 0.2, Lv = Linf/2,
+  Llo = 0, Lup = Linf, mu = 0.1, rho = 0, eta = 0.1)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -21,12 +21,6 @@ ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 
 \item{b}{The scaling exponent.}
 
-\item{Llo}{The lower harvest length.}
-
-\item{Lup}{The upper harvest length.}
-
-\item{nu}{The annual interval natural mortality rate.}
-
 \item{Lm}{The length at maturity.}
 
 \item{fa}{The fecundity factor.}
@@ -34,6 +28,20 @@ ypr(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05, b = 3,
 \item{fb}{The fecundity scaling exponent.}
 
 \item{Rt}{A count of the recruitment age for the stock recruitment relationship.}
+
+\item{nu}{The annual probability of dying due to natural causes.}
+
+\item{Lv}{The length at which vulnerable to harvest.}
+
+\item{Llo}{The lower harvest length.}
+
+\item{Lup}{The upper harvest length.}
+
+\item{mu}{The annual probability of being captured.}
+
+\item{rho}{The release probability.}
+
+\item{eta}{The hooking mortality probability.}
 }
 \description{
 Yield-Per-Recruit

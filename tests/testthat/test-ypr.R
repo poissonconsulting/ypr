@@ -9,8 +9,12 @@ test_that("ypr", {
                                             Length = c(13, 100),
                                             Weight = c(0.02, 10),
                                             Fecundity = c(0, 10),
+                                            Mortality = c(0, 1),
                                             Survivorship = c(0, 1),
-                                            Vulnerability = c(0, 1)),
+                                            Vulnerable = TRUE,
+                                            Harvest = TRUE,
+                                            FishedMortality = c(0, 1),
+                                            FishedSurvivorship = c(0, 1)),
                               exclusive = TRUE,
                               order = TRUE), ypr)
 })

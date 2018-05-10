@@ -4,10 +4,14 @@
 \alias{ypr_fecundity}
 \title{Calculate Fecundity}
 \usage{
-ypr_fecundity(L, Lm = 50, fa = 1e-05, fb = 3)
+ypr_fecundity(L, a = 1e-05, b = 3, Lm = 50, fa = 1e-05, fb = 1)
 }
 \arguments{
 \item{L}{The length.}
+
+\item{a}{The condition factor.}
+
+\item{b}{The scaling exponent.}
 
 \item{Lm}{The length at maturity.}
 
