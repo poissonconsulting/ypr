@@ -57,7 +57,7 @@ lives to 20 years of age,
 grows to a mean maximum length of 100 with a k of 0.15,
 undergoes allometric growth and fecundity and matures at a length of 50
 has a natural mortality rate of 20% from age 1
-and has capture rate of 20% from a length of 50 onwards with no catch and release.
+and has a capture rate of 20% from a length of 50 onwards with no catch and release.
 }
 \examples{
 ypr_population()

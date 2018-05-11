@@ -20,8 +20,6 @@ of the schedule and find the capture rate which maximises the yield.
 The yield can be based on the total biomass vs number of fish; 
 harvested vs captured and large versus all fish.
 
-For more information on the assumptions and limitations of methods see the vignette.
-
 ## Demonstration
 
 
@@ -57,6 +55,17 @@ ypr_plot(population)
 ```
 
 <img src="man/figures/README-unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="100%" />
+
+
+## Assumptions and Limitation
+
+The calculations assume that growth follows a von Bertalanffy growth curve;
+maturation is length based;
+natural mortality is constant;
+vulnerability to the fishery is knife-edged;
+and capture, release and hooking mortality are constant.
+It also assumes that a released individual cannot be recaught in the same year.
+The results suffers from the same limitations as all yield per recruit methods.
 
 ## Installation
 

@@ -56,6 +56,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
   "softwareRequirements": [
@@ -102,7 +126,7 @@
     }
   ],
   "readme": "https://github.com/poissonconsulting/ypr/blob/master/README.md",
-  "fileSize": "76.925KB",
+  "fileSize": "72.218KB",
   "codeRepository": "https://github.com/poissonconsulting/ypr",
   "issueTracker": "https://github.com/poissonconsulting/ypr/issues",
   "contIntegration": "https://travis-ci.org/poissonconsulting/ypr",

@@ -1,4 +1,6 @@
 if(file.exists("DESCRIPTION")) unlink("docs", recursive = TRUE)
+usethis::use_package_doc()
 codemetar::write_codemeta()
 knitr::knit("README.Rmd")
+pkgdown::build_site()
 devtools::check()
