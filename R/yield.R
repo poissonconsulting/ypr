@@ -26,23 +26,19 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
     check_flag(biomass)
     check_flag(harvest)
   }
-  schedule <- ypr_schedule(population, check = check)
+  schedule <- ypr_schedule(population, complete = TRUE, check = check)
 
   yield <- with(schedule, {
-    S <- cumprod(1 - NaturalMortality)
-    S <- c(1, S[-length(S)])
-    SF <- cumprod((1 - NaturalMortality) * (1 - FishingMortality))
-
-    phi <- sum(Fecundity * S)
-    phiF <- sum(Fecundity * SF)
+    phi <- sum(Fecundity * Survivorship)
+    phiF <- sum(Fecundity * FishedSurvivorship)
 
     Rk <- Productivity[1]
-    R0 <- 1 / sum(S)
+    R0 <- 1 / sum(Survivorship)
     alpha <-  Rk * 1 / phi
     beta <- (Rk - 1) / (R0 * phi)
     R0F <- (alpha * phiF - 1) / (beta * phiF)
 
-    yield <- R0F * SF * Capture
+    yield <- R0F * FishedSurvivorship * Capture
     if(harvest) yield <- yield * (1 - Release)
     if(biomass) yield <- yield * Weight
     yield <- yield[Length >= Ly]

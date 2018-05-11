@@ -1,15 +1,26 @@
+complete_schedule <- function(x) {
+  x$TotalMortality <- 1 - (1 - x$NaturalMortality) * (1 - x$FishingMortality)
+  x$Survivorship <- cumprod(1 - x$NaturalMortality)
+  x$Survivorship <- c(1, x$Survivorship[-nrow(x)])
+  x$FishedSurvivorship <- cumprod(1 - x$TotalMortality)
+  x
+}
+
 #' Life-History Schedule
 #'
 #' @inheritParams ypr_yield
+#' @param complete A flag indicating whether to generate a complete schedule.
 #' @return A tibble of the life-history schedule by age.
 #' @export
 #' @examples
 #' ypr_schedule(ypr_population())
-ypr_schedule <- function(population, check = TRUE) {
+ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
   check_flag(check)
-  if(check) check_population(population)
-
-  with(population, {
+  if(check) {
+    check_flag(complete)
+    check_population(population)
+  }
+  schedule <- with(population, {
     t <- Rt:tmax
     n <- length(t)
     L <- growth(t, k = k, Linf = Linf, t0 = t0)
@@ -27,4 +38,6 @@ ypr_schedule <- function(population, check = TRUE) {
                    NaturalMortality = N, Capture = C, Release = R,
                    FishingMortality = U, Productivity = Rk)
   })
+  if(complete) schedule <- complete_schedule(schedule)
+  schedule
 }
