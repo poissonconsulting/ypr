@@ -4,8 +4,8 @@
 #' @return A tibble of the life-history schedule by age.
 #' @export
 #' @examples
-#' ypr_schedule()
-ypr_schedule <- function(population = ypr_population(), check = TRUE) {
+#' ypr_schedule(ypr_population())
+ypr_schedule <- function(population, check = TRUE) {
   check_flag(check)
   if(check) check_population(population)
 

@@ -4,8 +4,8 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population = ypr_population(), Ly = 0, harvest = TRUE,
-  biomass = TRUE, sanitize = TRUE, check = TRUE)
+ypr_yield(population, Ly = 0, harvest = TRUE, biomass = TRUE,
+  sanitize = TRUE, check = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -24,5 +24,5 @@ ypr_yield(population = ypr_population(), Ly = 0, harvest = TRUE,
 Yield
 }
 \examples{
-ypr_yield()
+ypr_yield(ypr_population())
 }

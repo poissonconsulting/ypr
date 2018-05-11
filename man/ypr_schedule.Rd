@@ -4,7 +4,7 @@
 \alias{ypr_schedule}
 \title{Life-History Schedule}
 \usage{
-ypr_schedule(population = ypr_population(), check = TRUE)
+ypr_schedule(population, check = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -18,5 +18,5 @@ A tibble of the life-history schedule by age.
 Life-History Schedule
 }
 \examples{
-ypr_schedule()
+ypr_schedule(ypr_population())
 }

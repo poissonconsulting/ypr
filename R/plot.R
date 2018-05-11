@@ -17,3 +17,7 @@ plot.ypr_population <- function(x, ...) {
   })
   invisible(x)
 }
+
+ypr_plot <- function(population = ypr_population()) {
+}
+

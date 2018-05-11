@@ -1,3 +1,3 @@
-weight <- function(L, a = 1e-05, b = 3) {
+weight <- function(L, a, b) {
   a * L^{b}
 }

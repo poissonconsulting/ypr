@@ -1,3 +1,9 @@
+yield <- function(mu, population, Ly, harvest, biomass, check) {
+  population$mu <- mu
+  yield <- ypr_yield(population, Ly = Ly, harvest = harvest, biomass = biomass,
+                     sanitize = FALSE, check = check)
+}
+
 #' Yield
 #'
 #' @param population A list of population life-history parameters.
@@ -8,8 +14,8 @@
 #' @param check A flag indicating whether to check the arguments.
 #' @export
 #' @examples
-#' ypr_yield()
-ypr_yield <- function(population = ypr_population(), Ly = 0, harvest = TRUE, biomass = TRUE,
+#' ypr_yield(ypr_population())
+ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
                       sanitize = TRUE, check = TRUE) {
   check_flag(check)
 

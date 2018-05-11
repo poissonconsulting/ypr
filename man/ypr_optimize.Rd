@@ -5,8 +5,8 @@
 \alias{ypr_optimise}
 \title{Optimize Capture}
 \usage{
-ypr_optimize(population = ypr_population(), Ly = 0, harvest = TRUE,
-  biomass = TRUE, check = TRUE)
+ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE,
+  check = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -24,5 +24,5 @@ Calculates the optimal yield for the population based on alternative
 capture rates.
 }
 \examples{
-ypr_optimize()
+ypr_optimize(ypr_population())
 }

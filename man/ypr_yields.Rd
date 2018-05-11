@@ -4,8 +4,8 @@
 \alias{ypr_yields}
 \title{Yields}
 \usage{
-ypr_yields(population = ypr_population(), mu = seq(0, 1, length.out = 30),
-  Ly = 0, harvest = TRUE, biomass = TRUE, check = TRUE)
+ypr_yields(population, mu = seq(0, 1, by = 0.05), Ly = 0, harvest = TRUE,
+  biomass = TRUE, check = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -25,5 +25,5 @@ Calculates yield across full range of capture values.
 }
 \examples{
 mu <- seq(0, 0.5, length.out = 30)
-plot(mu, ypr_yields(mu = mu), type = "l")
+plot(mu, ypr_yields(ypr_population(), mu), type = "l")
 }
