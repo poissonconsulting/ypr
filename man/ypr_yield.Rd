@@ -4,17 +4,19 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(schedule = ypr_schedule(), Ly = 0, harvest = TRUE,
-  biomass = TRUE, check = TRUE)
+ypr_yield(population = ypr_population(), Ly = 0, harvest = TRUE,
+  biomass = TRUE, sanitize = TRUE, check = TRUE)
 }
 \arguments{
-\item{schedule}{A data frame of the life history schedule.}
+\item{population}{A list of population life-history parameters.}
 
 \item{Ly}{The minimum length fish to consider.}
 
 \item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
+
+\item{sanitize}{A flag indicating whether to replace negative or NaNs with 0.}
 
 \item{check}{A flag indicating whether to check the arguments.}
 }

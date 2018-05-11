@@ -1,6 +1,5 @@
 #' Life-History Schedule
 #'
-#' @param population A list of population life-history parameters.
 #' @inheritParams ypr_yield
 #' @return A tibble of the life-history schedule by age.
 #' @export
