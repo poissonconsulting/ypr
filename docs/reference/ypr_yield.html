@@ -105,7 +105,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_yield</span>(<span class='no'>schedule</span>, <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_yield</span>(<span class='kw'>schedule</span> <span class='kw'>=</span> <span class='fu'><a href='ypr_schedule.html'>ypr_schedule</a></span>(), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -113,10 +114,6 @@
     <tr>
       <th>schedule</th>
       <td><p>A data frame of the life history schedule.</p></td>
-    </tr>
-    <tr>
-      <th>Rk</th>
-      <td><p>The numbers of spawners per spawner at low density.</p></td>
     </tr>
     <tr>
       <th>Ly</th>
@@ -130,11 +127,15 @@
       <th>biomass</th>
       <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.</p></td>
     </tr>
+    <tr>
+      <th>check</th>
+      <td><p>A flag indicating whether to check the arguments.</p></td>
+    </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_yield</span>(<span class='fu'><a href='ypr_schedule.html'>ypr_schedule</a></span>())</div><div class='output co'>#&gt; [1] 0.042961</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_yield</span>()</div><div class='output co'>#&gt; [1] 0.042961</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

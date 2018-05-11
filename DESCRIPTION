@@ -12,6 +12,7 @@ Depends:
     R (>= 3.4.0)
 Imports:
     checkr (>= 0.2.0.9003),
+    stats,
     tibble
 Suggests: 
     testthat,

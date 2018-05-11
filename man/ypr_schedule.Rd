@@ -4,44 +4,12 @@
 \alias{ypr_schedule}
 \title{Life-History Schedule}
 \usage{
-ypr_schedule(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05,
-  b = 3, Lm = Linf/2, fa = 1, fb = 1, Rt = 1L, nu = 0.2,
-  Lv = Linf/2, Llo = 0, Lup = Linf, mu = 0.1, rho = 0, eta = 0.1)
+ypr_schedule(population = ypr_population(), check = TRUE)
 }
 \arguments{
-\item{tmax}{The maximum age.}
+\item{population}{A list of population life-history parameters.}
 
-\item{k}{The growth coefficient.}
-
-\item{Linf}{The mean maximum length.}
-
-\item{t0}{The age at length 0.}
-
-\item{a}{The condition factor.}
-
-\item{b}{The scaling exponent.}
-
-\item{Lm}{The length at maturity.}
-
-\item{fa}{The fecundity factor.}
-
-\item{fb}{The fecundity scaling exponent.}
-
-\item{Rt}{The recruitment age for the stock recruitment relationship.}
-
-\item{nu}{The annual probability of dying due to natural causes.}
-
-\item{Lv}{The length at which vulnerable to harvest.}
-
-\item{Llo}{The lower harvest length.}
-
-\item{Lup}{The upper harvest length.}
-
-\item{mu}{The annual probability of being captured.}
-
-\item{rho}{The release probability.}
-
-\item{eta}{The hooking mortality probability.}
+\item{check}{A flag indicating whether to check the arguments.}
 }
 \value{
 A tibble of the life-history schedule by age.

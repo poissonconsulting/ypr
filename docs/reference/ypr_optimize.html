@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate Length — ypr_length • ypr</title>
+<title>Optimize Capture — ypr_optimize • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,10 +28,10 @@
 
 
 
-<meta property="og:title" content="Calculate Length — ypr_length" />
+<meta property="og:title" content="Optimize Capture — ypr_optimize" />
 
-<meta property="og:description" content="Calculates the expected length for an individual of age t based on the
-Von Bertalanffy growth equation." />
+<meta property="og:description" content="Calculates the optimal yield for the population based on alternative
+capture rates." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -95,56 +95,55 @@ Von Bertalanffy growth equation." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate Length</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/length.R'><code>R/length.R</code></a></small>
-    <div class="hidden name"><code>ypr_length.Rd</code></div>
+    <h1>Optimize Capture</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/optimise.R'><code>R/optimise.R</code></a></small>
+    <div class="hidden name"><code>ypr_optimize.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Calculates the expected length for an individual of age t based on the
-Von Bertalanffy growth equation.</p>
+    <p>Calculates the optimal yield for the population based on alternative
+capture rates.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_length</span>(<span class='no'>t</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>2</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_optimize</span>(<span class='kw'>population</span> <span class='kw'>=</span> <span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>t</th>
-      <td><p>The age.</p></td>
+      <th>population</th>
+      <td><p>A list of population life-history parameters.</p></td>
     </tr>
     <tr>
-      <th>k</th>
-      <td><p>The growth coefficient.</p></td>
+      <th>Ly</th>
+      <td><p>The minimum length fish to consider.</p></td>
     </tr>
     <tr>
-      <th>Linf</th>
-      <td><p>The mean maximum length.</p></td>
+      <th>harvest</th>
+      <td><p>A flag indicating whether to calculate the yield over harvested versus captured fish.</p></td>
     </tr>
     <tr>
-      <th>t0</th>
-      <td><p>The age at length 0.</p></td>
+      <th>biomass</th>
+      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.</p></td>
+    </tr>
+    <tr>
+      <th>check</th>
+      <td><p>A flag indicating whether to check the arguments.</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>The expected length for an individual of age t.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>plot</span>(<span class='fl'>0</span>:<span class='fl'>10</span>, <span class='fu'>ypr_length</span>(<span class='fl'>0</span>:<span class='fl'>10</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>)</div><div class='img'><img src='ypr_length-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_optimize</span>()</div><div class='output co'>#&gt; [1] 0.04296278</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
