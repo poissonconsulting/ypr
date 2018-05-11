@@ -21,7 +21,7 @@ Imports:
     graphics,
     stats,
     tibble
-Suggests: 
+Suggests:
     testthat,
     covr
 Encoding: UTF-8

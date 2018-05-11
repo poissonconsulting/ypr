@@ -1,12 +1,13 @@
 #' Population Parameters
 #'
-#' Generates a list of the life-history parameters for a fish population.
-#' The default parameters are for a hypothetical harvested population that lives to
-#' 20 years of age,
+#' Generates a list of the life-history parameters
+#' for a fish population.
+#' The default parameters are for a hypothetical population that
+#' lives to 20 years of age,
 #' grows to a mean maximum length of 100 with a k of 0.15,
 #' undergoes allometric growth and fecundity and matures at a length of 50
 #' has a natural mortality rate of 20% from age 1
-#' and has an exploitation rate of 10% from a length of 50 onwards.
+#' and has capture rate of 20% from a length of 50 onwards with no catch and release.
 #'
 #' @param tmax The maximum age.
 #' @param k The growth coefficient.
@@ -27,6 +28,9 @@
 #' @param eta The hooking mortality probability.
 #' @param Rk The numbers of spawners per spawner at low density.
 #' @return A list of the life-history parameters for a particular population.
+#' @seealso \code{\link{ypr_schedule}}, \code{\link{plot.ypr_population}},
+#' \code{\link{ypr_yield}}, \code{\link{ypr_plot}}
+#' and \code{\link{ypr_optimize}}
 #' @export
 #' @examples
 #' ypr_population()

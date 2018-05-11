@@ -6,12 +6,16 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 
 #' Yield
 #'
+#' Calculates the yield for a population based on the actual capture rate.
+#'
 #' @param population A list of population life-history parameters.
 #' @param Ly The minimum length fish to consider.
 #' @param harvest A flag indicating whether to calculate the yield over harvested versus captured fish.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.
 #' @param sanitize A flag indicating whether to replace negative or NaNs with 0.
 #' @param check A flag indicating whether to check the arguments.
+#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_optimize}},
+#' \code{\link{ypr_yields}} and \code{\link{ypr_plot}}
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())

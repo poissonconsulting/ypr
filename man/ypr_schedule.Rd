@@ -17,8 +17,11 @@ ypr_schedule(population, complete = FALSE, check = TRUE)
 A tibble of the life-history schedule by age.
 }
 \description{
-Life-History Schedule
+Generates a tibble of the life-history schedule by age for a population.
 }
 \examples{
 ypr_schedule(ypr_population())
+}
+\seealso{
+\code{\link{ypr_population}} and \code{\link{plot.ypr_population}}.
 }

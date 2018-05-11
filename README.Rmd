@@ -20,8 +20,25 @@ knitr::opts_chunk$set(
 
 # ypr
 
-An R package to perform simple yield per recruit calculations.
+ypr is an implementation of yield per recruit methods for 
+recreational fisheries in R.
+Given a list of life history parameters it can generate a data frame
+of the schedule and find the capture rate which maximises the yield. 
+The yield can be based on the total biomass vs number of fish; 
+harvested vs captured and large versus all fish.
 
+For more information on the assumptions and limitations of methods see the vignette.
+
+## Demonstration
+
+```{r}
+library(ypr)
+population <- ypr_population()
+ypr_schedule(population)
+ypr_plot(population)
+```
+
+## Installation
 
 To install the latest development version from [GitHub](https://github.com/poissonconsulting/ypr)
 ```
@@ -49,4 +66,3 @@ Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
 [Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-

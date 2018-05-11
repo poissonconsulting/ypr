@@ -21,8 +21,12 @@ ypr_yield(population, Ly = 0, harvest = TRUE, biomass = TRUE,
 \item{check}{A flag indicating whether to check the arguments.}
 }
 \description{
-Yield
+Calculates the yield for a population based on the actual capture rate.
 }
 \examples{
 ypr_yield(ypr_population())
+}
+\seealso{
+\code{\link{ypr_population}}, \code{\link{ypr_optimize}},
+\code{\link{ypr_yields}} and \code{\link{ypr_plot}}
 }

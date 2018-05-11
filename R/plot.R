@@ -1,4 +1,4 @@
-#' Plot Population
+#' Plot Population Schedule
 #'
 #' @param x The population to plot.
 #'
@@ -6,6 +6,7 @@
 #' @inheritParams graphics::plot.default
 #' @param ... Additional arguments passed to graphics::plot.formula functions.
 #' @return An invisible copy of the original object.
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_schedule}}
 #' @export
 #' @examples
 #' \dontrun{
@@ -38,12 +39,17 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
   invisible(x)
 }
 
-#' Plot Yields by Capture Probabilities
+#' Plot Population Yields by Capture Probabilities
+#'
+#' Plots the population yield by the capture probabilities (mu).
+#' The actual and optimal capture probabilities are indicated by
+#' dashed and dotted lines, respectively.
 #'
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
+#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_yields}}
+#' and \code{\link{ypr_optimize}}
 #' @export
-#'
 #' @examples
 #' \dontrun{
 #' ypr_plot(ypr_population())
@@ -66,7 +72,7 @@ ypr_plot <- function(population, mu = seq(0, 0.5, length.out = 30),
 
   graphics::plot(x = mu, y = yields, xlab = "Capture Probability", ylab = "Yield",
        type = "l")
-  graphics::lines(x = c(actual, actual), y = c(0, actual_yield), lty = 4)
+  graphics::lines(x = c(actual, actual), y = c(0, actual_yield), lty = 2)
   graphics::lines(x = c(optimal, optimal), y = c(0, optimal_yield), lty = 3)
   invisible(population)
 }

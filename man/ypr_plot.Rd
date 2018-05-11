@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.R
 \name{ypr_plot}
 \alias{ypr_plot}
-\title{Plot Yields by Capture Probabilities}
+\title{Plot Population Yields by Capture Probabilities}
 \usage{
 ypr_plot(population, mu = seq(0, 0.5, length.out = 30), Ly = 0,
   harvest = TRUE, biomass = TRUE)
@@ -19,10 +19,16 @@ ypr_plot(population, mu = seq(0, 0.5, length.out = 30), Ly = 0,
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
 }
 \description{
-Plot Yields by Capture Probabilities
+Plots the population yield by the capture probabilities (mu).
+The actual and optimal capture probabilities are indicated by
+dashed and dotted lines, respectively.
 }
 \examples{
 \dontrun{
 ypr_plot(ypr_population())
 }
+}
+\seealso{
+\code{\link{ypr_population}}, \code{\link{ypr_yields}}
+and \code{\link{ypr_optimize}}
 }

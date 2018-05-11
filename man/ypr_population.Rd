@@ -50,14 +50,20 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05,
 A list of the life-history parameters for a particular population.
 }
 \description{
-Generates a list of the life-history parameters for a fish population.
-The default parameters are for a hypothetical harvested population that lives to
-20 years of age,
+Generates a list of the life-history parameters
+for a fish population.
+The default parameters are for a hypothetical population that
+lives to 20 years of age,
 grows to a mean maximum length of 100 with a k of 0.15,
 undergoes allometric growth and fecundity and matures at a length of 50
 has a natural mortality rate of 20% from age 1
-and has an exploitation rate of 10% from a length of 50 onwards.
+and has capture rate of 20% from a length of 50 onwards with no catch and release.
 }
 \examples{
 ypr_population()
+}
+\seealso{
+\code{\link{ypr_schedule}}, \code{\link{plot.ypr_population}},
+\code{\link{ypr_yield}}, \code{\link{ypr_plot}}
+and \code{\link{ypr_optimize}}
 }

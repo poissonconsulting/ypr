@@ -1,12 +1,13 @@
 #' Optimize Capture
 #'
-#' Calculates the capture rate for the population that maximises the yield.
+#' Finds the capture rate that maximises the yield for a given population.
 #'
 #' @inheritParams ypr_population
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @aliases ypr_optimise
-#' @export ypr_optimize ypr_optimise
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @export
 #' @examples
 #' ypr_optimize(ypr_population())
 ypr_optimize <- function(population,
@@ -22,4 +23,5 @@ ypr_optimize <- function(population,
   sanitize(yield)
 }
 
+#' @export
 ypr_optimise <- ypr_optimize

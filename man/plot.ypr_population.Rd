@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.R
 \name{plot.ypr_population}
 \alias{plot.ypr_population}
-\title{Plot Population}
+\title{Plot Population Schedule}
 \usage{
 \method{plot}{ypr_population}(x, complete = TRUE, type = "b", ...)
 }
@@ -27,10 +27,13 @@
 An invisible copy of the original object.
 }
 \description{
-Plot Population
+Plot Population Schedule
 }
 \examples{
 \dontrun{
 plot(ypr_population())
 }
+}
+\seealso{
+\code{\link{ypr_population}} and \code{\link{ypr_schedule}}
 }

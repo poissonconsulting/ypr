@@ -19,9 +19,13 @@ ypr_yields(population, mu = seq(0, 1, length.out = 30), Ly = 0,
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
 }
 \description{
-Calculates yield across full range of capture values.
+Calculates the yield(s) for a population based on one or more capture rates.
 }
 \examples{
 mu <- seq(0, 0.5, length.out = 30)
 plot(mu, ypr_yields(ypr_population(), mu), type = "l")
+}
+\seealso{
+\code{\link{ypr_population}}, \code{\link{ypr_optimize}},
+\code{\link{ypr_yield}} and \code{\link{ypr_plot}}
 }
