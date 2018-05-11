@@ -43,7 +43,7 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
 #'
 #' Plots the population yield by the capture probabilities (mu).
 #' The actual and optimal capture probabilities are indicated by
-#' dashed and dotted lines, respectively.
+#' blue dashed and red dotted lines, respectively.
 #'
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
@@ -54,7 +54,7 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
 #' \dontrun{
 #' ypr_plot(ypr_population())
 #' }
-ypr_plot <- function(population, mu = seq(0, 0.5, length.out = 30),
+ypr_plot <- function(population, mu = seq(0, 0.5, length.out = 100),
                      Ly = 0, harvest = TRUE, biomass = TRUE) {
 
   check_population(population)
@@ -72,7 +72,9 @@ ypr_plot <- function(population, mu = seq(0, 0.5, length.out = 30),
 
   graphics::plot(x = mu, y = yields, xlab = "Capture Probability", ylab = "Yield",
        type = "l")
-  graphics::lines(x = c(actual, actual), y = c(0, actual_yield), lty = 2)
-  graphics::lines(x = c(optimal, optimal), y = c(0, optimal_yield), lty = 3)
+  graphics::lines(x = c(actual, actual), y = c(0, actual_yield),
+                  col = "blue", lty = 2)
+  graphics::lines(x = c(optimal, optimal), y = c(0, optimal_yield),
+                  col = "red", lty = 3)
   invisible(population)
 }

@@ -4,7 +4,7 @@
 \alias{ypr_plot}
 \title{Plot Population Yields by Capture Probabilities}
 \usage{
-ypr_plot(population, mu = seq(0, 0.5, length.out = 30), Ly = 0,
+ypr_plot(population, mu = seq(0, 0.5, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = TRUE)
 }
 \arguments{
@@ -21,7 +21,7 @@ ypr_plot(population, mu = seq(0, 0.5, length.out = 30), Ly = 0,
 \description{
 Plots the population yield by the capture probabilities (mu).
 The actual and optimal capture probabilities are indicated by
-dashed and dotted lines, respectively.
+blue dashed and red dotted lines, respectively.
 }
 \examples{
 \dontrun{

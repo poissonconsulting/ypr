@@ -4,7 +4,7 @@
 \alias{ypr_yields}
 \title{Yields}
 \usage{
-ypr_yields(population, mu = seq(0, 1, length.out = 30), Ly = 0,
+ypr_yields(population, mu = seq(0, 0.5, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = TRUE)
 }
 \arguments{
@@ -22,7 +22,7 @@ ypr_yields(population, mu = seq(0, 1, length.out = 30), Ly = 0,
 Calculates the yield(s) for a population based on one or more capture rates.
 }
 \examples{
-mu <- seq(0, 0.5, length.out = 30)
+mu <- seq(0, 0.3, length.out = 100)
 plot(mu, ypr_yields(ypr_population(), mu), type = "l")
 }
 \seealso{

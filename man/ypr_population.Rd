@@ -6,7 +6,7 @@
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05,
   b = 3, Lm = Linf/2, fa = 1, fb = 1, Rt = 1L, nu = 0.2,
-  Lv = Linf/2, Llo = 0, Lup = Linf, mu = 0.2, rho = 0, eta = 0.1,
+  Lv = Linf/2, Llo = 0, Lup = Linf, mu = 0.2, rho = 0, eta = 0,
   Rk = 5)
 }
 \arguments{
