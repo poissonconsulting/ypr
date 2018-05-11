@@ -5,8 +5,7 @@
 \alias{ypr_optimise}
 \title{Optimize Capture}
 \usage{
-ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE,
-  check = TRUE)
+ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -16,8 +15,6 @@ ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE,
 \item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
-
-\item{check}{A flag indicating whether to check the arguments.}
 }
 \description{
 Calculates the optimal yield for the population based on alternative

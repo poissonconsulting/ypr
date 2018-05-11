@@ -3,6 +3,7 @@
 S3method(plot,ypr_population)
 export(ypr_optimise)
 export(ypr_optimize)
+export(ypr_plot)
 export(ypr_population)
 export(ypr_schedule)
 export(ypr_yield)

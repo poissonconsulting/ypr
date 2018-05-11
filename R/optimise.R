@@ -11,14 +11,15 @@
 #' @examples
 #' ypr_optimize(ypr_population())
 ypr_optimize <- function(population,
-                         Ly = 0, harvest = TRUE, biomass = TRUE,
-                         check = TRUE) {
-  check_flag(check)
+                         Ly = 0, harvest = TRUE, biomass = TRUE) {
   check_population(population)
+  check_scalar(Ly, c(0, Inf))
+  check_flag(biomass)
+  check_flag(harvest)
 
-  yield <- stats::optimize(yield, c(0, 1), population = population,
-           Ly = Ly, harvest = harvest, biomass = biomass, check = check,
-           maximum = TRUE)$objective
+  yield <- stats::optimize(yield_mu, c(0, 1), population = population,
+                           Ly = Ly, harvest = harvest, biomass = biomass,
+                           maximum = TRUE)$objective
   sanitize(yield)
 }
 

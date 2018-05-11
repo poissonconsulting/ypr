@@ -1,31 +1,60 @@
+#' Plot Population
+#'
+#' @param x The population to plot.
+#'
+#' @inheritParams ypr_schedule
+#' @inheritParams graphics::plot.default
+#' @param ... Additional arguments passed to graphics::plot.formula functions.
+#' @return An invisible copy of the original object.
 #' @export
-plot.ypr_population <- function(x, complete = TRUE, ...) {
+#' @examples
+#' \dontrun{
+#' plot(ypr_population())
+#' }
+plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
   check_population(x)
   schedule <- ypr_schedule(population = x, complete = complete)
 
   with(schedule, {
     plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
-         type = "l")
+         type = type, ...)
     plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
-         type = "l")
+         type = type, ...)
     plot(Fecundity ~ Weight, xlim = c(0, max(Weight)), ylim = c(0, max(Fecundity)),
-         type = "l")
+         type = type, ...)
     plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
-         type = "l")
+         type = type, ...)
     plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
-         type = "l")
+         type = type, ...)
     if(complete) {
-    plot(TotalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
-         type = "l")
-    plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
-         type = "l")
-    plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
-         type = "l")
+      plot(TotalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
+           type = type, ...)
+      plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
+           type = type, ...)
+      plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
+           type = type, ...)
     }
   })
   invisible(x)
 }
 
-ypr_plot <- function(population = ypr_population()) {
-}
+#' Plot Yields by Capture Probabilities
+#'
+#' @inheritParams ypr_yield
+#' @inheritParams ypr_yields
+#' @export
+#'
+#' @examples
+#' ypr_plot
+ypr_plot <- function(population, mu = seq(0, 1, by=0.05),
+                     Ly = 0, harvest = TRUE, biomass = TRUE) {
 
+  yields <- ypr_yields(population, mu = mu, Ly = Ly, harvest = harvest,
+                       biomass = biomass)
+  yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
+                     biomass = biomass)
+  optimal <- ypr_optimize(population, Ly = Ly, harvest = harvest,
+                          biomass = biomass)
+  actual <- population$mu
+  invisible(population)
+}
