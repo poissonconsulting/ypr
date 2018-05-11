@@ -17,8 +17,7 @@ ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE)
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
 }
 \description{
-Calculates the optimal yield for the population based on alternative
-capture rates.
+Calculates the capture rate for the population that maximises the yield.
 }
 \examples{
 ypr_optimize(ypr_population())

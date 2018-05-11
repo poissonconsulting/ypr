@@ -8,7 +8,7 @@
 #' @examples
 #' mu <- seq(0, 0.5, length.out = 30)
 #' plot(mu, ypr_yields(ypr_population(), mu), type = "l")
-ypr_yields <- function(population, mu = seq(0, 1, by=0.05),
+ypr_yields <- function(population, mu = seq(0, 1, length.out = 30),
                        Ly = 0, harvest = TRUE, biomass = TRUE) {
 
   check_population(population)

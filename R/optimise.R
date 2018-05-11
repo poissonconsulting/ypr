@@ -1,7 +1,6 @@
 #' Optimize Capture
 #'
-#' Calculates the optimal yield for the population based on alternative
-#' capture rates.
+#' Calculates the capture rate for the population that maximises the yield.
 #'
 #' @inheritParams ypr_population
 #' @inheritParams ypr_schedule
@@ -19,7 +18,7 @@ ypr_optimize <- function(population,
 
   yield <- stats::optimize(yield_mu, c(0, 1), population = population,
                            Ly = Ly, harvest = harvest, biomass = biomass,
-                           maximum = TRUE)$objective
+                           maximum = TRUE)$maximum
   sanitize(yield)
 }
 

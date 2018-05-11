@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "ypr",
-  "description": "Performs simple yield per recruit calculations.",
+  "description": "Estimates yield per recruit.",
   "name": "ypr: Yield Per Recruit",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9004",
@@ -102,7 +102,7 @@
     }
   ],
   "readme": "https://github.com/poissonconsulting/ypr/blob/master/README.md",
-  "fileSize": "50.134KB",
+  "fileSize": "50.243KB",
   "codeRepository": "https://github.com/poissonconsulting/ypr",
   "issueTracker": "https://github.com/poissonconsulting/ypr/issues",
   "contIntegration": "https://travis-ci.org/poissonconsulting/ypr",

@@ -4,8 +4,8 @@
 \alias{ypr_yields}
 \title{Yields}
 \usage{
-ypr_yields(population, mu = seq(0, 1, by = 0.05), Ly = 0, harvest = TRUE,
-  biomass = TRUE)
+ypr_yields(population, mu = seq(0, 1, length.out = 30), Ly = 0,
+  harvest = TRUE, biomass = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}

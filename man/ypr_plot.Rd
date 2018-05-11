@@ -4,8 +4,8 @@
 \alias{ypr_plot}
 \title{Plot Yields by Capture Probabilities}
 \usage{
-ypr_plot(population, mu = seq(0, 1, by = 0.05), Ly = 0, harvest = TRUE,
-  biomass = TRUE)
+ypr_plot(population, mu = seq(0, 0.5, length.out = 30), Ly = 0,
+  harvest = TRUE, biomass = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -22,5 +22,7 @@ ypr_plot(population, mu = seq(0, 1, by = 0.05), Ly = 0, harvest = TRUE,
 Plot Yields by Capture Probabilities
 }
 \examples{
-ypr_plot
+\dontrun{
+ypr_plot(ypr_population())
+}
 }

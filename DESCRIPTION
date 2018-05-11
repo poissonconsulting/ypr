@@ -2,7 +2,7 @@ Package: ypr
 Version: 0.0.0.9004
 Date: 2018-05-10
 Title: Yield Per Recruit
-Description: Performs simple yield per recruit calculations.
+Description: Estimates yield per recruit.
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
 License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/ypr
