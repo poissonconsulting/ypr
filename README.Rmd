@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 
 An R package to perform simple yield per recruit calculations.
 
+
 To install the latest development version from [GitHub](https://github.com/poissonconsulting/ypr)
 ```
 # install.packages("devtools")
@@ -33,6 +34,12 @@ To install the latest development version from the Poisson drat [repository](htt
 # install.packages("drat")
 drat::addRepo("poissonconsulting")
 install.packages("ypr")
+```
+
+## Citation
+
+```{r, comment="", echo=FALSE}
+citation(package = "ypr")
 ```
 
 ## Contribution

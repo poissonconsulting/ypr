@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yield-Per-Recruit — ypr • ypr</title>
+<title>Life-History Schedule — ypr_schedule • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,9 +28,9 @@
 
 
 
-<meta property="og:title" content="Yield-Per-Recruit — ypr" />
+<meta property="og:title" content="Life-History Schedule — ypr_schedule" />
 
-<meta property="og:description" content="Yield-Per-Recruit" />
+<meta property="og:description" content="Life-History Schedule" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -58,7 +58,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9003</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9004</span>
       </span>
     </div>
 
@@ -94,20 +94,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Yield-Per-Recruit</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/ypr.R'><code>R/ypr.R</code></a></small>
-    <div class="hidden name"><code>ypr.Rd</code></div>
+    <h1>Life-History Schedule</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/schedule.R'><code>R/schedule.R</code></a></small>
+    <div class="hidden name"><code>ypr_schedule.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Yield-Per-Recruit</p>
+    <p>Life-History Schedule</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1e-05</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>Lm</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Rt</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>,
-  <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>eta</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_schedule</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1e-05</span>,
+  <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>Lm</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Rt</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>eta</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,44 +180,46 @@
       <th>eta</th>
       <td><p>The hooking mortality probability.</p></td>
     </tr>
-    <tr>
-      <th>Rk</th>
-      <td><p>The numbers of spawners per spawner at low density.</p></td>
-    </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of the life-history schedule by age.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr</span>()</div><div class='output co'>#&gt; # A tibble: 20 x 10
-#&gt;      Age Length Weight Fecundity Mortality Survivorship Vulnerable Harvest
-#&gt;    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;  
-#&gt;  1     1   13.9 0.0270      0          0.2       1      FALSE      FALSE  
-#&gt;  2     2   25.9 0.174       0          0.2       0.8    FALSE      FALSE  
-#&gt;  3     3   36.2 0.476       0          0.2       0.64   FALSE      FALSE  
-#&gt;  4     4   45.1 0.918       0          0.2       0.512  FALSE      FALSE  
-#&gt;  5     5   52.8 1.47        1.47       0.2       0.410  TRUE       TRUE   
-#&gt;  6     6   59.3 2.09        2.09       0.2       0.328  TRUE       TRUE   
-#&gt;  7     7   65.0 2.75        2.75       0.2       0.262  TRUE       TRUE   
-#&gt;  8     8   69.9 3.41        3.41       0.2       0.210  TRUE       TRUE   
-#&gt;  9     9   74.1 4.06        4.06       0.2       0.168  TRUE       TRUE   
-#&gt; 10    10   77.7 4.69        4.69       0.2       0.134  TRUE       TRUE   
-#&gt; 11    11   80.8 5.27        5.27       0.2       0.107  TRUE       TRUE   
-#&gt; 12    12   83.5 5.82        5.82       0.2       0.0859 TRUE       TRUE   
-#&gt; 13    13   85.8 6.31        6.31       0.2       0.0687 TRUE       TRUE   
-#&gt; 14    14   87.8 6.76        6.76       0.2       0.0550 TRUE       TRUE   
-#&gt; 15    15   89.5 7.16        7.16       0.2       0.0440 TRUE       TRUE   
-#&gt; 16    16   90.9 7.52        7.52       0.2       0.0352 TRUE       TRUE   
-#&gt; 17    17   92.2 7.84        7.84       0.2       0.0281 TRUE       TRUE   
-#&gt; 18    18   93.3 8.12        8.12       0.2       0.0225 TRUE       TRUE   
-#&gt; 19    19   94.2 8.36        8.36       0.2       0.0180 TRUE       TRUE   
-#&gt; 20    20   95.0 8.58        8.58       1         0.0144 TRUE       TRUE   
-#&gt; # ... with 2 more variables: FishedMortality &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_schedule</span>()</div><div class='output co'>#&gt; # A tibble: 20 x 8
+#&gt;      Age Length Weight Fecundity NaturalMortality Capture Release
+#&gt;    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1     1   13.9 0.0270      0                 0.2     0         1
+#&gt;  2     2   25.9 0.174       0                 0.2     0         1
+#&gt;  3     3   36.2 0.476       0                 0.2     0         1
+#&gt;  4     4   45.1 0.918       0                 0.2     0         1
+#&gt;  5     5   52.8 1.47        1.47              0.2     0.1       0
+#&gt;  6     6   59.3 2.09        2.09              0.2     0.1       0
+#&gt;  7     7   65.0 2.75        2.75              0.2     0.1       0
+#&gt;  8     8   69.9 3.41        3.41              0.2     0.1       0
+#&gt;  9     9   74.1 4.06        4.06              0.2     0.1       0
+#&gt; 10    10   77.7 4.69        4.69              0.2     0.1       0
+#&gt; 11    11   80.8 5.27        5.27              0.2     0.1       0
+#&gt; 12    12   83.5 5.82        5.82              0.2     0.1       0
+#&gt; 13    13   85.8 6.31        6.31              0.2     0.1       0
+#&gt; 14    14   87.8 6.76        6.76              0.2     0.1       0
+#&gt; 15    15   89.5 7.16        7.16              0.2     0.1       0
+#&gt; 16    16   90.9 7.52        7.52              0.2     0.1       0
+#&gt; 17    17   92.2 7.84        7.84              0.2     0.1       0
+#&gt; 18    18   93.3 8.12        8.12              0.2     0.1       0
+#&gt; 19    19   94.2 8.36        8.36              0.2     0.1       0
+#&gt; 20    20   95.0 8.58        8.58              1       0.1       0
+#&gt; # ... with 1 more variable: FishingMortality &lt;dbl&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
