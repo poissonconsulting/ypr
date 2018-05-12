@@ -4,7 +4,7 @@
 \alias{ypr_plot}
 \title{Plot Population Yields by Capture Probabilities}
 \usage{
-ypr_plot(population, mu = seq(0, 0.5, length.out = 100), Ly = 0,
+ypr_plot(population, mu = seq(0, 1, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = TRUE)
 }
 \arguments{

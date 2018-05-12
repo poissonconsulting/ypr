@@ -4,7 +4,7 @@
 \alias{ypr_population}
 \title{Population Parameters}
 \usage{
-ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05,
+ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1/Linf,
   b = 3, Lm = Linf/2, fa = 1, fb = 1, Rt = 1L, nu = 0.2,
   Lv = Linf/2, Llo = 0, Lup = Linf, mu = 0.2, rho = 0, eta = 0,
   Rk = 5)
@@ -16,15 +16,15 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05,
 
 \item{Linf}{The mean maximum length.}
 
-\item{t0}{The age at length 0.}
+\item{t0}{The extrapolated age at length 0.}
 
-\item{a}{The condition factor.}
+\item{a}{The extrapolated weight at unit length.}
 
-\item{b}{The scaling exponent.}
+\item{b}{The condition scaling exponent.}
 
 \item{Lm}{The length at maturity.}
 
-\item{fa}{The fecundity factor.}
+\item{fa}{The extrapolated fecundity at unit weight.}
 
 \item{fb}{The fecundity scaling exponent.}
 
@@ -34,15 +34,15 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1e-05,
 
 \item{Lv}{The length at which vulnerable to harvest.}
 
-\item{Llo}{The lower harvest length.}
+\item{Llo}{The lower harvest slot length.}
 
-\item{Lup}{The upper harvest length.}
+\item{Lup}{The upper harvest slot length.}
 
 \item{mu}{The annual probability of being captured.}
 
 \item{rho}{The release probability.}
 
-\item{eta}{The hooking mortality probability.}
+\item{eta}{The handling mortality probability.}
 
 \item{Rk}{The numbers of spawners per spawner at low density.}
 }
@@ -57,7 +57,8 @@ lives to 20 years of age,
 grows to a mean maximum length of 100 with a k of 0.15,
 undergoes allometric growth and fecundity and matures at a length of 50
 has a natural mortality rate of 20% from age 1
-and has a capture rate of 20% from a length of 50 onwards with no catch and release.
+and has a capture rate of 20% from a length of 50 onwards
+with no catch and release.
 }
 \examples{
 ypr_population()

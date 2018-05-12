@@ -3,6 +3,7 @@ complete_schedule <- function(x) {
   x$Survivorship <- cumprod(1 - x$NaturalMortality)
   x$Survivorship <- c(1, x$Survivorship[-nrow(x)])
   x$FishedSurvivorship <- cumprod(1 - x$TotalMortality)
+  x$FishedSurvivorship <- c(1, x$FishedSurvivorship[-nrow(x)])
   x
 }
 

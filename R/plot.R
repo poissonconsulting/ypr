@@ -21,7 +21,7 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
          type = type, ...)
     plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
          type = type, ...)
-    plot(Fecundity ~ Weight, xlim = c(0, max(Weight)), ylim = c(0, max(Fecundity)),
+    plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
          type = type, ...)
     plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
          type = type, ...)
@@ -54,7 +54,7 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
 #' \dontrun{
 #' ypr_plot(ypr_population())
 #' }
-ypr_plot <- function(population, mu = seq(0, 0.5, length.out = 100),
+ypr_plot <- function(population, mu = seq(0, 1, length.out = 100),
                      Ly = 0, harvest = TRUE, biomass = TRUE) {
 
   check_population(population)

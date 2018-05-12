@@ -8,9 +8,9 @@
 #' \code{\link{ypr_yield}} and \code{\link{ypr_plot}}
 #' @export
 #' @examples
-#' mu <- seq(0, 0.3, length.out = 100)
+#' mu <- seq(0, 1, length.out = 100)
 #' plot(mu, ypr_yields(ypr_population(), mu), type = "l")
-ypr_yields <- function(population, mu = seq(0, 0.5, length.out = 100),
+ypr_yields <- function(population, mu = seq(0, 1, length.out = 100),
                        Ly = 0, harvest = TRUE, biomass = TRUE) {
 
   check_population(population)

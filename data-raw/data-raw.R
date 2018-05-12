@@ -1,5 +1,18 @@
 library(ypr)
 
+adams_bt_03 <- ypr_population(k = 0.13, Linf = 131, t0 = 0.2, a = 1.3e-06, b = 3.4,
+                              Lm = 40, fa = 2e+03, Lv = 40, nu = 0.3, mu = 0.06,
+                              eta = 0.15,
+                              Rk = 3.8)
+
+kootenay_bt_13 <- ypr_population(k = 0.19, t0 = 0.5, a = 1e-05, b = 3.04,
+                                 fa = 1000, Lm = 60,
+                                 Lv = 40, nu = 0.29, mu = 0.1, Rk = 5)
+
+kootenay_rb_13 <- ypr_population(k = 0.25, t0 = 0.75, a = 2e-06, b = 3.39,
+                                 fa = 1000, Lm = 60,
+                                 Lv = 40, nu = 0.38, mu = 0.1, Rk = 10)
+
 quesnel_bt <- ypr_population(k = 0.13, Linf = 1000, a = 1.3e-08, b = 3.4,
                              Lv = 400, nu = 0.3, mu = 0.06, Rk = 3.8)
 
@@ -9,6 +22,12 @@ quesnel_lt <- ypr_population(k = 0.15, Linf = 1000, a = 6e-09, b = 3.1,
 quesnel_rb <- ypr_population(k = 0.2, Linf = 1000, a = 1.3e-08, b = 3,
                              Lv = 400, nu = 0.5, mu = 0.14, Rk = 6)
 
+usethis::use_data(adams_bt_03, overwrite = TRUE)
+usethis::use_data(kootenay_bt_13, overwrite = TRUE)
+usethis::use_data(kootenay_rb_13, overwrite = TRUE)
 usethis::use_data(quesnel_bt, overwrite = TRUE)
 usethis::use_data(quesnel_lt, overwrite = TRUE)
 usethis::use_data(quesnel_rb, overwrite = TRUE)
+
+plot(adams_bt_03)
+ypr_plot(adams_bt_03)

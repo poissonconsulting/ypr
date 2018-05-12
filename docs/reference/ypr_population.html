@@ -37,7 +37,8 @@ lives to 20 years of age,
 grows to a mean maximum length of 100 with a k of 0.15,
 undergoes allometric growth and fecundity and matures at a length of 50
 has a natural mortality rate of 20
-and has a capture rate of 20" />
+and has a capture rate of 20
+with no catch and release." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,13 +116,14 @@ lives to 20 years of age,
 grows to a mean maximum length of 100 with a k of 0.15,
 undergoes allometric growth and fecundity and matures at a length of 50
 has a natural mortality rate of 20<!-- % from age 1 -->
-and has a capture rate of 20<!-- % from a length of 50 onwards with no catch and release. --></p>
+and has a capture rate of 20<!-- % from a length of 50 onwards -->
+with no catch and release.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_population</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1e-05</span>,
+    <pre class="usage"><span class='fu'>ypr_population</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='no'>Linf</span>,
   <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>Lm</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Rt</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
-  <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>eta</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
+  <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>eta</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -141,15 +143,15 @@ and has a capture rate of 20<!-- % from a length of 50 onwards with no catch and
     </tr>
     <tr>
       <th>t0</th>
-      <td><p>The age at length 0.</p></td>
+      <td><p>The extrapolated age at length 0.</p></td>
     </tr>
     <tr>
       <th>a</th>
-      <td><p>The condition factor.</p></td>
+      <td><p>The extrapolated weight at unit length.</p></td>
     </tr>
     <tr>
       <th>b</th>
-      <td><p>The scaling exponent.</p></td>
+      <td><p>The condition scaling exponent.</p></td>
     </tr>
     <tr>
       <th>Lm</th>
@@ -157,7 +159,7 @@ and has a capture rate of 20<!-- % from a length of 50 onwards with no catch and
     </tr>
     <tr>
       <th>fa</th>
-      <td><p>The fecundity factor.</p></td>
+      <td><p>The extrapolated fecundity at unit weight.</p></td>
     </tr>
     <tr>
       <th>fb</th>
@@ -177,11 +179,11 @@ and has a capture rate of 20<!-- % from a length of 50 onwards with no catch and
     </tr>
     <tr>
       <th>Llo</th>
-      <td><p>The lower harvest length.</p></td>
+      <td><p>The lower harvest slot length.</p></td>
     </tr>
     <tr>
       <th>Lup</th>
-      <td><p>The upper harvest length.</p></td>
+      <td><p>The upper harvest slot length.</p></td>
     </tr>
     <tr>
       <th>mu</th>
@@ -193,7 +195,7 @@ and has a capture rate of 20<!-- % from a length of 50 onwards with no catch and
     </tr>
     <tr>
       <th>eta</th>
-      <td><p>The hooking mortality probability.</p></td>
+      <td><p>The handling mortality probability.</p></td>
     </tr>
     <tr>
       <th>Rk</th>
@@ -226,7 +228,7 @@ and <code><a href='ypr_optimize.html'>ypr_optimize</a></code></p></div>
 #&gt; [1] 0
 #&gt; 
 #&gt; $a
-#&gt; [1] 1e-05
+#&gt; [1] 0.01
 #&gt; 
 #&gt; $b
 #&gt; [1] 3
@@ -262,7 +264,7 @@ and <code><a href='ypr_optimize.html'>ypr_optimize</a></code></p></div>
 #&gt; [1] 0
 #&gt; 
 #&gt; $eta
-#&gt; [1] 0.1
+#&gt; [1] 0
 #&gt; 
 #&gt; $Rk
 #&gt; [1] 5
