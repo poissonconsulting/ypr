@@ -34,13 +34,25 @@ ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
   if(!is.data.frame(x)) x <- ypr_schedule(x, complete = TRUE, check = check)
 
   yield <- with(x, {
+    # spawners per spawner at low density (at equilibrium must be 1 spawner per spawner)
+    Rk <- Productivity[1]
+
+    # number of recruits as proportion of unfished population
+    R0 <- 1 / sum(Survivorship)
+
+    # eggs per recruit at the unfished equilibrium
     phi <- sum(Fecundity * Survivorship)
+    # eggs per recruit at the fished equilibrium
     phiF <- sum(Fecundity * FishedSurvivorship)
 
-    Rk <- Productivity[1]
-    R0 <- 1 / sum(Survivorship)
-    alpha <-  Rk * 1 / phi
+    # recruits per egg (1/phi) at equilibrium (1 spawner per spawner) times
+    # spawner per spawner at low density
+    # gives recruits per egg at low density
+    alpha <-  Rk / phi
+
+    # density dependence term
     beta <- (Rk - 1) / (R0 * phi)
+    # number of recruits when fished as proportion of unfished population
     R0F <- (alpha * phiF - 1) / (beta * phiF)
 
     yield <- R0F * FishedSurvivorship * Capture
