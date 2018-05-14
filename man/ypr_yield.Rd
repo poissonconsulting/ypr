@@ -21,7 +21,7 @@ ypr_yield(x, Ly = 0, harvest = TRUE, biomass = TRUE, sanitize = TRUE,
 \item{check}{A flag indicating whether to check the arguments.}
 }
 \description{
-Calculates the yield for a population.
+Calculates the yield for a population in terms of the proportion of the unfished population abundance or biomass.
 }
 \examples{
 ypr_yield(ypr_population())

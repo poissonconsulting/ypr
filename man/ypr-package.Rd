@@ -10,8 +10,9 @@ An implementation of yield per recruit methods for
 recreational fisheries in R.
 Given a list of life history parameters it can generate a data frame
 of the schedule and find the capture rate which maximises the yield.
-The yield can be based on the total biomass vs number of fish;
-harvested vs captured and large versus all fish.
+The yield, which is provided in terms of the proportion of the unfished population,
+can be based on the total biomass vs number of fish;
+harvested vs captured and large (trophy) versus all fish.
 }
 \seealso{
 Useful links:

@@ -6,7 +6,7 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 
 #' Yield
 #'
-#' Calculates the yield for a population.
+#' Calculates the yield for a population in terms of the proportion of the unfished population abundance or biomass.
 #'
 #' @param x A list of population life-history parameters or a data frame of the complete life-history schedule.
 #' @param Ly The minimum length fish to consider.
@@ -45,7 +45,8 @@ ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
 
     yield <- R0F * FishedSurvivorship * Capture
     if(harvest) yield <- yield * (1 - Release)
-    if(biomass) yield <- yield * Weight
+    if(biomass)
+      yield <- yield * Weight / (R0 * Survivorship * Weight)
     yield <- yield[Length >= Ly]
     yield <- sum(yield)
     yield
