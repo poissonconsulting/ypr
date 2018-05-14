@@ -3,6 +3,7 @@
 #' Calculates the yield(s) for a population based on one or more capture rates.
 #'
 #' @param mu A vector of probabilities of capture to calculate the yield for.
+#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @seealso \code{\link{ypr_population}}, \code{\link{ypr_optimize}},
 #' \code{\link{ypr_yield}} and \code{\link{ypr_plot}}

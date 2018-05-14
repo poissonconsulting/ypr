@@ -90,7 +90,7 @@ install.packages("ypr")
 To cite package 'ypr' in publications use:
 
   Joe Thorley (2018). ypr: Yield Per Recruit for Recreational
-  Fisheries. R package version 0.0.0.9004.
+  Fisheries. R package version 0.0.0.9005.
   https://github.com/poissonconsulting/ypr
 
 A BibTeX entry for LaTeX users is
@@ -99,7 +99,7 @@ A BibTeX entry for LaTeX users is
     title = {ypr: Yield Per Recruit for Recreational Fisheries},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9004},
+    note = {R package version 0.0.0.9005},
     url = {https://github.com/poissonconsulting/ypr},
   }
 ```
@@ -111,4 +111,3 @@ Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
 [Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-

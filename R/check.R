@@ -32,19 +32,36 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
   x
 }
 
-check_schedule <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
+  if(complete) {
+    values <- list(Age = c(1L, .tmax),
+         Length = c(0, .Lmax),
+         Weight = c(0, .Wmax),
+         Fecundity = c(0, .Emax),
+         NaturalMortality = c(0, 1),
+         Capture = c(0, 1),
+         Release = c(0, 1),
+         FishingMortality = c(0, 1),
+         Productivity = c(0, 5),
+         TotalMortality = c(0, 1),
+         Survivorship = c(0, 1),
+         FishedSurvivorship = c(0, 1))
+  } else {
+    values <- list(Age = c(1L, .tmax),
+         Length = c(0, .Lmax),
+         Weight = c(0, .Wmax),
+         Fecundity = c(0, .Emax),
+         NaturalMortality = c(0, 1),
+         Capture = c(0, 1),
+         Release = c(0, 1),
+         FishingMortality = c(0, 1),
+         Productivity = c(0, 5))
+  }
+
   check_data(x,
-             values = list(Age = c(1L, .tmax),
-                           Length = c(0, .Lmax),
-                           Weight = c(0, .Wmax),
-                           Fecundity = c(0, .Emax),
-                           NaturalMortality = c(0, 1),
-                           Capture = c(0, 1),
-                           Release = c(0, 1),
-                           FishingMortality = c(0, 1),
-                           Productivity = c(0, 5)),
+             values = values,
              nrow = TRUE,
              exclusive = exclusive,
              order = order,

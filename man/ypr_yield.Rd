@@ -4,11 +4,11 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = TRUE, biomass = TRUE,
-  sanitize = TRUE, check = TRUE)
+ypr_yield(x, Ly = 0, harvest = TRUE, biomass = TRUE, sanitize = TRUE,
+  check = TRUE)
 }
 \arguments{
-\item{population}{A list of population life-history parameters.}
+\item{x}{A list of population life-history parameters or a data frame of the complete life-history schedule.}
 
 \item{Ly}{The minimum length fish to consider.}
 
@@ -21,7 +21,7 @@ ypr_yield(population, Ly = 0, harvest = TRUE, biomass = TRUE,
 \item{check}{A flag indicating whether to check the arguments.}
 }
 \description{
-Calculates the yield for a population based on the actual capture rate.
+Calculates the yield for a population.
 }
 \examples{
 ypr_yield(ypr_population())

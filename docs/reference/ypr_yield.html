@@ -30,7 +30,7 @@
 
 <meta property="og:title" content="Yield — ypr_yield" />
 
-<meta property="og:description" content="Calculates the yield for a population based on the actual capture rate." />
+<meta property="og:description" content="Calculates the yield for a population." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -58,7 +58,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9004</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9005</span>
       </span>
     </div>
 
@@ -101,19 +101,19 @@
 
     <div class="ref-description">
     
-    <p>Calculates the yield for a population based on the actual capture rate.</p>
+    <p>Calculates the yield for a population.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_yield</span>(<span class='no'>population</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>sanitize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_yield</span>(<span class='no'>x</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sanitize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>population</th>
-      <td><p>A list of population life-history parameters.</p></td>
+      <th>x</th>
+      <td><p>A list of population life-history parameters or a data frame of the complete life-history schedule.</p></td>
     </tr>
     <tr>
       <th>Ly</th>

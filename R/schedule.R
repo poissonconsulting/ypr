@@ -12,6 +12,7 @@ complete_schedule <- function(x) {
 #' Generates a tibble of the life-history schedule by age for a population.
 #'
 #' @inheritParams ypr_yield
+#' @param population A list of population life-history parameters.
 #' @param complete A flag indicating whether to generate a complete schedule.
 #' @return A tibble of the life-history schedule by age.
 #' @seealso \code{\link{ypr_population}} and \code{\link{plot.ypr_population}}.

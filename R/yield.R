@@ -6,9 +6,9 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 
 #' Yield
 #'
-#' Calculates the yield for a population based on the actual capture rate.
+#' Calculates the yield for a population.
 #'
-#' @param population A list of population life-history parameters.
+#' @param x A list of population life-history parameters or a data frame of the complete life-history schedule.
 #' @param Ly The minimum length fish to consider.
 #' @param harvest A flag indicating whether to calculate the yield over harvested versus captured fish.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.
@@ -19,20 +19,21 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
+ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
                       sanitize = TRUE, check = TRUE) {
   check_flag(check)
 
   if(check) {
     check_flag(sanitize)
-    check_population(population)
+    checkor(check_population(x), check_schedule(x, complete = TRUE))
     check_scalar(Ly, c(0, Inf))
     check_flag(biomass)
     check_flag(harvest)
   }
-  schedule <- ypr_schedule(population, complete = TRUE, check = check)
 
-  yield <- with(schedule, {
+  if(!is.data.frame(x)) x <- ypr_schedule(x, complete = TRUE, check = check)
+
+  yield <- with(x, {
     phi <- sum(Fecundity * Survivorship)
     phiF <- sum(Fecundity * FishedSurvivorship)
 
