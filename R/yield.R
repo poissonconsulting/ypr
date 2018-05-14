@@ -34,7 +34,8 @@ ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
   if(!is.data.frame(x)) x <- ypr_schedule(x, complete = TRUE, check = check)
 
   yield <- with(x, {
-    # spawners per spawner at low density (at equilibrium must be 1 spawner per spawner)
+    # spawners per spawner at low density
+    # (note at unfished equilibrium must be 1 spawner per spawner)
     Rk <- Productivity[1]
 
     # number of recruits as proportion of unfished population
@@ -42,16 +43,24 @@ ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
 
     # eggs per recruit at the unfished equilibrium
     phi <- sum(Fecundity * Survivorship)
+
     # eggs per recruit at the fished equilibrium
     phiF <- sum(Fecundity * FishedSurvivorship)
 
     # recruits per egg (1/phi) at equilibrium (1 spawner per spawner) times
     # spawner per spawner at low density
     # gives recruits per egg at low density
+    # also by definition Rk = alpha * phi
     alpha <-  Rk / phi
 
-    # density dependence term
+    # from standard definition of the beverton-holt relationship
+    # R0 = (alpha * phi) / (beta * phi + 1)
+    # beta * phi + 1 = (alpha * phi) / R0
+    # beta * phi = (alpha * phi - 1) / R0
+    # beta = (alpha * phi - 1) / R0 * phi
+    # beta = (Rk - 1) / (R0 * phi)
     beta <- (Rk - 1) / (R0 * phi)
+
     # number of recruits when fished as proportion of unfished population
     R0F <- (alpha * phiF - 1) / (beta * phiF)
 
