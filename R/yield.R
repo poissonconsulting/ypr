@@ -62,6 +62,12 @@ ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
     beta <- (Rk - 1) / (R0 * phi)
 
     # number of recruits when fished as proportion of unfished population
+    # at equilibrium
+    # R0F = (alpha * phi * R0F) / (beta * phi * R0F + 1)
+    # (beta * phi * R0F + 1)  = (alpha * phi * R0F) / R0F
+    # beta * phi * ROF + 1 = alpha * phi
+    # beta * phi * ROF = alpha * phi - 1
+    # ROF = (alpha * phi - 1) / (beta * phi)
     R0F <- (alpha * phiF - 1) / (beta * phiF)
 
     yield <- R0F * FishedSurvivorship * Capture

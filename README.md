@@ -83,28 +83,6 @@ drat::addRepo("poissonconsulting")
 install.packages("ypr")
 ```
 
-## Citation
-
-
-```
-
-To cite package 'ypr' in publications use:
-
-  Joe Thorley (2018). ypr: Yield Per Recruit for Recreational
-  Fisheries. R package version 0.0.0.9005.
-  https://github.com/poissonconsulting/ypr
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {ypr: Yield Per Recruit for Recreational Fisheries},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.0.0.9005},
-    url = {https://github.com/poissonconsulting/ypr},
-  }
-```
-
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/ypr/issues).

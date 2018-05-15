@@ -63,12 +63,6 @@ drat::addRepo("poissonconsulting")
 install.packages("ypr")
 ```
 
-## Citation
-
-```{r, comment="", echo=FALSE}
-citation(package = "ypr")
-```
-
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
