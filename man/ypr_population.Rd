@@ -4,10 +4,9 @@
 \alias{ypr_population}
 \title{Population Parameters}
 \usage{
-ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1/Linf,
-  b = 3, Lm = Linf/2, fa = 1, fb = 1, Rt = 1L, nu = 0.2,
-  Lv = Linf/2, Llo = 0, Lup = Linf, mu = 0.2, rho = 0, eta = 0,
-  Rk = 5)
+ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
+  Lm = Linf/2, fb = 1, Rt = 1L, nu = 0.2, Lv = Linf/2, Llo = 0,
+  Lup = Linf, mu = 0.2, rho = 0, eta = 0, Rk = 5)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -18,13 +17,9 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, a = 1/Linf,
 
 \item{t0}{The extrapolated age at length 0.}
 
-\item{a}{The extrapolated weight at unit length.}
-
 \item{b}{The condition scaling exponent.}
 
 \item{Lm}{The length at maturity.}
-
-\item{fa}{The extrapolated fecundity at unit weight.}
 
 \item{fb}{The fecundity scaling exponent.}
 

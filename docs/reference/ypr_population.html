@@ -66,7 +66,7 @@ with no catch and release." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1.9000</span>
       </span>
     </div>
 
@@ -80,6 +80,9 @@ with no catch and release." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -121,10 +124,9 @@ with no catch and release.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_population</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='no'>Linf</span>,
-  <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>Lm</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Rt</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
-  <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>eta</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_population</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>Lm</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Rt</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>nu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>eta</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,20 +148,12 @@ with no catch and release.</p>
       <td><p>The extrapolated age at length 0.</p></td>
     </tr>
     <tr>
-      <th>a</th>
-      <td><p>The extrapolated weight at unit length.</p></td>
-    </tr>
-    <tr>
       <th>b</th>
       <td><p>The condition scaling exponent.</p></td>
     </tr>
     <tr>
       <th>Lm</th>
       <td><p>The length at maturity.</p></td>
-    </tr>
-    <tr>
-      <th>fa</th>
-      <td><p>The extrapolated fecundity at unit weight.</p></td>
     </tr>
     <tr>
       <th>fb</th>
@@ -227,17 +221,11 @@ and <code><a href='ypr_optimize.html'>ypr_optimize</a></code></p></div>
 #&gt; $t0
 #&gt; [1] 0
 #&gt; 
-#&gt; $a
-#&gt; [1] 0.01
-#&gt; 
 #&gt; $b
 #&gt; [1] 3
 #&gt; 
 #&gt; $Lm
 #&gt; [1] 50
-#&gt; 
-#&gt; $fa
-#&gt; [1] 1
 #&gt; 
 #&gt; $fb
 #&gt; [1] 1
