@@ -3,7 +3,7 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
 
   check_named(x, x_name = x_name)
   check_names(x,
-              c("tmax", "k", "Linf", "t0", "a", "b", "Lm", "fa", "fb", "Rt",
+              c("tmax", "k", "Linf", "t0", "b", "Lm", "fb", "Rt",
                 "nu", "Lv", "Llo", "Lup", "mu", "rho", "eta", "Rk"),
               exclusive = exclusive, order = order, unique = TRUE, x_name = x_name)
 
@@ -12,11 +12,9 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
     check_scalar(tmax, c(1L, .tmax))
     check_scalar(k, c(0, 10))
     check_scalar(Linf, c(0, .Lmax))
-    check_scalar(t0, c(-10, 10))
-    check_scalar(a, c(0, 1e+06))
+    check_scalar(t0, c(-tmax/2, tmax/2))
     check_scalar(b, c(2, 4))
     check_scalar(Lm, c(0, .Lmax))
-    check_scalar(fa, c(0, 1e+06))
     check_scalar(fb, c(0.5, 2))
     check_scalar(Rt, c(0L, tmax - 1L))
     check_probability(nu)
@@ -38,26 +36,26 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
   if(complete) {
     values <- list(Age = c(1L, .tmax),
          Length = c(0, .Lmax),
-         Weight = c(0, .Wmax),
-         Fecundity = c(0, .Emax),
+         Weight = c(0, .Machine$double.xmax),
+         Fecundity = c(0, .Machine$double.xmax),
          NaturalMortality = c(0, 1),
          Capture = c(0, 1),
          Release = c(0, 1),
          FishingMortality = c(0, 1),
-         Productivity = c(0, 5),
+         Productivity = c(1, 10),
          TotalMortality = c(0, 1),
          Survivorship = c(0, 1),
          FishedSurvivorship = c(0, 1))
   } else {
     values <- list(Age = c(1L, .tmax),
          Length = c(0, .Lmax),
-         Weight = c(0, .Wmax),
-         Fecundity = c(0, .Emax),
+         Weight = c(0, .Machine$double.xmax),
+         Fecundity = c(0, .Machine$double.xmax),
          NaturalMortality = c(0, 1),
          Capture = c(0, 1),
          Release = c(0, 1),
          FishingMortality = c(0, 1),
-         Productivity = c(0, 5))
+         Productivity = c(1, 10))
   }
 
   check_data(x,

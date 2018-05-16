@@ -28,9 +28,11 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
   schedule <- with(population, {
     t <- Rt:tmax
     n <- length(t)
-    L <- growth(t, k = k, Linf = Linf, t0 = t0)
-    W <- weight(L, a = a, b = b)
-    E <- fecundity(L, Lm = Lm, a = a, b = b, fa = fa, fb = fb)
+    L <- Linf * (1 - exp(-k * (t-t0)))
+    L[L < 0] <- 0
+    W <- L^b
+    E <- W^fb
+    E[L < Lm] <- 0
     N <- c(rep(nu, n-1),1)
     V <- L >= Lv
     C <- mu * V

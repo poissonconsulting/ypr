@@ -14,10 +14,8 @@
 #' @param k The growth coefficient.
 #' @param Linf The mean maximum length.
 #' @param t0 The extrapolated age at length 0.
-#' @param a The extrapolated weight at unit length.
 #' @param b The condition scaling exponent.
 #' @param Lm The length at maturity.
-#' @param fa The extrapolated fecundity at unit weight.
 #' @param fb The fecundity scaling exponent.
 #' @param Rt The recruitment age for the stock recruitment relationship.
 #' @param nu The annual probability of dying due to natural causes.
@@ -36,8 +34,7 @@
 #' @examples
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
-                           a = 1/Linf, b = 3,
-                           Lm = Linf/2, fa = 1, fb = 1,
+                           b = 3, Lm = Linf/2, fb = 1,
                            Rt = 1L, nu = 0.2,
                            Lv = Linf/2, Llo = 0, Lup = Linf,
                            mu = 0.2, rho = 0, eta = 0, Rk = 5) {

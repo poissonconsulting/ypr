@@ -1,6 +1,6 @@
 Package: ypr
-Version: 0.0.1
-Date: 2018-05-15
+Version: 0.0.1.9000
+Date: 2018-05-16
 Title: Yield Per Recruit for Recreational Fisheries
 Description: An implementation of yield per recruit methods for 
     recreational fisheries in R.
