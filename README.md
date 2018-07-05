@@ -1,26 +1,39 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
-
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
-[![Coverage status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Travis build
+status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
+[![Coverage
+status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 # ypr
 
-ypr is an implementation of yield per recruit methods for 
-recreational fisheries in R.
-Given a list of life history parameters it can generate a data frame
-of the schedule and find the capture rate which maximises the yield. 
-The yield, which is provided in terms of the proportion of the unfished population,
-can be based on the total biomass vs number of fish; 
-harvested vs captured and large (trophy) versus all fish.
+ypr is an implementation of yield per recruit methods for recreational
+fisheries in R. Given a list of life history parameters it can generate
+a data frame of the schedule and find the capture rate which maximises
+the yield. The yield, which is provided in terms of the proportion of
+the unfished population, can be based on the total biomass vs number of
+fish; harvested vs captured and large (trophy) versus all fish.
+
+The key life history parameters are
+
+  - The growth coefficient (\(k\)) and mean maximum length
+    (\(L_\infty\)) from the Von Bertalanffy growth curve
+    \(L = L_\infty \cdot (1 - \exp(-k \cdot \text{age}))\).
+  - The condition scaling exponent (\(\beta\)) from the weight-length
+    relationship \(W = \alpha \cdot L^\beta\)
+  - The fecundity scaling exponent (\(\beta_f\)) from the
+    fecundity-weight relationship \(F = \alpha_f \cdot W^{\beta_f}\)
+  - The length at maturity (\(L_m\))
+  - The length at which vulnerable to harvest (\(L_v\))
+  - The number of spawners per spawner at low density (\(R_k\))
 
 ## Demonstration
 
-
-```r
+``` r
 library(ypr)
 population <- ypr_population()
 ypr_schedule(population)
@@ -51,40 +64,40 @@ ypr_schedule(population)
 ypr_plot(population)
 ```
 
-<img src="man/figures/README-unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="100%" />
-
+<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
 
 ## Assumptions and Limitation
 
-The calculations assume that growth follows a von Bertalanffy growth curve;
-maturation is length based;
-natural mortality is constant;
-vulnerability to the fishery is knife-edged;
-and capture, release and hooking mortality are constant.
-It also assumes that a released individual cannot be recaught in the same year.
-The results suffers from the same limitations as all yield per recruit methods.
+The calculations assume that growth follows a von Bertalanffy growth
+curve; maturation is length based; natural mortality is constant;
+vulnerability to the fishery is knife-edged; and capture, release and
+hooking mortality are constant. It also assumes that a released
+individual cannot be recaught in the same year. The results suffers from
+the same limitations as all yield per recruit methods.
 
 ## Installation
 
-To install the latest development version from [GitHub](https://github.com/poissonconsulting/ypr)
-```
-# install.packages("devtools")
-devtools::install_github("poissonconsulting/ypr")
-```
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/ypr)
 
-To install the latest development version from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
-```
-# install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("ypr")
-```
+    # install.packages("devtools")
+    devtools::install_github("poissonconsulting/ypr")
+
+To install the latest development version from the Poisson drat
+[repository](https://github.com/poissonconsulting/drat)
+
+    # install.packages("drat")
+    drat::addRepo("poissonconsulting")
+    install.packages("ypr")
 
 ## Contribution
 
-Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
+Please report any
+[issues](https://github.com/poissonconsulting/ypr/issues).
 
-[Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
+[Pull requests](https://github.com/poissonconsulting/ypr/pulls) are
+always welcome.
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.
