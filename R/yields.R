@@ -15,14 +15,17 @@
 #' plot(mu, ypr_yields(ypr_population(), mu), type = "l")
 ypr_yields <- function(population, mu = seq(0, 1, length.out = 100),
                        Ly = 0, harvest = TRUE, biomass = TRUE,
+                       check = TRUE,
                        mc.cores = getOption("mc.cores", 2L)) {
 
-  check_population(population)
-  check_vector(mu, c(0, 1), length = TRUE)
-  check_scalar(Ly, c(0, Inf))
-  check_flag(biomass)
-  check_flag(harvest)
-
+  check_flag(check)
+  if(check) {
+    check_population(population)
+    check_vector(mu, c(0, 1), length = TRUE)
+    check_scalar(Ly, c(0, Inf))
+    check_flag(biomass)
+    check_flag(harvest)
+  }
   yields <- parallel::mclapply(mu, FUN = yield_mu, population = population,
                                Ly = Ly, harvest = harvest,
                                biomass = biomass, mc.cores = mc.cores,

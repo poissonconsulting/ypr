@@ -27,12 +27,13 @@ of the schedule and find the capture rate which maximises the yield.
 The yield, which is provided in terms of the proportion of the unfished population,
 can be based on the total biomass vs number of fish; 
 harvested vs captured and large (trophy) versus all fish.
+The yield can be calculated with lower and upper limits that represent the uncertainty in 
+one or more life history parameters.
 
 The key life history parameters are
 
 - The growth coefficient ($k$) and mean maximum length ($L_\infty$) from the Von Bertalanffy growth curve $L = L_\infty \cdot (1 - \exp(-k \cdot \text{age}))$.
 - The condition scaling exponent ($\beta$) from the weight-length relationship $W = \alpha \cdot L^\beta$
-- The fecundity scaling exponent ($\beta_f$) from the fecundity-weight relationship $F = \alpha_f \cdot W^{\beta_f}$
 - The length at maturity ($L_m$)
 - The length at which vulnerable to harvest ($L_v$)
 - The number of spawners per spawner at low density ($R_k$)
@@ -78,5 +79,5 @@ Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
 
 [Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+By participating in this project you agree to abide by its terms.

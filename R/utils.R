@@ -3,3 +3,9 @@ sanitize <- function(x) {
   x[x < 0] <- 0
   x
 }
+
+quantiles <- function(x, level) {
+  x <- unlist(x)
+  x <- stats::quantile(x, c(0.5, (1-level)/2, (1-level)/2 + level))
+  setNames(x, c("estimate", "lower", "upper"))
+}

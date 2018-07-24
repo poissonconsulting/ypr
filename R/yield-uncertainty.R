@@ -35,7 +35,5 @@ ypr_yield_uncertainty <- function(population, population2, Ly = 0,
                                Ly = Ly, harvest = harvest, biomass = biomass,
                                sanitize = TRUE, check = FALSE, mc.cores = mc.cores,
                                mc.allow.recursive = FALSE)
-  yields <- unlist(yields)
-  yields <- stats::quantile(yields, c(0.5, (1-level)/2, (1-level)/2 + level))
-  setNames(yields, c("estimate", "lower", "upper"))
+  quantiles(yields, level = level)
 }

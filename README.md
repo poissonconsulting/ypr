@@ -16,7 +16,9 @@ fisheries in R. Given a list of life history parameters it can generate
 a data frame of the schedule and find the capture rate which maximises
 the yield. The yield, which is provided in terms of the proportion of
 the unfished population, can be based on the total biomass vs number of
-fish; harvested vs captured and large (trophy) versus all fish.
+fish; harvested vs captured and large (trophy) versus all fish. The
+yield can be calculated with lower and upper limits that represent the
+uncertainty in one or more life history parameters.
 
 The key life history parameters are
 
@@ -25,8 +27,6 @@ The key life history parameters are
     \(L = L_\infty \cdot (1 - \exp(-k \cdot \text{age}))\).
   - The condition scaling exponent (\(\beta\)) from the weight-length
     relationship \(W = \alpha \cdot L^\beta\)
-  - The fecundity scaling exponent (\(\beta_f\)) from the
-    fecundity-weight relationship \(F = \alpha_f \cdot W^{\beta_f}\)
   - The length at maturity (\(L_m\))
   - The length at which vulnerable to harvest (\(L_v\))
   - The number of spawners per spawner at low density (\(R_k\))

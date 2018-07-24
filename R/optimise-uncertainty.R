@@ -34,9 +34,7 @@ ypr_optimize_uncertainty <- function(
 
   yields <- lapply(population, FUN = optimize_mu, Ly = Ly,
                    harvest = harvest, biomass = biomass)
-  yields <- unlist(yields)
-  yields <- stats::quantile(yields, c(0.5, (1-level)/2, (1-level)/2 + level))
-  setNames(yields, c("estimate", "lower", "upper"))
+  quantiles(yields, level = level)
 }
 
 #' @export
