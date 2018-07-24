@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields(population, mu = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = TRUE, biomass = TRUE)
+  harvest = TRUE, biomass = TRUE, mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
@@ -17,6 +17,10 @@ ypr_yields(population, mu = seq(0, 1, length.out = 100), Ly = 0,
 \item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
+
+\item{mc.cores}{The number of cores to use, i.e. at most how many child processes will be run simultaneously.
+The option is initialized from environment variable MC_CORES if set.
+Must be at least one, and parallelization requires at least two cores.}
 }
 \value{
 A double vector of the yields.
