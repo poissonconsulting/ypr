@@ -18,6 +18,9 @@ ypr_yields(population, mu = seq(0, 1, length.out = 100), Ly = 0,
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
 }
+\value{
+A double vector of the yields.
+}
 \description{
 Calculates the yield(s) for a population based on one or more capture rates.
 }

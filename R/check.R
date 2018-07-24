@@ -2,9 +2,7 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
   x_name <- deparse(x_name)
 
   check_named(x, x_name = x_name)
-  check_names(x,
-              c("tmax", "k", "Linf", "t0", "b", "Lm", "fb", "Rt",
-                "nu", "Lv", "Llo", "Lup", "mu", "rho", "eta", "Rk"),
+  check_names(x, .parameters,
               exclusive = exclusive, order = order, unique = TRUE, x_name = x_name)
 
 

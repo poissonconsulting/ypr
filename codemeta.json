@@ -109,6 +109,11 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "parallel",
+      "name": "parallel"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
     },
@@ -126,7 +131,7 @@
     }
   ],
   "readme": "https://github.com/poissonconsulting/ypr/blob/master/README.md",
-  "fileSize": "81.772KB",
+  "fileSize": "83.256KB",
   "codeRepository": "https://github.com/poissonconsulting/ypr",
   "issueTracker": "https://github.com/poissonconsulting/ypr/issues",
   "contIntegration": "https://travis-ci.org/poissonconsulting/ypr",

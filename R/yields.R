@@ -7,6 +7,7 @@
 #' @inheritParams ypr_yield
 #' @seealso \code{\link{ypr_population}}, \code{\link{ypr_optimize}},
 #' \code{\link{ypr_yield}} and \code{\link{ypr_plot}}
+#' @return A double vector of the yields.
 #' @export
 #' @examples
 #' mu <- seq(0, 1, length.out = 100)
