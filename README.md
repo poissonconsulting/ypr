@@ -74,9 +74,8 @@ knife-edged and natural, capture, release and hooking mortalities are
 constant from the recruitment age. It also assumes that a released
 individual cannot be recaught in the same year.
 
-The methods suffers from the same limitations as all yield per recruit
-methods. In particular, they do not account for population fluctuations,
-food-web responses or density-dependent growth.
+The calculations do not account for population fluctuations, food-web
+responses or density-dependent growth.
 
 ## Installation
 

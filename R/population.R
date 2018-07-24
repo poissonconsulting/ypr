@@ -18,11 +18,11 @@
 #' @param Lm The length at maturity.
 #' @param fb The fecundity scaling exponent.
 #' @param Rt The recruitment age for the stock recruitment relationship.
-#' @param nu The annual probability of dying due to natural causes.
+#' @param nu The conditional annual probability of dying due to natural causes.
 #' @param Lv The length at which vulnerable to harvest.
 #' @param Llo The lower harvest slot length.
 #' @param Lup The upper harvest slot length.
-#' @param mu The annual probability of being captured.
+#' @param mu The conditional annual probability of being captured.
 #' @param rho The release probability.
 #' @param eta The handling mortality probability.
 #' @param Rk The numbers of spawners per spawner at low density.

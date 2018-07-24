@@ -25,7 +25,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
 
 \item{Rt}{The recruitment age for the stock recruitment relationship.}
 
-\item{nu}{The annual probability of dying due to natural causes.}
+\item{nu}{The conditional annual probability of dying due to natural causes.}
 
 \item{Lv}{The length at which vulnerable to harvest.}
 
@@ -33,7 +33,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
 
 \item{Lup}{The upper harvest slot length.}
 
-\item{mu}{The annual probability of being captured.}
+\item{mu}{The conditional annual probability of being captured.}
 
 \item{rho}{The release probability.}
 
