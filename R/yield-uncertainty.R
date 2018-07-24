@@ -1,7 +1,7 @@
-#' Yield with Limits
+#' Yield with Uncertainty
 #'
-#' Calculates the yield with lower and upper limits for a population.
-#' The uncertainty in each parameter is assumed to be a uniform distribution between the value in x and the value in x2.
+#' Calculates a yield with lower and upper limits.
+#' The uncertainty in each population parameter is assumed to be a uniform distribution between the value in x and the value in x2.
 #' The parameters are assumed to be uncorrelated and there is no requirement
 #' for the value in x to be less than the value in x2
 #' The parameters \code{tmax} and \code{Rk} must not vary.
@@ -17,8 +17,8 @@
 #' @examples
 #' population <- ypr_population()
 #' population$Rk <- 10
-#' ypr_yield_limits(population, ypr_population(), 2)
-ypr_yield_limits <- function(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
+#' ypr_yield_uncertainty(population, ypr_population(), 2)
+ypr_yield_uncertainty <- function(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
                              sanitize = TRUE, check = TRUE, n = 10^4,
                              level = 0.95) {
   check_flag(check)
