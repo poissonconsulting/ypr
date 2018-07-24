@@ -24,7 +24,7 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
     check_probability(mu)
     check_probability(rho)
     check_probability(eta)
-    check_scalar(Rk, c(1, 10))
+    check_scalar(Rk, c(1, 100))
   })
 
   x
