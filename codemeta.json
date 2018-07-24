@@ -8,7 +8,7 @@
   "description": "An implementation of yield per recruit methods for \n    recreational fisheries in R.\n    Given a list of life history parameters it can generate a data frame\n    of the schedule and find the capture rate which maximises the yield. \n    The yield, which is provided in terms of the proportion of the unfished population,\n    can be based on the total biomass vs number of fish; \n    harvested vs captured and large (trophy) versus all fish.",
   "name": "ypr: Yield Per Recruit for Recreational Fisheries",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.1.9001",
+  "version": "0.0.1.9002",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -126,7 +126,7 @@
     }
   ],
   "readme": "https://github.com/poissonconsulting/ypr/blob/master/README.md",
-  "fileSize": "114.228KB",
+  "fileSize": "81.772KB",
   "codeRepository": "https://github.com/poissonconsulting/ypr",
   "issueTracker": "https://github.com/poissonconsulting/ypr/issues",
   "contIntegration": "https://travis-ci.org/poissonconsulting/ypr",

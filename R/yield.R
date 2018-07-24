@@ -9,7 +9,7 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 #' Calculates the yield for a population in terms of the proportion of the unfished population abundance or biomass.
 #'
 #' @param x A list of population life-history parameters or a data frame of the complete life-history schedule.
-#' @param Ly The minimum length fish to consider.
+#' @param Ly The minimum length fish to consider when calculating the yield.
 #' @param harvest A flag indicating whether to calculate the yield over harvested versus captured fish.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.
 #' @param sanitize A flag indicating whether to replace negative or NaNs with 0.

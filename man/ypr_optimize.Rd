@@ -10,7 +10,7 @@ ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE)
 \arguments{
 \item{population}{A list of population life-history parameters.}
 
-\item{Ly}{The minimum length fish to consider.}
+\item{Ly}{The minimum length fish to consider when calculating the yield.}
 
 \item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
 

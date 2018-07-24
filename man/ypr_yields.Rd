@@ -12,7 +12,7 @@ ypr_yields(population, mu = seq(0, 1, length.out = 100), Ly = 0,
 
 \item{mu}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length fish to consider.}
+\item{Ly}{The minimum length fish to consider when calculating the yield.}
 
 \item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
 
