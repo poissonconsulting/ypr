@@ -52,11 +52,12 @@ ypr_plot(population)
 
 The calculations assume that growth follows a von Bertalanffy growth curve;
 maturation is length based;
-natural mortality is constant;
-vulnerability to the fishery is knife-edged;
-and capture, release and hooking mortality are constant.
+vulnerability to the fishery is knife-edged and
+natural, capture, release and hooking mortalities are constant from the recruitment age.
 It also assumes that a released individual cannot be recaught in the same year.
-The results suffers from the same limitations as all yield per recruit methods.
+
+The methods suffers from the same limitations as all yield per recruit methods.
+In particular, they do not account for population fluctuations, food-web responses or density-dependent growth.
 
 ## Installation
 
