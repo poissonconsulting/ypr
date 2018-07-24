@@ -19,10 +19,12 @@ complete_schedule <- function(x) {
 #' @export
 #' @examples
 #' ypr_schedule(ypr_population())
-ypr_schedule <- function(population, complete = FALSE) {
-  check_flag(complete)
-  check_population(population)
-
+ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
+  check_flag(check)
+  if(check) {
+    check_flag(complete)
+    check_population(population)
+  }
   schedule <- with(population, {
     t <- Rt:tmax
     n <- length(t)
