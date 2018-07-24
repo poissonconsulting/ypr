@@ -8,7 +8,7 @@ ypr_plot(population, mu = seq(0, 1, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = TRUE)
 }
 \arguments{
-\item{population}{A list of population life-history parameters.}
+\item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}
 
 \item{mu}{A vector of probabilities of capture to calculate the yield for.}
 

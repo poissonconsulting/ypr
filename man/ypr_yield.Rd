@@ -4,11 +4,11 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(x, Ly = 0, harvest = TRUE, biomass = TRUE, sanitize = TRUE,
-  check = TRUE)
+ypr_yield(population, Ly = 0, harvest = TRUE, biomass = TRUE,
+  sanitize = TRUE, check = TRUE)
 }
 \arguments{
-\item{x}{A list of population life-history parameters or a data frame of the complete life-history schedule.}
+\item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}
 
 \item{Ly}{The minimum length fish to consider when calculating the yield.}
 

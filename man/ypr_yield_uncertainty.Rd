@@ -4,24 +4,20 @@
 \alias{ypr_yield_uncertainty}
 \title{Yield with Uncertainty}
 \usage{
-ypr_yield_uncertainty(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
-  sanitize = TRUE, check = TRUE, n = 10^4, level = 0.95,
+ypr_yield_uncertainty(population, population2, Ly = 0, harvest = TRUE,
+  biomass = TRUE, n = 10^4, level = 0.95,
   mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{
-\item{x}{A list of population life-history parameters.}
+\item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}
 
-\item{x2}{A second list of population life-history parameters.}
+\item{population2}{A second list of population life-history parameters.}
 
 \item{Ly}{The minimum length fish to consider when calculating the yield.}
 
 \item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
-
-\item{sanitize}{A flag indicating whether to replace negative or NaNs with 0.}
-
-\item{check}{A flag indicating whether to check the arguments.}
 
 \item{n}{A numeric of the number of iterations.}
 
@@ -36,9 +32,9 @@ A double vector of the yield and its lower and upper limits.
 }
 \description{
 Calculates a yield with lower and upper limits.
-The uncertainty in each population parameter is assumed to be a uniform distribution between the value in x and the value in x2.
+The uncertainty in each population parameter is assumed to be a uniform distribution between the value in population and the value in population2.
 The parameters are assumed to be uncorrelated and there is no requirement
-for the value in x to be less than the value in x2
+for the value in population to be less than the value in population2
 The parameters \code{tmax} and \code{Rk} must not vary.
 }
 \examples{

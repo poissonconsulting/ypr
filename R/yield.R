@@ -8,7 +8,7 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 #'
 #' Calculates the yield for a population in terms of the proportion of the unfished population abundance or biomass.
 #'
-#' @param x A list of population life-history parameters or a data frame of the complete life-history schedule.
+#' @param population A list of population life-history parameters (or a data frame of the complete life-history schedule).
 #' @param Ly The minimum length fish to consider when calculating the yield.
 #' @param harvest A flag indicating whether to calculate the yield over harvested versus captured fish.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.
@@ -20,21 +20,22 @@ yield_mu <- function(mu, population, Ly, harvest, biomass) {
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
+ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
                       sanitize = TRUE, check = TRUE) {
   check_flag(check)
 
   if(check) {
     check_flag(sanitize)
-    checkor(check_population(x), check_schedule(x, complete = TRUE))
+    checkor(check_population(population), check_schedule(population, complete = TRUE))
     check_scalar(Ly, c(0, Inf))
     check_flag(biomass)
     check_flag(harvest)
   }
 
-  if(!is.data.frame(x)) x <- ypr_schedule(x, complete = TRUE, check = check)
+  if(!is.data.frame(population))
+    population <- ypr_schedule(population, complete = TRUE, check = check)
 
-  yield <- with(x, {
+  yield <- with(population, {
     # spawners per spawner at low density
     # (note at unfished equilibrium must be 1 spawner per spawner)
     Rk <- Productivity[1]
