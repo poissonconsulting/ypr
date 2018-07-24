@@ -20,7 +20,7 @@
 #' @examples
 #' population <- ypr_population()
 #' population$Rk <- 10
-#' ypr_yield_uncertainty(population, ypr_population(), 2)
+#' ypr_yield_uncertainty(population, ypr_population())
 ypr_yield_uncertainty <- function(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
                              sanitize = TRUE, check = TRUE, n = 10^4,
                              level = 0.95, mc.cores = getOption("mc.cores", 2L)) {

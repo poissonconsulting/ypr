@@ -44,7 +44,7 @@ The parameters \code{tmax} and \code{Rk} must not vary.
 \examples{
 population <- ypr_population()
 population$Rk <- 10
-ypr_yield_uncertainty(population, ypr_population(), 2)
+ypr_yield_uncertainty(population, ypr_population())
 }
 \seealso{
 \code{\link{ypr_population}} and \code{\link{ypr_yield}}
