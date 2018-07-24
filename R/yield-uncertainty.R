@@ -11,6 +11,9 @@
 #' @param x2 A second list of population life-history parameters.
 #' @param n A numeric of the number of iterations.
 #' @param level A probability of the interval.
+#' @param mc.cores The number of cores to use, i.e. at most how many child processes will be run simultaneously.
+#' The option is initialized from environment variable MC_CORES if set.
+#' Must be at least one, and parallelization requires at least two cores.
 #' @return A double vector of the yield and its lower and upper limits.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
 #' @export
@@ -20,7 +23,7 @@
 #' ypr_yield_uncertainty(population, ypr_population(), 2)
 ypr_yield_uncertainty <- function(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
                              sanitize = TRUE, check = TRUE, n = 10^4,
-                             level = 0.95) {
+                             level = 0.95, mc.cores = getOption("mc.cores", 2L)) {
   check_flag(check)
 
   if(check) {
@@ -36,9 +39,10 @@ ypr_yield_uncertainty <- function(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
   }
 
   x <- sample_population(x, x2, n = n)
-  x <- lapply(x, FUN = ypr_yield,
+  x <- parallel::mclapply(x, FUN = ypr_yield,
               Ly = Ly, harvest = harvest, biomass = biomass,
-              sanitize = sanitize, check = FALSE)
+              sanitize = sanitize, check = FALSE, mc.cores = mc.cores,
+              mc.allow.recursive = FALSE)
   x <- unlist(x)
   x <- stats::quantile(x, c(0.5, (1-level)/2, (1-level)/2 + level))
   setNames(x, c("estimate", "lower", "upper"))

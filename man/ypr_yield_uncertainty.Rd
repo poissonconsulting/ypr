@@ -5,7 +5,8 @@
 \title{Yield with Uncertainty}
 \usage{
 ypr_yield_uncertainty(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
-  sanitize = TRUE, check = TRUE, n = 10^4, level = 0.95)
+  sanitize = TRUE, check = TRUE, n = 10^4, level = 0.95,
+  mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{
 \item{x}{A list of population life-history parameters.}
@@ -25,6 +26,10 @@ ypr_yield_uncertainty(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
 \item{n}{A numeric of the number of iterations.}
 
 \item{level}{A probability of the interval.}
+
+\item{mc.cores}{The number of cores to use, i.e. at most how many child processes will be run simultaneously.
+The option is initialized from environment variable MC_CORES if set.
+Must be at least one, and parallelization requires at least two cores.}
 }
 \value{
 A double vector of the yield and its lower and upper limits.
