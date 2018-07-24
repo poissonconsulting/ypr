@@ -32,7 +32,7 @@ ypr_yield <- function(x, Ly = 0, harvest = TRUE, biomass = TRUE,
     check_flag(harvest)
   }
 
-  if(!is.data.frame(x)) x <- ypr_schedule(x, complete = TRUE, check = check)
+  if(!is.data.frame(x)) x <- ypr_schedule(x, complete = TRUE)
 
   yield <- with(x, {
     # spawners per spawner at low density

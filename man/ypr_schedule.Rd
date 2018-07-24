@@ -4,14 +4,12 @@
 \alias{ypr_schedule}
 \title{Life-History Schedule}
 \usage{
-ypr_schedule(population, complete = FALSE, check = TRUE)
+ypr_schedule(population, complete = FALSE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
 
 \item{complete}{A flag indicating whether to generate a complete schedule.}
-
-\item{check}{A flag indicating whether to check the arguments.}
 }
 \value{
 A tibble of the life-history schedule by age.
