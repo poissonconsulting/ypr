@@ -21,11 +21,11 @@ Imports:
     checkr (>= 0.2.0.9003),
     graphics,
     parallel,
-    stats,
-    tibble
+    stats
 Suggests:
+    covr,
     testthat,
-    covr
+    tibble
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
