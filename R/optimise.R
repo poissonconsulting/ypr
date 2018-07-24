@@ -1,3 +1,9 @@
+optimize_mu <- function(population, Ly, harvest, biomass) {
+  stats::optimize(yield_mu, c(0, 1), population = population,
+                           Ly = Ly, harvest = harvest, biomass = biomass,
+                           maximum = TRUE)$maximum
+}
+
 #' Optimize Capture
 #'
 #' Finds the capture rate that maximises the yield for a given population.
@@ -17,9 +23,8 @@ ypr_optimize <- function(population,
   check_flag(biomass)
   check_flag(harvest)
 
-  yield <- stats::optimize(yield_mu, c(0, 1), population = population,
-                           Ly = Ly, harvest = harvest, biomass = biomass,
-                           maximum = TRUE)$maximum
+  yield <- optimize_mu(population = population, Ly = Ly,
+                       harvest = harvest, biomass = biomass)
   sanitize(yield)
 }
 

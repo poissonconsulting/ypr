@@ -35,7 +35,7 @@ ypr_yield_uncertainty <- function(x, x2, Ly = 0, harvest = TRUE, biomass = TRUE,
     check_flag(sanitize)
     check_probability(level)
     if(!identical(x[c("tmax", "Rt")], x2[c("tmax", "Rt")]))
-      stop("populations x and x2 must have the same values for 'tmax' and 'Rt'", call. = FALSE)
+      stop("Populations x and x2 must have the same values for 'tmax' and 'Rt'", call. = FALSE)
   }
 
   x <- sample_population(x, x2, n = n)

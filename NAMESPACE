@@ -2,7 +2,9 @@
 
 S3method(plot,ypr_population)
 export(ypr_optimise)
+export(ypr_optimise_uncertainty)
 export(ypr_optimize)
+export(ypr_optimize_uncertainty)
 export(ypr_plot)
 export(ypr_population)
 export(ypr_schedule)
