@@ -2,13 +2,13 @@
 #'
 #' Generates a list of the life-history parameters
 #' for a fish population.
+#'
 #' The default parameters are for a hypothetical population that
 #' lives to 20 years of age,
 #' grows to a mean maximum length of 100 with a k of 0.15,
-#' undergoes allometric growth and fecundity and matures at a length of 50
+#' undergoes allometric growth and matures at a length of 50
 #' has a natural mortality rate of 20% from age 1
-#' and has a capture rate of 20% from a length of 50 onwards
-#' with no catch and release.
+#' and has a capture rate of 20% with a 50% vulnerability to harvest at a length of 50.
 #'
 #' @param tmax The maximum age.
 #' @param k The growth coefficient.
@@ -26,12 +26,10 @@
 #' @param Nc The slot limits non-compliance probability.
 #' @param mu The conditional annual probability of being captured.
 #' @param rho The release probability.
-#' @param eta The handling mortality probability.
+#' @param eta The hooking mortality probability.
 #' @param Rk The numbers of spawners per spawner at low density.
-#' @return A list of the life-history parameters for a particular population.
-#' @seealso \code{\link{ypr_schedule}}, \code{\link{plot.ypr_population}},
-#' \code{\link{ypr_yield}}, \code{\link{ypr_plot}}
-#' and \code{\link{ypr_optimize}}
+#' @return An object of class \code{ypr_population}.
+#' @seealso \code{\link{plot.ypr_population}} and \code{\link{ypr_population_update}}.
 #' @export
 #' @examples
 #' ypr_population()
@@ -44,4 +42,23 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
   population <- as.list(environment())
   class(population) <- c("ypr_population")
   check_population(population)
+}
+
+#' Update Population Parameters
+#'
+#' Updates a list of the life-history parameters for a fish population.
+#'
+#' @param population An object of class \code{ypr_population}
+#' @param ... One or more of the arguments from \code{ypr_population()}.
+#' @return An object of class \code{ypr_population}.
+#' @seealso \code{\link{ypr_population}}
+#' @export
+#' @examples
+#' ypr_population_update(ypr_population(), Rk = 2.5)
+ypr_population_update <- function(population, ...) {
+  check_population(population)
+  parameters <- eval(substitute(alist(...)))
+  population[names(parameters)] <- unname(parameters)
+  check_population(population)
+  population
 }

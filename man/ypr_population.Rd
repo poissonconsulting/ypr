@@ -41,29 +41,28 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
 
 \item{rho}{The release probability.}
 
-\item{eta}{The handling mortality probability.}
+\item{eta}{The hooking mortality probability.}
 
 \item{Rk}{The numbers of spawners per spawner at low density.}
 }
 \value{
-A list of the life-history parameters for a particular population.
+An object of class \code{ypr_population}.
 }
 \description{
 Generates a list of the life-history parameters
 for a fish population.
+}
+\details{
 The default parameters are for a hypothetical population that
 lives to 20 years of age,
 grows to a mean maximum length of 100 with a k of 0.15,
-undergoes allometric growth and fecundity and matures at a length of 50
+undergoes allometric growth and matures at a length of 50
 has a natural mortality rate of 20% from age 1
-and has a capture rate of 20% from a length of 50 onwards
-with no catch and release.
+and has a capture rate of 20% with a 50% vulnerability to harvest at a length of 50.
 }
 \examples{
 ypr_population()
 }
 \seealso{
-\code{\link{ypr_schedule}}, \code{\link{plot.ypr_population}},
-\code{\link{ypr_yield}}, \code{\link{ypr_plot}}
-and \code{\link{ypr_optimize}}
+\code{\link{plot.ypr_population}} and \code{\link{ypr_population_update}}.
 }

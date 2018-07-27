@@ -32,3 +32,12 @@ usethis::use_data(quesnel_rb, overwrite = TRUE)
 plot(adams_bt_03)
 ypr_plot(adams_bt_03)
 
+chilliwack_bt_05 <- ypr_population(k = 0.12, Linf = 86, t0 = 0.018,
+                                   b = 2.8, nu = 1-exp(-0.2), Lm = 38.5,
+                                   Lv = 50, Vp = 11.7,
+                                   Rk = 4.6, Llo = 60, eta = 0.2)
+chilliwack_bt_05_2 <- chilliwack_bt_05
+chilliwack_bt_05_2$Rk <- 2.5
+chiliwack
+
+

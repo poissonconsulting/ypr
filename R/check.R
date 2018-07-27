@@ -1,4 +1,4 @@
-check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
   check_named(x, x_name = x_name)

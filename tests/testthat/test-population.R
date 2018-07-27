@@ -2,5 +2,8 @@ context("population")
 
 test_that("population", {
   population <- ypr_population()
-  expect_identical(check_population(population, exclusive = TRUE, order = TRUE), population)
+  expect_identical(check_population(population), population)
+  population2 <- ypr_population()
+  population2$Rk <- 2.5
+  expect_identical(ypr_population_update(population, Rk = 2.5), population2)
 })
