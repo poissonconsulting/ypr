@@ -23,6 +23,7 @@
 #' @param Vp The vulnerability to harvest power.
 #' @param Llo The lower harvest slot length.
 #' @param Lup The upper harvest slot length.
+#' @param Nc The slot limits non-compliance probability.
 #' @param mu The conditional annual probability of being captured.
 #' @param rho The release probability.
 #' @param eta The handling mortality probability.
@@ -38,7 +39,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            b = 3, Lm = Linf/2, fb = 1,
                            Rt = 1L, nu = 0.2,
                            Lv = Linf/2, Vp = 5,
-                           Llo = 0, Lup = Linf,
+                           Llo = 0, Lup = Linf, Nc = 0,
                            mu = 0.2, rho = 0, eta = 0, Rk = 5) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")

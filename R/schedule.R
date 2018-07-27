@@ -36,9 +36,8 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     N <- c(rep(nu, n-1),1)
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- mu * V
-    H <- V & L >= Llo & L <= Lup
     R <- rep(rho, n)
-    R[!H] <- 1
+    R[L < Llo | L > Lup] <- 1 - Nc
     U <- C * (1 - R) + C * R * eta
 
     data.frame(Age = t, Length = L, Weight = W, Fecundity = E,

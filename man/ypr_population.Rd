@@ -6,7 +6,7 @@
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
   Lm = Linf/2, fb = 1, Rt = 1L, nu = 0.2, Lv = Linf/2, Vp = 5,
-  Llo = 0, Lup = Linf, mu = 0.2, rho = 0, eta = 0, Rk = 5)
+  Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0, eta = 0, Rk = 5)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -34,6 +34,8 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
 \item{Llo}{The lower harvest slot length.}
 
 \item{Lup}{The upper harvest slot length.}
+
+\item{Nc}{The slot limits non-compliance probability.}
 
 \item{mu}{The conditional annual probability of being captured.}
 

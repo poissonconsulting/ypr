@@ -20,6 +20,7 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
     check_scalar(Vp, c(0, 100))
     check_scalar(Lup, c(0, Linf))
     check_scalar(Llo, c(0, Lup))
+    check_probability(Nc)
     check_probability(mu)
     check_probability(rho)
     check_probability(eta)
