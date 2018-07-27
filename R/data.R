@@ -2,12 +2,22 @@
 #'
 #' A list of the estimates of the life-history parameters for
 #' Bull Trout in Adams Lake, BC, adapted from Bison et al (2003).
-#' The estimates should not be used for management.
 #' @references Bison, R., O’Brien, D., and Martell, S.J.D. 2003. An Analysis of Sustainable Fishing Options for Adams Lake Bull Trout Using Life History and Telemetry Data. BC Ministry of Water Land and Air Protection, Kamloops, B.C.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
 #' ypr_plot(adams_bt_03)
 "adams_bt_03"
+
+#' Chilliwack Lake Bull Trout Population Parameters
+#'
+#' A list of the estimates of the life-history parameters for
+#' Bull Trout in Chilliwack Lake, BC, adapted from Taylor et al (2005).
+#' @references Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
+#' @format An object of class \code{\link{ypr_population}}.
+#' @examples
+#' ypr_plot(chilliwack_bt_05)
+#' ypr_plot(ypr_population_update(chilliwack_bt_05, Rk = 2.5, eta = 0.05, rho = 1))
+"chilliwack_bt_05"
 
 #' Kootenay Lake Bull Trout Population Parameters (2013)
 #'

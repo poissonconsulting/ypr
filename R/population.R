@@ -60,5 +60,4 @@ ypr_population_update <- function(population, ...) {
   parameters <- eval(substitute(alist(...)))
   population[names(parameters)] <- unname(parameters)
   check_population(population)
-  population
 }

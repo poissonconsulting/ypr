@@ -36,8 +36,7 @@ A double vector of the yields.
 Calculates the yield(s) for a population based on one or more capture rates.
 }
 \examples{
-population <- ypr_population()
-population$Rk <- 10
+population <- ypr_population_update(ypr_population(), Rk = 10)
 ypr_yields_uncertainty(ypr_population(), population, n = 10)
 }
 \seealso{

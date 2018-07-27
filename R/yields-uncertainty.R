@@ -11,8 +11,7 @@
 #' @return A double vector of the yields.
 #' @export
 #' @examples
-#' population <- ypr_population()
-#' population$Rk <- 10
+#' population <- ypr_population_update(ypr_population(), Rk = 10)
 #' ypr_yields_uncertainty(ypr_population(), population, n = 10)
 ypr_yields_uncertainty <- function(population, population2,
                                    mu = seq(0, 1, length.out = 100),

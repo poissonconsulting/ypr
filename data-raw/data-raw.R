@@ -5,6 +5,11 @@ adams_bt_03 <- ypr_population(k = 0.13, Linf = 131, t0 = 0.2, b = 3.4,
                               eta = 0.15,
                               Rk = 3.8)
 
+chilliwack_bt_05 <- ypr_population(k = 0.12, Linf = 86, t0 = 0.018,
+                                   b = 2.8, nu = 1-exp(-0.2), Lm = 38.5,
+                                   Lv = 50, Vp = 11.7,
+                                   Rk = 4.6, Llo = 60, Nc = 0.15, eta = 0.2)
+
 kootenay_bt_13 <- ypr_population(k = 0.19, t0 = 0.5, b = 3.04,
                                  Lm = 60,
                                  Lv = 40, nu = 0.29, mu = 0.1, Rk = 5)
@@ -23,6 +28,7 @@ quesnel_rb <- ypr_population(k = 0.2, Linf = 1000, b = 3,
                              Lv = 400, nu = 0.5, mu = 0.14, Rk = 6)
 
 usethis::use_data(adams_bt_03, overwrite = TRUE)
+usethis::use_data(chilliwack_bt_05, overwrite = TRUE)
 usethis::use_data(kootenay_bt_13, overwrite = TRUE)
 usethis::use_data(kootenay_rb_13, overwrite = TRUE)
 usethis::use_data(quesnel_bt, overwrite = TRUE)
@@ -32,12 +38,5 @@ usethis::use_data(quesnel_rb, overwrite = TRUE)
 plot(adams_bt_03)
 ypr_plot(adams_bt_03)
 
-chilliwack_bt_05 <- ypr_population(k = 0.12, Linf = 86, t0 = 0.018,
-                                   b = 2.8, nu = 1-exp(-0.2), Lm = 38.5,
-                                   Lv = 50, Vp = 11.7,
-                                   Rk = 4.6, Llo = 60, eta = 0.2)
-chilliwack_bt_05_2 <- chilliwack_bt_05
-chilliwack_bt_05_2$Rk <- 2.5
-chiliwack
-
-
+plot(chilliwack_bt_05)
+ypr_plot(chilliwack_bt_05)

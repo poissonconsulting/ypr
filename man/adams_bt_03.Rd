@@ -11,7 +11,6 @@ adams_bt_03
 \description{
 A list of the estimates of the life-history parameters for
 Bull Trout in Adams Lake, BC, adapted from Bison et al (2003).
-The estimates should not be used for management.
 }
 \examples{
 ypr_plot(adams_bt_03)
