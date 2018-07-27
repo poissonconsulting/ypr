@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: bibliography.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -20,43 +21,35 @@ knitr::opts_chunk$set(
 
 # ypr
 
-ypr is an implementation of yield per recruit methods for 
-recreational fisheries in R.
-Given a list of life history parameters it can generate a data frame
-of the schedule and find the capture rate which maximises the yield. 
+## Introduction
+
+`ypr` is an R package that implements yield per recruit methods [@walters_fisheries_2004].
+
 The yield, which is provided in terms of the proportion of the unfished population,
-can be based on the total biomass vs number of fish; 
+can be based on the total biomass vs number of fish,
 harvested vs captured and large (trophy) versus all fish.
-The yield can be calculated with lower and upper limits that represent the uncertainty in 
+
+The yield can also be calculated with lower and upper limits that represent the uncertainty in 
 one or more life history parameters.
 
 The key life history parameters are
 
-- The growth coefficient ($k$) and mean maximum length ($L_\infty$) from the Von Bertalanffy growth curve $L = L_\infty \cdot (1 - \exp(-k \cdot \text{age}))$.
-- The condition scaling exponent ($\beta$) from the weight-length relationship $W = \alpha \cdot L^\beta$
-- The length at maturity ($L_m$)
-- The length at which vulnerable to harvest ($L_v$)
-- The number of spawners per spawner at low density ($R_k$)
+- The growth coefficient (`k`) and mean maximum length (`Linf`) from the Von Bertalanffy growth curve
+- The condition scaling exponent (`b`) from the weight-length relationship
+- The length at maturity (`Lm`)
+- The length at which 50% vulnerable to harvest (`Lv`)
+- The number of spawners per spawner at low density (`Rk`)
+
+The calculations do not account for environmental fluctuations, predator-prey dynamics, angler responses or density-dependent growth.
 
 ## Demonstration
 
 ```{r}
 library(ypr)
-population <- ypr_population()
+population <- ypr_population(Rk = 3)
 ypr_schedule(population)
 ypr_plot(population)
 ```
-
-
-## Assumptions and Limitation
-
-The calculations assume that growth follows a von Bertalanffy growth curve;
-maturation is length based;
-vulnerability to the fishery is knife-edged and
-natural, capture, release and hooking mortalities are constant from the recruitment age.
-It also assumes that a released individual cannot be recaught in the same year.
-
-The calculations do not account for population fluctuations, food-web responses or density-dependent growth.
 
 ## Installation
 
@@ -81,3 +74,5 @@ Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
 By participating in this project you agree to abide by its terms.
+
+## References

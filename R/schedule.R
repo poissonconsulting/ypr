@@ -34,7 +34,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     E <- W^fb
     E[L < Lm] <- 0
     N <- c(rep(nu, n-1),1)
-    V <- L >= Lv
+    V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- mu * V
     H <- V & L >= Llo & L <= Lup
     R <- rep(rho, n)
@@ -42,7 +42,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     U <- C * (1 - R) + C * R * eta
 
     data.frame(Age = t, Length = L, Weight = W, Fecundity = E,
-                   NaturalMortality = N, Capture = C, Release = R,
+                   NaturalMortality = N, Vulnerability = V, Capture = C, Release = R,
                    FishingMortality = U, Productivity = Rk)
   })
   if(complete) schedule <- complete_schedule(schedule)

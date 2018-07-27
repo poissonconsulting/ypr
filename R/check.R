@@ -17,6 +17,7 @@ check_population <- function(x, exclusive = FALSE, order = FALSE, x_name = subst
     check_scalar(Rt, c(0L, tmax - 1L))
     check_probability(nu)
     check_scalar(Lv, c(0, Linf))
+    check_scalar(Vp, c(0, 100))
     check_scalar(Lup, c(0, Linf))
     check_scalar(Llo, c(0, Lup))
     check_probability(mu)
@@ -36,6 +37,7 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
          Length = c(0, .Lmax),
          Weight = c(0, .Machine$double.xmax),
          Fecundity = c(0, .Machine$double.xmax),
+         Vulnerability = c(0, 1),
          NaturalMortality = c(0, 1),
          Capture = c(0, 1),
          Release = c(0, 1),
@@ -50,6 +52,7 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
          Weight = c(0, .Machine$double.xmax),
          Fecundity = c(0, .Machine$double.xmax),
          NaturalMortality = c(0, 1),
+         Vulnerability = c(0, 1),
          Capture = c(0, 1),
          Release = c(0, 1),
          FishingMortality = c(0, 1),

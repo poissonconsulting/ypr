@@ -23,6 +23,8 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
          type = type, ...)
     plot(Fecundity / max(Fecundity) ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
          type = type, ...)
+    plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
+         type = type, ...)
     plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
          type = type, ...)
     plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),

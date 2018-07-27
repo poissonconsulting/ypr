@@ -31,3 +31,4 @@ usethis::use_data(quesnel_rb, overwrite = TRUE)
 
 plot(adams_bt_03)
 ypr_plot(adams_bt_03)
+
