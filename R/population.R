@@ -4,11 +4,8 @@
 #' for a fish population.
 #'
 #' The default parameters are for a hypothetical population that
-#' lives to 20 years of age,
-#' grows to a mean maximum length of 100 with a k of 0.15,
-#' undergoes allometric growth and matures at a length of 50
-#' has a natural mortality rate of 20% from age 1
-#' and has a capture rate of 20% with a 50% vulnerability to harvest at a length of 50.
+#' allometrically grows to a mean maximum length of 100 with a k of 0.15,
+#' and both matures and becomes vulnerable to harvest at a length of 50.
 #'
 #' @param tmax The maximum age.
 #' @param k The growth coefficient.
@@ -35,8 +32,8 @@
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            b = 3, Lm = Linf/2, fb = 1,
-                           Rt = 1L, nu = 0.2,
-                           Lv = Linf/2, Vp = 5,
+                           Rt = 1L, nu = 1-exp(-1.5 * k),
+                           Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            mu = 0.2, rho = 0, eta = 0, Rk = 5) {
   population <- as.list(environment())
