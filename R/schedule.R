@@ -30,7 +30,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     n <- length(t)
     L <- Linf * (1 - exp(-k * (t-t0)))
     L[L < 0] <- 0
-    W <- L^b
+    W <- Wa * L^b
     E <- W^fb
     E[L < Lm] <- 0
     N <- c(rep(nu, n-1),1)

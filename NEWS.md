@@ -2,10 +2,10 @@
 `ypr_optimize_uncertainty()` to account for uncertainty in parameters.
 - Added `ypr_population_update()` to update population parameters.
 - Added vulnerability power `Vp`.
-- Add slot limit non-complicance parameter `Nc`.
+- Added slot limit non-complicance parameter `Nc`.
 - Increased upper limit for `Rk` from 10 to 100.
-- Removed `a` and `fa` as just scaling terms.
-- Added scaling parameter `R0`
+- Removed `fa` as just scaling term.
+- Added scaling parameter `R0`, and renamed `a` to `Wa`.
 
 # ypr 0.0.1
 

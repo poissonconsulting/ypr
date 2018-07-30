@@ -7,7 +7,7 @@
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
   Lm = Linf/2, fb = 1, Rt = 1L, nu = 1 - exp(-1.5 * k), Lv = Linf/2,
   Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
-  eta = 0, Rk = 5, R0 = 1)
+  eta = 0, Rk = 5, R0 = 1, Wa = 1)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -47,6 +47,8 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
 \item{Rk}{The numbers of spawners per spawner at low density.}
 
 \item{R0}{The number of recruits at the carrying capacity.}
+
+\item{Wa}{The weight of a unit length individual.}
 }
 \value{
 An object of class \code{ypr_population}.

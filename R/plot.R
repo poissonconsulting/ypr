@@ -19,9 +19,9 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
   with(schedule, {
     plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
          type = type, ...)
-    plot(Weight / max(Weight) ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
+    plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
          type = type, ...)
-    plot(Fecundity / max(Fecundity) ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
+    plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
          type = type, ...)
     plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
          type = type, ...)
