@@ -25,11 +25,8 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
   check_flag(check)
 
   if(check) {
-    check_flag(sanitize)
-    checkor(check_population(population), check_schedule(population, complete = TRUE))
-    check_scalar(Ly, c(0, Inf))
-    check_flag(biomass)
-    check_flag(harvest)
+    check_yield_parameters(population = population, Ly = Ly, harvest = harvest,
+                           biomass = biomass, sanitize = sanitize)
   }
 
   if(!is.data.frame(population))

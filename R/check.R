@@ -63,3 +63,12 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
 
   x
 }
+
+check_yield_parameters <- function(population, Ly, harvest,
+                           biomass, sanitize) {
+  check_flag(sanitize)
+  checkor(check_population(population), check_schedule(population, complete = TRUE))
+  check_scalar(Ly, c(0, Inf))
+  check_flag(biomass)
+  check_flag(harvest)
+}
