@@ -33,7 +33,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     W <- Wa * L^Wb
     E <- fa * W^fb
     E[L < Lm] <- 0
-    N <- c(rep(nu, n-1),1)
+    N <- c(rep(1-S, n-1),1)
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- mu * V
     R <- rep(rho, n)

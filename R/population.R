@@ -15,7 +15,7 @@
 #' @param Lm The length at maturity.
 #' @param fb The fecundity scaling exponent.
 #' @param Rt The recruitment age for the stock recruitment relationship.
-#' @param nu The conditional annual probability of dying due to natural causes.
+#' @param S The conditional annual (natural) survival probability.
 #' @param Lv The length at which 50\% vulnerable to harvest.
 #' @param Vp The vulnerability to harvest power.
 #' @param Llo The lower harvest slot length.
@@ -35,7 +35,7 @@
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Wb = 3, Lm = Linf/2, fb = 1,
-                           Rt = 1L, nu = 1-exp(-1.5 * k),
+                           Rt = 1L, S = 0.8,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            mu = 0.2, rho = 0, eta = 0, Rk = 5,

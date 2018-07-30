@@ -5,9 +5,9 @@
 \title{Population Parameters}
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Lm = Linf/2, fb = 1, Rt = 1L, nu = 1 - exp(-1.5 * k), Lv = Linf/2,
-  Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
-  eta = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
+  Lm = Linf/2, fb = 1, Rt = 1L, S = 0.8, Lv = Linf/2, Vp = 100,
+  Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0, eta = 0, Rk = 5,
+  R0 = 1, Wa = 1, fa = 1)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -26,7 +26,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Rt}{The recruitment age for the stock recruitment relationship.}
 
-\item{nu}{The conditional annual probability of dying due to natural causes.}
+\item{S}{The conditional annual (natural) survival probability.}
 
 \item{Lv}{The length at which 50\% vulnerable to harvest.}
 
