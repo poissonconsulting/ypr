@@ -15,6 +15,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_scalar(fb, c(0.5, 2))
     check_scalar(Rt, c(0L, tmax - 1L))
     check_probability(S)
+    check_scalar(Mb, c(-1, 1))
     check_scalar(Lv, c(0, Linf))
     check_scalar(Vp, c(0, 100))
     check_scalar(Lup, c(0, Linf))
@@ -25,8 +26,8 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_probability(eta)
     check_scalar(Rk, c(1, 100))
     check_scalar(R0, c(1, 1e+09))
-    check_scalar(Wa, c(1e-06, 1e+03))
-    check_scalar(fa, c(1e-06, 1e+03))
+    check_scalar(Wa, c(1e-04, 1e+04))
+    check_scalar(fa, c(1e-04, 1e+04))
   })
   x
 }

@@ -8,26 +8,27 @@
 #' and both matures and becomes vulnerable to harvest at a length of 50.
 #'
 #' @param tmax The maximum age.
-#' @param k The growth coefficient.
-#' @param Linf The mean maximum length.
-#' @param t0 The extrapolated age at length 0.
-#' @param Wb The condition scaling exponent.
+#' @param k The VB growth coefficient.
+#' @param Linf The VB mean maximum length.
+#' @param t0 The (theoretical) age at zero length.
+#' @param Wb The weight (as a function of length) scaling exponent.
 #' @param Lm The length at maturity.
-#' @param fb The fecundity scaling exponent.
-#' @param Rt The recruitment age for the stock recruitment relationship.
-#' @param S The conditional annual (natural) survival probability.
+#' @param fb The fecundity (as a function of weight) scaling exponent.
+#' @param Rt The age from which survival is density-independent.
+#' @param S The annual natural survival probability.
+#' @param Mb The instantaneous annual natural mortality rate (as a function of length) scaling exponent.
 #' @param Lv The length at which 50\% vulnerable to harvest.
-#' @param Vp The vulnerability to harvest power.
+#' @param Vp The vulnerability to harvest (as function of length) power.
 #' @param Llo The lower harvest slot length.
 #' @param Lup The upper harvest slot length.
 #' @param Nc The slot limits non-compliance probability.
-#' @param mu The conditional annual probability of being captured.
+#' @param mu The annual capture probability.
 #' @param rho The release probability.
 #' @param eta The hooking mortality probability.
 #' @param Rk The numbers of spawners per spawner at low density.
 #' @param R0 The number of recruits at the carrying capacity.
-#' @param Wa The weight of a unit length individual.
-#' @param fa The (extrapolated) fecundity of a unit weight female.
+#' @param Wa The (extrapolated) weight of a unit length individual.
+#' @param fa The (theoretical) fecundity of a unit weight female.
 #' @return An object of class \code{ypr_population}.
 #' @seealso \code{\link{plot.ypr_population}} and \code{\link{ypr_population_update}}.
 #' @export
@@ -35,7 +36,7 @@
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Wb = 3, Lm = Linf/2, fb = 1,
-                           Rt = 1L, S = 0.8,
+                           Rt = 1L, S = 0.8, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            mu = 0.2, rho = 0, eta = 0, Rk = 5,

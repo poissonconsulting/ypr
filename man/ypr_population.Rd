@@ -5,32 +5,34 @@
 \title{Population Parameters}
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Lm = Linf/2, fb = 1, Rt = 1L, S = 0.8, Lv = Linf/2, Vp = 100,
-  Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0, eta = 0, Rk = 5,
-  R0 = 1, Wa = 1, fa = 1)
+  Lm = Linf/2, fb = 1, Rt = 1L, S = 0.8, Mb = 0, Lv = Linf/2,
+  Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
+  eta = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
 }
 \arguments{
 \item{tmax}{The maximum age.}
 
-\item{k}{The growth coefficient.}
+\item{k}{The VB growth coefficient.}
 
-\item{Linf}{The mean maximum length.}
+\item{Linf}{The VB mean maximum length.}
 
-\item{t0}{The extrapolated age at length 0.}
+\item{t0}{The (theoretical) age at zero length.}
 
-\item{Wb}{The condition scaling exponent.}
+\item{Wb}{The weight (as a function of length) scaling exponent.}
 
 \item{Lm}{The length at maturity.}
 
-\item{fb}{The fecundity scaling exponent.}
+\item{fb}{The fecundity (as a function of weight) scaling exponent.}
 
-\item{Rt}{The recruitment age for the stock recruitment relationship.}
+\item{Rt}{The age from which survival is density-independent.}
 
-\item{S}{The conditional annual (natural) survival probability.}
+\item{S}{The annual natural survival probability.}
+
+\item{Mb}{The instantaneous annual natural mortality rate (as a function of length) scaling exponent.}
 
 \item{Lv}{The length at which 50\% vulnerable to harvest.}
 
-\item{Vp}{The vulnerability to harvest power.}
+\item{Vp}{The vulnerability to harvest (as function of length) power.}
 
 \item{Llo}{The lower harvest slot length.}
 
@@ -38,7 +40,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Nc}{The slot limits non-compliance probability.}
 
-\item{mu}{The conditional annual probability of being captured.}
+\item{mu}{The annual capture probability.}
 
 \item{rho}{The release probability.}
 
@@ -48,9 +50,9 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{R0}{The number of recruits at the carrying capacity.}
 
-\item{Wa}{The weight of a unit length individual.}
+\item{Wa}{The (extrapolated) weight of a unit length individual.}
 
-\item{fa}{The (extrapolated) fecundity of a unit weight female.}
+\item{fa}{The (theoretical) fecundity of a unit weight female.}
 }
 \value{
 An object of class \code{ypr_population}.

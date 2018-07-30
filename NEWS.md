@@ -6,7 +6,7 @@
 - Increased upper limit for `Rk` from 10 to 100.
 - Added scaling parameter `R0`.
 - Renamed `a` to `Wa` and `b` to `Wb`.
-- Switched `nu` for `S`.
+- Switched `nu` for `S` and added `Mb` to scale mortality by length.
 - Added `ypr_ggplot2()` to do customisable bivariate plot.
 
 # ypr 0.0.1
