@@ -10,7 +10,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_scalar(k, c(0, 10))
     check_scalar(Linf, c(0, .Lmax))
     check_scalar(t0, c(-tmax/2, tmax/2))
-    check_scalar(b, c(2, 4))
+    check_scalar(Wb, c(2, 4))
     check_scalar(Lm, c(0, .Lmax))
     check_scalar(fb, c(0.5, 2))
     check_scalar(Rt, c(0L, tmax - 1L))

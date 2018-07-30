@@ -4,7 +4,7 @@
 \alias{ypr_population}
 \title{Population Parameters}
 \usage{
-ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
+ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
   Lm = Linf/2, fb = 1, Rt = 1L, nu = 1 - exp(-1.5 * k), Lv = Linf/2,
   Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
   eta = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
@@ -18,7 +18,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, b = 3,
 
 \item{t0}{The extrapolated age at length 0.}
 
-\item{b}{The condition scaling exponent.}
+\item{Wb}{The condition scaling exponent.}
 
 \item{Lm}{The length at maturity.}
 
