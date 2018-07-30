@@ -2,7 +2,7 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
-^check.R$
+^document.R$
 ^codemeta\.json$
 ^\.travis\.yml$
 ^codecov\.yml$

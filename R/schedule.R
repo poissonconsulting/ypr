@@ -42,9 +42,12 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
 
     data.frame(Age = t, Length = L, Weight = W, Fecundity = E,
                    NaturalMortality = N, Vulnerability = V, Capture = C, Release = R,
-                   FishingMortality = U, Productivity = Rk)
+                   FishingMortality = U)
   })
   if(complete) schedule <- complete_schedule(schedule)
+
+  attr(schedule, "Rk") <- population$Rk
+  attr(schedule, "R0") <- population$R0
 
   if(requireNamespace("tibble", quietly = TRUE))
     schedule <- tibble::as_tibble(schedule)

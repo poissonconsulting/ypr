@@ -5,6 +5,7 @@
 - Add slot limit non-complicance parameter `Nc`.
 - Increased upper limit for `Rk` from 10 to 100.
 - Removed `a` and `fa` as just scaling terms.
+- Added scaling parameter `R0`
 
 # ypr 0.0.1
 

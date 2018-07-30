@@ -35,14 +35,11 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
   if(!is.data.frame(population))
     population <- ypr_schedule(population, complete = TRUE, check = check)
 
+  population <- as.list(population)
+  population$Rk <- attr(population, "Rk")
+  population$R0 <- attr(population, "R0")
+
   yield <- with(population, {
-    # spawners per spawner at low density
-    # (note at unfished equilibrium must be 1 spawner per spawner)
-    Rk <- Productivity[1]
-
-    # number of recruits as proportion of unfished population
-    R0 <- 1 / sum(Survivorship)
-
     # eggs per recruit at the unfished equilibrium
     phi <- sum(Fecundity * Survivorship)
 

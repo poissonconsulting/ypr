@@ -25,6 +25,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_probability(rho)
     check_probability(eta)
     check_scalar(Rk, c(1, 100))
+    check_scalar(R0, c(1, 1e+09))
   })
 
   x
@@ -33,31 +34,19 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
 check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
+  values <- list(Age = c(1L, .tmax),
+                 Length = c(0, .Lmax),
+                 Weight = c(0, .Machine$double.xmax),
+                 Fecundity = c(0, .Machine$double.xmax),
+                 NaturalMortality = c(0, 1),
+                 Vulnerability = c(0, 1),
+                 Capture = c(0, 1),
+                 Release = c(0, 1),
+                 FishingMortality = c(0, 1))
   if(complete) {
-    values <- list(Age = c(1L, .tmax),
-         Length = c(0, .Lmax),
-         Weight = c(0, .Machine$double.xmax),
-         Fecundity = c(0, .Machine$double.xmax),
-         Vulnerability = c(0, 1),
-         NaturalMortality = c(0, 1),
-         Capture = c(0, 1),
-         Release = c(0, 1),
-         FishingMortality = c(0, 1),
-         Productivity = c(1, 10),
-         TotalMortality = c(0, 1),
-         Survivorship = c(0, 1),
-         FishedSurvivorship = c(0, 1))
-  } else {
-    values <- list(Age = c(1L, .tmax),
-         Length = c(0, .Lmax),
-         Weight = c(0, .Machine$double.xmax),
-         Fecundity = c(0, .Machine$double.xmax),
-         NaturalMortality = c(0, 1),
-         Vulnerability = c(0, 1),
-         Capture = c(0, 1),
-         Release = c(0, 1),
-         FishingMortality = c(0, 1),
-         Productivity = c(1, 10))
+    values <- c(values, list(TotalMortality = c(0, 1),
+                             Survivorship = c(0, 1),
+                             FishedSurvivorship = c(0, 1)))
   }
 
   check_data(x,
@@ -67,11 +56,10 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
              order = order,
              x_name = x_name)
 
+  check_attributes(x, values = list(Rk = c(1, 10), R0 = c(1, 1e+09)))
+
   if(any(diff(x$Age) != 1L))
     stop("Ages in schedule ", x_name, " must be consecutive", call. = FALSE)
-
-  if(any(x$Productivity != x$Productivity[1]))
-    stop("Productivity in schedule ", x_name, " must be constant", call. = FALSE)
 
   x
 }

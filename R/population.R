@@ -25,6 +25,7 @@
 #' @param rho The release probability.
 #' @param eta The hooking mortality probability.
 #' @param Rk The numbers of spawners per spawner at low density.
+#' @param R0 The number of recruits at the carrying capacity.
 #' @return An object of class \code{ypr_population}.
 #' @seealso \code{\link{plot.ypr_population}} and \code{\link{ypr_population_update}}.
 #' @export
@@ -35,7 +36,8 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Rt = 1L, nu = 1-exp(-1.5 * k),
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
-                           mu = 0.2, rho = 0, eta = 0, Rk = 5) {
+                           mu = 0.2, rho = 0, eta = 0, Rk = 5,
+                           R0 = 1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
   check_population(population)
