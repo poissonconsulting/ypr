@@ -41,6 +41,31 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
   invisible(x)
 }
 
+#' Bivariate Plot of Schedule Terms
+#'
+#' Produces a ggplot2 bivariate line plot of two schedule terms.
+#'
+#' @inheritParams ypr_schedule
+#' @param x A string of the term on the x-axis.
+#' @param y A string of the term on the y-axis.
+#' @return A ggplot2 object.
+#' @export
+#' @examples
+#' ypr_ggplot2(ypr_population())
+ypr_ggplot2 <- function(population, x = "Age", y = "Length") {
+  check_population(population)
+  schedule <- ypr_schedule(population = population, complete = TRUE)
+  check_scalar(x, values = colnames(schedule))
+  check_scalar(y, values = colnames(schedule))
+
+  if(!requireNamespace("ggplot2", quietly = TRUE))
+    stop("package 'ggplot2' must be installed")
+
+  ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y)) +
+    ggplot2::geom_line() +
+    ggplot2::expand_limits(x = 0, y = 0)
+}
+
 #' Plot Population Yields by Capture Probabilities
 #'
 #' Plots the population yield by the capture probabilities (mu).
@@ -68,12 +93,12 @@ ypr_plot <- function(population, mu = seq(0, 1, length.out = 100),
   yields <- ypr_yields(population, mu = mu, Ly = Ly, harvest = harvest,
                        biomass = biomass)
   actual_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
-                     biomass = biomass)
+                            biomass = biomass)
   optimal_yield <- ypr_yields(population, mu = optimal, Ly = Ly, harvest = harvest,
-                     biomass = biomass)
+                              biomass = biomass)
 
   graphics::plot(x = mu, y = yields, xlab = "Capture Probability", ylab = "Yield",
-       type = "l")
+                 type = "l")
   graphics::lines(x = c(actual, actual), y = c(0, actual_yield),
                   col = "blue", lty = 2)
   graphics::lines(x = c(optimal, optimal), y = c(0, optimal_yield),

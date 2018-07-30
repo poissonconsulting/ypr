@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.0.1.9008
+Version: 0.0.1.9009
 Date: 2018-07-30
 Title: Yield Per Recruit for Recreational Fisheries
 Description: An implementation of yield per recruit methods for 
@@ -24,6 +24,7 @@ Imports:
     stats
 Suggests:
     covr,
+    ggplot2,
     testthat,
     tibble
 Encoding: UTF-8

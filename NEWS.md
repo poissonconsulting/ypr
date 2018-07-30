@@ -5,6 +5,7 @@
 - Added slot limit non-complicance parameter `Nc`.
 - Increased upper limit for `Rk` from 10 to 100.
 - Added scaling parameter `R0`, and renamed `a` to `Wa`.
+- Added `ypr_ggplot2()` to do customisable bivariate plot.
 
 # ypr 0.0.1
 
