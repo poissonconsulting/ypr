@@ -5,7 +5,6 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   check_names(x, .parameters,
               exclusive = exclusive, order = order, unique = TRUE, x_name = x_name)
 
-
   with(x, {
     check_scalar(tmax, c(1L, .tmax))
     check_scalar(k, c(0, 10))
@@ -27,6 +26,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_scalar(Rk, c(1, 100))
     check_scalar(R0, c(1, 1e+09))
     check_scalar(Wa, c(1e-06, 1e+03))
+    check_scalar(fa, c(1e-06, 1e+03))
   })
   x
 }

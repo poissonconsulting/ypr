@@ -4,7 +4,6 @@
 - Added vulnerability power `Vp`.
 - Added slot limit non-complicance parameter `Nc`.
 - Increased upper limit for `Rk` from 10 to 100.
-- Removed `fa` as just scaling term.
 - Added scaling parameter `R0`, and renamed `a` to `Wa`.
 
 # ypr 0.0.1
