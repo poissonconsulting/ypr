@@ -35,6 +35,7 @@ ypr_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE,
   population <- as.list(population)
   population$Rk <- attr(population, "Rk")
   population$R0 <- attr(population, "R0")
+  population$pi <- attr(population, "pi")
 
   yield <- with(population, {
     # eggs per recruit at the unfished equilibrium
@@ -63,7 +64,7 @@ ypr_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE,
     # ROF = (alpha * phi - 1) / (beta * phi)
     R0F <- (alpha * phiF - 1) / (beta * phiF)
 
-    yield <- R0F * FishedSurvivorship * Capture
+    yield <- R0F * FishedSurvivorship * Vulnerability * pi
     if(harvest) yield <- yield * (1 - Release)
     if(biomass)
       yield <- yield * Weight / (R0 * Survivorship * Weight)

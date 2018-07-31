@@ -30,7 +30,6 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
                  Fecundity = c(0, .Machine$double.xmax),
                  NaturalMortality = c(0, 1),
                  Vulnerability = c(0, 1),
-                 Capture = c(0, 1),
                  Release = c(0, 1),
                  FishingMortality = c(0, 1))
   if(complete) {
@@ -46,7 +45,9 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
              order = order,
              x_name = x_name)
 
-  check_attributes(x, values = list(Rk = c(1, 30), R0 = c(1, 1e+03)))
+  check_attributes(x, values = list(Rk = c(1, 30),
+                                    R0 = c(1, 1e+03),
+                                    pi = c(0, 1)))
 
   if(any(diff(x$Age) != 1L))
     stop("Ages in schedule ", x_name, " must be consecutive", call. = FALSE)
