@@ -47,6 +47,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
   })
   if(complete) schedule <- complete_schedule(schedule)
 
+  attr(schedule, "BH") <- population$BH
   attr(schedule, "Rk") <- population$Rk
   attr(schedule, "R0") <- population$R0
   attr(schedule, "pi") <- population$pi

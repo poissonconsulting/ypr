@@ -5,9 +5,9 @@
 \title{Population Parameters}
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Lm = Linf/2, fb = 1, tR = 1L, M = 0.2, Mb = 0, Lv = Linf/2,
-  Vp = 100, Llo = 0, Lup = Linf, Nc = 0, pi = 0.2, rho = 0,
-  Hm = 0, Rk = 3, R0 = 1, Wa = 1, fa = 1)
+  Lm = Linf/2, fb = 1, tR = 1L, BH = 1L, Rk = 3, M = 0.2, Mb = 0,
+  Lv = Linf/2, Vp = 100, Llo = 0, Lup = Linf, Nc = 0, pi = 0.2,
+  rho = 0, Hm = 0, R0 = 1, Wa = 1, fa = 1)
 }
 \arguments{
 \item{tmax}{The maximum age (yr).}
@@ -25,6 +25,10 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 \item{fb}{The fecundity (as a function of weight) scaling exponent.}
 
 \item{tR}{The age from which survival is density-independent (yr).}
+
+\item{BH}{Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.}
+
+\item{Rk}{The numbers of spawners per spawner at low density.}
 
 \item{M}{The instantaneous mortality rate (per yr).}
 
@@ -45,8 +49,6 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 \item{rho}{The release probability.}
 
 \item{Hm}{The hooking mortality.}
-
-\item{Rk}{The numbers of spawners per spawner at low density.}
 
 \item{R0}{The number of recruits at the carrying capacity (ind).}
 

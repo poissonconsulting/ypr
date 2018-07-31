@@ -44,7 +44,8 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
              order = order,
              x_name = x_name)
 
-  check_attributes(x, values = list(Rk = c(1, 30),
+  check_attributes(x, values = list(BH = c(0L, 1L),
+                                    Rk = c(1, 30),
                                     R0 = c(1, 1e+03),
                                     pi = c(0, 1)))
 

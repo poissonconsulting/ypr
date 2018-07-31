@@ -9,7 +9,8 @@
 - Added scaling parameter `R0`.
 - Renamed `a` to `Wa` and `b` to `Wb` and `eta` to `Hm` and `mu` to `pi` and `Rt` to `tR`.
 - Added `ypr_instant2interval()` and `ypr_interval2instant()` to convert mortality rates.
-- Switched `nu` for `M` and added `Mb` to scale mortality by length.
+- Switched `nu` for `M`.
+- Added `Mb` to scale mortality by length and `BH` to distinguish between Beverton-Holt and Ricker curves.
 - Added `ypr_ggplot2()` to do customisable bivariate plot.
 
 # ypr 0.0.1

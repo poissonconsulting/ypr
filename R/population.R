@@ -15,6 +15,7 @@
 #' @param Lm The length at maturity (cm).
 #' @param fb The fecundity (as a function of weight) scaling exponent.
 #' @param tR The age from which survival is density-independent (yr).
+#' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
 #' @param Rk The numbers of spawners per spawner at low density.
 #' @param M The instantaneous mortality rate (per yr).
 #' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
@@ -36,10 +37,10 @@
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Wb = 3, Lm = Linf/2, fb = 1,
-                           tR = 1L, M = 0.2, Mb = 0,
+                           tR = 1L, BH = 1L, Rk = 3, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
-                           pi = 0.2, rho = 0, Hm = 0, Rk = 3,
+                           pi = 0.2, rho = 0, Hm = 0,
                            R0 = 1, Wa = 1, fa = 1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
