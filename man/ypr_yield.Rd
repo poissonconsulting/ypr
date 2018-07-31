@@ -10,26 +10,30 @@ ypr_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE,
 \arguments{
 \item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}
 
-\item{Ly}{The minimum length fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
+\item{harvest}{A flag indicating whether to calculate the yield over just harvested versus harvested and released fish.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass (kg) versus number of captured individuals.}
 
-\item{sanitize}{A flag indicating whether to replace negative or NaNs with 0.}
+\item{sanitize}{A flag indicating whether to replace negative or NaNs with 0 (internal use only).}
 
-\item{check}{A flag indicating whether to check the arguments.}
+\item{check}{A flag indicating whether to check the arguments (internal use only).}
 }
 \value{
-A double of the yield.
+The yield as number of fish or biomass (kg).
 }
 \description{
-Calculates the yield for a population in terms of the proportion of the unfished population abundance or biomass.
+Calculates the yield for a population.
+}
+\details{
+If the yield is given in terms of the number of captured individuals then the scaling depends on the value of \code{R0}.
+By default, with \code{R0 = 1} the number is as a proportion of the recruits at the unfished equilibrium.
+If the yield is given in terms of the biomass then the scaling depends on the values of \code{Wa} and \code{R0}.
 }
 \examples{
 ypr_yield(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}}, \code{\link{ypr_optimize}},
-\code{\link{ypr_yields}} and \code{\link{ypr_plot}}
+\code{\link{ypr_population}} and \code{\link{ypr_optimize}}
 }

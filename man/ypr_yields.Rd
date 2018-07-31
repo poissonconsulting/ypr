@@ -13,13 +13,13 @@ ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
+\item{harvest}{A flag indicating whether to calculate the yield over just harvested versus harvested and released fish.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass (kg) versus number of captured individuals.}
 
-\item{check}{A flag indicating whether to check the arguments.}
+\item{check}{A flag indicating whether to check the arguments (internal use only).}
 
 \item{mc.cores}{The number of cores to use, i.e. at most how many child processes will be run simultaneously.
 The option is initialized from environment variable MC_CORES if set.

@@ -33,8 +33,7 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
                  Release = c(0, 1),
                  FishingMortality = c(0, 1))
   if(complete) {
-    values <- c(values, list(TotalMortality = c(0, 1),
-                             Survivorship = c(0, 1),
+    values <- c(values, list(Survivorship = c(0, 1),
                              FishedSurvivorship = c(0, 1)))
   }
 

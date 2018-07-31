@@ -11,7 +11,7 @@ ypr_schedule(population, complete = FALSE, check = TRUE)
 
 \item{complete}{A flag indicating whether to generate a complete schedule.}
 
-\item{check}{A flag indicating whether to check the arguments.}
+\item{check}{A flag indicating whether to check the arguments (internal use only).}
 }
 \value{
 A tibble of the life-history schedule by age.

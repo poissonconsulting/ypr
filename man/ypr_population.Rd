@@ -32,7 +32,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Lv}{The length at which 50\% vulnerable to harvest (cm).}
 
-\item{Vp}{The vulnerability to harvest (as function of length) power.}
+\item{Vp}{The vulnerability to harvest (as a function of length) power.}
 
 \item{Llo}{The lower harvest slot length (cm).}
 

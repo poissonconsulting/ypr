@@ -30,8 +30,6 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
     plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
          type = type, ...)
     if(complete) {
-      plot(TotalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
-           type = type, ...)
       plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
            type = type, ...)
       plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),

@@ -19,7 +19,7 @@
 #' @param M The instantaneous mortality rate (per yr).
 #' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
 #' @param Lv The length at which 50\% vulnerable to harvest (cm).
-#' @param Vp The vulnerability to harvest (as function of length) power.
+#' @param Vp The vulnerability to harvest (as a function of length) power.
 #' @param Llo The lower harvest slot length (cm).
 #' @param Lup The upper harvest slot length (cm).
 #' @param Nc The slot limits non-compliance probability.

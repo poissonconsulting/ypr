@@ -14,11 +14,11 @@ ypr_optimize_uncertainty(population, population2, Ly = 0, harvest = FALSE,
 
 \item{population2}{A second list of population life-history parameters.}
 
-\item{Ly}{The minimum length fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield over harvested versus captured fish.}
+\item{harvest}{A flag indicating whether to calculate the yield over just harvested versus harvested and released fish.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass (kg) versus number of captured individuals.}
 
 \item{n}{A numeric of the number of iterations.}
 
