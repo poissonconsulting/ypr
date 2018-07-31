@@ -1,6 +1,6 @@
 context("optimize")
 
 test_that("optimize", {
-  expect_equal(ypr_optimize(ypr_population()), 0.1255699, tolerance = 1e-06)
+  expect_equal(ypr_optimize(ypr_population()), 0.1201523, tolerance = 1e-06)
   expect_identical(ypr_optimise, ypr_optimize)
 })

@@ -7,6 +7,6 @@ test_that("ypr_yield_uncertainty", {
 
   expect_identical(length(yield), 3L)
   expect_identical(names(yield), c("estimate", "lower", "upper"))
-  expect_equivalent(yield[1], c(estimate = 0.7581744), tolerance = 1e-02)
-  expect_equivalent(yield[2], c(estimate = 0.6348266), tolerance = 1e-02)
+  expect_equivalent(yield[1], c(estimate = 0.7324726), tolerance = 1e-02)
+  expect_equivalent(yield[2], c(estimate = 0.5959486), tolerance = 1e-02)
 })

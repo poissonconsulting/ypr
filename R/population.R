@@ -4,7 +4,7 @@
 #' for a fish population.
 #'
 #' The default parameters are for a hypothetical population that
-#' allometrically grows to a mean maximum length of 100 with a k of 0.15,
+#' isometrically grows to a mean maximum length of 100 with a k of 0.15,
 #' and both matures and becomes vulnerable to harvest at a length of 50.
 #'
 #' @param tmax The maximum age.
@@ -15,8 +15,8 @@
 #' @param Lm The length at maturity.
 #' @param fb The fecundity (as a function of weight) scaling exponent.
 #' @param Rt The age from which survival is density-independent.
-#' @param S The annual natural survival probability.
-#' @param Mb The instantaneous annual natural mortality rate (as a function of length) scaling exponent.
+#' @param M The instantaneous mortality rate.
+#' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
 #' @param Lv The length at which 50\% vulnerable to harvest.
 #' @param Vp The vulnerability to harvest (as function of length) power.
 #' @param Llo The lower harvest slot length.
@@ -36,7 +36,7 @@
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Wb = 3, Lm = Linf/2, fb = 1,
-                           Rt = 1L, S = 0.8, Mb = 0,
+                           Rt = 1L, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            mu = 0.2, rho = 0, eta = 0, Rk = 5,

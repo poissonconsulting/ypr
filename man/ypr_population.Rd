@@ -5,7 +5,7 @@
 \title{Population Parameters}
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Lm = Linf/2, fb = 1, Rt = 1L, S = 0.8, Mb = 0, Lv = Linf/2,
+  Lm = Linf/2, fb = 1, Rt = 1L, M = 0.2, Mb = 0, Lv = Linf/2,
   Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
   eta = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
 }
@@ -26,9 +26,9 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Rt}{The age from which survival is density-independent.}
 
-\item{S}{The annual natural survival probability.}
+\item{M}{The instantaneous mortality rate.}
 
-\item{Mb}{The instantaneous annual natural mortality rate (as a function of length) scaling exponent.}
+\item{Mb}{The instantaneous mortality rate (as a function of length) scaling exponent.}
 
 \item{Lv}{The length at which 50\% vulnerable to harvest.}
 
@@ -63,7 +63,7 @@ for a fish population.
 }
 \details{
 The default parameters are for a hypothetical population that
-allometrically grows to a mean maximum length of 100 with a k of 0.15,
+isometrically grows to a mean maximum length of 100 with a k of 0.15,
 and both matures and becomes vulnerable to harvest at a length of 50.
 }
 \examples{

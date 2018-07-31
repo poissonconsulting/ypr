@@ -2,6 +2,8 @@
 
 S3method(plot,ypr_population)
 export(ypr_ggplot2)
+export(ypr_instant2interval)
+export(ypr_interval2instant)
 export(ypr_optimise)
 export(ypr_optimise_uncertainty)
 export(ypr_optimize)
