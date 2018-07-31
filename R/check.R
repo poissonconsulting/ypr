@@ -2,8 +2,8 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   x_name <- deparse(x_name)
 
   check_named(x, x_name = x_name)
-  check_names(x, .parameters,
-              exclusive = exclusive, order = order, unique = TRUE, x_name = x_name)
+  check_names(x, .parameters$Parameter,
+              exclusive = exclusive, unique = TRUE, x_name = x_name)
 
   with(x, {
     check_scalar(tmax, c(2L, .tmax))

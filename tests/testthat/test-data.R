@@ -9,3 +9,16 @@ test_that("data", {
   expect_identical(check_population(quesnel_lt), quesnel_lt)
   expect_identical(check_population(quesnel_rb), quesnel_rb)
 })
+
+test_that(".data", {
+  expect_identical(check_data(
+    .parameters,
+    values = list(
+      Parameter = "",
+      Grouping = ordered(""),
+      Subgrouping = ordered(""),
+      Importance = c(0L,100L),
+      Order = 1:nrow(.parameters)),
+    key = "Order", exclusive = TRUE, order = TRUE),
+    .parameters)
+})

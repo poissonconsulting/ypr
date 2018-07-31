@@ -16,8 +16,11 @@ ypr_optimize(population, Ly = 0, harvest = FALSE, biomass = FALSE)
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
 }
+\value{
+The interval annual capture probability (pi) that maximises the yield.
+}
 \description{
-Finds the capture rate that maximises the yield for a given population.
+Finds the interval annual capture probability (pi) that maximises the yield for a given population.
 }
 \examples{
 ypr_optimize(ypr_population())
