@@ -7,7 +7,7 @@
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
   Lm = Linf/2, fb = 1, Rt = 1L, M = 0.2, Mb = 0, Lv = Linf/2,
   Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
-  eta = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
+  Hm = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
 }
 \arguments{
 \item{tmax}{The maximum age.}
@@ -44,7 +44,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{rho}{The release probability.}
 
-\item{eta}{The hooking mortality probability.}
+\item{Hm}{The hooking mortality.}
 
 \item{Rk}{The numbers of spawners per spawner at low density.}
 

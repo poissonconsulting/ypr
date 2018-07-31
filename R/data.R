@@ -16,7 +16,7 @@
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
 #' ypr_plot(chilliwack_bt_05)
-#' ypr_plot(ypr_population_update(chilliwack_bt_05, Rk = 2.5, eta = 0.05, rho = 1))
+#' ypr_plot(ypr_population_update(chilliwack_bt_05, Rk = 2.5, Hm = 0.05, rho = 1))
 "chilliwack_bt_05"
 
 #' Kootenay Lake Bull Trout Population Parameters (2013)

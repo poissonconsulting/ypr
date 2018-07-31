@@ -39,7 +39,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     C <- mu * V
     R <- rep(rho, n)
     R[L < Llo | L > Lup] <- 1 - Nc
-    U <- C * (1 - R) + C * R * eta
+    U <- C * (1 - R) + C * R * Hm
 
     data.frame(Age = t, Length = L, Weight = W, Fecundity = E,
                    NaturalMortality = N, Vulnerability = V, Capture = C, Release = R,

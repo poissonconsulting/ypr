@@ -24,7 +24,7 @@
 #' @param Nc The slot limits non-compliance probability.
 #' @param mu The annual capture probability.
 #' @param rho The release probability.
-#' @param eta The hooking mortality probability.
+#' @param Hm The hooking mortality.
 #' @param Rk The numbers of spawners per spawner at low density.
 #' @param R0 The number of recruits at the carrying capacity.
 #' @param Wa The (extrapolated) weight of a unit length individual.
@@ -39,7 +39,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Rt = 1L, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
-                           mu = 0.2, rho = 0, eta = 0, Rk = 5,
+                           mu = 0.2, rho = 0, Hm = 0, Rk = 5,
                            R0 = 1, Wa = 1, fa = 1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")

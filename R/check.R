@@ -23,7 +23,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_probability(Nc)
     check_probability(mu)
     check_probability(rho)
-    check_probability(eta)
+    check_probability(Hm)
     check_scalar(Rk, c(1, 100))
     check_scalar(R0, c(1, 1e+09))
     check_scalar(Wa, c(1e-04, 1e+04))
