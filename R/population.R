@@ -39,7 +39,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            tR = 1L, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
-                           pi = 0.2, rho = 0, Hm = 0, Rk = 5,
+                           pi = 0.2, rho = 0, Hm = 0, Rk = 3,
                            R0 = 1, Wa = 1, fa = 1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
