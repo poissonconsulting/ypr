@@ -14,7 +14,7 @@
 #' @param Wb The weight (as a function of length) scaling exponent.
 #' @param Lm The length at maturity.
 #' @param fb The fecundity (as a function of weight) scaling exponent.
-#' @param Rt The age from which survival is density-independent.
+#' @param tR The age from which survival is density-independent.
 #' @param M The instantaneous mortality rate.
 #' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
 #' @param Lv The length at which 50\% vulnerable to harvest.
@@ -36,7 +36,7 @@
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Wb = 3, Lm = Linf/2, fb = 1,
-                           Rt = 1L, M = 0.2, Mb = 0,
+                           tR = 1L, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            pi = 0.2, rho = 0, Hm = 0, Rk = 5,

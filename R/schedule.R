@@ -26,7 +26,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     check_population(population)
   }
   schedule <- with(population, {
-    t <- Rt:tmax
+    t <- tR:tmax
     n <- length(t)
     L <- Linf * (1 - exp(-k * (t-t0)))
     L[L < 0] <- 0

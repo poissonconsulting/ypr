@@ -13,7 +13,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
     check_scalar(Wb, c(2, 4))
     check_scalar(Lm, c(0, Linf))
     check_scalar(fb, c(0.5, 2))
-    check_scalar(Rt, c(0L, tmax - 1L))
+    check_scalar(tR, c(0L, tmax - 1L))
     check_scalar(M, c(0, 3))
     check_scalar(Mb, c(-1, 1))
     check_scalar(Lv, c(0, Linf))
