@@ -1,34 +1,23 @@
 check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
+  check_list(x)
   check_named(x, x_name = x_name)
   check_names(x, .parameters$Parameter,
               exclusive = exclusive, unique = TRUE, x_name = x_name)
 
-  with(x, {
-    check_scalar(tmax, c(2L, .tmax))
-    check_scalar(k, c(0.01, 15))
-    check_scalar(Linf, c(2, .Lmax))
-    check_scalar(t0, c(-tmax/5, tmax/5))
-    check_scalar(Wb, c(2, 4))
-    check_scalar(Lm, c(1, Linf-1))
-    check_scalar(fb, c(0.5, 2))
-    check_scalar(tR, c(0L, tmax - 1L))
-    check_scalar(Rk, c(1, 30))
-    check_scalar(M, c(0, 3))
-    check_scalar(Mb, c(-1, 1))
-    check_scalar(Lv, c(1, Linf-1))
-    check_scalar(Vp, c(0, 100))
-    check_scalar(Lup, c(0, Linf))
-    check_scalar(Llo, c(0, Lup))
-    check_probability(Nc)
-    check_probability(pi)
-    check_probability(rho)
-    check_probability(Hm)
-    check_scalar(R0, c(1, 1e+03))
-    check_scalar(Wa, c(1e-04, 1e+01))
-    check_scalar(fa, c(1e-04, 1e+02))
-  })
+  parameters <- .parameters
+
+  parameters$Code <- paste0(
+    "check_scalar(", parameters$Parameter, ", c(",
+    parameters$Lower, ifelse(parameters$Integer == 1, "L", ""), ",",
+    parameters$Upper, ifelse(parameters$Integer == 1, "L", ""), "))")
+
+  code <- paste0(parameters$Code, collapse = "\n")
+  code <- paste0("with(x, {\n", code, "\n})")
+
+  eval(parse(text = code))
+
   x
 }
 
