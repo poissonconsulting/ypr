@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = TRUE, biomass = TRUE, check = TRUE,
+  harvest = FALSE, biomass = FALSE, check = TRUE,
   mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{

@@ -17,7 +17,7 @@ optimize_pi <- function(population, Ly, harvest, biomass) {
 #' @examples
 #' ypr_optimize(ypr_population())
 ypr_optimize <- function(population,
-                         Ly = 0, harvest = TRUE, biomass = TRUE) {
+                         Ly = 0, harvest = FALSE, biomass = FALSE) {
   check_population(population)
   check_scalar(Ly, c(0, Inf))
   check_flag(biomass)

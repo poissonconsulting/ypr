@@ -4,8 +4,8 @@
 \alias{ypr_yield_uncertainty}
 \title{Yield with Uncertainty}
 \usage{
-ypr_yield_uncertainty(population, population2, Ly = 0, harvest = TRUE,
-  biomass = TRUE, n = 10^4, level = 0.95,
+ypr_yield_uncertainty(population, population2, Ly = 0, harvest = FALSE,
+  biomass = FALSE, n = 10^4, level = 0.95,
   mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{

@@ -5,7 +5,7 @@
 \title{Plot Population Yields by Capture Probabilities}
 \usage{
 ypr_plot(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = TRUE, biomass = TRUE)
+  harvest = FALSE, biomass = FALSE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}

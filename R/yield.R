@@ -20,7 +20,7 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
+ypr_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE,
                       sanitize = TRUE, check = TRUE) {
   check_flag(check)
 
@@ -43,10 +43,7 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = TRUE,
     # eggs per recruit at the fished equilibrium
     phiF <- sum(Fecundity * FishedSurvivorship)
 
-    # recruits per egg (1/phi) at equilibrium (1 spawner per spawner) times
-    # spawner per spawner at low density
-    # gives recruits per egg at low density
-    # also by definition Rk = alpha * phi
+    # by definition Rk = alpha * phi (where alpha is recruits per egg
     alpha <-  Rk / phi
 
     # from standard definition of the beverton-holt relationship

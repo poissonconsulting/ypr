@@ -82,7 +82,7 @@ ypr_ggplot2 <- function(population, x = "Age", y = "Length") {
 #' ypr_plot(ypr_population())
 #' }
 ypr_plot <- function(population, pi = seq(0, 1, length.out = 100),
-                     Ly = 0, harvest = TRUE, biomass = TRUE) {
+                     Ly = 0, harvest = FALSE, biomass = FALSE) {
 
   check_population(population)
   actual <- population$pi

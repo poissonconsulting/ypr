@@ -5,7 +5,7 @@
 \alias{ypr_optimise}
 \title{Optimize Capture}
 \usage{
-ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = TRUE)
+ypr_optimize(population, Ly = 0, harvest = FALSE, biomass = FALSE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}

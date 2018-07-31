@@ -15,7 +15,7 @@
 #' ypr_yields_uncertainty(ypr_population(), population, n = 10)
 ypr_yields_uncertainty <- function(population, population2,
                                    pi = seq(0, 1, length.out = 100),
-                                   Ly = 0, harvest = TRUE, biomass = TRUE,
+                                   Ly = 0, harvest = FALSE, biomass = FALSE,
                                    n = 10^4, level = 0.95,
                                    mc.cores = getOption("mc.cores", 2L)) {
 

@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields_uncertainty(population, population2, pi = seq(0, 1, length.out =
-  100), Ly = 0, harvest = TRUE, biomass = TRUE, n = 10^4,
+  100), Ly = 0, harvest = FALSE, biomass = FALSE, n = 10^4,
   level = 0.95, mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{

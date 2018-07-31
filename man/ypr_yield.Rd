@@ -4,7 +4,7 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = TRUE, biomass = TRUE,
+ypr_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE,
   sanitize = TRUE, check = TRUE)
 }
 \arguments{

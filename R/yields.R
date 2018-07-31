@@ -14,7 +14,7 @@
 #' pi <- seq(0, 1, length.out = 100)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                       Ly = 0, harvest = TRUE, biomass = TRUE,
+                       Ly = 0, harvest = FALSE, biomass = FALSE,
                        check = TRUE,
                        mc.cores = getOption("mc.cores", 2L)) {
 

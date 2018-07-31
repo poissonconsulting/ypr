@@ -1,3 +1,4 @@
+- Switched yield parameters `harvest` and `biomass` to `FALSE` by default.
 - Added `ypr_yield_uncertainty()`, `ypr_yields_uncertainty()` and 
 `ypr_optimize_uncertainty()` to account for uncertainty in parameters.
 - Added `ypr_population_update()` to update population parameters.
