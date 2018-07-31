@@ -1,13 +1,12 @@
 Package: ypr
-Version: 0.0.1.9009
-Date: 2018-07-30
+Version: 0.0.1.9010
+Date: 2018-07-31
 Title: Yield Per Recruit for Recreational Fisheries
 Description: An implementation of yield per recruit methods for 
     recreational fisheries in R.
     Given a list of life history parameters it can generate a data frame
     of the schedule and find the capture rate which maximises the yield. 
-    The yield, which is provided in terms of the proportion of the unfished population,
-    can be based on the total biomass vs number of fish; 
+    The yield can be based on the total biomass vs number of fish; 
     harvested vs captured and large (trophy) versus all fish.
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", 
     role = c("aut", "cre"))

@@ -10,33 +10,33 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
   Hm = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
 }
 \arguments{
-\item{tmax}{The maximum age.}
+\item{tmax}{The maximum age (yr).}
 
-\item{k}{The VB growth coefficient.}
+\item{k}{The VB growth coefficient (per yr).}
 
-\item{Linf}{The VB mean maximum length.}
+\item{Linf}{The VB mean maximum length (cm).}
 
-\item{t0}{The (theoretical) age at zero length.}
+\item{t0}{The (theoretical) age at zero length (yr).}
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Lm}{The length at maturity.}
+\item{Lm}{The length at maturity (cm).}
 
 \item{fb}{The fecundity (as a function of weight) scaling exponent.}
 
-\item{tR}{The age from which survival is density-independent.}
+\item{tR}{The age from which survival is density-independent (yr).}
 
-\item{M}{The instantaneous mortality rate.}
+\item{M}{The instantaneous mortality rate (per yr).}
 
 \item{Mb}{The instantaneous mortality rate (as a function of length) scaling exponent.}
 
-\item{Lv}{The length at which 50\% vulnerable to harvest.}
+\item{Lv}{The length at which 50\% vulnerable to harvest (cm).}
 
 \item{Vp}{The vulnerability to harvest (as function of length) power.}
 
-\item{Llo}{The lower harvest slot length.}
+\item{Llo}{The lower harvest slot length (cm).}
 
-\item{Lup}{The upper harvest slot length.}
+\item{Lup}{The upper harvest slot length (cm).}
 
 \item{Nc}{The slot limits non-compliance probability.}
 
@@ -48,11 +48,11 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Rk}{The numbers of spawners per spawner at low density.}
 
-\item{R0}{The number of recruits at the carrying capacity.}
+\item{R0}{The number of recruits at the carrying capacity (ind).}
 
-\item{Wa}{The (extrapolated) weight of a unit length individual.}
+\item{Wa}{The (extrapolated) weight of a 1 cm individual (g).}
 
-\item{fa}{The (theoretical) fecundity of a unit weight female.}
+\item{fa}{The (theoretical) fecundity of a 1 g female (eggs).}
 }
 \value{
 An object of class \code{ypr_population}.
@@ -63,7 +63,7 @@ for a fish population.
 }
 \details{
 The default parameters are for a hypothetical population that
-isometrically grows to a mean maximum length of 100 with a k of 0.15,
+isometrically grows to a mean maximum length of 100 cm with a k of 0.15,
 and both matures and becomes vulnerable to harvest at a length of 50.
 }
 \examples{
