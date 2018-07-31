@@ -5,7 +5,7 @@
 - Added slot limit non-complicance parameter `Nc`.
 - Increased upper limit for `Rk` from 10 to 100.
 - Added scaling parameter `R0`.
-- Renamed `a` to `Wa` and `b` to `Wb` and `eta` to `Hm`.
+- Renamed `a` to `Wa` and `b` to `Wb` and `eta` to `Hm` and `mu` to `pi`.
 - Added `ypr_instant2interval()` and `ypr_interval2instant()` to convert mortality rates.
 - Switched `nu` for `M` and added `Mb` to scale mortality by length.
 - Added `ypr_ggplot2()` to do customisable bivariate plot.

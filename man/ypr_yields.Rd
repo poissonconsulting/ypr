@@ -4,14 +4,14 @@
 \alias{ypr_yields}
 \title{Yields}
 \usage{
-ypr_yields(population, mu = seq(0, 1, length.out = 100), Ly = 0,
+ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = TRUE, check = TRUE,
   mc.cores = getOption("mc.cores", 2L))
 }
 \arguments{
 \item{population}{A list of population life-history parameters.}
 
-\item{mu}{A vector of probabilities of capture to calculate the yield for.}
+\item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
 \item{Ly}{The minimum length fish to consider when calculating the yield.}
 
@@ -32,8 +32,8 @@ A double vector of the yields.
 Calculates the yield(s) for a population based on one or more capture rates.
 }
 \examples{
-mu <- seq(0, 1, length.out = 100)
-plot(mu, ypr_yields(ypr_population(), mu), type = "l")
+pi <- seq(0, 1, length.out = 100)
+plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 }
 \seealso{
 \code{\link{ypr_population}}, \code{\link{ypr_optimize}},

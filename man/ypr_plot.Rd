@@ -4,13 +4,13 @@
 \alias{ypr_plot}
 \title{Plot Population Yields by Capture Probabilities}
 \usage{
-ypr_plot(population, mu = seq(0, 1, length.out = 100), Ly = 0,
+ypr_plot(population, pi = seq(0, 1, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = TRUE)
 }
 \arguments{
 \item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}
 
-\item{mu}{A vector of probabilities of capture to calculate the yield for.}
+\item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
 \item{Ly}{The minimum length fish to consider when calculating the yield.}
 
@@ -19,7 +19,7 @@ ypr_plot(population, mu = seq(0, 1, length.out = 100), Ly = 0,
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individual fish.}
 }
 \description{
-Plots the population yield by the capture probabilities (mu).
+Plots the population yield by the capture probabilities (pi).
 The actual and optimal capture probabilities are indicated by
 blue dashed and red dotted lines, respectively.
 }

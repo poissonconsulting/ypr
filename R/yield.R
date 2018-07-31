@@ -1,5 +1,5 @@
-yield_mu <- function(mu, population, Ly, harvest, biomass) {
-  population$mu <- mu
+yield_pi <- function(pi, population, Ly, harvest, biomass) {
+  population$pi <- pi
   yield <- ypr_yield(population, Ly = Ly, harvest = harvest, biomass = biomass,
                      sanitize = FALSE, check = FALSE)
 }

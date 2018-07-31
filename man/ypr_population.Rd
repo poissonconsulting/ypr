@@ -6,7 +6,7 @@
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
   Lm = Linf/2, fb = 1, Rt = 1L, M = 0.2, Mb = 0, Lv = Linf/2,
-  Vp = 100, Llo = 0, Lup = Linf, Nc = 0, mu = 0.2, rho = 0,
+  Vp = 100, Llo = 0, Lup = Linf, Nc = 0, pi = 0.2, rho = 0,
   Hm = 0, Rk = 5, R0 = 1, Wa = 1, fa = 1)
 }
 \arguments{
@@ -40,7 +40,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Nc}{The slot limits non-compliance probability.}
 
-\item{mu}{The annual capture probability.}
+\item{pi}{The annual capture probability.}
 
 \item{rho}{The release probability.}
 

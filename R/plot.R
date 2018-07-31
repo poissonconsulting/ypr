@@ -68,7 +68,7 @@ ypr_ggplot2 <- function(population, x = "Age", y = "Length") {
 
 #' Plot Population Yields by Capture Probabilities
 #'
-#' Plots the population yield by the capture probabilities (mu).
+#' Plots the population yield by the capture probabilities (pi).
 #' The actual and optimal capture probabilities are indicated by
 #' blue dashed and red dotted lines, respectively.
 #'
@@ -81,23 +81,23 @@ ypr_ggplot2 <- function(population, x = "Age", y = "Length") {
 #' \dontrun{
 #' ypr_plot(ypr_population())
 #' }
-ypr_plot <- function(population, mu = seq(0, 1, length.out = 100),
+ypr_plot <- function(population, pi = seq(0, 1, length.out = 100),
                      Ly = 0, harvest = TRUE, biomass = TRUE) {
 
   check_population(population)
-  actual <- population$mu
+  actual <- population$pi
   optimal <- ypr_optimize(population, Ly = Ly, harvest = harvest,
                           biomass = biomass)
-  mu <- sort(c(mu, actual, optimal))
+  pi <- sort(c(pi, actual, optimal))
 
-  yields <- ypr_yields(population, mu = mu, Ly = Ly, harvest = harvest,
+  yields <- ypr_yields(population, pi = pi, Ly = Ly, harvest = harvest,
                        biomass = biomass)
   actual_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
                             biomass = biomass)
-  optimal_yield <- ypr_yields(population, mu = optimal, Ly = Ly, harvest = harvest,
+  optimal_yield <- ypr_yields(population, pi = optimal, Ly = Ly, harvest = harvest,
                               biomass = biomass)
 
-  graphics::plot(x = mu, y = yields, xlab = "Capture Probability", ylab = "Yield",
+  graphics::plot(x = pi, y = yields, xlab = "Capture Probability", ylab = "Yield",
                  type = "l")
   graphics::lines(x = c(actual, actual), y = c(0, actual_yield),
                   col = "blue", lty = 2)

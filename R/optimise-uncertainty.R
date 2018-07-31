@@ -32,7 +32,7 @@ ypr_optimize_uncertainty <- function(
 
   population <- sample_population(population, population2, n = n)
 
-  yields <- lapply(population, FUN = optimize_mu, Ly = Ly,
+  yields <- lapply(population, FUN = optimize_pi, Ly = Ly,
                    harvest = harvest, biomass = biomass)
   quantiles(yields, level = level)
 }
