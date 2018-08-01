@@ -36,15 +36,16 @@ ypr_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE,
     population <- ypr_schedule(population, complete = TRUE, check = check)
 
   population <- as.list(population)
+  population$tau <- attr(population, "tau")
   population$BH <- attr(population, "BH")
   population$Rk <- attr(population, "Rk")
   population$R0 <- attr(population, "R0")
   population$pi <- attr(population, "pi")
 
   yield <- with(population, {
-    phi <- sum(Fecundity * Survivorship)
+    phi <- sum(Fecundity * tau * 0.5 * Survivorship)
 
-    phiF <- sum(Fecundity * FishedSurvivorship)
+    phiF <- sum(Fecundity * tau * 0.5 * FishedSurvivorship)
 
     alpha <-  Rk / phi
 

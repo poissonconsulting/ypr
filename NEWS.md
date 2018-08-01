@@ -10,7 +10,8 @@
 - Renamed `a` to `Wa` and `b` to `Wb` and `eta` to `Hm` and `mu` to `pi` and `Rt` to `tR`.
 - Added `ypr_instant2interval()` and `ypr_interval2instant()` to convert mortality rates.
 - Switched `nu` for `M`.
-- Added `Mb` to scale mortality by length and `BH` to distinguish between Beverton-Holt and Ricker curves.
+- Added `Mb` to scale mortality by length and `BH` to distinguish between Beverton-Holt and Ricker curves and
+`tau` for probability of a mature fish spawning.
 - Added `ypr_ggplot2()` to do customisable bivariate plot.
 
 # ypr 0.0.1
