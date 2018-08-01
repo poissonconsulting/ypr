@@ -35,9 +35,3 @@ usethis::use_data(kootenay_rb_13, overwrite = TRUE)
 usethis::use_data(quesnel_bt, overwrite = TRUE)
 usethis::use_data(quesnel_lt, overwrite = TRUE)
 usethis::use_data(quesnel_rb, overwrite = TRUE)
-
-plot(adams_bt_03)
-ypr_plot(adams_bt_03)
-
-plot(chilliwack_bt_05)
-ypr_plot(chilliwack_bt_05)

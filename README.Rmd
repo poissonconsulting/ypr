@@ -23,22 +23,20 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-`ypr` is an R package that implements yield per recruit methods [@walters_fisheries_2004].
+`ypr` is an R package that implements equilibrium-based yield per recruit methods [@walters_fisheries_2004].
 
-The yield, which is provided in terms of the proportion of the unfished population,
-can be based on the total biomass vs number of fish,
-harvested vs captured and large (trophy) versus all fish.
-
-The yield can also be calculated with lower and upper limits that represent the uncertainty in 
-one or more life history parameters.
+The yield can be based on the number of fish caught (or harvested) or biomass caught (or harvested) for all fish or just large (trophy) individuals.
+The yield (and optimal capture rate) can be calculated with lower and upper limits that represent the uncertainty in one or more population parameters.
 
 The key life history parameters are
 
 - The growth coefficient (`k`) and mean maximum length (`Linf`) from the Von Bertalanffy growth curve
-- The condition scaling exponent (`b`) from the weight-length relationship
-- The length at maturity (`Lm`)
+- The length at which 50% spawning (`Ls`)
 - The length at which 50% vulnerable to harvest (`Lv`)
 - The number of spawners per spawner at low density (`Rk`)
+
+There are 18 additional advanced parameters and three scaling parameters.
+From more information type `?ypr_population`.
 
 The calculations do not account for environmental fluctuations, predator-prey dynamics, angler responses or density-dependent growth.
 
@@ -47,7 +45,6 @@ The calculations do not account for environmental fluctuations, predator-prey dy
 ```{r}
 library(ypr)
 population <- ypr_population(Rk = 3)
-ypr_schedule(population)
 ypr_plot(population)
 ```
 

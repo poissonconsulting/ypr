@@ -26,6 +26,7 @@ ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
     check_flag(biomass)
     check_flag(harvest)
   }
+
   yields <- parallel::mclapply(pi, FUN = yield_pi, population = population,
                                Ly = Ly, harvest = harvest,
                                biomass = biomass, mc.cores = mc.cores,

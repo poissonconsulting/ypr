@@ -4,14 +4,16 @@
 \name{ypr-package}
 \alias{ypr}
 \alias{ypr-package}
-\title{ypr: Yield Per Recruit for Recreational Fisheries}
+\title{ypr: Yield Per Recruit}
 \description{
-An implementation of yield per recruit methods for
-recreational fisheries in R.
-Given a list of life history parameters it can generate a data frame
-of the schedule and find the capture rate which maximises the yield.
-The yield can be based on the total biomass vs number of fish;
-harvested vs captured and large (trophy) versus all fish.
+An implementation of equilibrium-based
+yield per recruit methods.
+The yield can be based on the number of fish caught (or harvested) or
+biomass caught (or harvested) for
+all fish or just large (trophy) individuals.
+The yield (and optimal capture rate) can be calculated with
+lower and upper limits that represent the uncertainty in
+one or more population parameters.
 }
 \seealso{
 Useful links:
