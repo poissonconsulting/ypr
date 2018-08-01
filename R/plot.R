@@ -98,11 +98,13 @@ ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
                       Yield = c(0, actual_yield, 0, optimal_yield),
                       Type = c(rep("actual",2), rep("optimal", 2)))
 
-  ggplot2::ggplot(data = data, ggplot2::aes_string(x = "pi", y = "Yield")) +
+ gp <- ggplot2::ggplot(data = data, ggplot2::aes_string(x = "pi", y = "Yield")) +
     ggplot2::geom_line(data = data2, ggplot2::aes_string(group = "Type", color = "Type"), linetype = "dotted") +
     ggplot2::geom_line() +
     ggplot2::expand_limits(x = 0) +
     ggplot2::scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
     ggplot2::scale_color_manual(values = c("red", "blue")) +
+    ggplot2::ylab(if(biomass) "Yield (kg)" else "Yield (fish)") +
     NULL
+  gp
 }

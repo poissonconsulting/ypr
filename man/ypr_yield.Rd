@@ -16,7 +16,7 @@ ypr_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE)
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
-The yield as number of fish or biomass (kg).
+The yield as number of fish or biomass.
 }
 \description{
 Calculates the yield for a population.

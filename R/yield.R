@@ -47,7 +47,7 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
 #' @param harvest A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.
-#' @return The yield as number of fish or biomass (kg).
+#' @return The yield as number of fish or biomass.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_optimize}}
 #' @export
 #' @examples
