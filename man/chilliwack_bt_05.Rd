@@ -13,8 +13,8 @@ The population parameters for
 Bull Trout in Chilliwack Lake, BC.
 }
 \examples{
-ypr_plot(chilliwack_bt_05)
-ypr_plot(ypr_population_update(chilliwack_bt_05, Rk = 2.5, Hm = 0.05, rho = 1))
+ypr_plot_yield(chilliwack_bt_05)
+ypr_plot_yield(ypr_population_update(chilliwack_bt_05, Rk = 2.5, Hm = 0.05, rho = 1))
 }
 \references{
 Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.

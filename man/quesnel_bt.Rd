@@ -16,6 +16,6 @@ Bull Trout in Quesnel Lake, BC.
 The estimates are liable to change and should not be used for management.
 }
 \examples{
-ypr_plot(quesnel_bt)
+ypr_plot_yield(quesnel_bt)
 }
 \keyword{datasets}

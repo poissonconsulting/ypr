@@ -1,7 +1,6 @@
 check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
-  check_list(x)
   check_named(x, x_name = x_name)
   check_names(x, .parameters$Parameter,
               exclusive = exclusive, unique = TRUE, x_name = x_name)

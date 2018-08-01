@@ -16,6 +16,6 @@ Rainbow Trout in Quesnel Lake, BC.
 The estimates are liable to change and should not be used for management.
 }
 \examples{
-ypr_plot(quesnel_lt)
+ypr_plot_yield(quesnel_lt)
 }
 \keyword{datasets}

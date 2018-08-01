@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.0.1.9022
+Version: 0.0.1.9023
 Date: 2018-08-01
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based 
@@ -17,11 +17,12 @@ Depends:
     R (>= 3.4.0)
 Imports:
     checkr (>= 0.3.0.9003),
+    ggplot2,
     graphics,
+    scales,
     stats
 Suggests:
     covr,
-    ggplot2,
     testthat,
     tibble
 Encoding: UTF-8

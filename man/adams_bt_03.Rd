@@ -13,7 +13,7 @@ The population parameters for
 Bull Trout in Adams Lake, BC.
 }
 \examples{
-ypr_plot(adams_bt_03)
+ypr_plot_yield(adams_bt_03)
 }
 \references{
 Bison, R., O’Brien, D., and Martell, S.J.D. 2003. An Analysis of Sustainable Fishing Options for Adams Lake Bull Trout Using Life History and Telemetry Data. BC Ministry of Water Land and Air Protection, Kamloops, B.C.
