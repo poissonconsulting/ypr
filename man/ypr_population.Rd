@@ -57,7 +57,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Hm}{The hooking mortality probability.}
 
-\item{R0}{The number of recruits at the carrying capacity (ind).}
+\item{R0}{The number of recruits at the unfished equilibrium (ind).}
 
 \item{Wa}{The (extrapolated) weight of a 1 cm individual (g).}
 
