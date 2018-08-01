@@ -28,6 +28,7 @@ check_schedule <- function(x, complete = FALSE, exclusive = FALSE, order = FALSE
                  Length = c(0, .Lmax),
                  Weight = c(0, .Machine$double.xmax),
                  Fecundity = c(0, .Machine$double.xmax),
+                 Spawning = c(0, 1),
                  NaturalMortality = c(0, 1),
                  Vulnerability = c(0, 1),
                  Release = c(0, 1),

@@ -5,9 +5,10 @@
 \title{Population Parameters}
 \usage{
 ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Lm = Linf/2, tau = 1, Km = 0, fb = 1, tR = 1L, BH = 1L, Rk = 3,
-  M = 0.2, Mb = 0, Lv = Linf/2, Vp = 100, Llo = 0, Lup = Linf,
-  Nc = 0, pi = 0.2, rho = 0, Hm = 0, R0 = 1, Wa = 1, fa = 1)
+  Lm = Linf/2, Sp = 100, tau = 1, Km = 0, fb = 1, tR = 1L,
+  BH = 1L, Rk = 3, M = 0.2, Mb = 0, Lv = Linf/2, Vp = 100,
+  Llo = 0, Lup = Linf, Nc = 0, pi = 0.2, rho = 0, Hm = 0, R0 = 1,
+  Wa = 1, fa = 1)
 }
 \arguments{
 \item{tmax}{The maximum age (yr).}
@@ -20,7 +21,9 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Lm}{The length at maturity (cm).}
+\item{Lm}{The length at which 50\% spawning (cm).}
+
+\item{Sp}{The spawning (as a function of length) power}
 
 \item{tau}{The annual probability of a mature fish spawning.}
 

@@ -32,9 +32,9 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     L[L < 0] <- 0
     W <- Wa * L^Wb
     E <- fa * W^fb
-    E[L < Lm] <- 0
+    S <- exp(log(L/Linf) * Sp) / (exp(log(Lm/Linf) * Sp) + exp(log(L/Linf) * Sp)) * tau
     N <- ypr_instant2interval(M * L^Mb)
-    N <- 1 - ((1-N) * (1 - Km * (L >= Lm) * tau))
+    N <- 1 - ((1-N) * (1 - S * Km))
     N[n] <- 1
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- pi * V
@@ -42,13 +42,12 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     R[L < Llo | L > Lup] <- 1 - Nc
     U <- C * (1 - R) + C * R * Hm
 
-    data.frame(Age = t, Length = L, Weight = W, Fecundity = E,
+    data.frame(Age = t, Length = L, Weight = W, Fecundity = E, Spawning = S,
                    NaturalMortality = N, Vulnerability = V, Release = R,
                    FishingMortality = U)
   })
   if(complete) schedule <- complete_schedule(schedule)
 
-  attr(schedule, "tau") <- population$tau
   attr(schedule, "BH") <- population$BH
   attr(schedule, "Rk") <- population$Rk
   attr(schedule, "R0") <- population$R0

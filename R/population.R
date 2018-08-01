@@ -12,7 +12,8 @@
 #' @param Linf The VB mean maximum length (cm).
 #' @param t0 The (theoretical) age at zero length (yr).
 #' @param Wb The weight (as a function of length) scaling exponent.
-#' @param Lm The length at maturity (cm).
+#' @param Lm The length at which 50\% spawning (cm).
+#' @param Sp The spawning (as a function of length) power
 #' @param tau The annual probability of a mature fish spawning.
 #' @param Km The spawning mortality probability.
 #' @param fb The fecundity (as a function of weight) scaling exponent.
@@ -38,7 +39,8 @@
 #' @examples
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
-                           Wb = 3, Lm = Linf/2, tau = 1, Km = 0, fb = 1,
+                           Wb = 3, Lm = Linf/2, Sp = 100, tau = 1, Km = 0,
+                           fb = 1,
                            tR = 1L, BH = 1L, Rk = 3, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,

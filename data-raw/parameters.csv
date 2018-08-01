@@ -5,6 +5,7 @@ Linf,Ecological,Growth,Fundamental,1,1000,0,0
 t0,Ecological,Growth,Advanced,-10,10,0,0
 Wb,Ecological,Growth,Advanced,2,4,0,0
 Lm,Ecological,Reproduction,Fundamental,1,1000,0,0
+Sp,Ecological,Reproduction,Advanced,0,1000,0,1
 tau,Ecological,Reproduction,Advanced,0.1,1,0,0
 Km,Ecological,Mortality,Advanced,0,1,0,0
 fb,Ecological,Reproduction,Advanced,0.5,2,0,0
