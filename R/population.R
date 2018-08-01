@@ -14,6 +14,7 @@
 #' @param Wb The weight (as a function of length) scaling exponent.
 #' @param Lm The length at maturity (cm).
 #' @param tau The annual probability of a mature fish spawning.
+#' @param Km The spawning mortality probability.
 #' @param fb The fecundity (as a function of weight) scaling exponent.
 #' @param tR The age from which survival is density-independent (yr).
 #' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
@@ -27,7 +28,7 @@
 #' @param Nc The slot limits non-compliance probability.
 #' @param pi The annual capture probability.
 #' @param rho The release probability.
-#' @param Hm The hooking mortality.
+#' @param Hm The hooking mortality probability.
 #' @param R0 The number of recruits at the carrying capacity (ind).
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
@@ -37,7 +38,7 @@
 #' @examples
 #' ypr_population()
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
-                           Wb = 3, Lm = Linf/2, tau = 1, fb = 1,
+                           Wb = 3, Lm = Linf/2, tau = 1, Km = 0, fb = 1,
                            tR = 1L, BH = 1L, Rk = 3, M = 0.2, Mb = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,

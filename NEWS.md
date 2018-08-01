@@ -11,7 +11,7 @@
 - Added `ypr_instant2interval()` and `ypr_interval2instant()` to convert mortality rates.
 - Switched `nu` for `M`.
 - Added `Mb` to scale mortality by length and `BH` to distinguish between Beverton-Holt and Ricker curves and
-`tau` for probability of a mature fish spawning.
+`tau` for probability of a mature fish spawning and `Km` for spawning mortality probability.
 - Added `ypr_ggplot2()` to do customisable bivariate plot.
 
 # ypr 0.0.1
