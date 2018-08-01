@@ -1,11 +1,6 @@
 #' Population Parameters
 #'
-#' Generates a list of the life-history parameters
-#' for a fish population.
-#'
-#' The default parameters are for a hypothetical population that
-#' isometrically grows to a mean maximum length of 100 cm with a k of 0.15,
-#' and both matures and becomes vulnerable to harvest at a length of 50.
+#' Generates an object of class \code{ypr_population}.
 #'
 #' @param tmax The maximum age (yr).
 #' @param k The VB growth coefficient (per yr).
@@ -34,10 +29,11 @@
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @return An object of class \code{ypr_population}.
-#' @seealso \code{\link{plot.ypr_population}} and \code{\link{ypr_population_update}}.
+#' @seealso \code{\link{ypr_population_update}}, \code{\link{ypr_schedule}},
+#' \code{\link{ypr_yield}} and \code{\link{ypr_optimize}}.
 #' @export
 #' @examples
-#' ypr_population()
+#' ypr_population(k = 0.1, Linf = 90)
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Wb = 3, Ls = Linf/2, Sp = 100, es = 1, Sm = 0,
                            fb = 1,
@@ -53,7 +49,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 
 #' Update Population Parameters
 #'
-#' Updates a list of the life-history parameters for a fish population.
+#' Updates an object of class \code{\link{ypr_population}}.
 #'
 #' @param population An object of class \code{ypr_population}
 #' @param ... One or more of the arguments from \code{ypr_population()}.

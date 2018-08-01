@@ -8,13 +8,13 @@
 ypr_optimize(population, Ly = 0, harvest = FALSE, biomass = FALSE)
 }
 \arguments{
-\item{population}{A list of population life-history parameters.}
+\item{population}{An object of class \code{\link{ypr_population}}.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield over just harvested versus harvested and released fish.}
+\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass (kg) versus number of captured individuals.}
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
 The interval annual capture probability (pi) that maximises the yield.

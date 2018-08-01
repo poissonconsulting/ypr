@@ -9,8 +9,8 @@
 chilliwack_bt_05
 }
 \description{
-A list of the estimates of the life-history parameters for
-Bull Trout in Chilliwack Lake, BC, adapted from Taylor et al (2005).
+The population parameters for
+Bull Trout in Chilliwack Lake, BC.
 }
 \examples{
 ypr_plot(chilliwack_bt_05)

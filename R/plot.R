@@ -12,9 +12,9 @@
 #' \dontrun{
 #' plot(ypr_population())
 #' }
-plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
+plot.ypr_population <- function(x, type = "b", ...) {
   check_population(x)
-  schedule <- ypr_schedule(population = x, complete = complete)
+  schedule <- ypr_schedule(x)
 
   with(schedule, {
     plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
@@ -22,6 +22,8 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
     plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
          type = type, ...)
     plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
+         type = type, ...)
+    plot(Spawning ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
          type = type, ...)
     plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
          type = type, ...)
@@ -52,7 +54,7 @@ plot.ypr_population <- function(x, complete = TRUE, type = "b", ...) {
 #' ypr_ggplot2(ypr_population())
 ypr_ggplot2 <- function(population, x = "Age", y = "Length") {
   check_population(population)
-  schedule <- ypr_schedule(population = population, complete = TRUE)
+  schedule <- ypr_schedule(population = population)
   check_scalar(x, values = colnames(schedule))
   check_scalar(y, values = colnames(schedule))
 

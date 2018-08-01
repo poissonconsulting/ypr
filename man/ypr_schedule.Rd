@@ -4,24 +4,23 @@
 \alias{ypr_schedule}
 \title{Life-History Schedule}
 \usage{
-ypr_schedule(population, complete = FALSE, check = TRUE)
+ypr_schedule(population)
 }
 \arguments{
-\item{population}{A list of population life-history parameters.}
-
-\item{complete}{A flag indicating whether to generate a complete schedule.}
-
-\item{check}{A flag indicating whether to check the arguments (internal use only).}
+\item{population}{An object of class \code{\link{ypr_population}}.}
 }
 \value{
-A tibble of the life-history schedule by age.
+A data frame (or tibble) of the life-history schedule by age.
 }
 \description{
-Generates a tibble of the life-history schedule by age for a population.
+Generates the life-history schedule by age for a population.
+}
+\details{
+If the \code{tibble} package is available it returns a tibble.
 }
 \examples{
 ypr_schedule(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{plot.ypr_population}}.
+\code{\link{ypr_population}}
 }

@@ -18,9 +18,7 @@ recruit methods (Walters and Martell 2004).
 
 The yield can be based on the number of fish caught (or harvested) or
 biomass caught (or harvested) for all fish or just large (trophy)
-individuals. The yield (and optimal capture rate) can be calculated with
-lower and upper limits that represent the uncertainty in one or more
-population parameters.
+individuals.
 
 The key life history parameters are
 
@@ -33,8 +31,9 @@ The key life history parameters are
 There are 18 additional advanced parameters and three scaling
 parameters. From more information type `?ypr_population`.
 
-The calculations do not account for environmental fluctuations,
-predator-prey dynamics, angler responses or density-dependent growth.
+The calculations do not account for parameter uncertainty, environmental
+fluctuations, predator-prey dynamics, angler responses or
+density-dependent growth.
 
 ## Demonstration
 

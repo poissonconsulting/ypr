@@ -4,21 +4,16 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE,
-  sanitize = TRUE, check = TRUE)
+ypr_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE)
 }
 \arguments{
-\item{population}{A list of population life-history parameters (or a data frame of the complete life-history schedule).}
+\item{population}{An object of class \code{\link{ypr_population}}.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield over just harvested versus harvested and released fish.}
+\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass (kg) versus number of captured individuals.}
-
-\item{sanitize}{A flag indicating whether to replace negative or NaNs with 0 (internal use only).}
-
-\item{check}{A flag indicating whether to check the arguments (internal use only).}
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
 The yield as number of fish or biomass (kg).
@@ -27,9 +22,8 @@ The yield as number of fish or biomass (kg).
 Calculates the yield for a population.
 }
 \details{
-If the yield is given in terms of the number of captured individuals then the scaling depends on the value of \code{R0}.
-By default, with \code{R0 = 1} the number is as a proportion of the recruits at the unfished equilibrium.
-If the yield is given in terms of the biomass then the scaling depends on the values of \code{Wa} and \code{R0}.
+By default, with \code{R0 = 1} the number of individuals is the proportion of the recruits at the unfished equilibrium.
+If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
 \examples{
 ypr_yield(ypr_population())

@@ -9,8 +9,10 @@
 kootenay_rb_13
 }
 \description{
-A list of the estimates of the life-history parameters for
-Rainbow Trout in Kootenay Lake, BC, adapted from Andrusak and Thorley (2013).
+The population parameters for
+Rainbow Trout in Kootenay Lake, BC.
+}
+\details{
 The estimates should not be used for management.
 }
 \examples{

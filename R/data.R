@@ -1,7 +1,7 @@
 #' Adams Lake Bull Trout Population Parameters
 #'
-#' A list of the estimates of the life-history parameters for
-#' Bull Trout in Adams Lake, BC, adapted from Bison et al (2003).
+#' The population parameters for
+#' Bull Trout in Adams Lake, BC.
 #' @references Bison, R., O’Brien, D., and Martell, S.J.D. 2003. An Analysis of Sustainable Fishing Options for Adams Lake Bull Trout Using Life History and Telemetry Data. BC Ministry of Water Land and Air Protection, Kamloops, B.C.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
@@ -10,8 +10,8 @@
 
 #' Chilliwack Lake Bull Trout Population Parameters
 #'
-#' A list of the estimates of the life-history parameters for
-#' Bull Trout in Chilliwack Lake, BC, adapted from Taylor et al (2005).
+#' The population parameters for
+#' Bull Trout in Chilliwack Lake, BC.
 #' @references Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
@@ -21,8 +21,9 @@
 
 #' Kootenay Lake Bull Trout Population Parameters (2013)
 #'
-#' A list of the estimates of the life-history parameters for
-#' Bull Trout in Kootenay Lake, BC, adapted from Andrusak and Thorley (2013).
+#' The population parameters for
+#' Bull Trout in Kootenay Lake, BC.
+#'
 #' The estimates should not be used for management.
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 #' @format An object of class \code{\link{ypr_population}}.
@@ -33,8 +34,9 @@
 
 #' Kootenay Lake Rainbow Trout Population Parameters (2013)
 #'
-#' A list of the estimates of the life-history parameters for
-#' Rainbow Trout in Kootenay Lake, BC, adapted from Andrusak and Thorley (2013).
+#' The population parameters for
+#' Rainbow Trout in Kootenay Lake, BC.
+#'
 #' The estimates should not be used for management.
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 #' @format An object of class \code{\link{ypr_population}}.
@@ -45,8 +47,9 @@
 
 #' Quesnel Lake Bull Trout Population Parameters
 #'
-#' A list of the current best estimates of the life-history parameters for
+#' The population parameters for
 #' Bull Trout in Quesnel Lake, BC.
+#'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
@@ -55,8 +58,9 @@
 
 #' Quesnel Lake Lake Trout Population Parameters
 #'
-#' A list of the current best estimates of the life-history parameters for
+#' The population parameters for
 #' Lake Trout in Quesnel Lake, BC.
+#'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
@@ -65,8 +69,9 @@
 
 #' Quesnel Lake Rainbow Trout Population Parameters
 #'
-#' A list of the current best estimates of the life-history parameters for
+#' The population parameters for
 #' Rainbow Trout in Quesnel Lake, BC.
+#'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples

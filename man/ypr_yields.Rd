@@ -5,28 +5,21 @@
 \title{Yields}
 \usage{
 ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = FALSE, biomass = FALSE, check = TRUE,
-  mc.cores = getOption("mc.cores", 2L))
+  harvest = FALSE, biomass = FALSE)
 }
 \arguments{
-\item{population}{A list of population life-history parameters.}
+\item{population}{An object of class \code{\link{ypr_population}}.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield over just harvested versus harvested and released fish.}
+\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass (kg) versus number of captured individuals.}
-
-\item{check}{A flag indicating whether to check the arguments (internal use only).}
-
-\item{mc.cores}{The number of cores to use, i.e. at most how many child processes will be run simultaneously.
-The option is initialized from environment variable MC_CORES if set.
-Must be at least one, and parallelization requires at least two cores.}
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
-A double vector of the yields.
+A numeric vector of the yields.
 }
 \description{
 Calculates the yield(s) for a population based on one or more capture rates.
@@ -36,6 +29,5 @@ pi <- seq(0, 1, length.out = 100)
 plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 }
 \seealso{
-\code{\link{ypr_population}}, \code{\link{ypr_optimize}},
-\code{\link{ypr_yield}} and \code{\link{ypr_plot}}
+\code{\link{ypr_yield}}
 }

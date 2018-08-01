@@ -1,30 +1,19 @@
-complete_schedule <- function(x) {
-  TotalMortality <- 1 - (1 - x$NaturalMortality) * (1 - x$FishingMortality)
-  x$Survivorship <- cumprod(1 - x$NaturalMortality)
-  x$Survivorship <- c(1, x$Survivorship[-nrow(x)])
-  x$FishedSurvivorship <- cumprod(1 - TotalMortality)
-  x$FishedSurvivorship <- c(1, x$FishedSurvivorship[-nrow(x)])
-  x
-}
-
 #' Life-History Schedule
 #'
-#' Generates a tibble of the life-history schedule by age for a population.
+#' Generates the life-history schedule by age for a population.
+#'
+#' If the \code{tibble} package is available it returns a tibble.
 #'
 #' @inheritParams ypr_yield
-#' @param population A list of population life-history parameters.
-#' @param complete A flag indicating whether to generate a complete schedule.
-#' @return A tibble of the life-history schedule by age.
-#' @seealso \code{\link{ypr_population}} and \code{\link{plot.ypr_population}}.
+#' @param population An object of class \code{\link{ypr_population}}.
+#' @return A data frame (or tibble) of the life-history schedule by age.
+#' @seealso \code{\link{ypr_population}}
 #' @export
 #' @examples
 #' ypr_schedule(ypr_population())
-ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
-  check_flag(check)
-  if(check) {
-    check_flag(complete)
-    check_population(population)
-  }
+ypr_schedule <- function(population) {
+  check_population(population)
+
   schedule <- with(population, {
     t <- tR:tmax
     n <- length(t)
@@ -33,7 +22,7 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     W <- Wa * L^Wb
     E <- fa * W^fb
     S <- exp(log(L/Linf) * Sp) / (exp(log(Ls/Linf) * Sp) + exp(log(L/Linf) * Sp)) * es
-    N <- ypr_instant2interval(M * L^Mb)
+    N <- ypr_inst2inter(M * L^Mb)
     N <- 1 - ((1-N) * (1 - S * Sm))
     N[n] <- 1
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
@@ -42,11 +31,17 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     R[L < Llo | L > Lup] <- 1 - Nc
     U <- C * (1 - R) + C * R * Hm
 
+    TotalMortality <- 1 - (1 - N) * (1 - U)
+    Survivorship <- cumprod(1 - N)
+    Survivorship <- c(1, Survivorship[-n])
+    FishedSurvivorship <- cumprod(1 - TotalMortality)
+    FishedSurvivorship <- c(1, FishedSurvivorship[-n])
+
     data.frame(Age = t, Length = L, Weight = W, Fecundity = E, Spawning = S,
-                   NaturalMortality = N, Vulnerability = V, Release = R,
-                   FishingMortality = U)
+               NaturalMortality = N, Vulnerability = V, Release = R,
+               FishingMortality = U, Survivorship = Survivorship,
+               FishedSurvivorship = FishedSurvivorship)
   })
-  if(complete) schedule <- complete_schedule(schedule)
 
   attr(schedule, "BH") <- population$BH
   attr(schedule, "Rk") <- population$Rk

@@ -13,24 +13,24 @@ quantiles <- function(x, level) {
 
 #' Instantaneous to Interval Mortality
 #'
-#' @param x A vector of instantaneous mortality rates.
-#' @return A vector of corresponding interval mortality rates.
+#' @param x A numeric vector of instantaneous mortality rates.
+#' @return A numeric vector of corresponding interval mortality rates.
 #' @export
 #' @examples
-#' ypr_instant2interval(c(0,0.2,3))
-ypr_instant2interval <- function(x) {
-  check_vector(x, c(0, 5))
+#' ypr_inst2inter(c(0,0.2,3))
+ypr_inst2inter <- function(x) {
+  check_vector(x, c(0, 5, NA))
   1-exp(-x)
 }
 
 #' Interval to Instantaneous Mortality
 #'
-#' @param x A vector of interval mortality rates.
-#' @return A vector of corresponding instantaneous mortality rates.
+#' @param x A numeric vector of interval mortality rates.
+#' @return A numeric vector of corresponding instantaneous mortality rates.
 #' @export
 #' @examples
-#' ypr_interval2instant(c(0,0.5,0.99,1))
-ypr_interval2instant <- function(x) {
+#' ypr_inter2inst(c(0,0.5,0.99,1))
+ypr_inter2inst <- function(x) {
   check_vector(x, c(0, 1, NA))
   x <- -log(1-x)
 }

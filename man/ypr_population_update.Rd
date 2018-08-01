@@ -15,7 +15,7 @@ ypr_population_update(population, ...)
 An object of class \code{ypr_population}.
 }
 \description{
-Updates a list of the life-history parameters for a fish population.
+Updates an object of class \code{\link{ypr_population}}.
 }
 \examples{
 ypr_population_update(ypr_population(), Rk = 2.5)

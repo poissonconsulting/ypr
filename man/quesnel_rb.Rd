@@ -9,8 +9,10 @@
 quesnel_rb
 }
 \description{
-A list of the current best estimates of the life-history parameters for
+The population parameters for
 Lake Trout in Quesnel Lake, BC.
+}
+\details{
 The estimates are liable to change and should not be used for management.
 }
 \examples{

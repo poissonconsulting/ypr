@@ -4,12 +4,10 @@
 \alias{plot.ypr_population}
 \title{Plot Population Schedule}
 \usage{
-\method{plot}{ypr_population}(x, complete = TRUE, type = "b", ...)
+\method{plot}{ypr_population}(x, type = "b", ...)
 }
 \arguments{
 \item{x}{The population to plot.}
-
-\item{complete}{A flag indicating whether to generate a complete schedule.}
 
 \item{type}{1-character string giving the type of plot desired.  The
     following values are possible, for details, see \code{\link{plot}}:
