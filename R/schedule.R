@@ -32,9 +32,9 @@ ypr_schedule <- function(population, complete = FALSE, check = TRUE) {
     L[L < 0] <- 0
     W <- Wa * L^Wb
     E <- fa * W^fb
-    S <- exp(log(L/Linf) * Sp) / (exp(log(Lm/Linf) * Sp) + exp(log(L/Linf) * Sp)) * tau
+    S <- exp(log(L/Linf) * Sp) / (exp(log(Ls/Linf) * Sp) + exp(log(L/Linf) * Sp)) * es
     N <- ypr_instant2interval(M * L^Mb)
-    N <- 1 - ((1-N) * (1 - S * Km))
+    N <- 1 - ((1-N) * (1 - S * Sm))
     N[n] <- 1
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- pi * V
