@@ -21,7 +21,8 @@ test_that(".data", {
       Order = 1:nrow(.parameters),
       Lower = c(-10, 2),
       Upper = c(1, 1000),
-      Integer = c(0L,1L)),
+      Integer = c(0L,1L),
+      Log = c(0L, 1L)),
     key = "Order", exclusive = TRUE, order = TRUE),
     .parameters)
 })
