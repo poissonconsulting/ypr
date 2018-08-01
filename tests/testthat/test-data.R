@@ -17,12 +17,11 @@ test_that(".data", {
       Parameter = "",
       Grouping = ordered(""),
       Subgrouping = ordered(""),
-      Importance = c(0L,100L),
-      Order = 1:nrow(.parameters),
+      Importance = ordered(""),
       Lower = c(-10, 2),
       Upper = c(1, 1000),
       Integer = c(0L,1L),
       Log = c(0L, 1L)),
-    key = "Order", exclusive = TRUE, order = TRUE),
+    key = "Parameter", exclusive = TRUE, order = TRUE),
     .parameters)
 })
