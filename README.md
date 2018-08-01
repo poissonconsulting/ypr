@@ -40,7 +40,7 @@ density-dependent growth.
 ``` r
 library(ypr)
 population <- ypr_population(Rk = 3)
-ypr_plot(population)
+ypr_plot_yield(population)
 ```
 
 <img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
