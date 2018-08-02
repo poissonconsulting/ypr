@@ -51,16 +51,48 @@ plot.ypr_population <- function(x, type = "b", ...) {
 #' @examples
 #' ypr_plot_schedule(ypr_population())
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
-  check_population(population)
-
   schedule <- ypr_schedule(population = population)
 
   check_scalar(x, values = colnames(schedule))
   check_scalar(y, values = colnames(schedule))
 
-  ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y)) +
-    ggplot2::geom_line() +
-    ggplot2::expand_limits(x = 0, y = 0)
+  ggplot(data = schedule, aes_string(x = x, y = y)) +
+    geom_line() +
+    expand_limits(x = 0, y = 0)
+}
+
+#' Plot Stock-Recruitment Curve
+#'
+#' @inheritParams ypr_schedule
+#' @return A ggplot2 object.
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_sr}}
+#' @export
+#' @examples
+#' ypr_plot_sr(ypr_population(Rk = 10))
+#' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
+ypr_plot_sr <- function(population) {
+  schedule <- ypr_schedule(population)
+
+  schedule <- as.list(schedule)
+  schedule$BH <- attr(schedule, "BH")
+  schedule <- c(schedule, as.list(sr(schedule)))
+
+  data <- with(schedule, {
+    data <- data.frame(Eggs = seq(0, to = sum(Fecundity * Spawning * Survivorship), length.out = 100))
+    if(BH == 1L) {
+      data$Recruits <- alpha * data$Eggs / (1 + (beta * data$Eggs))
+    } else {
+      data$Recruits <- alpha * data$Eggs * exp(-beta * data$Eggs)
+    }
+    data
+  })
+
+  ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
+    geom_line() +
+    expand_limits(x = 0, y = 0) +
+    scale_x_continuous(labels = scales::comma) +
+    scale_y_continuous(labels = scales::comma) +
+    NULL
 }
 
 #' Plot Yield by Capture
@@ -79,14 +111,14 @@ ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
                            Ly = 0, harvest = FALSE, biomass = FALSE) {
 
   yield <- ypr_yields(population, pi = pi, Ly = Ly, harvest = harvest,
-                       biomass = biomass)
+                      biomass = biomass)
 
   data <- data.frame(pi = pi, Yield = yield)
 
   actual_pi <- population$pi
 
   optimal_pi <- ypr_optimize(population, Ly = Ly, harvest = harvest,
-                           biomass = biomass)
+                             biomass = biomass)
 
   actual_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
                             biomass = biomass)
@@ -98,13 +130,12 @@ ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
                       Yield = c(0, actual_yield, 0, optimal_yield),
                       Type = c(rep("actual",2), rep("optimal", 2)))
 
- gp <- ggplot2::ggplot(data = data, ggplot2::aes_string(x = "pi", y = "Yield")) +
-    ggplot2::geom_line(data = data2, ggplot2::aes_string(group = "Type", color = "Type"), linetype = "dotted") +
-    ggplot2::geom_line() +
-    ggplot2::expand_limits(x = 0) +
-    ggplot2::scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
-    ggplot2::scale_color_manual(values = c("red", "blue")) +
-    ggplot2::ylab(if(biomass) "Yield (kg)" else "Yield (fish)") +
+  ggplot(data = data, aes_string(x = "pi", y = "Yield")) +
+    geom_line(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
+    geom_line() +
+    expand_limits(x = 0) +
+    scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
+    scale_color_manual(values = c("red", "blue")) +
+    ylab(if(biomass) "Yield (kg)" else "Yield (fish)") +
     NULL
-  gp
 }

@@ -9,3 +9,8 @@ test_that("ypr_plot_yield", {
   gp <- ypr_plot_yield(ypr_population())
   expect_is(gp, "gg")
 })
+
+test_that("ypr_plot_sr", {
+  gp <- ypr_plot_sr(ypr_population())
+  expect_is(gp, "gg")
+})

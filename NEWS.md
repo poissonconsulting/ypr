@@ -1,4 +1,4 @@
-- Added `ypr_sr()` to get stock recruitment parameters.
+- Added `ypr_sr()` to get stock recruitment parameters and `ypr_plot_sr()` to plot
 - Remove `Capture` (as covered by single value) and `TotalMortality` from schedule and added `Spawning`.
 - Switched yield parameters `harvest` and `biomass` to `FALSE` by default.
 - Added `ypr_population_update()` to update population parameters.
