@@ -13,9 +13,9 @@ sr <- function(schedule) {
   schedule$R0 <- attr(schedule, "R0")
 
   with(schedule, {
-    phi <- sum(Fecundity * Spawning * 0.5 * Survivorship)
+    phi <- sum(Fecundity * Spawning/2 * Survivorship)
 
-    phiF <- sum(Fecundity * Spawning * 0.5 * FishedSurvivorship)
+    phiF <- sum(Fecundity * Spawning/2 * FishedSurvivorship)
 
     alpha <-  Rk / phi
 
