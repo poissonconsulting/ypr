@@ -10,7 +10,8 @@ ypr_sr(population)
 \item{population}{An object of class \code{\link{ypr_population}}.}
 }
 \value{
-A named numeric vector of alpha, beta and R0F (the number of recruits at the fished equilibrium )
+A named numeric vector of alpha, beta, phi (eggs at unfished equilibrium),
+phiF (eggs at the fished equilibrium) and R0F (recruits at the fished equilibrium )
 }
 \description{
 Stock-Recruitment Parameters

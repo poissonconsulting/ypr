@@ -78,21 +78,25 @@ ypr_plot_sr <- function(population) {
   schedule <- c(schedule, as.list(sr(schedule)))
 
   data <- with(schedule, {
-    data <- data.frame(Eggs = seq(0, to = sum(Fecundity * Spawning * Survivorship), length.out = 100))
+    data <- data.frame(Eggs = seq(0, to = phi * 2, length.out = 100))
     fun <- if(BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
     data
   })
 
+  population$pi <- ypr_optimise(population)
+  optimal_sr <- ypr_sr(population)
+
   data2 <- with(schedule, {
-    data <- data.frame(Eggs = c(rep(sum(Fecundity * Spawning * Survivorship * 0.5), 3),
-                              rep(sum(Fecundity * Spawning * FishedSurvivorship * 0.5), 3)))
+    data <- data.frame(
+      Eggs = c(rep(phi, 3), rep(phiF, 3), rep(optimal_sr["phiF"], 3))
+    )
     fun <- if(BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
-    data$Recruits[c(3,6)] <- 0
-    data$Eggs[c(1,4)] <- 0
-    data$Type <- factor(c(rep("unfished", 3), rep("fished", 3)),
-                        levels = c("unfished", "fished"))
+    data$Recruits[c(3,6,9)] <- 0
+    data$Eggs[c(1,4,7)] <- 0
+    data$Type <- factor(c(rep("unfished", 3), rep("actual", 3), rep("optimal", 3)),
+                        levels = c("actual", "optimal", "unfished"))
     data
   })
 
@@ -102,7 +106,7 @@ ypr_plot_sr <- function(population) {
     expand_limits(x = 0, y = 0) +
     scale_x_continuous(labels = scales::comma) +
     scale_y_continuous(labels = scales::comma) +
-    scale_color_manual(values = c("red", "blue")) +
+    scale_color_manual(values = c("red", "blue", "black")) +
     NULL
 }
 

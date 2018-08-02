@@ -26,14 +26,15 @@ sr <- function(schedule) {
       beta <- log(Rk) / (R0 * phi)
       R0F <- log(alpha * phiF) / (beta * phiF)
     }
-    c(alpha = alpha, beta = beta, R0F = R0F)
+    c(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0F = R0F)
   })
 }
 
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams ypr_schedule
-#' @return A named numeric vector of alpha, beta and R0F (the number of recruits at the fished equilibrium )
+#' @return A named numeric vector of alpha, beta, phi (eggs at unfished equilibrium),
+#' phiF (eggs at the fished equilibrium) and R0F (recruits at the fished equilibrium )
 #' @export
 #' @examples
 #' ypr_sr(ypr_population()) # Beverton-Holt
