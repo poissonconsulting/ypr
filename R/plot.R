@@ -97,7 +97,7 @@ ypr_plot_sr <- function(population) {
   })
 
   ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
-    geom_line(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
+    geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
     geom_line() +
     expand_limits(x = 0, y = 0) +
     scale_x_continuous(labels = scales::comma) +
@@ -137,12 +137,12 @@ ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
   optimal_yield <- ypr_yields(population, pi = optimal_pi, Ly = Ly, harvest = harvest,
                               biomass = biomass)
 
-  data2 <- data.frame(pi = c(rep(actual_pi,2), rep(optimal_pi, 2)),
-                      Yield = c(0, actual_yield, 0, optimal_yield),
-                      Type = c(rep("actual",2), rep("optimal", 2)))
+  data2 <- data.frame(pi = c(rep(actual_pi, 2), 0, rep(optimal_pi, 2), 0),
+                      Yield = c(0, rep(actual_yield, 2), 0, rep(optimal_yield, 2)),
+                      Type = c(rep("actual",3), rep("optimal", 3)))
 
   ggplot(data = data, aes_string(x = "pi", y = "Yield")) +
-    geom_line(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
+    geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
     geom_line() +
     expand_limits(x = 0) +
     scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
