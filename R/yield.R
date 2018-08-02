@@ -1,25 +1,9 @@
 yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
   schedule <- as.list(schedule)
-  schedule$BH <- attr(schedule, "BH")
-  schedule$Rk <- attr(schedule, "Rk")
-  schedule$R0 <- attr(schedule, "R0")
   schedule$pi <- attr(schedule, "pi")
+  schedule <- c(schedule, as.list(sr(schedule)))
 
   with(schedule, {
-    phi <- sum(Fecundity * Spawning * 0.5 * Survivorship)
-
-    phiF <- sum(Fecundity * Spawning * 0.5 * FishedSurvivorship)
-
-    alpha <-  Rk / phi
-
-    if(BH) {
-      beta <- (Rk - 1) / (R0 * phi)
-      R0F <- (alpha * phiF - 1) / (beta * phiF)
-    } else {
-      beta <- log(Rk) / (R0 * phi)
-      R0F <- log(alpha * phiF) / (beta * phiF)
-    }
-
     yield <- R0F * FishedSurvivorship * Vulnerability * pi
     if(harvest) yield <- yield * (1 - Release)
     if(biomass)
