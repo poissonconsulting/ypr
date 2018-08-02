@@ -1,3 +1,11 @@
+bh <- function(stock, alpha, beta) {
+   alpha * stock / (1 + (beta * stock))
+}
+
+ri <- function(stock, alpha, beta) {
+  alpha * stock * exp(-beta * stock)
+}
+
 sr <- function(schedule) {
   schedule <- as.list(schedule)
   schedule$BH <- attr(schedule, "BH")
