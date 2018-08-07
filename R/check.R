@@ -59,3 +59,23 @@ check_yield_parameters <- function(population, Ly, harvest, biomass) {
   check_flag(harvest)
   population
 }
+
+check_tabulated_yield <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+  x_name <- deparse(x_name)
+
+  check_data(
+    x,
+    values = list(Type = c("actual", "actual", "optimal"),
+                  pi = c(0, 1),
+                  Yield = c(0, .Machine$double.xmax)),
+    nrow = 2L,
+    exclusive = exclusive,
+    order = order,
+    x_name = x_name)
+
+  check_attributes(x, values = list(Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE))
+
+  x
+}

@@ -125,25 +125,17 @@ ypr_plot_sr <- function(population) {
 ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
                            Ly = 0, harvest = FALSE, biomass = FALSE) {
 
-  yield <- ypr_yields(population, pi = pi, Ly = Ly, harvest = harvest,
+  yields <- ypr_yields(population, pi = pi, Ly = Ly, harvest = harvest,
                       biomass = biomass)
 
-  data <- data.frame(pi = pi, Yield = yield)
+  data <- data.frame(pi = pi, Yield = yields)
 
-  actual_pi <- population$pi
+  data2 <- ypr_tabulate_yield(population, Ly = Ly, harvest = harvest, biomass = biomass)
 
-  optimal_pi <- ypr_optimize(population, Ly = Ly, harvest = harvest,
-                             biomass = biomass)
+  data2 <- rbind(data2, data2, data2, stringsAsFactors = FALSE)
 
-  actual_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
-                            biomass = biomass)
-
-  optimal_yield <- ypr_yields(population, pi = optimal_pi, Ly = Ly, harvest = harvest,
-                              biomass = biomass)
-
-  data2 <- data.frame(pi = c(rep(actual_pi, 2), 0, rep(optimal_pi, 2), 0),
-                      Yield = c(0, rep(actual_yield, 2), 0, rep(optimal_yield, 2)),
-                      Type = c(rep("actual",3), rep("optimal", 3)))
+  data2$pi[5:6] <- 0
+  data2$Yield[1:2] <- 0
 
   ggplot(data = data, aes_string(x = "pi", y = "Yield")) +
     geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
