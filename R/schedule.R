@@ -24,7 +24,6 @@ ypr_schedule <- function(population) {
     S <- exp(log(L/Linf) * Sp) / (exp(log(Ls/Linf) * Sp) + exp(log(L/Linf) * Sp)) * es
     N <- ypr_inst2inter(M * L^Mb)
     N <- 1 - ((1-N) * (1 - S * Sm))
-    N[n] <- 1
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- pi * V
     R <- rep(rho, n)

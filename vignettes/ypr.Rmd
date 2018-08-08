@@ -31,7 +31,7 @@ Equilibrium based yield per recruit methods estimate the capture rate that optim
 
 ### Length
 
-In `ypr` length (in cm) at age ($t$) is assumed to follow a Von Bertalanffy growth curve of the form
+In `ypr` length (in cm) at age ($t$) is assumed to follow a Von Bertalanffy growth curve
 
 $$L = L_{\infty} \cdot (1 - \exp(-k \cdot (t-t_0)))$$
 
@@ -88,7 +88,7 @@ The annual interval natural mortality rate is assumed to vary by length accordin
 
 $$ N = 1 - exp(-M \cdot L^{M_\beta})$$
 ```{r, fig.width=4}
-population <- ypr_population_update(population, M = 0.2, Mb = -0.75)
+population <- ypr_population_update(population, M = 0.2, Mb = -0.5)
 ypr_plot_schedule(population, "Length", "NaturalMortality")
 ```
 and can include spawning mortality
@@ -105,15 +105,12 @@ The vulnerability to capture (V) is assumed to vary by length as follows
 $$V = \frac{L^{V_p}}{L_v^{V_p} + L^{V_p}}$$
 
 ```{r, fig.width=4}
-population <- ypr_population_update(population, Lv = 50, Vp = 10)
+population <- ypr_population_update(population, Lv = 50, Vp = 100)
 ypr_plot_schedule(population, "Length", "Vulnerability")
 ```
 
 while the probabilty of release (R) depends on the release rate, the slot limits and the non-compliance with the limits
 
-    R <- rep(rho, n)
-    R[L < Llo | L > Lup] <- 1 - Nc
-    
 ```{r, fig.width=4}
 population <- ypr_population_update(population, rho = 0.5, Llo = 40, Lup = 70, Nc = 0.1)
 ypr_plot_schedule(population, "Length", "Release")
