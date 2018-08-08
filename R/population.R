@@ -60,7 +60,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #' ypr_population_update(ypr_population(), Rk = 2.5)
 ypr_population_update <- function(population, ...) {
   check_population(population)
-  parameters <- eval(substitute(alist(...)))
+  parameters <- list(...)
   population[names(parameters)] <- unname(parameters)
   check_population(population)
 }

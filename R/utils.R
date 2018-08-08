@@ -19,7 +19,7 @@ quantiles <- function(x, level) {
 #' @examples
 #' ypr_inst2inter(c(0,0.2,3))
 ypr_inst2inter <- function(x) {
-  check_vector(x, c(0, 5, NA))
+  check_vector(x, c(0, Inf, NA))
   1-exp(-x)
 }
 

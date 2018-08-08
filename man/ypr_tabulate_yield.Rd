@@ -4,7 +4,8 @@
 \alias{ypr_tabulate_yield}
 \title{Tabulate Yield}
 \usage{
-ypr_tabulate_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE)
+ypr_tabulate_yield(population, Ly = 0, harvest = FALSE,
+  biomass = FALSE)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}

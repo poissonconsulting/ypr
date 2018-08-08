@@ -6,11 +6,11 @@
 \alias{ypr-package}
 \title{ypr: Yield Per Recruit}
 \description{
-An implementation of equilibrium-based
-yield per recruit methods.
-The yield can be based on the number of fish caught (or harvested) or
-biomass caught (or harvested) for
-all fish or just large (trophy) individuals.
+An implementation of equilibrium-based 
+    yield per recruit methods.
+    The yield can be based on the number of fish caught (or harvested) or 
+    biomass caught (or harvested) for 
+    all fish or just large (trophy) individuals.
 }
 \seealso{
 Useful links:
