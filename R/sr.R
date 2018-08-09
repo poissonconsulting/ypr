@@ -20,10 +20,10 @@ sr <- function(schedule) {
     alpha <-  Rk / phi
 
     if(BH) {
-      beta <- (Rk - 1) / (R0 * phi)
+      beta <- (alpha * phi - 1) / (R0 * phi)
       R0F <- (alpha * phiF - 1) / (beta * phiF)
     } else {
-      beta <- log(Rk) / (R0 * phi)
+      beta <- log(alpha * phi) / (R0 * phi)
       R0F <- log(alpha * phiF) / (beta * phiF)
     }
     c(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0F = R0F)
