@@ -32,7 +32,7 @@ check_schedule <- function(x, exclusive = FALSE, order = FALSE, x_name = substit
                   Spawning = c(0, 1),
                   NaturalMortality = c(0, 1),
                   Vulnerability = c(0, 1),
-                  Release = c(0, 1),
+                  Retention = c(0, 1),
                   FishingMortality = c(0, 1),
                   Survivorship = c(0, 1),
                   FishedSurvivorship = c(0, 1)),

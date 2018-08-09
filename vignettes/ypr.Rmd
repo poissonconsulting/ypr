@@ -35,7 +35,7 @@ In `ypr` length (in cm) at age ($t$) is assumed to follow a Von Bertalanffy grow
 
 $$L = L_{\infty} \cdot (1 - \exp(-k \cdot (t-t_0)))$$
 
-```{r, fig.width=4}
+```{r}
 library(ypr)
 population <- ypr_population(Linf = 100, k = 0.2, t0 = 0)
 ypr_plot_schedule(population, "Age", "Length")
@@ -47,7 +47,7 @@ The weight in ($W$) at a given length is assumed to follow the classic allometri
 
 $$W = w_\alpha \cdot L^{w_\beta}$$
 
-```{r, fig.width=4}
+```{r}
 population <- ypr_population_update(population, Wa = 0.01, Wb = 3)
 ypr_plot_schedule(population, "Length", "Weight")
 ```
@@ -62,7 +62,7 @@ The fecundity ($F$) is assumed to scale allometrically with the weight according
 
 $$F = f_\alpha \cdot W^{f_\beta}$$
 
-```{r, fig.width=4}
+```{r}
 population <- ypr_population_update(population, fa = 1, fb = 1)
 ypr_plot_schedule(population, "Weight", "Fecundity")
 ```
@@ -75,44 +75,98 @@ The probability of spawning at length $L$ is determined by the equation
 
 $$S = \frac{L^{S_p}}{L_s^{S_p} + L^{S_p}} \cdot es$$
 
-```{r, fig.width=4}
+```{r}
 population <- ypr_population_update(population, Ls = 50, Sp = 10, es = 0.8)
 ypr_plot_schedule(population, "Length", "Spawning")
 ```
 
-### Mortality
+## Death
 
 ### Natural Mortality
 
 The annual interval natural mortality rate is assumed to vary by length according to the equation
 
 $$ N = 1 - exp(-M \cdot L^{M_\beta})$$
-```{r, fig.width=4}
+```{r}
 population <- ypr_population_update(population, M = 0.2, Mb = -0.5)
 ypr_plot_schedule(population, "Length", "NaturalMortality")
 ```
-and can include spawning mortality
 
-```{r, fig.width=4}
+where $M$ is the annual instantaneous natural mortality rate.
+
+The natural mortality rate can also be affected by spawning mortality
+
+```{r}
 population <- ypr_population_update(population, Sm = 0.5)
 ypr_plot_schedule(population, "Length", "NaturalMortality")
 ```
 
 ### Fishing Mortality
 
-The vulnerability to capture (V) is assumed to vary by length as follows
+The vulnerability to capture ($V$) is assumed to vary by length as follows
 
 $$V = \frac{L^{V_p}}{L_v^{V_p} + L^{V_p}}$$
 
-```{r, fig.width=4}
+```{r}
 population <- ypr_population_update(population, Lv = 50, Vp = 100)
 ypr_plot_schedule(population, "Length", "Vulnerability")
 ```
 
-while the probabilty of release (R) depends on the release rate, the slot limits and the non-compliance with the limits
+while the probabilty of being retained if captured ($R$) depends on the release rate ($\rho$), the slot limits ($L_{lo}$ and $L_{up}$) and the non-compliance with the limits ($N_c$)
 
-```{r, fig.width=4}
+```{r}
 population <- ypr_population_update(population, rho = 0.5, Llo = 40, Lup = 70, Nc = 0.1)
-ypr_plot_schedule(population, "Length", "Release")
+ypr_plot_schedule(population, "Length", "Retention")
 ```
 
+The fishing mortality depends on $V$, $R$ and the probability of capture when fully vulnerable ($pi$) as well as the hooking mortality ($H_m$)
+
+```{r}
+population <- ypr_population_update(population, pi = 0.3, Hm = 0.2)
+ypr_plot_schedule(population, "Length", "FishingMortality")
+```
+
+## Recruitment
+
+With growth, reproduction and death defined, the final task is to estimate the recruitment (birth) rate.
+
+This requires the number of spawners per spawner at low density ($R_k$), the recruitment age ($R_t$) and whether the stock-recruitment follows a Beverton-Holt ($BH = 1$)
+
+$$R = \alpha \cdot S / (1 + \beta \cdot S)$$
+
+or Ricker ($BH = 0$) curve
+
+$$R = \alpha \cdot S \cdot \exp (-\beta \cdot S)$$
+ to be defined. 
+The number of recruits at the unfished equilibrium ($R_0$) can also be defined although this is a scaling constant that only affects the estimate of the yield.
+
+Before calculating the recruitment it is important to introduce the concept of the (unfished) survivorship ($lx_a$) which is the probability of a recruit surviving to age $a$ in the absence of fish mortality.
+
+```{r}
+ypr_plot_schedule(population, "Age", "Survivorship")
+```
+
+The number of eggs deposited per (unfished) recruit ($\phi$) is just
+
+$$\phi = \sum_{i = R_t}^\infty lx_a \cdot F \cdot S$$
+
+while the fished equivalent is denoted $\phi_F$.
+
+By definition 
+$$\alpha = \frac{R_k}{\phi}$$
+
+The next task is to estimate $\beta$. using
+
+$$ \beta = \frac{R_k - 1}{R_0 \cdot \phi}$$ (Beverton-Holt)
+
+$$ \beta = \frac{\log(R_k)}{R_0 \cdot \phi}$$ (Ricker).
+
+The number of recruits at the fished equilibrium ($R_{0F}$) is then given by
+
+$$R_{0F} = \frac{\alpha \cdot \phi_F - 1}{\beta \cdot \phi_F}$$ (Beverton-Holt) 
+
+$$R_{0F} = \frac{\log(\alpha - \phi_F)}{\beta \cdot \phi_F}$$ (Ricker)
+
+With the number of recruits at the fished equilibrium defined calculation of the yield is straightforward.
+
+## References 

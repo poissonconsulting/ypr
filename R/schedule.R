@@ -26,9 +26,9 @@ ypr_schedule <- function(population) {
     N <- 1 - ((1-N) * (1 - S * Sm))
     V <- exp(log(L/Linf) * Vp) / (exp(log(Lv/Linf) * Vp) + exp(log(L/Linf) * Vp))
     C <- pi * V
-    R <- rep(rho, n)
-    R[L < Llo | L > Lup] <- 1 - Nc
-    U <- C * (1 - R) + C * R * Hm
+    R <- rep(1 - rho, n)
+    R[L < Llo | L > Lup] <- Nc
+    U <- C * R + C * (1 - R) * Hm
 
     TotalMortality <- 1 - (1 - N) * (1 - U)
     Survivorship <- cumprod(1 - N)
@@ -37,7 +37,7 @@ ypr_schedule <- function(population) {
     FishedSurvivorship <- c(1, FishedSurvivorship[-n])
 
     data.frame(Age = t, Length = L, Weight = W, Fecundity = E, Spawning = S,
-               NaturalMortality = N, Vulnerability = V, Release = R,
+               NaturalMortality = N, Vulnerability = V, Retention = R,
                FishingMortality = U, Survivorship = Survivorship,
                FishedSurvivorship = FishedSurvivorship)
   })

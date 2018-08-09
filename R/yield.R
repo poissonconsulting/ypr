@@ -5,7 +5,7 @@ yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
 
   with(schedule, {
     yield <- R0F * FishedSurvivorship * Vulnerability * pi
-    if(harvest) yield <- yield * (1 - Release)
+    if(harvest) yield <- yield * Retention
     if(biomass)
       yield <- yield * Weight / 1000
     yield <- yield[Length >= Ly]
