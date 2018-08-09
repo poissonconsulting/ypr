@@ -26,7 +26,7 @@ sr <- function(schedule) {
       beta <- log(alpha * phi) / (R0 * phi)
       R0F <- log(alpha * phiF) / (beta * phiF)
     }
-    c(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0F = R0F)
+    list(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0F = R0F)
   })
 }
 

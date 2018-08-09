@@ -76,7 +76,7 @@ ypr_plot_sr <- function(population) {
   schedule <- as.list(schedule)
   schedule$BH <- attr(schedule, "BH")
   schedule$R0 <- attr(schedule, "R0")
-  schedule <- c(schedule, as.list(sr(schedule)))
+  schedule <- c(schedule, sr(schedule))
 
   data <- with(schedule, {
     data <- data.frame(Eggs = seq(0, to = phi * R0 * 2, length.out = 100))
@@ -90,7 +90,7 @@ ypr_plot_sr <- function(population) {
 
   data2 <- with(schedule, {
     data <- data.frame(
-      Eggs = c(phi * R0, phiF * R0F, optimal_sr["phiF"] * optimal_sr["R0F"])
+      Eggs = c(phi * R0, phiF * R0F, optimal_sr$phiF * optimal_sr$R0F)
     )
     fun <- if(BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)

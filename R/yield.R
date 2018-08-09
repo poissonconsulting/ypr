@@ -1,7 +1,7 @@
 yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
   schedule <- as.list(schedule)
   schedule$pi <- attr(schedule, "pi")
-  schedule <- c(schedule, as.list(sr(schedule)))
+  schedule <- c(schedule, sr(schedule))
 
   with(schedule, {
     yield <- R0F * FishedSurvivorship * Vulnerability * pi
