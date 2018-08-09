@@ -2,6 +2,7 @@
 #'
 #' @inheritParams ypr_schedule
 #' @return A table of population parameters
+#' @seealso \code{\link{ypr_population}}
 #' @export
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
@@ -9,8 +10,8 @@ ypr_tabulate_parameters <- function(population) {
   check_population(population)
 
   parameters <- data.frame(Parameter = names(population),
-                     Value = unname(unlist(population)),
-                     stringsAsFactors = FALSE)
+                           Value = unname(unlist(population)),
+                           stringsAsFactors = FALSE)
 
   pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
   rd <- tools::Rd_db("ypr")$ypr_population.Rd
@@ -27,6 +28,34 @@ ypr_tabulate_parameters <- function(population) {
   if(requireNamespace("tibble", quietly = TRUE))
     parameters <- tibble::as_tibble(parameters)
   parameters
+}
+
+#' Import Parameters
+#'
+#' @param x A data frame with columns Parameter and Value specifying
+#' one or more parameters and their values.
+#' @return An object of class \code{\link{ypr_population}}
+#' @seealso \code{\link{ypr_population}}
+#' @export
+#' @examples
+#' ypr_import_parameters(ypr_tabulate_parameters(ypr_population()))
+ypr_import_parameters <- function(x) {
+  check_data(
+    x,
+    values = list(Parameter = .parameters$Parameter,
+                  Value = c(min(.parameters$Lower), max(.parameters$Upper))),
+    key = "Parameter")
+
+  x <- merge(x, .parameters[c("Parameter", "Integer")], by = "Parameter", sort = FALSE)
+
+  parameters <- as.list(x$Value)
+  names(parameters) <- x$Parameter
+
+  parameters <- mapply(function(x, y) if(y == 1) as.integer(x) else x,
+                       parameters, x$Integer, SIMPLIFY = FALSE)
+
+  population <- do.call("ypr_population", parameters)
+  population
 }
 
 #' Stock-Recruitment Parameters

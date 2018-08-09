@@ -1,4 +1,4 @@
-- Added `ypr_tabulate_parameters()` to get table of parameters, values and descriptions.
+- Added `ypr_tabulate_parameters()` to get table of parameters, values and descriptions and `ypr_import_parameters()` to convert back to a population object.
 - Added `ypr_tabulate_sr()` to get table of eggs and recruits at unfished, actual and optimal rates.
 
 # ypr 0.1.0

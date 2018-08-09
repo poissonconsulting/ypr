@@ -10,4 +10,6 @@ test_that("ypr_tabulate_yield", {
   parameters <- ypr_tabulate_parameters(ypr_population())
   expect_identical(parameters$Description[1], "The maximum age (yr).")
   expect_identical(check_tabulated_parameters(parameters), parameters)
+  expect_identical(ypr_import_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
+                   ypr_population(BH = 1L))
 })

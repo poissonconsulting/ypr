@@ -115,6 +115,5 @@ check_tabulated_parameters <- function(x, exclusive = FALSE, order = FALSE, x_na
     x_name = x_name,
     nrow = nrow(.parameters),
     key = "Parameter")
-
   x
 }

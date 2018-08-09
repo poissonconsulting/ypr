@@ -18,3 +18,6 @@ Population Parameters
 \examples{
 ypr_tabulate_parameters(ypr_population())
 }
+\seealso{
+\code{\link{ypr_population}}
+}
