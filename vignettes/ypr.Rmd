@@ -157,7 +157,7 @@ population <- ypr_population_update(population, BH = 0L)
 ypr_plot_sr(population, plot_values = FALSE)
 ```
 
-The number of recruits at the unfished equilibrium ($R_0$) is a scaling constant that only affects the estimate of the yield.
+The number of recruits at the carrying capacity ($R_\text{max}$) is a scaling constant that only affects the estimate of the yield.
 
 Before calculating the recruitment it is important to introduce the concept of the (unfished) survivorship ($lx_a$) which is the probability of a recruit surviving to age $a$ in the absence of fish mortality.
 
@@ -184,7 +184,7 @@ The fished equivalent is denoted $\phi_F$.
 By definition 
 $$\alpha = \frac{R_k}{\phi}$$
 
-The value of $\beta$ for the Beverton-Holt curve can be found by rearranging the formula as follows
+The value of $\beta$ for the Beverton-Holt curve can be found by rearranging the following formula where $R_0$ is the number of recruits at the unfished equilibrium.
 
 $$R_0 = \frac{\alpha \cdot \phi \cdot R_0}{\beta \cdot \phi \cdot R_0 + 1}$$
 
@@ -219,6 +219,14 @@ $$\beta \cdot \phi_F \cdot R_{0F} = \log(\alpha \cdot \phi_F)$$
 
 $$R_{0F} = \frac{\log(\alpha \cdot \phi_F)}{\beta \cdot \phi_F}$$
 
+Finally the estimates are rescaled so that the carrying capacity is identical to $R_\text{max}$ through the following transformations
+
+$$    \beta = \beta \cdot \kappa / R_\text{max} $$
+$$    R_0 = R_0 / \kappa \cdot R_\text{max} $$
+$$    R_{0F} = R_{0F} / \kappa \cdot R_\text{max} $$
+
+where $\kappa$, which is the carrying capacity in the original scale, is $\alpha/\beta$ for the Beverton-Holt and $\alpha/(\beta \cdot e)$ for the Ricker curve.
+
 ## Yield
 
 When the yield is simply the number of fish caught (irrespective of the weight or whether or not its harvested) then it is given by
@@ -236,7 +244,7 @@ $$Y = \sum_{a = R_t}^{t_\text{max}} R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdo
 and if only trophy fish are to be considered then its
 
 $$Y = \sum_{a = R_t}^{t_\text{max}} \text{if}(La < L_y)\ 0\ \text{else}\ R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000$$
-where $L_y$ is the minimun length of a trophy fish.
+where $L_y$ is the minimum length of a trophy fish.
 
 ```{r}
 ypr_plot_yield(population, harvest = TRUE, biomass = TRUE, Ly = 60)

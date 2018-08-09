@@ -6,12 +6,12 @@ t0,Ecological,Growth,Advanced,-10,10,0,0
 Wb,Ecological,Growth,Advanced,2,4,0,0
 Ls,Ecological,Reproduction,Fundamental,1,1000,0,0
 Sp,Ecological,Reproduction,Advanced,0,1000,0,1
-es,Ecological,Reproduction,Advanced,0.1,1,0,0
+es,Ecological,Reproduction,Advanced,0.01,1,0,0
 Sm,Ecological,Mortality,Advanced,0,1,0,0
 fb,Ecological,Reproduction,Advanced,0.5,2,0,0
 tR,Ecological,Reproduction,Advanced,0,10,1,0
 BH,Ecological,Reproduction,Advanced,0,1,1,0
-Rk,Ecological,Reproduction,Fundamental,2,30,0,1
+Rk,Ecological,Reproduction,Fundamental,2,100,0,1
 M,Ecological,Mortality,Fundamental,0.01,3,0,0
 Mb,Ecological,Mortality,Advanced,-1,1,0,0
 Lv,Fishery,Mortality,Fundamental,1,1000,0,0
