@@ -2,11 +2,9 @@ Package: ypr
 Version: 0.1.0
 Date: 2018-08-09
 Title: Yield Per Recruit
-Description: An implementation of equilibrium-based 
-    yield per recruit methods.
+Description: An implementation of equilibrium-based yield per recruit methods.
     The yield can be based on the number of fish caught (or harvested) or 
-    biomass caught (or harvested) for 
-    all fish or just large (trophy) individuals.
+    biomass caught for all fish or just large (trophy) individuals.
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", 
     role = c("aut", "cre"))
 License: MIT + file LICENSE
