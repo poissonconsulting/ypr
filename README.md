@@ -17,8 +17,7 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 recruit methods (Walters and Martell 2004).
 
 The yield can be based on the number of fish caught (or harvested) or
-biomass caught (or harvested) for all fish or just large (trophy)
-individuals.
+biomass for all fish or just large (trophy) individuals.
 
 The key life history parameters are
 
@@ -28,8 +27,9 @@ The key life history parameters are
   - The length at which 50% vulnerable to harvest (`Lv`)
   - The number of spawners per spawner at low density (`Rk`)
 
-There are 18 additional advanced parameters and three scaling
-parameters. From more information type `?ypr_population`.
+For definitions of all 26 possible parameters see the help for
+`ypr_population()`. For an explanation of the calculations see the
+vignette `ypr`.
 
 The calculations do not account for parameter uncertainty, environmental
 fluctuations, predator-prey dynamics, angler responses or
@@ -43,7 +43,7 @@ population <- ypr_population(Rk = 10)
 ypr_plot_yield(population)
 ```
 
-<img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
+![](man/figures/README-unnamed-chunk-1-1.png)<!-- -->
 
 ``` r
 ypr_tabulate_yield(population)

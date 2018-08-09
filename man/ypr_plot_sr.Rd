@@ -4,10 +4,19 @@
 \alias{ypr_plot_sr}
 \title{Plot Stock-Recruitment Curve}
 \usage{
-ypr_plot_sr(population)
+ypr_plot_sr(population, Ly = 0, harvest = FALSE, biomass = FALSE,
+  plot_values = TRUE)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}
+
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+
+\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
+
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+
+\item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
 }
 \value{
 A ggplot2 object.

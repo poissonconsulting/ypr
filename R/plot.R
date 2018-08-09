@@ -64,13 +64,16 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' Plot Stock-Recruitment Curve
 #'
 #' @inheritParams ypr_schedule
+#' @inheritParams ypr_yield
+#' @param plot_values A flag indicating whether to plot the actual and optimal values.
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_sr}}
 #' @export
 #' @examples
 #' ypr_plot_sr(ypr_population(Rk = 10))
 #' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
-ypr_plot_sr <- function(population) {
+ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE) {
+  check_flag(plot_values)
   schedule <- ypr_schedule(population)
 
   schedule <- as.list(schedule)
@@ -85,7 +88,7 @@ ypr_plot_sr <- function(population) {
     data
   })
 
-  population$pi <- ypr_optimise(population)
+  population$pi <- ypr_optimise(population, Ly = Ly, harvest = harvest, biomass = biomass)
   optimal_sr <- ypr_sr(population)
 
   data2 <- with(schedule, {
@@ -103,7 +106,11 @@ ypr_plot_sr <- function(population) {
   })
 
   ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
-    geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
+    (
+      if(plot_values)
+        geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
+      else NULL
+    ) +
     geom_line() +
     expand_limits(x = 0, y = 0) +
     scale_x_continuous(labels = scales::comma) +
@@ -119,16 +126,17 @@ ypr_plot_sr <- function(population) {
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
+#' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
 ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
-                           Ly = 0, harvest = FALSE, biomass = FALSE) {
+                           Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE) {
 
   yields <- ypr_yields(population, pi = pi, Ly = Ly, harvest = harvest,
-                      biomass = biomass)
+                       biomass = biomass)
 
   data <- data.frame(pi = pi, Yield = yields)
 
@@ -140,7 +148,11 @@ ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
   data2$Yield[1:2] <- 0
 
   ggplot(data = data, aes_string(x = "pi", y = "Yield")) +
-    geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted") +
+    (
+      if(plot_values)
+        geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
+      else NULL
+    ) +
     geom_line() +
     expand_limits(x = 0) +
     scale_x_continuous("Capture Probability (%)", labels = scales::percent) +

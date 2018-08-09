@@ -87,7 +87,7 @@ ypr_plot_schedule(population, "Length", "Spawning")
 
 The annual interval natural mortality rate is assumed to vary by length according to the equation
 
-$$ N = 1 - exp(-M \cdot L^{M_\beta})$$
+$$ N = 1 - \exp(-M \cdot L^{M_\beta})$$
 ```{r}
 population <- ypr_population_update(population, M = 0.2, Mb = -0.5)
 ypr_plot_schedule(population, "Length", "NaturalMortality")
@@ -137,17 +137,27 @@ ypr_plot_schedule(population, "Length", "FishingMortality")
 
 With growth, reproduction and death defined, the final task is to estimate the recruitment (birth) rate.
 
-This requires the number of spawners per spawner at low density ($R_k$) and the recruitment age ($R_t$; by default 1) to be defined as well as the form of the stock-recruitment curve.
+This requires the number of spawners per spawner at low density ($R_k$) and the recruitment age ($R_t$; by default 1) to be defined.
 
 If recruitment follows a Beverton-Holt ($BH = 1$) curve then
 
 $$R = \alpha \cdot S / (\beta \cdot S + 1)$$
 
+```{r}
+population <- ypr_population_update(population, Rk = 3)
+ypr_plot_sr(population, plot_values = FALSE)
+```
+
 otherwise with a Ricker curver ($BH = 0$)
 
 $$R = \alpha \cdot S \cdot \exp (-\beta \cdot S)$$
 
-The number of recruits at the unfished equilibrium ($R_0$) can also be defined although this is a scaling constant that only affects the estimate of the yield.
+```{r}
+population <- ypr_population_update(population, BH = 0L)
+ypr_plot_sr(population, plot_values = FALSE)
+```
+
+The number of recruits at the unfished equilibrium ($R_0$) is a scaling constant that only affects the estimate of the yield.
 
 Before calculating the recruitment it is important to introduce the concept of the (unfished) survivorship ($lx_a$) which is the probability of a recruit surviving to age $a$ in the absence of fish mortality.
 
@@ -158,7 +168,9 @@ ypr_plot_schedule(population, "Age", "Survivorship")
 The unfished survivorship ($lx_a$) is defined recursively by
 
 $$lx_{R_t} = 1, lx_a = lx_{a-1} \cdot (1-N_{a-1}) \;\text{for}\; a > R_t$$
-where $N_a$ is the annual interval natural mortality at age $a$ and the fished survivorship ($lx_a^F$) by
+where $N_a$ is the annual interval natural mortality at age $a$.
+
+And the fished survivorship ($lx_a^F$) is
 
 $$lx_{R_t}^F = 1, lx_a^F = lx_{a-1}^F \cdot (1 - (1 - N_{a-1}) \cdot (1 - U_{a-1})) \;\text{for}\; a > R_t$$
 
@@ -190,7 +202,7 @@ $$\beta \cdot \phi \cdot R_0 = \log(\alpha \cdot \phi)$$
 
 $$\beta = \frac{\log(\alpha \cdot \phi)}{\phi \cdot R_0}$$
 
-The number of recruits at the fished equilibrium ($R_{0F}$) can then be found for the Ricker curve as follows
+The number of recruits at the fished equilibrium ($R_{0F}$) can then be found for the Beverton-Holt curve as follows
 
 $$R_{0F} = \frac{\alpha \cdot \phi_F \cdot R_{0F}}{\beta \cdot \phi_F \cdot R_{0F} + 1}$$
 
@@ -224,6 +236,7 @@ $$Y = \sum_{a = R_t}^{t_\text{max}} R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdo
 and if only trophy fish are to be considered then its
 
 $$Y = \sum_{a = R_t}^{t_\text{max}} \text{if}(La < L_y)\ 0\ \text{else}\ R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000$$
+where $L_y$ is the minimun length of a trophy fish.
 
 ```{r}
 ypr_plot_yield(population, harvest = TRUE, biomass = TRUE, Ly = 60)
