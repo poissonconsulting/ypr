@@ -75,10 +75,13 @@ ypr_plot_sr <- function(population) {
 
   schedule <- as.list(schedule)
   schedule$BH <- attr(schedule, "BH")
+  schedule$R0 <- attr(schedule, "R0")
   schedule <- c(schedule, as.list(sr(schedule)))
 
+  print(schedule)
+
   data <- with(schedule, {
-    data <- data.frame(Eggs = seq(0, to = phi * 2, length.out = 100))
+    data <- data.frame(Eggs = seq(0, to = phi * R0 * 2, length.out = 100))
     fun <- if(BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
     data
@@ -89,14 +92,15 @@ ypr_plot_sr <- function(population) {
 
   data2 <- with(schedule, {
     data <- data.frame(
-      Eggs = c(rep(phi, 3), rep(phiF, 3), rep(optimal_sr["phiF"], 3))
+      Eggs = c(phi * R0, phiF * R0F, optimal_sr["phiF"] * optimal_sr["R0F"])
     )
     fun <- if(BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
-    data$Recruits[c(3,6,9)] <- 0
-    data$Eggs[c(1,4,7)] <- 0
-    data$Type <- factor(c(rep("unfished", 3), rep("actual", 3), rep("optimal", 3)),
+    data$Type <- factor(c("unfished", "actual", "optimal"),
                         levels = c("actual", "optimal", "unfished"))
+    data <- rbind(data, data, data)
+    data$Recruits[1:3] <- 0
+    data$Eggs[7:9] <- 0
     data
   })
 
