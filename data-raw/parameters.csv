@@ -22,6 +22,6 @@ Nc,Fishery,Mortality,Advanced,0,1,0,0
 pi,Fishery,Mortality,Advanced,0,1,0,0
 rho,Fishery,Mortality,Advanced,0,1,0,0
 Hm,Fishery,Mortality,Advanced,0,1,0,0
-R0,Ecological,Units,Scaling,1,1000,0,1
+Rmax,Ecological,Units,Scaling,1,1000,0,1
 Wa,Ecological,Units,Scaling,0.0001,10,0,1
 fa,Ecological,Units,Scaling,0.0001,100,0,1

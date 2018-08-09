@@ -1,5 +1,5 @@
 bh <- function(stock, alpha, beta) {
-   unname(alpha * stock / (1 + (beta * stock)))
+  unname(alpha * stock / (1 + (beta * stock)))
 }
 
 ri <- function(stock, alpha, beta) {
@@ -10,7 +10,9 @@ sr <- function(schedule) {
   schedule <- as.list(schedule)
   schedule$BH <- attr(schedule, "BH")
   schedule$Rk <- attr(schedule, "Rk")
-  schedule$R0 <- attr(schedule, "R0")
+  schedule$Rmax <- attr(schedule, "Rmax")
+
+  R0 <- 1
 
   with(schedule, {
     phi <- sum(Fecundity * Spawning/2 * Survivorship)
@@ -21,12 +23,17 @@ sr <- function(schedule) {
 
     if(BH) {
       beta <- (alpha * phi - 1) / (R0 * phi)
+      kappa <- alpha / beta
       R0F <- (alpha * phiF - 1) / (beta * phiF)
     } else {
       beta <- log(alpha * phi) / (R0 * phi)
+      kappa <- alpha / (beta * exp(1))
       R0F <- log(alpha * phiF) / (beta * phiF)
     }
-    list(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0F = R0F)
+    beta <- beta * kappa / Rmax
+    R0 <- R0 / kappa * Rmax
+    R0F <- R0F / kappa * Rmax
+    list(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0 = R0, R0F = R0F)
   })
 }
 

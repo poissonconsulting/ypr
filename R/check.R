@@ -43,7 +43,7 @@ check_schedule <- function(x, exclusive = FALSE, order = FALSE, x_name = substit
 
   check_attributes(x, values = list(BH = c(0L, 1L),
                                     Rk = c(1, 30),
-                                    R0 = c(1, 1e+03),
+                                    Rmax = c(1, 1e+03),
                                     pi = c(0, 1)))
 
   if(any(diff(x$Age) != 1L))

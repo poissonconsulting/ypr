@@ -44,7 +44,7 @@ ypr_schedule <- function(population) {
 
   attr(schedule, "BH") <- population$BH
   attr(schedule, "Rk") <- population$Rk
-  attr(schedule, "R0") <- population$R0
+  attr(schedule, "Rmax") <- population$Rmax
   attr(schedule, "pi") <- population$pi
 
   if(requireNamespace("tibble", quietly = TRUE))

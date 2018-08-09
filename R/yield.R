@@ -24,7 +24,7 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #'
 #' Calculates the yield for a population.
 #'
-#' By default, with \code{R0 = 1} the number of individuals is the proportion of the recruits at the unfished equilibrium.
+#' By default, with \code{Rmax = 1} the number of individuals is the proportion of the recruits at the carrying capacity.
 #' If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 #'
 #' @inheritParams ypr_schedule

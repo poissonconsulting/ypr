@@ -78,7 +78,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 
   schedule <- as.list(schedule)
   schedule$BH <- attr(schedule, "BH")
-  schedule$R0 <- attr(schedule, "R0")
+  schedule$Rmax <- attr(schedule, "Rmax")
   schedule <- c(schedule, sr(schedule))
 
   data <- with(schedule, {

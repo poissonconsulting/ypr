@@ -25,7 +25,7 @@
 #' @param pi The annual capture probability.
 #' @param rho The release probability.
 #' @param Hm The hooking mortality probability.
-#' @param R0 The number of recruits at the unfished equilibrium (ind).
+#' @param Rmax The number of recruits at the carrying capacity (ind).
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @return An object of class \code{ypr_population}.
@@ -41,7 +41,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Lv = Linf/2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            pi = 0.2, rho = 0, Hm = 0,
-                           R0 = 1, Wa = 1, fa = 1) {
+                           Rmax = 1, Wa = 1, fa = 1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
   check_population(population)

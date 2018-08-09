@@ -50,8 +50,8 @@ ypr_tabulate_yield(population)
 #> # A tibble: 2 x 3
 #>   Type       pi Yield
 #>   <chr>   <dbl> <dbl>
-#> 1 actual  0.2   0.214
-#> 2 optimal 0.272 0.223
+#> 1 actual  0.2   0.192
+#> 2 optimal 0.272 0.201
 ```
 
 ## Installation

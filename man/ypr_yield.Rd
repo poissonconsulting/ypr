@@ -22,7 +22,7 @@ The yield as number of fish or biomass.
 Calculates the yield for a population.
 }
 \details{
-By default, with \code{R0 = 1} the number of individuals is the proportion of the recruits at the unfished equilibrium.
+By default, with \code{Rmax = 1} the number of individuals is the proportion of the recruits at the carrying capacity.
 If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
 \examples{
