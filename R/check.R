@@ -79,3 +79,25 @@ check_tabulated_yield <- function(x, exclusive = FALSE, order = FALSE, x_name = 
 
   x
 }
+
+check_tabulated_sr <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+  x_name <- deparse(x_name)
+
+  check_data(
+    x,
+    values = list(Type = c("unfished", "actual", "optimal"),
+                  Eggs = c(0, .Machine$double.xmax),
+                  Recruits = c(0, .Machine$double.xmax)),
+    nrow = 3L,
+    exclusive = exclusive,
+    order = order,
+    x_name = x_name,
+    key = "Type")
+
+  check_attributes(x, values = list(alpha = c(0, .Machine$double.xmax),
+                                    beta = c(0, .Machine$double.xmax),
+                                    Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE))
+  x
+}

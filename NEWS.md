@@ -1,3 +1,5 @@
+- Added `ypr_tabulate_sr()` to get table of eggs and recruits at unfished, actual and optimal rates.
+
 # ypr 0.1.0
 
 - Added `Mb` to scale mortality by length and `BH` to distinguish between Beverton-Holt and Ricker curves and `es` for probability of a mature fish spawning and `Sm` for spawning mortality probability and `Sp` for spawning power and vulnerability power `Vp` and  slot limit non-complicance parameter `Nc` and scaling parameter `R0`.

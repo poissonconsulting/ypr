@@ -1,10 +1,48 @@
 
+#' Stock-Recruitment Parameters
+#'
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_yield
+#' @return A table of stock-recruitment parameters.
+#' @export
+#' @examples
+#' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
+#' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
+ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE) {
+  sr <- ypr_sr(population)
+  sr$BH <- population$BH
+
+  population$pi <- ypr_optimise(population, Ly = Ly, harvest = harvest, biomass = biomass)
+  optimal_sr <- ypr_sr(population)
+
+  table <- with(sr, {
+    data <- data.frame(
+      Type = c("unfished", "actual", "optimal"),
+      Eggs = c(phi * R0, phiF * R0F, optimal_sr$phiF * optimal_sr$R0F),
+      stringsAsFactors = FALSE
+    )
+    fun <- if(BH == 1L) bh else ri
+    data$Recruits <- fun(data$Eggs, alpha, beta)
+    data
+  })
+
+  attr(table, "alpha") <- sr$alpha
+  attr(table, "beta") <- sr$beta
+  attr(table, "Ly") <- Ly
+  attr(table, "harvest") <- harvest
+  attr(table, "biomass") <- biomass
+
+  if(requireNamespace("tibble", quietly = TRUE))
+    table <- tibble::as_tibble(table)
+  table
+}
+
 #' Tabulate Yield
 #'
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
-#' @return A ggplot2 object.
+#' @return A data frame.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
 #' @export
 #' @examples

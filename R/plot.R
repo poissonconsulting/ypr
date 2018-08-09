@@ -88,22 +88,11 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
     data
   })
 
-  population$pi <- ypr_optimise(population, Ly = Ly, harvest = harvest, biomass = biomass)
-  optimal_sr <- ypr_sr(population)
-
-  data2 <- with(schedule, {
-    data <- data.frame(
-      Eggs = c(phi * R0, phiF * R0F, optimal_sr$phiF * optimal_sr$R0F)
-    )
-    fun <- if(BH == 1L) bh else ri
-    data$Recruits <- fun(data$Eggs, alpha, beta)
-    data$Type <- factor(c("unfished", "actual", "optimal"),
-                        levels = c("actual", "optimal", "unfished"))
-    data <- rbind(data, data, data)
-    data$Recruits[1:3] <- 0
-    data$Eggs[7:9] <- 0
-    data
-  })
+  data2 <- ypr_tabulate_sr(population, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2$Type <- factor(data2$Type, levels = c("actual", "optimal", "unfished"))
+  data2 <- rbind(data2, data2, data2)
+  data2$Recruits[1:3] <- 0
+  data2$Eggs[7:9] <- 0
 
   ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
     (
