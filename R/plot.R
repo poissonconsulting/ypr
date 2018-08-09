@@ -78,8 +78,6 @@ ypr_plot_sr <- function(population) {
   schedule$R0 <- attr(schedule, "R0")
   schedule <- c(schedule, as.list(sr(schedule)))
 
-  print(schedule)
-
   data <- with(schedule, {
     data <- data.frame(Eggs = seq(0, to = phi * R0 * 2, length.out = 100))
     fun <- if(BH == 1L) bh else ri

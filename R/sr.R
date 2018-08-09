@@ -1,9 +1,9 @@
 bh <- function(stock, alpha, beta) {
-   alpha * stock / (1 + (beta * stock))
+   unname(alpha * stock / (1 + (beta * stock)))
 }
 
 ri <- function(stock, alpha, beta) {
-  alpha * stock * exp(-beta * stock)
+  unname(alpha * stock * exp(-beta * stock))
 }
 
 sr <- function(schedule) {

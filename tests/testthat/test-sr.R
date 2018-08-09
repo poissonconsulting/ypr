@@ -11,7 +11,12 @@ test_that("sr", {
   expect_equal(bh["R0F"], 0.2015758, check.attributes = FALSE)
   expect_equal(bh["phi"], 447165.8, check.attributes = FALSE, tolerance = 1e-07)
   expect_equal(bh["phiF"], 172195.6, check.attributes = FALSE, tolerance = 1e-06)
+  expect_identical(unname(bh["R0F"]), bh(bh["R0F"] * bh["phiF"], bh["alpha"], bh["beta"]))
+  expect_identical(ypr_population()$R0, bh(ypr_population()$R0 * bh["phi"], bh["alpha"], bh["beta"]))
+  expect_identical(unname(ri["R0F"]), ri(ri["R0F"] * ri["phiF"], ri["alpha"], ri["beta"]))
+  expect_identical(ypr_population()$R0, ri(ypr_population()$R0 * ri["phi"], ri["alpha"], ri["beta"]))
   expect_identical(ri[c("alpha", "phi", "phiF")], bh[c("alpha", "phi", "phiF")])
   expect_equal(ri["beta"], 2.456835e-06, check.attributes = FALSE)
   expect_equal(ri["R0F"], 0.3411221, check.attributes = FALSE, tolerance = 1e-07)
+
 })
