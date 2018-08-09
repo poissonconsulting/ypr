@@ -7,4 +7,7 @@ test_that("ypr_tabulate_yield", {
   sr <- ypr_tabulate_sr(ypr_population())
   expect_identical(check_tabulated_sr(sr), sr)
   expect_identical(sr$Type, c("unfished", "actual", "optimal"))
+  parameters <- ypr_tabulate_parameters(ypr_population())
+  expect_identical(parameters$Description[1], "The maximum age (yr).")
+  expect_identical(check_tabulated_parameters(parameters), parameters)
 })

@@ -101,3 +101,20 @@ check_tabulated_sr <- function(x, exclusive = FALSE, order = FALSE, x_name = sub
                                     biomass = TRUE))
   x
 }
+
+check_tabulated_parameters <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+  x_name <- deparse(x_name)
+
+  check_data(
+    x,
+    values = list(Parameter = .parameters$Parameter,
+                  Value = c(min(.parameters$Lower), max(.parameters$Upper)),
+                  Description = ""),
+    exclusive = exclusive,
+    order = order,
+    x_name = x_name,
+    nrow = nrow(.parameters),
+    key = "Parameter")
+
+  x
+}
