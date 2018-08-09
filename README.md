@@ -39,11 +39,20 @@ density-dependent growth.
 
 ``` r
 library(ypr)
-population <- ypr_population(Rk = 3)
+population <- ypr_population(Rk = 10)
 ypr_plot_yield(population)
 ```
 
 <img src="man/figures/README-unnamed-chunk-1-1.png" width="100%" />
+
+``` r
+ypr_tabulate_yield(population)
+#> # A tibble: 2 x 3
+#>   Type       pi Yield
+#>   <chr>   <dbl> <dbl>
+#> 1 actual  0.2   0.214
+#> 2 optimal 0.272 0.223
+```
 
 ## Installation
 
