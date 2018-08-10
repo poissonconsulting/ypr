@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.1.0.9000
+Version: 0.1.0.9001
 Date: 2018-08-09
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods.
