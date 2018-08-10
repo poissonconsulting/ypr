@@ -8,12 +8,10 @@ test_that("ypr_tabulate_yield", {
   yields <- ypr_tabulate_yields(ypr_population(), pi = seq(0, 1, length.out = 10))
   expect_identical(colnames(yields), c("pi", "Yield", "Age", "Length", "Weight"))
   expect_identical(nrow(yields), 10L)
+  expect_identical(check_tabulated_yields(yields), yields)
   expect_identical(yields$pi[1:2], c(0,1/9))
   expect_equal(yields$Yield[1:2], c(0,0.0738), tolerance = 1e-04)
   expect_equal(yields$Weight[1:2], c(NA,3057.662), tolerance = 1e-07)
-
-  expect_identical(check_tabulated_yield(yield), yield)
-  expect_identical(yield$Type, c("actual", "optimal"))
 
   sr <- ypr_tabulate_sr(ypr_population())
   expect_identical(check_tabulated_sr(sr), sr)

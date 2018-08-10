@@ -33,7 +33,12 @@ sr <- function(schedule) {
     beta <- beta * kappa / Rmax
     R0 <- R0 / kappa * Rmax
     R0F <- R0F / kappa * Rmax
-    list(alpha = alpha, beta = beta, phi = phi, phiF = phiF, R0 = R0, R0F = R0F)
+    S0 <- sum(Spawning/2 * Survivorship * R0)
+    S0F <- sum(Spawning/2 * FishedSurvivorship * R0F)
+    sr <- list(alpha = alpha, beta = beta,
+               phi = phi, phiF = phiF,
+               R0 = R0, R0F = R0F,
+               S0 = S0, S0F = S0F)
   })
 }
 

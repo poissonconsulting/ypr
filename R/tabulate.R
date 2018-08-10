@@ -82,6 +82,8 @@ ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE
     )
     fun <- if(BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
+    data$Spawners = c(S0, S0F, optimal_sr$S0F)
+    data$Fecundity <- data$Eggs / data$Spawners
     data
   })
 
@@ -180,6 +182,10 @@ ypr_tabulate_yields <- function(population, pi = seq(0, 1, length.out = 100),
                    harvest = harvest, biomass = biomass)
 
   yields <- do.call(rbind, yields)
+
+  attr(yield, "Ly") <- Ly
+  attr(yield, "harvest") <- harvest
+  attr(yield, "biomass") <- biomass
 
   if(requireNamespace("tibble", quietly = TRUE))
     yields <- tibble::as_tibble(yields)

@@ -20,7 +20,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   x
 }
 
-check_schedule <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+check_schedule <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
   check_data(
@@ -60,7 +60,7 @@ check_yield_parameters <- function(population, Ly, harvest, biomass) {
   population
 }
 
-check_tabulated_yield <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
   check_data(
@@ -84,14 +84,40 @@ check_tabulated_yield <- function(x, exclusive = FALSE, order = FALSE, x_name = 
   x
 }
 
-check_tabulated_sr <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+check_tabulated_yields <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
+  x_name <- deparse(x_name)
+
+  check_data(
+    x,
+    values = list(pi = c(0, 1),
+                  Yield = c(0, .Machine$double.xmax),
+                  Age = c(0, 100, NA),
+                  Length = c(0, .Machine$double.xmax, NA),
+                  Weight = c(0, .Machine$double.xmax, NA)
+                  ),
+    nrow = TRUE,
+    exclusive = exclusive,
+    order = order,
+    x_name = x_name)
+
+  check_attributes(x, values = list(Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE))
+
+  x
+}
+
+check_tabulated_sr <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
   check_data(
     x,
     values = list(Type = c("unfished", "actual", "optimal"),
                   Eggs = c(0, .Machine$double.xmax),
-                  Recruits = c(0, .Machine$double.xmax)),
+                  Recruits = c(0, .Machine$double.xmax),
+                  Spawners = c(0, .Machine$double.xmax),
+                  Fecundity = c(0, .Machine$double.xmax)
+                  ),
     nrow = 3L,
     exclusive = exclusive,
     order = order,
@@ -106,7 +132,7 @@ check_tabulated_sr <- function(x, exclusive = FALSE, order = FALSE, x_name = sub
   x
 }
 
-check_tabulated_parameters <- function(x, exclusive = FALSE, order = FALSE, x_name = substitute(x)) {
+check_tabulated_parameters <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
   check_data(
