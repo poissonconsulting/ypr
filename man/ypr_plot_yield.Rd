@@ -4,11 +4,14 @@
 \alias{ypr_plot_yield}
 \title{Plot Yield by Capture}
 \usage{
-ypr_plot_yield(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = FALSE, biomass = FALSE, plot_values = TRUE)
+ypr_plot_yield(population, y = "Yield", pi = seq(0, 1, length.out =
+  100), Ly = 0, harvest = FALSE, biomass = FALSE,
+  plot_values = TRUE)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}
+
+\item{y}{A string of the term on the y-axis.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 

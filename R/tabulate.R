@@ -101,33 +101,46 @@ ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
+#' @param optimal A flag indicating whether to include the optimal yield.
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
-ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE) {
+ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE,
+                               optimal = TRUE) {
+
+  check_flag(optimal)
 
   actual_pi <- population$pi
-
-  optimal_pi <- ypr_optimize(population, Ly = Ly, harvest = harvest,
-                             biomass = biomass)
 
   actual_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
                             biomass = biomass)
 
-  population <- ypr_population_update(population, pi = optimal_pi)
+  if(optimal) {
+    optimal_pi <- ypr_optimize(population, Ly = Ly, harvest = harvest,
+                               biomass = biomass)
 
-  optimal_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
-                              biomass = biomass)
+    population <- ypr_population_update(population, pi = optimal_pi)
 
-  yield <- data.frame(Type = c("actual", "optimal"),
-                      pi = c(actual_pi, optimal_pi),
-                      Yield = c(actual_yield, optimal_yield),
-                      Age = c(attr(actual_yield, "Age"), attr(optimal_yield, "Age")),
-                      Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),
-                      Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
-                      stringsAsFactors = FALSE)
+    optimal_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
+                               biomass = biomass)
+    yield <- data.frame(Type = c("actual", "optimal"),
+                        pi = c(actual_pi, optimal_pi),
+                        Yield = c(actual_yield, optimal_yield),
+                        Age = c(attr(actual_yield, "Age"), attr(optimal_yield, "Age")),
+                        Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),
+                        Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
+                        stringsAsFactors = FALSE)
+  } else {
+    yield <- data.frame(Type = "actual",
+                        pi = actual_pi,
+                        Yield = actual_yield,
+                        Age = attr(actual_yield, "Age"),
+                        Length = attr(actual_yield, "Length"),
+                        Weight = attr(actual_yield, "Weight"),
+                        stringsAsFactors = FALSE)
+  }
 
   attr(yield, "Ly") <- Ly
   attr(yield, "harvest") <- harvest
@@ -136,4 +149,39 @@ ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FA
   if(requireNamespace("tibble", quietly = TRUE))
     yield <- tibble::as_tibble(yield)
   yield
+}
+
+tabulate_yield_pi <- function(pi, population, Ly, harvest, biomass) {
+  population$pi <- pi
+  yield <- ypr_tabulate_yield(population = population, Ly = Ly,
+                              harvest = harvest, biomass = biomass,
+                              optimal = FALSE)
+  yield$Type <- NULL
+  yield
+}
+
+#' Tabulate Yields
+#'
+#'
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_yields
+#' @inheritParams ypr_yield
+#' @return A data frame.
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @export
+#' @examples
+#' ypr_tabulate_yields(ypr_population())
+ypr_tabulate_yields <- function(population, pi = seq(0, 1, length.out = 100),
+                                Ly = 0, harvest = FALSE, biomass = FALSE) {
+
+  check_vector(pi, c(0, 1), length = TRUE)
+
+  yields <- lapply(pi, tabulate_yield_pi, population = population, Ly = Ly,
+                   harvest = harvest, biomass = biomass)
+
+  yields <- do.call(rbind, yields)
+
+  if(requireNamespace("tibble", quietly = TRUE))
+    yields <- tibble::as_tibble(yields)
+  yields
 }

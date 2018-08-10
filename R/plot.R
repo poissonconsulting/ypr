@@ -113,6 +113,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' Plots the population yield by the annual interval capture probability.
 #'
 #' @inheritParams ypr_schedule
+#' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_plot_sr
@@ -121,22 +122,22 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
-ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
+ypr_plot_yield <- function(population, y = "Yield", pi = seq(0, 1, length.out = 100),
                            Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE) {
 
-  yields <- ypr_yields(population, pi = pi, Ly = Ly, harvest = harvest,
-                       biomass = biomass)
+  check_scalar(y, values = c("Yield", "Age", "Length", "Weight"))
 
-  data <- data.frame(pi = pi, Yield = yields)
+  data <- ypr_tabulate_yields(population, pi = pi, Ly = Ly, harvest = harvest,
+                       biomass = biomass)
 
   data2 <- ypr_tabulate_yield(population, Ly = Ly, harvest = harvest, biomass = biomass)
 
   data2 <- rbind(data2, data2, data2, stringsAsFactors = FALSE)
 
   data2$pi[5:6] <- 0
-  data2$Yield[1:2] <- 0
+  data2[1:2, c("Yield", "Age", "Length", "Weight")] <- 0
 
-  ggplot(data = data, aes_string(x = "pi", y = "Yield")) +
+  ggplot(data = data, aes_string(x = "pi", y = y)) +
     (
       if(plot_values)
         geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
@@ -146,6 +147,5 @@ ypr_plot_yield <- function(population, pi = seq(0, 1, length.out = 100),
     expand_limits(x = 0) +
     scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
     scale_color_manual(values = c("red", "blue")) +
-    ylab(if(biomass) "Yield (kg)" else "Yield (fish)") +
     NULL
 }

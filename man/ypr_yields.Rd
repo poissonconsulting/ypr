@@ -25,7 +25,7 @@ A numeric vector of the yields.
 Calculates the yield(s) for a population based on one or more capture rates.
 }
 \examples{
-pi <- seq(0, 1, length.out = 100)
+pi <- seq(0, 1, length.out = 30)
 plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 }
 \seealso{

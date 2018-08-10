@@ -13,6 +13,11 @@ yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
     if(biomass)
       yield <- yield * Weight / 1000
     yield <- sum(yield)
+    if(yield <= 0) {
+      age <- NA
+      length <- NA
+      weight <- NA
+    }
     attr(yield, "Age") <- age
     attr(yield, "Length") <- length
     attr(yield, "Weight") <- weight

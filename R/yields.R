@@ -9,7 +9,7 @@
 #' @return A numeric vector of the yields.
 #' @export
 #' @examples
-#' pi <- seq(0, 1, length.out = 100)
+#' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
                        Ly = 0, harvest = FALSE, biomass = FALSE) {
