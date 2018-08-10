@@ -19,7 +19,7 @@ test_that(".data", {
       Subgrouping = ordered(""),
       Importance = ordered(""),
       Lower = c(-10, 2),
-      Upper = c(1, 1000),
+      Upper = c(0.1, 1000),
       Integer = c(0L,1L),
       Log = c(0L, 1L)),
     key = "Parameter", exclusive = TRUE, order = TRUE),
