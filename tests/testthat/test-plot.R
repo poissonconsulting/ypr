@@ -6,6 +6,11 @@ test_that("ypr_plot_schedule", {
 })
 
 test_that("ypr_plot_yield", {
+  gp <- ypr_plot_histogram(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
+  expect_is(gp, "gg")
+})
+
+test_that("ypr_plot_yield", {
   gp <- ypr_plot_yield(ypr_population(), y = "Weight",  pi = seq(0, 1, length.out = 10))
   expect_is(gp, "gg")
 })

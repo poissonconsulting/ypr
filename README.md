@@ -39,7 +39,7 @@ density-dependent growth.
 
 ``` r
 library(ypr)
-population <- ypr_population(Rk = 10)
+population <- ypr_population(Rk = 10, Rmax = 100)
 ypr_plot_yield(population)
 ```
 
@@ -47,11 +47,28 @@ ypr_plot_yield(population)
 
 ``` r
 ypr_tabulate_yield(population)
-#> # A tibble: 2 x 3
-#>   Type       pi Yield
-#>   <chr>   <dbl> <dbl>
-#> 1 actual  0.2   0.192
-#> 2 optimal 0.272 0.201
+#> # A tibble: 2 x 6
+#>   Type       pi Yield   Age Length Weight
+#>   <chr>   <dbl> <dbl> <dbl>  <dbl>  <dbl>
+#> 1 actual  0.2    19.2  6.88   62.6  2650.
+#> 2 optimal 0.272  20.1  6.48   60.8  2401.
+```
+
+``` r
+library(ypr)
+ypr_plot_sr(population)
+```
+
+![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+ypr_tabulate_sr(population)
+#> # A tibble: 3 x 5
+#>   Type        Eggs Recruits Spawners Fecundity
+#>   <chr>      <dbl>    <dbl>    <dbl>     <dbl>
+#> 1 unfished 402449.     90      107.      3764.
+#> 2 actual   127479.     74.0     48.1     2650.
+#> 3 optimal   88727.     66.5     36.9     2401.
 ```
 
 ## Installation

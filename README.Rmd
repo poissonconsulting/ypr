@@ -42,9 +42,15 @@ The calculations do not account for parameter uncertainty, environmental fluctua
 
 ```{r, fig.width=6, fig.height=4}
 library(ypr)
-population <- ypr_population(Rk = 10)
+population <- ypr_population(Rk = 10, Rmax = 100)
 ypr_plot_yield(population)
 ypr_tabulate_yield(population)
+```
+
+```{r, fig.width=6, fig.height=4}
+library(ypr)
+ypr_plot_sr(population)
+ypr_tabulate_sr(population)
 ```
 
 ## Installation

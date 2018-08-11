@@ -1,9 +1,10 @@
 - Set default value of `Wa` to be 0.01.
 - Added `Age`, `Length` and `Weight` to `ypr_tabulate_yield()` and added `ypr_tabulate_yields()`
+- Added `ypr_plot_histogram()` to plot frequency distributions of catch, spawners and in lake by age, length or weight bins.
 - Added `y` arg to `ypr_plot_yield()` to allow plotting of mean age, length or weight by capture probability.
-- Added `print.ypr_population()`.
 - Added `ypr_tabulate_parameters()` to get table of parameters, values and descriptions and `ypr_import_parameters()` to convert back to a population object.
 - Added `ypr_tabulate_sr()` to get table of eggs and recruits at unfished, actual and optimal rates.
+- Added `print.ypr_population()`.
 
 # ypr 0.1.0
 

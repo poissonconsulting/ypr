@@ -61,6 +61,42 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
     expand_limits(x = 0, y = 0)
 }
 
+#' Plot Histogram
+#'
+#' Produces a frequency histogram of the number of fish in the
+#' 'Fishing', 'Surviving' or 'Spawning' categories by
+#' 'Length', 'Age' or 'Weight' class.
+#'
+#' The 'Fishing' category is all fish that have died due to fishing including handling mortalities.
+#'
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_plot_schedule
+#' @inheritParams ggplot2::geom_histogram
+#' @param color A string of the color around each bar.
+#' @return A ggplot2 object.
+#' @seealso \code{\link{ypr_population}} and \code{\link[ggplot2]{geom_histogram}}
+#' @export
+#' @examples
+#' ypr_plot_histogram(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
+ypr_plot_histogram <- function(population, x = "Age", y = "Surviving",
+                                  binwidth = NULL, color = "white") {
+  check_scalar(x, c("Age", "Length", "Weight"))
+  check_scalar(y, c("Fishing", "Surviving", "Spawning"))
+
+  schedule <- ypr_schedule(population = population)
+  R0F <- sr(schedule)$R0F
+
+  schedule$Fishing <- (schedule$Survivorship - schedule$FishedSurvivorship) * R0F
+  schedule$Surviving <- schedule$FishedSurvivorship * R0F
+  schedule$Spawning <- schedule$FishedSurvivorship * schedule$Spawning * R0F
+
+  schedule <- schedule[schedule[[y]] > 0,]
+
+  ggplot(data = schedule, aes_string(x = x)) +
+    geom_histogram(aes_string(weight = y), binwidth = binwidth, color = color) +
+    expand_limits(y = 0)
+}
+
 #' Plot Stock-Recruitment Curve
 #'
 #' @inheritParams ypr_schedule
