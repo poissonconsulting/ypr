@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9006</span>
       </span>
     </div>
 
@@ -143,17 +143,17 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span></div><div class='output co'>#&gt; # A tibble: 3 x 3
-#&gt;   Type        Eggs Recruits
-#&gt;   &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 unfished 298111.    0.667
-#&gt; 2 actual    23140.    0.134
-#&gt; 3 optimal  107533.    0.419</div><div class='input'><span class='fu'>ypr_tabulate_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; # A tibble: 3 x 3
-#&gt;   Type        Eggs Recruits
-#&gt;   &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 unfished 445129.    0.995
-#&gt; 2 actual    58472.    0.340
-#&gt; 3 optimal  186916.    0.791</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span></div><div class='output co'>#&gt; # A tibble: 3 x 5
+#&gt;   Type      Eggs Recruits Spawners Fecundity
+#&gt;   &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+#&gt; 1 unfished 2981.    0.667   0.792      3764.
+#&gt; 2 actual    231.    0.134   0.0873     2650.
+#&gt; 3 optimal  1075.    0.419   0.349      3085.</div><div class='input'><span class='fu'>ypr_tabulate_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; # A tibble: 3 x 5
+#&gt;   Type      Eggs Recruits Spawners Fecundity
+#&gt;   &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+#&gt; 1 unfished 4451.    0.995    1.18      3764.
+#&gt; 2 actual    585.    0.340    0.221     2650.
+#&gt; 3 optimal  1869.    0.791    0.625     2991.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

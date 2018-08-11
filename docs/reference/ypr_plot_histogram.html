@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kootenay Lake Rainbow Trout Population Parameters (2013) — kootenay_rb_13 • ypr</title>
+<title>Plot Histogram — ypr_plot_histogram • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,11 @@
 
 
 
-<meta property="og:title" content="Kootenay Lake Rainbow Trout Population Parameters (2013) — kootenay_rb_13" />
+<meta property="og:title" content="Plot Histogram — ypr_plot_histogram" />
 
-<meta property="og:description" content="The population parameters for
-Rainbow Trout in Kootenay Lake, BC." />
+<meta property="og:description" content="Produces a frequency histogram of the number of fish in the
+'Fishing', 'Surviving' or 'Spawning' categories by
+'Length', 'Age' or 'Weight' class." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,45 +105,80 @@ Rainbow Trout in Kootenay Lake, BC." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Kootenay Lake Rainbow Trout Population Parameters (2013)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>kootenay_rb_13.Rd</code></div>
+    <h1>Plot Histogram</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
+    <div class="hidden name"><code>ypr_plot_histogram.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The population parameters for
-Rainbow Trout in Kootenay Lake, BC.</p>
+    <p>Produces a frequency histogram of the number of fish in the
+'Fishing', 'Surviving' or 'Spawning' categories by
+'Length', 'Age' or 'Weight' class.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>kootenay_rb_13</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <pre class="usage"><span class='fu'>ypr_plot_histogram</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>,
+  <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"white"</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>population</th>
+      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>A string of the term on the x-axis.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>A string of the term on the y-axis.</p></td>
+    </tr>
+    <tr>
+      <th>binwidth</th>
+      <td><p>The width of the bins. Can be specified as a numeric value,
+or a function that calculates width from x.
+The default is to use <code>bins</code>
+bins that cover the range of the data. You should always override
+this value, exploring multiple widths to find the best to illustrate the
+stories in your data.</p>
+<p>The bin width of a date variable is the number of days in each time; the
+bin width of a time variable is the number of seconds.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>A string of the color around each bar.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p>
+    <p>A ggplot2 object.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The estimates should not be used for management.</p>
+    <p>The 'Fishing' category is all fish that have died due to fishing including handling mortalities.</p>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.</p>
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_histogram'>geom_histogram</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>kootenay_rb_13</span>)</div><div class='img'><img src='kootenay_rb_13-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>kootenay_rb_13</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>80</span>)</div><div class='img'><img src='kootenay_rb_13-2.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_plot_histogram</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>Rmax</span> <span class='kw'>=</span> <span class='fl'>1000</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Fishing"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='ypr_plot_histogram-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
+      <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>
 
-      <li><a href="#references">References</a></li>
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

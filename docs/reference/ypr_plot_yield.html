@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9006</span>
       </span>
     </div>
 
@@ -114,8 +114,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_plot_yield</span>(<span class='no'>population</span>, <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_plot_yield</span>(<span class='no'>population</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Yield"</span>, <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span>
+  <span class='fl'>100</span>), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -123,6 +124,10 @@
     <tr>
       <th>population</th>
       <td><p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>A string of the term on the y-axis.</p></td>
     </tr>
     <tr>
       <th>pi</th>

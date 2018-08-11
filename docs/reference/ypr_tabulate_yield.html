@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9006</span>
       </span>
     </div>
 
@@ -115,7 +115,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>ypr_tabulate_yield</span>(<span class='no'>population</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>optimal</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,6 +136,10 @@
       <th>biomass</th>
       <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
     </tr>
+    <tr>
+      <th>optimal</th>
+      <td><p>A flag indicating whether to include the optimal yield.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -148,11 +152,11 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_yield</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 2 x 3
-#&gt;   Type       pi  Yield
-#&gt;   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 actual  0.2   0.0349
-#&gt; 2 optimal 0.106 0.0739</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_yield</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 2 x 6
+#&gt;   Type       pi  Yield   Age Length Weight
+#&gt;   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 actual  0.2   0.0349  6.88   62.6  2650.
+#&gt; 2 optimal 0.106 0.0739  7.62   65.6  3085.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
