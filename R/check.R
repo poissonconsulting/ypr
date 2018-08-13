@@ -87,7 +87,7 @@ check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = su
                   Weight = c(0, .Machine$double.xmax),
                   Effort = c(0, .Machine$double.xmax)
                   ),
-    nrow = 2L,
+    nrow = TRUE,
     exclusive = exclusive,
     order = order,
     x_name = x_name)

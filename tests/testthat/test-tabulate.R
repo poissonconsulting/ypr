@@ -5,6 +5,21 @@ test_that("ypr_tabulate_yield", {
   expect_identical(check_tabulated_yield(yield), yield)
   expect_identical(yield$Type, c("actual", "optimal"))
 
+  yield <- ypr_tabulate_yield(ypr_population(), all = TRUE)
+  expect_identical(check_tabulated_yield(yield, exclusive = FALSE),yield)
+  expect_identical(ncol(yield), 34L)
+  expect_identical(yield$Linf, c(100, 100))
+
+  yield <- ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
+  expect_identical(check_tabulated_yield(yield, exclusive = FALSE),yield)
+  expect_identical(colnames(yield), c("Type", "pi", "Yield", "Age", "Length", "Weight", "Effort", "Rk"))
+  expect_identical(nrow(yield), 4L)
+
+  yield <- ypr_tabulate_yield(ypr_populations(Rk = c(3,5)), all = TRUE)
+  expect_identical(check_tabulated_yield(yield, exclusive = FALSE),yield)
+  expect_identical(ncol(yield), 34L)
+  expect_identical(nrow(yield), 4L)
+
   yields <- ypr_tabulate_yields(ypr_population(), pi = seq(0, 1, length.out = 10))
   expect_identical(colnames(yields), c("pi", "Yield", "Age", "Length", "Weight", "Effort"))
   expect_identical(nrow(yields), 10L)
@@ -13,6 +28,7 @@ test_that("ypr_tabulate_yield", {
   expect_identical(yields$Effort, yields$pi * 100)
   expect_equal(yields$Yield[1:2], c(0,0.0738), tolerance = 1e-04)
   expect_equal(yields$Weight[1:2], c(NA,3057.662), tolerance = 1e-07)
+
 
   sr <- ypr_tabulate_sr(ypr_population())
   expect_identical(check_tabulated_sr(sr), sr)

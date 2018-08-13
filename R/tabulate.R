@@ -118,15 +118,17 @@ ypr_tabulate_yield <- function(object, ...) {
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @param optimal A flag indicating whether to include the optimal yield.
+#' @param all A flag indicating whether to include all parameter values.
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
 ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
-                               optimal = TRUE, ...) {
+                               optimal = TRUE, all = FALSE, ...) {
 
   check_flag(optimal)
+  check_flag(all)
 
   actual_pi <- object$pi
 
@@ -160,9 +162,48 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
                         stringsAsFactors = FALSE)
   }
 
+  if(all) {
+    object <- as.data.frame(unclass(object))
+    object$pi <- NULL
+    yield <- merge(yield, object)
+  }
   attr(yield, "Ly") <- Ly
   attr(yield, "harvest") <- harvest
   attr(yield, "biomass") <- biomass
+
+  if(requireNamespace("tibble", quietly = TRUE))
+    yield <- tibble::as_tibble(yield)
+  yield
+}
+
+#' Tabulate Yield
+#'
+#' @inheritParams ypr_tabulate_yield
+#' @inheritParams ypr_tabulate_yield.ypr_population
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_yield
+#' @return A data frame.
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
+#' @export
+#' @examples
+#' ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
+ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
+                               optimal = TRUE, all = FALSE, ...) {
+
+  check_flag(all)
+
+  yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
+                  biomass = biomass, optimal = optimal, all = TRUE,...)
+
+  yield <- do.call("rbind", yield)
+
+  if(!all) {
+    parameters <- .parameters$Parameter
+    parameters <- parameters[parameters != "pi"]
+    bol <- vapply(parameters, function(x) length(unique(yield[[x]])) == 1, TRUE)
+    parameters <- parameters[bol]
+    yield[parameters] <- NULL
+  }
 
   if(requireNamespace("tibble", quietly = TRUE))
     yield <- tibble::as_tibble(yield)
