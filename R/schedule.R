@@ -46,6 +46,8 @@ ypr_schedule <- function(population) {
   attr(schedule, "Rk") <- population$Rk
   attr(schedule, "Rmax") <- population$Rmax
   attr(schedule, "pi") <- population$pi
+  attr(schedule, "Ea") <- population$Ea
+  attr(schedule, "Eb") <- population$Eb
 
   if(requireNamespace("tibble", quietly = TRUE))
     schedule <- tibble::as_tibble(schedule)

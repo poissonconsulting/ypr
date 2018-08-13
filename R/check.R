@@ -70,7 +70,8 @@ check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = su
                   Yield = c(0, .Machine$double.xmax),
                   Age = c(0, 100),
                   Length = c(0, .Machine$double.xmax),
-                  Weight = c(0, .Machine$double.xmax)
+                  Weight = c(0, .Machine$double.xmax),
+                  Effort = c(0, .Machine$double.xmax)
                   ),
     nrow = 2L,
     exclusive = exclusive,
@@ -93,7 +94,8 @@ check_tabulated_yields <- function(x, exclusive = TRUE, order = TRUE, x_name = s
                   Yield = c(0, .Machine$double.xmax),
                   Age = c(0, 100, NA),
                   Length = c(0, .Machine$double.xmax, NA),
-                  Weight = c(0, .Machine$double.xmax, NA)
+                  Weight = c(0, .Machine$double.xmax, NA),
+                  Effort = c(0, .Machine$double.xmax)
                   ),
     nrow = TRUE,
     exclusive = exclusive,

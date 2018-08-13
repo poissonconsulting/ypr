@@ -146,7 +146,8 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 
 #' Plot Yield by Capture
 #'
-#' Plots the population yield by the annual interval capture probability.
+#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
+#' by the annual interval capture probability.
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
@@ -158,17 +159,22 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
+#' ypr_plot_yield(ypr_population(), "YPUE")
 ypr_plot_yield <- function(population, y = "Yield", pi = seq(0, 1, length.out = 100),
                            Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE) {
 
-  check_scalar(y, values = c("Yield", "Age", "Length", "Weight"))
+  check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
 
   data <- ypr_tabulate_yields(population, pi = pi, Ly = Ly, harvest = harvest,
                        biomass = biomass)
 
+  data$YPUE <- data$Yield / data$Effort
+
   data2 <- ypr_tabulate_yield(population, Ly = Ly, harvest = harvest, biomass = biomass)
 
   data2 <- rbind(data2, data2, data2, stringsAsFactors = FALSE)
+
+  data2$YPUE <- data2$Yield / data2$Effort
 
   data2$pi[5:6] <- 0
   data2[1:2, c("Yield", "Age", "Length", "Weight")] <- 0

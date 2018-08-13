@@ -133,6 +133,7 @@ ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FA
                         Age = c(attr(actual_yield, "Age"), attr(optimal_yield, "Age")),
                         Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),
                         Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
+                        Effort = c(attr(actual_yield, "Effort"), attr(optimal_yield, "Effort")),
                         stringsAsFactors = FALSE)
   } else {
     yield <- data.frame(Type = "actual",
@@ -141,6 +142,7 @@ ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FA
                         Age = attr(actual_yield, "Age"),
                         Length = attr(actual_yield, "Length"),
                         Weight = attr(actual_yield, "Weight"),
+                        Effort = attr(actual_yield, "Effort"),
                         stringsAsFactors = FALSE)
   }
 

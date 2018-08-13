@@ -25,3 +25,5 @@ Hm,Fishery,Mortality,Advanced,0,1,0,0
 Rmax,Ecological,Units,Scaling,1,1000,0,1
 Wa,Ecological,Units,Scaling,0.001,0.1,0,1
 fa,Ecological,Units,Scaling,0.0001,100,0,1
+Ea,Fishery,Units,Scaling,0.01,1000,0,1
+Eb,Fishery,Units,Scaling,0,10,0,0

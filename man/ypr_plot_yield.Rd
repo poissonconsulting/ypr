@@ -27,10 +27,12 @@ ypr_plot_yield(population, y = "Yield", pi = seq(0, 1, length.out =
 A ggplot2 object.
 }
 \description{
-Plots the population yield by the annual interval capture probability.
+Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
+by the annual interval capture probability.
 }
 \examples{
 ypr_plot_yield(ypr_population())
+ypr_plot_yield(ypr_population(), "YPUE")
 }
 \seealso{
 \code{\link{ypr_population}} and \code{\link{ypr_yields}}

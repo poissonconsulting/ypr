@@ -1,6 +1,8 @@
 yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
   schedule <- as.list(schedule)
   schedule$pi <- attr(schedule, "pi")
+  schedule$Ea <- attr(schedule, "Ea")
+  schedule$Eb <- attr(schedule, "Eb")
   schedule <- c(schedule, sr(schedule))
 
   with(schedule, {
@@ -10,6 +12,7 @@ yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
     age <- weighted.mean(Age, yield)
     length <- weighted.mean(Length, yield)
     weight <- weighted.mean(Weight, yield)
+    effort <- Ea * 100 * pi^Eb
     if(biomass)
       yield <- yield * Weight / 1000
     yield <- sum(yield)
@@ -21,6 +24,7 @@ yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
     attr(yield, "Age") <- age
     attr(yield, "Length") <- length
     attr(yield, "Weight") <- weight
+    attr(yield, "Effort") <- effort
 
     yield
   })
