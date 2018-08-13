@@ -100,7 +100,21 @@ ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE
 
 #' Tabulate Yield
 #'
+#' @param object The populations or populations to tabulate the yield for.
+#' @param ... Unused parameters.
 #'
+#' @return A data frame.
+#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
+#' @export
+#' @examples
+#' ypr_tabulate_yield(ypr_population())
+ypr_tabulate_yield <- function(object, ...) {
+  UseMethod("ypr_tabulate_yield")
+}
+
+#' Tabulate Yield
+#'
+#' @inheritParams ypr_tabulate_yield
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @param optimal A flag indicating whether to include the optimal yield.
@@ -109,23 +123,23 @@ ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
-ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE,
-                               optimal = TRUE) {
+ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
+                               optimal = TRUE, ...) {
 
   check_flag(optimal)
 
-  actual_pi <- population$pi
+  actual_pi <- object$pi
 
-  actual_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
+  actual_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
                             biomass = biomass)
 
   if(optimal) {
-    optimal_pi <- ypr_optimize(population, Ly = Ly, harvest = harvest,
+    optimal_pi <- ypr_optimize(object, Ly = Ly, harvest = harvest,
                                biomass = biomass)
 
-    population <- ypr_population_update(population, pi = optimal_pi)
+    object <- ypr_population_update(object, pi = optimal_pi)
 
-    optimal_yield <- ypr_yield(population, Ly = Ly, harvest = harvest,
+    optimal_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
                                biomass = biomass)
     yield <- data.frame(Type = c("actual", "optimal"),
                         pi = c(actual_pi, optimal_pi),
@@ -157,7 +171,7 @@ ypr_tabulate_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FA
 
 tabulate_yield_pi <- function(pi, population, Ly, harvest, biomass) {
   population$pi <- pi
-  yield <- ypr_tabulate_yield(population = population, Ly = Ly,
+  yield <- ypr_tabulate_yield(object = population, Ly = Ly,
                               harvest = harvest, biomass = biomass,
                               optimal = FALSE)
   yield$Type <- NULL
@@ -177,7 +191,6 @@ tabulate_yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields <- function(population, pi = seq(0, 1, length.out = 100),
                                 Ly = 0, harvest = FALSE, biomass = FALSE) {
-
   check_vector(pi, c(0, 1), length = TRUE)
 
   yields <- lapply(pi, tabulate_yield_pi, population = population, Ly = Ly,

@@ -4,19 +4,12 @@
 \alias{ypr_tabulate_yield}
 \title{Tabulate Yield}
 \usage{
-ypr_tabulate_yield(population, Ly = 0, harvest = FALSE,
-  biomass = FALSE, optimal = TRUE)
+ypr_tabulate_yield(object, ...)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{object}{The populations or populations to tabulate the yield for.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
-
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
-
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
-
-\item{optimal}{A flag indicating whether to include the optimal yield.}
+\item{...}{Unused parameters.}
 }
 \value{
 A data frame.
@@ -28,5 +21,5 @@ Tabulate Yield
 ypr_tabulate_yield(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_yield}}
+\code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
 }

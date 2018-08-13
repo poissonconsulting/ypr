@@ -3,6 +3,7 @@
 S3method(plot,ypr_population)
 S3method(print,ypr_population)
 S3method(print,ypr_populations)
+S3method(ypr_tabulate_yield,ypr_population)
 export(ypr_import_parameters)
 export(ypr_inst2inter)
 export(ypr_inter2inst)
