@@ -11,4 +11,8 @@ test_that("population", {
 
   ypr_population_update(population, M = 0.2, Mb = -0.75)
 
+  populations <- ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+  expect_identical(check_populations(populations), populations)
+  expect_identical(length(populations), 4L)
+  expect_identical(check_population(populations[[1]]), populations[[1]])
 })

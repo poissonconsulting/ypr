@@ -8,3 +8,23 @@ print.ypr_population <- function(x, ...) {
   cat(x)
   invisible(x)
 }
+
+#' @export
+print.ypr_populations <- function(x, ...) {
+  check_populations(x)
+  x$FUN = c
+  x <- do.call("mapply", x)
+  x <- as.data.frame(x)
+  x <- lapply(x, function(x) sort(unique(x)))
+
+  print(x)
+
+  nchar <- nchar(names(x))
+  nchar <- max(nchar) - nchar + 1
+  space <- vapply(nchar, function(x) paste0(rep(" ", times = x), collapse = ""), "")
+  names <- names(x)
+  x <- lapply(x, paste0, collapse = ", ")
+  x <- paste0(names, ":", space, x, collapse = "\n")
+  cat(x)
+  invisible(x)
+}

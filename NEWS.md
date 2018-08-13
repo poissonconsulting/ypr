@@ -1,4 +1,5 @@
 - Set default value of `Wa` to be 0.01.
+- Added `ypr_population_parameters()` to generate all combinations of parameters.
 - Added scaling parameters `Ea` and `Eb` to allow plots of yield per effort.
 - Added `Age`, `Length`, `Weight` and `Effort` to `ypr_tabulate_yield()` and added `ypr_tabulate_yields()`
 - Added `y` arg to `ypr_plot_yield()` to allow plotting of mean age, length, weight, effort or yield per effort by capture probability.

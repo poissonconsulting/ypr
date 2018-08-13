@@ -5,10 +5,20 @@ adams_bt_03 <- ypr_population(k = 0.13, Linf = 131, t0 = 0.2, Wb = 3.4,
                               Hm = 0.15,
                               Rk = 3.8, Vp = 5)
 
-chilliwack_bt_05 <- ypr_population(k = 0.12, Linf = 86, t0 = 0.018,
-                                   Wb = 2.8, M = 0.2, Ls = 38.5,
-                                   Lv = 50, Vp = 11.7,
-                                   Rk = 4.6, Llo = 60, Nc = 0.15, Hm = 0.2)
+chilliwack_bt_05 <- ypr_populations(k = 0.12, Linf = 86, t0 = 0.018,
+                                   Wa = 0.022, Wb = 2.8,
+                                   M = 0.19,
+                                   Ls = 38.5,
+                                   Lv = 36.5,
+                                   Vp = 11.7,
+                                   fa = 2.29,
+                                   Rmax = 1000, # Population size was arbitrarily set to 1000
+                                   Rk = c(2.5,4.6),
+                                   Llo = c(0,60,1000),
+                                   Nc = 0.15,
+                                   Hm = c(0.05,0.2))
+
+ypr_tabulate_yield(chilliwack_bt_05[[1]])
 
 kootenay_bt_13 <- ypr_population(k = 0.19, t0 = 0.5, Wb = 3.04,
                                  Ls = 60, Vp = 5,

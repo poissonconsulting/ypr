@@ -67,3 +67,36 @@ ypr_population_update <- function(population, ...) {
   population[names(parameters)] <- unname(parameters)
   check_population(population)
 }
+
+#' Populations
+#'
+#' @inheritParams ypr_population_update
+#'
+#' @return A list of \code{\link{ypr_population}} objects
+#' @seealso \code{\link{ypr_population}}
+#' @export
+#' @examples
+#' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+ypr_populations <- function(...) {
+  population <- ypr_population()
+
+  parameters <- list(...)
+
+  check_names(parameters, .parameters$Parameter,
+              complete = FALSE, exclusive = TRUE, unique = TRUE,
+              x_name = "...")
+
+  parameters <- lapply(parameters, function(x) sort(unique(x)))
+
+  parameters <- expand.grid(parameters)
+
+  populations <- list()
+  for(i in seq_len(nrow(parameters))) {
+    population <- as.list(parameters[i,,drop = FALSE])
+    attr(population,"out.attrs") <- NULL
+    populations[[i]] <- do.call("ypr_population", population)
+  }
+  class(populations) <- "ypr_populations"
+  populations
+}
+
