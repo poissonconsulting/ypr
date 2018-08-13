@@ -30,7 +30,7 @@ ypr_tabulate_parameters <- function(population) {
   parameters
 }
 
-#' Import Parameters
+#' Detabulate Parameters
 #'
 #' @param x A data frame with columns Parameter and Value specifying
 #' one or more parameters and their values.
@@ -38,8 +38,8 @@ ypr_tabulate_parameters <- function(population) {
 #' @seealso \code{\link{ypr_population}}
 #' @export
 #' @examples
-#' ypr_import_parameters(ypr_tabulate_parameters(ypr_population()))
-ypr_import_parameters <- function(x) {
+#' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
+ypr_detabulate_parameters <- function(x) {
   check_data(
     x,
     values = list(Parameter = .parameters$Parameter,

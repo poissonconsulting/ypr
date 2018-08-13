@@ -4,7 +4,7 @@
 - Added `Age`, `Length`, `Weight` and `Effort` to `ypr_tabulate_yield()` and added `ypr_tabulate_yields()`
 - Added `y` arg to `ypr_plot_yield()` to allow plotting of mean age, length, weight, effort or yield per effort by capture probability.
 - Added `ypr_plot_histogram()` to plot frequency distributions of catch, spawners and in lake by age, length or weight bins.
-- Added `ypr_tabulate_parameters()` to get table of parameters, values and descriptions and `ypr_import_parameters()` to convert back to a population object.
+- Added `ypr_tabulate_parameters()` to get table of parameters, values and descriptions and `ypr_detabulate_parameters()` to convert back to a population object.
 - Added `ypr_tabulate_sr()` to get table of eggs and recruits at unfished, actual and optimal rates.
 - Added `print.ypr_population()`.
 
