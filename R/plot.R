@@ -177,7 +177,7 @@ ypr_plot_yield <- function(population, y = "Yield", pi = seq(0, 1, length.out = 
   data2$YPUE <- data2$Yield / data2$Effort
 
   data2$pi[5:6] <- 0
-  data2[1:2, c("Yield", "Age", "Length", "Weight")] <- 0
+  data2[1:2, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE")] <- 0
 
   ggplot(data = data, aes_string(x = "pi", y = y)) +
     (
