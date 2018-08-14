@@ -41,6 +41,13 @@ test_that("ypr_tabulate_yield", {
   sr <- ypr_tabulate_sr(ypr_population())
   expect_identical(check_tabulated_sr(sr), sr)
   expect_identical(sr$Type, c("unfished", "actual", "optimal"))
+
+  sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3,5)))
+  expect_identical(check_tabulated_sr(sr, exclusive = FALSE), sr)
+  expect_identical(colnames(sr), c("Type", "pi", "Eggs", "Recruits",
+                                   "Spawners", "Fecundity", "Rk"))
+  expect_identical(sr$Rk, c(3,3,3,5,5,5))
+
   skip_if(length(tools::Rd_db("ypr")) == 0)
   parameters <- ypr_tabulate_parameters(ypr_population())
   expect_identical(parameters$Description[1], "The maximum age (yr).")
@@ -48,9 +55,4 @@ test_that("ypr_tabulate_yield", {
   expect_identical(ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
                    ypr_population(BH = 1L))
 
-  sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3,5)))
-  expect_identical(check_tabulated_sr(sr, exclusive = FALSE), sr)
-  expect_identical(colnames(sr), c("Type", "pi", "Eggs", "Recruits",
-                                   "Spawners", "Fecundity", "Rk"))
-  expect_identical(sr$Rk, c(3,3,3,5,5,5))
 })
