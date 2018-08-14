@@ -170,7 +170,7 @@ ypr_plot_yield <- function(population, y = "Yield", pi = seq(0, 1, length.out = 
 
   data$YPUE <- data$Yield / data$Effort
 
-  data2 <- ypr_tabulate_yield(population, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_yield(object = population, Ly = Ly, harvest = harvest, biomass = biomass)
 
   data2 <- rbind(data2, data2, data2, stringsAsFactors = FALSE)
 

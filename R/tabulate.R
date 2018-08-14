@@ -1,3 +1,31 @@
+#' Tabulate Yield
+#'
+#' @param object The populations or populations to tabulate the yield for.
+#' @param ... Unused parameters.
+#'
+#' @return A data frame.
+#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
+#' @export
+#' @examples
+#' ypr_tabulate_yield(ypr_population())
+ypr_tabulate_yield <- function(object, ...) {
+  UseMethod("ypr_tabulate_yield")
+}
+
+#' Tabulate Yields
+#'
+#' @param object The populations or populations to tabulate the yield for.
+#' @param ... Unused parameters.
+#'
+#' @return A data frame.
+#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
+#' @export
+#' @examples
+#' ypr_tabulate_yields(ypr_population())
+ypr_tabulate_yields <- function(object, ...) {
+  UseMethod("ypr_tabulate_yields")
+}
+
 #' Population Parameters
 #'
 #' @inheritParams ypr_schedule
@@ -100,20 +128,6 @@ ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE
 
 #' Tabulate Yield
 #'
-#' @param object The populations or populations to tabulate the yield for.
-#' @param ... Unused parameters.
-#'
-#' @return A data frame.
-#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
-#' @export
-#' @examples
-#' ypr_tabulate_yield(ypr_population())
-ypr_tabulate_yield <- function(object, ...) {
-  UseMethod("ypr_tabulate_yield")
-}
-
-#' Tabulate Yield
-#'
 #' @inheritParams ypr_tabulate_yield
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
@@ -210,32 +224,33 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, 
   yield
 }
 
-tabulate_yield_pi <- function(pi, population, Ly, harvest, biomass) {
-  population$pi <- pi
-  yield <- ypr_tabulate_yield(object = population, Ly = Ly,
+tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
+  object$pi <- pi
+  yield <- ypr_tabulate_yield(object = object, Ly = Ly,
                               harvest = harvest, biomass = biomass,
-                              optimal = FALSE)
+                              optimal = FALSE, all = all)
   yield$Type <- NULL
   yield
 }
 
 #' Tabulate Yields
 #'
-#'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_yield
+#' @inheritParams ypr_tabulate_yield.ypr_population
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
-ypr_tabulate_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                                Ly = 0, harvest = FALSE, biomass = FALSE) {
+ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
+                                Ly = 0, harvest = FALSE, biomass = FALSE, all = FALSE, ...) {
+
   check_vector(pi, c(0, 1), length = TRUE)
 
-  yields <- lapply(pi, tabulate_yield_pi, population = population, Ly = Ly,
-                   harvest = harvest, biomass = biomass)
+  yields <- lapply(pi, tabulate_yield_pi, object = object, Ly = Ly,
+                   harvest = harvest, biomass = biomass, all = all)
 
   yields <- do.call(rbind, yields)
 
