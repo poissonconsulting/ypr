@@ -262,3 +262,38 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
     yields <- tibble::as_tibble(yields)
   yields
 }
+
+#' Tabulate Yields
+#'
+#' @inheritParams ypr_tabulate_yields
+#' @inheritParams ypr_tabulate_yields.ypr_population
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_yield
+#' @return A data frame.
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
+#' @export
+#' @examples
+#' ypr_tabulate_yields(ypr_populations(Rk = c(3,5)), pi = seq(0, 1, length.out = 10))
+ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
+                                Ly = 0, harvest = FALSE, biomass = FALSE,
+                                all = FALSE, ...) {
+
+  check_flag(all)
+
+  yield <- lapply(object, ypr_tabulate_yields, pi = pi, Ly = Ly, harvest = harvest,
+                  biomass = biomass, all = TRUE,...)
+
+  yield <- do.call("rbind", yield)
+
+  if(!all) {
+    parameters <- .parameters$Parameter
+    parameters <- parameters[parameters != "pi"]
+    bol <- vapply(parameters, function(x) length(unique(yield[[x]])) == 1, TRUE)
+    parameters <- parameters[bol]
+    yield[parameters] <- NULL
+  }
+
+  if(requireNamespace("tibble", quietly = TRUE))
+    yield <- tibble::as_tibble(yield)
+  yield
+}

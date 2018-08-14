@@ -29,6 +29,14 @@ test_that("ypr_tabulate_yield", {
   expect_equal(yields$Yield[1:2], c(0,0.0738), tolerance = 1e-04)
   expect_equal(yields$Weight[1:2], c(NA,3057.662), tolerance = 1e-07)
 
+  yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3,5)), pi = seq(0, 1, length.out = 2))
+  expect_identical(ncol(yields), 7L)
+  expect_identical(nrow(yields), 4L)
+
+  yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3,5)), pi = seq(0, 1, length.out = 2)
+                                ,all = TRUE)
+  expect_identical(ncol(yields), 33L)
+  expect_identical(nrow(yields), 4L)
 
   sr <- ypr_tabulate_sr(ypr_population())
   expect_identical(check_tabulated_sr(sr), sr)
