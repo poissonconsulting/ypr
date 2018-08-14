@@ -47,4 +47,10 @@ test_that("ypr_tabulate_yield", {
   expect_identical(check_tabulated_parameters(parameters), parameters)
   expect_identical(ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
                    ypr_population(BH = 1L))
+
+  sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3,5)))
+  expect_identical(check_tabulated_sr(sr, exclusive = FALSE), sr)
+  expect_identical(colnames(sr), c("Type", "pi", "Eggs", "Recruits",
+                                   "Spawners", "Fecundity", "Rk"))
+  expect_identical(sr$Rk, c(3,3,3,5,5,5))
 })

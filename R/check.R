@@ -129,16 +129,16 @@ check_tabulated_sr <- function(x, exclusive = TRUE, order = TRUE, x_name = subst
   check_data(
     x,
     values = list(Type = c("unfished", "actual", "optimal"),
+                  pi = c(0, 1),
                   Eggs = c(0, .Machine$double.xmax),
                   Recruits = c(0, .Machine$double.xmax),
                   Spawners = c(0, .Machine$double.xmax),
                   Fecundity = c(0, .Machine$double.xmax)
                   ),
-    nrow = 3L,
+    nrow = TRUE,
     exclusive = exclusive,
     order = order,
-    x_name = x_name,
-    key = "Type")
+    x_name = x_name)
 
   check_attributes(x, values = list(alpha = c(0, .Machine$double.xmax),
                                     beta = c(0, .Machine$double.xmax),

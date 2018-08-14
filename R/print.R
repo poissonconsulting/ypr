@@ -12,12 +12,11 @@ print.ypr_population <- function(x, ...) {
 #' @export
 print.ypr_populations <- function(x, ...) {
   check_populations(x)
+  if(length(x) == 1) return(print(x[[1]]))
   x$FUN = c
   x <- do.call("mapply", x)
   x <- as.data.frame(x)
   x <- lapply(x, function(x) sort(unique(x)))
-
-  print(x)
 
   nchar <- nchar(names(x))
   nchar <- max(nchar) - nchar + 1

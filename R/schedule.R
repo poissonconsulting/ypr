@@ -49,7 +49,5 @@ ypr_schedule <- function(population) {
   attr(schedule, "Ea") <- population$Ea
   attr(schedule, "Eb") <- population$Eb
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    schedule <- tibble::as_tibble(schedule)
-  schedule
+  as_conditional_tibble(schedule)
 }

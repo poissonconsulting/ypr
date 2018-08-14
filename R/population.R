@@ -82,6 +82,11 @@ ypr_populations <- function(...) {
 
   parameters <- list(...)
 
+  if(!length(parameters)) {
+    populations <- list(population)
+    class(populations) <- "ypr_populations"
+    return(populations)
+  }
   check_names(parameters, .parameters$Parameter,
               complete = FALSE, exclusive = TRUE, unique = TRUE,
               x_name = "...")

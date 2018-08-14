@@ -64,9 +64,7 @@ ypr_tabulate_parameters <- function(population) {
 
   parameters <- merge(parameters, data, by = "Parameter", sort = FALSE)
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    parameters <- tibble::as_tibble(parameters)
-  parameters
+  as_conditional_tibble(parameters)
 }
 
 #' Detabulate Parameters
@@ -102,21 +100,25 @@ ypr_detabulate_parameters <- function(x) {
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
+#' @param all A flag indicating whether to include all parameter values.
 #' @return A table of stock-recruitment parameters.
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
 #' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
-ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE, ...) {
+ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE,
+                                           biomass = FALSE, all = FALSE,...) {
   sr <- ypr_sr(object)
   sr$BH <- object$BH
 
+  pi <- object$pi
   object$pi <- ypr_optimise(object, Ly = Ly, harvest = harvest, biomass = biomass)
   optimal_sr <- ypr_sr(object)
 
   table <- with(sr, {
     data <- data.frame(
       Type = c("unfished", "actual", "optimal"),
+      pi = c(0, pi, object$pi),
       Eggs = c(phi * R0, phiF * R0F, optimal_sr$phiF * optimal_sr$R0F),
       stringsAsFactors = FALSE
     )
@@ -127,15 +129,39 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE, biom
     data
   })
 
+  if(all) table <- add_parameters(table, object)
+
   attr(table, "alpha") <- sr$alpha
   attr(table, "beta") <- sr$beta
   attr(table, "Ly") <- Ly
   attr(table, "harvest") <- harvest
   attr(table, "biomass") <- biomass
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    table <- tibble::as_tibble(table)
-  table
+  as_conditional_tibble(table)
+}
+
+#' Stock-Recruitment Parameters
+#'
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_yield
+#' @inheritParams ypr_tabulate_sr
+#' @param all A flag indicating whether to include all parameter values.
+#' @return A table of stock-recruitment parameters.
+#' @export
+#' @examples
+#' ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
+ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
+                                            all = FALSE, ...) {
+  check_flag(all)
+
+  sr <- lapply(object, ypr_tabulate_sr, Ly = Ly, harvest = harvest,
+               biomass = biomass, all = TRUE,...)
+
+  sr <- do.call("rbind", sr)
+
+  if(!all) sr <- drop_constant_parameters(sr)
+
+  as_conditional_tibble(sr)
 }
 
 #' Tabulate Yield
@@ -143,15 +169,15 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE, biom
 #' @inheritParams ypr_tabulate_yield
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
+#' @inheritParams ypr_tabulate_sr.ypr_population
 #' @param optimal A flag indicating whether to include the optimal yield.
-#' @param all A flag indicating whether to include all parameter values.
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
 ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
-                               optimal = TRUE, all = FALSE, ...) {
+                                              optimal = TRUE, all = FALSE, ...) {
 
   check_flag(optimal)
   check_flag(all)
@@ -188,18 +214,13 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
                         stringsAsFactors = FALSE)
   }
 
-  if(all) {
-    object <- as.data.frame(unclass(object))
-    object$pi <- NULL
-    yield <- merge(yield, object)
-  }
+  if(all) yield <- add_parameters(yield, object)
+
   attr(yield, "Ly") <- Ly
   attr(yield, "harvest") <- harvest
   attr(yield, "biomass") <- biomass
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    yield <- tibble::as_tibble(yield)
-  yield
+  as_conditional_tibble(yield)
 }
 
 #' Tabulate Yield
@@ -214,7 +235,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
 #' @examples
 #' ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
-                               optimal = TRUE, all = FALSE, ...) {
+                                               optimal = TRUE, all = FALSE, ...) {
 
   check_flag(all)
 
@@ -223,26 +244,9 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, 
 
   yield <- do.call("rbind", yield)
 
-  if(!all) {
-    parameters <- .parameters$Parameter
-    parameters <- parameters[parameters != "pi"]
-    bol <- vapply(parameters, function(x) length(unique(yield[[x]])) == 1, TRUE)
-    parameters <- parameters[bol]
-    yield[parameters] <- NULL
-  }
+  if(!all) yield <- drop_constant_parameters(yield)
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    yield <- tibble::as_tibble(yield)
-  yield
-}
-
-tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
-  object$pi <- pi
-  yield <- ypr_tabulate_yield(object = object, Ly = Ly,
-                              harvest = harvest, biomass = biomass,
-                              optimal = FALSE, all = all)
-  yield$Type <- NULL
-  yield
+  as_conditional_tibble(yield)
 }
 
 #' Tabulate Yields
@@ -257,7 +261,7 @@ tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
-                                Ly = 0, harvest = FALSE, biomass = FALSE, all = FALSE, ...) {
+                                               Ly = 0, harvest = FALSE, biomass = FALSE, all = FALSE, ...) {
 
   check_vector(pi, c(0, 1), length = TRUE)
 
@@ -270,9 +274,7 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
   attr(yield, "harvest") <- harvest
   attr(yield, "biomass") <- biomass
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    yields <- tibble::as_tibble(yields)
-  yields
+  as_conditional_tibble(yields)
 }
 
 #' Tabulate Yields
@@ -287,8 +289,8 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' @examples
 #' ypr_tabulate_yields(ypr_populations(Rk = c(3,5)), pi = seq(0, 1, length.out = 10))
 ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
-                                Ly = 0, harvest = FALSE, biomass = FALSE,
-                                all = FALSE, ...) {
+                                                Ly = 0, harvest = FALSE, biomass = FALSE,
+                                                all = FALSE, ...) {
 
   check_flag(all)
 
@@ -297,15 +299,7 @@ ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.ou
 
   yield <- do.call("rbind", yield)
 
-  if(!all) {
-    parameters <- .parameters$Parameter
-    parameters <- parameters[parameters != "pi"]
-    bol <- vapply(parameters, function(x) length(unique(yield[[x]])) == 1, TRUE)
-    parameters <- parameters[bol]
-    yield[parameters] <- NULL
-  }
+  if(!all) yield <- drop_constant_parameters(yield)
 
-  if(requireNamespace("tibble", quietly = TRUE))
-    yield <- tibble::as_tibble(yield)
-  yield
+  as_conditional_tibble(yield)
 }
