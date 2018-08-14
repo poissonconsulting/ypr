@@ -1,28 +1,42 @@
 #' Adams Lake Bull Trout Population Parameters
 #'
 #' The population parameters for
-#' Bull Trout in Adams Lake, BC.
+#' Bull Trout in Adams Lake from Bison et al (2003)
 #' @references Bison, R., O’Brien, D., and Martell, S.J.D. 2003. An Analysis of Sustainable Fishing Options for Adams Lake Bull Trout Using Life History and Telemetry Data. BC Ministry of Water Land and Air Protection, Kamloops, B.C.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
 #' ypr_plot_yield(adams_bt_03)
 "adams_bt_03"
 
-#' Chilliwack Lake Bull Trout Population Parameters
+#' Chilliwack Lake Bull Trout Populations Parameters
 #'
-#' The population parameters for
-#' Bull Trout in Chilliwack Lake, BC.
+#' The populations parameters for
+#' Bull Trout in Chilliwack Lake from Taylor (2005)
+#'
+#' Taylor (2005) scaled the yield in terms of a total population size of 1,000 fish.
+#' Here the yield is scaled in terms of 1,000 age-1 recruits.
+#'
 #' @references Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
-#' @format An object of class \code{\link{ypr_population}}.
+#' @format An object of class \code{\link{ypr_populations}}.
 #' @examples
-#' ypr_plot_yield(chilliwack_bt_05)
-#' ypr_plot_yield(ypr_population_update(chilliwack_bt_05, Rk = 2.5, Hm = 0.05, rho = 1))
+#' yield <- ypr_tabulate_yield(chilliwack_bt_05, type = "optimal")
+#' yield$pi <- round(yield$pi, 2)
+#' yield <- yield[c("Llo", "Hm", "Rk", "pi")]
+#' yield <- tidyr::spread(yield, Rk, pi)
+#' yield <- yield[order(-yield$Hm),]
+#' yield
+#'
+#' \dontrun{
+#' ypr_plot_yield(chilliwack_bt_05, plot_values = FALSE) +
+#'   ggplot2::facet_grid(Rk~Hm) +
+#'   ggplot2::aes(group = Llo, linetype = Llo)
+#'  }
 "chilliwack_bt_05"
 
 #' Kootenay Lake Bull Trout Population Parameters (2013)
 #'
 #' The population parameters for
-#' Bull Trout in Kootenay Lake, BC.
+#' Bull Trout in Kootenay Lake from Andrusak and Thorley (2013)
 #'
 #' The estimates should not be used for management.
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
@@ -35,7 +49,7 @@
 #' Kootenay Lake Rainbow Trout Population Parameters (2013)
 #'
 #' The population parameters for
-#' Rainbow Trout in Kootenay Lake, BC.
+#' Rainbow Trout in Kootenay Lake from Andrusak and Thorley (2013)
 #'
 #' The estimates should not be used for management.
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.

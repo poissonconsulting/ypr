@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.1.0.9011
+Version: 0.1.0.9012
 Date: 2018-08-14
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods.
@@ -25,7 +25,8 @@ Suggests:
     testthat,
     tibble,
     knitr,
-    rmarkdown
+    rmarkdown,
+    tidyr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true

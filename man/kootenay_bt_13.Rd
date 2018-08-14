@@ -10,7 +10,7 @@ kootenay_bt_13
 }
 \description{
 The population parameters for
-Bull Trout in Kootenay Lake, BC.
+Bull Trout in Kootenay Lake from Andrusak and Thorley (2013)
 }
 \details{
 The estimates should not be used for management.

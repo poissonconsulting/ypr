@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Optimize Capture — ypr_optimize • ypr</title>
+<title>Stock-Recruitment Parameters — ypr_tabulate_sr.ypr_populations • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Optimize Capture — ypr_optimize" />
+<meta property="og:title" content="Stock-Recruitment Parameters — ypr_tabulate_sr.ypr_populations" />
 
-<meta property="og:description" content="Finds the interval annual capture probability (pi) that maximises the yield for a given population." />
+<meta property="og:description" content="Stock-Recruitment Parameters" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,25 +103,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Optimize Capture</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/optimise.R'><code>R/optimise.R</code></a></small>
-    <div class="hidden name"><code>ypr_optimize.Rd</code></div>
+    <h1>Stock-Recruitment Parameters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/tabulate.R'><code>R/tabulate.R</code></a></small>
+    <div class="hidden name"><code>ypr_tabulate_sr.ypr_populations.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Finds the interval annual capture probability (pi) that maximises the yield for a given population.</p>
+    <p>Stock-Recruitment Parameters</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_optimize</span>(<span class='no'>population</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for ypr_populations</span>
+<span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='no'>object</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>population</th>
-      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p></td>
+      <th>object</th>
+      <td><p>The populations or populations.</p></td>
     </tr>
     <tr>
       <th>Ly</th>
@@ -135,19 +137,31 @@
       <th>biomass</th>
       <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
     </tr>
+    <tr>
+      <th>all</th>
+      <td><p>A flag indicating whether to include all parameter values.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Unused parameters.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The interval annual capture probability (pi) that maximises the yield.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_yield.html'>ypr_yield</a></code></p></div>
+    <p>A table of stock-recruitment parameters.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_optimize</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; [1] 0.1060144</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>)))</div><div class='output co'>#&gt; # A tibble: 6 x 7
+#&gt;   Type         pi    Eggs Recruits Spawners Fecundity    Rk
+#&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 unfished 0       2683.    0.6      0.713      3764.   2.5
+#&gt; 2 actual   0.2      -66.7  -0.0387  -0.0252     2650.   2.5
+#&gt; 3 optimal  0.0864  1030.    0.365    0.322      3195.   2.5
+#&gt; 4 unfished 0       3500.    0.783    0.930      3764.   4.6
+#&gt; 5 actual   0.2      750.    0.435    0.283      2650.   4.6
+#&gt; 6 optimal  0.157   1077.    0.526    0.380      2833.   4.6</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -155,8 +169,6 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

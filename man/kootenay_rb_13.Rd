@@ -10,7 +10,7 @@ kootenay_rb_13
 }
 \description{
 The population parameters for
-Rainbow Trout in Kootenay Lake, BC.
+Rainbow Trout in Kootenay Lake from Andrusak and Thorley (2013)
 }
 \details{
 The estimates should not be used for management.

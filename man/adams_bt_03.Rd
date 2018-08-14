@@ -10,7 +10,7 @@ adams_bt_03
 }
 \description{
 The population parameters for
-Bull Trout in Adams Lake, BC.
+Bull Trout in Adams Lake from Bison et al (2003)
 }
 \examples{
 ypr_plot_yield(adams_bt_03)

@@ -226,6 +226,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #' @seealso \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
 #' @export
 #' @examples
+#' \dontrun{
 #' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
 #'   ggplot2::facet_wrap(~Llo) +
 #'   ggplot2::aes_string(group = "Rk", color = "Rk") +
@@ -233,6 +234,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #'
 #' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
 #'   ggplot2::facet_grid(Rk~Llo)
+#'  }
 ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                            Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
 
@@ -249,8 +251,14 @@ ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, l
   parameters <- setdiff(intersect(colnames(data), .parameters$Parameter), "pi")
 
   for(parameter in parameters) {
-    data[[parameter]] <- ordered(paste0(parameter, ": ", data[[parameter]]))
-    data2[[parameter]] <- ordered(paste0(parameter, ": ", data2[[parameter]]))
+    data[[parameter]] <- factor(
+      paste0(parameter, ": ", data[[parameter]]),
+      levels = unique(paste0(parameter, ": ", sort(data[[parameter]])))
+    )
+    data2[[parameter]] <- factor(
+      paste0(parameter, ": ", data2[[parameter]]),
+      levels = unique(paste0(parameter, ": ", sort(data2[[parameter]])))
+    )
   }
 
   data1 <- data2

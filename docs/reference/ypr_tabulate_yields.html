@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9006</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9012</span>
       </span>
     </div>
 
@@ -114,31 +114,18 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_tabulate_yields</span>(<span class='no'>population</span>, <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>),
-  <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_tabulate_yields</span>(<span class='no'>object</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>population</th>
-      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p></td>
+      <th>object</th>
+      <td><p>The populations or populations.</p></td>
     </tr>
     <tr>
-      <th>pi</th>
-      <td><p>A vector of probabilities of capture to calculate the yield for.</p></td>
-    </tr>
-    <tr>
-      <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
-    </tr>
-    <tr>
-      <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.</p></td>
-    </tr>
-    <tr>
-      <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
+      <th>...</th>
+      <td><p>Unused parameters.</p></td>
     </tr>
     </table>
     
@@ -148,23 +135,23 @@
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_yields.html'>ypr_yields</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code>, <code><a href='ypr_populations.html'>ypr_populations</a></code> and <code><a href='ypr_yields.html'>ypr_yields</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_yields</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 100 x 5
-#&gt;        pi  Yield   Age Length Weight
-#&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt;  1 0      0      NA      NA      NA 
-#&gt;  2 0.0101 0.0149  8.70   69.4  3691.
-#&gt;  3 0.0202 0.0279  8.57   69.0  3619.
-#&gt;  4 0.0303 0.0389  8.45   68.6  3549.
-#&gt;  5 0.0404 0.0482  8.32   68.1  3481.
-#&gt;  6 0.0505 0.0559  8.21   67.7  3415.
-#&gt;  7 0.0606 0.0622  8.09   67.3  3350.
-#&gt;  8 0.0707 0.0670  7.98   66.9  3288.
-#&gt;  9 0.0808 0.0704  7.87   66.5  3228.
-#&gt; 10 0.0909 0.0727  7.77   66.1  3169.
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_yields</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 100 x 6
+#&gt;        pi  Yield   Age Length Weight Effort
+#&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt;  1 0      0      NA      NA      NA    0   
+#&gt;  2 0.0101 0.0149  8.70   69.4  3691.   1.01
+#&gt;  3 0.0202 0.0279  8.57   69.0  3619.   2.02
+#&gt;  4 0.0303 0.0389  8.45   68.6  3549.   3.03
+#&gt;  5 0.0404 0.0482  8.32   68.1  3481.   4.04
+#&gt;  6 0.0505 0.0559  8.21   67.7  3415.   5.05
+#&gt;  7 0.0606 0.0622  8.09   67.3  3350.   6.06
+#&gt;  8 0.0707 0.0670  7.98   66.9  3288.   7.07
+#&gt;  9 0.0808 0.0704  7.87   66.5  3228.   8.08
+#&gt; 10 0.0909 0.0727  7.77   66.1  3169.   9.09
 #&gt; # ... with 90 more rows</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -170,24 +170,32 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = FALSE, bio
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr.ypr_population
-#' @param optimal A flag indicating whether to include the optimal yield.
+#' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
 ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
-                                              optimal = TRUE, all = FALSE, ...) {
+                                              type = "both", all = FALSE, ...) {
 
-  check_flag(optimal)
-  check_flag(all)
+  check_scalar(type, c("both", "actual", "optimal"))
 
   actual_pi <- object$pi
 
   actual_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
                             biomass = biomass)
 
-  if(optimal) {
+  if(type == "actual") {
+    yield <- data.frame(Type = "actual",
+                        pi = actual_pi,
+                        Yield = actual_yield,
+                        Age = attr(actual_yield, "Age"),
+                        Length = attr(actual_yield, "Length"),
+                        Weight = attr(actual_yield, "Weight"),
+                        Effort = attr(actual_yield, "Effort"),
+                        stringsAsFactors = FALSE)
+  } else {
     optimal_pi <- ypr_optimize(object, Ly = Ly, harvest = harvest,
                                biomass = biomass)
 
@@ -203,15 +211,9 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
                         Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
                         Effort = c(attr(actual_yield, "Effort"), attr(optimal_yield, "Effort")),
                         stringsAsFactors = FALSE)
-  } else {
-    yield <- data.frame(Type = "actual",
-                        pi = actual_pi,
-                        Yield = actual_yield,
-                        Age = attr(actual_yield, "Age"),
-                        Length = attr(actual_yield, "Length"),
-                        Weight = attr(actual_yield, "Weight"),
-                        Effort = attr(actual_yield, "Effort"),
-                        stringsAsFactors = FALSE)
+
+    if(type == "optimal")
+      yield <- yield[yield$Type == "optimal", ]
   }
 
   if(all) yield <- add_parameters(yield, object)
@@ -235,12 +237,12 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
 #' @examples
 #' ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
-                                               optimal = TRUE, all = FALSE, ...) {
+                                               type = "both", all = FALSE, ...) {
 
   check_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
-                  biomass = biomass, optimal = optimal, all = TRUE,...)
+                  biomass = biomass, type = type, all = TRUE, ...)
 
   yield <- do.call("rbind", yield)
 

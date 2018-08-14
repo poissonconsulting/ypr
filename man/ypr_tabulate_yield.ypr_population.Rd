@@ -5,7 +5,7 @@
 \title{Tabulate Yield}
 \usage{
 \method{ypr_tabulate_yield}{ypr_population}(object, Ly = 0,
-  harvest = FALSE, biomass = FALSE, optimal = TRUE, all = FALSE,
+  harvest = FALSE, biomass = FALSE, type = "both", all = FALSE,
   ...)
 }
 \arguments{
@@ -17,7 +17,7 @@
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 
-\item{optimal}{A flag indicating whether to include the optimal yield.}
+\item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
 
 \item{all}{A flag indicating whether to include all parameter values.}
 

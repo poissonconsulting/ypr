@@ -35,7 +35,7 @@ tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
   object$pi <- pi
   yield <- ypr_tabulate_yield(object = object, Ly = Ly,
                               harvest = harvest, biomass = biomass,
-                              optimal = FALSE, all = all)
+                              type = "actual", all = all)
   yield$Type <- NULL
   yield
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Chilliwack Lake Bull Trout Population Parameters — chilliwack_bt_05 • ypr</title>
+<title>Chilliwack Lake Bull Trout Populations Parameters — chilliwack_bt_05 • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,10 @@
 
 
 
-<meta property="og:title" content="Chilliwack Lake Bull Trout Population Parameters — chilliwack_bt_05" />
+<meta property="og:title" content="Chilliwack Lake Bull Trout Populations Parameters — chilliwack_bt_05" />
 
-<meta property="og:description" content="The population parameters for
-Bull Trout in Chilliwack Lake, BC." />
+<meta property="og:description" content="The populations parameters for
+Bull Trout in Chilliwack Lake from Taylor (2005)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -62,7 +62,7 @@ Bull Trout in Chilliwack Lake, BC." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9006</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9012</span>
       </span>
     </div>
 
@@ -104,15 +104,15 @@ Bull Trout in Chilliwack Lake, BC." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Chilliwack Lake Bull Trout Population Parameters</h1>
+    <h1>Chilliwack Lake Bull Trout Populations Parameters</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/data.R'><code>R/data.R</code></a></small>
     <div class="hidden name"><code>chilliwack_bt_05.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The population parameters for
-Bull Trout in Chilliwack Lake, BC.</p>
+    <p>The populations parameters for
+Bull Trout in Chilliwack Lake from Taylor (2005)</p>
     
     </div>
 
@@ -120,7 +120,12 @@ Bull Trout in Chilliwack Lake, BC.</p>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p>
+    <p>An object of class <code><a href='ypr_populations.html'>ypr_populations</a></code>.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Taylor (2005) scaled the yield in terms of a total population size of 1,000 fish.
+Here the yield is scaled in terms of 1,000 age-1 recruits.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -128,13 +133,34 @@ Bull Trout in Chilliwack Lake, BC.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>chilliwack_bt_05</span>)</div><div class='img'><img src='chilliwack_bt_05-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='ypr_population_update.html'>ypr_population_update</a></span>(<span class='no'>chilliwack_bt_05</span>, <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>1</span>))</div><div class='img'><img src='chilliwack_bt_05-2.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a></span>(<span class='no'>chilliwack_bt_05</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"optimal"</span>)
+<span class='no'>yield</span>$<span class='no'>pi</span> <span class='kw'>&lt;-</span> <span class='fu'>round</span>(<span class='no'>yield</span>$<span class='no'>pi</span>, <span class='fl'>2</span>)
+<span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='no'>yield</span>[<span class='fu'>c</span>(<span class='st'>"Llo"</span>, <span class='st'>"Hm"</span>, <span class='st'>"Rk"</span>, <span class='st'>"pi"</span>)]
+<span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>tidyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/tidyr/topics/spread'>spread</a></span>(<span class='no'>yield</span>, <span class='no'>Rk</span>, <span class='no'>pi</span>)
+<span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='no'>yield</span>[<span class='fu'>order</span>(-<span class='no'>yield</span>$<span class='no'>Hm</span>),]
+<span class='no'>yield</span></div><div class='output co'>#&gt; # A tibble: 6 x 4
+#&gt;     Llo    Hm `2.5` `4.6`
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0  0.2   0.08  0.15
+#&gt; 2    60  0.2   0.17  0.38
+#&gt; 3  1000  0.2   0.25  0.45
+#&gt; 4     0  0.05  0.08  0.15
+#&gt; 5    60  0.05  0.22  0.61
+#&gt; 6  1000  0.05  0.42  0.75</div><div class='input'>
+</div><span class='co'># NOT RUN {</span>
+<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>chilliwack_bt_05</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) +
+  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/facet_grid'>facet_grid</a></span>(<span class='no'>Rk</span>~<span class='no'>Hm</span>) +
+  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Llo</span>, <span class='kw'>linetype</span> <span class='kw'>=</span> <span class='no'>Llo</span>)
+
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       
       <li><a href="#format">Format</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#references">References</a></li>
       

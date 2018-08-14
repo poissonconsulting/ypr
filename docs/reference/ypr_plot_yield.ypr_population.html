@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Optimize Capture — ypr_optimize • ypr</title>
+<title>Plot Yield by Capture — ypr_plot_yield.ypr_population • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Optimize Capture — ypr_optimize" />
+<meta property="og:title" content="Plot Yield by Capture — ypr_plot_yield.ypr_population" />
 
-<meta property="og:description" content="Finds the interval annual capture probability (pi) that maximises the yield for a given population." />
+<meta property="og:description" content="Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
+by the annual interval capture probability." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,25 +104,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Optimize Capture</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/optimise.R'><code>R/optimise.R</code></a></small>
-    <div class="hidden name"><code>ypr_optimize.Rd</code></div>
+    <h1>Plot Yield by Capture</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
+    <div class="hidden name"><code>ypr_plot_yield.ypr_population.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Finds the interval annual capture probability (pi) that maximises the yield for a given population.</p>
+    <p>Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
+by the annual interval capture probability.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_optimize</span>(<span class='no'>population</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for ypr_population</span>
+<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>object</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Yield"</span>,
+  <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>population</th>
-      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population</a></code>.</p></td>
+      <th>object</th>
+      <td><p>The populations or populations.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>A string of the term on the y-axis.</p></td>
+    </tr>
+    <tr>
+      <th>pi</th>
+      <td><p>A vector of probabilities of capture to calculate the yield for.</p></td>
     </tr>
     <tr>
       <th>Ly</th>
@@ -135,19 +148,27 @@
       <th>biomass</th>
       <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
     </tr>
+    <tr>
+      <th>plot_values</th>
+      <td><p>A flag indicating whether to plot the actual and optimal values.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Unused parameters.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The interval annual capture probability (pi) that maximises the yield.</p>
+    <p>A ggplot2 object.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_yield.html'>ypr_yield</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_yields.html'>ypr_yields</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_optimize</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; [1] 0.1060144</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='img'><img src='ypr_plot_yield.ypr_population-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(), <span class='st'>"YPUE"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing missing values (geom_path).</span></div><div class='img'><img src='ypr_plot_yield.ypr_population-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
