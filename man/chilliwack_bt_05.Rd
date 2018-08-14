@@ -12,10 +12,6 @@ chilliwack_bt_05
 The populations parameters for
 Bull Trout in Chilliwack Lake from Taylor (2005)
 }
-\details{
-Taylor (2005) scaled the yield in terms of a total population size of 1,000 fish.
-Here the yield is scaled in terms of 1,000 age-1 recruits.
-}
 \examples{
 yield <- ypr_tabulate_yield(chilliwack_bt_05, type = "optimal")
 yield$pi <- round(yield$pi, 2)

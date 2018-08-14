@@ -13,9 +13,6 @@
 #' The populations parameters for
 #' Bull Trout in Chilliwack Lake from Taylor (2005)
 #'
-#' Taylor (2005) scaled the yield in terms of a total population size of 1,000 fish.
-#' Here the yield is scaled in terms of 1,000 age-1 recruits.
-#'
 #' @references Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
 #' @format An object of class \code{\link{ypr_populations}}.
 #' @examples
