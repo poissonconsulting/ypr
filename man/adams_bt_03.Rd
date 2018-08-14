@@ -13,6 +13,7 @@ The population parameters for
 Bull Trout in Adams Lake from Bison et al (2003)
 }
 \examples{
+adams_bt_03
 ypr_plot_yield(adams_bt_03)
 }
 \references{

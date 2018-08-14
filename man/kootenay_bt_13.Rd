@@ -16,6 +16,7 @@ Bull Trout in Kootenay Lake from Andrusak and Thorley (2013)
 The estimates should not be used for management.
 }
 \examples{
+kootenay_bt_13
 ypr_plot_yield(kootenay_bt_13)
 ypr_plot_yield(kootenay_bt_13, Ly = 75)
 }

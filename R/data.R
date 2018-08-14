@@ -5,6 +5,7 @@
 #' @references Bison, R., O’Brien, D., and Martell, S.J.D. 2003. An Analysis of Sustainable Fishing Options for Adams Lake Bull Trout Using Life History and Telemetry Data. BC Ministry of Water Land and Air Protection, Kamloops, B.C.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
+#' adams_bt_03
 #' ypr_plot_yield(adams_bt_03)
 "adams_bt_03"
 
@@ -16,6 +17,7 @@
 #' @references Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
 #' @format An object of class \code{\link{ypr_populations}}.
 #' @examples
+#' chilliwack_bt_05
 #' yield <- ypr_tabulate_yield(chilliwack_bt_05, type = "optimal")
 #' yield$pi <- round(yield$pi, 2)
 #' yield <- yield[c("Llo", "Hm", "Rk", "pi")]
@@ -39,6 +41,7 @@
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
+#' kootenay_bt_13
 #' ypr_plot_yield(kootenay_bt_13)
 #' ypr_plot_yield(kootenay_bt_13, Ly = 75)
 "kootenay_bt_13"
@@ -52,6 +55,7 @@
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
+#' kootenay_rb_13
 #' ypr_plot_yield(kootenay_rb_13)
 #' ypr_plot_yield(kootenay_rb_13, Ly = 80)
 "kootenay_rb_13"
@@ -64,6 +68,7 @@
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
+#' quesnel_bt
 #' ypr_plot_yield(quesnel_bt)
 "quesnel_bt"
 
@@ -75,6 +80,7 @@
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
+#' quesnel_rb
 #' ypr_plot_yield(quesnel_rb)
 "quesnel_rb"
 
@@ -86,5 +92,6 @@
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
 #' @examples
+#' quesnel_lt
 #' ypr_plot_yield(quesnel_lt)
 "quesnel_lt"

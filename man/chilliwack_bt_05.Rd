@@ -13,6 +13,7 @@ The populations parameters for
 Bull Trout in Chilliwack Lake from Taylor (2005)
 }
 \examples{
+chilliwack_bt_05
 yield <- ypr_tabulate_yield(chilliwack_bt_05, type = "optimal")
 yield$pi <- round(yield$pi, 2)
 yield <- yield[c("Llo", "Hm", "Rk", "pi")]
