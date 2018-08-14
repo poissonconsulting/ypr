@@ -1,6 +1,6 @@
 #' Stock-Recruitment Parameters
 #'
-#' @param object The populations or populations to tabulate.
+#' @param object The populations or populations.
 #' @param ... Unused parameters.
 #' @return A table of stock-recruitment parameters.
 #' @export

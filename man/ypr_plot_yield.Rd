@@ -4,24 +4,12 @@
 \alias{ypr_plot_yield}
 \title{Plot Yield by Capture}
 \usage{
-ypr_plot_yield(population, y = "Yield", pi = seq(0, 1, length.out =
-  100), Ly = 0, harvest = FALSE, biomass = FALSE,
-  plot_values = TRUE)
+ypr_plot_yield(object, ...)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{object}{The populations or populations.}
 
-\item{y}{A string of the term on the y-axis.}
-
-\item{pi}{A vector of probabilities of capture to calculate the yield for.}
-
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
-
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
-
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
-
-\item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
+\item{...}{Unused parameters.}
 }
 \value{
 A ggplot2 object.

@@ -1,3 +1,19 @@
+#' Plot Yield by Capture
+#'
+#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
+#' by the annual interval capture probability.
+#'
+#' @inheritParams ypr_tabulate_sr
+#' @return A ggplot2 object.
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @export
+#' @examples
+#' ypr_plot_yield(ypr_population())
+#' ypr_plot_yield(ypr_population(), "YPUE")
+ypr_plot_yield <- function(object, ...) {
+  UseMethod("ypr_plot_yield")
+}
+
 #' Plot Population Schedule
 #'
 #' @param x The population to plot.
@@ -149,7 +165,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
 #' by the annual interval capture probability.
 #'
-#' @inheritParams ypr_schedule
+#' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
@@ -160,17 +176,17 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' @examples
 #' ypr_plot_yield(ypr_population())
 #' ypr_plot_yield(ypr_population(), "YPUE")
-ypr_plot_yield <- function(population, y = "Yield", pi = seq(0, 1, length.out = 100),
-                           Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE) {
+ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
+                           Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
 
-  data <- ypr_tabulate_yields(population, pi = pi, Ly = Ly, harvest = harvest,
+  data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
                        biomass = biomass)
 
   data$YPUE <- data$Yield / data$Effort
 
-  data2 <- ypr_tabulate_yield(object = population, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
   data2 <- rbind(data2, data2, data2, stringsAsFactors = FALSE)
 
