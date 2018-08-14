@@ -95,7 +95,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @examples
 #' ypr_plot_histogram(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
 ypr_plot_histogram <- function(population, x = "Age", y = "Surviving",
-                                  binwidth = NULL, color = "white") {
+                               binwidth = NULL, color = "white") {
   check_scalar(x, c("Age", "Length", "Weight"))
   check_scalar(y, c("Fishing", "Surviving", "Spawning"))
 
@@ -177,33 +177,101 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' ypr_plot_yield(ypr_population())
 #' ypr_plot_yield(ypr_population(), "YPUE")
 ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                           Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
+                                          Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-                       biomass = biomass)
-
-  data$YPUE <- data$Yield / data$Effort
+                              biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
-  data2 <- rbind(data2, data2, data2, stringsAsFactors = FALSE)
-
+  data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
 
-  data2$pi[5:6] <- 0
-  data2[1:2, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE")] <- 0
+  data1 <- data2
+  data3 <- data2
+
+  data1[c("Yield", "Age", "Length", "Weight", "Effort", "YPUE")] <- 0
+  data3["pi"] <- 0
+
+  data2 <- rbind(data1, data2, data3, stringsAsFactors = FALSE)
 
   ggplot(data = data, aes_string(x = "pi", y = y)) +
     (
       if(plot_values)
-        geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
+        list(
+          geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted"),
+          scale_color_manual(values = c("red", "blue"))
+        )
       else NULL
     ) +
     geom_line() +
     expand_limits(x = 0) +
     scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
-    scale_color_manual(values = c("red", "blue")) +
+    NULL
+}
+
+#' Plot Yield by Capture
+#'
+#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
+#' by the annual interval capture probability.
+#'
+#' @inheritParams ypr_tabulate_sr
+#' @inheritParams ypr_plot_schedule
+#' @inheritParams ypr_yield
+#' @inheritParams ypr_yields
+#' @inheritParams ypr_plot_sr
+#' @return A ggplot2 object.
+#' @seealso \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
+#' @export
+#' @examples
+#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
+#'   ggplot2::facet_wrap(~Llo) +
+#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
+#'   ggplot2::scale_color_manual(values = c("black", "blue"))
+#'
+#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
+#'   ggplot2::facet_grid(Rk~Llo)
+ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
+                                           Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
+
+  check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
+
+  data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
+                              biomass = biomass)
+
+  data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
+
+  data$YPUE <- data$Yield / data$Effort
+  data2$YPUE <- data2$Yield / data2$Effort
+
+  parameters <- setdiff(intersect(colnames(data), .parameters$Parameter), "pi")
+
+  for(parameter in parameters) {
+    data[[parameter]] <- ordered(paste0(parameter, ": ", data[[parameter]]))
+    data2[[parameter]] <- ordered(paste0(parameter, ": ", data2[[parameter]]))
+  }
+
+  data1 <- data2
+  data3 <- data2
+
+  data1[c("Yield", "Age", "Length", "Weight", "Effort", "YPUE")] <- 0
+  data3["pi"] <- 0
+
+  data2 <- rbind(data1, data2, data3, stringsAsFactors = FALSE)
+
+  ggplot(data = data, aes_string(x = "pi", y = y)) +
+    (
+      if(plot_values)
+        list(
+          geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted"),
+          scale_color_manual(values = c("red", "blue"))
+        )
+      else NULL
+    ) +
+    geom_line() +
+    expand_limits(x = 0) +
+    scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
     NULL
 }
