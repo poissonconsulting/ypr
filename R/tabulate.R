@@ -1,7 +1,19 @@
+#' Stock-Recruitment Parameters
+#'
+#' @param object The populations or populations to tabulate.
+#' @param ... Unused parameters.
+#' @return A table of stock-recruitment parameters.
+#' @export
+#' @examples
+#' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
+#' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
+ypr_tabulate_sr <- function(object, ...) {
+  UseMethod("ypr_tabulate_sr")
+}
+
 #' Tabulate Yield
 #'
-#' @param object The populations or populations to tabulate the yield for.
-#' @param ... Unused parameters.
+#' @inheritParams ypr_tabulate_sr
 #'
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
@@ -14,8 +26,7 @@ ypr_tabulate_yield <- function(object, ...) {
 
 #' Tabulate Yields
 #'
-#' @param object The populations or populations to tabulate the yield for.
-#' @param ... Unused parameters.
+#' @inheritParams ypr_tabulate_sr
 #'
 #' @return A data frame.
 #' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
@@ -90,17 +101,18 @@ ypr_detabulate_parameters <- function(x) {
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
+#' @inheritParams ypr_tabulate_sr
 #' @return A table of stock-recruitment parameters.
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
 #' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
-ypr_tabulate_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE) {
-  sr <- ypr_sr(population)
-  sr$BH <- population$BH
+ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE, ...) {
+  sr <- ypr_sr(object)
+  sr$BH <- object$BH
 
-  population$pi <- ypr_optimise(population, Ly = Ly, harvest = harvest, biomass = biomass)
-  optimal_sr <- ypr_sr(population)
+  object$pi <- ypr_optimise(object, Ly = Ly, harvest = harvest, biomass = biomass)
+  optimal_sr <- ypr_sr(object)
 
   table <- with(sr, {
     data <- data.frame(

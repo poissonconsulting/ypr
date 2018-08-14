@@ -7,7 +7,7 @@
 ypr_tabulate_yields(object, ...)
 }
 \arguments{
-\item{object}{The populations or populations to tabulate the yield for.}
+\item{object}{The populations or populations to tabulate.}
 
 \item{...}{Unused parameters.}
 }

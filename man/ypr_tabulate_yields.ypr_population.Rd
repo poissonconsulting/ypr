@@ -9,7 +9,7 @@
   all = FALSE, ...)
 }
 \arguments{
-\item{object}{The populations or populations to tabulate the yield for.}
+\item{object}{The populations or populations to tabulate.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 

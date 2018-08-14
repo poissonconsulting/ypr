@@ -9,7 +9,7 @@
   ...)
 }
 \arguments{
-\item{object}{The populations or populations to tabulate the yield for.}
+\item{object}{The populations or populations to tabulate.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 

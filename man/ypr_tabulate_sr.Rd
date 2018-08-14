@@ -4,16 +4,12 @@
 \alias{ypr_tabulate_sr}
 \title{Stock-Recruitment Parameters}
 \usage{
-ypr_tabulate_sr(population, Ly = 0, harvest = FALSE, biomass = FALSE)
+ypr_tabulate_sr(object, ...)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{object}{The populations or populations to tabulate.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
-
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
-
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{...}{Unused parameters.}
 }
 \value{
 A table of stock-recruitment parameters.
