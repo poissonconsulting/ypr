@@ -23,11 +23,11 @@ The key life history parameters are
 
   - The growth coefficient (`k`) and mean maximum length (`Linf`) from
     the Von Bertalanffy growth curve
-  - The length at which 50% spawning (`Ls`)
+  - The length at which 50% mature (`Ls`)
   - The length at which 50% vulnerable to harvest (`Lv`)
   - The number of spawners per spawner at low density (`Rk`)
 
-For definitions of all 26 possible parameters see the help for
+For definitions of all 28 possible parameters see the help for
 `ypr_population()`. For an explanation of the calculations see the
 vignette `ypr`.
 
@@ -47,11 +47,11 @@ ypr_plot_yield(population)
 
 ``` r
 ypr_tabulate_yield(population)
-#> # A tibble: 2 x 6
-#>   Type       pi Yield   Age Length Weight
-#>   <chr>   <dbl> <dbl> <dbl>  <dbl>  <dbl>
-#> 1 actual  0.2    19.2  6.88   62.6  2650.
-#> 2 optimal 0.272  20.1  6.48   60.8  2401.
+#> # A tibble: 2 x 7
+#>   Type       pi Yield   Age Length Weight Effort
+#>   <chr>   <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
+#> 1 actual  0.2    19.2  6.88   62.6  2650.   20  
+#> 2 optimal 0.272  20.1  6.48   60.8  2401.   27.2
 ```
 
 ``` r
@@ -63,12 +63,12 @@ ypr_plot_sr(population)
 
 ``` r
 ypr_tabulate_sr(population)
-#> # A tibble: 3 x 5
-#>   Type        Eggs Recruits Spawners Fecundity
-#>   <chr>      <dbl>    <dbl>    <dbl>     <dbl>
-#> 1 unfished 402449.     90      107.      3764.
-#> 2 actual   127479.     74.0     48.1     2650.
-#> 3 optimal   88727.     66.5     36.9     2401.
+#> # A tibble: 3 x 6
+#>   Type        pi    Eggs Recruits Spawners Fecundity
+#>   <chr>    <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
+#> 1 unfished 0     402449.     90      107.      3764.
+#> 2 actual   0.2   127479.     74.0     48.1     2650.
+#> 3 optimal  0.272  88727.     66.5     36.9     2401.
 ```
 
 ## Installation

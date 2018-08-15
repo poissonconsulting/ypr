@@ -29,7 +29,7 @@ The yield can be based on the number of fish caught (or harvested) or biomass fo
 The key life history parameters are
 
 - The growth coefficient (`k`) and mean maximum length (`Linf`) from the Von Bertalanffy growth curve
-- The length at which 50% spawning (`Ls`)
+- The length at which 50% mature (`Ls`)
 - The length at which 50% vulnerable to harvest (`Lv`)
 - The number of spawners per spawner at low density (`Rk`)
 

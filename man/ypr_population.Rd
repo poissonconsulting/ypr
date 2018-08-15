@@ -21,9 +21,9 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Ls}{The length at which 50\% spawning (cm).}
+\item{Ls}{The length at which 50\% mature (cm).}
 
-\item{Sp}{The spawning (as a function of length) power.}
+\item{Sp}{The maturity (as a function of length) power.}
 
 \item{es}{The annual probability of a mature fish spawning.}
 
