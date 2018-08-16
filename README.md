@@ -13,8 +13,9 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 
 ## Introduction
 
-`ypr` is an R package that implements equilibrium-based yield per
-recruit methods (Walters and Martell 2004).
+[`ypr`](https://github.com/poissonconsulting/ypr) is an R package that
+implements equilibrium-based yield per recruit methods (Walters and
+Martell 2004).
 
 The yield can be based on the number of fish caught (or harvested) or
 biomass for all fish or just large (trophy) individuals.
@@ -27,35 +28,54 @@ The key life history parameters are
   - The length at which 50% vulnerable to harvest (`Lv`)
   - The number of spawners per spawner at low density (`Rk`)
 
-For definitions of all 28 possible parameters see the help for
-`ypr_population()`. For an explanation of the calculations see the
-vignette `ypr`.
-
 The calculations do not account for parameter uncertainty, environmental
 fluctuations, predator-prey dynamics, angler responses or
 density-dependent growth.
 
+### Information
+
+For definitions of all 28 population parameters see
+[`?ypr_population`](https://poissonconsulting.github.io/ypr/reference/ypr_population.html).
+
+For an explanation of the calculations see the ypr
+[vignette](https://poissonconsulting.github.io/ypr/articles/ypr.html).
+
+### Interaction
+
+To interactively explore the effects of altering individual parameters
+on the schedule, stock-recruitment and yield see the ypr shiny
+[app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
+
 ## Demonstration
+
+### Schedule
 
 ``` r
 library(ypr)
-population <- ypr_population(Rk = 10, Rmax = 100)
-ypr_plot_yield(population)
+population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100)
+ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```
 
 ![](man/figures/README-unnamed-chunk-1-1.png)<!-- -->
 
 ``` r
-ypr_tabulate_yield(population)
-#> # A tibble: 2 x 7
-#>   Type       pi Yield   Age Length Weight Effort
-#>   <chr>   <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
-#> 1 actual  0.2    19.2  6.88   62.6  2650.   20  
-#> 2 optimal 0.272  20.1  6.48   60.8  2401.   27.2
+head(ypr_schedule(population))
+#> # A tibble: 6 x 11
+#>     Age Length Weight Fecundity  Spawning NaturalMortality Vulnerability
+#>   <int>  <dbl>  <dbl>     <dbl>     <dbl>            <dbl>         <dbl>
+#> 1     1   13.9   27.0      27.0  3.13e-56            0.181      3.13e-56
+#> 2     2   25.9  174.      174.   2.91e-29            0.181      2.91e-29
+#> 3     3   36.2  476.      476.   1.04e-14            0.181      1.04e-14
+#> 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5
+#> 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1
+#> 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1
+#> # ... with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
+#> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
 
+### Stock-Recruitment
+
 ``` r
-library(ypr)
 ypr_plot_sr(population)
 ```
 
@@ -66,10 +86,38 @@ ypr_tabulate_sr(population)
 #> # A tibble: 3 x 6
 #>   Type        pi    Eggs Recruits Spawners Fecundity
 #>   <chr>    <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
-#> 1 unfished 0     402449.     90      107.      3764.
-#> 2 actual   0.2   127479.     74.0     48.1     2650.
-#> 3 optimal  0.272  88727.     66.5     36.9     2401.
+#> 1 unfished 0     357733.     80.0     95.0     3764.
+#> 2 actual   0.2    82762.     48.1     31.2     2650.
+#> 3 optimal  0.167 106572.     54.4     38.3     2785.
 ```
+
+### Yield
+
+``` r
+ypr_plot_yield(population)
+```
+
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
+
+``` r
+ypr_tabulate_yield(population)
+#> # A tibble: 2 x 7
+#>   Type       pi Yield   Age Length Weight Effort
+#>   <chr>   <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
+#> 1 actual  0.2    12.5  6.88   62.6  2650.   20  
+#> 2 optimal 0.167  12.8  7.11   63.6  2785.   16.7
+```
+
+### Uncertainty
+
+``` r
+library(ggplot2)
+populations <- ypr_populations(Rk = c(3,7), Ls = c(40, 60), Rmax = 100)
+ypr_plot_yield(populations, plot_values = FALSE) +
+  facet_grid(Rk~Ls)
+```
+
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 ## Installation
 
@@ -85,6 +133,33 @@ To install the latest development version from the Poisson drat
     # install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("ypr")
+
+## Citation
+
+``` 
+
+To cite package 'ypr' in publications use:
+
+  Joe Thorley (2018). ypr: Yield Per Recruit. R package version
+  0.1.0.9017. https://github.com/poissonconsulting/ypr
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {ypr: Yield Per Recruit},
+    author = {Joe Thorley},
+    year = {2018},
+    note = {R package version 0.1.0.9017},
+    url = {https://github.com/poissonconsulting/ypr},
+  }
+```
+
+## Creditation
+
+Development of ypr was supported by the [Habitat Conservation Trust
+Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and the
+[Ministy of Forests, Lands and Natural Resource
+Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
 ## Contribution
 

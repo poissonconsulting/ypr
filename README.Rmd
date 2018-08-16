@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-`ypr` is an R package that implements equilibrium-based yield per recruit methods [@walters_fisheries_2004].
+[`ypr`](https://github.com/poissonconsulting/ypr) is an R package that implements equilibrium-based yield per recruit methods [@walters_fisheries_2004].
 
 The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.
 
@@ -33,24 +33,50 @@ The key life history parameters are
 - The length at which 50% vulnerable to harvest (`Lv`)
 - The number of spawners per spawner at low density (`Rk`)
 
-For definitions of all `r length(ypr::ypr_population())` possible parameters see the help for `ypr_population()`.
-For an explanation of the calculations see the vignette `ypr`.
-
 The calculations do not account for parameter uncertainty, environmental fluctuations, predator-prey dynamics, angler responses or density-dependent growth.
+
+### Information
+
+For definitions of all `r length(ypr::ypr_population())` population parameters see [`?ypr_population`](https://poissonconsulting.github.io/ypr/reference/ypr_population.html).
+
+For an explanation of the calculations see the ypr [vignette](https://poissonconsulting.github.io/ypr/articles/ypr.html).
+
+### Interaction
+
+To interactively explore the effects of altering individual parameters on the schedule, stock-recruitment and yield see the ypr shiny [app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
 
 ## Demonstration
 
+### Schedule
+
 ```{r, fig.width=6, fig.height=4}
 library(ypr)
-population <- ypr_population(Rk = 10, Rmax = 100)
+population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100)
+ypr_plot_schedule(population, x = "Length", y = "Spawning")
+head(ypr_schedule(population))
+```
+
+### Stock-Recruitment
+
+```{r, fig.width=6, fig.height=4}
+ypr_plot_sr(population)
+ypr_tabulate_sr(population)
+```
+
+### Yield
+
+```{r, fig.width=6, fig.height=4}
 ypr_plot_yield(population)
 ypr_tabulate_yield(population)
 ```
 
-```{r, fig.width=6, fig.height=4}
-library(ypr)
-ypr_plot_sr(population)
-ypr_tabulate_sr(population)
+### Uncertainty
+
+```{r, fig.width=6, fig.height=6}
+library(ggplot2)
+populations <- ypr_populations(Rk = c(3,7), Ls = c(40, 60), Rmax = 100)
+ypr_plot_yield(populations, plot_values = FALSE) +
+  facet_grid(Rk~Ls)
 ```
 
 ## Installation
@@ -67,6 +93,17 @@ To install the latest development version from the Poisson drat [repository](htt
 drat::addRepo("poissonconsulting")
 install.packages("ypr")
 ```
+
+## Citation
+
+```{r, comment="", echo=FALSE}
+citation(package = "ypr")
+```
+
+## Creditation
+
+Development of ypr was supported by the [Habitat Conservation Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html)
+and the [Ministy of Forests, Lands and Natural Resource Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
 ## Contribution
 

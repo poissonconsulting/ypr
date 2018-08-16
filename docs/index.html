@@ -83,7 +83,7 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p><code>ypr</code> is an R package that implements equilibrium-based yield per recruit methods <span class="citation">(Walters and Martell 2004)</span>.</p>
+<p><a href="https://github.com/poissonconsulting/ypr"><code>ypr</code></a> is an R package that implements equilibrium-based yield per recruit methods <span class="citation">(Walters and Martell 2004)</span>.</p>
 <p>The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.</p>
 <p>The key life history parameters are</p>
 <ul>
@@ -92,32 +92,76 @@
 <li>The length at which 50% vulnerable to harvest (<code>Lv</code>)</li>
 <li>The number of spawners per spawner at low density (<code>Rk</code>)</li>
 </ul>
-<p>For definitions of all 28 possible parameters see the help for <code><a href="reference/ypr_population.html">ypr_population()</a></code>. For an explanation of the calculations see the vignette <code>ypr</code>.</p>
 <p>The calculations do not account for parameter uncertainty, environmental fluctuations, predator-prey dynamics, angler responses or density-dependent growth.</p>
+<div id="information" class="section level3">
+<h3 class="hasAnchor">
+<a href="#information" class="anchor"></a>Information</h3>
+<p>For definitions of all 28 population parameters see <a href="https://poissonconsulting.github.io/ypr/reference/ypr_population.html"><code><a href="reference/ypr_population.html">?ypr_population</a></code></a>.</p>
+<p>For an explanation of the calculations see the ypr <a href="https://poissonconsulting.github.io/ypr/articles/ypr.html">vignette</a>.</p>
+</div>
+<div id="interaction" class="section level3">
+<h3 class="hasAnchor">
+<a href="#interaction" class="anchor"></a>Interaction</h3>
+<p>To interactively explore the effects of altering individual parameters on the schedule, stock-recruitment and yield see the ypr shiny <a href="https://poissonconsulting.shinyapps.io/ypr-shiny/">app</a>.</p>
+</div>
 </div>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#demonstration" class="anchor"></a>Demonstration</h2>
+<div id="schedule" class="section level3">
+<h3 class="hasAnchor">
+<a href="#schedule" class="anchor"></a>Schedule</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(ypr)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">population &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_population.html">ypr_population</a></span>(<span class="dt">Rk =</span> <span class="dv">10</span>, <span class="dt">Rmax =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population)</a></code></pre></div>
+<a class="sourceLine" id="cb1-2" data-line-number="2">population &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_population.html">ypr_population</a></span>(<span class="dt">Rk =</span> <span class="dv">5</span>, <span class="dt">Ls =</span> <span class="dv">50</span>, <span class="dt">Rmax =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="dt">x =</span> <span class="st">"Length"</span>, <span class="dt">y =</span> <span class="st">"Spawning"</span>)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-1-1.png" width="576"></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(population)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 7</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;   Type       pi Yield   Age Length Weight Effort</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; 1 actual  0.2    19.2  6.88   62.6  2650.   20  </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 2 optimal 0.272  20.1  6.48   60.8  2401.   27.2</span></a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(ypr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">head</span>(<span class="kw"><a href="reference/ypr_schedule.html">ypr_schedule</a></span>(population))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6 x 11</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;     Age Length Weight Fecundity  Spawning NaturalMortality Vulnerability</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; 1     1   13.9   27.0      27.0  3.13e-56            0.181      3.13e-56</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 2     2   25.9  174.      174.   2.91e-29            0.181      2.91e-29</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 3     3   36.2  476.      476.   1.04e-14            0.181      1.04e-14</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; # ... with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></a></code></pre></div>
+</div>
+<div id="stock-recruitment" class="section level3">
+<h3 class="hasAnchor">
+<a href="#stock-recruitment" class="anchor"></a>Stock-Recruitment</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="576"></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span>(population)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3 x 6</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Type        pi    Eggs Recruits Spawners Fecundity</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1 unfished 0     402449.     90      107.      3764.</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2 actual   0.2   127479.     74.0     48.1     2650.</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 3 optimal  0.272  88727.     66.5     36.9     2401.</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1 unfished 0     357733.     80.0     95.0     3764.</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2 actual   0.2    82762.     48.1     31.2     2650.</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 3 optimal  0.167 106572.     54.4     38.3     2785.</span></a></code></pre></div>
+</div>
+<div id="yield" class="section level3">
+<h3 class="hasAnchor">
+<a href="#yield" class="anchor"></a>Yield</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population)</a></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="576"></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(population)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 7</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;   Type       pi Yield   Age Length Weight Effort</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; 1 actual  0.2    12.5  6.88   62.6  2650.   20  </span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; 2 optimal 0.167  12.8  7.11   63.6  2785.   16.7</span></a></code></pre></div>
+</div>
+<div id="uncertainty" class="section level3">
+<h3 class="hasAnchor">
+<a href="#uncertainty" class="anchor"></a>Uncertainty</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">populations &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_populations.html">ypr_populations</a></span>(<span class="dt">Rk =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>), <span class="dt">Ls =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">60</span>), <span class="dt">Rmax =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(populations, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/facet_grid">facet_grid</a></span>(Rk<span class="op">~</span>Ls)</a></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="576"></p>
+</div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -129,6 +173,30 @@ devtools::install_github("poissonconsulting/ypr")</a></code></pre>
 <pre><code><a href="http://www.rdocumentation.org/packages/drat/topics/addRepo"># install.packages("drat")
 drat::addRepo("poissonconsulting")
 install.packages("ypr")</a></code></pre>
+</div>
+<div id="citation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#citation" class="anchor"></a>Citation</h2>
+<pre><code>
+To cite package 'ypr' in publications use:
+
+  Joe Thorley (2018). ypr: Yield Per Recruit. R package version
+  0.1.0.9017. https://github.com/poissonconsulting/ypr
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {ypr: Yield Per Recruit},
+    author = {Joe Thorley},
+    year = {2018},
+    note = {R package version 0.1.0.9017},
+    url = {https://github.com/poissonconsulting/ypr},
+  }</code></pre>
+</div>
+<div id="creditation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#creditation" class="anchor"></a>Creditation</h2>
+<p>Development of ypr was supported by the <a href="https://www.poissonconsulting.ca/orgs/hctf.html">Habitat Conservation Trust Foundation</a> and the <a href="https://www.poissonconsulting.ca/orgs/mflnro.html">Ministy of Forests, Lands and Natural Resource Operations</a>.</p>
 </div>
 <div id="contribution" class="section level2">
 <h2 class="hasAnchor">
