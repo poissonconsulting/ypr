@@ -155,7 +155,6 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
     geom_line() +
     expand_limits(x = 0, y = 0) +
     scale_x_continuous(labels = scales::comma) +
-    scale_y_continuous(labels = scales::comma) +
     scale_color_manual(values = c("red", "blue", "black")) +
     NULL
 }
