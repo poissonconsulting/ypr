@@ -161,6 +161,8 @@ Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and the
 [Ministy of Forests, Lands and Natural Resource
 Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
+The hex was designed by [The Forest](http://www.theforest.ca).
+
 ## Contribution
 
 Please report any
@@ -185,4 +187,3 @@ Management*. Princeton, N.J: Princeton University Press.
 </div>
 
 </div>
-

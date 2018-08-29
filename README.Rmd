@@ -105,6 +105,8 @@ citation(package = "ypr")
 Development of ypr was supported by the [Habitat Conservation Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html)
 and the [Ministy of Forests, Lands and Natural Resource Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
+The hex was designed by [The Forest](http://www.theforest.ca).
+
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
