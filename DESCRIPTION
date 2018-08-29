@@ -9,7 +9,6 @@ Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c
 License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/ypr
 BugReports: https://github.com/poissonconsulting/ypr/issues
-Additional_Repositories: http://poissonconsulting.github.io/drat
 Depends:
     R (>= 3.4.0)
 Imports:
