@@ -40,12 +40,6 @@ For definitions of all 28 population parameters see
 For an explanation of the calculations see the ypr
 [vignette](https://poissonconsulting.github.io/ypr/articles/ypr.html).
 
-### Interaction
-
-To interactively explore the effects of altering individual parameters
-on the schedule, stock-recruitment and yield see the ypr shiny
-[app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
-
 ## Demonstration
 
 ### Schedule
@@ -133,6 +127,15 @@ To install the latest development version from the Poisson drat
     # install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("ypr")
+
+### Interaction
+
+To interactively explore the effects of altering individual parameters
+on the schedule, stock-recruitment and yield see the ypr shiny
+[app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
+
+![A screenshot of the yield from the ypr shiny
+app](man/figures/yield.png)
 
 ## Citation
 
