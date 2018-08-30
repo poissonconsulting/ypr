@@ -77,7 +77,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
     expand_limits(x = 0, y = 0)
 }
 
-#' Plot Histogram
+#' Plot Fish
 #'
 #' Produces a frequency histogram of the number of fish in the
 #' 'Fishing', 'Surviving' or 'Spawning' categories by
@@ -88,14 +88,14 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ggplot2::geom_histogram
-#' @param color A string of the color around each bar.
+#' @param color A string of the color around each bar (or NULL).
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_population}} and \code{\link[ggplot2]{geom_histogram}}
 #' @export
 #' @examples
-#' ypr_plot_histogram(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
-ypr_plot_histogram <- function(population, x = "Age", y = "Surviving",
-                               binwidth = NULL, color = "white") {
+#' ypr_plot_fish(ypr_population(), color = "white")
+ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
+                          binwidth = 1, color = NULL) {
   check_scalar(x, c("Age", "Length", "Weight"))
   check_scalar(y, c("Fishing", "Surviving", "Spawning"))
 
@@ -109,7 +109,9 @@ ypr_plot_histogram <- function(population, x = "Age", y = "Surviving",
   schedule <- schedule[schedule[[y]] > 0,]
 
   ggplot(data = schedule, aes_string(x = x)) +
-    geom_histogram(aes_string(weight = y), binwidth = binwidth, color = color) +
+    (if(is.null(color)) geom_histogram(aes_string(weight = y), binwidth = binwidth) else
+      geom_histogram(aes_string(weight = y), binwidth = binwidth, color = color)) +
+    ylab("Fish") +
     expand_limits(y = 0)
 }
 

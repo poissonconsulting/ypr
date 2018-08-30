@@ -5,8 +5,8 @@ test_that("ypr_plot_schedule", {
   expect_is(gp, "gg")
 })
 
-test_that("ypr_plot_yield", {
-  gp <- ypr_plot_histogram(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
+test_that("ypr_plot_fish", {
+  gp <- ypr_plot_fish(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
   expect_is(gp, "gg")
 })
 

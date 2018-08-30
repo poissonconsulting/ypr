@@ -67,13 +67,35 @@ head(ypr_schedule(population))
 #> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
 
+### Fish
+
+``` r
+library(ypr)
+ypr_plot_fish(population, binwidth = 1)
+```
+
+![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+head(ypr_tabulate_fish(population, binwidth = 1))
+#> # A tibble: 6 x 2
+#>     Age  Fish
+#>   <dbl> <dbl>
+#> 1     1  48.1
+#> 2     2  39.4
+#> 3     3  32.2
+#> 4     4  26.4
+#> 5     5  21.6
+#> 6     6  14.2
+```
+
 ### Stock-Recruitment
 
 ``` r
 ypr_plot_sr(population)
 ```
 
-![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 ypr_tabulate_sr(population)
@@ -91,7 +113,7 @@ ypr_tabulate_sr(population)
 ypr_plot_yield(population)
 ```
 
-![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 ypr_tabulate_yield(population)
@@ -111,7 +133,7 @@ ypr_plot_yield(populations, plot_values = FALSE) +
   facet_grid(Rk~Ls)
 ```
 
-![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 ## Installation
 

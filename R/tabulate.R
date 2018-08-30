@@ -95,6 +95,33 @@ ypr_detabulate_parameters <- function(x) {
   population
 }
 
+#' Table Fish
+#'
+#' Produces a table of the number of fish in the
+#' 'Fishing', 'Surviving' or 'Spawning' categories by
+#' 'Length', 'Age' or 'Weight' class.
+#'
+#' The 'Fishing' category is all fish that have died due to fishing including handling mortalities.
+#'
+#' @inheritParams ypr_schedule
+#' @inheritParams ypr_plot_schedule
+#' @inheritParams ggplot2::geom_histogram
+#' @return A ggplot2 object.
+#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_plot_fish}} and \code{\link[ggplot2]{geom_histogram}}
+#' @export
+#' @examples
+#' ypr_tabulate_fish(ypr_population())
+ypr_tabulate_fish <- function(population, x = "Age", y = "Surviving",
+                              binwidth = 1) {
+  gp <- ypr_plot_fish(population, x = x, y = y, binwidth = binwidth)
+
+  table <- ggplot_build(gp)$data[[1]]
+  table <- table[c("x", "count")]
+  colnames(table) <- c(x, "Fish")
+  table <- table[table[["Fish"]] > 0, , drop = TRUE]
+  as_conditional_tibble(table)
+}
+
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams ypr_schedule
