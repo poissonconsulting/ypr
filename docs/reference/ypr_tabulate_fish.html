@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot Population Schedule Terms — ypr_plot_schedule • ypr</title>
+<title>Table Fish — ypr_tabulate_fish • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="Plot Population Schedule Terms — ypr_plot_schedule" />
+<meta property="og:title" content="Table Fish — ypr_tabulate_fish" />
 
-<meta property="og:description" content="Produces a bivariate line plot of two schedule terms." />
+<meta property="og:description" content="Produces a table of the number of fish in the
+'Fishing', 'Surviving' or 'Spawning' categories by
+'Length', 'Age' or 'Weight' class." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -105,18 +107,21 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot Population Schedule Terms</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
-    <div class="hidden name"><code>ypr_plot_schedule.Rd</code></div>
+    <h1>Table Fish</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/tabulate.R'><code>R/tabulate.R</code></a></small>
+    <div class="hidden name"><code>ypr_tabulate_fish.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Produces a bivariate line plot of two schedule terms.</p>
+    <p>Produces a table of the number of fish in the
+'Fishing', 'Surviving' or 'Spawning' categories by
+'Length', 'Age' or 'Weight' class.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_plot_schedule</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Length"</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_tabulate_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>,
+  <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,19 +138,56 @@
       <th>y</th>
       <td><p>A string of the term on the y-axis.</p></td>
     </tr>
+    <tr>
+      <th>binwidth</th>
+      <td><p>The width of the bins. Can be specified as a numeric value,
+or a function that calculates width from x.
+The default is to use <code>bins</code>
+bins that cover the range of the data. You should always override
+this value, exploring multiple widths to find the best to illustrate the
+stories in your data.</p>
+<p>The bin width of a date variable is the number of days in each time; the
+bin width of a time variable is the number of seconds.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A ggplot2 object.</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The 'Fishing' category is all fish that have died due to fishing including handling mortalities.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_schedule.html'>ypr_schedule</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code>, <code><a href='ypr_plot_fish.html'>ypr_plot_fish</a></code> and <code><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_histogram'>geom_histogram</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_plot_schedule</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='img'><img src='ypr_plot_schedule-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_fish</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 20 x 2
+#&gt;      Age     Fish
+#&gt;  * &lt;dbl&gt;    &lt;dbl&gt;
+#&gt;  1     1 0.134   
+#&gt;  2     2 0.110   
+#&gt;  3     3 0.0901  
+#&gt;  4     4 0.0738  
+#&gt;  5     5 0.0604  
+#&gt;  6     6 0.0396  
+#&gt;  7     7 0.0259  
+#&gt;  8     8 0.0170  
+#&gt;  9     9 0.0111  
+#&gt; 10    10 0.00729 
+#&gt; 11    11 0.00477 
+#&gt; 12    12 0.00313 
+#&gt; 13    13 0.00205 
+#&gt; 14    14 0.00134 
+#&gt; 15    15 0.000878
+#&gt; 16    16 0.000575
+#&gt; 17    17 0.000377
+#&gt; 18    18 0.000247
+#&gt; 19    19 0.000162
+#&gt; 20    20 0.000106</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -153,6 +195,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

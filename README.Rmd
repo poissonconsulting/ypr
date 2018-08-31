@@ -56,8 +56,8 @@ head(ypr_schedule(population))
 
 ```{r, fig.width=6, fig.height=4}
 library(ypr)
-ypr_plot_fish(population, binwidth = 1)
-head(ypr_tabulate_fish(population, binwidth = 1))
+ypr_plot_fish(population)
+head(ypr_tabulate_fish(population))
 ```
 
 ### Stock-Recruitment

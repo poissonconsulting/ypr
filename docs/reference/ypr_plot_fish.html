@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot Population Schedule Terms — ypr_plot_schedule • ypr</title>
+<title>Plot Fish — ypr_plot_fish • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="Plot Population Schedule Terms — ypr_plot_schedule" />
+<meta property="og:title" content="Plot Fish — ypr_plot_fish" />
 
-<meta property="og:description" content="Produces a bivariate line plot of two schedule terms." />
+<meta property="og:description" content="Produces a frequency histogram of the number of fish in the
+'Fishing', 'Surviving' or 'Spawning' categories by
+'Length', 'Age' or 'Weight' class." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -105,18 +107,21 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot Population Schedule Terms</h1>
+    <h1>Plot Fish</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
-    <div class="hidden name"><code>ypr_plot_schedule.Rd</code></div>
+    <div class="hidden name"><code>ypr_plot_fish.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Produces a bivariate line plot of two schedule terms.</p>
+    <p>Produces a frequency histogram of the number of fish in the
+'Fishing', 'Surviving' or 'Spawning' categories by
+'Length', 'Age' or 'Weight' class.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_plot_schedule</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Length"</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_plot_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,19 +138,38 @@
       <th>y</th>
       <td><p>A string of the term on the y-axis.</p></td>
     </tr>
+    <tr>
+      <th>binwidth</th>
+      <td><p>The width of the bins. Can be specified as a numeric value,
+or a function that calculates width from x.
+The default is to use <code>bins</code>
+bins that cover the range of the data. You should always override
+this value, exploring multiple widths to find the best to illustrate the
+stories in your data.</p>
+<p>The bin width of a date variable is the number of days in each time; the
+bin width of a time variable is the number of seconds.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>A string of the color around each bar (or NULL).</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A ggplot2 object.</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The 'Fishing' category is all fish that have died due to fishing including handling mortalities.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_schedule.html'>ypr_schedule</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_histogram'>geom_histogram</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_plot_schedule</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='img'><img src='ypr_plot_schedule-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_plot_fish</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"white"</span>)</div><div class='img'><img src='ypr_plot_fish-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -153,6 +177,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

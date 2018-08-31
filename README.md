@@ -71,13 +71,13 @@ head(ypr_schedule(population))
 
 ``` r
 library(ypr)
-ypr_plot_fish(population, binwidth = 1)
+ypr_plot_fish(population)
 ```
 
 ![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
-head(ypr_tabulate_fish(population, binwidth = 1))
+head(ypr_tabulate_fish(population))
 #> # A tibble: 6 x 2
 #>     Age  Fish
 #>   <dbl> <dbl>
@@ -166,7 +166,7 @@ app](man/figures/yield.png)
 To cite package 'ypr' in publications use:
 
   Joe Thorley (2018). ypr: Yield Per Recruit. R package version
-  0.1.0.9017. https://github.com/poissonconsulting/ypr
+  0.1.0.9018. https://github.com/poissonconsulting/ypr
 
 A BibTeX entry for LaTeX users is
 
@@ -174,7 +174,7 @@ A BibTeX entry for LaTeX users is
     title = {ypr: Yield Per Recruit},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.1.0.9017},
+    note = {R package version 0.1.0.9018},
     url = {https://github.com/poissonconsulting/ypr},
   }
 ```
