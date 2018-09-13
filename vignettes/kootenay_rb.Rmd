@@ -1,0 +1,47 @@
+---
+title: "Kootenay Lake Rainbow Trout"
+author: "Joe Thorley and Greg Andrusak"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Kootenay Lake Rainbow Trout}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library(ypr)
+population <- kootenay_rb
+```
+
+```{r, fig.show='hold'}
+ypr_plot_schedule(population)
+ypr_plot_schedule(population, "Length", "Weight")
+ypr_plot_schedule(population, "Weight", "Fecundity")
+ypr_plot_schedule(population, "Length", "Spawning")
+```
+
+```{r, fig.show='hold'}
+ypr_plot_schedule(population, "Length", "Vulnerability")
+ypr_plot_schedule(population, "Length", "Retention")
+ypr_plot_schedule(population, "Length", "FishingMortality")
+ypr_plot_schedule(population, "Length", "NaturalMortality")
+```
+
+```{r, fig.show='hold'}
+ypr_plot_fish(population, color = "white")
+ypr_plot_fish(population, "Length", "Fishing")
+ypr_plot_fish(population, "Age", "Spawning", color = "white")
+ypr_plot_fish(population, "Length", "Spawning")
+```
+
+```{r, fig.width = 4, fig.height = 4}
+ypr_plot_sr(population)
+```

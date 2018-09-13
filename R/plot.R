@@ -111,8 +111,8 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
   ggplot(data = schedule, aes_string(x = x)) +
     (if(is.null(color)) geom_histogram(aes_string(weight = y), binwidth = binwidth) else
       geom_histogram(aes_string(weight = y), binwidth = binwidth, color = color)) +
-    ylab("Fish") +
-    expand_limits(y = 0)
+    ylab(y) +
+    expand_limits(x = 0, y = 0)
 }
 
 #' Plot Stock-Recruitment Curve
