@@ -27,10 +27,24 @@ kootenay_rb_13 <- ypr_population(k = 0.25, t0 = 0.75, Wb = 3.39,
                                  Ls = 60, Vp = 5,
                                  Lv = 40, M = ypr_inter2inst(0.38), pi = 0.1, Rk = 10)
 
-kootenay_rb <- ypr_population(k = 0.25, Wb = 3.39,
-                              Ls = 60, Vp = 5,
-                              Lv = 40, M = ypr_inter2inst(0.77), pi = 0.14,
-                              Rk = 10, rho = Hm = Rmax = 100)
+kootenay_rb <- ypr_population(k = 0.26,
+                              Wb = 3.2,
+                              Ls = 75,
+                              Sp = 20,
+                              es = 0.9,
+                              Sm = 0.53,
+                              fb = 0.86,
+                              Rk = 0.65,
+                              M = ypr_inter2inst(0.23),
+                              Lv = 0.4,
+                              Vp = 5,
+                              pi = 0.14,
+                              rho = 0.62,
+                              Hm = 0.25,
+                              Rmax = 115,
+                              Wa = 0.005,
+                              fa = 3.9
+                              )
 
 quesnel_bt <- ypr_population(k = 0.13, Linf = 100, Wb = 3.4,
                              Lv = 40, M = ypr_inter2inst(0.3), pi = 0.06, Rk = 3.8)
@@ -45,6 +59,7 @@ usethis::use_data(adams_bt_03, overwrite = TRUE)
 usethis::use_data(chilliwack_bt_05, overwrite = TRUE)
 usethis::use_data(kootenay_bt_13, overwrite = TRUE)
 usethis::use_data(kootenay_rb_13, overwrite = TRUE)
+usethis::use_data(kootenay_rb, overwrite = TRUE)
 usethis::use_data(quesnel_bt, overwrite = TRUE)
 usethis::use_data(quesnel_lt, overwrite = TRUE)
 usethis::use_data(quesnel_rb, overwrite = TRUE)

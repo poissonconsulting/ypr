@@ -54,11 +54,25 @@
 #' The estimates should not be used for management.
 #' @references Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 #' @format An object of class \code{\link{ypr_population}}.
+#' @seealso \code{\link{kootenay_rb}}
 #' @examples
 #' kootenay_rb_13
 #' ypr_plot_yield(kootenay_rb_13)
 #' ypr_plot_yield(kootenay_rb_13, Ly = 80)
 "kootenay_rb_13"
+
+#' Kootenay Lake Rainbow Trout Population Parameters
+#'
+#' The population parameters for
+#' Rainbow Trout in Kootenay Lake.
+#'
+#' The estimates are liable to change and should not be used for management.
+#' @references Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay Lake, British Columbia (2008–2013). PeerJ 5: e2874. doi:10.7717/peerj.2874.
+#' @format An object of class \code{\link{ypr_population}}.
+#' @examples
+#' kootenay_rb
+#' ypr_plot_yield(kootenay_rb)
+"kootenay_rb"
 
 #' Quesnel Lake Bull Trout Population Parameters
 #'
