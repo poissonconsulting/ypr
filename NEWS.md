@@ -1,3 +1,4 @@
+- Added `ypr_report()` to generate Rmd file for population.
 - Can now pass Rk as egg to recruit survival (at low density).
 - Set default value of `Wa` to be 0.01.
 - Added `ypr_populations()` to generate all combinations of parameters.
