@@ -6,17 +6,17 @@ adams_bt_03 <- ypr_population(k = 0.13, Linf = 131, t0 = 0.2, Wb = 3.4,
                               Rk = 3.8, Vp = 5)
 
 chilliwack_bt_05 <- ypr_populations(k = 0.12, Linf = 86, t0 = 0.018,
-                                   Wa = 0.022, Wb = 2.8,
-                                   M = 0.19,
-                                   Ls = 38.5,
-                                   Lv = 36.5,
-                                   Vp = 11.7,
-                                   fa = 2.29,
-                                   Rmax = 250,
-                                   Rk = c(2.5,4.6),
-                                   Llo = c(0,60,1000),
-                                   Nc = 0.15,
-                                   Hm = c(0.05,0.2))
+                                    Wa = 0.022, Wb = 2.8,
+                                    M = 0.19,
+                                    Ls = 38.5,
+                                    Lv = 36.5,
+                                    Vp = 11.7,
+                                    fa = 2.29,
+                                    Rmax = 250,
+                                    Rk = c(2.5,4.6),
+                                    Llo = c(0,60,1000),
+                                    Nc = 0.15,
+                                    Hm = c(0.05,0.2))
 
 kootenay_bt_13 <- ypr_population(k = 0.19, t0 = 0.5, Wb = 3.04,
                                  Ls = 60, Vp = 5,
@@ -27,10 +27,10 @@ kootenay_rb_13 <- ypr_population(k = 0.25, t0 = 0.75, Wb = 3.39,
                                  Ls = 60, Vp = 5,
                                  Lv = 40, M = ypr_inter2inst(0.38), pi = 0.1, Rk = 10)
 
-#kootenay_rb_17 <- ypr_population(k = 0.25, Wb = 3.39,
-#                                 Ls = 60, Vp = 5,
-#                                 Lv = 40, M = ypr_inter2inst(0.77), pi = 0.14,
-#                                 Rk = 10, rho = Hm = Rmax = 100)
+kootenay_rb <- ypr_population(k = 0.25, Wb = 3.39,
+                              Ls = 60, Vp = 5,
+                              Lv = 40, M = ypr_inter2inst(0.77), pi = 0.14,
+                              Rk = 10, rho = Hm = Rmax = 100)
 
 quesnel_bt <- ypr_population(k = 0.13, Linf = 100, Wb = 3.4,
                              Lv = 40, M = ypr_inter2inst(0.3), pi = 0.06, Rk = 3.8)

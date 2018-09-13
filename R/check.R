@@ -56,7 +56,7 @@ check_schedule <- function(x, exclusive = TRUE, order = TRUE, x_name = substitut
     x_name = x_name)
 
   check_attributes(x, values = list(BH = c(0L, 1L, 1L),
-                                    Rk = c(1, 100),
+                                    Rk = c(0, 100),
                                     Rmax = c(1, 1000),
                                     pi = c(0, 1)))
 

@@ -18,4 +18,7 @@ test_that("sr", {
   expect_identical(ri[c("alpha", "phi", "phiF")], bh[c("alpha", "phi", "phiF")])
   expect_equal(ri$beta, 0.0002468074, check.attributes = FALSE)
   expect_equal(ri$R0F, 0.3395686, check.attributes = FALSE, tolerance = 1e-07)
+
+  expect_identical(ypr_sr(ypr_population(Rk = bh$alpha)), bh)
+  expect_identical(ypr_sr(ypr_population(BH = 0L, Rk = ri$alpha)), ri)
 })

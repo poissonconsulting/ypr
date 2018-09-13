@@ -1,3 +1,4 @@
+- Can now pass Rk as egg to recruit survival (at low density).
 - Set default value of `Wa` to be 0.01.
 - Added `ypr_populations()` to generate all combinations of parameters.
 - Made `ypr_tabulate_sr()`, `ypr_tabulate_yield()`, `ypr_tabulate_yields()`, `ypr_plot_yield()` generic with definitions for `ypr_population` and `ypr_populations` objects.
