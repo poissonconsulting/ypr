@@ -10,3 +10,4 @@
 ^bibliography.bib$
 ^docs$
 ^report.Rmd$
+^report.html$

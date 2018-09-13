@@ -11,7 +11,7 @@ tR,Ecological,Reproduction,Advanced,0,10,1,0
 Rk,Ecological,Reproduction,Fundamental,0,100,0,1
 BH,Ecological,Reproduction,Advanced,0,1,1,0
 fb,Ecological,Reproduction,Advanced,0.5,2,0,0
-M,Ecological,Mortality,Fundamental,0.01,3,0,0
+M,Ecological,Mortality,Fundamental,0.01,100,0,0
 Mb,Ecological,Mortality,Advanced,-1,1,0,0
 Sm,Ecological,Mortality,Advanced,0,1,0,0
 pi,Fishery,Capture,Advanced,0,1,0,0
