@@ -161,15 +161,16 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
     NULL
 }
 
-#' Plot Yield by Capture
+#' Plot Yield by Exploitation/Capture Probability
 #'
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval capture probability.
+#' by the annual interval exploitation/capture probability.
 #'
 #' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
+#' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
@@ -178,9 +179,11 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' ypr_plot_yield(ypr_population())
 #' ypr_plot_yield(ypr_population(), "YPUE")
 ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                          Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
+                                          Ly = 0, harvest = FALSE, biomass = FALSE,
+                                          u = TRUE, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
+  check_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
                               biomass = biomass)
@@ -194,11 +197,14 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   data3 <- data2
 
   data1[c("Yield", "Age", "Length", "Weight", "Effort", "YPUE")] <- 0
-  data3["pi"] <- 0
+  data3[c("pi", "u")] <- 0
 
   data2 <- rbind(data1, data2, data3, stringsAsFactors = FALSE)
 
-  ggplot(data = data, aes_string(x = "pi", y = y)) +
+  xlab <- if(u) "Exploitation Probability (%)" else "Capture Probability (%)"
+  x <- if(u) "u" else "pi"
+
+  ggplot(data = data, aes_string(x = x, y = y)) +
     (
       if(plot_values)
         list(
@@ -209,19 +215,20 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
     ) +
     geom_line() +
     expand_limits(x = 0) +
-    scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
+    scale_x_continuous(xlab, labels = scales::percent) +
     NULL
 }
 
-#' Plot Yield by Capture
+#' Plot Yield by Exploitation/Capture Probability
 #'
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval capture probability.
+#' by the annual interval exploitation/capture probability.
 #'
 #' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
+#' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
@@ -237,9 +244,10 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #'   ggplot2::facet_grid(Rk~Llo)
 #'  }
 ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                           Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE, ...) {
+                                           Ly = 0, harvest = FALSE, biomass = FALSE, u = TRUE, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
+  check_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
                               biomass = biomass)
@@ -266,11 +274,14 @@ ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, l
   data3 <- data2
 
   data1[c("Yield", "Age", "Length", "Weight", "Effort", "YPUE")] <- 0
-  data3["pi"] <- 0
+  data3[c("pi", "u")] <- 0
 
   data2 <- rbind(data1, data2, data3, stringsAsFactors = FALSE)
 
-  ggplot(data = data, aes_string(x = "pi", y = y)) +
+  xlab <- if(u) "Exploitation Probability (%)" else "Capture Probability (%)"
+  x <- if(u) "u" else "pi"
+
+  ggplot(data = data, aes_string(x = x, y = y)) +
     (
       if(plot_values)
         list(
@@ -281,6 +292,6 @@ ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, l
     ) +
     geom_line() +
     expand_limits(x = 0) +
-    scale_x_continuous("Capture Probability (%)", labels = scales::percent) +
+    scale_x_continuous(xlab, labels = scales::percent) +
     NULL
 }

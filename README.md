@@ -48,7 +48,7 @@ For an explanation of the calculations see the ypr
 
 ``` r
 library(ypr)
-population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100)
+population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```
 
@@ -83,12 +83,12 @@ head(ypr_tabulate_fish(population))
 #> # A tibble: 6 x 2
 #>     Age  Fish
 #>   <dbl> <dbl>
-#> 1     1  48.1
-#> 2     2  39.4
-#> 3     3  32.2
-#> 4     4  26.4
-#> 5     5  21.6
-#> 6     6  14.2
+#> 1     1  69.3
+#> 2     2  56.7
+#> 3     3  46.4
+#> 4     4  38.0
+#> 5     5  31.1
+#> 6     6  23.4
 ```
 
 ### Stock-Recruitment
@@ -105,26 +105,23 @@ ypr_tabulate_sr(population)
 #>   Type        pi    Eggs Recruits Spawners Fecundity
 #>   <chr>    <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
 #> 1 unfished 0     357733.     80.0     95.0     3764.
-#> 2 actual   0.2    82762.     48.1     31.2     2650.
-#> 3 optimal  0.167 106572.     54.4     38.3     2785.
+#> 2 actual   0.2   201443.     69.3     62.3     3232.
+#> 3 optimal  0.418 106584.     54.4     38.3     2785.
 ```
 
 ### Yield
 
 ``` r
+ypr_tabulate_yield(population)
+#> # A tibble: 2 x 8
+#>   Type       pi     u Yield   Age Length Weight Effort
+#>   <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
+#> 1 actual  0.2   0.08   24.9  7.88   66.5  3232.   20  
+#> 2 optimal 0.418 0.167  32.0  7.11   63.6  2785.   41.8
 ypr_plot_yield(population)
 ```
 
 ![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
-
-``` r
-ypr_tabulate_yield(population)
-#> # A tibble: 2 x 7
-#>   Type       pi Yield   Age Length Weight Effort
-#>   <chr>   <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
-#> 1 actual  0.2    12.5  6.88   62.6  2650.   20  
-#> 2 optimal 0.167  12.8  7.11   63.6  2785.   16.7
-```
 
 ### Uncertainty
 
@@ -133,6 +130,8 @@ library(ggplot2)
 populations <- ypr_populations(Rk = c(3,7), Ls = c(40, 60), Rmax = 100)
 ypr_plot_yield(populations, plot_values = FALSE) +
   facet_grid(Rk~Ls)
+#> [1] TRUE
+#> [1] "Exploitation Probability (%)"
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->

@@ -48,7 +48,7 @@ For an explanation of the calculations see the ypr [vignette](https://poissoncon
 
 ```{r, fig.width=6, fig.height=4}
 library(ypr)
-population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100)
+population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
 head(ypr_schedule(population))
 ```
@@ -71,8 +71,8 @@ ypr_tabulate_sr(population)
 ### Yield
 
 ```{r, fig.width=6, fig.height=4}
-ypr_plot_yield(population)
 ypr_tabulate_yield(population)
+ypr_plot_yield(population)
 ```
 
 ### Uncertainty

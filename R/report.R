@@ -60,6 +60,10 @@ ypr_plot_sr(population)
 ```
 
 ```{r, fig.width = 6, fig.height = 4}
+ypr_plot_yield(population, u = FALSE)
+```
+
+```{r, fig.width = 6, fig.height = 4}
 ypr_plot_yield(population)
 ```'
 }

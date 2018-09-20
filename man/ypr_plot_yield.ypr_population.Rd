@@ -2,11 +2,11 @@
 % Please edit documentation in R/plot.R
 \name{ypr_plot_yield.ypr_population}
 \alias{ypr_plot_yield.ypr_population}
-\title{Plot Yield by Capture}
+\title{Plot Yield by Exploitation/Capture Probability}
 \usage{
 \method{ypr_plot_yield}{ypr_population}(object, y = "Yield",
   pi = seq(0, 1, length.out = 100), Ly = 0, harvest = FALSE,
-  biomass = FALSE, plot_values = TRUE, ...)
+  biomass = FALSE, u = TRUE, plot_values = TRUE, ...)
 }
 \arguments{
 \item{object}{The populations or populations.}
@@ -21,6 +21,8 @@
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 
+\item{u}{A flag indicating whether to plot the exploitation rate as opposed to the capture rate.}
+
 \item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
 
 \item{...}{Unused parameters.}
@@ -30,7 +32,7 @@ A ggplot2 object.
 }
 \description{
 Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-by the annual interval capture probability.
+by the annual interval exploitation/capture probability.
 }
 \examples{
 ypr_plot_yield(ypr_population())
