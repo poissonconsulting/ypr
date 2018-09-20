@@ -132,6 +132,7 @@ check_tabulated_sr <- function(x, exclusive = TRUE, order = TRUE, x_name = subst
     x,
     values = list(Type = c("unfished", "actual", "optimal"),
                   pi = c(0, 1),
+                  u = c(0, 1),
                   Eggs = c(0, .Machine$double.xmax),
                   Recruits = c(0, .Machine$double.xmax),
                   Spawners = c(0, .Machine$double.xmax),
