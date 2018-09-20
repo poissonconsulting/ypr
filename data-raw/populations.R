@@ -28,21 +28,22 @@ kootenay_rb_13 <- ypr_population(k = 0.25, t0 = 0.75, Wb = 3.39,
                                  Lv = 40, M = ypr_inter2inst(0.38), pi = 0.1, Rk = 10)
 
 kootenay_rb <- ypr_population(k = 0.26,
+                              t0 = 0.5,
                               Wb = 3.2,
                               Ls = 75,
                               Sp = 20,
                               es = 0.9,
                               Sm = 0.53,
                               fb = 0.86,
-                              Rk = 10, # 0.65
-                              M = ypr_inter2inst(0.23),
+                              Rk = 0.65,
+                              M = 0.26,
                               Lv = 40,
-                              Vp = 5,
+                              Vp = 10,
                               pi = 0.14,
                               rho = 0.62,
                               Hm = 0.25,
                               Rmax = 115e+03,
-                              A0 = 0.95,
+                              A0 = 0.98,
                               Wa = 0.005,
                               fa = 3.9
                               )

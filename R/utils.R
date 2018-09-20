@@ -19,5 +19,5 @@ ypr_inst2inter <- function(x) {
 #' ypr_inter2inst(c(0,0.5,0.99,1))
 ypr_inter2inst <- function(x) {
   check_vector(x, c(0, 1, NA))
-  x <- -log(1-x)
+  -log(1-x)
 }
