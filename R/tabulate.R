@@ -216,6 +216,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
   if(type == "actual") {
     yield <- data.frame(Type = "actual",
                         pi = actual_pi,
+                        u = ypr_exploitation(object, actual_pi),
                         Yield = actual_yield,
                         Age = attr(actual_yield, "Age"),
                         Length = attr(actual_yield, "Length"),
@@ -232,6 +233,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
                                biomass = biomass)
     yield <- data.frame(Type = c("actual", "optimal"),
                         pi = c(actual_pi, optimal_pi),
+                        u = ypr_exploitation(object, c(actual_pi, optimal_pi)),
                         Yield = c(actual_yield, optimal_yield),
                         Age = c(attr(actual_yield, "Age"), attr(optimal_yield, "Age")),
                         Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),

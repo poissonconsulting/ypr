@@ -81,6 +81,7 @@ check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = su
     x,
     values = list(Type = c("actual", "actual", "optimal"),
                   pi = c(0, 1),
+                  u = c(0, 1),
                   Yield = c(0, .Machine$double.xmax),
                   Age = c(0, 100),
                   Length = c(0, .Machine$double.xmax),
@@ -105,6 +106,7 @@ check_tabulated_yields <- function(x, exclusive = TRUE, order = TRUE, x_name = s
   check_data(
     x,
     values = list(pi = c(0, 1),
+                  u = c(0, 1),
                   Yield = c(0, .Machine$double.xmax),
                   Age = c(0, 100, NA),
                   Length = c(0, .Machine$double.xmax, NA),
