@@ -106,4 +106,3 @@ ypr_populations <- function(...) {
   class(populations) <- "ypr_populations"
   populations
 }
-
