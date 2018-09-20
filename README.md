@@ -101,12 +101,12 @@ ypr_plot_sr(population)
 
 ``` r
 ypr_tabulate_sr(population)
-#> # A tibble: 3 x 6
-#>   Type        pi    Eggs Recruits Spawners Fecundity
-#>   <chr>    <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
-#> 1 unfished 0     357733.     80.0     95.0     3764.
-#> 2 actual   0.2   201443.     69.3     62.3     3232.
-#> 3 optimal  0.418 106584.     54.4     38.3     2785.
+#> # A tibble: 3 x 7
+#>   Type        pi     u    Eggs Recruits Spawners Fecundity
+#>   <chr>    <dbl> <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
+#> 1 unfished 0     0     357733.     80.0     95.0     3764.
+#> 2 actual   0.2   0.08  201443.     69.3     62.3     3232.
+#> 3 optimal  0.418 0.167 106584.     54.4     38.3     2785.
 ```
 
 ### Yield
@@ -130,8 +130,6 @@ library(ggplot2)
 populations <- ypr_populations(Rk = c(3,7), Ls = c(40, 60), Rmax = 100)
 ypr_plot_yield(populations, plot_values = FALSE) +
   facet_grid(Rk~Ls)
-#> [1] TRUE
-#> [1] "Exploitation Probability (%)"
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->

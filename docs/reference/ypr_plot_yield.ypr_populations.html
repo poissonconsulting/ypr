@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot Yield by Capture — ypr_plot_yield.ypr_populations • ypr</title>
+<title>Plot Yield by Exploitation/Capture Probability — ypr_plot_yield.ypr_populations • ypr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,10 @@
 
 
 
-<meta property="og:title" content="Plot Yield by Capture — ypr_plot_yield.ypr_populations" />
+<meta property="og:title" content="Plot Yield by Exploitation/Capture Probability — ypr_plot_yield.ypr_populations" />
 
 <meta property="og:description" content="Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-by the annual interval capture probability." />
+by the annual interval exploitation/capture probability." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -64,7 +64,7 @@ by the annual interval capture probability." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9022</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9023</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@ by the annual interval capture probability." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot Yield by Capture</h1>
+    <h1>Plot Yield by Exploitation/Capture Probability</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
     <div class="hidden name"><code>ypr_plot_yield.ypr_populations.Rd</code></div>
     </div>
@@ -114,14 +114,14 @@ by the annual interval capture probability." />
     <div class="ref-description">
     
     <p>Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-by the annual interval capture probability.</p>
+by the annual interval exploitation/capture probability.</p>
     
     </div>
 
     <pre class="usage"><span class='co'># S3 method for ypr_populations</span>
 <span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>object</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Yield"</span>,
   <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>u</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,6 +149,10 @@ by the annual interval capture probability.</p>
     <tr>
       <th>biomass</th>
       <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td><p>A flag indicating whether to plot the exploitation rate as opposed to the capture rate.</p></td>
     </tr>
     <tr>
       <th>plot_values</th>
