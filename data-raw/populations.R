@@ -42,6 +42,7 @@ kootenay_rb <- ypr_population(k = 0.26,
                               rho = 0.62,
                               Hm = 0.25,
                               Rmax = 115e+03,
+                              A0 = 0.95,
                               Wa = 0.005,
                               fa = 3.9
                               )

@@ -8,7 +8,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
   Ls = Linf/2, Sp = 100, es = 1, Sm = 0, fb = 1, tR = 1L,
   BH = 1L, Rk = 3, M = 0.2, Mb = 0, Lv = Linf/2, Vp = 100,
   Llo = 0, Lup = Linf, Nc = 0, pi = 0.2, rho = 0, Hm = 0,
-  Rmax = 1, Wa = 0.01, fa = 1, Ea = 1, Eb = 1)
+  Rmax = 1, A0 = 0, Wa = 0.01, fa = 1, Ea = 1, Eb = 1)
 }
 \arguments{
 \item{tmax}{The maximum age (yr).}
@@ -58,6 +58,8 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 \item{Hm}{The hooking mortality probability.}
 
 \item{Rmax}{The number of recruits at the carrying capacity (ind).}
+
+\item{A0}{The initial post age tR density independent mortality probability.}
 
 \item{Wa}{The (extrapolated) weight of a 1 cm individual (g).}
 

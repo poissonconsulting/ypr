@@ -1,3 +1,4 @@
+^appveyor\.yml$
 ^_pkgdown\.yml$
 ^ypr\.Rproj$
 ^\.Rproj\.user$
@@ -11,3 +12,4 @@
 ^docs$
 ^report.Rmd$
 ^report.html$
+^build.R$

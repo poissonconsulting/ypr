@@ -6,6 +6,8 @@
 \alias{ypr-package}
 \title{ypr: Yield Per Recruit}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 An implementation of equilibrium-based yield per recruit methods.
     The yield can be based on the number of fish caught (or harvested) or 
     biomass caught for all fish or just large (trophy) individuals.

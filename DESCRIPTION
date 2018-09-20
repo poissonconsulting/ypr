@@ -1,6 +1,6 @@
 Package: ypr
-Version: 0.1.0.9021
-Date: 2018-09-13
+Version: 0.1.0.9022
+Date: 2018-09-20
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods.
     The yield can be based on the number of fish caught (or harvested) or 
@@ -25,7 +25,8 @@ Suggests:
     knitr,
     rmarkdown,
     tidyr
-Additional_Repositories: http://poissonconsulting.github.io/drat
+Remotes: 
+    poissonconsulting/checkr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
