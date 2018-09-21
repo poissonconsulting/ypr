@@ -104,9 +104,9 @@ ypr_tabulate_sr(population)
 #> # A tibble: 3 x 7
 #>   Type        pi     u    Eggs Recruits Spawners Fecundity
 #>   <chr>    <dbl> <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
-#> 1 unfished 0     0     357733.     80.0     95.0     3764.
-#> 2 actual   0.2   0.08  201443.     69.3     62.3     3232.
-#> 3 optimal  0.418 0.167 106584.     54.4     38.3     2785.
+#> 1 unfished 0     0     357733.     80.0    190.      3764.
+#> 2 actual   0.2   0.08  201443.     69.3    125.      3232.
+#> 3 optimal  0.418 0.167 106584.     54.4     76.5     2785.
 ```
 
 ### Yield
@@ -165,7 +165,7 @@ app](man/figures/yield.png)
 To cite package 'ypr' in publications use:
 
   Joe Thorley (2018). ypr: Yield Per Recruit. R package version
-  0.1.0.9023. https://github.com/poissonconsulting/ypr
+  0.1.0.9025. https://github.com/poissonconsulting/ypr
 
 A BibTeX entry for LaTeX users is
 
@@ -173,7 +173,7 @@ A BibTeX entry for LaTeX users is
     title = {ypr: Yield Per Recruit},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.1.0.9023},
+    note = {R package version 0.1.0.9025},
     url = {https://github.com/poissonconsulting/ypr},
   }
 ```
