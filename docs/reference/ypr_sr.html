@@ -32,7 +32,17 @@
 
 <meta property="og:title" content="Stock-Recruitment Parameters — ypr_sr" />
 
-<meta property="og:description" content="Stock-Recruitment Parameters" />
+<meta property="og:description" content="Returns a named double vector of the SR parameters:
+  alphaSurvival from egg to age tR at low density
+  betaDensity-dependence
+  RkSpawners per spawner at low density
+  phiEggs deposited at unfished equilibrium
+  phiFEggs deposited at the fished equilibrium
+  R0Age tR recruits at the unfished equilibrium
+  R0FAge tR recruits at the fished equilibrium
+  S0Spawners at the unfished equilibrium
+  S0Fspawners at the fished equilibrium
+" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -63,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9023</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9024</span>
       </span>
     </div>
 
@@ -112,7 +122,17 @@
 
     <div class="ref-description">
     
-    <p>Stock-Recruitment Parameters</p>
+    <p>Returns a named double vector of the SR parameters:</p><dl class='dl-horizontal'>
+  <dt>alpha</dt><dd><p>Survival from egg to age tR at low density</p></dd>
+  <dt>beta</dt><dd><p>Density-dependence</p></dd>
+  <dt>Rk</dt><dd><p>Spawners per spawner at low density</p></dd>
+  <dt>phi</dt><dd><p>Eggs deposited at unfished equilibrium</p></dd>
+  <dt>phiF</dt><dd><p>Eggs deposited at the fished equilibrium</p></dd>
+  <dt>R0</dt><dd><p>Age tR recruits at the unfished equilibrium</p></dd>
+  <dt>R0F</dt><dd><p>Age tR recruits at the fished equilibrium</p></dd>
+  <dt>S0</dt><dd><p>Spawners at the unfished equilibrium</p></dd>
+  <dt>S0F</dt><dd><p>spawners at the fished equilibrium</p></dd>
+</dl>
     
     </div>
 
@@ -129,13 +149,63 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A named numeric vector of alpha, beta, phi (eggs at unfished equilibrium),
-phiF (eggs at the fished equilibrium) and R0F (recruits at the fished equilibrium )</p>
+    <p>A named double vector.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span>
-<span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span></div><div class='output co'>#&gt; $alpha
+#&gt; [1] 0.0006708921
+#&gt; 
+#&gt; $beta
+#&gt; [1] 0.0006708921
+#&gt; 
+#&gt; $Rk
+#&gt; [1] 3
+#&gt; 
+#&gt; $phi
+#&gt; [1] 4471.658
+#&gt; 
+#&gt; $phiF
+#&gt; [1] 1721.956
+#&gt; 
+#&gt; $R0
+#&gt; [1] 0.6666667
+#&gt; 
+#&gt; $R0F
+#&gt; [1] 0.1343839
+#&gt; 
+#&gt; $S0
+#&gt; [1] 0.7919029
+#&gt; 
+#&gt; $S0F
+#&gt; [1] 0.08733441
+#&gt; </div><div class='input'><span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; $alpha
+#&gt; [1] 0.0006708921
+#&gt; 
+#&gt; $beta
+#&gt; [1] 0.0002468074
+#&gt; 
+#&gt; $Rk
+#&gt; [1] 3
+#&gt; 
+#&gt; $phi
+#&gt; [1] 4471.658
+#&gt; 
+#&gt; $phiF
+#&gt; [1] 1721.956
+#&gt; 
+#&gt; $R0
+#&gt; [1] 0.9954459
+#&gt; 
+#&gt; $R0F
+#&gt; [1] 0.3395686
+#&gt; 
+#&gt; $S0
+#&gt; [1] 1.182445
+#&gt; 
+#&gt; $S0F
+#&gt; [1] 0.2206814
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
