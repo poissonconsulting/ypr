@@ -4,7 +4,7 @@
 \alias{ypr_plot_sr}
 \title{Plot Stock-Recruitment Curve}
 \usage{
-ypr_plot_sr(population, Ly = 0, harvest = FALSE, biomass = FALSE,
+ypr_plot_sr(population, Ly = 0, harvest = TRUE, biomass = FALSE,
   plot_values = TRUE)
 }
 \arguments{
@@ -12,7 +12,7 @@ ypr_plot_sr(population, Ly = 0, harvest = FALSE, biomass = FALSE,
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
+\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 

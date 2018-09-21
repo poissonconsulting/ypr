@@ -1,4 +1,4 @@
-yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
+yield <- function(schedule, Ly = 0, harvest = TRUE, biomass = FALSE) {
   schedule <- as.list(schedule)
   schedule$pi <- attr(schedule, "pi")
   schedule$Ea <- attr(schedule, "Ea")
@@ -46,14 +46,14 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #'
 #' @inheritParams ypr_schedule
 #' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
-#' @param harvest A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.
+#' @param harvest A flag indicating whether to calculate the yield for harvested fish or captures.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.
 #' @return The yield as number of fish or biomass.
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_optimize}}
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-ypr_yield <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE) {
+ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
 
   check_yield_parameters(population = population, Ly = Ly, harvest = harvest,
                          biomass = biomass)

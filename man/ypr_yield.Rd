@@ -4,14 +4,14 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = FALSE, biomass = FALSE)
+ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
+\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }

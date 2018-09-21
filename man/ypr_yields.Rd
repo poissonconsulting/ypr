@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = FALSE, biomass = FALSE)
+  harvest = TRUE, biomass = FALSE)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}
@@ -14,7 +14,7 @@ ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
+\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }

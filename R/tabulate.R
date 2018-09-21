@@ -133,7 +133,7 @@ ypr_tabulate_fish <- function(population, x = "Age", y = "Surviving",
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
 #' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
-ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE,
+ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
                                            biomass = FALSE, all = FALSE,...) {
   sr <- ypr_sr(object)
   sr$BH <- object$BH
@@ -178,7 +178,7 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = FALSE,
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
-ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
+ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                             all = FALSE, ...) {
   check_flag(all)
 
@@ -204,7 +204,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = FALSE, bio
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
-ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
+ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                               type = "both", all = FALSE, ...) {
 
   check_scalar(type, c("both", "actual", "optimal"))
@@ -266,7 +266,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = FALSE, b
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
-ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, biomass = FALSE,
+ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                                type = "both", all = FALSE, ...) {
 
   check_flag(all)
@@ -293,7 +293,7 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = FALSE, 
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
-                                               Ly = 0, harvest = FALSE, biomass = FALSE, all = FALSE, ...) {
+                                               Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
 
   check_vector(pi, c(0, 1), length = TRUE)
 
@@ -321,7 +321,7 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' @examples
 #' ypr_tabulate_yields(ypr_populations(Rk = c(3,5)), pi = seq(0, 1, length.out = 10))
 ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
-                                                Ly = 0, harvest = FALSE, biomass = FALSE,
+                                                Ly = 0, harvest = TRUE, biomass = FALSE,
                                                 all = FALSE, ...) {
 
   check_flag(all)

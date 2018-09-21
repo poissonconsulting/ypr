@@ -12,7 +12,7 @@
 #' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                       Ly = 0, harvest = FALSE, biomass = FALSE) {
+                       Ly = 0, harvest = TRUE, biomass = FALSE) {
 
   check_yield_parameters(population, Ly = Ly, harvest = harvest, biomass = biomass)
   check_vector(pi, c(0, 1), length = TRUE)

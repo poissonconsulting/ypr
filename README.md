@@ -116,8 +116,8 @@ ypr_tabulate_yield(population)
 #> # A tibble: 2 x 8
 #>   Type       pi     u Yield   Age Length Weight Effort
 #>   <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
-#> 1 actual  0.2   0.08   24.9  7.88   66.5  3232.   20  
-#> 2 optimal 0.418 0.167  32.0  7.11   63.6  2785.   41.8
+#> 1 actual  0.2   0.08   9.97  7.88   66.5  3232.   20  
+#> 2 optimal 0.418 0.167 12.8   7.11   63.6  2785.   41.8
 ypr_plot_yield(population)
 ```
 

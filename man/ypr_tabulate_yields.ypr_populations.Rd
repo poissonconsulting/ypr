@@ -5,7 +5,7 @@
 \title{Tabulate Yields}
 \usage{
 \method{ypr_tabulate_yields}{ypr_populations}(object, pi = seq(0, 1,
-  length.out = 100), Ly = 0, harvest = FALSE, biomass = FALSE,
+  length.out = 100), Ly = 0, harvest = TRUE, biomass = FALSE,
   all = FALSE, ...)
 }
 \arguments{
@@ -15,7 +15,7 @@
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for just harvested fish or the total number of captures.}
+\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 

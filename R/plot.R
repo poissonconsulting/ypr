@@ -126,7 +126,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 #' @examples
 #' ypr_plot_sr(ypr_population(Rk = 10))
 #' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
-ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, plot_values = TRUE) {
+ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plot_values = TRUE) {
   check_flag(plot_values)
   schedule <- ypr_schedule(population)
 
@@ -179,7 +179,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = FALSE, biomass = FALSE, pl
 #' ypr_plot_yield(ypr_population())
 #' ypr_plot_yield(ypr_population(), "YPUE")
 ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                          Ly = 0, harvest = FALSE, biomass = FALSE,
+                                          Ly = 0, harvest = TRUE, biomass = FALSE,
                                           u = TRUE, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
@@ -244,7 +244,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #'   ggplot2::facet_grid(Rk~Llo)
 #'  }
 ypr_plot_yield.ypr_populations <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                           Ly = 0, harvest = FALSE, biomass = FALSE, u = TRUE, plot_values = TRUE, ...) {
+                                           Ly = 0, harvest = TRUE, biomass = FALSE, u = TRUE, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   check_flag(u)
