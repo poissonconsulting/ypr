@@ -10,11 +10,21 @@ ypr_sr(population)
 \item{population}{An object of class \code{\link{ypr_population}}.}
 }
 \value{
-A named numeric vector of alpha, beta, phi (eggs at unfished equilibrium),
-phiF (eggs at the fished equilibrium) and R0F (recruits at the fished equilibrium )
+A named double vector.
 }
 \description{
-Stock-Recruitment Parameters
+Returns a named double vector of the SR parameters:
+\describe{
+  \item{alpha}{Survival from egg to age tR at low density}
+  \item{beta}{Density-dependence}
+  \item{Rk}{Spawners per spawner at low density}
+  \item{phi}{Eggs deposited at unfished equilibrium}
+  \item{phiF}{Eggs deposited at the fished equilibrium}
+  \item{R0}{Age tR recruits at the unfished equilibrium}
+  \item{R0F}{Age tR recruits at the fished equilibrium}
+  \item{S0}{Spawners at the unfished equilibrium}
+  \item{S0F}{spawners at the fished equilibrium}
+}
 }
 \examples{
 ypr_sr(ypr_population()) # Beverton-Holt

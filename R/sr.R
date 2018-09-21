@@ -14,16 +14,17 @@ sr <- function(schedule) {
 
   R0 <- 1
 
-  with(schedule, {
+  sr <- with(schedule, {
     phi <- sum(Fecundity * Spawning/2 * Survivorship)
 
     phiF <- sum(Fecundity * Spawning/2 * FishedSurvivorship)
 
     if(Rk >= 1) {
       alpha <-  Rk / phi
-    } else
+    } else {
       alpha <- Rk
-
+      Rk <- alpha * phi
+    }
     if(BH) {
       beta <- (alpha * phi - 1) / (R0 * phi)
       kappa <- alpha / beta
@@ -39,17 +40,31 @@ sr <- function(schedule) {
     S0 <- sum(Spawning/2 * Survivorship * R0)
     S0F <- sum(Spawning/2 * FishedSurvivorship * R0F)
     sr <- list(alpha = alpha, beta = beta,
+               Rk = Rk,
                phi = phi, phiF = phiF,
                R0 = R0, R0F = R0F,
                S0 = S0, S0F = S0F)
   })
+  sr
 }
 
 #' Stock-Recruitment Parameters
 #'
+#' Returns a named double vector of the SR parameters:
+#' \describe{
+#'   \item{alpha}{Survival from egg to age tR at low density}
+#'   \item{beta}{Density-dependence}
+#'   \item{Rk}{Spawners per spawner at low density}
+#'   \item{phi}{Eggs deposited at unfished equilibrium}
+#'   \item{phiF}{Eggs deposited at the fished equilibrium}
+#'   \item{R0}{Age tR recruits at the unfished equilibrium}
+#'   \item{R0F}{Age tR recruits at the fished equilibrium}
+#'   \item{S0}{Spawners at the unfished equilibrium}
+#'   \item{S0F}{spawners at the fished equilibrium}
+#' }
+#'
 #' @inheritParams ypr_schedule
-#' @return A named numeric vector of alpha, beta, phi (eggs at unfished equilibrium),
-#' phiF (eggs at the fished equilibrium) and R0F (recruits at the fished equilibrium )
+#' @return A named double vector.
 #' @export
 #' @examples
 #' ypr_sr(ypr_population()) # Beverton-Holt

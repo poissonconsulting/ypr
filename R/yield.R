@@ -5,7 +5,7 @@ yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
   schedule$Eb <- attr(schedule, "Eb")
   schedule <- c(schedule, sr(schedule))
 
-  with(schedule, {
+  yield <- with(schedule, {
     FishedSurvivorship[Length < Ly] <- 0
     yield <- R0F * FishedSurvivorship * Vulnerability * pi
     if(harvest) yield <- yield * Retention
@@ -28,6 +28,7 @@ yield <- function(schedule, Ly = 0, harvest = FALSE, biomass = FALSE) {
 
     yield
   })
+  yield
 }
 
 yield_pi <- function(pi, population, Ly, harvest, biomass) {
