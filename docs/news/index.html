@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9026</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
       </span>
     </div>
 
@@ -107,6 +107,27 @@
       <small>Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="ypr-0-2-0" class="section level1">
+<h1 class="page-header">
+<a href="#ypr-0-2-0" class="anchor"></a>ypr 0.2.0</h1>
+<ul>
+<li>Added <code><a href="../reference/ypr_exploitation.html">ypr_exploitation()</a></code> to convert capture probabilities to exploitation probabilities.</li>
+<li>Added <code><a href="../reference/ypr_report.html">ypr_report()</a></code> to generate Rmd file for population.</li>
+<li>Can now pass Rk as egg to recruit survival (at low density).</li>
+<li>Set default value of <code>Wa</code> to be 0.01.</li>
+<li>Added <code><a href="../reference/ypr_populations.html">ypr_populations()</a></code> to generate all combinations of parameters.</li>
+<li>Made <code><a href="../reference/ypr_tabulate_sr.html">ypr_tabulate_sr()</a></code>, <code><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield()</a></code>, <code><a href="../reference/ypr_tabulate_yields.html">ypr_tabulate_yields()</a></code>, <code><a href="../reference/ypr_plot_yield.html">ypr_plot_yield()</a></code> generic with definitions for <code>ypr_population</code> and <code>ypr_populations</code> objects.</li>
+<li>Added scaling parameter <code>A0</code> for inital interval mortality of recruits.</li>
+<li>Added scaling parameters <code>Ea</code> and <code>Eb</code> to allow plots of yield per effort.</li>
+<li>Added <code>Age</code>, <code>Length</code>, <code>Weight</code> and <code>Effort</code> to <code><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield()</a></code> and added <code><a href="../reference/ypr_tabulate_yields.html">ypr_tabulate_yields()</a></code>
+</li>
+<li>Added <code>y</code> arg to <code><a href="../reference/ypr_plot_yield.html">ypr_plot_yield()</a></code> to allow plotting of mean age, length, weight, effort or yield per effort by exploitation or capture probability.</li>
+<li>Added <code>ypr_plot_histogram()</code> to plot frequency distributions of catch, spawners and in lake by age, length or weight bins.</li>
+<li>Added <code><a href="../reference/ypr_tabulate_parameters.html">ypr_tabulate_parameters()</a></code> to get table of parameters, values and descriptions and <code><a href="../reference/ypr_detabulate_parameters.html">ypr_detabulate_parameters()</a></code> to convert back to a population object.</li>
+<li>Added <code><a href="../reference/ypr_tabulate_sr.html">ypr_tabulate_sr()</a></code> to get table of eggs and recruits at unfished, actual and optimal rates.</li>
+<li>Added <code>print.ypr_population()</code>.</li>
+</ul>
+</div>
     <div id="ypr-0-1-0" class="section level1">
 <h1 class="page-header">
 <a href="#ypr-0-1-0" class="anchor"></a>ypr 0.1.0</h1>
@@ -135,6 +156,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#ypr-0-2-0">0.2.0</a></li>
         <li><a href="#ypr-0-1-0">0.1.0</a></li>
         <li><a href="#ypr-0-0-1">0.0.1</a></li>
       </ul>

@@ -4,7 +4,7 @@
 \alias{ypr_plot_fish}
 \title{Plot Fish}
 \usage{
-ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1,
+ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1L,
   color = NULL)
 }
 \arguments{
@@ -14,7 +14,7 @@ ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1,
 
 \item{y}{A string of the term on the y-axis.}
 
-\item{binwidth}{A positive number of the width of the bins for grouping.}
+\item{binwidth}{A positive integer of the width of the bins for grouping.}
 
 \item{color}{A string of the color around each bar (or NULL).}
 }

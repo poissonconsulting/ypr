@@ -103,16 +103,16 @@ ypr_detabulate_parameters <- function(x) {
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
-#' @param binwidth A positive number of the width of the bins for grouping.
+#' @param binwidth A positive integer of the width of the bins for grouping.
 #' @return A data frame
 #' @seealso \code{\link{ypr_population}} and \code{\link{ypr_plot_fish}}
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
-ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1) {
+ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   check_population(population)
   check_scalar(x, c("Age", "Length", "Weight"))
-  check_scalar(binwidth, c(1, 1000))
+  check_scalar(binwidth, c(1L, 1000L))
 
   table <- ypr_schedule(population = population)
   table <- as.data.frame(table)

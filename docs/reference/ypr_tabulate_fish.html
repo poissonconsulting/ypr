@@ -32,8 +32,8 @@
 
 <meta property="og:title" content="Table Fish — ypr_tabulate_fish" />
 
-<meta property="og:description" content="Produces a table of the number of fish in the
-'Fishing', 'Surviving' or 'Spawning' categories by
+<meta property="og:description" content="Produces a data frame of the number of fish in the
+'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
 'Length', 'Age' or 'Weight' class." />
 
 <meta property="og:image" content="/logo.png" />
@@ -65,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9026</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
       </span>
     </div>
 
@@ -114,14 +114,13 @@
 
     <div class="ref-description">
     
-    <p>Produces a table of the number of fish in the
-'Fishing', 'Surviving' or 'Spawning' categories by
+    <p>Produces a data frame of the number of fish in the
+'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
 'Length', 'Age' or 'Weight' class.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_tabulate_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>,
-  <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_tabulate_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,59 +134,44 @@
       <td><p>A string of the term on the x-axis.</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>A string of the term on the y-axis.</p></td>
-    </tr>
-    <tr>
       <th>binwidth</th>
-      <td><p>The width of the bins. Can be specified as a numeric value,
-or a function that calculates width from x.
-The default is to use <code>bins</code>
-bins that cover the range of the data. You should always override
-this value, exploring multiple widths to find the best to illustrate the
-stories in your data.</p>
-<p>The bin width of a date variable is the number of days in each time; the
-bin width of a time variable is the number of seconds.</p></td>
+      <td><p>A positive integer of the width of the bins for grouping.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A ggplot2 object.</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The 'Fishing' category is all fish that have died due to fishing including handling mortalities.</p>
+    <p>A data frame</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code>, <code><a href='ypr_plot_fish.html'>ypr_plot_fish</a></code> and <code><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_histogram'>geom_histogram</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population</a></code> and <code><a href='ypr_plot_fish.html'>ypr_plot_fish</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_fish</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 20 x 2
-#&gt;      Age     Fish
-#&gt;  * &lt;dbl&gt;    &lt;dbl&gt;
-#&gt;  1     1 0.134   
-#&gt;  2     2 0.110   
-#&gt;  3     3 0.0901  
-#&gt;  4     4 0.0738  
-#&gt;  5     5 0.0604  
-#&gt;  6     6 0.0396  
-#&gt;  7     7 0.0259  
-#&gt;  8     8 0.0170  
-#&gt;  9     9 0.0111  
-#&gt; 10    10 0.00729 
-#&gt; 11    11 0.00477 
-#&gt; 12    12 0.00313 
-#&gt; 13    13 0.00205 
-#&gt; 14    14 0.00134 
-#&gt; 15    15 0.000878
-#&gt; 16    16 0.000575
-#&gt; 17    17 0.000377
-#&gt; 18    18 0.000247
-#&gt; 19    19 0.000162
-#&gt; 20    20 0.000106</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_fish</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; # A tibble: 20 x 7
+#&gt;      Age Surviving Spawning   Caught Harvested Released HandlingMortality
+#&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;
+#&gt;  1     1  0.134    4.21e-57 8.41e-58  8.41e-58        0                 0
+#&gt;  2     2  0.110    3.20e-30 6.40e-31  6.40e-31        0                 0
+#&gt;  3     3  0.0901   9.40e-16 1.88e-16  1.88e-16        0                 0
+#&gt;  4     4  0.0738   2.55e- 6 5.10e- 7  5.10e- 7        0                 0
+#&gt;  5     5  0.0604   6.01e- 2 1.20e- 2  1.20e- 2        0                 0
+#&gt;  6     6  0.0396   3.96e- 2 7.92e- 3  7.92e- 3        0                 0
+#&gt;  7     7  0.0259   2.59e- 2 5.19e- 3  5.19e- 3        0                 0
+#&gt;  8     8  0.0170   1.70e- 2 3.40e- 3  3.40e- 3        0                 0
+#&gt;  9     9  0.0111   1.11e- 2 2.23e- 3  2.23e- 3        0                 0
+#&gt; 10    10  0.00729  7.29e- 3 1.46e- 3  1.46e- 3        0                 0
+#&gt; 11    11  0.00477  4.77e- 3 9.55e- 4  9.55e- 4        0                 0
+#&gt; 12    12  0.00313  3.13e- 3 6.25e- 4  6.25e- 4        0                 0
+#&gt; 13    13  0.00205  2.05e- 3 4.10e- 4  4.10e- 4        0                 0
+#&gt; 14    14  0.00134  1.34e- 3 2.68e- 4  2.68e- 4        0                 0
+#&gt; 15    15  0.000878 8.78e- 4 1.76e- 4  1.76e- 4        0                 0
+#&gt; 16    16  0.000575 5.75e- 4 1.15e- 4  1.15e- 4        0                 0
+#&gt; 17    17  0.000377 3.77e- 4 7.54e- 5  7.54e- 5        0                 0
+#&gt; 18    18  0.000247 2.47e- 4 4.94e- 5  4.94e- 5        0                 0
+#&gt; 19    19  0.000162 1.62e- 4 3.23e- 5  3.23e- 5        0                 0
+#&gt; 20    20  0.000106 1.06e- 4 2.12e- 5  2.12e- 5        0                 0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -195,8 +179,6 @@ bin width of a time variable is the number of seconds.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

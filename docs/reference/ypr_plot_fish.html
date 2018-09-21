@@ -65,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9026</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_plot_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+    <pre class="usage"><span class='fu'>ypr_plot_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
   <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -140,14 +140,7 @@
     </tr>
     <tr>
       <th>binwidth</th>
-      <td><p>The width of the bins. Can be specified as a numeric value,
-or a function that calculates width from x.
-The default is to use <code>bins</code>
-bins that cover the range of the data. You should always override
-this value, exploring multiple widths to find the best to illustrate the
-stories in your data.</p>
-<p>The bin width of a date variable is the number of days in each time; the
-bin width of a time variable is the number of seconds.</p></td>
+      <td><p>A positive integer of the width of the bins for grouping.</p></td>
     </tr>
     <tr>
       <th>color</th>

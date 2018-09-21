@@ -93,7 +93,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @examples
 #' ypr_plot_fish(ypr_population(), color = "white")
 ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
-                          binwidth = 1, color = NULL) {
+                          binwidth = 1L, color = NULL) {
   check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested",
                     "Released", "HandlingMortality"))
 

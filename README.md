@@ -28,11 +28,11 @@ The key life history parameters are
     the Von Bertalanffy growth curve
   - The length at which 50% mature (`Ls`)
   - The length at which 50% vulnerable to harvest (`Lv`)
+  - The instantaneous annual natural mortality rate (`M`)
   - The number of spawners per spawner at low density (`Rk`)
 
-The calculations do not account for parameter uncertainty, environmental
-fluctuations, predator-prey dynamics, angler responses or
-density-dependent growth.
+The calculations do not account for stochasticity, predator-prey
+dynamics, angler responses or density-dependent growth.
 
 ### Information
 
@@ -73,22 +73,22 @@ head(ypr_schedule(population))
 
 ``` r
 library(ypr)
-ypr_plot_fish(population)
+ypr_plot_fish(population, color = "white")
 ```
 
 ![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 head(ypr_tabulate_fish(population))
-#> # A tibble: 6 x 2
-#>     Age  Fish
-#>   <dbl> <dbl>
-#> 1     1  69.3
-#> 2     2  56.7
-#> 3     3  46.4
-#> 4     4  38.0
-#> 5     5  31.1
-#> 6     6  23.4
+#> # A tibble: 6 x 7
+#>     Age Surviving Spawning   Caught Harvested Released HandlingMortality
+#>   <dbl>     <dbl>    <dbl>    <dbl>     <dbl>    <dbl>             <dbl>
+#> 1     1      69.3 2.17e-54 4.34e-55  1.73e-55 2.60e-55                 0
+#> 2     2      56.7 1.65e-27 3.30e-28  1.32e-28 1.98e-28                 0
+#> 3     3      46.4 4.84e-13 9.69e-14  3.87e-14 5.81e-14                 0
+#> 4     4      38.0 1.31e- 3 2.63e- 4  1.05e- 4 1.58e- 4                 0
+#> 5     5      31.1 3.10e+ 1 6.19e+ 0  2.48e+ 0 3.72e+ 0                 0
+#> 6     6      23.4 2.34e+ 1 4.69e+ 0  1.88e+ 0 2.81e+ 0                 0
 ```
 
 ### Stock-Recruitment

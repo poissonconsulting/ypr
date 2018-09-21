@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9026</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
       </span>
     </div>
 
@@ -92,9 +92,10 @@
 <li>The growth coefficient (<code>k</code>) and mean maximum length (<code>Linf</code>) from the Von Bertalanffy growth curve</li>
 <li>The length at which 50% mature (<code>Ls</code>)</li>
 <li>The length at which 50% vulnerable to harvest (<code>Lv</code>)</li>
+<li>The instantaneous annual natural mortality rate (<code>M</code>)</li>
 <li>The number of spawners per spawner at low density (<code>Rk</code>)</li>
 </ul>
-<p>The calculations do not account for parameter uncertainty, environmental fluctuations, predator-prey dynamics, angler responses or density-dependent growth.</p>
+<p>The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.</p>
 <div id="information" class="section level3">
 <h3 class="hasAnchor">
 <a href="#information" class="anchor"></a>Information</h3>
@@ -129,18 +130,18 @@
 <h3 class="hasAnchor">
 <a href="#fish" class="anchor"></a>Fish</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(ypr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span>(population)</a></code></pre></div>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span>(population, <span class="dt">color =</span> <span class="st">"white"</span>)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="576"></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">head</span>(<span class="kw"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span>(population))</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6 x 2</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;     Age  Fish</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1     1  69.3</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2     2  56.7</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 3     3  46.4</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 4     4  38.0</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; 5     5  31.1</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; 6     6  23.4</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6 x 7</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;     Age Surviving Spawning   Caught Harvested Released HandlingMortality</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1     1      69.3 2.17e-54 4.34e-55  1.73e-55 2.60e-55                 0</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2     2      56.7 1.65e-27 3.30e-28  1.32e-28 1.98e-28                 0</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 3     3      46.4 4.84e-13 9.69e-14  3.87e-14 5.81e-14                 0</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 4     4      38.0 1.31e- 3 2.63e- 4  1.05e- 4 1.58e- 4                 0</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; 5     5      31.1 3.10e+ 1 6.19e+ 0  2.48e+ 0 3.72e+ 0                 0</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; 6     6      23.4 2.34e+ 1 4.69e+ 0  1.88e+ 0 2.81e+ 0                 0</span></a></code></pre></div>
 </div>
 <div id="stock-recruitment" class="section level3">
 <h3 class="hasAnchor">
