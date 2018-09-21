@@ -31,11 +31,8 @@ A ggplot2 object.
 }
 \description{
 Produces a frequency histogram of the number of fish in the
-'Fishing', 'Surviving' or 'Spawning' categories by
+'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
 'Length', 'Age' or 'Weight' class.
-}
-\details{
-The 'Fishing' category is all fish that have died due to fishing including handling mortalities.
 }
 \examples{
 ypr_plot_fish(ypr_population(), color = "white")

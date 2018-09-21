@@ -6,7 +6,7 @@ test_that("ypr_plot_schedule", {
 })
 
 test_that("ypr_plot_fish", {
-  gp <- ypr_plot_fish(ypr_population(Rmax = 1000), y = "Fishing", binwidth = 1)
+  gp <- ypr_plot_fish(ypr_population(Rmax = 1000), y = "Caught", binwidth = 1)
   expect_is(gp, "gg")
 })
 

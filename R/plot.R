@@ -80,10 +80,8 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' Plot Fish
 #'
 #' Produces a frequency histogram of the number of fish in the
-#' 'Fishing', 'Surviving' or 'Spawning' categories by
+#' 'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
 #' 'Length', 'Age' or 'Weight' class.
-#'
-#' The 'Fishing' category is all fish that have died due to fishing including handling mortalities.
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
@@ -97,14 +95,16 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
                           binwidth = 1, color = NULL) {
   check_scalar(x, c("Age", "Length", "Weight"))
-  check_scalar(y, c("Fishing", "Surviving", "Spawning"))
+  check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested", "Released"))
 
   schedule <- ypr_schedule(population = population)
   R0F <- sr(schedule)$R0F
 
-  schedule$Fishing <- (schedule$Survivorship - schedule$FishedSurvivorship) * R0F
   schedule$Surviving <- schedule$FishedSurvivorship * R0F
-  schedule$Spawning <- schedule$FishedSurvivorship * schedule$Spawning * R0F
+  schedule$Spawning <- schedule$Surviving * schedule$Spawning
+  schedule$Caught <- schedule$Surviving *  schedule$Vulnerability * attr(schedule, "pi")
+  schedule$Harvested <- schedule$Caught * schedule$Retention
+  schedule$Released <- schedule$Caught * (1 - schedule$Retention)
 
   schedule <- schedule[schedule[[y]] > 0,]
 

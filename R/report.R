@@ -50,7 +50,7 @@ ypr_plot_schedule(population, "Length", "NaturalMortality")
 
 ```{r}
 ypr_plot_fish(population, color = "white")
-ypr_plot_fish(population, "Length", "Fishing")
+ypr_plot_fish(population, "Length", "Caught")
 ypr_plot_fish(population, "Age", "Spawning", color = "white")
 ypr_plot_fish(population, "Length", "Spawning")
 ```

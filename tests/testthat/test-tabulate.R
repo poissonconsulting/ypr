@@ -47,9 +47,9 @@ test_that("ypr_tabulate_yield", {
   expect_identical(fish[[1]], as.double(1:20))
   expect_equal(fish$Fish[1:2], c(0.134, 0.110), tolerance = 0.001)
 
-  fish <- ypr_tabulate_fish(ypr_population(), x = "Length", y = "Fishing")
+  fish <- ypr_tabulate_fish(ypr_population(), x = "Length", y = "Caught")
   expect_identical(colnames(fish), c("Length", "Fish"))
-  expect_identical(fish$Length[1:2], c(45, 53))
+  expect_identical(fish$Length[1:2], c(14, 26))
 
   sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3,5)))
   expect_identical(check_tabulated_sr(sr, exclusive = FALSE), sr)
