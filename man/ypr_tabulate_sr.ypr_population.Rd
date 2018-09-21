@@ -21,7 +21,7 @@
 \item{...}{Unused parameters.}
 }
 \value{
-A table of stock-recruitment parameters.
+A data frame of stock-recruitment parameters.
 }
 \description{
 Stock-Recruitment Parameters

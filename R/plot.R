@@ -85,7 +85,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ggplot2::geom_histogram
+#' @inheritParams ypr_tabulate_fish
 #' @param color A string of the color around each bar (or NULL).
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_population}} and \code{\link[ggplot2]{geom_histogram}}
@@ -94,23 +94,14 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' ypr_plot_fish(ypr_population(), color = "white")
 ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
                           binwidth = 1, color = NULL) {
-  check_scalar(x, c("Age", "Length", "Weight"))
-  check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested", "Released"))
+  check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested",
+                    "Released", "HandlingMortality"))
 
-  schedule <- ypr_schedule(population = population)
-  R0F <- sr(schedule)$R0F
+  fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
 
-  schedule$Surviving <- schedule$FishedSurvivorship * R0F
-  schedule$Spawning <- schedule$Surviving * schedule$Spawning
-  schedule$Caught <- schedule$Surviving *  schedule$Vulnerability * attr(schedule, "pi")
-  schedule$Harvested <- schedule$Caught * schedule$Retention
-  schedule$Released <- schedule$Caught * (1 - schedule$Retention)
-
-  schedule <- schedule[schedule[[y]] > 0,]
-
-  ggplot(data = schedule, aes_string(x = x)) +
-    (if(is.null(color)) geom_histogram(aes_string(weight = y), binwidth = binwidth) else
-      geom_histogram(aes_string(weight = y), binwidth = binwidth, color = color)) +
+  ggplot(data = fish, aes_string(x = x, weight = y)) +
+    (if(is.null(color)) geom_bar(width = binwidth) else
+      geom_bar(width = binwidth, color = color)) +
     ylab(y) +
     expand_limits(x = 0, y = 0)
 }

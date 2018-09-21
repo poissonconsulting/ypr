@@ -4,40 +4,26 @@
 \alias{ypr_tabulate_fish}
 \title{Table Fish}
 \usage{
-ypr_tabulate_fish(population, x = "Age", y = "Surviving",
-  binwidth = 1)
+ypr_tabulate_fish(population, x = "Age", binwidth = 1)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}
 
 \item{x}{A string of the term on the x-axis.}
 
-\item{y}{A string of the term on the y-axis.}
-
-\item{binwidth}{The width of the bins. Can be specified as a numeric value,
-or a function that calculates width from x.
-The default is to use \code{bins}
-bins that cover the range of the data. You should always override
-this value, exploring multiple widths to find the best to illustrate the
-stories in your data.
-
-The bin width of a date variable is the number of days in each time; the
-bin width of a time variable is the number of seconds.}
+\item{binwidth}{A positive number of the width of the bins for grouping.}
 }
 \value{
-A ggplot2 object.
+A data frame
 }
 \description{
-Produces a table of the number of fish in the
-'Fishing', 'Surviving' or 'Spawning' categories by
+Produces a data frame of the number of fish in the
+'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
 'Length', 'Age' or 'Weight' class.
-}
-\details{
-The 'Fishing' category is all fish that have died due to fishing including handling mortalities.
 }
 \examples{
 ypr_tabulate_fish(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}}, \code{\link{ypr_plot_fish}} and \code{\link[ggplot2]{geom_histogram}}
+\code{\link{ypr_population}} and \code{\link{ypr_plot_fish}}
 }

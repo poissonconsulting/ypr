@@ -14,15 +14,7 @@ ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1,
 
 \item{y}{A string of the term on the y-axis.}
 
-\item{binwidth}{The width of the bins. Can be specified as a numeric value,
-or a function that calculates width from x.
-The default is to use \code{bins}
-bins that cover the range of the data. You should always override
-this value, exploring multiple widths to find the best to illustrate the
-stories in your data.
-
-The bin width of a date variable is the number of days in each time; the
-bin width of a time variable is the number of seconds.}
+\item{binwidth}{A positive number of the width of the bins for grouping.}
 
 \item{color}{A string of the color around each bar (or NULL).}
 }

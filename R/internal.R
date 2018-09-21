@@ -40,3 +40,8 @@ tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
   yield
 }
 
+sum_fish <- function(x) {
+  x[] <- lapply(x, sum)
+  x[[1]] <- x[[1]] / nrow(x)
+  x[1,]
+}

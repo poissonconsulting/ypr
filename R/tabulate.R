@@ -97,28 +97,44 @@ ypr_detabulate_parameters <- function(x) {
 
 #' Table Fish
 #'
-#' Produces a table of the number of fish in the
-#' 'Fishing', 'Surviving' or 'Spawning' categories by
+#' Produces a data frame of the number of fish in the
+#' 'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
 #' 'Length', 'Age' or 'Weight' class.
-#'
-#' The 'Fishing' category is all fish that have died due to fishing including handling mortalities.
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ggplot2::geom_histogram
-#' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_plot_fish}} and \code{\link[ggplot2]{geom_histogram}}
+#' @param binwidth A positive number of the width of the bins for grouping.
+#' @return A data frame
+#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_plot_fish}}
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
-ypr_tabulate_fish <- function(population, x = "Age", y = "Surviving",
-                              binwidth = 1) {
-  gp <- ypr_plot_fish(population, x = x, y = y, binwidth = binwidth)
+ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1) {
+  check_population(population)
+  check_scalar(x, c("Age", "Length", "Weight"))
+  check_scalar(binwidth, c(1, 1000))
 
-  table <- ggplot_build(gp)$data[[1]]
-  table <- table[c("x", "count")]
-  colnames(table) <- c(x, "Fish")
-  table <- table[table[["Fish"]] > 0, , drop = TRUE]
+  table <- ypr_schedule(population = population)
+  table <- as.data.frame(table)
+
+  table$Surviving <- table$FishedSurvivorship * sr(table)$R0F
+  table$Spawning <- table$Surviving * table$Spawning
+  table$Caught <- table$Surviving *  table$Vulnerability * population$pi
+  table$Harvested <- table$Caught * table$Retention
+  table$Released <- table$Caught * (1 - table$Retention)
+  table$HandlingMortality <- table$Released * population$Hm
+
+  table <- table[c(x, "Surviving", "Spawning", "Caught", "Harvested",
+                         "Released", "HandlingMortality")]
+
+  breaks <- seq(0, max(table[[1]] + binwidth), by = binwidth)
+  table[[1]] <- cut(table[[1]], breaks = breaks)
+  table[[1]] <- as.integer(table[[1]]) * binwidth
+  table <- split(table, table[[1]])
+  table <- lapply(table, sum_fish)
+  table <- do.call("rbind", table)
+  row.names(table) <- NULL
+
   as_conditional_tibble(table)
 }
 
@@ -128,7 +144,7 @@ ypr_tabulate_fish <- function(population, x = "Age", y = "Surviving",
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 #' @param all A flag indicating whether to include all parameter values.
-#' @return A table of stock-recruitment parameters.
+#' @return A data frame of stock-recruitment parameters.
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt

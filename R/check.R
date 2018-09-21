@@ -1,7 +1,7 @@
 check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
-  check_inherits(x, "ypr_population")
+  check_inherits(x, "ypr_population", x_name = x_name)
 
   check_names(x, .parameters$Parameter,
               exclusive = exclusive, unique = TRUE, x_name = x_name)
