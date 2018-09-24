@@ -19,10 +19,6 @@ check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = su
     order = order,
     x_name = x_name)
 
-  check_attributes(x, values = list(Ly = c(0, 1000),
-                                    harvest = TRUE,
-                                    biomass = TRUE))
-
   x
 }
 
@@ -64,10 +60,6 @@ test_that("ypr_tabulate_yield", {
     exclusive = TRUE,
     order = TRUE), yields)
 
-  expect_identical(checkr::check_attributes(yield, values = list(Ly = c(0, 1000),
-                                    harvest = TRUE,
-                                    biomass = TRUE)), yield)
-
   expect_identical(yields$pi[1:2], c(0,1/9))
   expect_identical(yields$Effort, yields$pi * 100)
   expect_equal(yields$Yield[1:2], c(0,0.0738), tolerance = 1e-04)
@@ -98,13 +90,6 @@ test_that("ypr_tabulate_yield", {
     exclusive = TRUE,
     order = TRUE), sr)
 
-  expect_identical(checkr::check_attributes(sr, values = list(alpha = c(0, .Machine$double.xmax),
-                                    beta = c(0, .Machine$double.xmax),
-                                    Ly = c(0, 1000),
-                                    harvest = TRUE,
-                                    biomass = TRUE)), sr)
-
-
   expect_identical(sr$Type, c("unfished", "actual", "optimal"))
 
   fish <- ypr_tabulate_fish(ypr_population())
@@ -128,18 +113,12 @@ test_that("ypr_tabulate_yield", {
                   Eggs = c(0, .Machine$double.xmax),
                   Recruits = c(0, .Machine$double.xmax),
                   Spawners = c(0, .Machine$double.xmax),
-                  Fecundity = c(0, .Machine$double.xmax)
+                  Fecundity = c(0, .Machine$double.xmax),
+                  Rk = c(3,3,5)
                   ),
     nrow = TRUE,
-    exclusive = FALSE,
+    exclusive = TRUE,
     order = TRUE), sr)
-
-  expect_identical(checkr::check_attributes(sr, values = list(alpha = c(0, .Machine$double.xmax),
-                                    beta = c(0, .Machine$double.xmax),
-                                    Ly = c(0, 1000),
-                                    harvest = TRUE,
-                                    biomass = TRUE)), sr)
-
 
   expect_identical(colnames(sr), c("Type", "pi", "u", "Eggs", "Recruits",
                                    "Spawners", "Fecundity", "Rk"))

@@ -175,12 +175,6 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 
   if(all) table <- add_parameters(table, object)
 
-  attr(table, "alpha") <- sr$alpha
-  attr(table, "beta") <- sr$beta
-  attr(table, "Ly") <- Ly
-  attr(table, "harvest") <- harvest
-  attr(table, "biomass") <- biomass
-
   as_conditional_tibble(table)
 }
 
@@ -264,10 +258,6 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 
   if(all) yield <- add_parameters(yield, object)
 
-  attr(yield, "Ly") <- Ly
-  attr(yield, "harvest") <- harvest
-  attr(yield, "biomass") <- biomass
-
   as_conditional_tibble(yield)
 }
 
@@ -317,10 +307,6 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
                    harvest = harvest, biomass = biomass, all = all)
 
   yields <- do.call(rbind, yields)
-
-  attr(yield, "Ly") <- Ly
-  attr(yield, "harvest") <- harvest
-  attr(yield, "biomass") <- biomass
 
   as_conditional_tibble(yields)
 }
