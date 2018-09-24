@@ -1,5 +1,31 @@
 context("tabulate")
 
+check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
+  x_name <- deparse(x_name)
+
+  check_data(
+    x,
+    values = list(Type = c("actual", "actual", "optimal"),
+                  pi = c(0, 1),
+                  u = c(0, 1),
+                  Yield = c(0, .Machine$double.xmax),
+                  Age = c(0, 100),
+                  Length = c(0, .Machine$double.xmax),
+                  Weight = c(0, .Machine$double.xmax),
+                  Effort = c(0, .Machine$double.xmax)
+                  ),
+    nrow = TRUE,
+    exclusive = exclusive,
+    order = order,
+    x_name = x_name)
+
+  check_attributes(x, values = list(Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE))
+
+  x
+}
+
 test_that("ypr_tabulate_yield", {
   yield <- ypr_tabulate_yield(ypr_population())
   expect_identical(check_tabulated_yield(yield), yield)
@@ -23,7 +49,25 @@ test_that("ypr_tabulate_yield", {
   yields <- ypr_tabulate_yields(ypr_population(), pi = seq(0, 1, length.out = 10))
   expect_identical(colnames(yields), c("pi", "u", "Yield", "Age", "Length", "Weight", "Effort"))
   expect_identical(nrow(yields), 10L)
-  expect_identical(check_tabulated_yields(yields), yields)
+
+  expect_identical(checkr::check_data(
+    yields,
+    values = list(pi = c(0, 1),
+                  u = c(0, 1),
+                  Yield = c(0, .Machine$double.xmax),
+                  Age = c(0, 100, NA),
+                  Length = c(0, .Machine$double.xmax, NA),
+                  Weight = c(0, .Machine$double.xmax, NA),
+                  Effort = c(0, .Machine$double.xmax)
+                  ),
+    nrow = TRUE,
+    exclusive = TRUE,
+    order = TRUE), yields)
+
+  expect_identical(checkr::check_attributes(yield, values = list(Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE)), yield)
+
   expect_identical(yields$pi[1:2], c(0,1/9))
   expect_identical(yields$Effort, yields$pi * 100)
   expect_equal(yields$Yield[1:2], c(0,0.0738), tolerance = 1e-04)
@@ -39,7 +83,28 @@ test_that("ypr_tabulate_yield", {
   expect_identical(nrow(yields), 4L)
 
   sr <- ypr_tabulate_sr(ypr_population())
-  expect_identical(check_tabulated_sr(sr), sr)
+
+  expect_identical(checkr::check_data(
+    sr,
+    values = list(Type = c("unfished", "actual", "optimal"),
+                  pi = c(0, 1),
+                  u = c(0, 1),
+                  Eggs = c(0, .Machine$double.xmax),
+                  Recruits = c(0, .Machine$double.xmax),
+                  Spawners = c(0, .Machine$double.xmax),
+                  Fecundity = c(0, .Machine$double.xmax)
+                  ),
+    nrow = TRUE,
+    exclusive = TRUE,
+    order = TRUE), sr)
+
+  expect_identical(checkr::check_attributes(sr, values = list(alpha = c(0, .Machine$double.xmax),
+                                    beta = c(0, .Machine$double.xmax),
+                                    Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE)), sr)
+
+
   expect_identical(sr$Type, c("unfished", "actual", "optimal"))
 
   fish <- ypr_tabulate_fish(ypr_population())
@@ -54,7 +119,28 @@ test_that("ypr_tabulate_yield", {
   expect_identical(fish$Length[1:2], c(14, 26))
 
   sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3,5)))
-  expect_identical(check_tabulated_sr(sr, exclusive = FALSE), sr)
+
+  expect_identical(checkr::check_data(
+    sr,
+    values = list(Type = c("unfished", "actual", "optimal"),
+                  pi = c(0, 1),
+                  u = c(0, 1),
+                  Eggs = c(0, .Machine$double.xmax),
+                  Recruits = c(0, .Machine$double.xmax),
+                  Spawners = c(0, .Machine$double.xmax),
+                  Fecundity = c(0, .Machine$double.xmax)
+                  ),
+    nrow = TRUE,
+    exclusive = FALSE,
+    order = TRUE), sr)
+
+  expect_identical(checkr::check_attributes(sr, values = list(alpha = c(0, .Machine$double.xmax),
+                                    beta = c(0, .Machine$double.xmax),
+                                    Ly = c(0, 1000),
+                                    harvest = TRUE,
+                                    biomass = TRUE)), sr)
+
+
   expect_identical(colnames(sr), c("Type", "pi", "u", "Eggs", "Recruits",
                                    "Spawners", "Fecundity", "Rk"))
   expect_identical(sr$Rk, c(3,3,3,5,5,5))
@@ -62,7 +148,19 @@ test_that("ypr_tabulate_yield", {
   skip_if(length(tools::Rd_db("ypr")) == 0)
   parameters <- ypr_tabulate_parameters(ypr_population())
   expect_identical(parameters$Description[1], "The maximum age (yr).")
-  expect_identical(check_tabulated_parameters(parameters), parameters)
+
+  expect_identical(checkr::check_data(
+    parameters,
+    values = list(Parameter = ypr:::.parameters$Parameter,
+                  Value = c(min(ypr:::.parameters$Lower), max(ypr:::.parameters$Upper)),
+                  Description = ""),
+    exclusive = TRUE,
+    order = TRUE,
+    nrow = nrow(ypr:::.parameters),
+    key = "Parameter"), parameters)
+
+
+
   expect_identical(ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
                    ypr_population(BH = 1L))
 

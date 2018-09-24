@@ -57,6 +57,7 @@ ypr_plot_fish(population, "Length", "Spawning")
 
 ```{r, fig.width = 6, fig.height = 4}
 ypr_plot_sr(population)
+knitr::kable(ypr_sr(population))
 knitr::kable(ypr_tabulate_sr(population))
 ```
 
