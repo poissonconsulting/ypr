@@ -18,8 +18,10 @@ optimize <- function(population, Ly, harvest, biomass) {
 #' ypr_optimize(ypr_population())
 ypr_optimize <- function(population,
                          Ly = 0, harvest = TRUE, biomass = FALSE) {
-  check_yield_parameters(population = population, Ly = Ly, harvest = harvest,
-                         biomass = biomass)
+  check_population(population)
+  check_scalar(Ly, c(0, Inf))
+  check_flag(biomass)
+  check_flag(harvest)
 
   yield <- optimize(population = population, Ly = Ly,
                        harvest = harvest, biomass = biomass)

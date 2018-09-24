@@ -3,7 +3,7 @@ context("sr")
 test_that("sr", {
   bh <- ypr_sr(ypr_population())
   ri <- ypr_sr(ypr_population(BH = 0L))
-  expect_is(bh, "list")
+  expect_is(bh, "data.frame")
   expect_identical(names(bh), c("alpha", "beta", "Rk", "phi", "phiF", "R0", "R0F", "S0", "S0F"))
   expect_identical(names(ri), names(bh))
   expect_equal(bh$alpha, 0.0006708921, check.attributes = FALSE)
@@ -20,6 +20,6 @@ test_that("sr", {
   expect_equal(ri$beta, 0.0002468074, check.attributes = FALSE)
   expect_equal(ri$R0F, 0.3395686, check.attributes = FALSE, tolerance = 1e-07)
 
-  expect_equal(ypr_sr(ypr_population(Rk = bh$alpha)), bh)
-  expect_equal(ypr_sr(ypr_population(BH = 0L, Rk = ri$alpha)), ri)
+  expect_equal(as.list(ypr_sr(ypr_population(Rk = bh$alpha))), as.list(bh))
+  expect_equal(as.list(ypr_sr(ypr_population(BH = 0L, Rk = ri$alpha))), as.list(ri))
 })

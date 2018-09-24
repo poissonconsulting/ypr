@@ -10,10 +10,10 @@ ypr_sr(population)
 \item{population}{An object of class \code{\link{ypr_population}}.}
 }
 \value{
-A named double vector.
+A data frame of the SR parameters.
 }
 \description{
-Returns a named double vector of the SR parameters:
+Returns a single rowed data frame of the SR parameters:
 \describe{
   \item{alpha}{Survival from egg to age tR at low density}
   \item{beta}{Density-dependence}

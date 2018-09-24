@@ -1,9 +1,11 @@
-yield <- function(schedule, Ly = 0, harvest = TRUE, biomass = FALSE) {
+yield <- function(schedule, population, Ly = 0, harvest = TRUE, biomass = FALSE) {
   schedule <- as.list(schedule)
-  schedule$pi <- attr(schedule, "pi")
-  schedule$Ea <- attr(schedule, "Ea")
-  schedule$Eb <- attr(schedule, "Eb")
-  schedule <- c(schedule, sr(schedule))
+
+  schedule$pi <- population$pi
+  schedule$Ea <- population$Ea
+  schedule$Eb <- population$Eb
+
+  schedule <- c(schedule, sr(schedule, population))
 
   yield <- with(schedule, {
     FishedSurvivorship[Length < Ly] <- 0
@@ -34,7 +36,7 @@ yield <- function(schedule, Ly = 0, harvest = TRUE, biomass = FALSE) {
 yield_pi <- function(pi, population, Ly, harvest, biomass) {
   population$pi <- pi
   schedule <- ypr_schedule(population)
-  yield(schedule, Ly = Ly, harvest = harvest, biomass = biomass)
+  yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
 }
 
 #' Yield
@@ -54,13 +56,14 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @examples
 #' ypr_yield(ypr_population())
 ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
-
-  check_yield_parameters(population = population, Ly = Ly, harvest = harvest,
-                         biomass = biomass)
+  check_population(population)
+  check_scalar(Ly, c(0, Inf))
+  check_flag(biomass)
+  check_flag(harvest)
 
   schedule <- ypr_schedule(population)
 
-  yield <- yield(schedule, Ly = Ly, harvest = harvest, biomass = biomass)
+  yield <- yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
 
   sanitize(yield)
 }

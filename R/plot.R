@@ -122,9 +122,9 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
   schedule <- ypr_schedule(population)
 
   schedule <- as.list(schedule)
-  schedule$BH <- attr(schedule, "BH")
-  schedule$Rmax <- attr(schedule, "Rmax")
-  schedule <- c(schedule, sr(schedule))
+  schedule$BH <- population$BH
+  schedule$Rmax <-population$Rmax
+  schedule <- c(schedule, sr(schedule, population))
 
   data <- with(schedule, {
     data <- data.frame(Eggs = seq(0, to = phi * R0 * 2, length.out = 100))

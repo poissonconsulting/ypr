@@ -55,23 +55,9 @@ check_schedule <- function(x, exclusive = TRUE, order = TRUE, x_name = substitut
     order = order,
     x_name = x_name)
 
-  check_attributes(x, values = list(BH = c(0L, 1L, 1L),
-                                    Rk = c(0, 100),
-                                    Rmax = c(1, 1e+06),
-                                    pi = c(0, 1)))
-
   if(any(diff(x$Age) != 1L))
-    stop("Ages in schedule ", x_name, " must be consecutive", call. = FALSE)
-
+    stop("Ages in schedule '", x_name, "' must be consecutive", call. = FALSE)
   x
-}
-
-check_yield_parameters <- function(population, Ly, harvest, biomass) {
-  check_population(population)
-  check_scalar(Ly, c(0, Inf))
-  check_flag(biomass)
-  check_flag(harvest)
-  population
 }
 
 check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {

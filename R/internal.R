@@ -1,3 +1,11 @@
+bh <- function(stock, alpha, beta) {
+  unname(alpha * stock / (1 + (beta * stock)))
+}
+
+ri <- function(stock, alpha, beta) {
+  unname(alpha * stock * exp(-beta * stock))
+}
+
 add_parameters <- function(x, object) {
   object <- as.data.frame(unclass(object))
   object$pi <- NULL

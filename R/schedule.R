@@ -43,12 +43,5 @@ ypr_schedule <- function(population) {
                FishedSurvivorship = FishedSurvivorship)
   })
 
-  attr(schedule, "BH") <- population$BH
-  attr(schedule, "Rk") <- population$Rk
-  attr(schedule, "Rmax") <- population$Rmax
-  attr(schedule, "pi") <- population$pi
-  attr(schedule, "Ea") <- population$Ea
-  attr(schedule, "Eb") <- population$Eb
-
   as_conditional_tibble(schedule)
 }

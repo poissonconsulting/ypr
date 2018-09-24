@@ -1,16 +1,9 @@
-bh <- function(stock, alpha, beta) {
-  unname(alpha * stock / (1 + (beta * stock)))
-}
-
-ri <- function(stock, alpha, beta) {
-  unname(alpha * stock * exp(-beta * stock))
-}
-
-sr <- function(schedule) {
+sr <- function(schedule, population) {
   schedule <- as.list(schedule)
-  schedule$BH <- attr(schedule, "BH")
-  schedule$Rk <- attr(schedule, "Rk")
-  schedule$Rmax <- attr(schedule, "Rmax")
+
+  schedule$BH <- population$BH
+  schedule$Rk <- population$Rk
+  schedule$Rmax <- population$Rmax
 
   R0 <- 1
 
@@ -39,18 +32,18 @@ sr <- function(schedule) {
     R0F <- R0F / kappa * Rmax
     S0 <- sum(Spawning * Survivorship * R0)
     S0F <- sum(Spawning * FishedSurvivorship * R0F)
-    sr <- list(alpha = alpha, beta = beta,
+    sr <- data.frame(alpha = alpha, beta = beta,
                Rk = Rk,
                phi = phi, phiF = phiF,
                R0 = R0, R0F = R0F,
                S0 = S0, S0F = S0F)
   })
-  sr
+  as_conditional_tibble(sr)
 }
 
 #' Stock-Recruitment Parameters
 #'
-#' Returns a named double vector of the SR parameters:
+#' Returns a single rowed data frame of the SR parameters:
 #' \describe{
 #'   \item{alpha}{Survival from egg to age tR at low density}
 #'   \item{beta}{Density-dependence}
@@ -64,7 +57,7 @@ sr <- function(schedule) {
 #' }
 #'
 #' @inheritParams ypr_schedule
-#' @return A named double vector.
+#' @return A data frame of the SR parameters.
 #' @export
 #' @examples
 #' ypr_sr(ypr_population()) # Beverton-Holt
@@ -74,5 +67,5 @@ ypr_sr <- function(population) {
 
   schedule <- ypr_schedule(population)
 
-  sr(schedule)
+  sr(schedule, population)
 }
