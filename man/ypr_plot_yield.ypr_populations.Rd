@@ -6,7 +6,7 @@
 \usage{
 \method{ypr_plot_yield}{ypr_populations}(object, y = "Yield",
   pi = seq(0, 1, length.out = 100), Ly = 0, harvest = TRUE,
-  biomass = FALSE, u = TRUE, plot_values = TRUE, ...)
+  biomass = FALSE, u = harvest, plot_values = TRUE, ...)
 }
 \arguments{
 \item{object}{The populations or populations.}
