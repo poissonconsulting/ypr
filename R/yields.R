@@ -14,10 +14,7 @@
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
                        Ly = 0, harvest = TRUE, biomass = FALSE) {
 
-  check_population(population)
-  check_scalar(Ly, c(0, Inf))
-  check_flag(biomass)
-  check_flag(harvest)
+  check_yield_parameters(population, Ly, harvest, biomass)
   check_vector(pi, c(0, 1), length = TRUE)
 
   yields <- vapply(pi, FUN = yield_pi, FUN.VALUE = 1,
