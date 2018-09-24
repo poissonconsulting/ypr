@@ -1,7 +1,7 @@
 context("schedule")
 
 test_that("schedule", {
-  schedule <- ypr_schedule(ypr_population(Rmax = 100, Rk = 0.33, Wa = 0.01, fa = 0.1, Mb = -0.75))
+  schedule <- ypr_schedule(ypr_population(Rmax = 100, Rk = 2, Wa = 0.01, fa = 0.1, Mb = -0.75))
   expect_identical(checkr::check_data(
     schedule,
     values = list(Age = c(0L, 100L),

@@ -1,3 +1,5 @@
+- Parameter `Rk` now has to be greater than >= 1
+
 # ypr 0.2.0
 
 - Added `ypr_exploitation()` to convert capture probabilities to exploitation probabilities.

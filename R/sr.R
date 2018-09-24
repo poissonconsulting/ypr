@@ -12,12 +12,7 @@ sr <- function(schedule, population) {
 
     phiF <- sum(Fecundity * Spawning/2 * FishedSurvivorship)
 
-    if(Rk >= 1) {
-      alpha <-  Rk / phi
-    } else {
-      alpha <- Rk
-      Rk <- alpha * phi
-    }
+    alpha <-  Rk / phi
     if(BH) {
       beta <- (alpha * phi - 1) / (R0 * phi)
       kappa <- alpha / beta
