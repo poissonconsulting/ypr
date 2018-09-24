@@ -45,7 +45,8 @@ kootenay_rb <- ypr_population(k = 0.26,
                               Rmax = 115e+03,
                               A0 = 0.98,
                               Wa = 0.005,
-                              fa = 3.9
+                              fa = 3.9,
+                              q = 0.028
                               )
 
 quesnel_bt <- ypr_population(k = 0.13, Linf = 100, Wb = 3.4,

@@ -29,8 +29,7 @@
 #' @param A0 The initial post age tR density independent mortality probability.
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
-#' @param Ea The effort at a pi of 0.01.
-#' @param Eb The effort (as a function of pi) scaling exponent.
+#' @param q The catchability (annual probability of capture) for a unit of effort.
 #' @return An object of class \code{ypr_population}.
 #' @seealso \code{\link{ypr_population_update}}, \code{\link{ypr_schedule}},
 #' \code{\link{ypr_yield}} and \code{\link{ypr_optimize}}.
@@ -46,7 +45,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Llo = 0, Lup = Linf, Nc = 0,
                            pi = 0.2, rho = 0, Hm = 0,
                            Rmax = 1, A0 = 0, Wa = 0.01, fa = 1,
-                           Ea = 1, Eb = 1) {
+                           q = 0.1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
   check_population(population)

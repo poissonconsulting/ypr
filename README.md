@@ -36,7 +36,7 @@ dynamics, angler responses or density-dependent growth.
 
 ### Information
 
-For definitions of all 29 population parameters see
+For definitions of all 28 population parameters see
 [`?ypr_population`](https://poissonconsulting.github.io/ypr/reference/ypr_population.html).
 
 For an explanation of the calculations see the ypr
@@ -116,8 +116,8 @@ ypr_tabulate_yield(population)
 #> # A tibble: 2 x 8
 #>   Type       pi     u Yield   Age Length Weight Effort
 #>   <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
-#> 1 actual  0.2   0.08   9.97  7.88   66.5  3232.   20  
-#> 2 optimal 0.418 0.167 12.8   7.11   63.6  2785.   41.8
+#> 1 actual  0.2   0.08   9.97  7.88   66.5  3232.   2.12
+#> 2 optimal 0.418 0.167 12.8   7.11   63.6  2785.   5.14
 ypr_plot_yield(population)
 ```
 
@@ -165,7 +165,7 @@ app](man/figures/yield.png)
 To cite package 'ypr' in publications use:
 
   Joe Thorley (2018). ypr: Yield Per Recruit. R package version
-  0.2.0. https://github.com/poissonconsulting/ypr
+  0.2.0.9001. https://github.com/poissonconsulting/ypr
 
 A BibTeX entry for LaTeX users is
 
@@ -173,7 +173,7 @@ A BibTeX entry for LaTeX users is
     title = {ypr: Yield Per Recruit},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.2.0},
+    note = {R package version 0.2.0.9001},
     url = {https://github.com/poissonconsulting/ypr},
   }
 ```

@@ -1,3 +1,4 @@
+- Now uses `q` instead of `Ea` and `Eb` for effort
 - Parameter `Rk` now has to be greater than >= 1
 
 # ypr 0.2.0

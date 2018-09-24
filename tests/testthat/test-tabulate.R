@@ -3,7 +3,7 @@ context("tabulate")
 check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 
-  check_data(
+  checkr::check_data(
     x,
     values = list(Type = c("actual", "actual", "optimal"),
                   pi = c(0, 1),
@@ -29,7 +29,7 @@ test_that("ypr_tabulate_yield", {
 
   yield <- ypr_tabulate_yield(ypr_population(), all = TRUE)
   expect_identical(check_tabulated_yield(yield, exclusive = FALSE),yield)
-  expect_identical(ncol(yield), 36L)
+  expect_identical(ncol(yield), 35L)
   expect_identical(yield$Linf, c(100, 100))
 
   yield <- ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
@@ -39,7 +39,7 @@ test_that("ypr_tabulate_yield", {
 
   yield <- ypr_tabulate_yield(ypr_populations(Rk = c(3,5)), all = TRUE)
   expect_identical(check_tabulated_yield(yield, exclusive = FALSE),yield)
-  expect_identical(ncol(yield), 36L)
+  expect_identical(ncol(yield), 35L)
   expect_identical(nrow(yield), 4L)
 
   yields <- ypr_tabulate_yields(ypr_population(), pi = seq(0, 1, length.out = 10))
@@ -54,14 +54,14 @@ test_that("ypr_tabulate_yield", {
                   Age = c(0, 100, NA),
                   Length = c(0, .Machine$double.xmax, NA),
                   Weight = c(0, .Machine$double.xmax, NA),
-                  Effort = c(0, .Machine$double.xmax)
+                  Effort = c(0, Inf)
                   ),
     nrow = TRUE,
     exclusive = TRUE,
     order = TRUE), yields)
 
   expect_identical(yields$pi[1:2], c(0,1/9))
-  expect_identical(yields$Effort, yields$pi * 100)
+  expect_equal(yields$Effort[1:2], c(0, 1.117905), tolerance = 1e-07)
   expect_equal(yields$Yield[1:2], c(0,0.0738), tolerance = 1e-04)
   expect_equal(yields$Weight[1:2], c(NA,3057.662), tolerance = 1e-07)
 
@@ -71,7 +71,7 @@ test_that("ypr_tabulate_yield", {
 
   yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3,5)), pi = seq(0, 1, length.out = 2)
                                 ,all = TRUE)
-  expect_identical(ncol(yields), 35L)
+  expect_identical(ncol(yields), 34L)
   expect_identical(nrow(yields), 4L)
 
   sr <- ypr_tabulate_sr(ypr_population())

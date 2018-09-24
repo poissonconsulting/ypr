@@ -253,8 +253,11 @@ ypr_tabulate_yield(population, harvest = TRUE, biomass = TRUE, Ly = 60)
 
 ## Efficiency
 
-The scaling parameters `Ea` and `Eb` control the relationship between the effort and capture probability
-which by default is assumed to be linear.
+The catchabilility `q` indicates the probability of capture for a unit of effort ($E$).
+It is assumed to be related to $\pi$ according to the relationship
+$$\pi = 1 - \exp(\log(1-q)\cdot E)$$
+which can be rearranged to give
+$$E = \frac{\log(1-\pi)}{\log(1-q)}.$$
 
 ```{r}
 ypr_plot_yield(population, y = "Effort", harvest = TRUE, biomass = TRUE, Ly = 60)

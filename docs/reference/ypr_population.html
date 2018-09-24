@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0.9001</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
   <span class='kw'>Ls</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Sp</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>es</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Sm</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>tR</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
   <span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>M</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>Mb</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='no'>Linf</span>/<span class='fl'>2</span>, <span class='kw'>Vp</span> <span class='kw'>=</span> <span class='fl'>100</span>,
   <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='no'>Linf</span>, <span class='kw'>Nc</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>Rmax</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>A0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Wa</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Ea</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Eb</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+  <span class='kw'>Rmax</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>A0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Wa</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>q</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -234,12 +234,8 @@
       <td><p>The (theoretical) fecundity of a 1 g female (eggs).</p></td>
     </tr>
     <tr>
-      <th>Ea</th>
-      <td><p>The effort at a pi of 0.01.</p></td>
-    </tr>
-    <tr>
-      <th>Eb</th>
-      <td><p>The effort (as a function of pi) scaling exponent.</p></td>
+      <th>q</th>
+      <td><p>The catchability (annual probability of capture) for a unit of effort.</p></td>
     </tr>
     </table>
     
@@ -281,8 +277,7 @@
 #&gt; A0:   0
 #&gt; Wa:   0.01
 #&gt; fa:   1
-#&gt; Ea:   1
-#&gt; Eb:   1</div></pre>
+#&gt; q:    0.1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
