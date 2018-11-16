@@ -158,26 +158,6 @@ on the schedule, stock-recruitment and yield see the ypr shiny
 ![A screenshot of the yield from the ypr shiny
 app](man/figures/yield.png)
 
-## Citation
-
-``` 
-
-To cite package 'ypr' in publications use:
-
-  Joe Thorley (2018). ypr: Yield Per Recruit. R package version
-  0.2.0.9001. https://github.com/poissonconsulting/ypr
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {ypr: Yield Per Recruit},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.2.0.9001},
-    url = {https://github.com/poissonconsulting/ypr},
-  }
-```
-
 ## Creditation
 
 Development of ypr was supported by the [Habitat Conservation Trust

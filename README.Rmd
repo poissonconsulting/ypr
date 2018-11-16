@@ -106,11 +106,6 @@ To interactively explore the effects of altering individual parameters on the sc
 
 ![A screenshot of the yield from the ypr shiny app](man/figures/yield.png)
 
-## Citation
-
-```{r, comment="", echo=FALSE}
-citation(package = "ypr")
-```
 
 ## Creditation
 

@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0.9002</span>
       </span>
     </div>
 
@@ -109,72 +109,72 @@
 <div id="schedule" class="section level3">
 <h3 class="hasAnchor">
 <a href="#schedule" class="anchor"></a>Schedule</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(ypr)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">population &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_population.html">ypr_population</a></span>(<span class="dt">Rk =</span> <span class="dv">5</span>, <span class="dt">Ls =</span> <span class="dv">50</span>, <span class="dt">Rmax =</span> <span class="dv">100</span>, <span class="dt">rho =</span> <span class="fl">0.6</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="dt">x =</span> <span class="st">"Length"</span>, <span class="dt">y =</span> <span class="st">"Spawning"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(ypr)</a>
+<a class="sourceLine" id="cb1-2" title="2">population &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_population.html">ypr_population</a></span>(<span class="dt">Rk =</span> <span class="dv">5</span>, <span class="dt">Ls =</span> <span class="dv">50</span>, <span class="dt">Rmax =</span> <span class="dv">100</span>, <span class="dt">rho =</span> <span class="fl">0.6</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="dt">x =</span> <span class="st">"Length"</span>, <span class="dt">y =</span> <span class="st">"Spawning"</span>)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-1-1.png" width="576"></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">head</span>(<span class="kw"><a href="reference/ypr_schedule.html">ypr_schedule</a></span>(population))</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6 x 11</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;     Age Length Weight Fecundity  Spawning NaturalMortality Vulnerability</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; 1     1   13.9   27.0      27.0  3.13e-56            0.181      3.13e-56</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 2     2   25.9  174.      174.   2.91e-29            0.181      2.91e-29</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 3     3   36.2  476.      476.   1.04e-14            0.181      1.04e-14</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; # ... with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/ypr_schedule.html">ypr_schedule</a></span>(population))</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">#&gt; # A tibble: 6 x 11</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt;     Age Length Weight Fecundity  Spawning NaturalMortality Vulnerability</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">#&gt; 1     1   13.9   27.0      27.0  3.13e-56            0.181      3.13e-56</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="co">#&gt; 2     2   25.9  174.      174.   2.91e-29            0.181      2.91e-29</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">#&gt; 3     3   36.2  476.      476.   1.04e-14            0.181      1.04e-14</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">#&gt; 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co">#&gt; 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="co">#&gt; # ... with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></a></code></pre></div>
 </div>
 <div id="fish" class="section level3">
 <h3 class="hasAnchor">
 <a href="#fish" class="anchor"></a>Fish</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(ypr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span>(population, <span class="dt">color =</span> <span class="st">"white"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(ypr)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span>(population, <span class="dt">color =</span> <span class="st">"white"</span>)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="576"></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">head</span>(<span class="kw"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span>(population))</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6 x 7</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;     Age Surviving Spawning   Caught Harvested Released HandlingMortality</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1     1      69.3 2.17e-54 4.34e-55  1.73e-55 2.60e-55                 0</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2     2      56.7 1.65e-27 3.30e-28  1.32e-28 1.98e-28                 0</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 3     3      46.4 4.84e-13 9.69e-14  3.87e-14 5.81e-14                 0</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 4     4      38.0 1.31e- 3 2.63e- 4  1.05e- 4 1.58e- 4                 0</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; 5     5      31.1 3.10e+ 1 6.19e+ 0  2.48e+ 0 3.72e+ 0                 0</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; 6     6      23.4 2.34e+ 1 4.69e+ 0  1.88e+ 0 2.81e+ 0                 0</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">head</span>(<span class="kw"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span>(population))</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt; # A tibble: 6 x 7</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt;     Age Surviving Spawning   Caught Harvested Released HandlingMortality</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; 1     1      69.3 2.17e-54 4.34e-55  1.73e-55 2.60e-55                 0</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 2     2      56.7 1.65e-27 3.30e-28  1.32e-28 1.98e-28                 0</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 3     3      46.4 4.84e-13 9.69e-14  3.87e-14 5.81e-14                 0</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; 4     4      38.0 1.31e- 3 2.63e- 4  1.05e- 4 1.58e- 4                 0</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 5     5      31.1 3.10e+ 1 6.19e+ 0  2.48e+ 0 3.72e+ 0                 0</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 6     6      23.4 2.34e+ 1 4.69e+ 0  1.88e+ 0 2.81e+ 0                 0</span></a></code></pre></div>
 </div>
 <div id="stock-recruitment" class="section level3">
 <h3 class="hasAnchor">
 <a href="#stock-recruitment" class="anchor"></a>Stock-Recruitment</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="576"></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span>(population)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3 x 7</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;   Type        pi     u    Eggs Recruits Spawners Fecundity</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; 1 unfished 0     0     357733.     80.0    190.      3764.</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; 2 actual   0.2   0.08  201443.     69.3    125.      3232.</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; 3 optimal  0.418 0.167 106584.     54.4     76.5     2785.</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span>(population)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; # A tibble: 3 x 7</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt;   Type        pi     u    Eggs Recruits Spawners Fecundity</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; 1 unfished 0     0     357733.     80.0    190.      3764.</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co">#&gt; 2 actual   0.2   0.08  201443.     69.3    125.      3232.</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; 3 optimal  0.418 0.167 106584.     54.4     76.5     2785.</span></a></code></pre></div>
 </div>
 <div id="yield" class="section level3">
 <h3 class="hasAnchor">
 <a href="#yield" class="anchor"></a>Yield</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(population)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 8</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;   Type       pi     u Yield   Age Length Weight Effort</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; 1 actual  0.2   0.08   9.97  7.88   66.5  3232.   2.12</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; 2 optimal 0.418 0.167 12.8   7.11   63.6  2785.   5.14</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(population)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt; # A tibble: 2 x 8</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt;   Type       pi     u Yield   Age Length Weight Effort</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 1 actual  0.2   0.08   9.97  7.88   66.5  3232.   2.12</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; 2 optimal 0.418 0.167 12.8   7.11   63.6  2785.   5.14</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="576"></p>
 </div>
 <div id="uncertainty" class="section level3">
 <h3 class="hasAnchor">
 <a href="#uncertainty" class="anchor"></a>Uncertainty</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">populations &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_populations.html">ypr_populations</a></span>(<span class="dt">Rk =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>), <span class="dt">Ls =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">60</span>), <span class="dt">Rmax =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(populations, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/facet_grid">facet_grid</a></span>(Rk<span class="op">~</span>Ls)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb8-2" title="2">populations &lt;-<span class="st"> </span><span class="kw"><a href="reference/ypr_populations.html">ypr_populations</a></span>(<span class="dt">Rk =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>), <span class="dt">Ls =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">60</span>), <span class="dt">Rmax =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(populations, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(Rk<span class="op">~</span>Ls)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="576"></p>
 </div>
 </div>
@@ -182,7 +182,7 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest development version from <a href="https://github.com/poissonconsulting/ypr">GitHub</a></p>
-<pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github"># install.packages("devtools")
+<pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/reexports"># install.packages("devtools")
 devtools::install_github("poissonconsulting/ypr")</a></code></pre>
 <p>To install the latest development version from the Poisson drat <a href="https://github.com/poissonconsulting/drat">repository</a></p>
 <pre><code><a href="http://www.rdocumentation.org/packages/drat/topics/addRepo"># install.packages("drat")
@@ -196,25 +196,6 @@ install.packages("ypr")</a></code></pre>
 <img src="reference/figures/yield.png" alt="A screenshot of the yield from the ypr shiny app"><p class="caption">A screenshot of the yield from the ypr shiny app</p>
 </div>
 </div>
-</div>
-<div id="citation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#citation" class="anchor"></a>Citation</h2>
-<pre><code>
-To cite package 'ypr' in publications use:
-
-  Joe Thorley (2018). ypr: Yield Per Recruit. R package version
-  0.2.0.9001. https://github.com/poissonconsulting/ypr
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {ypr: Yield Per Recruit},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.2.0.9001},
-    url = {https://github.com/poissonconsulting/ypr},
-  }</code></pre>
 </div>
 <div id="creditation" class="section level2">
 <h2 class="hasAnchor">

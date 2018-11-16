@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0.9002</span>
       </span>
     </div>
 
@@ -74,7 +74,7 @@
       <h1>Yield per Recruit</h1>
                         <h4 class="author">Joe Thorley</h4>
             
-            <h4 class="date">2018-09-24</h4>
+            <h4 class="date">2018-11-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/ypr/blob/master/vignettes/ypr.Rmd"><code>vignettes/ypr.Rmd</code></a></small>
       <div class="hidden name"><code>ypr.Rmd</code></div>
@@ -99,9 +99,9 @@
 <a href="#length" class="anchor"></a>Length</h3>
 <p>In <code>ypr</code> length (in cm) at age (<span class="math inline">\(t\)</span>) is assumed to follow a Von Bertalanffy growth curve</p>
 <p><span class="math display">\[L = L_{\infty} \cdot (1 - \exp(-k \cdot (t-t_0)))\]</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(ypr)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population.html">ypr_population</a></span>(<span class="dt">Linf =</span> <span class="dv">100</span>, <span class="dt">k =</span> <span class="fl">0.2</span>, <span class="dt">t0 =</span> <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Age"</span>, <span class="st">"Length"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(ypr)</a>
+<a class="sourceLine" id="cb1-2" title="2">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population.html">ypr_population</a></span>(<span class="dt">Linf =</span> <span class="dv">100</span>, <span class="dt">k =</span> <span class="fl">0.2</span>, <span class="dt">t0 =</span> <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Age"</span>, <span class="st">"Length"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-1-1.png" width="384"></p>
 </div>
 <div id="weight" class="section level3">
@@ -109,8 +109,8 @@
 <a href="#weight" class="anchor"></a>Weight</h3>
 <p>The weight (<span class="math inline">\(W\)</span>) at a given length is assumed to follow the classic allometric relationship</p>
 <p><span class="math display">\[W = w_\alpha \cdot L^{w_\beta}\]</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Wa =</span> <span class="fl">0.01</span>, <span class="dt">Wb =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Weight"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Wa =</span> <span class="fl">0.01</span>, <span class="dt">Wb =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Weight"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-2-1.png" width="384"></p>
 <p>Its worth noting that <span class="math inline">\(w_\alpha\)</span>, which is the extrapolated weight (g) of a 1 cm individual, is a scaling constant that only affects the estimate of the yield (when calculated in terms of the biomass), ie, it does not affect the estimate of the optimal capture rate.</p>
 </div>
@@ -123,8 +123,8 @@
 <a href="#fecundity" class="anchor"></a>Fecundity</h3>
 <p>The fecundity (<span class="math inline">\(F\)</span>) is assumed to scale allometrically with the weight according to the equation</p>
 <p><span class="math display">\[F = f_\alpha \cdot W^{f_\beta}\]</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">fa =</span> <span class="dv">1</span>, <span class="dt">fb =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Weight"</span>, <span class="st">"Fecundity"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">fa =</span> <span class="dv">1</span>, <span class="dt">fb =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Weight"</span>, <span class="st">"Fecundity"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-3-1.png" width="384"></p>
 <p><span class="math inline">\(f_\alpha\)</span>, which is the extrapolated eggs produced by a 1 g female, is a scaling constant with no effect on the yield or optimal capture rate.</p>
 </div>
@@ -133,8 +133,8 @@
 <a href="#spawning" class="anchor"></a>Spawning</h3>
 <p>The probability of spawning at length <span class="math inline">\(L\)</span> is determined by the equation</p>
 <p><span class="math display">\[S = \frac{L^{S_p}}{L_s^{S_p} + L^{S_p}} \cdot es\]</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Ls =</span> <span class="dv">50</span>, <span class="dt">Sp =</span> <span class="dv">10</span>, <span class="dt">es =</span> <span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Spawning"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Ls =</span> <span class="dv">50</span>, <span class="dt">Sp =</span> <span class="dv">10</span>, <span class="dt">es =</span> <span class="fl">0.8</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Spawning"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-4-1.png" width="384"></p>
 </div>
 </div>
@@ -146,13 +146,13 @@
 <a href="#natural-mortality" class="anchor"></a>Natural Mortality</h3>
 <p>The annual interval natural mortality rate is assumed to vary by length according to the equation</p>
 <p><span class="math display">\[ N = 1 - \exp(-M \cdot L^{M_\beta})\]</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">M =</span> <span class="fl">0.2</span>, <span class="dt">Mb =</span> <span class="fl">-0.5</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"NaturalMortality"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">M =</span> <span class="fl">0.2</span>, <span class="dt">Mb =</span> <span class="fl">-0.5</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"NaturalMortality"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-5-1.png" width="384"></p>
 <p>where <span class="math inline">\(M\)</span> is the annual instantaneous natural mortality rate.</p>
 <p>The natural mortality rate can also be affected by spawning mortality</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Sm =</span> <span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"NaturalMortality"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Sm =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"NaturalMortality"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-6-1.png" width="384"></p>
 </div>
 <div id="fishing-mortality" class="section level3">
@@ -160,19 +160,19 @@
 <a href="#fishing-mortality" class="anchor"></a>Fishing Mortality</h3>
 <p>The vulnerability to capture (<span class="math inline">\(V\)</span>) is assumed to vary by length as follows</p>
 <p><span class="math display">\[V = \frac{L^{V_p}}{L_v^{V_p} + L^{V_p}}\]</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Lv =</span> <span class="dv">50</span>, <span class="dt">Vp =</span> <span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Vulnerability"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Lv =</span> <span class="dv">50</span>, <span class="dt">Vp =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Vulnerability"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
 <p>If <span class="math inline">\(V_p\)</span> is 100 then vulnerability is effectively knife-edged.</p>
 <p>The probabilty of being retained if captured (<span class="math inline">\(R\)</span>) depends on the release rate (<span class="math inline">\(\rho\)</span>), the slot limits (<span class="math inline">\(L_{lo}\)</span> and <span class="math inline">\(L_{up}\)</span>) and the non-compliance with the limits (<span class="math inline">\(N_c\)</span>)</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="dt">Llo =</span> <span class="dv">40</span>, <span class="dt">Lup =</span> <span class="dv">70</span>, <span class="dt">Nc =</span> <span class="fl">0.1</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Retention"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="dt">Llo =</span> <span class="dv">40</span>, <span class="dt">Lup =</span> <span class="dv">70</span>, <span class="dt">Nc =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"Retention"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-8-1.png" width="384"></p>
 <p>The fishing mortality (<span class="math inline">\(U\)</span>) depends on <span class="math inline">\(V\)</span>, <span class="math inline">\(R\)</span> and the probability of capture when fully vulnerable (<span class="math inline">\(pi\)</span>) as well as the hooking mortality (<span class="math inline">\(H_m\)</span>)</p>
 <p><span class="math display">\[U =  V \cdot \pi \cdot  R +  V \cdot \pi \cdot (1 - R) \cdot H_m\]</span></p>
 <p>The calculation assumes that a released fish cannot be recaught in the same year.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">pi =</span> <span class="fl">0.3</span>, <span class="dt">Hm =</span> <span class="fl">0.2</span>)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"FishingMortality"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">pi =</span> <span class="fl">0.3</span>, <span class="dt">Hm =</span> <span class="fl">0.2</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"FishingMortality"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-9-1.png" width="384"></p>
 </div>
 </div>
@@ -183,17 +183,17 @@
 <p>This requires the number of spawners per spawner at low density (<span class="math inline">\(R_k\)</span>) and the recruitment age (<span class="math inline">\(R_t\)</span>; by default 1) to be defined.</p>
 <p>If recruitment follows a Beverton-Holt (<span class="math inline">\(BH = 1\)</span>) curve then</p>
 <p><span class="math display">\[R = \alpha \cdot S / (\beta \cdot S + 1)\]</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Rk =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Rk =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-10-1.png" width="384"></p>
 <p>otherwise with a Ricker curver (<span class="math inline">\(BH = 0\)</span>)</p>
 <p><span class="math display">\[R = \alpha \cdot S \cdot \exp (-\beta \cdot S)\]</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">BH =</span> 0L)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">BH =</span> 0L)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-11-1.png" width="384"></p>
 <p>The number of recruits at the carrying capacity (<span class="math inline">\(R_\text{max}\)</span>) is a scaling constant that only affects the estimate of the yield.</p>
 <p>Before calculating the recruitment it is important to introduce the concept of the (unfished) survivorship (<span class="math inline">\(lx_a\)</span>) which is the probability of a recruit surviving to age <span class="math inline">\(a\)</span> in the absence of fish mortality.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Age"</span>, <span class="st">"Survivorship"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Age"</span>, <span class="st">"Survivorship"</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-12-1.png" width="384"></p>
 <p>The unfished survivorship (<span class="math inline">\(lx_a\)</span>) is defined recursively by</p>
 <p><span class="math display">\[lx_{R_t} = 1, lx_a = lx_{a-1} \cdot (1-N_{a-1}) \;\text{for}\; a &gt; R_t\]</span> where <span class="math inline">\(N_a\)</span> is the annual interval natural mortality at age <span class="math inline">\(a\)</span>.</p>
@@ -235,23 +235,23 @@
 <p><span class="math display">\[Y = \sum_{a = R_t}^{t_\text{max}} R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000\]</span></p>
 <p>and if only trophy fish are to be considered then its</p>
 <p><span class="math display">\[Y = \sum_{a = R_t}^{t_\text{max}} \text{if}(La &lt; L_y)\ 0\ \text{else}\ R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000\]</span> where <span class="math inline">\(L_y\)</span> is the minimum length of a trophy fish.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-13-1.png" width="384"></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(population, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 8</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt;   Type       pi     u Yield   Age Length Weight Effort</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; 1 actual  0.3   0.18  0.310  5.53   66.4  2979.   3.39</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co">#&gt; 2 optimal 0.444 0.266 0.346  5.46   66.1  2924.   5.56</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw"><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(population, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="co">#&gt; # A tibble: 2 x 8</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="co">#&gt;   Type       pi     u Yield   Age Length Weight Effort</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="co">#&gt; 1 actual  0.3   0.18  0.310  5.53   66.4  2979.   3.39</span></a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="co">#&gt; 2 optimal 0.444 0.266 0.346  5.46   66.1  2924.   5.56</span></a></code></pre></div>
 </div>
 <div id="efficiency" class="section level2">
 <h2 class="hasAnchor">
 <a href="#efficiency" class="anchor"></a>Efficiency</h2>
 <p>The catchabilility <code>q</code> indicates the probability of capture for a unit of effort (<span class="math inline">\(E\)</span>). It is assumed to be related to <span class="math inline">\(\pi\)</span> according to the relationship <span class="math display">\[\pi = 1 - \exp(\log(1-q)\cdot E)\]</span> which can be rearranged to give <span class="math display">\[E = \frac{\log(1-\pi)}{\log(1-q)}.\]</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population, <span class="dt">y =</span> <span class="st">"Effort"</span>, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population, <span class="dt">y =</span> <span class="st">"Effort"</span>, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-14-1.png" width="384"></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population, <span class="dt">y =</span> <span class="st">"YPUE"</span>, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="co">#&gt; Warning: Removed 1 rows containing missing values (geom_path).</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(population, <span class="dt">y =</span> <span class="st">"YPUE"</span>, <span class="dt">harvest =</span> <span class="ot">TRUE</span>, <span class="dt">biomass =</span> <span class="ot">TRUE</span>, <span class="dt">Ly =</span> <span class="dv">60</span>)</a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="co">#&gt; Warning: Removed 1 rows containing missing values (geom_path).</span></a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-15-1.png" width="384"></p>
 </div>
 <div id="references" class="section level2 unnumbered">
