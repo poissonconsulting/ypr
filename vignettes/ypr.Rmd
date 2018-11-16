@@ -253,7 +253,7 @@ ypr_tabulate_yield(population, harvest = TRUE, biomass = TRUE, Ly = 60)
 
 ## Efficiency
 
-The catchabilility `q` indicates the probability of capture for a unit of effort ($E$).
+The catchability `q` indicates the probability of capture for a unit of effort ($E$).
 It is assumed to be related to $\pi$ according to the relationship
 $$\pi = 1 - \exp(\log(1-q)\cdot E)$$
 which can be rearranged to give
