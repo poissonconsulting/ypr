@@ -12,6 +12,8 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/ypr
 status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
 
 ## Introduction
 
