@@ -9,7 +9,6 @@
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
-#' ypr_plot_yield(ypr_population(), "YPUE")
 ypr_plot_yield <- function(object, ...) {
   UseMethod("ypr_plot_yield")
 }
@@ -169,7 +168,6 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
-#' ypr_plot_yield(ypr_population(), "YPUE")
 ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                           Ly = 0, harvest = TRUE, biomass = FALSE,
                                           u = harvest, plot_values = TRUE, ...) {

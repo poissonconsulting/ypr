@@ -18,7 +18,6 @@ The estimates should not be used for management.
 \examples{
 kootenay_rb_13
 ypr_plot_yield(kootenay_rb_13)
-ypr_plot_yield(kootenay_rb_13, Ly = 80)
 }
 \references{
 Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.

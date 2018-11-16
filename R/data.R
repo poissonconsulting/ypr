@@ -43,7 +43,6 @@
 #' @examples
 #' kootenay_bt_13
 #' ypr_plot_yield(kootenay_bt_13)
-#' ypr_plot_yield(kootenay_bt_13, Ly = 75)
 "kootenay_bt_13"
 
 #' Kootenay Lake Rainbow Trout Population Parameters (2013)
@@ -58,7 +57,6 @@
 #' @examples
 #' kootenay_rb_13
 #' ypr_plot_yield(kootenay_rb_13)
-#' ypr_plot_yield(kootenay_rb_13, Ly = 80)
 "kootenay_rb_13"
 
 #' Kootenay Lake Rainbow Trout Population Parameters

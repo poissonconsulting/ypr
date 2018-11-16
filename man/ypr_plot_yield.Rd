@@ -20,7 +20,6 @@ by the annual interval capture probability.
 }
 \examples{
 ypr_plot_yield(ypr_population())
-ypr_plot_yield(ypr_population(), "YPUE")
 }
 \seealso{
 \code{\link{ypr_population}} and \code{\link{ypr_yields}}
