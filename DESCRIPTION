@@ -30,3 +30,4 @@ LazyData: true
 ByteCompile: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
+Language: en-US

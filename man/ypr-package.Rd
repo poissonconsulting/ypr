@@ -9,6 +9,7 @@
 \if{html}{\figure{logo.png}{options: align='right'}}
 
 An implementation of equilibrium-based yield per recruit methods.
+    Yield per recruit methods can used to estimate the optimal yield for a fish population.
     The yield can be based on the number of fish caught (or harvested) or 
     biomass caught for all fish or just large (trophy) individuals.
 }

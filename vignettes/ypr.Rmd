@@ -148,7 +148,7 @@ population <- ypr_population_update(population, Rk = 3)
 ypr_plot_sr(population, plot_values = FALSE)
 ```
 
-otherwise with a Ricker curver ($BH = 0$)
+otherwise with a Ricker curve ($BH = 0$)
 
 $$R = \alpha \cdot S \cdot \exp (-\beta \cdot S)$$
 
