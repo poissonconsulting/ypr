@@ -23,8 +23,8 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-[`ypr`](https://github.com/poissonconsulting/ypr) is an R package that implements equilibrium-based yield per recruit methods [@walters_fisheries_2004].
-
+[`ypr`](https://github.com/poissonconsulting/ypr) is an R package that implements equilibrium-based yield per recruit methods.
+Yield per recruit methods can used to estimate the optimal yield for a fish population [@walters_fisheries_2004].
 The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.
 
 The key life history parameters are
@@ -121,6 +121,6 @@ Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
 [Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
-By participating in this project you agree to abide by its terms.
+By participating in this project you agree to abide by its terms
 
 ## References 

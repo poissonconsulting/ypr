@@ -16,11 +16,11 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 ## Introduction
 
 [`ypr`](https://github.com/poissonconsulting/ypr) is an R package that
-implements equilibrium-based yield per recruit methods (Walters and
-Martell 2004).
-
-The yield can be based on the number of fish caught (or harvested) or
-biomass for all fish or just large (trophy) individuals.
+implements equilibrium-based yield per recruit methods. Yield per
+recruit methods can used to estimate the optimal yield for a fish
+population (Walters and Martell 2004). The yield can be based on the
+number of fish caught (or harvested) or biomass for all fish or just
+large (trophy) individuals.
 
 The key life history parameters are
 
@@ -177,7 +177,7 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+abide by its terms
 
 ## References
 
