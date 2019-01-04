@@ -139,11 +139,9 @@ ypr_plot_yield(populations, plot_values = FALSE) +
 
 ## Installation
 
-To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/ypr)
+To install the latest release from [CRAN](https://CRAN.R-project.org)
 
-    # install.packages("devtools")
-    devtools::install_github("poissonconsulting/ypr")
+    install.packages("ypr")
 
 To install the latest development version from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
