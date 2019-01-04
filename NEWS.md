@@ -1,3 +1,5 @@
+- fix Quesnel Lake Trout and Rainbow Trout mix up
+
 # ypr 0.3.0
 
 - Now uses `q` instead of `Ea` and `Eb` for effort

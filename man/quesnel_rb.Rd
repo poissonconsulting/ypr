@@ -3,7 +3,7 @@
 \docType{data}
 \name{quesnel_rb}
 \alias{quesnel_rb}
-\title{Quesnel Lake Lake Trout Population Parameters}
+\title{Quesnel Lake Rainbow Trout Population Parameters}
 \format{An object of class \code{\link{ypr_population}}.}
 \usage{
 quesnel_rb

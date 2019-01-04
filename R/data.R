@@ -84,7 +84,7 @@
 #' ypr_plot_yield(quesnel_bt)
 "quesnel_bt"
 
-#' Quesnel Lake Lake Trout Population Parameters
+#' Quesnel Lake Rainbow Trout Population Parameters
 #'
 #' The population parameters for
 #' Lake Trout in Quesnel Lake, BC.
@@ -96,7 +96,7 @@
 #' ypr_plot_yield(quesnel_rb)
 "quesnel_rb"
 
-#' Quesnel Lake Rainbow Trout Population Parameters
+#' Quesnel Lake Lake Trout Population Parameters
 #'
 #' The population parameters for
 #' Rainbow Trout in Quesnel Lake, BC.
