@@ -68,7 +68,7 @@ head(ypr_schedule(population))
 #> 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5
 #> 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1
 #> 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1
-#> # ... with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
+#> # … with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
 #> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
 
@@ -178,7 +178,7 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+abide by its terms
 
 ## References
 
