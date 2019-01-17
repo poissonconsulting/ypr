@@ -1,4 +1,5 @@
-- fix Quesnel Lake Trout and Rainbow Trout mix up
+- `ypr_populations()`
+- Fixed Quesnel Lake Trout and Rainbow Trout mix up
 
 # ypr 0.3.0
 

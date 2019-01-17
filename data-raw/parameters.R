@@ -9,4 +9,4 @@ library(ypr)
                                    levels = c("Growth", "Reproduction", "Mortality", "Capture", "Regulations", "Release", "Units"))
 .parameters$Importance <- ordered(.parameters$Importance, levels = c("Fundamental", "Advanced", "Scaling"))
 
-devtools::use_data(.parameters, internal = TRUE, overwrite = TRUE)
+usethis::use_data(.parameters, internal = TRUE, overwrite = TRUE)

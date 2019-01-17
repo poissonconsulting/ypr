@@ -102,6 +102,7 @@ ypr_populations <- function(...) {
     attr(population,"out.attrs") <- NULL
     populations[[i]] <- do.call("ypr_population", population)
   }
+  names(populations) <- population_names(parameters)
   class(populations) <- "ypr_populations"
   populations
 }

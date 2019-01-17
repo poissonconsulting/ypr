@@ -33,6 +33,8 @@ check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substi
   lapply(x, check_population, exclusive = exclusive, order = order,
          x_name = x_name)
 
+  check_named(x, x_name = x_name, unique = TRUE, error = FALSE)
+
   x
 }
 
