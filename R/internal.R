@@ -53,3 +53,14 @@ sum_fish <- function(x) {
   x[[1]] <- x[[1]] / nrow(x)
   x[1,]
 }
+
+population_names <- function(x) {
+  length <- vapply(x, function(x) length(unique(x)), 1L)
+  x <- x[length > 1L]
+  names <- names(x)
+  x <- apply(x, 1, function(x) sub("[.]", "_", x))
+  if(identical(length(names), 1L))
+    return(paste0(names, "_", x))
+  x <- apply(x, 2, function(x, names) paste0(names, "_", x), names = names)
+  apply(x, 2, function(x) paste0(x, collapse = "_"))
+}
