@@ -87,7 +87,7 @@
 #' Quesnel Lake Rainbow Trout Population Parameters
 #'
 #' The population parameters for
-#' Lake Trout in Quesnel Lake, BC.
+#' Rainbow Trout in Quesnel Lake, BC.
 #'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
@@ -99,7 +99,7 @@
 #' Quesnel Lake Lake Trout Population Parameters
 #'
 #' The population parameters for
-#' Rainbow Trout in Quesnel Lake, BC.
+#' Lake Trout in Quesnel Lake, BC.
 #'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.

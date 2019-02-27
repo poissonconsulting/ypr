@@ -10,7 +10,7 @@ quesnel_lt
 }
 \description{
 The population parameters for
-Rainbow Trout in Quesnel Lake, BC.
+Lake Trout in Quesnel Lake, BC.
 }
 \details{
 The estimates are liable to change and should not be used for management.
