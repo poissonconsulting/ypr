@@ -35,7 +35,7 @@ The key life history parameters are
 - The length at which 50% mature (`Ls`)
 - The length at which 50% vulnerable to harvest (`Lv`)
 - The instantaneous annual natural mortality rate (`M`)
-- The number of spawners per spawner at low density (`Rk`)
+- The lifetime number of spawners per spawner at low density (`Rk`)
 
 The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.
 
