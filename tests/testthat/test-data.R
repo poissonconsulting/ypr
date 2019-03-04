@@ -21,7 +21,8 @@ test_that(".data", {
       Lower = c(-10, 2),
       Upper = c(0.1, 1e+06),
       Integer = c(0L,1L),
-      Log = c(0L, 1L)),
+      Log = c(0L, 1L),
+      Ecotype = TRUE),
     key = "Parameter", exclusive = TRUE, order = TRUE),
     .parameters)
 })

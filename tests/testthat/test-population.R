@@ -12,6 +12,7 @@ test_that("population", {
   ypr_population_update(population, M = 0.2, Mb = -0.75)
 
   populations <- ypr_populations()
+  expect_is(populations, "ypr_populations")
   expect_identical(length(populations), 1L)
   expect_identical(populations[[1]], ypr_population())
 
@@ -36,4 +37,36 @@ test_that("population", {
 
   names(populations) <- NULL
   expect_warning(check_populations(populations), "elements of populations must be named")
+})
+
+test_that("ecotypes no arguments", {
+  ecotypes <- ypr_ecotypes()
+  expect_is(ecotypes, "ypr_ecotypes")
+  expect_identical(length(ecotypes), 1L)
+  expect_identical(names(ecotypes), "ecotype")
+  expect_identical(ecotypes[[1]], ypr_population())
+  expect_identical(check_ecotypes(ecotypes), ecotypes)
+})
+
+test_that("ecotypes arguments length 1", {
+  ecotypes <- ypr_ecotypes(Rk = 2.5)
+  expect_is(ecotypes, "ypr_ecotypes")
+  expect_identical(length(ecotypes), 1L)
+  expect_identical(names(ecotypes), "ecotype")
+  expect_identical(ecotypes[[1]], ypr_population(Rk = 2.5))
+  expect_identical(check_ecotypes(ecotypes), ecotypes)
+})
+
+test_that("ecotypes arguments length 2", {
+  ecotypes <- ypr_ecotypes(Wb = c(3.4, 3.2))
+  expect_is(ecotypes, "ypr_ecotypes")
+  expect_identical(length(ecotypes), 2L)
+  expect_identical(names(ecotypes), c("ecotype1", "ecotype2"))
+  expect_identical(ecotypes[[1]], ypr_population(Wb = 3.4))
+  expect_identical(ecotypes[[2]], ypr_population(Wb = 3.2))
+  expect_identical(check_ecotypes(ecotypes), ecotypes)
+})
+
+test_that("ecotypes errors", {
+#  expect_error(ypr_ecotypes(Rk = c(3.4, 3.2)))
 })

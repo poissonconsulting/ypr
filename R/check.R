@@ -38,6 +38,23 @@ check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substi
   x
 }
 
+check_ecotypes <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
+  x_name <- chk_deparse(x_name)
+
+  x_name <- paste("elements of", x_name)
+
+  check_inherits(x, "ypr_ecotypes")
+
+  lapply(x, check_population, exclusive = exclusive, order = order,
+         x_name = x_name)
+
+  shared <- lapply(x, function(x) x[c()])
+
+  check_named(x, x_name = x_name, unique = TRUE, error = FALSE)
+
+  x
+}
+
 check_yield_parameters <- function(population, Ly, harvest, biomass) {
   check_population(population)
   check_scalar(Ly, c(0, Inf))

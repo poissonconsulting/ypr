@@ -9,4 +9,8 @@ library(ypr)
                                    levels = c("Growth", "Reproduction", "Mortality", "Capture", "Regulations", "Release", "Units"))
 .parameters$Importance <- ordered(.parameters$Importance, levels = c("Fundamental", "Advanced", "Scaling"))
 
+.parameters$Ecotype <- TRUE
+.parameters$Ecotype[.parameters$Parameter %in% c(
+  "tmax", "tR", "BH", "RK", "Llo", "Lup", "NC", "pi", "q")] <- FALSE
+
 usethis::use_data(.parameters, internal = TRUE, overwrite = TRUE)

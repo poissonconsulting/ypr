@@ -106,3 +106,74 @@ ypr_populations <- function(...) {
   class(populations) <- "ypr_populations"
   populations
 }
+
+#' Ecotypes
+#'
+#' @inheritParams ypr_population_update
+#'
+#' @return A list of \code{\link{ypr_population}} objects each representing
+#' a unique ecotype
+#' with identical recruitment (\code{tR} \code{BH} and \code{Rk}) and
+#' fishery (\code{Llo}, \code{Lup}, \code{NC}, \code{pi} and \code{q}) parameters.
+#' The relative proportion of the population belonging to each ecotype is indicated
+#' by the \code{Rmax} parameters.
+#' @return An object of class \code{ypr_ecotypes}.
+#' @export
+#' @examples
+#' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+ypr_ecotypes <- function(...) {
+  parameters <- list(...)
+
+  lengths <- vapply(parameters, length, 1L)
+  parameters <- parameters[lengths >= 1L]
+
+  if(!length(parameters)) {
+    ecotypes <- list(ecotype = ypr_population())
+    class(ecotypes) <- "ypr_ecotypes"
+    return(ecotypes)
+  }
+  check_names(parameters, .parameters$Parameter,
+              complete = FALSE, exclusive = TRUE, unique = TRUE,
+              x_name = "...")
+
+  lengths <- lengths[lengths >= 1L]
+
+  if(all(lengths == 1)) {
+    ecotypes <- list(do.call("ypr_population", parameters))
+    names(ecotypes) <- "ecotype"
+    class(ecotypes) <- "ypr_ecotypes"
+    return(ecotypes)
+  }
+
+  bol <- lengths != 1L & names(parameters) %in% .parameters$Parameter[!.parameters$Ecotype]
+  if(any(bol)) {
+    err(co_and(names(parameters[bol]),
+               p0("the following %n parameter value%s must be scalars (",
+               max_length, "): %c")))
+  }
+
+  max_length <- max(lengths)
+  bol <- lengths != 1L & lengths != max_length
+  if(any(bol)) {
+    err(co_and(names(parameters[bol]),
+               p0("the following %n parameter value%s must be scalars or ",
+               "vectors of the same length as the number of ecotypes (",
+               max_length, "): %c")))
+  }
+
+  population <- do.call("ypr_population", parameters[lengths == 1])
+  ecotypes <- rep(list(population), max_length)
+  names(ecotypes) <- paste0("ecotype", 1:length(ecotypes))
+
+  parameters <- parameters[lengths == max_length]
+  parameters <- as.data.frame(parameters)
+
+  for(i in seq_len(nrow(parameters))) {
+    args <- as.list(parameters[i,,drop = FALSE])
+    args$population <- ecotypes[[i]]
+
+    ecotypes[[i]] <- do.call("ypr_population_update", args)
+  }
+  class(ecotypes) <- "ypr_ecotypes"
+  ecotypes
+}

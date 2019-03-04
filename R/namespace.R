@@ -1,3 +1,3 @@
-#' @import checkr ggplot2
+#' @import err checkr ggplot2
 #' @importFrom stats setNames
 NULL
