@@ -11,6 +11,6 @@ library(ypr)
 
 .parameters$Ecotype <- TRUE
 .parameters$Ecotype[.parameters$Parameter %in% c(
-  "tmax", "tR", "BH", "RK", "Llo", "Lup", "NC", "pi", "q")] <- FALSE
+  "tmax", "tR", "BH", "Rk", "Llo", "Lup", "NC", "pi", "q")] <- FALSE
 
 usethis::use_data(.parameters, internal = TRUE, overwrite = TRUE)

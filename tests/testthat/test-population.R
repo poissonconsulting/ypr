@@ -68,5 +68,10 @@ test_that("ecotypes arguments length 2", {
 })
 
 test_that("ecotypes errors", {
-#  expect_error(ypr_ecotypes(Rk = c(3.4, 3.2)))
+  expect_error(ypr_ecotypes(Rk = c(3.4, 3.2)),
+               "the following 1 parameter value must be scalars: 'Rk'")
+  expect_error(ypr_ecotypes(k = 1:2, M = c(1, 3, 4)),
+               "the following 1 parameter value must be scalars or vectors of the same length as the number of ecotypes [(]3[)]: 'k'")
+    expect_error(ypr_ecotypes(k = -1),
+               "the values in k must lie between 0.015 and 15")
 })

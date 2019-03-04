@@ -120,7 +120,7 @@ ypr_populations <- function(...) {
 #' @return An object of class \code{ypr_ecotypes}.
 #' @export
 #' @examples
-#' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+#' ypr_ecotypes(Linf = c(50, 100))
 ypr_ecotypes <- function(...) {
   parameters <- list(...)
 
@@ -148,8 +148,7 @@ ypr_ecotypes <- function(...) {
   bol <- lengths != 1L & names(parameters) %in% .parameters$Parameter[!.parameters$Ecotype]
   if(any(bol)) {
     err(co_and(names(parameters[bol]),
-               p0("the following %n parameter value%s must be scalars (",
-               max_length, "): %c")))
+               p0("the following %n parameter value%s must be scalars: %c")))
   }
 
   max_length <- max(lengths)
@@ -171,9 +170,9 @@ ypr_ecotypes <- function(...) {
   for(i in seq_len(nrow(parameters))) {
     args <- as.list(parameters[i,,drop = FALSE])
     args$population <- ecotypes[[i]]
-
     ecotypes[[i]] <- do.call("ypr_population_update", args)
   }
   class(ecotypes) <- "ypr_ecotypes"
+  check_ecotypes(ecotypes)
   ecotypes
 }
