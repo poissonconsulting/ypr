@@ -33,7 +33,7 @@ sr <- function(schedule, population) {
                R0 = R0, R0F = R0F,
                S0 = S0, S0F = S0F)
   })
-  as_conditional_tibble(sr)
+  as_tibble(sr)
 }
 
 #' Stock-Recruitment Parameters

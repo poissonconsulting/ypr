@@ -45,4 +45,3 @@ check_yield_parameters <- function(population, Ly, harvest, biomass) {
   check_flag(harvest)
   population
 }
-
