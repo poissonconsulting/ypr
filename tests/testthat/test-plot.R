@@ -3,6 +3,9 @@ context("plot")
 test_that("ypr_plot_schedule", {
   gp <- ypr_plot_schedule(ypr_population())
   expect_is(gp, "gg")
+
+  gp <- ypr_plot_schedule(ypr_ecotypes(k = c(0.1, 0.2)))
+  expect_is(gp, "gg")
 })
 
 test_that("ypr_plot_fish", {

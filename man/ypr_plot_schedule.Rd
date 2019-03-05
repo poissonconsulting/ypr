@@ -2,12 +2,22 @@
 % Please edit documentation in R/plot.R
 \name{ypr_plot_schedule}
 \alias{ypr_plot_schedule}
+\alias{ypr_plot_schedule.ypr_population}
+\alias{ypr_plot_schedule.ypr_ecotypes}
 \title{Plot Population Schedule Terms}
 \usage{
-ypr_plot_schedule(population, x = "Age", y = "Length")
+ypr_plot_schedule(population, ...)
+
+\method{ypr_plot_schedule}{ypr_population}(population, x = "Age",
+  y = "Length", ...)
+
+\method{ypr_plot_schedule}{ypr_ecotypes}(population, x = "Age",
+  y = "Length", ...)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
+\item{...}{Unused}
 
 \item{x}{A string of the term on the x-axis.}
 
@@ -19,9 +29,17 @@ A ggplot2 object.
 \description{
 Produces a bivariate line plot of two schedule terms.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Plot Population Schedule
+
+\item \code{ypr_ecotypes}: Plot Population Schedule
+}}
+
 \examples{
 ypr_plot_schedule(ypr_population())
+ypr_plot_schedule(ypr_ecotypes(k = c(0.1, 0.2)))
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_schedule}}
+\code{\link{ypr_schedule}}
 }

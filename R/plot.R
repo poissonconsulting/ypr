@@ -5,7 +5,7 @@
 #'
 #' @inheritParams ypr_tabulate_sr
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @seealso \code{\link{ypr_yields}}
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
@@ -13,7 +13,25 @@ ypr_plot_yield <- function(object, ...) {
   UseMethod("ypr_plot_yield")
 }
 
-#' Plot Population Schedule
+#' Plot Population Schedule Terms
+#'
+#' Produces a bivariate line plot of two schedule terms.
+#'
+#' @inheritParams ypr_schedule
+#' @param x A string of the term on the x-axis.
+#' @param y A string of the term on the y-axis.
+#' @param ... Unused
+#' @return A ggplot2 object.
+#' @seealso \code{\link{ypr_schedule}}
+#' @export
+#' @examples
+#' ypr_plot_schedule(ypr_population())
+#' ypr_plot_schedule(ypr_ecotypes(k = c(0.1, 0.2)))
+ypr_plot_schedule <- function(population, ...) {
+  UseMethod("ypr_plot_schedule")
+}
+
+#' Plot Schedule
 #'
 #' @param x The population to plot.
 #' @inheritParams graphics::plot.default
@@ -53,25 +71,30 @@ plot.ypr_population <- function(x, type = "b", ...) {
   invisible(x)
 }
 
-#' Plot Population Schedule Terms
-#'
-#' Produces a bivariate line plot of two schedule terms.
-#'
-#' @inheritParams ypr_schedule
-#' @param x A string of the term on the x-axis.
-#' @param y A string of the term on the y-axis.
-#' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_schedule}}
+#' @describeIn ypr_plot_schedule Plot Population Schedule
 #' @export
-#' @examples
-#' ypr_plot_schedule(ypr_population())
-ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
+ypr_plot_schedule.ypr_population <- function(population, x = "Age", y = "Length", ...) {
   schedule <- ypr_schedule(population)
 
   check_scalar(x, values = colnames(schedule))
   check_scalar(y, values = colnames(schedule))
+  check_unused(...)
 
   ggplot(data = schedule, aes_string(x = x, y = y)) +
+    geom_line() +
+    expand_limits(x = 0, y = 0)
+}
+
+#' @describeIn ypr_plot_schedule Plot Population Schedule
+#' @export
+ypr_plot_schedule.ypr_ecotypes <- function(population, x = "Age", y = "Length", ...) {
+  schedule <- ypr_schedule(population)
+
+  check_scalar(x, values = colnames(schedule))
+  check_scalar(y, values = colnames(schedule))
+  check_unused(...)
+
+  ggplot(data = schedule, aes_string(x = x, y = y, group = "Ecotype")) +
     geom_line() +
     expand_limits(x = 0, y = 0)
 }
