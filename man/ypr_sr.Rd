@@ -3,11 +3,14 @@
 \name{ypr_sr}
 \alias{ypr_sr}
 \alias{ypr_sr.ypr_population}
+\alias{ypr_sr.ypr_ecotypes}
 \title{Stock-Recruitment Parameters}
 \usage{
 ypr_sr(population, ...)
 
 \method{ypr_sr}{ypr_population}(population, ...)
+
+\method{ypr_sr}{ypr_ecotypes}(population, ...)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
@@ -34,6 +37,8 @@ Returns a single rowed data frame of the SR parameters:
 \section{Methods (by class)}{
 \itemize{
 \item \code{ypr_population}: Stock-Recruitment Population
+
+\item \code{ypr_ecotypes}: Stock-Recruitment Population
 }}
 
 \examples{

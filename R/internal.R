@@ -63,3 +63,16 @@ population_names <- function(x) {
   x <- apply(x, 2, function(x, names) paste0(names, "_", x), names = names)
   apply(x, 2, function(x) paste0(x, collapse = "_"))
 }
+
+schedule_rmax <- function(schedule, rmax) {
+  schedule[c("Fecundity", "Spawning", "Survivorship", "FishedSurvivorship")] <-
+    schedule[c("Fecundity", "Spawning", "Survivorship", "FishedSurvivorship")] * rmax
+  schedule
+}
+
+schedule_sum <- function(schedule1, schedule2) {
+  schedule1[c("Fecundity", "Spawning", "Survivorship", "FishedSurvivorship")] <-
+    schedule1[c("Fecundity", "Spawning", "Survivorship", "FishedSurvivorship")] +
+    schedule2[c("Fecundity", "Spawning", "Survivorship", "FishedSurvivorship")]
+  schedule1
+}

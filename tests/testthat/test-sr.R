@@ -1,6 +1,6 @@
 context("sr")
 
-test_that("sr", {
+test_that("sr population", {
   bh <- ypr_sr(ypr_population())
   ri <- ypr_sr(ypr_population(BH = 0L))
   expect_is(bh, "data.frame")
@@ -19,4 +19,36 @@ test_that("sr", {
   expect_identical(ri[c("alpha", "phi", "phiF")], bh[c("alpha", "phi", "phiF")])
   expect_equal(ri$beta, 0.0002468074, check.attributes = FALSE)
   expect_equal(ri$R0F, 0.3395686, check.attributes = FALSE, tolerance = 1e-07)
+})
+
+test_that("sr ecotypes same", {
+  sr <- ypr_sr(ypr_ecotypes(Rmax = c(0.5, 0.5)))
+  expect_identical(sr, ypr_sr(ypr_population()))
+})
+
+test_that("sr ecotypes diff same abundance", {
+  sr1 <- ypr_sr(ypr_population(M = 1))
+  sr2 <- ypr_sr(ypr_population(M = 2))
+  sr <- ypr_sr(ypr_ecotypes(M = c(1, 2), Rmax = c(0.5, 0.5)))
+
+  expect_identical(sr$phi, mean(c(sr1$phi, sr2$phi)))
+  expect_identical(sr$phiF, mean(c(sr1$phiF, sr2$phiF)))
+  expect_equal(sr$Rk, sr1$Rk)
+  expect_equal(sr$Rk, sr2$Rk)
+  expect_equal(sr$R0, sr1$R0)
+  expect_equal(sr$R0, sr2$R0)
+  expect_equal(sr$S0, mean(c(sr1$S0, sr2$S0)))
+})
+
+test_that("sr ecotypes diff abundance", {
+  sr1 <- ypr_sr(ypr_population(M = 1))
+  sr2 <- ypr_sr(ypr_population(M = 2))
+  sr <- ypr_sr(ypr_ecotypes(M = c(1, 2), Rmax = c(1, 10)))
+
+  expect_identical(sr$phi, weighted.mean(c(sr1$phi, sr2$phi), c(1, 10)))
+  expect_identical(sr$phiF, weighted.mean(c(sr1$phiF, sr2$phiF), c(1, 10)))
+  expect_equal(sr$Rk, sr1$Rk)
+  expect_equal(sr$Rk, sr2$Rk)
+  expect_equal(sr$R0/11,  weighted.mean(c(sr1$R0, sr2$R0), c(1, 10)))
+  expect_equal(sr$S0/11,  weighted.mean(c(sr1$S0, sr2$S0), c(1, 10)))
 })

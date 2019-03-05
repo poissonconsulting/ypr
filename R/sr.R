@@ -72,3 +72,23 @@ ypr_sr.ypr_population <- function(population, ...) {
 
   sr(schedule, population)
 }
+
+#' @describeIn ypr_sr Stock-Recruitment Population
+#' @export
+ypr_sr.ypr_ecotypes <- function(population, ...) {
+  check_ecotypes(population)
+  check_unused(...)
+
+  schedule <- lapply(population, ypr_schedule)
+  rmax <- vapply(population, function(x) x$Rmax, 1)
+
+  population <- population[[1]]
+  population$Rmax <- sum(rmax)
+
+  rmax <- rmax / sum(rmax)
+  schedule <- mapply(schedule_rmax, schedule, rmax, SIMPLIFY = FALSE)
+  print(schedule)
+  schedule <- Reduce(schedule_sum, schedule)
+
+  sr(schedule, population)
+}

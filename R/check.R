@@ -51,7 +51,14 @@ check_ecotypes <- function(x, exclusive = TRUE, order = TRUE, x_name = substitut
   lapply(x, check_population, exclusive = exclusive, order = order,
          x_name = x_name)
 
-  shared <- lapply(x, function(x) x[c()])
+  shared <- lapply(x, function(x) x[.parameters$Parameter[!.parameters$Ecotype]])
+  shared <- lapply(shared, as.data.frame)
+  shared <- do.call("rbind", shared)
+  shared <- lapply(shared, function(x) length(unique(x)))
+  shared <- vapply(shared, function(x) x == 1L, TRUE)
+  if(any(!shared)) {
+    err(co_and(names(shared[!shared]), p0("the following %n parameter%s must be identical: %c")))
+  }
 
   check_named(x, x_name = x_name, unique = TRUE, error = FALSE)
 
