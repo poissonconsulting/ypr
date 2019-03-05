@@ -14,8 +14,8 @@ A list of \code{\link{ypr_population}} objects each representing
 a unique ecotype
 with identical recruitment (\code{tR} \code{BH} and \code{Rk}) and
 fishery (\code{Llo}, \code{Lup}, \code{NC}, \code{pi} and \code{q}) parameters.
-The relative proportion of the population belonging to each ecotype is indicated
-by the \code{Rmax} parameters.
+The relative proportion of the recruits belonging to each ecotype is indicated
+by the relative size of the \code{Rmax} parameters.
 
 An object of class \code{ypr_ecotypes}.
 }
@@ -23,5 +23,5 @@ An object of class \code{ypr_ecotypes}.
 Ecotypes
 }
 \examples{
-ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+ypr_ecotypes(Linf = c(50, 100))
 }

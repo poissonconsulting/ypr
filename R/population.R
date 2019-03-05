@@ -115,8 +115,8 @@ ypr_populations <- function(...) {
 #' a unique ecotype
 #' with identical recruitment (\code{tR} \code{BH} and \code{Rk}) and
 #' fishery (\code{Llo}, \code{Lup}, \code{NC}, \code{pi} and \code{q}) parameters.
-#' The relative proportion of the population belonging to each ecotype is indicated
-#' by the \code{Rmax} parameters.
+#' The relative proportion of the recruits belonging to each ecotype is indicated
+#' by the relative size of the \code{Rmax} parameters.
 #' @return An object of class \code{ypr_ecotypes}.
 #' @export
 #' @examples
@@ -128,7 +128,7 @@ ypr_ecotypes <- function(...) {
   parameters <- parameters[lengths >= 1L]
 
   if(!length(parameters)) {
-    ecotypes <- list(ecotype = ypr_population())
+    ecotypes <- list(ecotype1 = ypr_population())
     class(ecotypes) <- "ypr_ecotypes"
     return(ecotypes)
   }
@@ -140,7 +140,7 @@ ypr_ecotypes <- function(...) {
 
   if(all(lengths == 1)) {
     ecotypes <- list(do.call("ypr_population", parameters))
-    names(ecotypes) <- "ecotype"
+    names(ecotypes) <- "ecotype1"
     class(ecotypes) <- "ypr_ecotypes"
     return(ecotypes)
   }
@@ -160,19 +160,18 @@ ypr_ecotypes <- function(...) {
                max_length, "): %c")))
   }
 
-  population <- do.call("ypr_population", parameters[lengths == 1])
-  ecotypes <- rep(list(population), max_length)
-  names(ecotypes) <- paste0("ecotype", 1:length(ecotypes))
+  parameters1 <- parameters[lengths == 1]
+  parametersn <- parameters[lengths == max_length]
 
-  parameters <- parameters[lengths == max_length]
-  parameters <- as.data.frame(parameters)
+  parametersn <- as.data.frame(parametersn)
 
-  for(i in seq_len(nrow(parameters))) {
-    args <- as.list(parameters[i,,drop = FALSE])
-    args$population <- ecotypes[[i]]
-    ecotypes[[i]] <- do.call("ypr_population_update", args)
+  ecotypes <- rep(list(), max_length)
+
+  for(i in 1:max_length) {
+    args <- c(parameters1, as.list(parametersn[i,,drop = FALSE]))
+    ecotypes[i] <- list(do.call("ypr_population", args))
   }
+  names(ecotypes) <- paste0("ecotype", 1:length(ecotypes))
   class(ecotypes) <- "ypr_ecotypes"
-  check_ecotypes(ecotypes)
   ecotypes
 }

@@ -25,6 +25,9 @@ Suggests:
     knitr,
     rmarkdown,
     tidyr
+Remotes:
+    poissonconsulting/err,
+    poissonconsulting/checkr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true

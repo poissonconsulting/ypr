@@ -43,7 +43,7 @@ test_that("ecotypes no arguments", {
   ecotypes <- ypr_ecotypes()
   expect_is(ecotypes, "ypr_ecotypes")
   expect_identical(length(ecotypes), 1L)
-  expect_identical(names(ecotypes), "ecotype")
+  expect_identical(names(ecotypes), "ecotype1")
   expect_identical(ecotypes[[1]], ypr_population())
   expect_identical(check_ecotypes(ecotypes), ecotypes)
 })
@@ -52,9 +52,15 @@ test_that("ecotypes arguments length 1", {
   ecotypes <- ypr_ecotypes(Rk = 2.5)
   expect_is(ecotypes, "ypr_ecotypes")
   expect_identical(length(ecotypes), 1L)
-  expect_identical(names(ecotypes), "ecotype")
+  expect_identical(names(ecotypes), "ecotype1")
   expect_identical(ecotypes[[1]], ypr_population(Rk = 2.5))
   expect_identical(check_ecotypes(ecotypes), ecotypes)
+
+  ecotypes <- ypr_ecotypes(Linf = 150)
+  expect_is(ecotypes, "ypr_ecotypes")
+  expect_identical(length(ecotypes), 1L)
+  expect_identical(names(ecotypes), "ecotype1")
+  expect_identical(ecotypes[[1]], ypr_population(Linf = 150))
 })
 
 test_that("ecotypes arguments length 2", {
@@ -64,6 +70,14 @@ test_that("ecotypes arguments length 2", {
   expect_identical(names(ecotypes), c("ecotype1", "ecotype2"))
   expect_identical(ecotypes[[1]], ypr_population(Wb = 3.4))
   expect_identical(ecotypes[[2]], ypr_population(Wb = 3.2))
+  expect_identical(check_ecotypes(ecotypes), ecotypes)
+
+  ecotypes <- ypr_ecotypes(Linf = c(150, 200))
+  expect_is(ecotypes, "ypr_ecotypes")
+  expect_identical(length(ecotypes), 2L)
+  expect_identical(names(ecotypes), c("ecotype1", "ecotype2"))
+  expect_identical(ecotypes[[1]], ypr_population(Linf = 150))
+  expect_identical(ecotypes[[2]], ypr_population(Linf = 200))
   expect_identical(check_ecotypes(ecotypes), ecotypes)
 })
 
