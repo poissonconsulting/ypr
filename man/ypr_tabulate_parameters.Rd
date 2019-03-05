@@ -6,9 +6,6 @@
 \usage{
 ypr_tabulate_parameters(population)
 }
-\arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
-}
 \value{
 A table of population parameters
 }

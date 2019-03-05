@@ -6,9 +6,6 @@
 \usage{
 ypr_sr(population)
 }
-\arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
-}
 \value{
 A data frame of the SR parameters.
 }

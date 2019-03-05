@@ -2,20 +2,29 @@
 % Please edit documentation in R/schedule.R
 \name{ypr_schedule}
 \alias{ypr_schedule}
+\alias{ypr_schedule.ypr_population}
 \title{Life-History Schedule}
 \usage{
-ypr_schedule(population)
+ypr_schedule(object, ...)
+
+\method{ypr_schedule}{ypr_population}(object)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{object}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
+\item{...}{Unused}
 }
 \value{
-A tibble of the life-history schedule by age.
+A tibble of the life-history schedule by age and possibly ecotype.
 }
 \description{
 Generates the life-history schedule by age for a population.
-#'
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Life-History Schedule Population
+}}
+
 \examples{
 ypr_schedule(ypr_population())
 }

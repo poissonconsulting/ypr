@@ -8,7 +8,7 @@
   harvest = TRUE, biomass = FALSE, all = FALSE, ...)
 }
 \arguments{
-\item{object}{The populations or populations.}
+\item{object}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
@@ -18,7 +18,7 @@
 
 \item{all}{A flag indicating whether to include all parameter values.}
 
-\item{...}{Unused parameters.}
+\item{...}{Unused}
 }
 \value{
 A table of stock-recruitment parameters.

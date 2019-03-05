@@ -1,18 +1,25 @@
 #' Life-History Schedule
 #'
 #' Generates the life-history schedule by age for a population.
-#'#'
+#'
 #' @inheritParams ypr_yield
-#' @param population An object of class \code{\link{ypr_population}}.
-#' @return A tibble of the life-history schedule by age.
+#' @param object An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.
+#' @param ... Unused
+#' @return A tibble of the life-history schedule by age and possibly ecotype.
 #' @seealso \code{\link{ypr_population}}
 #' @export
 #' @examples
 #' ypr_schedule(ypr_population())
-ypr_schedule <- function(population) {
-  check_population(population)
+ypr_schedule <- function(object, ...) {
+  UseMethod("ypr_schedule")
+}
 
-  schedule <- with(population, {
+#' @describeIn ypr_schedule Life-History Schedule Population
+#' @export
+ypr_schedule.ypr_population <- function(object) {
+  check_population(object)
+
+  schedule <- with(object, {
     t <- tR:tmax
     n <- length(t)
     L <- Linf * (1 - exp(-k * (t-t0)))

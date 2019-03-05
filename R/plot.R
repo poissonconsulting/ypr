@@ -66,7 +66,7 @@ plot.ypr_population <- function(x, type = "b", ...) {
 #' @examples
 #' ypr_plot_schedule(ypr_population())
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
-  schedule <- ypr_schedule(population = population)
+  schedule <- ypr_schedule(population)
 
   check_scalar(x, values = colnames(schedule))
   check_scalar(y, values = colnames(schedule))

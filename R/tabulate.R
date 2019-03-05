@@ -114,7 +114,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   check_scalar(x, c("Age", "Length", "Weight"))
   check_scalar(binwidth, c(1L, 1000L))
 
-  table <- ypr_schedule(population = population)
+  table <- ypr_schedule(population)
   table <- as.data.frame(table)
 
   table$Surviving <- table$FishedSurvivorship * sr(table, population)$R0F

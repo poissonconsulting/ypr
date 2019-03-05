@@ -9,7 +9,7 @@
   all = FALSE, ...)
 }
 \arguments{
-\item{object}{The populations or populations.}
+\item{object}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
@@ -21,7 +21,7 @@
 
 \item{all}{A flag indicating whether to include all parameter values.}
 
-\item{...}{Unused parameters.}
+\item{...}{Unused}
 }
 \value{
 A data frame.
