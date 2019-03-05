@@ -19,6 +19,9 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
 
   eval(parse(text = code))
 
+  if(x$Linf < x$Ls) err("'", x_name, "' parameter Linf < Ls")
+  if(x$Linf < x$Lv) err("'", x_name, "' parameter Linf < Lv")
+
   x
 }
 

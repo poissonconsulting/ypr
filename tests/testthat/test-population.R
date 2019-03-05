@@ -3,14 +3,33 @@ context("population")
 test_that("population", {
   population <- ypr_population()
   expect_identical(check_population(population), population)
+})
+
+test_that("population errors", {
+  expect_error(ypr_population(Rk = double(0)), "Rk must have 1 element")
+  expect_error(ypr_population(Rk = 0.5), "the values in Rk must lie between 1 and 100")
+  expect_error(ypr_population(Linf2 = 100), "unused argument [(]Linf2 = 100[)]")
+  expect_error(ypr_population(Linf = c(100, 150)), "Linf must have 1 element")
+  expect_error(ypr_population(Linf = 50, Ls = 100), "'population' parameter Linf < Ls")
+})
+
+test_that("ypr_population_update", {
+  population <- ypr_population()
   population2 <- ypr_population()
   population2$Rk <- 2.5
   expect_identical(ypr_population_update(population, Rk = 2.5), population2)
-  expect_error(ypr_population_update(population, Rk = 0.5), "the values in Rk must lie between 1 and 100")
+
   expect_is(ypr_population_update(population, pi = 0.23456), "ypr_population")
+})
 
-  ypr_population_update(population, M = 0.2, Mb = -0.75)
+test_that("ypr_population_update errors", {
+  expect_error(ypr_population_update(ypr_population(), Rk = 0.5),
+               "the values in Rk must lie between 1 and 100")
+  expect_error(ypr_population_update(ypr_population(), Lv = 200),
+               "'population' parameter Linf < Lv")
+})
 
+test_that("populations", {
   populations <- ypr_populations()
   expect_is(populations, "ypr_populations")
   expect_identical(length(populations), 1L)
