@@ -8,6 +8,8 @@ ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1L,
   color = NULL)
 }
 \arguments{
+\item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
 \item{x}{A string of the term on the x-axis.}
 
 \item{y}{A string of the term on the y-axis.}

@@ -8,6 +8,8 @@ ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = FALSE)
 }
 \arguments{
+\item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}

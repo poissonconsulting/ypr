@@ -3,23 +3,24 @@
 #' Generates the life-history schedule by age for a population.
 #'
 #' @inheritParams ypr_yield
-#' @param object An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.
+#' @param population An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.
 #' @param ... Unused
 #' @return A tibble of the life-history schedule by age and possibly ecotype.
 #' @seealso \code{\link{ypr_population}}
 #' @export
 #' @examples
 #' ypr_schedule(ypr_population())
-ypr_schedule <- function(object, ...) {
+ypr_schedule <- function(population, ...) {
   UseMethod("ypr_schedule")
 }
 
 #' @describeIn ypr_schedule Life-History Schedule Population
 #' @export
-ypr_schedule.ypr_population <- function(object) {
-  check_population(object)
+ypr_schedule.ypr_population <- function(population, ...) {
+  check_population(population)
+  check_unused(...)
 
-  schedule <- with(object, {
+  schedule <- with(population, {
     t <- tR:tmax
     n <- length(t)
     L <- Linf * (1 - exp(-k * (t-t0)))
@@ -48,5 +49,18 @@ ypr_schedule.ypr_population <- function(object) {
                FishedSurvivorship = FishedSurvivorship)
   })
 
+  as_tibble(schedule)
+}
+
+#' @describeIn ypr_schedule Life-History Schedule Ecotypes
+#' @export
+ypr_schedule.ypr_ecotypes <- function(population, ...) {
+  check_ecotypes(population)
+  check_unused(...)
+
+  schedule <- lapply(population, ypr_schedule)
+  schedule <- mapply(function(x, y) {x$Ecotype <- y; x}, schedule, names(population),
+                     SIMPLIFY = FALSE)
+  schedule <- Reduce(rbind, schedule)
   as_tibble(schedule)
 }

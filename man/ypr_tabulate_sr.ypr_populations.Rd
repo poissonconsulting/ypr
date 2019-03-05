@@ -8,7 +8,7 @@
   harvest = TRUE, biomass = FALSE, all = FALSE, ...)
 }
 \arguments{
-\item{object}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+\item{object}{The populations or populations.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 

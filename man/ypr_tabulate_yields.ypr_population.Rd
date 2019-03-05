@@ -9,7 +9,7 @@
   all = FALSE, ...)
 }
 \arguments{
-\item{object}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+\item{object}{The populations or populations.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 

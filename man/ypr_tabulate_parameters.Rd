@@ -6,6 +6,9 @@
 \usage{
 ypr_tabulate_parameters(population)
 }
+\arguments{
+\item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+}
 \value{
 A table of population parameters
 }

@@ -3,14 +3,17 @@
 \name{ypr_schedule}
 \alias{ypr_schedule}
 \alias{ypr_schedule.ypr_population}
+\alias{ypr_schedule.ypr_ecotypes}
 \title{Life-History Schedule}
 \usage{
-ypr_schedule(object, ...)
+ypr_schedule(population, ...)
 
-\method{ypr_schedule}{ypr_population}(object)
+\method{ypr_schedule}{ypr_population}(population, ...)
+
+\method{ypr_schedule}{ypr_ecotypes}(population, ...)
 }
 \arguments{
-\item{object}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+\item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
 
 \item{...}{Unused}
 }
@@ -23,6 +26,8 @@ Generates the life-history schedule by age for a population.
 \section{Methods (by class)}{
 \itemize{
 \item \code{ypr_population}: Life-History Schedule Population
+
+\item \code{ypr_ecotypes}: Life-History Schedule Ecotypes
 }}
 
 \examples{

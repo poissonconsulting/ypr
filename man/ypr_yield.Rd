@@ -7,6 +7,8 @@
 ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 }
 \arguments{
+\item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
 \item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}

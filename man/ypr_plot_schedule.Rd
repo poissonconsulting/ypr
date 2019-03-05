@@ -7,6 +7,8 @@
 ypr_plot_schedule(population, x = "Age", y = "Length")
 }
 \arguments{
+\item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
 \item{x}{A string of the term on the x-axis.}
 
 \item{y}{A string of the term on the y-axis.}
