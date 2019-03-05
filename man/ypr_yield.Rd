@@ -2,9 +2,13 @@
 % Please edit documentation in R/yield.R
 \name{ypr_yield}
 \alias{ypr_yield}
+\alias{ypr_yield.ypr_population}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
+ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
+
+\method{ypr_yield}{ypr_population}(population, Ly = 0, harvest = TRUE,
+  biomass = FALSE, ...)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
@@ -14,6 +18,8 @@ ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 \item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+
+\item{...}{Unused}
 }
 \value{
 The yield as number of fish or biomass.
@@ -25,6 +31,11 @@ Calculates the yield for a population.
 By default, with \code{Rmax = 1} the number of individuals is the proportion of the recruits at the carrying capacity.
 If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Yield Population
+}}
+
 \examples{
 ypr_yield(ypr_population())
 }
