@@ -2,12 +2,17 @@
 % Please edit documentation in R/sr.R
 \name{ypr_sr}
 \alias{ypr_sr}
+\alias{ypr_sr.ypr_population}
 \title{Stock-Recruitment Parameters}
 \usage{
-ypr_sr(population)
+ypr_sr(population, ...)
+
+\method{ypr_sr}{ypr_population}(population, ...)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}} or \code{\link{ypr_ecotypes}}.}
+
+\item{...}{Unused}
 }
 \value{
 A data frame of the SR parameters.
@@ -26,6 +31,11 @@ Returns a single rowed data frame of the SR parameters:
   \item{S0F}{spawners at the fished equilibrium}
 }
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Stock-Recruitment Population
+}}
+
 \examples{
 ypr_sr(ypr_population()) # Beverton-Holt
 ypr_sr(ypr_population(BH = 0L)) # Ricker

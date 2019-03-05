@@ -1,3 +1,29 @@
+#' Stock-Recruitment Parameters
+#'
+#' Returns a single rowed data frame of the SR parameters:
+#' \describe{
+#'   \item{alpha}{Survival from egg to age tR at low density}
+#'   \item{beta}{Density-dependence}
+#'   \item{Rk}{Lifetime spawners per spawner at low density}
+#'   \item{phi}{Lifetime eggs deposited per recruit at unfished equilibrium}
+#'   \item{phiF}{Lifetime eggs deposited per recruit at the fished equilibrium}
+#'   \item{R0}{Age tR recruits at the unfished equilibrium}
+#'   \item{R0F}{Age tR recruits at the fished equilibrium}
+#'   \item{S0}{Spawners at the unfished equilibrium}
+#'   \item{S0F}{spawners at the fished equilibrium}
+#' }
+#'
+#' @inheritParams ypr_schedule
+#' @param ... Unused
+#' @return A data frame of the SR parameters.
+#' @export
+#' @examples
+#' ypr_sr(ypr_population()) # Beverton-Holt
+#' ypr_sr(ypr_population(BH = 0L)) # Ricker
+ypr_sr <- function(population, ...) {
+  UseMethod("ypr_sr")
+}
+
 sr <- function(schedule, population) {
   schedule <- as.list(schedule)
 
@@ -36,29 +62,11 @@ sr <- function(schedule, population) {
   as_tibble(sr)
 }
 
-#' Stock-Recruitment Parameters
-#'
-#' Returns a single rowed data frame of the SR parameters:
-#' \describe{
-#'   \item{alpha}{Survival from egg to age tR at low density}
-#'   \item{beta}{Density-dependence}
-#'   \item{Rk}{Lifetime spawners per spawner at low density}
-#'   \item{phi}{Lifetime eggs deposited per recruit at unfished equilibrium}
-#'   \item{phiF}{Lifetime eggs deposited per recruit at the fished equilibrium}
-#'   \item{R0}{Age tR recruits at the unfished equilibrium}
-#'   \item{R0F}{Age tR recruits at the fished equilibrium}
-#'   \item{S0}{Spawners at the unfished equilibrium}
-#'   \item{S0F}{spawners at the fished equilibrium}
-#' }
-#'
-#' @inheritParams ypr_schedule
-#' @return A data frame of the SR parameters.
+#' @describeIn ypr_sr Stock-Recruitment Population
 #' @export
-#' @examples
-#' ypr_sr(ypr_population()) # Beverton-Holt
-#' ypr_sr(ypr_population(BH = 0L)) # Ricker
-ypr_sr <- function(population) {
+ypr_sr.ypr_population <- function(population, ...) {
   check_population(population)
+  check_unused(...)
 
   schedule <- ypr_schedule(population)
 

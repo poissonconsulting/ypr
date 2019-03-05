@@ -63,6 +63,7 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @export
 ypr_yield.ypr_population <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, ...) {
   check_yield_parameters(population, Ly, harvest, biomass)
+  check_unused(...)
 
   schedule <- ypr_schedule(population)
 
