@@ -1,14 +1,13 @@
 Package: ypr
-Version: 0.3.0.9005
+Version: 0.3.1
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods.
     Yield per recruit methods can used to estimate the optimal yield for a fish population.
     The yield can be based on the number of fish caught (or harvested) or 
     biomass caught for all fish or just large (trophy) individuals.
-Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592"))
+Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", 
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592"))
 License: MIT + file LICENSE
-URL: https://github.com/poissonconsulting/ypr
-BugReports: https://github.com/poissonconsulting/ypr/issues
 Depends:
     R (>= 3.4.0)
 Imports:
@@ -24,6 +23,8 @@ Suggests:
     knitr,
     rmarkdown,
     tidyr
+URL: https://github.com/poissonconsulting/ypr
+BugReports: https://github.com/poissonconsulting/ypr/issues
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true

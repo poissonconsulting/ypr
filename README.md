@@ -14,7 +14,7 @@ status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.sv
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/ypr)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
 
 ## Introduction
 
@@ -139,16 +139,27 @@ ypr_plot_yield(populations, plot_values = FALSE) +
 
 ## Installation
 
-To install the latest release from [CRAN](https://CRAN.R-project.org)
+To install the latest release version from
+[CRAN](https://cran.r-project.org)
 
     install.packages("ypr")
 
 To install the latest development version from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
 
-    # install.packages("drat")
+    if(!"drat" %in% installed.packages()[,1]) 
+      install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("ypr")
+
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/rpdo)
+
+    if(!"devtools" %in% installed.packages()[,1]) 
+      install.packages("devtools")
+    devtools::install_github("poissonconsulting/err")
+    devtools::install_github("poissonconsulting/checkr")
+    devtools::install_github("poissonconsulting/ypr")
 
 ### Interaction
 

@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -75,7 +75,7 @@
       <h1>Yield per Recruit</h1>
                         <h4 class="author">Joe Thorley</h4>
             
-            <h4 class="date">2019-01-08</h4>
+            <h4 class="date">2019-04-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/ypr/blob/master/vignettes/ypr.Rmd"><code>vignettes/ypr.Rmd</code></a></small>
       <div class="hidden name"><code>ypr.Rmd</code></div>
@@ -181,14 +181,15 @@
 <h2 class="hasAnchor">
 <a href="#recruitment" class="anchor"></a>Recruitment</h2>
 <p>With growth, reproduction and death defined, the final task is to estimate the recruitment (birth) rate.</p>
-<p>This requires the number of spawners per spawner at low density (<span class="math inline">\(R_k\)</span>) and the recruitment age (<span class="math inline">\(R_t\)</span>; by default 1) to be defined.</p>
+<p>This requires the lifetime number of spawners per spawner at low density (<span class="math inline">\(R_k\)</span>) and the recruitment age (<span class="math inline">\(R_t\)</span>; by default 1) to be defined.</p>
 <p>If recruitment follows a Beverton-Holt (<span class="math inline">\(BH = 1\)</span>) curve then</p>
-<p><span class="math display">\[R = \alpha \cdot S / (\beta \cdot S + 1)\]</span></p>
+<p><span class="math display">\[R = \alpha \cdot E / (\beta \cdot E + 1)\]</span></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Rk =</span> <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb10-2" title="2"><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-10-1.png" width="384"></p>
-<p>otherwise with a Ricker curve (<span class="math inline">\(BH = 0\)</span>)</p>
-<p><span class="math display">\[R = \alpha \cdot S \cdot \exp (-\beta \cdot S)\]</span></p>
+<p>where <span class="math inline">\(E\)</span> is the annual eggs (stock) and <span class="math inline">\(R\)</span> is the annual recruits at age <span class="math inline">\(R_t\)</span>.</p>
+<p>With a Ricker curve (<span class="math inline">\(BH = 0\)</span>) the relationship is as follows</p>
+<p><span class="math display">\[R = \alpha \cdot E \cdot \exp (-\beta \cdot E)\]</span></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">BH =</span> 0L)</a>
 <a class="sourceLine" id="cb11-2" title="2"><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-11-1.png" width="384"></p>
@@ -200,11 +201,14 @@
 <p><span class="math display">\[lx_{R_t} = 1, lx_a = lx_{a-1} \cdot (1-N_{a-1}) \;\text{for}\; a &gt; R_t\]</span> where <span class="math inline">\(N_a\)</span> is the annual interval natural mortality at age <span class="math inline">\(a\)</span>.</p>
 <p>And the fished survivorship (<span class="math inline">\(lx_a^F\)</span>) is</p>
 <p><span class="math display">\[lx_{R_t}^F = 1, lx_a^F = lx_{a-1}^F \cdot (1 - (1 - N_{a-1}) \cdot (1 - U_{a-1})) \;\text{for}\; a &gt; R_t\]</span></p>
-<p>The number of eggs deposited per (unfished) recruit (<span class="math inline">\(\phi\)</span>) is then just</p>
-<p><span class="math display">\[\phi = \sum_{a = R_t}^{t_\text{max}} lx_a \cdot F \cdot S/2\]</span> where <span class="math inline">\(t_\text{max}\)</span> is the maximum age considered (by default 20) and <span class="math inline">\(S\)</span> is divided by two as the sex ratio is assumed to 1:1.</p>
+<p>The lifetime number of eggs deposited per (unfished) recruit (<span class="math inline">\(\phi\)</span>) is then just</p>
+<p><span class="math display">\[\phi = \sum_{a = R_t}^{t_\text{max}} lx_a \cdot F_a/2 \cdot S_a\]</span> where <span class="math inline">\(t_\text{max}\)</span> is the maximum age considered (by default 20) and <span class="math inline">\(F_a\)</span> the fecundity at age <span class="math inline">\(a\)</span> is divided by two as the sex ratio is assumed to 1:1 and <span class="math inline">\(S_a\)</span> is the probability of spawning.</p>
 <p>The fished equivalent is denoted <span class="math inline">\(\phi_F\)</span>.</p>
-<p>By definition <span class="math display">\[\alpha = \frac{R_k}{\phi}\]</span></p>
-<p>The value of <span class="math inline">\(\beta\)</span> for the Beverton-Holt curve can be found by rearranging the following formula where <span class="math inline">\(R_0\)</span> is the number of recruits at the unfished equilibrium.</p>
+<p>It important to realize that at the unfished equilibrium the annual number of recruits (<span class="math inline">\(R_0\)</span>) is related to the annual egg deposition according to the following equation</p>
+<p><span class="math display">\[E_0 = \phi \cdot R_0\]</span></p>
+<p>By definition</p>
+<p><span class="math display">\[\alpha = \frac{R_k \cdot R_0}{E_0} = \frac{R_k}{\phi}\]</span></p>
+<p>The <span class="math inline">\(\beta\)</span> term of the Beverton-Holt curve can then be found by rearranging the following formula</p>
 <p><span class="math display">\[R_0 = \frac{\alpha \cdot \phi \cdot R_0}{\beta \cdot \phi \cdot R_0 + 1}\]</span></p>
 <p><span class="math display">\[\beta \cdot \phi \cdot R_0 + 1 = \alpha \cdot \phi\]</span></p>
 <p><span class="math display">\[\beta = \frac{\alpha \cdot \phi - 1}{\phi \cdot R_0}\]</span></p>
