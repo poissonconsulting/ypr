@@ -68,12 +68,10 @@ plot.ypr_population <- function(x, type = "b", ...) {
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   schedule <- ypr_schedule(population = population)
 
-  chk_s3_class(x, "character")
-  chk_scalar(x)
+  chk_string(x)
   chk_subset(x, values = colnames(schedule))
 
-  chk_s3_class(y, "character")
-  chk_scalar(y)
+  chk_string(y)
   chk_subset(y, values = colnames(schedule))
 
   ggplot(data = schedule, aes_string(x = x, y = y)) +
@@ -101,8 +99,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
                           percent = FALSE,
                           binwidth = 1L, color = NULL) {
 
-  chk_s3_class(y, "character")
-  chk_scalar(y)
+  chk_string(y)
   chk_subset(y, c("Surviving", "Spawning", "Caught", "Harvested",
     "Released", "HandlingMortality"))
   chk_flag(percent)
@@ -187,7 +184,8 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
                                           u = harvest, plot_values = TRUE, ...) {
   check_yield_parameters(object, Ly, harvest, biomass)
 
-  check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
+  chk_string(y)
+  chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
@@ -252,7 +250,8 @@ ypr_plot_yield.ypr_populations <- function(
                                            object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                            Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
 
-  check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
+  chk_string(y)
+  chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,

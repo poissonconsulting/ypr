@@ -6,6 +6,7 @@
 #' @examples
 #' ypr_inst2inter(c(0, 0.2, 3))
 ypr_inst2inter <- function(x) {
+  chk_gte(x)
   check_vector(x, c(0, Inf, NA))
   1 - exp(-x)
 }

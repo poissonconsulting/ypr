@@ -40,7 +40,8 @@ check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substi
 
 check_yield_parameters <- function(population, Ly, harvest, biomass) {
   check_population(population)
-  check_scalar(Ly, c(0, Inf))
+  chk_number(Ly)
+  chk_gte(Ly)
   chk_flag(biomass)
   chk_flag(harvest)
   population

@@ -113,8 +113,7 @@ ypr_detabulate_parameters <- function(x) {
 ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L, chk = TRUE) {
   if(chk) {
     check_population(population)
-    chk_s3_class(x, "character")
-    chk_scalar(x)
+    chk_string(x)
     chk_subset(x, c("Age", "Length", "Weight"))
     chk_whole_number(binwidth)
     chk_range(binwidth, c(1L, 1000L))
@@ -223,8 +222,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                               type = "both", all = FALSE, ...) {
 
-  chk_s3_class(type, "character")
-  chk_scalar(type)
+  chk_string(type)
   chk_subset(type, c("both", "actual", "optimal"))
 
   actual_pi <- object$pi
@@ -310,6 +308,7 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
                                                Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
 
   check_vector(pi, c(0, 1), length = TRUE)
+  chk_range(pi, c(0, 1))
 
   yields <- lapply(pi, tabulate_yield_pi, object = object, Ly = Ly,
                    harvest = harvest, biomass = biomass, all = all)
