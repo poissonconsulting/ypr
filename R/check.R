@@ -2,10 +2,10 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   x_name <- chk_deparse(x_name)
   chk_string(x_name, x_name = "x_name")
 
-  check_inherits(x, "ypr_population", x_name = x_name)
-
-  check_names(x, .parameters$Parameter,
-    exclusive = exclusive, unique = TRUE, x_name = x_name)
+  chk_s3_class(x, "ypr_population", x_name = x_name)
+  chk_named(x, x_name = x_name)
+  chk_unique(names(x), x_name = x_name)
+  chk_setequal(names(x), .parameters$Parameter, x_name = x_name)
 
   parameters <- .parameters
 
@@ -23,17 +23,18 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
 }
 
 check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
-  x_name <- chk_deparse(x_name)
+  x_name <- backtick_chk(chk_deparse(x_name))
   chk_string(x_name, x_name = "x_name")
+
+  chk_named(x, x_name = x_name)
+  chk_unique(names(x), x_name = x_name)
 
   x_name <- paste("elements of", x_name)
 
-  check_inherits(x, "ypr_populations")
+  chk_s3_class(x, "ypr_populations")
 
   lapply(x, check_population, exclusive = exclusive, order = order,
     x_name = x_name)
-
-  check_named(x, x_name = x_name, unique = TRUE, error = FALSE)
 
   x
 }

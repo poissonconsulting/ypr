@@ -14,7 +14,7 @@ Depends:
     R (>= 3.4.0)
 Imports:
     checkr,
-    chk (>= 0.0.1.9039),
+    chk (>= 0.0.1.9040),
     ggplot2,
     graphics,
     scales,

@@ -35,5 +35,5 @@ test_that("population", {
   expect_identical(check_population(populations[[1]]), populations[[1]])
 
   names(populations) <- NULL
-  expect_warning(check_populations(populations), "elements of populations must be named")
+  expect_error(check_populations(populations), "^`populations` must be named[.]$", class = "chk_error")
 })

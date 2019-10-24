@@ -273,18 +273,19 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' @inheritParams ypr_tabulate_yield.ypr_population
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
+#' @inheritParams chk::params
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
-                                               type = "both", all = FALSE, ...) {
+                                               type = "both", all = FALSE, ..., chk = TRUE) {
 
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
-                  biomass = biomass, type = type, all = TRUE, ...)
+                  biomass = biomass, type = type, all = TRUE, ..., chk = chk)
 
   yield <- do.call("rbind", yield)
 
@@ -309,8 +310,9 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
                                                Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ..., chk = TRUE) {
 
   if(chk) {
-    chk_numeric(Ly)
-    chk_gt(length(pi))
+    chk_number(Ly)
+    chk_numeric(pi)
+    chk_not_empty(pi)
     chk_not_any_na(pi)
     chk_range(pi, c(0, 1))
   }
