@@ -1,6 +1,6 @@
 check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- chk_deparse(x_name)
-  check_string(x_name, x_name = "x_name")
+  chk_string(x_name, x_name = "x_name")
 
   check_inherits(x, "ypr_population", x_name = x_name)
 
@@ -24,7 +24,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
 
 check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- chk_deparse(x_name)
-  check_string(x_name, x_name = "x_name")
+  chk_string(x_name, x_name = "x_name")
 
   x_name <- paste("elements of", x_name)
 

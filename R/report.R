@@ -85,9 +85,9 @@ ypr_report <- function(population, title = "Population Report",
                        date = Sys.Date(),
                        file = "report.Rmd") {
   check_population(population)
-  check_string(title)
+  chk_string(title)
   check_date(date)
-  check_string(file)
+  chk_string(file)
 
   file.create(file)
   con <- file(file, "w")
