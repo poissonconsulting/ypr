@@ -85,6 +85,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_tabulate_fish
+#' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
 #' @param color A string of the color around each bar (or NULL).
 #' @return A ggplot2 object.
 #' @seealso \code{\link{ypr_population}} and \code{\link[ggplot2]{geom_histogram}}
@@ -92,16 +93,21 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @examples
 #' ypr_plot_fish(ypr_population(), color = "white")
 ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
+                          percent = FALSE,
                           binwidth = 1L, color = NULL) {
   check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested",
                     "Released", "HandlingMortality"))
+  chk_flag(percent)
 
   fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
+
+  if(percent) fish[[y]] <- fish[[y]] / sum(fish[[y]])
+  labels <- if(percent) scales::percent else scales::comma
 
   ggplot(data = fish, aes_string(x = x, weight = y)) +
     (if(is.null(color)) geom_bar(width = binwidth) else
       geom_bar(width = binwidth, color = color)) +
-    ylab(y) +
+    scale_y_continuous(y, labels = labels) +
     expand_limits(x = 0, y = 0)
 }
 

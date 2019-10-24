@@ -1,3 +1,5 @@
+- added `percent = FALSE` argument to `ypr_plot_fish()`
+
 # ypr 0.3.1
 
 - `ypr_populations()` now generates names

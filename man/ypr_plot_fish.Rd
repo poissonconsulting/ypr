@@ -4,8 +4,8 @@
 \alias{ypr_plot_fish}
 \title{Plot Fish}
 \usage{
-ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1L,
-  color = NULL)
+ypr_plot_fish(population, x = "Age", y = "Surviving",
+  percent = FALSE, binwidth = 1L, color = NULL)
 }
 \arguments{
 \item{population}{An object of class \code{\link{ypr_population}}.}
@@ -13,6 +13,8 @@ ypr_plot_fish(population, x = "Age", y = "Surviving", binwidth = 1L,
 \item{x}{A string of the term on the x-axis.}
 
 \item{y}{A string of the term on the y-axis.}
+
+\item{percent}{A flag specifying whether to plot the number of fish as a percent or frequency (the default).}
 
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
 
