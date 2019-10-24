@@ -299,17 +299,21 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
+#' @inheritParams chk::params
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
-                                               Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
+                                               Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ..., chk = TRUE) {
 
-  check_vector(pi, c(0, 1), length = TRUE)
-  chk_range(pi, c(0, 1))
-
+  if(chk) {
+    chk_numeric(Ly)
+    chk_gt(length(pi))
+    chk_not_any_na(pi)
+    chk_range(pi, c(0, 1))
+  }
   yields <- lapply(pi, tabulate_yield_pi, object = object, Ly = Ly,
                    harvest = harvest, biomass = biomass, all = all)
 
@@ -331,12 +335,12 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
 ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
                                                 Ly = 0, harvest = TRUE, biomass = FALSE,
-                                                all = FALSE, ...) {
+                                                all = FALSE, ..., chk = TRUE) {
 
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yields, pi = pi, Ly = Ly, harvest = harvest,
-                  biomass = biomass, all = TRUE, ...)
+                  biomass = biomass, all = TRUE, ..., chk = chk)
 
   yield <- do.call("rbind", yield)
 

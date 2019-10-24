@@ -6,7 +6,7 @@
 \usage{
 \method{ypr_tabulate_yields}{ypr_population}(object, pi = seq(0, 1,
   length.out = 100), Ly = 0, harvest = TRUE, biomass = FALSE,
-  all = FALSE, ...)
+  all = FALSE, ..., chk = TRUE)
 }
 \arguments{
 \item{object}{The populations or populations.}
@@ -22,6 +22,8 @@
 \item{all}{A flag indicating whether to include all parameter values.}
 
 \item{...}{Unused parameters.}
+
+\item{chk}{A flag specifying whether to check the other parameters.}
 }
 \value{
 A data frame.

@@ -5,6 +5,7 @@
 #' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
+#' @inheritParams chk::params
 #' @seealso [ypr_yield()]
 #' @return A numeric vector of the yields.
 #' @export
@@ -12,11 +13,15 @@
 #' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                       Ly = 0, harvest = TRUE, biomass = FALSE) {
+                       Ly = 0, harvest = TRUE, biomass = FALSE, chk = TRUE) {
 
-  check_yield_parameters(population, Ly, harvest, biomass)
-  check_vector(pi, c(0, 1), length = TRUE)
-
+  if(chk) {
+    check_yield_parameters(population, Ly, harvest, biomass)
+    chk_numeric(pi)
+    chk_gt(length(pi))
+    chk_not_any_na(pi)
+    chk_range(pi, c(0, 1))
+  }
   yields <- vapply(pi, FUN = yield_pi, FUN.VALUE = 1,
     population = population, Ly = Ly, harvest = harvest,
     biomass = biomass)
