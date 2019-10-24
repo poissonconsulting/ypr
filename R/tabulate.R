@@ -190,7 +190,7 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 #' ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                             all = FALSE, ...) {
-  check_flag(all)
+  chk_flag(all)
 
   sr <- lapply(object, ypr_tabulate_sr, Ly = Ly, harvest = harvest,
     biomass = biomass, all = TRUE, ...)
@@ -275,7 +275,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                                type = "both", all = FALSE, ...) {
 
-  check_flag(all)
+  chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
     biomass = biomass, type = type, all = TRUE, ...)
@@ -326,7 +326,7 @@ ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.ou
                                                 Ly = 0, harvest = TRUE, biomass = FALSE,
                                                 all = FALSE, ...) {
 
-  check_flag(all)
+  chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yields, pi = pi, Ly = Ly, harvest = harvest,
     biomass = biomass, all = TRUE, ...)

@@ -124,7 +124,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 #' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
 ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plot_values = TRUE) {
   check_yield_parameters(population, Ly, harvest, biomass)
-  check_flag(plot_values)
+  chk_flag(plot_values)
   schedule <- ypr_schedule(population)
 
   schedule <- as.list(schedule)
@@ -180,7 +180,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   check_yield_parameters(object, Ly, harvest, biomass)
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
-  check_flag(u)
+  chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
     biomass = biomass)
@@ -245,7 +245,7 @@ ypr_plot_yield.ypr_populations <- function(
                                            Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
-  check_flag(u)
+  chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
     biomass = biomass)
