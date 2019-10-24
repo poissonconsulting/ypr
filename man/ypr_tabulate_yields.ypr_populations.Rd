@@ -33,5 +33,5 @@ Tabulate Yields
 ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_yield}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_yield]{ypr_yield()}}
 }

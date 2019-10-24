@@ -8,7 +8,7 @@
 ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
@@ -26,5 +26,5 @@ Finds the interval annual capture probability (pi) that maximises the yield for 
 ypr_optimize(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_yield}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_yield]{ypr_yield()}}
 }

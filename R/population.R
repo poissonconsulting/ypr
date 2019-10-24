@@ -1,6 +1,6 @@
 #' Population Parameters
 #'
-#' Generates an object of class \code{ypr_population}.
+#' Generates an object of class `ypr_population`.
 #'
 #' @param tmax The maximum age (yr).
 #' @param k The VB growth coefficient (per yr).
@@ -30,9 +30,9 @@
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of effort.
-#' @return An object of class \code{ypr_population}.
-#' @seealso \code{\link{ypr_population_update}}, \code{\link{ypr_schedule}},
-#' \code{\link{ypr_yield}} and \code{\link{ypr_optimize}}.
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population_update()], [ypr_schedule()],
+#' [ypr_yield()] and [ypr_optimize()].
 #' @export
 #' @examples
 #' ypr_population(k = 0.1, Linf = 90)
@@ -53,12 +53,12 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 
 #' Update Population Parameters
 #'
-#' Updates an object of class \code{\link{ypr_population}}.
+#' Updates an object of class [ypr_population()].
 #'
-#' @param population An object of class \code{ypr_population}
-#' @param ... One or more of the arguments from \code{ypr_population()}.
-#' @return An object of class \code{ypr_population}.
-#' @seealso \code{\link{ypr_population}}
+#' @param population An object of class `ypr_population`
+#' @param ... One or more of the arguments from `ypr_population()`.
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_population_update(ypr_population(), Rk = 2.5)
@@ -73,8 +73,8 @@ ypr_population_update <- function(population, ...) {
 #'
 #' @inheritParams ypr_population_update
 #'
-#' @return A list of \code{\link{ypr_population}} objects
-#' @seealso \code{\link{ypr_population}}
+#' @return A list of [ypr_population()] objects
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))

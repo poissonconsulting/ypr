@@ -11,7 +11,7 @@ ypr_detabulate_parameters(x)
 one or more parameters and their values.}
 }
 \value{
-An object of class \code{\link{ypr_population}}
+An object of class \code{\link[=ypr_population]{ypr_population()}}
 }
 \description{
 Detabulate Parameters
@@ -20,5 +20,5 @@ Detabulate Parameters
 ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
 }
 \seealso{
-\code{\link{ypr_population}}
+\code{\link[=ypr_population]{ypr_population()}}
 }

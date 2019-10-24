@@ -21,5 +21,5 @@ Tabulate Yield
 ypr_tabulate_yield(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
+\code{\link[=ypr_population]{ypr_population()}}, \code{\link[=ypr_populations]{ypr_populations()}} and \code{\link[=ypr_yield]{ypr_yield()}}
 }

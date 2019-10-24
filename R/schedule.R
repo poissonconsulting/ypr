@@ -3,9 +3,9 @@
 #' Generates the life-history schedule by age for a population.
 #' #'
 #' @inheritParams ypr_yield
-#' @param population An object of class \code{\link{ypr_population}}.
+#' @param population An object of class [ypr_population()].
 #' @return A tibble of the life-history schedule by age.
-#' @seealso \code{\link{ypr_population}}
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_schedule(ypr_population())

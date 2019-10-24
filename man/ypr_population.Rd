@@ -77,6 +77,6 @@ Generates an object of class \code{ypr_population}.
 ypr_population(k = 0.1, Linf = 90)
 }
 \seealso{
-\code{\link{ypr_population_update}}, \code{\link{ypr_schedule}},
-\code{\link{ypr_yield}} and \code{\link{ypr_optimize}}.
+\code{\link[=ypr_population_update]{ypr_population_update()}}, \code{\link[=ypr_schedule]{ypr_schedule()}},
+\code{\link[=ypr_yield]{ypr_yield()}} and \code{\link[=ypr_optimize]{ypr_optimize()}}.
 }

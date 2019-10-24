@@ -5,7 +5,7 @@
 #'
 #' @inheritParams ypr_tabulate_sr
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
@@ -19,7 +19,7 @@ ypr_plot_yield <- function(object, ...) {
 #' @inheritParams graphics::plot.default
 #' @param ... Additional arguments passed to graphics::plot.formula functions.
 #' @return An invisible copy of the original object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_schedule}}
+#' @seealso [ypr_population()] and [ypr_schedule()]
 #' @export
 #' @examples
 #' \dontrun{
@@ -61,7 +61,7 @@ plot.ypr_population <- function(x, type = "b", ...) {
 #' @param x A string of the term on the x-axis.
 #' @param y A string of the term on the y-axis.
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_schedule}}
+#' @seealso [ypr_population()] and [ypr_schedule()]
 #' @export
 #' @examples
 #' ypr_plot_schedule(ypr_population())
@@ -88,7 +88,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
 #' @param color A string of the color around each bar (or NULL).
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link[ggplot2]{geom_histogram}}
+#' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
 #' @export
 #' @examples
 #' ypr_plot_fish(ypr_population(), color = "white")
@@ -117,7 +117,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 #' @inheritParams ypr_yield
 #' @param plot_values A flag indicating whether to plot the actual and optimal values.
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_sr}}
+#' @seealso [ypr_population()] and [ypr_sr()]
 #' @export
 #' @examples
 #' ypr_plot_sr(ypr_population(Rk = 10))
@@ -170,7 +170,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 #' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
 #' @examples
 #' ypr_plot_yield(ypr_population())
@@ -228,7 +228,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
-#' @seealso \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
+#' @seealso [ypr_populations()] and [ypr_yields()]
 #' @export
 #' @examples
 #' \dontrun{

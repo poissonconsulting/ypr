@@ -8,7 +8,7 @@ ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
   harvest = TRUE, biomass = FALSE)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
@@ -29,5 +29,5 @@ pi <- seq(0, 1, length.out = 30)
 plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 }
 \seealso{
-\code{\link{ypr_yield}}
+\code{\link[=ypr_yield]{ypr_yield()}}
 }

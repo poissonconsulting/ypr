@@ -7,7 +7,7 @@
 ypr_schedule(population)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 }
 \value{
 A tibble of the life-history schedule by age.
@@ -20,5 +20,5 @@ Generates the life-history schedule by age for a population.
 ypr_schedule(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}}
+\code{\link[=ypr_population]{ypr_population()}}
 }

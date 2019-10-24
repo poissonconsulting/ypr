@@ -16,7 +16,7 @@ ypr_tabulate_sr <- function(object, ...) {
 #' @inheritParams ypr_tabulate_sr
 #'
 #' @return A data frame.
-#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
+#' @seealso [ypr_population()], [ypr_populations()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
@@ -29,7 +29,7 @@ ypr_tabulate_yield <- function(object, ...) {
 #' @inheritParams ypr_tabulate_sr
 #'
 #' @return A data frame.
-#' @seealso \code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yields}}
+#' @seealso [ypr_population()], [ypr_populations()] and [ypr_yields()]
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
@@ -41,7 +41,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #'
 #' @inheritParams ypr_schedule
 #' @return A table of population parameters
-#' @seealso \code{\link{ypr_population}}
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
@@ -71,8 +71,8 @@ ypr_tabulate_parameters <- function(population) {
 #'
 #' @param x A data frame with columns Parameter and Value specifying
 #' one or more parameters and their values.
-#' @return An object of class \code{\link{ypr_population}}
-#' @seealso \code{\link{ypr_population}}
+#' @return An object of class [ypr_population()]
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
@@ -105,7 +105,7 @@ ypr_detabulate_parameters <- function(x) {
 #' @inheritParams ypr_plot_schedule
 #' @param binwidth A positive integer of the width of the bins for grouping.
 #' @return A data frame
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_plot_fish}}
+#' @seealso [ypr_population()] and [ypr_plot_fish()]
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
@@ -210,7 +210,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #' @inheritParams ypr_tabulate_sr.ypr_population
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
 #' @return A data frame.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
+#' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
@@ -268,7 +268,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @return A data frame.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
+#' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
@@ -294,7 +294,7 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
 #' @return A data frame.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yields}}
+#' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
@@ -318,7 +318,7 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @return A data frame.
-#' @seealso \code{\link{ypr_population}} and \code{\link{ypr_yield}}
+#' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))

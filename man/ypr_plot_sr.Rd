@@ -8,7 +8,7 @@ ypr_plot_sr(population, Ly = 0, harvest = TRUE, biomass = FALSE,
   plot_values = TRUE)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
@@ -29,5 +29,5 @@ ypr_plot_sr(ypr_population(Rk = 10))
 ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_sr}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_sr]{ypr_sr()}}
 }

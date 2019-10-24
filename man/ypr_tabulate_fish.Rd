@@ -7,7 +7,7 @@
 ypr_tabulate_fish(population, x = "Age", binwidth = 1L)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{x}{A string of the term on the x-axis.}
 
@@ -25,5 +25,5 @@ Produces a data frame of the number of fish in the
 ypr_tabulate_fish(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_plot_fish}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_plot_fish]{ypr_plot_fish()}}
 }

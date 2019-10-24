@@ -8,7 +8,7 @@ ypr_report(population, title = "Population Report", date = Sys.Date(),
   file = "report.Rmd")
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{title}{A string of the report title.}
 

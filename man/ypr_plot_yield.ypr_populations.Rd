@@ -46,5 +46,5 @@ ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
 }
 }
 \seealso{
-\code{\link{ypr_populations}} and \code{\link{ypr_yields}}
+\code{\link[=ypr_populations]{ypr_populations()}} and \code{\link[=ypr_yields]{ypr_yields()}}
 }
