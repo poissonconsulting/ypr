@@ -4,7 +4,7 @@
 \alias{ypr_tabulate_fish}
 \title{Table Fish}
 \usage{
-ypr_tabulate_fish(population, x = "Age", binwidth = 1L)
+ypr_tabulate_fish(population, x = "Age", binwidth = 1L, chk = TRUE)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
@@ -12,6 +12,8 @@ ypr_tabulate_fish(population, x = "Age", binwidth = 1L)
 \item{x}{A string of the term on the x-axis.}
 
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
+
+\item{chk}{A flag specifying whether to check the other parameters.}
 }
 \value{
 A data frame

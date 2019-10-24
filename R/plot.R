@@ -68,8 +68,13 @@ plot.ypr_population <- function(x, type = "b", ...) {
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   schedule <- ypr_schedule(population = population)
 
-  check_scalar(x, values = colnames(schedule))
-  check_scalar(y, values = colnames(schedule))
+  chk_s3_class(x, "character")
+  chk_scalar(x)
+  chk_subset(x, values = colnames(schedule))
+
+  chk_s3_class(y, "character")
+  chk_scalar(y)
+  chk_subset(y, values = colnames(schedule))
 
   ggplot(data = schedule, aes_string(x = x, y = y)) +
     geom_line() +
@@ -95,7 +100,10 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
                           percent = FALSE,
                           binwidth = 1L, color = NULL) {
-  check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested",
+
+  chk_s3_class(y, "character")
+  chk_scalar(y)
+  chk_subset(y, c("Surviving", "Spawning", "Caught", "Harvested",
     "Released", "HandlingMortality"))
   chk_flag(percent)
 
