@@ -32,23 +32,23 @@ plot.ypr_population <- function(x, type = "b", ...) {
 
   with(schedule, {
     plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
-         type = type, ...)
+      type = type, ...)
     plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
-         type = type, ...)
+      type = type, ...)
     plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
-         type = type, ...)
+      type = type, ...)
     plot(Spawning ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
     plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-         type = type, ...)
-    plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
-         type = type, ...)
-    plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0,1),
-         type = type, ...)
-    plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
-         type = type, ...)
-    plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0,1),
-         type = type, ...)
+      type = type, ...)
+    plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
+      type = type, ...)
+    plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
+      type = type, ...)
+    plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
+      type = type, ...)
+    plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
+      type = type, ...)
   })
   invisible(x)
 }
@@ -96,7 +96,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
                           percent = FALSE,
                           binwidth = 1L, color = NULL) {
   check_scalar(y, c("Surviving", "Spawning", "Caught", "Harvested",
-                    "Released", "HandlingMortality"))
+    "Released", "HandlingMortality"))
   chk_flag(percent)
 
   fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
@@ -129,7 +129,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 
   schedule <- as.list(schedule)
   schedule$BH <- population$BH
-  schedule$Rmax <-population$Rmax
+  schedule$Rmax <- population$Rmax
   schedule <- c(schedule, sr(schedule, population))
 
   data <- with(schedule, {
@@ -183,7 +183,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   check_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-                              biomass = biomass)
+    biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
@@ -238,17 +238,17 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #'   ggplot2::scale_color_manual(values = c("black", "blue"))
 #'
 #' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
-#'   ggplot2::facet_grid(Rk~Llo)
-#'  }
+#'   ggplot2::facet_grid(Rk ~ Llo)
+#' }
 ypr_plot_yield.ypr_populations <- function(
-  object, y = "Yield", pi = seq(0, 1, length.out = 100),
-  Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
+                                           object, y = "Yield", pi = seq(0, 1, length.out = 100),
+                                           Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
 
   check_scalar(y, values = c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   check_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-                              biomass = biomass)
+    biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 

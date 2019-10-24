@@ -130,9 +130,9 @@ ypr_plot_yield(population)
 
 ``` r
 library(ggplot2)
-populations <- ypr_populations(Rk = c(3,7), Ls = c(40, 60), Rmax = 100)
+populations <- ypr_populations(Rk = c(3, 7), Ls = c(40, 60), Rmax = 100)
 ypr_plot_yield(populations, plot_values = FALSE) +
-  facet_grid(Rk~Ls)
+  facet_grid(Rk ~ Ls)
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->

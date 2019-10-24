@@ -1,7 +1,7 @@
 optimize <- function(population, Ly, harvest, biomass) {
   stats::optimize(yield_pi, c(0, 1), population = population,
-                           Ly = Ly, harvest = harvest, biomass = biomass,
-                           maximum = TRUE)$maximum
+    Ly = Ly, harvest = harvest, biomass = biomass,
+    maximum = TRUE)$maximum
 }
 
 #' Optimize Capture
@@ -21,7 +21,7 @@ ypr_optimize <- function(population,
   check_yield_parameters(population, Ly, harvest, biomass)
 
   yield <- optimize(population = population, Ly = Ly,
-                       harvest = harvest, biomass = biomass)
+    harvest = harvest, biomass = biomass)
   sanitize(yield)
 }
 

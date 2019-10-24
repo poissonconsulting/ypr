@@ -37,11 +37,11 @@
 #' @examples
 #' ypr_population(k = 0.1, Linf = 90)
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
-                           Wb = 3, Ls = Linf/2, Sp = 100, es = 1, Sm = 0,
+                           Wb = 3, Ls = Linf / 2, Sp = 100, es = 1, Sm = 0,
                            fb = 1,
                            tR = 1L, BH = 1L, Rk = 3, M = 0.2,
                            Mb = 0,
-                           Lv = Linf/2, Vp = 100,
+                           Lv = Linf / 2, Vp = 100,
                            Llo = 0, Lup = Linf, Nc = 0,
                            pi = 0.2, rho = 0, Hm = 0,
                            Rmax = 1, A0 = 0, Wa = 0.01, fa = 1,
@@ -89,8 +89,8 @@ ypr_populations <- function(...) {
     return(populations)
   }
   check_names(parameters, .parameters$Parameter,
-              complete = FALSE, exclusive = TRUE, unique = TRUE,
-              x_name = "...")
+    complete = FALSE, exclusive = TRUE, unique = TRUE,
+    x_name = "...")
 
   parameters <- lapply(parameters, function(x) sort(unique(x)))
 
@@ -98,8 +98,8 @@ ypr_populations <- function(...) {
 
   populations <- list()
   for(i in seq_len(nrow(parameters))) {
-    population <- as.list(parameters[i,,drop = FALSE])
-    attr(population,"out.attrs") <- NULL
+    population <- as.list(parameters[i, , drop = FALSE])
+    attr(population, "out.attrs") <- NULL
     populations[[i]] <- do.call("ypr_population", population)
   }
   names(populations) <- population_names(parameters)

@@ -16,5 +16,5 @@ A numeric vector of corresponding instantaneous mortality rates.
 Interval to Instantaneous Mortality
 }
 \examples{
-ypr_inter2inst(c(0,0.5,0.99,1))
+ypr_inter2inst(c(0, 0.5, 0.99, 1))
 }

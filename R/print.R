@@ -14,7 +14,7 @@ print.ypr_population <- function(x, ...) {
 print.ypr_populations <- function(x, ...) {
   suppressWarnings(check_populations(x))
   if(length(x) == 1) return(print(x[[1]]))
-  x$FUN = c
+  x$FUN <- c
   x <- do.call("mapply", x)
   x <- as.data.frame(x)
   x <- lapply(x, function(x) sort(unique(x)))

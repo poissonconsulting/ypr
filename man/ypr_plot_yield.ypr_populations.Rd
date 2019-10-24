@@ -42,8 +42,8 @@ ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = 
   ggplot2::scale_color_manual(values = c("black", "blue"))
 
 ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
-  ggplot2::facet_grid(Rk~Llo)
- }
+  ggplot2::facet_grid(Rk ~ Llo)
+}
 }
 \seealso{
 \code{\link{ypr_populations}} and \code{\link{ypr_yields}}

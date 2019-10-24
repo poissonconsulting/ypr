@@ -5,7 +5,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   check_inherits(x, "ypr_population", x_name = x_name)
 
   check_names(x, .parameters$Parameter,
-              exclusive = exclusive, unique = TRUE, x_name = x_name)
+    exclusive = exclusive, unique = TRUE, x_name = x_name)
 
   parameters <- .parameters
 
@@ -31,7 +31,7 @@ check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substi
   check_inherits(x, "ypr_populations")
 
   lapply(x, check_population, exclusive = exclusive, order = order,
-         x_name = x_name)
+    x_name = x_name)
 
   check_named(x, x_name = x_name, unique = TRUE, error = FALSE)
 

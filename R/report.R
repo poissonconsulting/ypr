@@ -13,7 +13,7 @@ lines_population <- function(population) {
 }
 
 lines_head <- function(population, title, date) {
-paste0('---
+  paste0('---
 title: "', title, '"
 date: "', date, '"
 output: html_document
@@ -29,12 +29,12 @@ knitr::opts_chunk$set(
 
 ```{r, echo = TRUE}
 library(ypr)
-population <- ', lines_population(population),'
-```')
+population <- ', lines_population(population), "
+```")
 }
 
 lines_body <- function() {
-'```{r}
+  '```{r}
 ypr_plot_schedule(population)
 ypr_plot_schedule(population, "Length", "Weight")
 ypr_plot_schedule(population, "Weight", "Fecundity")
@@ -79,7 +79,7 @@ knitr::kable(ypr_tabulate_yield(population))
 #' @export
 #' @examples
 #' \dontrun{
-#' cat(ypr_report(ypr_population(), file = tempfile()), sep = "\n")
+#' cat(ypr_report(ypr_population(), file = tempfile()), sep = "\\n")
 #' }
 ypr_report <- function(population, title = "Population Report",
                        date = Sys.Date(),
@@ -92,7 +92,7 @@ ypr_report <- function(population, title = "Population Report",
   file.create(file)
   con <- file(file, "w")
   writeLines(lines_head(population = population, title = title, date = date),
-             con = con)
+    con = con)
   writeLines(lines_body(), con = con)
   close(con)
   invisible(readLines(file))

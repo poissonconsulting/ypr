@@ -28,7 +28,7 @@ drop_constant_parameters <- function(x) {
 
 quantiles <- function(x, level) {
   x <- unlist(x)
-  x <- stats::quantile(x, c(0.5, (1-level)/2, (1-level)/2 + level))
+  x <- stats::quantile(x, c(0.5, (1 - level) / 2, (1 - level) / 2 + level))
   setNames(x, c("estimate", "lower", "upper"))
 }
 
@@ -41,8 +41,8 @@ sanitize <- function(x) {
 tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
   object$pi <- pi
   yield <- ypr_tabulate_yield(object = object, Ly = Ly,
-                              harvest = harvest, biomass = biomass,
-                              type = "actual", all = all)
+    harvest = harvest, biomass = biomass,
+    type = "actual", all = all)
   yield$Type <- NULL
   yield
 }
@@ -50,7 +50,7 @@ tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
 sum_fish <- function(x) {
   x[] <- lapply(x, sum)
   x[[1]] <- x[[1]] / nrow(x)
-  x[1,]
+  x[1, ]
 }
 
 population_names <- function(x) {

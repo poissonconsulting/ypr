@@ -8,9 +8,9 @@ sr <- function(schedule, population) {
   R0 <- 1
 
   sr <- with(schedule, {
-    phi <- sum(Fecundity * Spawning/2 * Survivorship)
+    phi <- sum(Fecundity * Spawning / 2 * Survivorship)
 
-    phiF <- sum(Fecundity * Spawning/2 * FishedSurvivorship)
+    phiF <- sum(Fecundity * Spawning / 2 * FishedSurvivorship)
 
     alpha <-  Rk / phi
     if(BH) {
@@ -28,10 +28,10 @@ sr <- function(schedule, population) {
     S0 <- sum(Spawning * Survivorship * R0)
     S0F <- sum(Spawning * FishedSurvivorship * R0F)
     sr <- data.frame(alpha = alpha, beta = beta,
-               Rk = Rk,
-               phi = phi, phiF = phiF,
-               R0 = R0, R0F = R0F,
-               S0 = S0, S0F = S0F)
+      Rk = Rk,
+      phi = phi, phiF = phiF,
+      R0 = R0, R0F = R0F,
+      S0 = S0, S0F = S0F)
   })
   as_tibble(sr)
 }

@@ -24,6 +24,6 @@ Creates an Rmd file that can be used to generate a report.
 }
 \examples{
 \dontrun{
-cat(ypr_report(ypr_population(), file = tempfile()), sep = "\\n")
+cat(ypr_report(ypr_population(), file = tempfile()), sep = "\\\\n")
 }
 }

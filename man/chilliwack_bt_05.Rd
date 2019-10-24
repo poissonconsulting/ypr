@@ -18,14 +18,13 @@ yield <- ypr_tabulate_yield(chilliwack_bt_05, type = "optimal")
 yield$pi <- round(yield$pi, 2)
 yield <- yield[c("Llo", "Hm", "Rk", "pi")]
 yield <- tidyr::spread(yield, Rk, pi)
-yield <- yield[order(-yield$Hm),]
+yield <- yield[order(-yield$Hm), ]
 yield
-
 \dontrun{
 ypr_plot_yield(chilliwack_bt_05, plot_values = FALSE) +
-  ggplot2::facet_grid(Rk~Hm) +
+  ggplot2::facet_grid(Rk ~ Hm) +
   ggplot2::aes(group = Llo, linetype = Llo)
- }
+}
 }
 \references{
 Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.

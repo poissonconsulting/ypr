@@ -29,7 +29,7 @@ A data frame.
 Tabulate Yield
 }
 \examples{
-ypr_tabulate_yield(ypr_populations(Rk = c(3,5)))
+ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 }
 \seealso{
 \code{\link{ypr_population}} and \code{\link{ypr_yield}}

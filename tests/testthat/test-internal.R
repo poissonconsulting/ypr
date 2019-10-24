@@ -12,6 +12,5 @@ test_that("sanitize", {
 
 test_that("sum_fish", {
   expect_equal(sum_fish(data.frame(Age = 1:4, Count = 1:4)),
-                   data.frame(Age = 2.5, Count = 10))
+    data.frame(Age = 2.5, Count = 10))
 })
-

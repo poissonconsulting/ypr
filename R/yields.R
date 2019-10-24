@@ -18,7 +18,7 @@ ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
   check_vector(pi, c(0, 1), length = TRUE)
 
   yields <- vapply(pi, FUN = yield_pi, FUN.VALUE = 1,
-                   population = population, Ly = Ly, harvest = harvest,
-                   biomass = biomass)
+    population = population, Ly = Ly, harvest = harvest,
+    biomass = biomass)
   sanitize(yields)
 }
