@@ -71,17 +71,25 @@ ypr_tabulate_parameters <- function(population) {
 #'
 #' @param x A data frame with columns Parameter and Value specifying
 #' one or more parameters and their values.
+#' @inheritParams chk::params
 #' @return An object of class [ypr_population()]
 #' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
-ypr_detabulate_parameters <- function(x) {
-  check_data(
-    x,
-    values = list(Parameter = .parameters$Parameter,
-                  Value = c(min(.parameters$Lower), max(.parameters$Upper))),
-    key = "Parameter")
+ypr_detabulate_parameters <- function(x, chk = TRUE) {
+  if(chk) {
+    chk_s3_class(x, "data.frame")
+    chk_superset(colnames(x), c("Parameter", "Value"))
+    chk_s3_class(x$Parameter, "character")
+    chk_not_any_na(x$Parameter)
+    chk_subset(x$Parameter, .parameters$Parameter)
+    chk_unique(x$Parameter)
+
+    chk_numeric(x$Value)
+    chk_not_any_na(x$Value)
+    chk_range(x$Value, c(min(.parameters$Lower), max(.parameters$Upper)))
+  }
 
   x <- merge(x, .parameters[c("Parameter", "Integer")], by = "Parameter", sort = FALSE)
 
