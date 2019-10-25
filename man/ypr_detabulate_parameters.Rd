@@ -4,13 +4,11 @@
 \alias{ypr_detabulate_parameters}
 \title{Detabulate Parameters}
 \usage{
-ypr_detabulate_parameters(x, chk = TRUE)
+ypr_detabulate_parameters(x)
 }
 \arguments{
 \item{x}{A data frame with columns Parameter and Value specifying
 one or more parameters and their values.}
-
-\item{chk}{A flag specifying whether to check the other parameters.}
 }
 \value{
 An object of class \code{\link[=ypr_population]{ypr_population()}}

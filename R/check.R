@@ -5,7 +5,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   chk_s3_class(x, "ypr_population", x_name = x_name)
   chk_named(x, x_name = x_name)
   chk_unique(names(x), x_name = x_name)
-  chk_setequal(names(x), .parameters$Parameter, x_name = x_name)
+  chk_superset(names(x), .parameters$Parameter, x_name = x_name)
 
   parameters <- .parameters
 

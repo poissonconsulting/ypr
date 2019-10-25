@@ -30,6 +30,7 @@
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of effort.
+#' @inheritParams chk::params
 #' @return An object of class `ypr_population`.
 #' @seealso [ypr_population_update()], [ypr_schedule()],
 #' [ypr_yield()] and [ypr_optimize()].
@@ -49,6 +50,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
   population <- as.list(environment())
   class(population) <- c("ypr_population")
   check_population(population)
+  population
 }
 
 #' Update Population Parameters
@@ -57,6 +59,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #'
 #' @param population An object of class `ypr_population`
 #' @param ... One or more of the arguments from `ypr_population()`.
+#' @inheritParams chk::params
 #' @return An object of class `ypr_population`.
 #' @seealso [ypr_population()]
 #' @export
@@ -67,11 +70,13 @@ ypr_population_update <- function(population, ...) {
   parameters <- list(...)
   population[names(parameters)] <- unname(parameters)
   check_population(population)
+  population
 }
 
 #' Populations
 #'
 #' @inheritParams ypr_population_update
+#' @inheritParams chk::params
 #'
 #' @return A list of [ypr_population()] objects
 #' @seealso [ypr_population()]
@@ -88,9 +93,9 @@ ypr_populations <- function(...) {
     class(populations) <- "ypr_populations"
     return(populations)
   }
-  check_names(parameters, .parameters$Parameter,
-    complete = FALSE, exclusive = TRUE, unique = TRUE,
-    x_name = "...")
+    chk_named(parameters, x_name = "`...`")
+    chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
+    chk_unique(names(parameters), x_name = "`names(...)`")
 
   parameters <- lapply(parameters, function(x) sort(unique(x)))
 

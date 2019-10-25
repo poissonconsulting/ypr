@@ -5,8 +5,7 @@
 \title{Tabulate Yield}
 \usage{
 \method{ypr_tabulate_yield}{ypr_populations}(object, Ly = 0,
-  harvest = TRUE, biomass = FALSE, type = "both", all = FALSE, ...,
-  chk = TRUE)
+  harvest = TRUE, biomass = FALSE, type = "both", all = FALSE, ...)
 }
 \arguments{
 \item{object}{The populations or populations.}
@@ -22,8 +21,6 @@
 \item{all}{A flag indicating whether to include all parameter values.}
 
 \item{...}{Unused parameters.}
-
-\item{chk}{A flag specifying whether to check the other parameters.}
 }
 \value{
 A data frame.

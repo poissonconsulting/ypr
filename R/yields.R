@@ -13,17 +13,16 @@
 #' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                       Ly = 0, harvest = TRUE, biomass = FALSE, chk = TRUE) {
+                       Ly = 0, harvest = TRUE, biomass = FALSE) {
 
-  if(chk) {
-    check_yield_parameters(population, Ly, harvest, biomass)
-    chk_numeric(pi)
-    chk_not_empty(pi)
-    chk_not_any_na(pi)
-    chk_range(pi, c(0, 1))
-  }
+  check_yield_parameters(population, Ly, harvest, biomass)
+  chk_numeric(pi)
+  chk_not_empty(pi)
+  chk_not_any_na(pi)
+  chk_range(pi, c(0, 1))
+
   yields <- vapply(pi, FUN = yield_pi, FUN.VALUE = 1,
-    population = population, Ly = Ly, harvest = harvest,
-    biomass = biomass)
+                   population = population, Ly = Ly, harvest = harvest,
+                   biomass = biomass)
   sanitize(yields)
 }

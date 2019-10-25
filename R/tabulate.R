@@ -40,6 +40,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #' Population Parameters
 #'
 #' @inheritParams ypr_schedule
+#' @inheritParams chk::params
 #' @return A table of population parameters
 #' @seealso [ypr_population()]
 #' @export
@@ -77,8 +78,7 @@ ypr_tabulate_parameters <- function(population) {
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
-ypr_detabulate_parameters <- function(x, chk = TRUE) {
-  if(chk) {
+ypr_detabulate_parameters <- function(x) {
     chk_s3_class(x, "data.frame")
     chk_superset(colnames(x), c("Parameter", "Value"))
     chk_s3_class(x$Parameter, "character")
@@ -89,7 +89,6 @@ ypr_detabulate_parameters <- function(x, chk = TRUE) {
     chk_numeric(x$Value)
     chk_not_any_na(x$Value)
     chk_range(x$Value, c(min(.parameters$Lower), max(.parameters$Upper)))
-  }
 
   x <- merge(x, .parameters[c("Parameter", "Integer")], by = "Parameter", sort = FALSE)
 
@@ -118,14 +117,12 @@ ypr_detabulate_parameters <- function(x, chk = TRUE) {
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
-ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L, chk = TRUE) {
-  if(chk) {
+ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
     check_population(population)
     chk_string(x)
     chk_subset(x, c("Age", "Length", "Weight"))
     chk_whole_number(binwidth)
     chk_range(binwidth, c(1L, 1000L))
-  }
 
   table <- ypr_schedule(population = population)
   table <- as.data.frame(table)
@@ -157,6 +154,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L, chk = TRUE) 
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 #' @param all A flag indicating whether to include all parameter values.
+#' @inheritParams chk::params
 #' @return A data frame of stock-recruitment parameters.
 #' @export
 #' @examples
@@ -196,6 +194,7 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
+#' @inheritParams chk::params
 #' @param all A flag indicating whether to include all parameter values.
 #' @return A table of stock-recruitment parameters.
 #' @export
@@ -222,6 +221,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr.ypr_population
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
+#' @inheritParams chk::params
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
@@ -232,7 +232,6 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 
   chk_string(type)
   chk_subset(type, c("both", "actual", "optimal"))
-
   actual_pi <- object$pi
 
   actual_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
@@ -288,12 +287,12 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' @examples
 #' ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
-                                               type = "both", all = FALSE, ..., chk = TRUE) {
+                                               type = "both", all = FALSE, ...) {
 
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
-                  biomass = biomass, type = type, all = TRUE, ..., chk = chk)
+                  biomass = biomass, type = type, all = TRUE, ...)
 
   yield <- do.call("rbind", yield)
 
@@ -315,15 +314,14 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
-                                               Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ..., chk = TRUE) {
+                                               Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
 
-  if(chk) {
     chk_number(Ly)
     chk_numeric(pi)
     chk_not_empty(pi)
     chk_not_any_na(pi)
     chk_range(pi, c(0, 1))
-  }
+
   yields <- lapply(pi, tabulate_yield_pi, object = object, Ly = Ly,
                    harvest = harvest, biomass = biomass, all = all)
 
@@ -345,12 +343,12 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
 ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
                                                 Ly = 0, harvest = TRUE, biomass = FALSE,
-                                                all = FALSE, ..., chk = TRUE) {
+                                                all = FALSE, ...) {
 
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yields, pi = pi, Ly = Ly, harvest = harvest,
-                  biomass = biomass, all = TRUE, ..., chk = chk)
+                  biomass = biomass, all = TRUE, ...)
 
   yield <- do.call("rbind", yield)
 

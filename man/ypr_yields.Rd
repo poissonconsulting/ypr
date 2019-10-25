@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = TRUE, biomass = FALSE, chk = TRUE)
+  harvest = TRUE, biomass = FALSE)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
@@ -17,8 +17,6 @@ ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
 \item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
-
-\item{chk}{A flag specifying whether to check the other parameters.}
 }
 \value{
 A numeric vector of the yields.

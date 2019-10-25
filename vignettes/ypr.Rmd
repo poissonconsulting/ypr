@@ -1,11 +1,11 @@
 ---
-title: "Yield per Recruit"
+title: "Get Started with ypr"
 author: "Joe Thorley"
 date: "`r Sys.Date()`"
 bibliography: bibliography.bib
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Yield per Recruit}
+  %\VignetteIndexEntry{Get Started with ypr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,7 +26,7 @@ Modelers just use complicated (or not so complicated) math to iron out the detai
 @cooper_guide_2006
 
 
-Equilibrium based yield per recruit methods [@walters_fisheries_2004] estimate the capture rate that optimizes the yield under the assumption that there is no stochasticity and all density-dependence is captured by the stock-recruitment relationship. The remaining population processes of growth, reproduction and death are captured through a series of relatively straight-forward deterministic equations.
+Equilibrium based yield per recruit (YPR) methods [@walters_fisheries_2004] estimate the capture rate that optimizes the yield under the assumption that there is no stochasticity and all density-dependence is captured by the stock-recruitment relationship. The remaining population processes of growth, reproduction and death are captured through a series of relatively straight-forward deterministic equations.
 
 ## Growth
 
