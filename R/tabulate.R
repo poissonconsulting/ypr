@@ -40,7 +40,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #' Population Parameters
 #'
 #' @inheritParams ypr_schedule
-#' @inheritParams chk::params
+
 #' @return A table of population parameters
 #' @seealso [ypr_population()]
 #' @export
@@ -72,7 +72,7 @@ ypr_tabulate_parameters <- function(population) {
 #'
 #' @param x A data frame with columns Parameter and Value specifying
 #' one or more parameters and their values.
-#' @inheritParams chk::params
+
 #' @return An object of class [ypr_population()]
 #' @seealso [ypr_population()]
 #' @export
@@ -110,7 +110,7 @@ ypr_detabulate_parameters <- function(x) {
 #'
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams chk::params
+
 #' @param binwidth A positive integer of the width of the bins for grouping.
 #' @return A data frame
 #' @seealso [ypr_population()] and [ypr_plot_fish()]
@@ -154,7 +154,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 #' @param all A flag indicating whether to include all parameter values.
-#' @inheritParams chk::params
+
 #' @return A data frame of stock-recruitment parameters.
 #' @export
 #' @examples
@@ -194,7 +194,7 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
-#' @inheritParams chk::params
+
 #' @param all A flag indicating whether to include all parameter values.
 #' @return A table of stock-recruitment parameters.
 #' @export
@@ -221,7 +221,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr.ypr_population
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
-#' @inheritParams chk::params
+
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
@@ -280,7 +280,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' @inheritParams ypr_tabulate_yield.ypr_population
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
-#' @inheritParams chk::params
+
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
@@ -307,7 +307,7 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
-#' @inheritParams chk::params
+
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yields()]
 #' @export

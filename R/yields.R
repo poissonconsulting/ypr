@@ -5,7 +5,6 @@
 #' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
-#' @inheritParams chk::params
 #' @seealso [ypr_yield()]
 #' @return A numeric vector of the yields.
 #' @export

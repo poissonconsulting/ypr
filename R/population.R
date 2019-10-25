@@ -30,7 +30,6 @@
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of effort.
-#' @inheritParams chk::params
 #' @return An object of class `ypr_population`.
 #' @seealso [ypr_population_update()], [ypr_schedule()],
 #' [ypr_yield()] and [ypr_optimize()].
@@ -59,7 +58,6 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #'
 #' @param population An object of class `ypr_population`
 #' @param ... One or more of the arguments from `ypr_population()`.
-#' @inheritParams chk::params
 #' @return An object of class `ypr_population`.
 #' @seealso [ypr_population()]
 #' @export
@@ -76,7 +74,6 @@ ypr_population_update <- function(population, ...) {
 #' Populations
 #'
 #' @inheritParams ypr_population_update
-#' @inheritParams chk::params
 #'
 #' @return A list of [ypr_population()] objects
 #' @seealso [ypr_population()]
