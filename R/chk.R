@@ -1,4 +1,4 @@
-chk_population <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
+chk_population <- function(x, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
 
@@ -27,10 +27,10 @@ chk_population <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
   x
 }
 
-chk_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
+chk_populations <- function(x, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
-  chk_string(x_name, x_name = "x_name")
 
+  chk_list(x, x_name = x_name)
   chk_named(x, x_name = x_name)
   chk_unique(names(x), x_name = x_name)
 
@@ -38,8 +38,7 @@ chk_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
 
   chk_s3_class(x, "ypr_populations")
 
-  lapply(x, chk_population, exclusive = exclusive, order = order,
-    x_name = x_name)
+  lapply(x, chk_population, x_name = x_name)
 
   x
 }
