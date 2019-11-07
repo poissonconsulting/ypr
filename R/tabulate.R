@@ -148,7 +148,6 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams params
-#' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 
 #' @return A data frame of stock-recruitment parameters.
@@ -188,7 +187,6 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams params
-#' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 #' @return A table of stock-recruitment parameters.
 #' @export
@@ -212,7 +210,6 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #'
 #' @inheritParams params
 #' @inheritParams ypr_tabulate_yield
-#' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr.ypr_population
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
@@ -271,7 +268,6 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' @inheritParams params
 #' @inheritParams ypr_tabulate_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
-#' @inheritParams ypr_yield
 
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
@@ -297,7 +293,6 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #'
 #' @inheritParams params
 #' @inheritParams ypr_yields
-#' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yields()]
@@ -326,7 +321,6 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' @inheritParams params
 #' @inheritParams ypr_tabulate_yields
 #' @inheritParams ypr_tabulate_yields.ypr_population
-#' @inheritParams ypr_yield
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export

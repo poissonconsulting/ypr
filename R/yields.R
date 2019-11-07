@@ -4,7 +4,6 @@
 #'
 #' @inheritParams params
 #' @param pi A vector of probabilities of capture to calculate the yield for.
-#' @inheritParams ypr_yield
 #' @seealso [ypr_yield()]
 #' @return A numeric vector of the yields.
 #' @export

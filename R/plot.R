@@ -117,7 +117,6 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 #' Plot Stock-Recruitment Curve
 #'
 #' @inheritParams params
-#' @inheritParams ypr_yield
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ypr_sr()]
 #' @export
@@ -172,7 +171,6 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 #' @inheritParams params
 #' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
@@ -235,7 +233,6 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #' @inheritParams params
 #' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.

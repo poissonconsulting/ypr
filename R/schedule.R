@@ -3,7 +3,6 @@
 #' Generates the life-history schedule by age for a population.
 #'
 #' @inheritParams params
-#' @inheritParams ypr_yield
 #' @return A tibble of the life-history schedule by age.
 #' @seealso [ypr_population()]
 #' @export
