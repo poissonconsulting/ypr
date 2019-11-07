@@ -10,7 +10,7 @@
 #' @examples
 #' ypr_schedule(ypr_population())
 ypr_schedule <- function(population) {
-  check_population(population)
+  chk_population(population)
 
   schedule <- with(population, {
     t <- tR:tmax

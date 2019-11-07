@@ -26,7 +26,7 @@ ypr_plot_yield <- function(object, ...) {
 #' plot(ypr_population())
 #' }
 plot.ypr_population <- function(x, type = "b", ...) {
-  check_population(x)
+  chk_population(x)
 
   schedule <- ypr_schedule(x)
 

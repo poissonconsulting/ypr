@@ -2,7 +2,7 @@ context("population")
 
 test_that("population", {
   population <- ypr_population()
-  expect_identical(check_population(population), population)
+  expect_identical(chk_population(population), population)
   population2 <- ypr_population()
   population2$Rk <- 2.5
   expect_identical(ypr_population_update(population, Rk = 2.5), population2)
@@ -25,14 +25,14 @@ test_that("population", {
     c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2"))
   expect_identical(chk_populations(populations), populations)
   expect_identical(length(populations), 4L)
-  expect_identical(check_population(populations[[1]]), populations[[1]])
+  expect_identical(chk_population(populations[[1]]), populations[[1]])
 
   populations <- ypr_populations(k = 0.12, Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
   expect_identical(names(populations),
     c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2"))
   expect_identical(chk_populations(populations), populations)
   expect_identical(length(populations), 4L)
-  expect_identical(check_population(populations[[1]]), populations[[1]])
+  expect_identical(chk_population(populations[[1]]), populations[[1]])
 
   names(populations) <- NULL
   expect_error(chk_populations(populations), "^`populations` must be named[.]$", class = "chk_error")

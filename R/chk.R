@@ -1,4 +1,4 @@
-check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
+chk_population <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
 
@@ -38,14 +38,14 @@ chk_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
 
   chk_s3_class(x, "ypr_populations")
 
-  lapply(x, check_population, exclusive = exclusive, order = order,
+  lapply(x, chk_population, exclusive = exclusive, order = order,
     x_name = x_name)
 
   x
 }
 
 check_yield_parameters <- function(population, Ly, harvest, biomass) {
-  check_population(population)
+  chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)

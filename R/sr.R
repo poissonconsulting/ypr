@@ -58,7 +58,7 @@ sr <- function(schedule, population) {
 #' ypr_sr(ypr_population()) # Beverton-Holt
 #' ypr_sr(ypr_population(BH = 0L)) # Ricker
 ypr_sr <- function(population) {
-  check_population(population)
+  chk_population(population)
 
   schedule <- ypr_schedule(population)
 

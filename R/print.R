@@ -1,6 +1,6 @@
 #' @export
 print.ypr_population <- function(x, ...) {
-  suppressWarnings(check_population(x))
+  suppressWarnings(chk_population(x))
   nchar <- nchar(names(x))
   nchar <- max(nchar) - nchar + 1
   space <- vapply(nchar, function(x) paste0(rep(" ", times = x), collapse = ""), "")

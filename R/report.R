@@ -84,7 +84,7 @@ knitr::kable(ypr_tabulate_yield(population))
 ypr_report <- function(population, title = "Population Report",
                        date = Sys.Date(),
                        file = "report.Rmd") {
-  check_population(population)
+  chk_population(population)
   chk_string(title)
   chk_date(date)
   chk_string(file)
