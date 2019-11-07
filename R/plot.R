@@ -87,7 +87,6 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ypr_tabulate_fish
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
 #' @export
