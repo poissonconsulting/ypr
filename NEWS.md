@@ -1,3 +1,4 @@
+- Set Lp argument to `ypr_population()` to be 1000 as opposed to Linf.
 - Set Ls and Lv arguments to `ypr_population()` to be 50 as opposed to Linf/2.
 - Added `percent = FALSE` argument to `ypr_plot_fish()`
 
