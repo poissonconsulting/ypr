@@ -69,6 +69,8 @@
 \item{color}{A string of the color around each bar (or NULL).}
 
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+
+\item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
 }
 \description{
 Parameter Descriptions for chk Functions

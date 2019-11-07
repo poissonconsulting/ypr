@@ -117,9 +117,9 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 
 #' Plot Stock-Recruitment Curve
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
-#' @param plot_values A flag indicating whether to plot the actual and optimal values.
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ypr_sr()]
 #' @export

@@ -32,6 +32,7 @@
 #' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
+#' @param plot_values A flag indicating whether to plot the actual and optimal values.
 #' @keywords internal
 #' @name params
 NULL
