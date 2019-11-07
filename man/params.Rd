@@ -89,6 +89,8 @@
 \item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
 
 \item{object}{The populations or populations.}
+
+\item{...}{Unused parameters.}
 }
 \description{
 Parameter Descriptions for chk Functions
