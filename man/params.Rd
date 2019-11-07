@@ -87,6 +87,8 @@
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
 
 \item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
+
+\item{object}{The populations or populations.}
 }
 \description{
 Parameter Descriptions for chk Functions

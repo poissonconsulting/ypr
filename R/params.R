@@ -41,6 +41,7 @@
 #' @param file A string of the file name.
 #' @param binwidth A positive integer of the width of the bins for grouping.
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
+#' @param object The populations or populations.
 #' @keywords internal
 #' @name params
 NULL

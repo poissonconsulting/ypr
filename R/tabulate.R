@@ -1,6 +1,6 @@
 #' Stock-Recruitment Parameters
 #'
-#' @param object The populations or populations.
+#' @inheritParams params
 #' @param ... Unused parameters.
 #' @return A table of stock-recruitment parameters.
 #' @export
