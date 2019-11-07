@@ -57,7 +57,7 @@ plot.ypr_population <- function(x, type = "b", ...) {
 #'
 #' Produces a bivariate line plot of two schedule terms.
 #'
-#' @inheritParams ypr_schedule
+#' @inheritParams params
 #' @param x A string of the term on the x-axis.
 #' @param y A string of the term on the y-axis.
 #' @return A ggplot2 object.
@@ -86,7 +86,6 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' 'Length', 'Age' or 'Weight' class.
 #'
 #' @inheritParams params
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_tabulate_fish
 #' @return A ggplot2 object.
@@ -118,7 +117,6 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 #' Plot Stock-Recruitment Curve
 #'
 #' @inheritParams params
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ypr_sr()]

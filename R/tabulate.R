@@ -39,8 +39,7 @@ ypr_tabulate_yields <- function(object, ...) {
 
 #' Population Parameters
 #'
-#' @inheritParams ypr_schedule
-
+#' @inheritParams params
 #' @return A table of population parameters
 #' @seealso [ypr_population()]
 #' @export
@@ -109,7 +108,6 @@ ypr_detabulate_parameters <- function(x) {
 #' 'Length', 'Age' or 'Weight' class.
 #'
 #' @inheritParams params
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
 #' @return A data frame
 #' @seealso [ypr_population()] and [ypr_plot_fish()]
@@ -150,7 +148,6 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams params
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 
@@ -191,7 +188,6 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams params
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
 #' @return A table of stock-recruitment parameters.
@@ -216,7 +212,6 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #'
 #' @inheritParams params
 #' @inheritParams ypr_tabulate_yield
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr.ypr_population
 #' @return A data frame.
@@ -273,9 +268,9 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 
 #' Tabulate Yield
 #'
+#' @inheritParams params
 #' @inheritParams ypr_tabulate_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 
 #' @return A data frame.
@@ -300,11 +295,10 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 
 #' Tabulate Yields
 #'
-#' @inheritParams ypr_schedule
+#' @inheritParams params
 #' @inheritParams ypr_yields
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_yield.ypr_population
-
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
@@ -329,9 +323,9 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 
 #' Tabulate Yields
 #'
+#' @inheritParams params
 #' @inheritParams ypr_tabulate_yields
 #' @inheritParams ypr_tabulate_yields.ypr_population
-#' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]

@@ -51,7 +51,7 @@ sr <- function(schedule, population) {
 #'   \item{S0F}{spawners at the fished equilibrium}
 #' }
 #'
-#' @inheritParams ypr_schedule
+#' @inheritParams params
 #' @return A data frame of the SR parameters.
 #' @export
 #' @examples

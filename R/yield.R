@@ -46,7 +46,6 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of `Wa` (g).
 #'
 #' @inheritParams params
-#' @inheritParams ypr_schedule
 #' @return The yield as number of fish or biomass.
 #' @seealso [ypr_population()] and [ypr_optimize()]
 #' @export
