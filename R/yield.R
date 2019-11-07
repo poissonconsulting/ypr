@@ -55,7 +55,11 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @examples
 #' ypr_yield(ypr_population())
 ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
-  chk_yield_parameters(population, Ly, harvest, biomass)
+  chk_population(population)
+  chk_number(Ly)
+  chk_gte(Ly)
+  chk_flag(biomass)
+  chk_flag(harvest)
 
   schedule <- ypr_schedule(population)
 

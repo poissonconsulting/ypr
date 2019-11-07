@@ -128,7 +128,11 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 #' ypr_plot_sr(ypr_population(Rk = 10))
 #' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
 ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plot_values = TRUE) {
-  chk_yield_parameters(population, Ly, harvest, biomass)
+  chk_population(population)
+  chk_number(Ly)
+  chk_gte(Ly)
+  chk_flag(biomass)
+  chk_flag(harvest)
   chk_flag(plot_values)
   schedule <- ypr_schedule(population)
 
@@ -182,7 +186,11 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                           Ly = 0, harvest = TRUE, biomass = FALSE,
                                           u = harvest, plot_values = TRUE, ...) {
-  chk_yield_parameters(object, Ly, harvest, biomass)
+  chk_population(object)
+  chk_number(Ly)
+  chk_gte(Ly)
+  chk_flag(biomass)
+  chk_flag(harvest)
 
   chk_string(y)
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))

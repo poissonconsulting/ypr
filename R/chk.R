@@ -43,12 +43,3 @@ chk_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
 
   x
 }
-
-chk_yield_parameters <- function(population, Ly, harvest, biomass) {
-  chk_population(population)
-  chk_number(Ly)
-  chk_gte(Ly)
-  chk_flag(biomass)
-  chk_flag(harvest)
-  population
-}
