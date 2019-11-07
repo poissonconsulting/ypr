@@ -171,7 +171,6 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 #' @inheritParams params
 #' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
@@ -232,7 +231,6 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #' @inheritParams params
 #' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @inheritParams ypr_plot_schedule
-#' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso [ypr_populations()] and [ypr_yields()]
 #' @export
