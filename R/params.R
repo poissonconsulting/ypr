@@ -33,6 +33,9 @@
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
 #' @param plot_values A flag indicating whether to plot the actual and optimal values.
+#' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
+#' @param harvest A flag indicating whether to calculate the yield for harvested fish or captures.
+#' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.
 #' @keywords internal
 #' @name params
 NULL

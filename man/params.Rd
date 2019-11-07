@@ -71,6 +71,12 @@
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
+
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+
+\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+
+\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \description{
 Parameter Descriptions for chk Functions
