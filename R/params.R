@@ -28,6 +28,8 @@
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of effort.
 #' @param all A flag indicating whether to include all parameter values.
+#' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
+#' @param population An object of class [ypr_population()].
 #' @keywords internal
 #' @name params
 NULL

@@ -14,7 +14,6 @@ A tibble of the life-history schedule by age.
 }
 \description{
 Generates the life-history schedule by age for a population.
-#'
 }
 \examples{
 ypr_schedule(ypr_population())

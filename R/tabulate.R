@@ -150,10 +150,10 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 
 #' Stock-Recruitment Parameters
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
-#' @inheritParams params
 
 #' @return A data frame of stock-recruitment parameters.
 #' @export
@@ -191,10 +191,10 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 
 #' Stock-Recruitment Parameters
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
-#' @inheritParams params
 #' @return A table of stock-recruitment parameters.
 #' @export
 #' @examples

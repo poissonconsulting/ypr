@@ -7,7 +7,7 @@
 ypr_population_update(population, ...)
 }
 \arguments{
-\item{population}{An object of class \code{ypr_population}}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{...}{One or more of the arguments from \code{ypr_population()}.}
 }

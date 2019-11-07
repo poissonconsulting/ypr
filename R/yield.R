@@ -45,6 +45,7 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' By default, with `Rmax = 1` the number of individuals is the proportion of the recruits at the carrying capacity.
 #' If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of `Wa` (g).
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
 #' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
 #' @param harvest A flag indicating whether to calculate the yield for harvested fish or captures.

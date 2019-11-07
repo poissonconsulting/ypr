@@ -172,11 +172,11 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
 #' by the annual interval exploitation/capture probability.
 #'
+#' @inheritParams params
 #' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
-#' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ypr_yields()]
@@ -235,11 +235,11 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
 #' by the annual interval exploitation/capture probability.
 #'
+#' @inheritParams params
 #' @inheritParams ypr_tabulate_sr
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_yields
-#' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
 #' @inheritParams ypr_plot_sr
 #' @return A ggplot2 object.
 #' @seealso [ypr_populations()] and [ypr_yields()]

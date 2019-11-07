@@ -29,7 +29,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #'
 #' Updates an object of class [ypr_population()].
 #'
-#' @param population An object of class `ypr_population`
+#' @inheritParams params
 #' @param ... One or more of the arguments from `ypr_population()`.
 #' @return An object of class `ypr_population`.
 #' @seealso [ypr_population()]

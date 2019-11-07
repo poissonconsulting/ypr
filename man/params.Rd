@@ -61,6 +61,10 @@
 \item{q}{The catchability (annual probability of capture) for a unit of effort.}
 
 \item{all}{A flag indicating whether to include all parameter values.}
+
+\item{u}{A flag indicating whether to plot the exploitation rate as opposed to the capture rate.}
+
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 }
 \description{
 Parameter Descriptions for chk Functions
