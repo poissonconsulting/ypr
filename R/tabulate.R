@@ -292,7 +292,7 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' Tabulate Yields
 #'
 #' @inheritParams params
-#' @inheritParams ypr_yields
+#' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @inheritParams ypr_tabulate_yield.ypr_population
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yields()]

@@ -13,7 +13,7 @@
 
 \item{y}{A string of the term on the y-axis.}
 
-\item{pi}{The annual capture probability.}
+\item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
