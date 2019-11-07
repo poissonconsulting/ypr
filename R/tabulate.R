@@ -108,10 +108,9 @@ ypr_detabulate_parameters <- function(x) {
 #' 'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
 #' 'Length', 'Age' or 'Weight' class.
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
-
-#' @param binwidth A positive integer of the width of the bins for grouping.
 #' @return A data frame
 #' @seealso [ypr_population()] and [ypr_plot_fish()]
 #' @export
@@ -215,12 +214,11 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 
 #' Tabulate Yield
 #'
+#' @inheritParams params
 #' @inheritParams ypr_tabulate_yield
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr.ypr_population
-#' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
-
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export

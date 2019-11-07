@@ -77,6 +77,16 @@
 \item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
 
 \item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+
+\item{title}{A string of the report title.}
+
+\item{date}{A date of the report date.}
+
+\item{file}{A string of the file name.}
+
+\item{binwidth}{A positive integer of the width of the bins for grouping.}
+
+\item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
 }
 \description{
 Parameter Descriptions for chk Functions

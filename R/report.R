@@ -71,10 +71,8 @@ knitr::kable(ypr_tabulate_yield(population))
 #'
 #' Creates an Rmd file that can be used to generate a report.
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
-#' @param title A string of the report title.
-#' @param date A date of the report date.
-#' @param file A string of the file name.
 #' @return An invisible character vector of the contents of the file.
 #' @export
 #' @examples

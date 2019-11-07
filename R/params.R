@@ -36,6 +36,11 @@
 #' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
 #' @param harvest A flag indicating whether to calculate the yield for harvested fish or captures.
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.
+#' @param title A string of the report title.
+#' @param date A date of the report date.
+#' @param file A string of the file name.
+#' @param binwidth A positive integer of the width of the bins for grouping.
+#' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
 #' @keywords internal
 #' @name params
 NULL
