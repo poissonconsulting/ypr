@@ -14,7 +14,7 @@
 ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
                        Ly = 0, harvest = TRUE, biomass = FALSE) {
 
-  check_yield_parameters(population, Ly, harvest, biomass)
+  chk_yield_parameters(population, Ly, harvest, biomass)
   chk_numeric(pi)
   chk_not_empty(pi)
   chk_not_any_na(pi)
