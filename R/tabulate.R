@@ -153,7 +153,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
-#' @param all A flag indicating whether to include all parameter values.
+#' @inheritParams params
 
 #' @return A data frame of stock-recruitment parameters.
 #' @export
@@ -194,8 +194,7 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_yield
 #' @inheritParams ypr_tabulate_sr
-
-#' @param all A flag indicating whether to include all parameter values.
+#' @inheritParams params
 #' @return A table of stock-recruitment parameters.
 #' @export
 #' @examples
