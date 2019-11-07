@@ -38,7 +38,7 @@ chk_populations <- function(x, x_name = NULL) {
 
   chk_s3_class(x, "ypr_populations")
 
-  lapply(x, chk_population, x_name = x_name)
+  chk_all(x, chk_population, x_name = x_name)
 
   x
 }
