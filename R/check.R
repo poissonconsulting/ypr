@@ -1,5 +1,5 @@
-check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
-  x_name <- chk_deparse(x_name)
+check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
 
   chk_s3_class(x, "ypr_population", x_name = x_name)
@@ -9,8 +9,13 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
 
   parameters <- .parameters
 
+  # need to check class
   parameters$Code <- paste0(
-    "check_scalar(", parameters$Parameter, ", c(",
+    "chk_scalar(", parameters$Parameter, ");",
+    "chk_s3_class(", parameters$Parameter, ",'",
+    ifelse(parameters$Integer == 1, "integer", "numeric"),"');",
+    "chk_not_any_na(", parameters$Parameter, ");",
+    "chk_range(", parameters$Parameter, ", c(",
     parameters$Lower, ifelse(parameters$Integer == 1, "L", ""), ",",
     parameters$Upper, ifelse(parameters$Integer == 1, "L", ""), "))")
 
@@ -22,8 +27,8 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = substit
   x
 }
 
-check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
-  x_name <- backtick_chk(chk_deparse(x_name))
+check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
+  if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
 
   chk_named(x, x_name = x_name)

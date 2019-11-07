@@ -13,7 +13,6 @@ License: MIT + file LICENSE
 Depends:
     R (>= 3.4.0)
 Imports:
-    checkr,
     chk (>= 0.0.1.9040),
     ggplot2,
     graphics,
@@ -23,6 +22,7 @@ Imports:
 Suggests:
     covr,
     testthat,
+    checkr,
     knitr,
     rmarkdown,
     tidyr

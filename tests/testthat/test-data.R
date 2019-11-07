@@ -11,7 +11,7 @@ test_that("data", {
 })
 
 test_that(".data", {
-  expect_identical(check_data(
+  expect_identical(checkr::check_data(
     .parameters,
     values = list(
       Parameter = "",
