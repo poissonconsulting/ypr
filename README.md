@@ -75,7 +75,6 @@ head(ypr_schedule(population))
 ### Fish
 
 ``` r
-library(ypr)
 ypr_plot_fish(population, color = "white")
 ```
 

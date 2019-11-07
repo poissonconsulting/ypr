@@ -59,7 +59,6 @@ head(ypr_schedule(population))
 ### Fish
 
 ```{r, fig.width=6, fig.height=4}
-library(ypr)
 ypr_plot_fish(population, color = "white")
 head(ypr_tabulate_fish(population))
 ```
