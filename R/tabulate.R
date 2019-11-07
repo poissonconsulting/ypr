@@ -205,7 +205,6 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #' Tabulate Yield
 #'
 #' @inheritParams params
-#' @inheritParams ypr_tabulate_yield
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
@@ -261,8 +260,6 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' Tabulate Yield
 #'
 #' @inheritParams params
-#' @inheritParams ypr_tabulate_yield
-#' @inheritParams ypr_tabulate_yield.ypr_population
 
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
@@ -288,7 +285,6 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #'
 #' @inheritParams params
 #' @param pi A vector of probabilities of capture to calculate the yield for.
-#' @inheritParams ypr_tabulate_yield.ypr_population
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
@@ -314,8 +310,6 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #' Tabulate Yields
 #'
 #' @inheritParams params
-#' @inheritParams ypr_tabulate_yields
-#' @inheritParams ypr_tabulate_yields.ypr_population
 #' @return A data frame.
 #' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
