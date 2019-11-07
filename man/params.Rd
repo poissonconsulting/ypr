@@ -4,6 +4,62 @@
 \alias{params}
 \title{Parameter Descriptions for chk Functions}
 \arguments{
+\item{tmax}{The maximum age (yr).}
+
+\item{k}{The VB growth coefficient (per yr).}
+
+\item{Linf}{The VB mean maximum length (cm).}
+
+\item{t0}{The (theoretical) age at zero length (yr).}
+
+\item{Wb}{The weight (as a function of length) scaling exponent.}
+
+\item{Ls}{The length at which 50\% mature (cm).}
+
+\item{Sp}{The maturity (as a function of length) power.}
+
+\item{es}{The annual probability of a mature fish spawning.}
+
+\item{Sm}{The spawning mortality probability.}
+
+\item{fb}{The fecundity (as a function of weight) scaling exponent.}
+
+\item{tR}{The age from which survival is density-independent (yr).}
+
+\item{BH}{Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.}
+
+\item{Rk}{The lifetime spawners per spawner at low density.}
+
+\item{M}{The instantaneous mortality rate (per yr).}
+
+\item{Mb}{The instantaneous mortality rate (as a function of length) scaling exponent.}
+
+\item{Lv}{The length at which 50\% vulnerable to harvest (cm).}
+
+\item{Vp}{The vulnerability to harvest (as a function of length) power.}
+
+\item{Llo}{The lower harvest slot length (cm).}
+
+\item{Lup}{The upper harvest slot length (cm).}
+
+\item{Nc}{The slot limits non-compliance probability.}
+
+\item{pi}{The annual capture probability.}
+
+\item{rho}{The release probability.}
+
+\item{Hm}{The hooking mortality probability.}
+
+\item{Rmax}{The number of recruits at the carrying capacity (ind).}
+
+\item{A0}{The initial post age tR density independent mortality probability.}
+
+\item{Wa}{The (extrapolated) weight of a 1 cm individual (g).}
+
+\item{fa}{The (theoretical) fecundity of a 1 g female (eggs).}
+
+\item{q}{The catchability (annual probability of capture) for a unit of effort.}
+
 \item{all}{A flag indicating whether to include all parameter values.}
 }
 \description{
