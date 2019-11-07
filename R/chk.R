@@ -27,7 +27,7 @@ check_population <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
   x
 }
 
-check_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
+chk_populations <- function(x, exclusive = TRUE, order = TRUE, x_name = NULL) {
   if(is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
 
