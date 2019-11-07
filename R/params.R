@@ -29,6 +29,8 @@
 #' @param q The catchability (annual probability of capture) for a unit of effort.
 #' @param all A flag indicating whether to include all parameter values.
 #' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
+#' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
+#' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
 #' @keywords internal
 #' @name params

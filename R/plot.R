@@ -85,11 +85,10 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' 'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
 #' 'Length', 'Age' or 'Weight' class.
 #'
+#' @inheritParams params
 #' @inheritParams ypr_schedule
 #' @inheritParams ypr_plot_schedule
 #' @inheritParams ypr_tabulate_fish
-#' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
-#' @param color A string of the color around each bar (or NULL).
 #' @return A ggplot2 object.
 #' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
 #' @export

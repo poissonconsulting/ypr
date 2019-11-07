@@ -64,6 +64,10 @@
 
 \item{u}{A flag indicating whether to plot the exploitation rate as opposed to the capture rate.}
 
+\item{percent}{A flag specifying whether to plot the number of fish as a percent or frequency (the default).}
+
+\item{color}{A string of the color around each bar (or NULL).}
+
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 }
 \description{
