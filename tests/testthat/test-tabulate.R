@@ -142,5 +142,22 @@ test_that("ypr_tabulate_yield", {
 
   expect_identical(ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
     ypr_population(BH = 1L))
+})
 
+test_that("ypr_tabulate_biomass", {
+  biomass <- ypr_tabulate_biomass(ypr_population())
+
+  expect_identical(checkr::check_data(
+    biomass,
+    values = list(
+      Age = c(1L, 100L),
+      Weight = c(0, .Machine$double.xmax),
+      Fecundity = c(0, .Machine$double.xmax),
+      Survivors = c(0, 1),
+      Spawners = c(0, .Machine$double.xmax),
+      Biomass = c(0, .Machine$double.xmax),
+      Eggs = c(0, .Machine$double.xmax)),
+    nrow = TRUE,
+    exclusive = TRUE,
+    order = TRUE), biomass)
 })

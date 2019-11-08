@@ -144,6 +144,33 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   as_tibble(table)
 }
 
+#' Table Fish
+#'
+#' Produces a data frame of the 'Weight' and 'Fecundity' and the number of
+#' 'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
+#' 'Age' class.
+#'
+#' @inheritParams params
+#' @return A data frame
+#' @seealso [ypr_population()] and [ypr_plot_fish()]
+#' @export
+#' @examples
+#' ypr_tabulate_biomass(ypr_population())
+ypr_tabulate_biomass <- function(population) {
+  schedule <- ypr_schedule(population)
+  fish <- ypr_tabulate_fish(population)
+
+  schedule <- schedule[c("Age", "Weight", "Fecundity")]
+  fish <- fish[c("Survivors", "Spawners")]
+
+  biomass <- cbind(schedule, fish)
+  biomass$Biomass <- biomass$Weight * biomass$Survivors
+  biomass$Eggs <- (biomass$Fecundity * biomass$Spawners) / 2
+
+  as_tibble(biomass)
+}
+
+
 #' Stock-Recruitment Parameters
 #'
 #' @inheritParams params
