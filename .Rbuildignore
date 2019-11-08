@@ -10,8 +10,10 @@
 ^codecov\.yml$
 ^CODE_OF_CONDUCT\.md$
 ^data-raw$
-^bibliography.bib$
+^bibliography\.bib$
 ^docs$
-^report.Rmd$
-^report.html$
+^report\.Rmd$
+^report\.html$
 ^build.R$
+^\.covrignore$
+^pkgdown$
