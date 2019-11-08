@@ -47,8 +47,8 @@ sanitize <- function(x) {
 tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
   object$pi <- pi
   yield <- ypr_tabulate_yield(object = object, Ly = Ly,
-                              harvest = harvest, biomass = biomass,
-                              type = "actual", all = all)
+    harvest = harvest, biomass = biomass,
+    type = "actual", all = all)
   yield$Type <- NULL
   yield
 }

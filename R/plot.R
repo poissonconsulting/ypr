@@ -32,23 +32,23 @@ plot.ypr_population <- function(x, type = "b", ...) {
 
   with(schedule, {
     plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
-         type = type, ...)
+      type = type, ...)
     plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
-         type = type, ...)
+      type = type, ...)
     plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
-         type = type, ...)
+      type = type, ...)
     plot(Spawning ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
     plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
     plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
     plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
     plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
     plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-         type = type, ...)
+      type = type, ...)
   })
   invisible(x)
 }
@@ -104,7 +104,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
 
   chk_string(y)
   chk_subset(y, c("Survivors", "Spawners", "Caught", "Harvested",
-                  "Released", "HandlingMortalities"))
+    "Released", "HandlingMortalities"))
   chk_flag(percent)
 
   fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
@@ -242,7 +242,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-                              biomass = biomass)
+    biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
@@ -297,15 +297,15 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #'   ggplot2::facet_grid(Rk ~ Llo)
 #' }
 ypr_plot_yield.ypr_populations <- function(
-  object, y = "Yield", pi = seq(0, 1, length.out = 100),
-  Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
+                                           object, y = "Yield", pi = seq(0, 1, length.out = 100),
+                                           Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
 
   chk_string(y)
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-                              biomass = biomass)
+    biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 

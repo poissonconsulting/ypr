@@ -2,7 +2,7 @@ context("schedule")
 
 test_that("schedule", {
   schedule <- ypr_schedule(ypr_population(Rmax = 100, Rk = 2, Wa = 0.01,
-                                          n = ypr:::inst2inter(0.2), fa = 0.1))
+    n = ypr:::inst2inter(0.2), fa = 0.1))
   expect_identical(checkr::check_data(
     schedule,
     values = list(Age = c(0L, 100L),

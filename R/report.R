@@ -27,16 +27,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-', description ,'
+', description, "
 
 ```{r}
 library(ypr)
-population <- ', lines_population(population), "
+population <- ", lines_population(population), "
 ```")
 }
 
 lines_body <- function() {
-'```{r}
+  '```{r}
 knitr::kable(ypr_tabulate_parameters(population))
 ```
 
@@ -107,8 +107,8 @@ ypr_report <- function(population, title = "Population Report",
   file.create(file)
   con <- file(file, "w")
   writeLines(lines_head(population = population, title = title,
-                        description = description, date = date),
-             con = con)
+    description = description, date = date),
+  con = con)
   writeLines(lines_body(), con = con)
   close(con)
   if(view) {
