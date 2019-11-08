@@ -48,8 +48,8 @@ ypr_tabulate_parameters <- function(population) {
   chk_population(population)
 
   parameters <- data.frame(Parameter = names(population),
-                           Value = unname(unlist(population)),
-                           stringsAsFactors = FALSE)
+    Value = unname(unlist(population)),
+    stringsAsFactors = FALSE)
 
   pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
   rd <- tools::Rd_db("ypr")$ypr_population.Rd
@@ -58,8 +58,8 @@ ypr_tabulate_parameters <- function(population) {
   rd <- regmatches(rd, gp)[[1]]
 
   data <- data.frame(Parameter = sub(pattern, "\\2", rd),
-                     Description = sub(pattern, "\\5", rd),
-                     stringsAsFactors = FALSE)
+    Description = sub(pattern, "\\5", rd),
+    stringsAsFactors = FALSE)
 
   parameters <- merge(parameters, data, by = "Parameter", sort = FALSE)
 
@@ -77,16 +77,16 @@ ypr_tabulate_parameters <- function(population) {
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
 ypr_detabulate_parameters <- function(x) {
-    chk_s3_class(x, "data.frame")
-    chk_superset(colnames(x), c("Parameter", "Value"))
-    chk_s3_class(x$Parameter, "character")
-    chk_not_any_na(x$Parameter)
-    chk_subset(x$Parameter, .parameters$Parameter)
-    chk_unique(x$Parameter)
+  chk_s3_class(x, "data.frame")
+  chk_superset(colnames(x), c("Parameter", "Value"))
+  chk_s3_class(x$Parameter, "character")
+  chk_not_any_na(x$Parameter)
+  chk_subset(x$Parameter, .parameters$Parameter)
+  chk_unique(x$Parameter)
 
-    chk_numeric(x$Value)
-    chk_not_any_na(x$Value)
-    chk_range(x$Value, c(min(.parameters$Lower), max(.parameters$Upper)))
+  chk_numeric(x$Value)
+  chk_not_any_na(x$Value)
+  chk_range(x$Value, c(min(.parameters$Lower), max(.parameters$Upper)))
 
   x <- merge(x, .parameters[c("Parameter", "Integer")], by = "Parameter", sort = FALSE)
 
@@ -94,7 +94,7 @@ ypr_detabulate_parameters <- function(x) {
   names(parameters) <- x$Parameter
 
   parameters <- mapply(function(x, y) if(y == 1) as.integer(x) else x,
-                       parameters, x$Integer, SIMPLIFY = FALSE)
+    parameters, x$Integer, SIMPLIFY = FALSE)
 
   population <- do.call("ypr_population", parameters)
   population
@@ -114,11 +114,11 @@ ypr_detabulate_parameters <- function(x) {
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
 ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
-    chk_population(population)
-    chk_string(x)
-    chk_subset(x, c("Age", "Length", "Weight"))
-    chk_whole_number(binwidth)
-    chk_range(binwidth, c(1L, 1000L))
+  chk_population(population)
+  chk_string(x)
+  chk_subset(x, c("Age", "Length", "Weight"))
+  chk_whole_number(binwidth)
+  chk_range(binwidth, c(1L, 1000L))
 
   table <- ypr_schedule(population = population)
   table <- as.data.frame(table)
@@ -131,7 +131,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table$HandlingMortality <- table$Released * population$Hm
 
   table <- table[c(x, "Surviving", "Spawning", "Caught", "Harvested",
-                   "Released", "HandlingMortality")]
+    "Released", "HandlingMortality")]
 
   breaks <- seq(0, max(table[[1]] + binwidth), by = binwidth)
   table[[1]] <- cut(table[[1]], breaks = breaks)
@@ -193,7 +193,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
   chk_flag(all)
 
   sr <- lapply(object, ypr_tabulate_sr, Ly = Ly, harvest = harvest,
-               biomass = biomass, all = TRUE, ...)
+    biomass = biomass, all = TRUE, ...)
 
   sr <- do.call("rbind", sr)
 
@@ -218,35 +218,35 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
   actual_pi <- object$pi
 
   actual_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
-                            biomass = biomass)
+    biomass = biomass)
 
   if(type == "actual") {
     yield <- data.frame(Type = "actual",
-                        pi = actual_pi,
-                        u = ypr_exploitation(object, actual_pi),
-                        Yield = actual_yield,
-                        Age = attr(actual_yield, "Age"),
-                        Length = attr(actual_yield, "Length"),
-                        Weight = attr(actual_yield, "Weight"),
-                        Effort = attr(actual_yield, "Effort"),
-                        stringsAsFactors = FALSE)
+      pi = actual_pi,
+      u = ypr_exploitation(object, actual_pi),
+      Yield = actual_yield,
+      Age = attr(actual_yield, "Age"),
+      Length = attr(actual_yield, "Length"),
+      Weight = attr(actual_yield, "Weight"),
+      Effort = attr(actual_yield, "Effort"),
+      stringsAsFactors = FALSE)
   } else {
     optimal_pi <- ypr_optimize(object, Ly = Ly, harvest = harvest,
-                               biomass = biomass)
+      biomass = biomass)
 
     object <- ypr_population_update(object, pi = optimal_pi)
 
     optimal_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
-                               biomass = biomass)
+      biomass = biomass)
     yield <- data.frame(Type = c("actual", "optimal"),
-                        pi = c(actual_pi, optimal_pi),
-                        u = ypr_exploitation(object, c(actual_pi, optimal_pi)),
-                        Yield = c(actual_yield, optimal_yield),
-                        Age = c(attr(actual_yield, "Age"), attr(optimal_yield, "Age")),
-                        Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),
-                        Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
-                        Effort = c(attr(actual_yield, "Effort"), attr(optimal_yield, "Effort")),
-                        stringsAsFactors = FALSE)
+      pi = c(actual_pi, optimal_pi),
+      u = ypr_exploitation(object, c(actual_pi, optimal_pi)),
+      Yield = c(actual_yield, optimal_yield),
+      Age = c(attr(actual_yield, "Age"), attr(optimal_yield, "Age")),
+      Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),
+      Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
+      Effort = c(attr(actual_yield, "Effort"), attr(optimal_yield, "Effort")),
+      stringsAsFactors = FALSE)
 
     if(type == "optimal")
       yield <- yield[yield$Type == "optimal", ]
@@ -272,7 +272,7 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
-                  biomass = biomass, type = type, all = TRUE, ...)
+    biomass = biomass, type = type, all = TRUE, ...)
 
   yield <- do.call("rbind", yield)
 
@@ -293,14 +293,14 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
                                                Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
 
-    chk_number(Ly)
-    chk_numeric(pi)
-    chk_not_empty(pi)
-    chk_not_any_na(pi)
-    chk_range(pi, c(0, 1))
+  chk_number(Ly)
+  chk_numeric(pi)
+  chk_not_empty(pi)
+  chk_not_any_na(pi)
+  chk_range(pi, c(0, 1))
 
   yields <- lapply(pi, tabulate_yield_pi, object = object, Ly = Ly,
-                   harvest = harvest, biomass = biomass, all = all)
+    harvest = harvest, biomass = biomass, all = all)
 
   yields <- do.call(rbind, yields)
 
@@ -322,7 +322,7 @@ ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.ou
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yields, pi = pi, Ly = Ly, harvest = harvest,
-                  biomass = biomass, all = TRUE, ...)
+    biomass = biomass, all = TRUE, ...)
 
   yield <- do.call("rbind", yield)
 

@@ -63,9 +63,9 @@ ypr_populations <- function(...) {
     class(populations) <- "ypr_populations"
     return(populations)
   }
-    chk_named(parameters, x_name = "`...`")
-    chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
-    chk_unique(names(parameters), x_name = "`names(...)`")
+  chk_named(parameters, x_name = "`...`")
+  chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
+  chk_unique(names(parameters), x_name = "`names(...)`")
 
   parameters <- lapply(parameters, function(x) sort(unique(x)))
 

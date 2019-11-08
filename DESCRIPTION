@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.3.1.9003
+Version: 0.3.1.9004
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods
     as described by Walters and Martell (2004) <isbn:0-691-11544-3>.
