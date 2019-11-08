@@ -78,22 +78,25 @@ knitr::kable(ypr_tabulate_yield(population))
 #' @export
 #' @examples
 #' \dontrun{
-#' cat(ypr_report(ypr_population(), file = tempfile()), sep = "\\n")
+#' cat(ypr_report(ypr_population(), file = tempfile(), ask = FALSE), sep = "\\n")
 #' }
 ypr_report <- function(population, title = "Population Report",
                        date = Sys.Date(),
-                       file = "report", view = FALSE) {
+                       file = "report", view = FALSE, ask = TRUE) {
   chk_population(population)
   chk_string(title)
   chk_date(date)
   chk_string(file)
   chk_flag(view)
+  chk_flag(ask)
 
   if(grepl("[.](R|r)md$", file)) {
     wrn("File extension on argument `file` is deprecated (please remove).")
     file <- sub("[.](R|r)md$", "", file)
   }
   file <- p0(file, ".Rmd")
+
+  if(!ask_file(file, ask)) return(invisible(character(0)))
 
   file.create(file)
   con <- file(file, "w")
@@ -104,10 +107,12 @@ ypr_report <- function(population, title = "Population Report",
   if(view) {
     if(!requireNamespace("rmarkdown"))
       err("Package 'rmarkdown' is required to render the report to html.")
+    file_html <- p0(sub("[.](R|r)md$", "", file), ".html")
+    if(!ask_file(file_html, ask)) return(invisible(readLines(file)))
     rmarkdown::render(file, output_format = "html_document", quiet = TRUE)
     if(!requireNamespace("rstudioapi"))
-      err("Package 'rstudioapi' is required to view thes html report.")
-    rstudioapi::viewer(p0(sub("[.](R|r)md$", "", file), ".html"))
+      err("Package 'rstudioapi' is required to view the html report.")
+    rstudioapi::viewer(file_html)
   }
   invisible(readLines(file))
 }

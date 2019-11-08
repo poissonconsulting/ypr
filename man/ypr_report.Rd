@@ -5,7 +5,7 @@
 \title{Report}
 \usage{
 ypr_report(population, title = "Population Report", date = Sys.Date(),
-  file = "report", view = FALSE)
+  file = "report", view = FALSE, ask = TRUE)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
@@ -14,9 +14,11 @@ ypr_report(population, title = "Population Report", date = Sys.Date(),
 
 \item{date}{A date of the report date.}
 
-\item{file}{A string of the file name.}
+\item{file}{A string of the path to the file (without the extension).}
 
 \item{view}{A flag specifying whether to view the report (after rendering it to html).}
+
+\item{ask}{A flag specifying whether to ask before overwriting or creating a file.}
 }
 \value{
 An invisible character vector of the contents of the file.
@@ -26,6 +28,6 @@ Creates an Rmd file that can be used to generate a report.
 }
 \examples{
 \dontrun{
-cat(ypr_report(ypr_population(), file = tempfile()), sep = "\\\\n")
+cat(ypr_report(ypr_population(), file = tempfile(), ask = FALSE), sep = "\\\\n")
 }
 }

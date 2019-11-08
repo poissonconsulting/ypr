@@ -1,3 +1,9 @@
+ask_file <- function(file, ask) {
+  if(!ask) return(TRUE)
+  if(file.exists(file)) return(yesno("Overwrite file '", file, "'?"))
+  yesno("Create file '", file, "'?")
+}
+
 bh <- function(stock, alpha, beta) {
   unname(alpha * stock / (1 + (beta * stock)))
 }
@@ -41,8 +47,8 @@ sanitize <- function(x) {
 tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
   object$pi <- pi
   yield <- ypr_tabulate_yield(object = object, Ly = Ly,
-    harvest = harvest, biomass = biomass,
-    type = "actual", all = all)
+                              harvest = harvest, biomass = biomass,
+                              type = "actual", all = all)
   yield$Type <- NULL
   yield
 }

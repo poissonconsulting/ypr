@@ -82,7 +82,7 @@
 
 \item{date}{A date of the report date.}
 
-\item{file}{A string of the file name.}
+\item{file}{A string of the path to the file (without the extension).}
 
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
 
@@ -93,6 +93,8 @@
 \item{...}{Unused parameters.}
 
 \item{view}{A flag specifying whether to view the report (after rendering it to html).}
+
+\item{ask}{A flag specifying whether to ask before overwriting or creating a file.}
 }
 \description{
 Parameter Descriptions for chk Functions

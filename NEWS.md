@@ -1,4 +1,5 @@
 - Added `view = FALSE` argument to `ypr_report()` to allow user to view report in browser.
+- Added `ask = TRUE` argument to `ypr_report()` to ask before overwriting or creating a file.
 - Deprecated requirement to provide file extension in `ypr_report()`.
 - Added plot of biomass and eggs to report.
 - Added `ypr_tabulate_biomass()` to easily calculate total biomass and eggs.

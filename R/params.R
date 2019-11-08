@@ -38,12 +38,13 @@
 #' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.
 #' @param title A string of the report title.
 #' @param date A date of the report date.
-#' @param file A string of the file name.
+#' @param file A string of the path to the file (without the extension).
 #' @param binwidth A positive integer of the width of the bins for grouping.
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
 #' @param object The populations or populations.
 #' @param ... Unused parameters.
 #' @param view A flag specifying whether to view the report (after rendering it to html).
+#' @param ask A flag specifying whether to ask before overwriting or creating a file.
 #' @keywords internal
 #' @name params
 NULL
