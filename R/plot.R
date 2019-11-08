@@ -32,23 +32,23 @@ plot.ypr_population <- function(x, type = "b", ...) {
 
   with(schedule, {
     plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
-      type = type, ...)
+         type = type, ...)
     plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
-      type = type, ...)
+         type = type, ...)
     plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
-      type = type, ...)
+         type = type, ...)
     plot(Spawning ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
+         type = type, ...)
     plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
+         type = type, ...)
     plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
+         type = type, ...)
     plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
+         type = type, ...)
     plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-      type = type, ...)
+         type = type, ...)
     plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-      type = type, ...)
+         type = type, ...)
   })
   invisible(x)
 }
@@ -74,8 +74,14 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   chk_string(y)
   chk_subset(y, values = colnames(schedule))
 
+  labels <- if(sum(schedule[[y]]) >= 1000) {
+    scales::comma
+  } else
+    waiver()
+
   ggplot(data = schedule, aes_string(x = x, y = y)) +
     geom_line() +
+    scale_y_continuous(y, labels = labels) +
     expand_limits(x = 0, y = 0)
 }
 
@@ -98,13 +104,18 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
 
   chk_string(y)
   chk_subset(y, c("Survivors", "Spawners", "Caught", "Harvested",
-    "Released", "HandlingMortalities"))
+                  "Released", "HandlingMortalities"))
   chk_flag(percent)
 
   fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
 
   if(percent) fish[[y]] <- fish[[y]] / sum(fish[[y]])
-  labels <- if(percent) scales::percent else scales::comma
+  labels <- if(percent) {
+    scales::percent
+  } else if(sum(fish[[y]]) >= 1000) {
+    scales::comma
+  } else
+    waiver()
 
   ggplot(data = fish, aes_string(x = x, weight = y)) +
     (if(is.null(color)) geom_bar(width = binwidth) else
@@ -132,10 +143,15 @@ ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
 
   biomass <- ypr_tabulate_biomass(population)
 
+  labels <- if(sum(biomass[[y]]) >= 1000) {
+    scales::comma
+  } else
+    waiver()
+
   ggplot(data = biomass, aes_string(x = "Age", weight = y)) +
     (if(is.null(color)) geom_bar(width = 1) else
       geom_bar(width = 1, color = color)) +
-    ylab(y) +
+    scale_y_continuous(y, labels = labels) +
     expand_limits(x = 0, y = 0)
 }
 
@@ -175,6 +191,16 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
   data2$Recruits[1:3] <- 0
   data2$Eggs[7:9] <- 0
 
+  labels_x <- if(sum(data[["Eggs"]]) >= 1000) {
+    scales::comma
+  } else
+    waiver()
+
+  labels_y <- if(sum(data[["Recruits"]]) >= 1000) {
+    scales::comma
+  } else
+    waiver()
+
   ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
     (
       if(plot_values)
@@ -183,7 +209,8 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
     ) +
     geom_line() +
     expand_limits(x = 0, y = 0) +
-    scale_x_continuous(labels = scales::comma) +
+    scale_x_continuous(labels = labels_x) +
+    scale_y_continuous(labels = labels_y) +
     scale_color_manual(values = c("red", "blue", "black")) +
     NULL
 }
@@ -215,7 +242,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-    biomass = biomass)
+                              biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
@@ -270,15 +297,15 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 #'   ggplot2::facet_grid(Rk ~ Llo)
 #' }
 ypr_plot_yield.ypr_populations <- function(
-                                           object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                           Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
+  object, y = "Yield", pi = seq(0, 1, length.out = 100),
+  Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
 
   chk_string(y)
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-    biomass = biomass)
+                              biomass = biomass)
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
