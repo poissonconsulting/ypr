@@ -103,7 +103,7 @@ ypr_detabulate_parameters <- function(x) {
 #' Table Fish
 #'
 #' Produces a data frame of the number of fish in the
-#' 'Surviving', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
+#' 'Surviving', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
 #' 'Length', 'Age' or 'Weight' class.
 #'
 #' @inheritParams params
@@ -128,10 +128,10 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table$Caught <- table$Surviving *  table$Vulnerability * population$pi
   table$Harvested <- table$Caught * table$Retention
   table$Released <- table$Caught * (1 - table$Retention)
-  table$HandlingMortality <- table$Released * population$Hm
+  table$HandlingMortalities <- table$Released * population$Hm
 
   table <- table[c(x, "Surviving", "Spawners", "Caught", "Harvested",
-    "Released", "HandlingMortality")]
+    "Released", "HandlingMortalities")]
 
   breaks <- seq(0, max(table[[1]] + binwidth), by = binwidth)
   table[[1]] <- cut(table[[1]], breaks = breaks)

@@ -94,13 +94,13 @@ test_that("ypr_tabulate_yield", {
 
   fish <- ypr_tabulate_fish(ypr_population())
   expect_identical(colnames(fish), c("Age", "Surviving", "Spawners", "Caught",
-    "Harvested", "Released", "HandlingMortality"))
+    "Harvested", "Released", "HandlingMortalities"))
   expect_identical(fish[[1]], as.double(1:20))
   expect_equal(fish$Surviving[1:2], c(0.134, 0.110), tolerance = 0.001)
 
   fish <- ypr_tabulate_fish(ypr_population(), x = "Length")
   expect_identical(colnames(fish), c("Length", "Surviving", "Spawners", "Caught",
-    "Harvested", "Released", "HandlingMortality"))
+    "Harvested", "Released", "HandlingMortalities"))
   expect_identical(fish$Length[1:2], c(14, 26))
 
   sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3, 5)))

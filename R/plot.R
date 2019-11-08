@@ -98,7 +98,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
 
   chk_string(y)
   chk_subset(y, c("Surviving", "Spawners", "Caught", "Harvested",
-    "Released", "HandlingMortality"))
+    "Released", "HandlingMortalities"))
   chk_flag(percent)
 
   fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
