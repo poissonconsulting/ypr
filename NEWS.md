@@ -1,4 +1,5 @@
-- Added `ypr_tabulate_biomass()` to easily calculate total biomass.
+- Added plot of biomass and eggs to report.
+- Added `ypr_tabulate_biomass()` to easily calculate total biomass and eggs.
 - Rename column `HandlingMortality` to `HandlingMortalities` in `ypr_tabulate_fish` and `ypr_plot_fish()`.
 - Rename column `Spawning` to `Spawners` in `ypr_tabulate_fish` and `ypr_plot_fish()`.
 - Set Lp argument to `ypr_population()` to be 1000 as opposed to Linf.

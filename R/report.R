@@ -53,6 +53,8 @@ ypr_plot_fish(population, color = "white")
 ypr_plot_fish(population, "Length", "Caught")
 ypr_plot_fish(population, "Age", "Spawners", color = "white")
 ypr_plot_fish(population, "Length", "Spawners")
+ypr_plot_biomass(population, color = "white")
+ypr_plot_biomass(population, y = "Eggs", color = "white")
 ```
 
 ```{r, fig.width = 6, fig.height = 4}
