@@ -21,5 +21,11 @@ Tabulate Yields
 ypr_tabulate_yields(ypr_population())
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}}, \code{\link[=ypr_populations]{ypr_populations()}} and \code{\link[=ypr_yields]{ypr_yields()}}
+Other tabulate: \code{\link{ypr_detabulate_parameters}},
+  \code{\link{ypr_tabulate_biomass}},
+  \code{\link{ypr_tabulate_fish}},
+  \code{\link{ypr_tabulate_parameters}},
+  \code{\link{ypr_tabulate_sr}},
+  \code{\link{ypr_tabulate_yield}}
 }
+\concept{tabulate}

@@ -1,11 +1,13 @@
-#' Stock-Recruitment Parameters
+#' Tabulate Stock-Recruitment Parameters
 #'
 #' @inheritParams params
-#' @return A table of stock-recruitment parameters.
+#' @return A data.frame of stock-recruitment parameters.
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
 #' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
+#' ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 ypr_tabulate_sr <- function(object, ...) {
   UseMethod("ypr_tabulate_sr")
 }
@@ -15,10 +17,11 @@ ypr_tabulate_sr <- function(object, ...) {
 #' @inheritParams params
 #'
 #' @return A data frame.
-#' @seealso [ypr_population()], [ypr_populations()] and [ypr_yield()]
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
+#' ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 ypr_tabulate_yield <- function(object, ...) {
   UseMethod("ypr_tabulate_yield")
 }
@@ -28,7 +31,7 @@ ypr_tabulate_yield <- function(object, ...) {
 #' @inheritParams params
 #'
 #' @return A data frame.
-#' @seealso [ypr_population()], [ypr_populations()] and [ypr_yields()]
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
@@ -36,11 +39,11 @@ ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
 
-#' Population Parameters
+#' Tabulate Population Parameters
 #'
 #' @inheritParams params
 #' @return A table of population parameters
-#' @seealso [ypr_population()]
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
@@ -66,13 +69,13 @@ ypr_tabulate_parameters <- function(population) {
   as_tibble(parameters)
 }
 
-#' Detabulate Parameters
+#' Detabulate Population Parameters
 #'
 #' @param x A data frame with columns Parameter and Value specifying
 #' one or more parameters and their values.
 
 #' @return An object of class [ypr_population()]
-#' @seealso [ypr_population()]
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
@@ -100,7 +103,7 @@ ypr_detabulate_parameters <- function(x) {
   population
 }
 
-#' Table Fish
+#' Tabulate Fish Numbers
 #'
 #' Produces a data frame of the number of fish in the
 #' 'Survivors', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
@@ -109,7 +112,7 @@ ypr_detabulate_parameters <- function(x) {
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
 #' @return A data frame
-#' @seealso [ypr_population()] and [ypr_plot_fish()]
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
@@ -144,7 +147,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   as_tibble(table)
 }
 
-#' Table Fish
+#' Tablulate Biomass (and Eggs)
 #'
 #' Produces a data frame of the 'Weight' and 'Fecundity' and the number of
 #' 'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
@@ -152,7 +155,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #'
 #' @inheritParams params
 #' @return A data frame
-#' @seealso [ypr_population()] and [ypr_plot_fish()]
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_biomass(ypr_population())
@@ -171,14 +174,8 @@ ypr_tabulate_biomass <- function(population) {
 }
 
 
-#' Stock-Recruitment Parameters
-#'
-#' @inheritParams params
-#' @return A data frame of stock-recruitment parameters.
+#' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
 #' @export
-#' @examples
-#' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
-#' ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
 ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
                                            biomass = FALSE, all = FALSE, ...) {
   sr <- ypr_sr(object)
@@ -208,13 +205,8 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
   as_tibble(table)
 }
 
-#' Stock-Recruitment Parameters
-#'
-#' @inheritParams params
-#' @return A table of stock-recruitment parameters.
+#' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
 #' @export
-#' @examples
-#' ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                             all = FALSE, ...) {
   chk_flag(all)
@@ -229,14 +221,8 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
   as_tibble(sr)
 }
 
-#' Tabulate Yield
-#'
-#' @inheritParams params
-#' @return A data frame.
-#' @seealso [ypr_population()] and [ypr_yield()]
+#' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
-#' @examples
-#' ypr_tabulate_yield(ypr_population())
 ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                               type = "both", all = FALSE, ...) {
 
@@ -284,15 +270,8 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
   as_tibble(yield)
 }
 
-#' Tabulate Yield
-#'
-#' @inheritParams params
-
-#' @return A data frame.
-#' @seealso [ypr_population()] and [ypr_yield()]
+#' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
-#' @examples
-#' ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                                type = "both", all = FALSE, ...) {
 
@@ -313,7 +292,6 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' @inheritParams params
 #' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @return A data frame.
-#' @seealso [ypr_population()] and [ypr_yields()]
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
@@ -338,7 +316,6 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 #'
 #' @inheritParams params
 #' @return A data frame.
-#' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))

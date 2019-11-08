@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulate.R
 \name{ypr_tabulate_biomass}
 \alias{ypr_tabulate_biomass}
-\title{Table Fish}
+\title{Tablulate Biomass (and Eggs)}
 \usage{
 ypr_tabulate_biomass(population)
 }
@@ -21,5 +21,11 @@ Produces a data frame of the 'Weight' and 'Fecundity' and the number of
 ypr_tabulate_biomass(ypr_population())
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_plot_fish]{ypr_plot_fish()}}
+Other tabulate: \code{\link{ypr_detabulate_parameters}},
+  \code{\link{ypr_tabulate_fish}},
+  \code{\link{ypr_tabulate_parameters}},
+  \code{\link{ypr_tabulate_sr}},
+  \code{\link{ypr_tabulate_yields}},
+  \code{\link{ypr_tabulate_yield}}
 }
+\concept{tabulate}
