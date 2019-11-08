@@ -30,9 +30,11 @@
 
 \item{Rk}{The lifetime spawners per spawner at low density.}
 
-\item{M}{The instantaneous mortality rate (per yr).}
+\item{n}{The annual natural mortality rate from age tR to length Ln.}
 
-\item{Mb}{The instantaneous mortality rate (as a function of length) scaling exponent.}
+\item{nL}{The annual natural mortality rate from length Ln.}
+
+\item{Ln}{The length at which the natural mortality rate switches from n to nA (cm).}
 
 \item{Lv}{The length at which 50\% vulnerable to harvest (cm).}
 
@@ -51,8 +53,6 @@
 \item{Hm}{The hooking mortality probability.}
 
 \item{Rmax}{The number of recruits at the carrying capacity (ind).}
-
-\item{A0}{The initial post age tR density independent mortality probability.}
 
 \item{Wa}{The (extrapolated) weight of a 1 cm individual (g).}
 

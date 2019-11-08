@@ -85,17 +85,7 @@ ypr_plot_schedule(population, "Length", "Spawning")
 
 ### Natural Mortality
 
-The annual interval natural mortality rate is assumed to vary by length according to the equation
-
-$$ N = 1 - \exp(-M \cdot L^{M_\beta})$$
-```{r}
-population <- ypr_population_update(population, M = 0.2, Mb = -0.5)
-ypr_plot_schedule(population, "Length", "NaturalMortality")
-```
-
-where $M$ is the annual instantaneous natural mortality rate.
-
-The natural mortality rate can also be affected by spawning mortality
+The natural mortality rate can be affected by spawning mortality
 
 ```{r}
 population <- ypr_population_update(population, Sm = 0.5)

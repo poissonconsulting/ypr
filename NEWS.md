@@ -1,3 +1,12 @@
+- Replaced parameters 
+    - `M` (annual instantaneous natural mortality rate)
+    - `Mb` (annual instantaneous natual mortality rate (as a function of length) scaling exponent)
+    - `A0` (initial post age tR density independent mortality probability)
+  with
+    - `n` (annual natural mortality rate from age tR to length Ln)
+    - `nL` (annual natural mortality rate from length Ln)
+    - `Ln` (length at which the natural mortality rate switches from n to nA)
+
 - Added `description = ""` argument to `ypr_report()` to allow user to describe report.
 - `ypr_report()` now starts with table of parameter values with parameter descriptions.
 - Added `view = FALSE` argument to `ypr_report()` to allow user to view report in browser.

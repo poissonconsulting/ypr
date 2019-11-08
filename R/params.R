@@ -12,8 +12,9 @@
 #' @param tR The age from which survival is density-independent (yr).
 #' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
 #' @param Rk The lifetime spawners per spawner at low density.
-#' @param M The instantaneous mortality rate (per yr).
-#' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
+#' @param n The annual natural mortality rate from age tR to length Ln.
+#' @param nL The annual natural mortality rate from length Ln.
+#' @param Ln The length at which the natural mortality rate switches from n to nA (cm).
 #' @param Lv The length at which 50\% vulnerable to harvest (cm).
 #' @param Vp The vulnerability to harvest (as a function of length) power.
 #' @param Llo The lower harvest slot length (cm).
@@ -23,7 +24,6 @@
 #' @param rho The release probability.
 #' @param Hm The hooking mortality probability.
 #' @param Rmax The number of recruits at the carrying capacity (ind).
-#' @param A0 The initial post age tR density independent mortality probability.
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of effort.

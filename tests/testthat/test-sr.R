@@ -1,8 +1,8 @@
 context("sr")
 
 test_that("sr", {
-  bh <- ypr_sr(ypr_population())
-  ri <- ypr_sr(ypr_population(BH = 0L))
+  bh <- ypr_sr(ypr_population(n = ypr:::inst2inter(0.2)))
+  ri <- ypr_sr(ypr_population(BH = 0L, n = ypr:::inst2inter(0.2)))
   expect_is(bh, "data.frame")
   expect_identical(names(bh), c("alpha", "beta", "Rk", "phi", "phiF", "R0", "R0F", "S0", "S0F"))
   expect_identical(names(ri), names(bh))
