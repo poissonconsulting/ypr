@@ -16,6 +16,11 @@ test_that("ypr_plot_fish", {
   expect_is(gp, "gg")
 })
 
+test_that("ypr_plot_biomass", {
+  gp <- ypr_plot_biomass(ypr_population())
+  expect_is(gp, "gg")
+})
+
 test_that("ypr_plot_yield", {
   gp <- ypr_plot_yield(ypr_population(Rk = 10), y = "YPUE",  pi = seq(0, 1, length.out = 10))
   expect_is(gp, "gg")

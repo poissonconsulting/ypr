@@ -113,6 +113,32 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
     expand_limits(x = 0, y = 0)
 }
 
+#' Plot Biomass
+#'
+#' Produces a frequency histogram of the total fish 'Biomass' or 'Eggs' deposition by
+#' 'Age' class.
+#'
+#' @inheritParams params
+#' @inheritParams ypr_plot_schedule
+#' @return A ggplot2 object.
+#' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
+#' @export
+#' @examples
+#' ypr_plot_biomass(ypr_population(), color = "white")
+ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
+
+  chk_string(y)
+  chk_subset(y, c("Biomass", "Eggs"))
+
+  biomass <- ypr_tabulate_biomass(population)
+
+  ggplot(data = biomass, aes_string(x = "Age", weight = y)) +
+    (if(is.null(color)) geom_bar(width = 1) else
+      geom_bar(width = 1, color = color)) +
+    ylab(y) +
+    expand_limits(x = 0, y = 0)
+}
+
 #' Plot Stock-Recruitment Curve
 #'
 #' @inheritParams params
