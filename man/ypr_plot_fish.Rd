@@ -4,7 +4,7 @@
 \alias{ypr_plot_fish}
 \title{Plot Fish}
 \usage{
-ypr_plot_fish(population, x = "Age", y = "Surviving",
+ypr_plot_fish(population, x = "Age", y = "Survivors",
   percent = FALSE, binwidth = 1L, color = NULL)
 }
 \arguments{
@@ -25,7 +25,7 @@ A ggplot2 object.
 }
 \description{
 Produces a frequency histogram of the number of fish in the
-'Surviving', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
+'Survivors', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
 'Length', 'Age' or 'Weight' class.
 }
 \examples{
