@@ -15,6 +15,13 @@ test_that("population", {
   expect_identical(length(populations), 1L)
   expect_identical(populations[[1]], ypr_population())
 
+  expect_identical(ypr_populations(Rk = 2),
+                  structure(list(Popn_1 = structure(list(tmax = 20L, k = 0.15,
+    Linf = 100, t0 = 0, Wb = 3, Ls = 50, Sp = 100, es = 1, Sm = 0,
+    fb = 1, tR = 1L, BH = 1L, Rk = 2, M = 0.2, Mb = 0, Lv = 50,
+    Vp = 100, Llo = 0, Lup = 1000, Nc = 0, pi = 0.2, rho = 0,
+    Hm = 0, Rmax = 1, A0 = 0, Wa = 0.01, fa = 1, q = 0.1), class = "ypr_population")), class = "ypr_populations"))
+
   populations <- ypr_populations(Rk = c(2.5, 4.6))
   expect_identical(length(populations), 2L)
   expect_identical(names(populations),

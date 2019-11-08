@@ -56,6 +56,7 @@ sum_fish <- function(x) {
 population_names <- function(x) {
   length <- vapply(x, function(x) length(unique(x)), 1L)
   x <- x[length > 1L]
+  if(!length(x)) return("Popn_1")
   names <- names(x)
   x <- apply(x, 1, function(x) sub("[.]", "_", x))
   if(identical(length(names), 1L))
