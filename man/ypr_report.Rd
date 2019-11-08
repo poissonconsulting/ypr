@@ -5,7 +5,7 @@
 \title{Report}
 \usage{
 ypr_report(population, title = "Population Report", date = Sys.Date(),
-  file = "report.Rmd")
+  file = "report", view = FALSE)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
@@ -15,6 +15,8 @@ ypr_report(population, title = "Population Report", date = Sys.Date(),
 \item{date}{A date of the report date.}
 
 \item{file}{A string of the file name.}
+
+\item{view}{A flag specifying whether to view the report (after rendering it to html).}
 }
 \value{
 An invisible character vector of the contents of the file.

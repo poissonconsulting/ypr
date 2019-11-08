@@ -91,6 +91,8 @@
 \item{object}{The populations or populations.}
 
 \item{...}{Unused parameters.}
+
+\item{view}{A flag specifying whether to view the report (after rendering it to html).}
 }
 \description{
 Parameter Descriptions for chk Functions

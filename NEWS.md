@@ -1,3 +1,5 @@
+- Added `view = FALSE` argument to `ypr_report()` to allow user to view report in browser.
+- Deprecated requirement to provide file extension in `ypr_report()`.
 - Added plot of biomass and eggs to report.
 - Added `ypr_tabulate_biomass()` to easily calculate total biomass and eggs.
 - Rename column `HandlingMortality` to `HandlingMortalities` in `ypr_tabulate_fish` and `ypr_plot_fish()`.

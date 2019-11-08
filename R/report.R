@@ -82,17 +82,32 @@ knitr::kable(ypr_tabulate_yield(population))
 #' }
 ypr_report <- function(population, title = "Population Report",
                        date = Sys.Date(),
-                       file = "report.Rmd") {
+                       file = "report", view = FALSE) {
   chk_population(population)
   chk_string(title)
   chk_date(date)
   chk_string(file)
+  chk_flag(view)
+
+  if(grepl("[.](R|r)md$", file)) {
+    wrn("File extension on argument `file` is deprecated (please remove).")
+    file <- sub("[.](R|r)md$", "", file)
+  }
+  file <- p0(file, ".Rmd")
 
   file.create(file)
   con <- file(file, "w")
   writeLines(lines_head(population = population, title = title, date = date),
-    con = con)
+             con = con)
   writeLines(lines_body(), con = con)
   close(con)
+  if(view) {
+    if(!requireNamespace("rmarkdown"))
+      err("Package 'rmarkdown' is required to render the report to html.")
+    rmarkdown::render(file, output_format = "html_document", quiet = TRUE)
+    if(!requireNamespace("rstudioapi"))
+      err("Package 'rstudioapi' is required to view thes html report.")
+    rstudioapi::viewer(p0(sub("[.](R|r)md$", "", file), ".html"))
+  }
   invisible(readLines(file))
 }

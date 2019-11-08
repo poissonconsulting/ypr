@@ -43,6 +43,7 @@
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
 #' @param object The populations or populations.
 #' @param ... Unused parameters.
+#' @param view A flag specifying whether to view the report (after rendering it to html).
 #' @keywords internal
 #' @name params
 NULL
