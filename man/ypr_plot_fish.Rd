@@ -25,7 +25,7 @@ A ggplot2 object.
 }
 \description{
 Produces a frequency histogram of the number of fish in the
-'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
+'Surviving', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
 'Length', 'Age' or 'Weight' class.
 }
 \examples{

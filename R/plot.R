@@ -82,7 +82,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' Plot Fish
 #'
 #' Produces a frequency histogram of the number of fish in the
-#' 'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
+#' 'Surviving', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
 #' 'Length', 'Age' or 'Weight' class.
 #'
 #' @inheritParams params
@@ -97,7 +97,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Surviving",
                           binwidth = 1L, color = NULL) {
 
   chk_string(y)
-  chk_subset(y, c("Surviving", "Spawning", "Caught", "Harvested",
+  chk_subset(y, c("Surviving", "Spawners", "Caught", "Harvested",
     "Released", "HandlingMortality"))
   chk_flag(percent)
 

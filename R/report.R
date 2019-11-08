@@ -51,8 +51,8 @@ ypr_plot_schedule(population, "Length", "NaturalMortality")
 ```{r}
 ypr_plot_fish(population, color = "white")
 ypr_plot_fish(population, "Length", "Caught")
-ypr_plot_fish(population, "Age", "Spawning", color = "white")
-ypr_plot_fish(population, "Length", "Spawning")
+ypr_plot_fish(population, "Age", "Spawners", color = "white")
+ypr_plot_fish(population, "Length", "Spawners")
 ```
 
 ```{r, fig.width = 6, fig.height = 4}

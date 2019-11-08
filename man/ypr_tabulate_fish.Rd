@@ -18,7 +18,7 @@ A data frame
 }
 \description{
 Produces a data frame of the number of fish in the
-'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
+'Surviving', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
 'Length', 'Age' or 'Weight' class.
 }
 \examples{
