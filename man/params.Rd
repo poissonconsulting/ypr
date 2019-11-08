@@ -95,6 +95,8 @@
 \item{view}{A flag specifying whether to view the report (after rendering it to html).}
 
 \item{ask}{A flag specifying whether to ask before overwriting or creating a file.}
+
+\item{description}{A string describing the population.}
 }
 \description{
 Parameter Descriptions for chk Functions

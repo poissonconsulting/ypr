@@ -45,6 +45,7 @@
 #' @param ... Unused parameters.
 #' @param view A flag specifying whether to view the report (after rendering it to html).
 #' @param ask A flag specifying whether to ask before overwriting or creating a file.
+#' @param description A string describing the population.
 #' @keywords internal
 #' @name params
 NULL

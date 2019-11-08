@@ -4,13 +4,15 @@
 \alias{ypr_report}
 \title{Report}
 \usage{
-ypr_report(population, title = "Population Report", date = Sys.Date(),
-  file = "report", view = FALSE, ask = TRUE)
+ypr_report(population, title = "Population Report", description = "",
+  date = Sys.Date(), file = "report", view = FALSE, ask = TRUE)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{title}{A string of the report title.}
+
+\item{description}{A string describing the population.}
 
 \item{date}{A date of the report date.}
 
@@ -27,7 +29,5 @@ An invisible character vector of the contents of the file.
 Creates an Rmd file that can be used to generate a report.
 }
 \examples{
-\dontrun{
-cat(ypr_report(ypr_population(), file = tempfile(), ask = FALSE), sep = "\\\\n")
-}
+ypr_report(ypr_population(), file = tempfile(), ask = FALSE)
 }

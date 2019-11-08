@@ -12,7 +12,7 @@ lines_population <- function(population) {
   paste0("ypr_population(", population, ")", collapse = "")
 }
 
-lines_head <- function(population, title, date) {
+lines_head <- function(population, title, description, date) {
   paste0('---
 title: "', title, '"
 date: "', date, '"
@@ -26,6 +26,8 @@ knitr::opts_chunk$set(
   fig.height = 4
 )
 ```
+
+', description ,'
 
 ```{r}
 library(ypr)
@@ -81,14 +83,14 @@ knitr::kable(ypr_tabulate_yield(population))
 #' @return An invisible character vector of the contents of the file.
 #' @export
 #' @examples
-#' \dontrun{
-#' cat(ypr_report(ypr_population(), file = tempfile(), ask = FALSE), sep = "\\n")
-#' }
+#' ypr_report(ypr_population(), file = tempfile(), ask = FALSE)
 ypr_report <- function(population, title = "Population Report",
+                       description = "",
                        date = Sys.Date(),
                        file = "report", view = FALSE, ask = TRUE) {
   chk_population(population)
   chk_string(title)
+  chk_string(description)
   chk_date(date)
   chk_string(file)
   chk_flag(view)
@@ -104,7 +106,8 @@ ypr_report <- function(population, title = "Population Report",
 
   file.create(file)
   con <- file(file, "w")
-  writeLines(lines_head(population = population, title = title, date = date),
+  writeLines(lines_head(population = population, title = title,
+                        description = description, date = date),
              con = con)
   writeLines(lines_body(), con = con)
   close(con)
