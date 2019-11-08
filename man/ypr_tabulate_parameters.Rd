@@ -19,8 +19,9 @@ Tabulate Population Parameters
 ypr_tabulate_parameters(ypr_population())
 }
 \seealso{
-Other tabulate: \code{\link{ypr_detabulate_parameters}},
-  \code{\link{ypr_tabulate_biomass}},
+\code{\link[=ypr_detabulate_parameters]{ypr_detabulate_parameters()}}
+
+Other tabulate: \code{\link{ypr_tabulate_biomass}},
   \code{\link{ypr_tabulate_fish}},
   \code{\link{ypr_tabulate_sr}},
   \code{\link{ypr_tabulate_yields}},

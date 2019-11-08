@@ -47,8 +47,7 @@ ypr_tabulate_yield(ypr_population())
 ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 }
 \seealso{
-Other tabulate: \code{\link{ypr_detabulate_parameters}},
-  \code{\link{ypr_tabulate_biomass}},
+Other tabulate: \code{\link{ypr_tabulate_biomass}},
   \code{\link{ypr_tabulate_fish}},
   \code{\link{ypr_tabulate_parameters}},
   \code{\link{ypr_tabulate_sr}},

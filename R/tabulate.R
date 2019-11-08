@@ -29,12 +29,14 @@ ypr_tabulate_yield <- function(object, ...) {
 #' Tabulate Yields
 #'
 #' @inheritParams params
+#' @param pi A vector of probabilities of capture to calculate the yield for.
 #'
 #' @return A data frame.
 #' @family tabulate
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
+#' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
@@ -44,6 +46,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #' @inheritParams params
 #' @return A table of population parameters
 #' @family tabulate
+#' @seealso [ypr_detabulate_parameters()]
 #' @export
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
@@ -75,7 +78,7 @@ ypr_tabulate_parameters <- function(population) {
 #' one or more parameters and their values.
 
 #' @return An object of class [ypr_population()]
-#' @family tabulate
+#' @seealso [ypr_tabulate_parameters()]
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
@@ -287,14 +290,8 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
   as_tibble(yield)
 }
 
-#' Tabulate Yields
-#'
-#' @inheritParams params
-#' @param pi A vector of probabilities of capture to calculate the yield for.
-#' @return A data frame.
+#' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
-#' @examples
-#' ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
                                                Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
 
@@ -312,13 +309,8 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
   as_tibble(yields)
 }
 
-#' Tabulate Yields
-#'
-#' @inheritParams params
-#' @return A data frame.
+#' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
-#' @examples
-#' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
 ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
                                                 Ly = 0, harvest = TRUE, biomass = FALSE,
                                                 all = FALSE, ...) {

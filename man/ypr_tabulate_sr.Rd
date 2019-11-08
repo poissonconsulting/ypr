@@ -46,8 +46,7 @@ ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
 ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 }
 \seealso{
-Other tabulate: \code{\link{ypr_detabulate_parameters}},
-  \code{\link{ypr_tabulate_biomass}},
+Other tabulate: \code{\link{ypr_tabulate_biomass}},
   \code{\link{ypr_tabulate_fish}},
   \code{\link{ypr_tabulate_parameters}},
   \code{\link{ypr_tabulate_yields}},
