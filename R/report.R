@@ -27,14 +27,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, echo = TRUE}
+```{r}
 library(ypr)
 population <- ', lines_population(population), "
 ```")
 }
 
 lines_body <- function() {
-  '```{r}
+'```{r}
+knitr::kable(ypr_tabulate_parameters(population))
+```
+
+```{r}
 ypr_plot_schedule(population)
 ypr_plot_schedule(population, "Length", "Weight")
 ypr_plot_schedule(population, "Weight", "Fecundity")

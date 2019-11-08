@@ -1,3 +1,4 @@
+- `ypr_report()` now starts with table of parameter values with descriptions.
 - Added `view = FALSE` argument to `ypr_report()` to allow user to view report in browser.
 - Added `ask = TRUE` argument to `ypr_report()` to ask before overwriting or creating a file.
 - Deprecated requirement to provide file extension in `ypr_report()`.
