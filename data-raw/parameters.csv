@@ -3,6 +3,9 @@ tmax,Ecological,Growth,Fundamental,1,100,1,0
 k,Ecological,Growth,Fundamental,0.015,15,0,1
 Linf,Ecological,Growth,Fundamental,1,1000,0,0
 t0,Ecological,Growth,Advanced,-10,10,0,0
+k2,Ecological,Growth,Advanced,0,15,0,1
+Linf2,Ecological,Growth,Advanced,1,1000,0,0
+L2,Ecological,Growth,Advanced,1,1000,0,0
 Wb,Ecological,Growth,Advanced,2,4,0,0
 Ls,Ecological,Reproduction,Fundamental,1,1000,0,0
 Sp,Ecological,Reproduction,Advanced,0,1000,0,1

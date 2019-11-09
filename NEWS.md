@@ -1,3 +1,4 @@
+- Added parameters `k2`, `Linf2` and `L2` to allow for biphasic growth.
 - Replaced parameters 
     - `M` (annual instantaneous natural mortality rate)
     - `Mb` (annual instantaneous natual mortality rate (as a function of length) scaling exponent)

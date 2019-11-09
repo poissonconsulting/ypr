@@ -1,4 +1,9 @@
 source("data-raw/parameters.R")
+devtools::document()
+devtools::build()
 source("data-raw/write-chk-parameters.R")
-# build
+devtools::document()
+devtools::build()
 source("data-raw/populations.R")
+devtools::document()
+devtools::build()

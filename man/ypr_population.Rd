@@ -4,11 +4,12 @@
 \alias{ypr_population}
 \title{Population Parameters}
 \usage{
-ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Ls = 50, Sp = 100, es = 1, Sm = 0, fb = 1, tR = 1L,
-  BH = 1L, Rk = 3, n = 0.2, nL = n, Ln = 50, Lv = 50,
-  Vp = 100, Llo = 0, Lup = 1000, Nc = 0, pi = 0.2, rho = 0,
-  Hm = 0, Rmax = 1, Wa = 0.01, fa = 1, q = 0.1)
+ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, k2 = k,
+  Linf2 = Linf, L2 = 1000, Wb = 3, Ls = 50, Sp = 100, es = 1,
+  Sm = 0, fb = 1, tR = 1L, BH = 1L, Rk = 3, n = 0.2, nL = n,
+  Ln = 50, Lv = 50, Vp = 100, Llo = 0, Lup = 1000, Nc = 0,
+  pi = 0.2, rho = 0, Hm = 0, Rmax = 1, Wa = 0.01, fa = 1,
+  q = 0.1)
 }
 \arguments{
 \item{tmax}{The maximum age (yr).}
@@ -18,6 +19,12 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 \item{Linf}{The VB mean maximum length (cm).}
 
 \item{t0}{The (theoretical) age at zero length (yr).}
+
+\item{k2}{The VB growth coefficient after length L2 (per yr).}
+
+\item{Linf2}{The VB mean maximum length after length L2 (cm).}
+
+\item{L2}{The length at which growth switches from the first to second phase.}
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 

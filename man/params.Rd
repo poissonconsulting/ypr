@@ -12,6 +12,12 @@
 
 \item{t0}{The (theoretical) age at zero length (yr).}
 
+\item{k2}{The VB growth coefficient after length L2 (per yr).}
+
+\item{Linf2}{The VB mean maximum length after length L2 (cm).}
+
+\item{L2}{The length at which growth switches from the first to second phase.}
+
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
 \item{Ls}{The length at which 50\% mature (cm).}

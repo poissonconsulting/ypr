@@ -15,6 +15,12 @@ ypr_schedule <- function(population) {
     t <- tR:tmax
     nt <- length(t)
     L <- Linf * (1 - exp(-k * (t - t0)))
+    bi <- which(L >= L2)
+    if(length(bi) > 2) {
+      L1 <- L[bi[1]]
+      bi <- bi[-1]
+      L[bi] <- L1 + (Linf2 - L1) * (1 - exp(-k2 * 1:length(bi)))
+    }
     L[L < 0] <- 0
     W <- Wa * L^Wb
     E <- fa * W^fb

@@ -3,6 +3,9 @@
 #' @param k The VB growth coefficient (per yr).
 #' @param Linf The VB mean maximum length (cm).
 #' @param t0 The (theoretical) age at zero length (yr).
+#' @param k2 The VB growth coefficient after length L2 (per yr).
+#' @param Linf2 The VB mean maximum length after length L2 (cm).
+#' @param L2 The length at which growth switches from the first to second phase.
 #' @param Wb The weight (as a function of length) scaling exponent.
 #' @param Ls The length at which 50\% mature (cm).
 #' @param Sp The maturity (as a function of length) power.
