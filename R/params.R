@@ -30,15 +30,15 @@
 #' @param Wa The (extrapolated) weight of a 1 cm individual (g).
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of effort.
-#' @param all A flag indicating whether to include all parameter values.
-#' @param u A flag indicating whether to plot the exploitation rate as opposed to the capture rate.
+#' @param all A flag specifying whether to include all parameter values.
+#' @param u A flag specifying whether to plot the exploitation rate as opposed to the capture rate.
 #' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
-#' @param plot_values A flag indicating whether to plot the actual and optimal values.
+#' @param plot_values A flag specifying whether to plot the actual and optimal values.
 #' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
-#' @param harvest A flag indicating whether to calculate the yield for harvested fish or captures.
-#' @param biomass A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.
+#' @param harvest A flag specifying whether to calculate the yield for harvested fish or captures.
+#' @param biomass A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.
 #' @param title A string of the report title.
 #' @param date A date of the report date.
 #' @param file A string of the path to the file (without the extension).
@@ -46,6 +46,7 @@
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
 #' @param object The populations or populations.
 #' @param ... Unused parameters.
+#' @param expand A flag specifying whether to expand parameter combinations.
 #' @param view A flag specifying whether to view the report (after rendering it to html).
 #' @param ask A flag specifying whether to ask before overwriting or creating a file.
 #' @param description A string describing the population.

@@ -14,9 +14,9 @@ ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
 A numeric vector of the yields.

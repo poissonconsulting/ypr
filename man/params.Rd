@@ -66,9 +66,9 @@
 
 \item{q}{The catchability (annual probability of capture) for a unit of effort.}
 
-\item{all}{A flag indicating whether to include all parameter values.}
+\item{all}{A flag specifying whether to include all parameter values.}
 
-\item{u}{A flag indicating whether to plot the exploitation rate as opposed to the capture rate.}
+\item{u}{A flag specifying whether to plot the exploitation rate as opposed to the capture rate.}
 
 \item{percent}{A flag specifying whether to plot the number of fish as a percent or frequency (the default).}
 
@@ -76,13 +76,13 @@
 
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
+\item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 
 \item{title}{A string of the report title.}
 
@@ -97,6 +97,8 @@
 \item{object}{The populations or populations.}
 
 \item{...}{Unused parameters.}
+
+\item{expand}{A flag specifying whether to expand parameter combinations.}
 
 \item{view}{A flag specifying whether to view the report (after rendering it to html).}
 

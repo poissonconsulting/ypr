@@ -21,11 +21,11 @@ ypr_tabulate_sr(object, ...)
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 
-\item{all}{A flag indicating whether to include all parameter values.}
+\item{all}{A flag specifying whether to include all parameter values.}
 }
 \value{
 A data.frame of stock-recruitment parameters.

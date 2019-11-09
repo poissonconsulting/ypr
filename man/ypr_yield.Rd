@@ -11,9 +11,9 @@ ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
 The yield as number of fish or biomass.

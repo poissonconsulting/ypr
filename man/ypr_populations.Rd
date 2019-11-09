@@ -4,10 +4,12 @@
 \alias{ypr_populations}
 \title{Populations}
 \usage{
-ypr_populations(...)
+ypr_populations(..., expand = TRUE)
 }
 \arguments{
-\item{...}{One or more of the arguments from \code{ypr_population()}.}
+\item{...}{Unused parameters.}
+
+\item{expand}{A flag specifying whether to expand parameter combinations.}
 }
 \value{
 A list of \code{\link[=ypr_population]{ypr_population()}} objects
