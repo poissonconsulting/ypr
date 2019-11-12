@@ -1,3 +1,4 @@
+- Added `data.frame.ypr_population()` and `data.frame.ypr_populations()`.
 - `print.ypr_population()` now plots all values where more than one.
 - Added `ypr_age_at_length()` to get ages at specific lengths for a given population.
 - `ypr_population()` now accepts ages for `L2`, `Ln`, `Ls` and `Lv` (as negative values).
