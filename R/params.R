@@ -50,6 +50,7 @@
 #' @param view A flag specifying whether to view the report (after rendering it to html).
 #' @param ask A flag specifying whether to ask before overwriting or creating a file.
 #' @param description A string describing the population.
+#' @param age A numeric vector of the age.
 #' @keywords internal
 #' @name params
 NULL

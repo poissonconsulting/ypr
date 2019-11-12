@@ -14,12 +14,7 @@ ypr_schedule <- function(population) {
   schedule <- with(population, {
     t <- tR:tmax
     nt <- length(t)
-    L <- Linf * (1 - exp(-k * (t - t0)))
-    t2 <- -log(1 - min(L2/Linf, 1)) / k - t0
-    if(t2 < tmax) {
-      L[t > t2] <- L2 + (Linf2 - L2) * (1 - exp(-k2 * (t[t > t2] - t2)))
-    }
-    L[L < 0] <- 0
+    L <- length_at_age(population, t)
     W <- Wa * L^Wb
     E <- fa * W^fb
     S <- exp(log(L / 1000) * Sp) / (exp(log(Ls / 1000) * Sp) + exp(log(L / 1000) * Sp)) * es

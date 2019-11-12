@@ -105,6 +105,8 @@
 \item{ask}{A flag specifying whether to ask before overwriting or creating a file.}
 
 \item{description}{A string describing the population.}
+
+\item{age}{A numeric vector of the age.}
 }
 \description{
 Parameter Descriptions for chk Functions
