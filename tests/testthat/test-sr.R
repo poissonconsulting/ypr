@@ -20,3 +20,11 @@ test_that("sr", {
   expect_equal(ri$beta, 0.0002468074, check.attributes = FALSE)
   expect_equal(ri$R0F, 0.3395686, check.attributes = FALSE, tolerance = 1e-07)
 })
+
+test_that("sr", {
+  bh <- ypr_sr(ypr_population(Linf = 100))
+  expect_equal(bh$S0F, 0.2110346, check.attributes = FALSE, tolerance = 1e-06)
+
+  bh <- ypr_sr(ypr_population(Linf = 200))
+  expect_equal(bh$S0F, -0.4998656, check.attributes = FALSE, tolerance = 1e-06)
+})
