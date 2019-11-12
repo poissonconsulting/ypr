@@ -5,9 +5,9 @@
 #' @param t0 The (theoretical) age at zero length (yr).
 #' @param k2 The VB growth coefficient after length L2 (per yr).
 #' @param Linf2 The VB mean maximum length after length L2 (cm).
-#' @param L2 The length at which growth switches from the first to second phase.
+#' @param L2 The length (or age if negative) at which growth switches from the first to second phase (cm or yr).
 #' @param Wb The weight (as a function of length) scaling exponent.
-#' @param Ls The length at which 50\% mature (cm).
+#' @param Ls The length (or age if negative) at which 50\% mature (cm or yr).
 #' @param Sp The maturity (as a function of length) power.
 #' @param es The annual probability of a mature fish spawning.
 #' @param Sm The spawning mortality probability.
@@ -15,10 +15,10 @@
 #' @param tR The age from which survival is density-independent (yr).
 #' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
 #' @param Rk The lifetime spawners per spawner at low density.
-#' @param n The annual natural mortality rate from age tR to length Ln.
+#' @param n The annual natural mortality rate from age tR.
 #' @param nL The annual natural mortality rate from length Ln.
-#' @param Ln The length at which the natural mortality rate switches from n to nA (cm).
-#' @param Lv The length at which 50\% vulnerable to harvest (cm).
+#' @param Ln The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).
+#' @param Lv The length (or age if negative) at which 50\% vulnerable to harvest (cm or yr).
 #' @param Vp The vulnerability to harvest (as a function of length) power.
 #' @param Llo The lower harvest slot length (cm).
 #' @param Lup The upper harvest slot length (cm).

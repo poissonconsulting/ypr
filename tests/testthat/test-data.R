@@ -18,7 +18,7 @@ test_that(".data", {
       Grouping = ordered(""),
       Subgrouping = ordered(""),
       Importance = ordered(""),
-      Lower = c(-10, 2),
+      Lower = c(-100, 2),
       Upper = c(0.1, 1e+06),
       Integer = c(0L, 1L),
       Log = c(0L, 1L)),

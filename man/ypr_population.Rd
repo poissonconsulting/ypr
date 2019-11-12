@@ -24,11 +24,11 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, k2 = k,
 
 \item{Linf2}{The VB mean maximum length after length L2 (cm).}
 
-\item{L2}{The length at which growth switches from the first to second phase.}
+\item{L2}{The length (or age if negative) at which growth switches from the first to second phase (cm or yr).}
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Ls}{The length at which 50\% mature (cm).}
+\item{Ls}{The length (or age if negative) at which 50\% mature (cm or yr).}
 
 \item{Sp}{The maturity (as a function of length) power.}
 
@@ -44,13 +44,13 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, k2 = k,
 
 \item{Rk}{The lifetime spawners per spawner at low density.}
 
-\item{n}{The annual natural mortality rate from age tR to length Ln.}
+\item{n}{The annual natural mortality rate from age tR.}
 
 \item{nL}{The annual natural mortality rate from length Ln.}
 
-\item{Ln}{The length at which the natural mortality rate switches from n to nA (cm).}
+\item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).}
 
-\item{Lv}{The length at which 50\% vulnerable to harvest (cm).}
+\item{Lv}{The length (or age if negative) at which 50\% vulnerable to harvest (cm or yr).}
 
 \item{Vp}{The vulnerability to harvest (as a function of length) power.}
 

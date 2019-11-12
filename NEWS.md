@@ -1,3 +1,4 @@
+- `ypr_population()` now accepts ages for `L2`, `Ln`, `Ls` and `Lv` (as negative values).
 - Added `ypr_length_at_age()` to get lengths at specific ages for a given population.
 - Improved handling of unsustainable populations (no longer negative fish numbers).
 - Added `expand = TRUE` argument to `ypr_populations()` to allow control over all combinations.
