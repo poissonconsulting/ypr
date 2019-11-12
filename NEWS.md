@@ -1,3 +1,4 @@
+- Improved handling of unsustainable populations (no longer negative fish numbers).
 - Added `expand = TRUE` argument to `ypr_populations()` to allow control over all combinations.
 - Added parameters `k2`, `Linf2` and `L2` to allow for biphasic growth.
 - Replaced parameters 

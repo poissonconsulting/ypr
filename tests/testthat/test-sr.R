@@ -21,10 +21,17 @@ test_that("sr", {
   expect_equal(ri$R0F, 0.3395686, check.attributes = FALSE, tolerance = 1e-07)
 })
 
-test_that("sr", {
+test_that("ypr_sr extinct population", {
   bh <- ypr_sr(ypr_population(Linf = 100))
-  expect_equal(bh$S0F, 0.2110346, check.attributes = FALSE, tolerance = 1e-06)
+  expect_equal(bh$R0F, 0.1857959, check.attributes = FALSE, tolerance = 1e-06)
 
-  bh <- ypr_sr(ypr_population(Linf = 200))
-  expect_equal(bh$S0F, -0.4998656, check.attributes = FALSE, tolerance = 1e-06)
+  bh <- ypr_sr(ypr_population(Linf = 100, BH = 0L))
+  expect_equal(bh$R0F, 0.4549179, check.attributes = FALSE, tolerance = 1e-06)
+
+  bh <- ypr_sr(ypr_population(Linf = 140))
+  expect_equal(bh$R0F, 0, check.attributes = FALSE, tolerance = 1e-06)
+
+  bh <- ypr_sr(ypr_population(Linf = 140, BH = 0L))
+  expect_equal(bh$R0F, 0, check.attributes = FALSE, tolerance = 1e-06)
 })
+

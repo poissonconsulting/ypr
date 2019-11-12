@@ -129,7 +129,10 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table <- ypr_schedule(population = population)
   table <- as.data.frame(table)
 
-  table$Survivors <- table$FishedSurvivorship * sr(table, population)$R0F
+  R0F <- sr(table, population)$R0F
+  R0F <- max(0, R0F)
+
+  table$Survivors <- table$FishedSurvivorship * R0F
   table$Spawners <- table$Survivors * table$Spawning
   table$Caught <- table$Survivors *  table$Vulnerability * population$pi
   table$Harvested <- table$Caught * table$Retention

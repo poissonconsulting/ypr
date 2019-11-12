@@ -48,7 +48,7 @@ sr <- function(schedule, population) {
 #'   \item{R0}{Age tR recruits at the unfished equilibrium}
 #'   \item{R0F}{Age tR recruits at the fished equilibrium}
 #'   \item{S0}{Spawners at the unfished equilibrium}
-#'   \item{S0F}{spawners at the fished equilibrium}
+#'   \item{S0F}{Spawners at the fished equilibrium}
 #' }
 #'
 #' @inheritParams params
@@ -62,5 +62,8 @@ ypr_sr <- function(population) {
 
   schedule <- ypr_schedule(population)
 
-  sr(schedule, population)
+  sr <- sr(schedule, population)
+  sr$R0F <- max(sr$R0F, 0)
+  sr$S0F <- max(sr$S0F, 0)
+  sr
 }

@@ -23,7 +23,7 @@ Returns a single rowed data frame of the SR parameters:
 \item{R0}{Age tR recruits at the unfished equilibrium}
 \item{R0F}{Age tR recruits at the fished equilibrium}
 \item{S0}{Spawners at the unfished equilibrium}
-\item{S0F}{spawners at the fished equilibrium}
+\item{S0F}{Spawners at the fished equilibrium}
 }
 }
 \examples{

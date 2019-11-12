@@ -144,6 +144,16 @@ test_that("ypr_tabulate_yield", {
     ypr_population(BH = 1L))
 })
 
+test_that("ypr_tabulate_yield extinct population", {
+  yield <- ypr_tabulate_yield(ypr_population(Linf = 130), all = TRUE)
+  expect_equal(yield$pi, c(0.2, 0.102752704683603))
+  expect_equal(yield$Yield, c(0.0273043505036034, 0.0770860806461869))
+
+  yield <- ypr_tabulate_yield(ypr_population(Linf = 140), all = TRUE)
+  expect_equal(yield$pi, c(0.2, 0.0926725376181979))
+  expect_equal(yield$Yield, c(0, 0.0857039391276462))
+})
+
 test_that("ypr_tabulate_biomass", {
   biomass <- ypr_tabulate_biomass(ypr_population())
 

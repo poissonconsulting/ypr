@@ -14,7 +14,5 @@ test_that("yield", {
   expect_equal(ypr_yield(ypr_population(n = ypr:::inst2inter(0.2)), biomass = TRUE, Ly = 70), 0.0325123, tolerance = 1e-06, check.attributes = FALSE)
   expect_equal(ypr_yield(ypr_population(n = ypr:::inst2inter(0.2), L2 = 50), biomass = TRUE, Ly = 70), 0.0325123, tolerance = 1e-06, check.attributes = FALSE)
   expect_equal(ypr_yield(ypr_population(L2 = 50, Linf = 100), biomass = TRUE, Ly = 70), 0.03549328, tolerance = 1e-06, check.attributes = FALSE)
-#  expect_equal(ypr_yield(ypr_population(L2 = 50, Linf = 200), biomass = TRUE, Ly = 70), 0.0325123, tolerance = 1e-06, check.attributes = FALSE)
-
-#  ypr_yield(ypr_population(Linf = 200))
+  expect_equal(ypr_yield(ypr_population(Linf = 140), biomass = TRUE, Ly = 70), 0, tolerance = 1e-06, check.attributes = FALSE)
 })
