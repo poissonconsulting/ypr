@@ -19,7 +19,7 @@ ypr_tabulate_yield(object, ...)
 
 \item{...}{Unused parameters.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
 \item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 

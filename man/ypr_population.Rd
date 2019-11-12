@@ -14,13 +14,13 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, k2 = k,
 \arguments{
 \item{tmax}{The maximum age (yr).}
 
-\item{k}{The VB growth coefficient (per yr).}
+\item{k}{The VB growth coefficient (yr-1).}
 
 \item{Linf}{The VB mean maximum length (cm).}
 
 \item{t0}{The (theoretical) age at zero length (yr).}
 
-\item{k2}{The VB growth coefficient after length L2 (per yr).}
+\item{k2}{The VB growth coefficient after length L2 (yr-1).}
 
 \item{Linf2}{The VB mean maximum length after length L2 (cm).}
 
@@ -44,9 +44,9 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, k2 = k,
 
 \item{Rk}{The lifetime spawners per spawner at low density.}
 
-\item{n}{The annual natural mortality rate from age tR.}
+\item{n}{The annual interval natural mortality rate from age tR.}
 
-\item{nL}{The annual natural mortality rate from length Ln.}
+\item{nL}{The annual interval natural mortality rate from length Ln.}
 
 \item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).}
 

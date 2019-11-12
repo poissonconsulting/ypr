@@ -1,9 +1,9 @@
 #' Parameter Descriptions for chk Functions
 #' @param tmax The maximum age (yr).
-#' @param k The VB growth coefficient (per yr).
+#' @param k The VB growth coefficient (yr-1).
 #' @param Linf The VB mean maximum length (cm).
 #' @param t0 The (theoretical) age at zero length (yr).
-#' @param k2 The VB growth coefficient after length L2 (per yr).
+#' @param k2 The VB growth coefficient after length L2 (yr-1).
 #' @param Linf2 The VB mean maximum length after length L2 (cm).
 #' @param L2 The length (or age if negative) at which growth switches from the first to second phase (cm or yr).
 #' @param Wb The weight (as a function of length) scaling exponent.
@@ -15,8 +15,8 @@
 #' @param tR The age from which survival is density-independent (yr).
 #' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
 #' @param Rk The lifetime spawners per spawner at low density.
-#' @param n The annual natural mortality rate from age tR.
-#' @param nL The annual natural mortality rate from length Ln.
+#' @param n The annual interval natural mortality rate from age tR.
+#' @param nL The annual interval natural mortality rate from length Ln.
 #' @param Ln The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).
 #' @param Lv The length (or age if negative) at which 50\% vulnerable to harvest (cm or yr).
 #' @param Vp The vulnerability to harvest (as a function of length) power.
@@ -36,7 +36,7 @@
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
 #' @param plot_values A flag specifying whether to plot the actual and optimal values.
-#' @param Ly The minimum length (trophy) fish to consider when calculating the yield.
+#' @param Ly The minimum length (trophy) fish to consider when calculating the yield (cm).
 #' @param harvest A flag specifying whether to calculate the yield for harvested fish or captures.
 #' @param biomass A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.
 #' @param title A string of the report title.
@@ -50,7 +50,8 @@
 #' @param view A flag specifying whether to view the report (after rendering it to html).
 #' @param ask A flag specifying whether to ask before overwriting or creating a file.
 #' @param description A string describing the population.
-#' @param age A numeric vector of the age.
+#' @param age A numeric vector of the age (yr).
+#' @param length A numeric vector of the length (cm).
 #' @keywords internal
 #' @name params
 NULL

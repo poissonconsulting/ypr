@@ -23,7 +23,7 @@ ypr_tabulate_yields(object, ...)
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
 \item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 

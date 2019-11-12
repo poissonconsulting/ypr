@@ -10,7 +10,7 @@ ypr_plot_sr(population, Ly = 0, harvest = TRUE, biomass = FALSE,
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
 \item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 

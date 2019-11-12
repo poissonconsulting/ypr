@@ -6,13 +6,13 @@
 \arguments{
 \item{tmax}{The maximum age (yr).}
 
-\item{k}{The VB growth coefficient (per yr).}
+\item{k}{The VB growth coefficient (yr-1).}
 
 \item{Linf}{The VB mean maximum length (cm).}
 
 \item{t0}{The (theoretical) age at zero length (yr).}
 
-\item{k2}{The VB growth coefficient after length L2 (per yr).}
+\item{k2}{The VB growth coefficient after length L2 (yr-1).}
 
 \item{Linf2}{The VB mean maximum length after length L2 (cm).}
 
@@ -36,9 +36,9 @@
 
 \item{Rk}{The lifetime spawners per spawner at low density.}
 
-\item{n}{The annual natural mortality rate from age tR.}
+\item{n}{The annual interval natural mortality rate from age tR.}
 
-\item{nL}{The annual natural mortality rate from length Ln.}
+\item{nL}{The annual interval natural mortality rate from length Ln.}
 
 \item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).}
 
@@ -78,7 +78,7 @@
 
 \item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
 \item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
@@ -106,7 +106,9 @@
 
 \item{description}{A string describing the population.}
 
-\item{age}{A numeric vector of the age.}
+\item{age}{A numeric vector of the age (yr).}
+
+\item{length}{A numeric vector of the length (cm).}
 }
 \description{
 Parameter Descriptions for chk Functions
