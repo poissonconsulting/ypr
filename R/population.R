@@ -88,7 +88,7 @@ ypr_populations <- function(..., expand = TRUE) {
     attr(population, "out.attrs") <- NULL
     populations[[i]] <- do.call("ypr_population", population)
   }
-  names(populations) <- population_names(parameters)
   class(populations) <- "ypr_populations"
+  names(populations) <- population_names(populations)
   populations
 }

@@ -1,3 +1,4 @@
+- Added `as_ypr_populations.data.frame()`.
 - Added `as_ypr_population.data.frame()`.
 - Added `data.frame.ypr_population()` and `data.frame.ypr_populations()`.
 - `print.ypr_population()` now plots all values where more than one.
