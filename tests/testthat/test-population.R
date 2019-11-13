@@ -87,3 +87,13 @@ test_that("ypr_populations_update", {
     Vp = 100, Llo = 0, Lup = 1000, Nc = 0, pi = 0.2, rho = 0,
     Hm = 0, Rmax = 1, Wa = 0.01, fa = 1, q = 0.1), class = "ypr_population")), class = "ypr_populations"))
 })
+
+test_that("ypr_populations_expand", {
+  pops <- ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1), expand = FALSE)
+  expect_identical(names(pops), c("Rk_2_5_Hm_0_1_Popn_1", "Rk_4_Hm_0_2", "Rk_2_5_Hm_0_1_Popn_2"
+))
+  pops <- ypr_populations_expand(pops)
+  expect_identical(names(pops), c("Rk_2_5_Hm_0_1", "Rk_4_Hm_0_1", "Rk_2_5_Hm_0_2", "Rk_4_Hm_0_2"
+))
+  expect_identical(pops, ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
+})

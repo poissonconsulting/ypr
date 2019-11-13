@@ -1,3 +1,4 @@
+- Added `ypr_populations_expand()` to create all combinations of parameters.
 - Added `ypr_populations_update()` (as well as `update.ypr_population()` and `update.ypr_populations()`).
 - `ypr_populations` no longer requires names.
 - Added `ypr_population_names()` to allow user to generate names.
