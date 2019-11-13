@@ -43,9 +43,6 @@ test_that("populations", {
   expect_identical(chk_populations(populations), populations)
   expect_identical(length(populations), 4L)
   expect_identical(chk_population(populations[[1]]), populations[[1]])
-
-  names(populations) <- NULL
-  expect_error(chk_populations(populations), "^`populations` must be named[.]$", class = "chk_error")
 })
 
 test_that("populations expand = FALSE", {
@@ -67,4 +64,11 @@ test_that("populations expand = FALSE", {
   expect_identical(names(ypr_populations(k = 0.12, Rk = c(2.5, 4.6),
                                Hm = c(0.2, 0.05), expand = FALSE)),
                    c("Rk_2_5_Hm_0_2",  "Rk_4_6_Hm_0_05"))
+
+  expect_identical(names(ypr_populations(Rk = c(2.5, 4.6, 2.5), expand = FALSE)),
+                   c("Rk_2_5_Popn_1", "Rk_4_6", "Rk_2_5_Popn_2"))
+  expect_identical(names(ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 50), expand = FALSE)),
+                   c("Ls_60_Rk_2_5", "Ls_50_Rk_4_6", "Ls_50_Rk_2_5"))
+  expect_identical(names(ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 60), expand = FALSE)),
+                   c("Ls_60_Rk_2_5_Popn_1", "Ls_50_Rk_4_6", "Ls_60_Rk_2_5_Popn_2"))
 })

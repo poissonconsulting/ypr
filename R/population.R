@@ -89,6 +89,34 @@ ypr_populations <- function(..., expand = TRUE) {
     populations[[i]] <- do.call("ypr_population", population)
   }
   class(populations) <- "ypr_populations"
-  names(populations) <- population_names(populations)
+  names(populations) <- ypr_population_names(populations)
   populations
 }
+
+#' Population Names
+#'
+#' @inheritParams params
+#'
+#' @return A character vector of the unique population names.
+#' @export
+#'
+#' @examples
+#' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
+ypr_population_names <- function(populations) {
+  populations <- as.data.frame(populations)
+  populations <- populations[,vapply(populations, FUN = function(x) length(unique(x)) > 1, TRUE)]
+  if(!ncol(populations)) return(paste0("Popn_", 1:nrow(populations)))
+  populations <- as.list(populations)
+  populations <- map(populations, .sub, pattern = "[.]", replacement =  "_")
+  populations <- map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
+  populations <- transpose(populations)
+  populations <- map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
+  names <- unlist(populations)
+  duplicates <- unique(names[duplicated(names)])
+  for(duplicate in duplicates) {
+    bol <- names == duplicate
+    names[bol] <- paste(names[bol], "Popn", 1:sum(bol), sep = "_")
+  }
+  names
+}
+

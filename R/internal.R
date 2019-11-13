@@ -61,16 +61,3 @@ sum_fish <- function(x) {
 
 .sub <- function(x, pattern, replacement)
   sub(pattern, replacement, x)
-
-population_names <- function(x) {
-  x <- as.data.frame(x)
-  x <- x[,vapply(x, FUN = function(x) length(unique(x)) > 1, TRUE)]
-  if(!ncol(x)) return(paste0("Popn_", 1:nrow(x)))
-  x <- as.list(x)
-  x <- map(x, .sub, pattern = "[.]", replacement =  "_")
-  x <- map2(x, names(x), function(x, y) paste(y, x, sep = "_"))
-  x <- transpose(x)
-  x <- map(x, function(x) paste0(unname(unlist(x)), collapse = "_"))
-  x <- unlist(x)
-  x
-}

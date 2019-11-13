@@ -35,6 +35,7 @@
 #' @param percent A flag specifying whether to plot the number of fish as a percent or frequency (the default).
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
+#' @param populations An object of class [ypr_populations()].
 #' @param plot_values A flag specifying whether to plot the actual and optimal values.
 #' @param Ly The minimum length (trophy) fish to consider when calculating the yield (cm).
 #' @param harvest A flag specifying whether to calculate the yield for harvested fish or captures.

@@ -12,10 +12,9 @@ as_ypr_populations <- function(x, ...) UseMethod("as_ypr_populations")
 #' @export
 as_ypr_populations.data.frame <- function(x, ...) {
   chk_unused(...)
-  x <- unique(x)
   x <- split(x, 1:nrow(x))
   x <- lapply(x, as_ypr_population)
   class(x) <- "ypr_populations"
-  names(x) <- population_names(x)
-  chk_populations(x)
+  names(x) <- ypr_population_names(x)
+  x
 }

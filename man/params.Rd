@@ -76,6 +76,8 @@
 
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
+\item{populations}{An object of class \code{\link[=ypr_populations]{ypr_populations()}}.}
+
 \item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}

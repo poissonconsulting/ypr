@@ -13,46 +13,6 @@ ypr_plot_yield <- function(object, ...) {
   UseMethod("ypr_plot_yield")
 }
 
-#' Plot Population Schedule
-#'
-#' @param x The population to plot.
-#' @inheritParams graphics::plot.default
-#' @param ... Additional arguments passed to graphics::plot.formula functions.
-#' @return An invisible copy of the original object.
-#' @seealso [ypr_population()] and [ypr_schedule()]
-#' @export
-#' @examples
-#' \dontrun{
-#' plot(ypr_population())
-#' }
-plot.ypr_population <- function(x, type = "b", ...) {
-  chk_population(x)
-
-  schedule <- ypr_schedule(x)
-
-  with(schedule, {
-    plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
-      type = type, ...)
-    plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
-      type = type, ...)
-    plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
-      type = type, ...)
-    plot(Spawning ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-      type = type, ...)
-    plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-      type = type, ...)
-  })
-  invisible(x)
-}
-
 #' Plot Population Schedule Terms
 #'
 #' Produces a bivariate line plot of two schedule terms.
