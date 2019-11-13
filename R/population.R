@@ -45,6 +45,24 @@ ypr_population_update <- function(population, ...) {
   population
 }
 
+#' Update Population Parameters
+#'
+#' Updates an object of class [ypr_population()].
+#'
+#' @inheritParams params
+#' @param ... One or more of the arguments from `ypr_population()`.
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population()]
+#' @export
+#' @examples
+#' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
+ypr_populations_update <- function(populations, ...) {
+  populations <- lapply(populations, ypr_population_update, ...)
+  class(populations) <- "ypr_populations"
+  names(populations) <- ypr_population_names(populations)
+  populations
+}
+
 #' Populations
 #'
 #' @inheritParams params

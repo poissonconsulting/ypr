@@ -45,3 +45,8 @@ test_that("unique", {
   expect_identical(names(pops), c("Rk_4", "Rk_3"))
   expect_identical(unique(pops), pops)
 })
+
+test_that("update", {
+  expect_identical(update(ypr_population(), Rk = 5),
+                   ypr_population(Rk = 5))
+})

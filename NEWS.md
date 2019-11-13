@@ -1,3 +1,4 @@
+- Added `ypr_populations_update()` (as well as `update.ypr_population()` and `update.ypr_populations()`).
 - `ypr_populations` no longer requires names.
 - Added `ypr_population_names()` to allow user to generate names.
 - Added `as_ypr_populations.data.frame()`.
