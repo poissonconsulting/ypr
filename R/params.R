@@ -7,7 +7,7 @@
 #' @param Linf2 The VB mean maximum length after length L2 (cm).
 #' @param L2 The length (or age if negative) at which growth switches from the first to second phase (cm or yr).
 #' @param Wb The weight (as a function of length) scaling exponent.
-#' @param Ls The length (or age if negative) at which 50\% mature (cm or yr).
+#' @param Ls The length (or age if negative) at which 50 % mature (cm or yr).
 #' @param Sp The maturity (as a function of length) power.
 #' @param es The annual probability of a mature fish spawning.
 #' @param Sm The spawning mortality probability.
@@ -18,7 +18,7 @@
 #' @param n The annual interval natural mortality rate from age tR.
 #' @param nL The annual interval natural mortality rate from length Ln.
 #' @param Ln The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).
-#' @param Lv The length (or age if negative) at which 50\% vulnerable to harvest (cm or yr).
+#' @param Lv The length (or age if negative) at which 50 % vulnerable to harvest (cm or yr).
 #' @param Vp The vulnerability to harvest (as a function of length) power.
 #' @param Llo The lower harvest slot length (cm).
 #' @param Lup The upper harvest slot length (cm).
