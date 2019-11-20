@@ -21,10 +21,11 @@ ypr_tabulate_parameters(ypr_population())
 \seealso{
 \code{\link[=ypr_detabulate_parameters]{ypr_detabulate_parameters()}}
 
-Other tabulate: \code{\link{ypr_tabulate_biomass}},
-  \code{\link{ypr_tabulate_fish}},
-  \code{\link{ypr_tabulate_sr}},
-  \code{\link{ypr_tabulate_yields}},
-  \code{\link{ypr_tabulate_yield}}
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
 \concept{tabulate}

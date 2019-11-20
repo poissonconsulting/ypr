@@ -6,7 +6,7 @@
 \alias{ypr-package}
 \title{ypr: Yield Per Recruit}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 An implementation of equilibrium-based yield per recruit methods.
     Yield per recruit methods can used to estimate the optimal yield for a fish population
@@ -23,7 +23,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)
+\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID})
 
 Other contributors:
 \itemize{

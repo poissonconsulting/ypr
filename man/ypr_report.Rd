@@ -4,8 +4,15 @@
 \alias{ypr_report}
 \title{Report}
 \usage{
-ypr_report(population, title = "Population Report", description = "",
-  date = Sys.Date(), file = "report", view = FALSE, ask = TRUE)
+ypr_report(
+  population,
+  title = "Population Report",
+  description = "",
+  date = Sys.Date(),
+  file = "report",
+  view = FALSE,
+  ask = TRUE
+)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}

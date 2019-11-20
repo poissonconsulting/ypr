@@ -20,7 +20,7 @@
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Ls}{The length (or age if negative) at which 50\% mature (cm or yr).}
+\item{Ls}{The length (or age if negative) at which 50\\% mature (cm or yr).}
 
 \item{Sp}{The maturity (as a function of length) power.}
 
@@ -42,7 +42,7 @@
 
 \item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).}
 
-\item{Lv}{The length (or age if negative) at which 50\% vulnerable to harvest (cm or yr).}
+\item{Lv}{The length (or age if negative) at which 50\\% vulnerable to harvest (cm or yr).}
 
 \item{Vp}{The vulnerability to harvest (as a function of length) power.}
 

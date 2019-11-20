@@ -8,13 +8,25 @@
 \usage{
 ypr_tabulate_yields(object, ...)
 
-\method{ypr_tabulate_yields}{ypr_population}(object, pi = seq(0, 1,
-  length.out = 100), Ly = 0, harvest = TRUE, biomass = FALSE,
-  all = FALSE, ...)
+\method{ypr_tabulate_yields}{ypr_population}(
+  object,
+  pi = seq(0, 1, length.out = 100),
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  all = FALSE,
+  ...
+)
 
-\method{ypr_tabulate_yields}{ypr_populations}(object, pi = seq(0, 1,
-  length.out = 100), Ly = 0, harvest = TRUE, biomass = FALSE,
-  all = FALSE, ...)
+\method{ypr_tabulate_yields}{ypr_populations}(
+  object,
+  pi = seq(0, 1, length.out = 100),
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  all = FALSE,
+  ...
+)
 }
 \arguments{
 \item{object}{The populations or populations.}
@@ -49,10 +61,11 @@ ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
 }
 \seealso{
-Other tabulate: \code{\link{ypr_tabulate_biomass}},
-  \code{\link{ypr_tabulate_fish}},
-  \code{\link{ypr_tabulate_parameters}},
-  \code{\link{ypr_tabulate_sr}},
-  \code{\link{ypr_tabulate_yield}}
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yield}()}
 }
 \concept{tabulate}

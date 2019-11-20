@@ -4,8 +4,14 @@
 \alias{ypr_plot_fish}
 \title{Plot Fish}
 \usage{
-ypr_plot_fish(population, x = "Age", y = "Survivors",
-  percent = FALSE, binwidth = 1L, color = NULL)
+ypr_plot_fish(
+  population,
+  x = "Age",
+  y = "Survivors",
+  percent = FALSE,
+  binwidth = 1L,
+  color = NULL
+)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}

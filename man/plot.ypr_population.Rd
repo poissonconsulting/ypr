@@ -10,7 +10,7 @@
 \item{x}{The population to plot.}
 
 \item{type}{1-character string giving the type of plot desired.  The
-    following values are possible, for details, see \code{\link{plot}}:
+    following values are possible, for details, see \code{\link[graphics]{plot}}:
     \code{"p"} for points, \code{"l"} for lines,
     \code{"b"} for both points and lines,
     \code{"c"} for empty points joined by lines,

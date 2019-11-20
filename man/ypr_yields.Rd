@@ -4,8 +4,13 @@
 \alias{ypr_yields}
 \title{Yields}
 \usage{
-ypr_yields(population, pi = seq(0, 1, length.out = 100), Ly = 0,
-  harvest = TRUE, biomass = FALSE)
+ypr_yields(
+  population,
+  pi = seq(0, 1, length.out = 100),
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE
+)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}

@@ -21,10 +21,11 @@ Produces a data frame of the 'Weight' and 'Fecundity' and the number of
 ypr_tabulate_biomass(ypr_population())
 }
 \seealso{
-Other tabulate: \code{\link{ypr_tabulate_fish}},
-  \code{\link{ypr_tabulate_parameters}},
-  \code{\link{ypr_tabulate_sr}},
-  \code{\link{ypr_tabulate_yields}},
-  \code{\link{ypr_tabulate_yield}}
+Other tabulate: 
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
 \concept{tabulate}

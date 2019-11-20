@@ -4,12 +4,39 @@
 \alias{ypr_population}
 \title{Population Parameters}
 \usage{
-ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
-  k2 = 0.15, Linf2 = 100, L2 = 1000, Wb = 3, Ls = 50, Sp = 100,
-  es = 1, Sm = 0, fb = 1, tR = 1L, BH = 1L, Rk = 3, n = 0.2,
-  nL = 0.2, Ln = 1000, Lv = 50, Vp = 100, Llo = 0, Lup = 1000,
-  Nc = 0, pi = 0.2, rho = 0, Hm = 0, Rmax = 1, Wa = 0.01,
-  fa = 1, q = 0.1)
+ypr_population(
+  tmax = 20L,
+  k = 0.15,
+  Linf = 100,
+  t0 = 0,
+  k2 = 0.15,
+  Linf2 = 100,
+  L2 = 1000,
+  Wb = 3,
+  Ls = 50,
+  Sp = 100,
+  es = 1,
+  Sm = 0,
+  fb = 1,
+  tR = 1L,
+  BH = 1L,
+  Rk = 3,
+  n = 0.2,
+  nL = 0.2,
+  Ln = 1000,
+  Lv = 50,
+  Vp = 100,
+  Llo = 0,
+  Lup = 1000,
+  Nc = 0,
+  pi = 0.2,
+  rho = 0,
+  Hm = 0,
+  Rmax = 1,
+  Wa = 0.01,
+  fa = 1,
+  q = 0.1
+)
 }
 \arguments{
 \item{tmax}{The maximum age (yr).}
@@ -28,7 +55,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Ls}{The length (or age if negative) at which 50\% mature (cm or yr).}
+\item{Ls}{The length (or age if negative) at which 50\\% mature (cm or yr).}
 
 \item{Sp}{The maturity (as a function of length) power.}
 
@@ -50,7 +77,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 
 \item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).}
 
-\item{Lv}{The length (or age if negative) at which 50\% vulnerable to harvest (cm or yr).}
+\item{Lv}{The length (or age if negative) at which 50\\% vulnerable to harvest (cm or yr).}
 
 \item{Vp}{The vulnerability to harvest (as a function of length) power.}
 

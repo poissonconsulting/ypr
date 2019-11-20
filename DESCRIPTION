@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.3.1.9023
+Version: 0.3.1.9024
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods.
     Yield per recruit methods can used to estimate the optimal yield for a fish population
@@ -37,7 +37,7 @@ BugReports: https://github.com/poissonconsulting/ypr/issues
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0
 VignetteBuilder: knitr
 Language: en-US
 Roxygen: list(markdown = TRUE)

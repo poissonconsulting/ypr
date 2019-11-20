@@ -4,8 +4,13 @@
 \alias{ypr_plot_sr}
 \title{Plot Stock-Recruitment Curve}
 \usage{
-ypr_plot_sr(population, Ly = 0, harvest = TRUE, biomass = FALSE,
-  plot_values = TRUE)
+ypr_plot_sr(
+  population,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  plot_values = TRUE
+)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}

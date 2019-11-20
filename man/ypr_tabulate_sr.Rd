@@ -8,11 +8,23 @@
 \usage{
 ypr_tabulate_sr(object, ...)
 
-\method{ypr_tabulate_sr}{ypr_population}(object, Ly = 0,
-  harvest = TRUE, biomass = FALSE, all = FALSE, ...)
+\method{ypr_tabulate_sr}{ypr_population}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  all = FALSE,
+  ...
+)
 
-\method{ypr_tabulate_sr}{ypr_populations}(object, Ly = 0,
-  harvest = TRUE, biomass = FALSE, all = FALSE, ...)
+\method{ypr_tabulate_sr}{ypr_populations}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  all = FALSE,
+  ...
+)
 }
 \arguments{
 \item{object}{The populations or populations.}
@@ -46,10 +58,11 @@ ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
 ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 }
 \seealso{
-Other tabulate: \code{\link{ypr_tabulate_biomass}},
-  \code{\link{ypr_tabulate_fish}},
-  \code{\link{ypr_tabulate_parameters}},
-  \code{\link{ypr_tabulate_yields}},
-  \code{\link{ypr_tabulate_yield}}
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
 \concept{tabulate}

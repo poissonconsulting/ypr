@@ -25,10 +25,11 @@ Produces a data frame of the number of fish in the
 ypr_tabulate_fish(ypr_population())
 }
 \seealso{
-Other tabulate: \code{\link{ypr_tabulate_biomass}},
-  \code{\link{ypr_tabulate_parameters}},
-  \code{\link{ypr_tabulate_sr}},
-  \code{\link{ypr_tabulate_yields}},
-  \code{\link{ypr_tabulate_yield}}
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
 \concept{tabulate}

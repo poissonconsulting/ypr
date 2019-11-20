@@ -4,9 +4,17 @@
 \alias{ypr_plot_yield.ypr_population}
 \title{Plot Yield by Exploitation/Capture Probability}
 \usage{
-\method{ypr_plot_yield}{ypr_population}(object, y = "Yield",
-  pi = seq(0, 1, length.out = 100), Ly = 0, harvest = TRUE,
-  biomass = FALSE, u = harvest, plot_values = TRUE, ...)
+\method{ypr_plot_yield}{ypr_population}(
+  object,
+  y = "Yield",
+  pi = seq(0, 1, length.out = 100),
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  u = harvest,
+  plot_values = TRUE,
+  ...
+)
 }
 \arguments{
 \item{object}{The populations or populations.}
