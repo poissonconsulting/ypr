@@ -18,5 +18,5 @@ A double vector of the lengths.
 Length At Age
 }
 \examples{
-ypr_length_at_age(ypr_population(), seq(0,5, by = 0.5))
+ypr_length_at_age(ypr_population(), seq(0, 5, by = 0.5))
 }

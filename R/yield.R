@@ -9,15 +9,16 @@ yield <- function(schedule, population, Ly = 0, harvest = TRUE, biomass = FALSE)
   yield <- with(schedule, {
     FishedSurvivorship[Length < Ly] <- 0
     yield <- R0F * FishedSurvivorship * Vulnerability * pi
-    if(harvest) yield <- yield * Retention
+    if (harvest) yield <- yield * Retention
     age <- weighted.mean(Age, yield)
     length <- weighted.mean(Length, yield)
     weight <- weighted.mean(Weight, yield)
     effort <- log(1 - pi) / log(1 - q)
-    if(biomass)
+    if (biomass) {
       yield <- yield * Weight / 1000
+    }
     yield <- sum(yield)
-    if(yield <= 0) {
+    if (yield <= 0) {
       age <- NA
       length <- NA
       weight <- NA

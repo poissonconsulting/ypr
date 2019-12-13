@@ -99,7 +99,7 @@ ypr_populations <- function(..., expand = TRUE) {
 
   parameters <- list(...)
 
-  if(!length(parameters)) {
+  if (!length(parameters)) {
     populations <- list(population)
     class(populations) <- "ypr_populations"
     return(populations)
@@ -108,20 +108,23 @@ ypr_populations <- function(..., expand = TRUE) {
   chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
   chk_unique(names(parameters), x_name = "`names(...)`")
 
-  if(expand) {
+  if (expand) {
     parameters <- lapply(parameters, function(x) sort(unique(x)))
     parameters <- expand.grid(parameters)
   } else {
     lengths <- vapply(parameters, length, FUN.VALUE = 1L)
     lengths <- unique(lengths)
     lengths <- lengths[lengths != 1]
-    if(length(lengths) > 1)
-      err("Non-scalar parameter values must all be the same length (not ",
-          cc(sort(lengths), conj = " and ", brac = "") ,")")
+    if (length(lengths) > 1) {
+      err(
+        "Non-scalar parameter values must all be the same length (not ",
+        cc(sort(lengths), conj = " and ", brac = ""), ")"
+      )
+    }
     parameters <- as.data.frame(parameters)
   }
   populations <- list()
-  for(i in seq_len(nrow(parameters))) {
+  for (i in seq_len(nrow(parameters))) {
     population <- as.list(parameters[i, , drop = FALSE])
     attr(population, "out.attrs") <- NULL
     populations[[i]] <- do.call("ypr_population", population)
@@ -142,19 +145,20 @@ ypr_populations <- function(..., expand = TRUE) {
 #' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
 ypr_population_names <- function(populations) {
   populations <- as.data.frame(populations)
-  populations <- populations[,vapply(populations, FUN = function(x) length(unique(x)) > 1, TRUE)]
-  if(!ncol(populations)) return(paste0("Popn_", 1:nrow(populations)))
+  populations <- populations[, vapply(populations, FUN = function(x) length(unique(x)) > 1, TRUE)]
+  if (!ncol(populations)) {
+    return(paste0("Popn_", 1:nrow(populations)))
+  }
   populations <- as.list(populations)
-  populations <- map(populations, .sub, pattern = "[.]", replacement =  "_")
+  populations <- map(populations, .sub, pattern = "[.]", replacement = "_")
   populations <- map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
   populations <- transpose(populations)
   populations <- map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
   names <- unlist(populations)
   duplicates <- unique(names[duplicated(names)])
-  for(duplicate in duplicates) {
+  for (duplicate in duplicates) {
     bol <- names == duplicate
     names[bol] <- paste(names[bol], "Popn", 1:sum(bol), sep = "_")
   }
   names
 }
-

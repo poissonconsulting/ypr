@@ -34,10 +34,11 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   chk_string(y)
   chk_subset(y, values = colnames(schedule))
 
-  labels <- if(sum(schedule[[y]]) >= 1000) {
+  labels <- if (sum(schedule[[y]]) >= 1000) {
     scales::comma
-  } else
+  } else {
     waiver()
+  }
 
   ggplot(data = schedule, aes_string(x = x, y = y)) +
     geom_line() +
@@ -61,25 +62,30 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
                           percent = FALSE,
                           binwidth = 1L, color = NULL) {
-
   chk_string(y)
-  chk_subset(y, c("Survivors", "Spawners", "Caught", "Harvested",
-    "Released", "HandlingMortalities"))
+  chk_subset(y, c(
+    "Survivors", "Spawners", "Caught", "Harvested",
+    "Released", "HandlingMortalities"
+  ))
   chk_flag(percent)
 
   fish <- ypr_tabulate_fish(population, x = x, binwidth = binwidth)
 
-  if(percent) fish[[y]] <- fish[[y]] / sum(fish[[y]])
-  labels <- if(percent) {
+  if (percent) fish[[y]] <- fish[[y]] / sum(fish[[y]])
+  labels <- if (percent) {
     scales::percent
-  } else if(sum(fish[[y]]) >= 1000) {
+  } else if (sum(fish[[y]]) >= 1000) {
     scales::comma
-  } else
+  } else {
     waiver()
+  }
 
   ggplot(data = fish, aes_string(x = x, weight = y)) +
-    (if(is.null(color)) geom_bar(width = binwidth) else
-      geom_bar(width = binwidth, color = color)) +
+    (if (is.null(color)) {
+      geom_bar(width = binwidth)
+    } else {
+      geom_bar(width = binwidth, color = color)
+    }) +
     scale_y_continuous(y, labels = labels) +
     expand_limits(x = 0, y = 0)
 }
@@ -97,20 +103,23 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
 #' @examples
 #' ypr_plot_biomass(ypr_population(), color = "white")
 ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
-
   chk_string(y)
   chk_subset(y, c("Biomass", "Eggs"))
 
   biomass <- ypr_tabulate_biomass(population)
 
-  labels <- if(sum(biomass[[y]]) >= 1000) {
+  labels <- if (sum(biomass[[y]]) >= 1000) {
     scales::comma
-  } else
+  } else {
     waiver()
+  }
 
   ggplot(data = biomass, aes_string(x = "Age", weight = y)) +
-    (if(is.null(color)) geom_bar(width = 1) else
-      geom_bar(width = 1, color = color)) +
+    (if (is.null(color)) {
+      geom_bar(width = 1)
+    } else {
+      geom_bar(width = 1, color = color)
+    }) +
     scale_y_continuous(y, labels = labels) +
     expand_limits(x = 0, y = 0)
 }
@@ -140,7 +149,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 
   data <- with(schedule, {
     data <- data.frame(Eggs = seq(0, to = phi * R0 * 2, length.out = 100))
-    fun <- if(BH == 1L) bh else ri
+    fun <- if (BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
     data
   })
@@ -151,21 +160,25 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
   data2$Recruits[1:3] <- 0
   data2$Eggs[7:9] <- 0
 
-  labels_x <- if(sum(data[["Eggs"]]) >= 1000) {
+  labels_x <- if (sum(data[["Eggs"]]) >= 1000) {
     scales::comma
-  } else
+  } else {
     waiver()
+  }
 
-  labels_y <- if(sum(data[["Recruits"]]) >= 1000) {
+  labels_y <- if (sum(data[["Recruits"]]) >= 1000) {
     scales::comma
-  } else
+  } else {
     waiver()
+  }
 
   ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
     (
-      if(plot_values)
+      if (plot_values) {
         geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
-      else NULL
+      } else {
+        NULL
+      }
     ) +
     geom_line() +
     expand_limits(x = 0, y = 0) +
@@ -201,8 +214,10 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
-  data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-    biomass = biomass)
+  data <- ypr_tabulate_yields(object,
+    pi = pi, Ly = Ly, harvest = harvest,
+    biomass = biomass
+  )
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
@@ -217,17 +232,19 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 
   data2 <- rbind(data1, data2, data3, stringsAsFactors = FALSE)
 
-  xlab <- if(u) "Exploitation Probability (%)" else "Capture Probability (%)"
-  x <- if(u) "u" else "pi"
+  xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
+  x <- if (u) "u" else "pi"
 
   ggplot(data = data, aes_string(x = x, y = y)) +
     (
-      if(plot_values)
+      if (plot_values) {
         list(
           geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted"),
           scale_color_manual(values = c("red", "blue"))
         )
-      else NULL
+      } else {
+        NULL
+      }
     ) +
     geom_line() +
     expand_limits(x = 0) +
@@ -259,13 +276,14 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 ypr_plot_yield.ypr_populations <- function(
                                            object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                            Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
-
   chk_string(y)
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
-  data <- ypr_tabulate_yields(object, pi = pi, Ly = Ly, harvest = harvest,
-    biomass = biomass)
+  data <- ypr_tabulate_yields(object,
+    pi = pi, Ly = Ly, harvest = harvest,
+    biomass = biomass
+  )
 
   data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
 
@@ -274,7 +292,7 @@ ypr_plot_yield.ypr_populations <- function(
 
   parameters <- setdiff(intersect(colnames(data), .parameters$Parameter), "pi")
 
-  for(parameter in parameters) {
+  for (parameter in parameters) {
     data[[parameter]] <- factor(
       paste0(parameter, ": ", data[[parameter]]),
       levels = unique(paste0(parameter, ": ", sort(data[[parameter]])))
@@ -293,17 +311,19 @@ ypr_plot_yield.ypr_populations <- function(
 
   data2 <- rbind(data1, data2, data3, stringsAsFactors = FALSE)
 
-  xlab <- if(u) "Exploitation Probability (%)" else "Capture Probability (%)"
-  x <- if(u) "u" else "pi"
+  xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
+  x <- if (u) "u" else "pi"
 
   ggplot(data = data, aes_string(x = x, y = y)) +
     (
-      if(plot_values)
+      if (plot_values) {
         list(
           geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted"),
           scale_color_manual(values = c("red", "blue"))
         )
-      else NULL
+      } else {
+        NULL
+      }
     ) +
     geom_line() +
     expand_limits(x = 0) +

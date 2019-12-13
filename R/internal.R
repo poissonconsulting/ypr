@@ -1,6 +1,10 @@
 ask_file <- function(file, ask) {
-  if(!ask) return(TRUE)
-  if(file.exists(file)) return(yesno("Overwrite file '", file, "'?"))
+  if (!ask) {
+    return(TRUE)
+  }
+  if (file.exists(file)) {
+    return(yesno("Overwrite file '", file, "'?"))
+  }
   yesno("Create file '", file, "'?")
 }
 
@@ -46,9 +50,11 @@ sanitize <- function(x) {
 
 tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
   object$pi <- pi
-  yield <- ypr_tabulate_yield(object = object, Ly = Ly,
+  yield <- ypr_tabulate_yield(
+    object = object, Ly = Ly,
     harvest = harvest, biomass = biomass,
-    type = "actual", all = all)
+    type = "actual", all = all
+  )
   yield$Type <- NULL
   yield
 }
@@ -59,5 +65,6 @@ sum_fish <- function(x) {
   x[1, ]
 }
 
-.sub <- function(x, pattern, replacement)
+.sub <- function(x, pattern, replacement) {
   sub(pattern, replacement, x)
+}

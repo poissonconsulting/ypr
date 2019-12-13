@@ -11,17 +11,21 @@ test_that("data", {
 })
 
 test_that(".data", {
-  expect_identical(checkr::check_data(
-    .parameters,
-    values = list(
-      Parameter = "",
-      Grouping = ordered(""),
-      Subgrouping = ordered(""),
-      Importance = ordered(""),
-      Lower = c(-100, 2),
-      Upper = c(0.1, 1e+06),
-      Integer = c(0L, 1L),
-      Log = c(0L, 1L)),
-    key = "Parameter", exclusive = TRUE, order = TRUE),
-  .parameters)
+  expect_identical(
+    checkr::check_data(
+      .parameters,
+      values = list(
+        Parameter = "",
+        Grouping = ordered(""),
+        Subgrouping = ordered(""),
+        Importance = ordered(""),
+        Lower = c(-100, 2),
+        Upper = c(0.1, 1e+06),
+        Integer = c(0L, 1L),
+        Log = c(0L, 1L)
+      ),
+      key = "Parameter", exclusive = TRUE, order = TRUE
+    ),
+    .parameters
+  )
 })

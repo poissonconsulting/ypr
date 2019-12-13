@@ -17,13 +17,13 @@ ypr_schedule <- function(population) {
     L <- length_at_age(population, t)
     W <- Wa * L^Wb
     E <- fa * W^fb
-    if(Ls < 0) Ls <- length_at_age(population, -Ls)
+    if (Ls < 0) Ls <- length_at_age(population, -Ls)
     S <- exp(log(L / 1000) * Sp) / (exp(log(Ls / 1000) * Sp) + exp(log(L / 1000) * Sp)) * es
     N <- rep(n, nt)
-    if(Ln < 0) Ln <- length_at_age(population, -Ln)
+    if (Ln < 0) Ln <- length_at_age(population, -Ln)
     N[L >= Ln] <- nL
     N <- 1 - ((1 - N) * (1 - S * Sm))
-    if(Lv < 0) Lv <- length_at_age(population, -Lv)
+    if (Lv < 0) Lv <- length_at_age(population, -Lv)
     V <- exp(log(L / 1000) * Vp) / (exp(log(Lv / 1000) * Vp) + exp(log(L / 1000) * Vp))
     C <- pi * V
     R <- rep(1 - rho, nt)
@@ -36,10 +36,12 @@ ypr_schedule <- function(population) {
     FishedSurvivorship <- cumprod(1 - TotalMortality)
     FishedSurvivorship <- c(1, FishedSurvivorship[-nt])
 
-    data.frame(Age = t, Length = L, Weight = W, Fecundity = E, Spawning = S,
-               NaturalMortality = N, Vulnerability = V, Retention = R,
-               FishingMortality = U, Survivorship = Survivorship,
-               FishedSurvivorship = FishedSurvivorship)
+    data.frame(
+      Age = t, Length = L, Weight = W, Fecundity = E, Spawning = S,
+      NaturalMortality = N, Vulnerability = V, Retention = R,
+      FishingMortality = U, Survivorship = Survivorship,
+      FishedSurvivorship = FishedSurvivorship
+    )
   })
 
   as_tibble(schedule)

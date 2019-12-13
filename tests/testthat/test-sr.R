@@ -34,4 +34,3 @@ test_that("ypr_sr extinct population", {
   bh <- ypr_sr(ypr_population(Linf = 140, BH = 0L))
   expect_equal(bh$R0F, 0, check.attributes = FALSE, tolerance = 1e-06)
 })
-

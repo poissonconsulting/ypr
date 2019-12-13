@@ -53,9 +53,11 @@ ypr_tabulate_yields <- function(object, ...) {
 ypr_tabulate_parameters <- function(population) {
   chk_population(population)
 
-  parameters <- data.frame(Parameter = names(population),
+  parameters <- data.frame(
+    Parameter = names(population),
     Value = unname(unlist(population)),
-    stringsAsFactors = FALSE)
+    stringsAsFactors = FALSE
+  )
 
   pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
   rd <- tools::Rd_db("ypr")$ypr_population.Rd
@@ -63,9 +65,11 @@ ypr_tabulate_parameters <- function(population) {
   gp <- gregexpr(pattern, rd)
   rd <- regmatches(rd, gp)[[1]]
 
-  data <- data.frame(Parameter = sub(pattern, "\\2", rd),
+  data <- data.frame(
+    Parameter = sub(pattern, "\\2", rd),
     Description = sub(pattern, "\\5", rd),
-    stringsAsFactors = FALSE)
+    stringsAsFactors = FALSE
+  )
 
   parameters <- merge(parameters, data, by = "Parameter", sort = FALSE)
 
@@ -99,8 +103,10 @@ ypr_detabulate_parameters <- function(x) {
   parameters <- as.list(x$Value)
   names(parameters) <- x$Parameter
 
-  parameters <- mapply(function(x, y) if(y == 1) as.integer(x) else x,
-    parameters, x$Integer, SIMPLIFY = FALSE)
+  parameters <- mapply(function(x, y) if (y == 1) as.integer(x) else x,
+    parameters, x$Integer,
+    SIMPLIFY = FALSE
+  )
 
   population <- do.call("ypr_population", parameters)
   population
@@ -134,13 +140,15 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 
   table$Survivors <- table$FishedSurvivorship * R0F
   table$Spawners <- table$Survivors * table$Spawning
-  table$Caught <- table$Survivors *  table$Vulnerability * population$pi
+  table$Caught <- table$Survivors * table$Vulnerability * population$pi
   table$Harvested <- table$Caught * table$Retention
   table$Released <- table$Caught * (1 - table$Retention)
   table$HandlingMortalities <- table$Released * population$Hm
 
-  table <- table[c(x, "Survivors", "Spawners", "Caught", "Harvested",
-    "Released", "HandlingMortalities")]
+  table <- table[c(
+    x, "Survivors", "Spawners", "Caught", "Harvested",
+    "Released", "HandlingMortalities"
+  )]
 
   breaks <- seq(0, max(table[[1]] + binwidth), by = binwidth)
   table[[1]] <- cut(table[[1]], breaks = breaks)
@@ -199,14 +207,14 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
       Eggs = c(phi * R0, phiF * R0F, optimal_sr$phiF * optimal_sr$R0F),
       stringsAsFactors = FALSE
     )
-    fun <- if(BH == 1L) bh else ri
+    fun <- if (BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
     data$Spawners <- c(S0, S0F, optimal_sr$S0F)
     data$Fecundity <- data$Eggs / data$Spawners * 2
     data
   })
 
-  if(all) table <- add_parameters(table, object)
+  if (all) table <- add_parameters(table, object)
 
   as_tibble(table)
 }
@@ -217,12 +225,14 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
                                             all = FALSE, ...) {
   chk_flag(all)
 
-  sr <- lapply(object, ypr_tabulate_sr, Ly = Ly, harvest = harvest,
-    biomass = biomass, all = TRUE, ...)
+  sr <- lapply(object, ypr_tabulate_sr,
+    Ly = Ly, harvest = harvest,
+    biomass = biomass, all = TRUE, ...
+  )
 
   sr <- do.call("rbind", sr)
 
-  if(!all) sr <- drop_constant_parameters(sr)
+  if (!all) sr <- drop_constant_parameters(sr)
 
   as_tibble(sr)
 }
@@ -231,16 +241,18 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 #' @export
 ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                               type = "both", all = FALSE, ...) {
-
   chk_string(type)
   chk_subset(type, c("both", "actual", "optimal"))
   actual_pi <- object$pi
 
-  actual_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
-    biomass = biomass)
+  actual_yield <- ypr_yield(object,
+    Ly = Ly, harvest = harvest,
+    biomass = biomass
+  )
 
-  if(type == "actual") {
-    yield <- data.frame(Type = "actual",
+  if (type == "actual") {
+    yield <- data.frame(
+      Type = "actual",
       pi = actual_pi,
       u = ypr_exploitation(object, actual_pi),
       Yield = actual_yield,
@@ -248,16 +260,22 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
       Length = attr(actual_yield, "Length"),
       Weight = attr(actual_yield, "Weight"),
       Effort = attr(actual_yield, "Effort"),
-      stringsAsFactors = FALSE)
+      stringsAsFactors = FALSE
+    )
   } else {
-    optimal_pi <- ypr_optimize(object, Ly = Ly, harvest = harvest,
-      biomass = biomass)
+    optimal_pi <- ypr_optimize(object,
+      Ly = Ly, harvest = harvest,
+      biomass = biomass
+    )
 
     object <- ypr_population_update(object, pi = optimal_pi)
 
-    optimal_yield <- ypr_yield(object, Ly = Ly, harvest = harvest,
-      biomass = biomass)
-    yield <- data.frame(Type = c("actual", "optimal"),
+    optimal_yield <- ypr_yield(object,
+      Ly = Ly, harvest = harvest,
+      biomass = biomass
+    )
+    yield <- data.frame(
+      Type = c("actual", "optimal"),
       pi = c(actual_pi, optimal_pi),
       u = ypr_exploitation(object, c(actual_pi, optimal_pi)),
       Yield = c(actual_yield, optimal_yield),
@@ -265,13 +283,15 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
       Length = c(attr(actual_yield, "Length"), attr(optimal_yield, "Length")),
       Weight = c(attr(actual_yield, "Weight"), attr(optimal_yield, "Weight")),
       Effort = c(attr(actual_yield, "Effort"), attr(optimal_yield, "Effort")),
-      stringsAsFactors = FALSE)
+      stringsAsFactors = FALSE
+    )
 
-    if(type == "optimal")
+    if (type == "optimal") {
       yield <- yield[yield$Type == "optimal", ]
+    }
   }
 
-  if(all) yield <- add_parameters(yield, object)
+  if (all) yield <- add_parameters(yield, object)
 
   as_tibble(yield)
 }
@@ -280,15 +300,16 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 #' @export
 ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
                                                type = "both", all = FALSE, ...) {
-
   chk_flag(all)
 
-  yield <- lapply(object, ypr_tabulate_yield, Ly = Ly, harvest = harvest,
-    biomass = biomass, type = type, all = TRUE, ...)
+  yield <- lapply(object, ypr_tabulate_yield,
+    Ly = Ly, harvest = harvest,
+    biomass = biomass, type = type, all = TRUE, ...
+  )
 
   yield <- do.call("rbind", yield)
 
-  if(!all) yield <- drop_constant_parameters(yield)
+  if (!all) yield <- drop_constant_parameters(yield)
 
   as_tibble(yield)
 }
@@ -297,15 +318,16 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 #' @export
 ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
                                                Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
-
   chk_number(Ly)
   chk_numeric(pi)
   chk_not_empty(pi)
   chk_not_any_na(pi)
   chk_range(pi, c(0, 1))
 
-  yields <- lapply(pi, tabulate_yield_pi, object = object, Ly = Ly,
-    harvest = harvest, biomass = biomass, all = all)
+  yields <- lapply(pi, tabulate_yield_pi,
+    object = object, Ly = Ly,
+    harvest = harvest, biomass = biomass, all = all
+  )
 
   yields <- do.call(rbind, yields)
 
@@ -317,15 +339,16 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
                                                 Ly = 0, harvest = TRUE, biomass = FALSE,
                                                 all = FALSE, ...) {
-
   chk_flag(all)
 
-  yield <- lapply(object, ypr_tabulate_yields, pi = pi, Ly = Ly, harvest = harvest,
-    biomass = biomass, all = TRUE, ...)
+  yield <- lapply(object, ypr_tabulate_yields,
+    pi = pi, Ly = Ly, harvest = harvest,
+    biomass = biomass, all = TRUE, ...
+  )
 
   yield <- do.call("rbind", yield)
 
-  if(!all) yield <- drop_constant_parameters(yield)
+  if (!all) yield <- drop_constant_parameters(yield)
 
   as_tibble(yield)
 }

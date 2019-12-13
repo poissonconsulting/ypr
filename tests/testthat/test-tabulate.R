@@ -5,7 +5,8 @@ check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = su
 
   checkr::check_data(
     x,
-    values = list(Type = c("actual", "actual", "optimal"),
+    values = list(
+      Type = c("actual", "actual", "optimal"),
       pi = c(0, 1),
       u = c(0, 1),
       Yield = c(0, .Machine$double.xmax),
@@ -17,7 +18,8 @@ check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = su
     nrow = TRUE,
     exclusive = exclusive,
     order = order,
-    x_name = x_name)
+    x_name = x_name
+  )
 
   x
 }
@@ -48,7 +50,8 @@ test_that("ypr_tabulate_yield", {
 
   expect_identical(checkr::check_data(
     yields,
-    values = list(pi = c(0, 1),
+    values = list(
+      pi = c(0, 1),
       u = c(0, 1),
       Yield = c(0, .Machine$double.xmax),
       Age = c(0, 100, NA),
@@ -58,7 +61,8 @@ test_that("ypr_tabulate_yield", {
     ),
     nrow = TRUE,
     exclusive = TRUE,
-    order = TRUE), yields)
+    order = TRUE
+  ), yields)
 
   expect_identical(yields$pi[1:2], c(0, 1 / 9))
   expect_equal(yields$Effort[1:2], c(0, 1.117905), tolerance = 1e-07)
@@ -69,8 +73,10 @@ test_that("ypr_tabulate_yield", {
   expect_identical(ncol(yields), 8L)
   expect_identical(nrow(yields), 4L)
 
-  yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 2),
-    all = TRUE)
+  yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)),
+    pi = seq(0, 1, length.out = 2),
+    all = TRUE
+  )
   expect_identical(ncol(yields), 37L)
   expect_identical(nrow(yields), 4L)
 
@@ -78,7 +84,8 @@ test_that("ypr_tabulate_yield", {
 
   expect_identical(checkr::check_data(
     sr,
-    values = list(Type = c("unfished", "actual", "optimal"),
+    values = list(
+      Type = c("unfished", "actual", "optimal"),
       pi = c(0, 1),
       u = c(0, 1),
       Eggs = c(0, .Machine$double.xmax),
@@ -88,26 +95,32 @@ test_that("ypr_tabulate_yield", {
     ),
     nrow = TRUE,
     exclusive = TRUE,
-    order = TRUE), sr)
+    order = TRUE
+  ), sr)
 
   expect_identical(sr$Type, c("unfished", "actual", "optimal"))
 
   fish <- ypr_tabulate_fish(ypr_population(n = ypr:::inst2inter(0.2)))
-  expect_identical(colnames(fish), c("Age", "Survivors", "Spawners", "Caught",
-    "Harvested", "Released", "HandlingMortalities"))
+  expect_identical(colnames(fish), c(
+    "Age", "Survivors", "Spawners", "Caught",
+    "Harvested", "Released", "HandlingMortalities"
+  ))
   expect_identical(fish[[1]], as.double(1:20))
   expect_equal(fish$Survivors[1:2], c(0.134, 0.110), tolerance = 0.001)
 
   fish <- ypr_tabulate_fish(ypr_population(), x = "Length")
-  expect_identical(colnames(fish), c("Length", "Survivors", "Spawners", "Caught",
-    "Harvested", "Released", "HandlingMortalities"))
+  expect_identical(colnames(fish), c(
+    "Length", "Survivors", "Spawners", "Caught",
+    "Harvested", "Released", "HandlingMortalities"
+  ))
   expect_identical(fish$Length[1:2], c(14, 26))
 
   sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3, 5)))
 
   expect_identical(checkr::check_data(
     sr,
-    values = list(Type = c("unfished", "actual", "optimal"),
+    values = list(
+      Type = c("unfished", "actual", "optimal"),
       pi = c(0, 1),
       u = c(0, 1),
       Eggs = c(0, .Machine$double.xmax),
@@ -118,10 +131,13 @@ test_that("ypr_tabulate_yield", {
     ),
     nrow = TRUE,
     exclusive = TRUE,
-    order = TRUE), sr)
+    order = TRUE
+  ), sr)
 
-  expect_identical(colnames(sr), c("Type", "pi", "u", "Eggs", "Recruits",
-    "Spawners", "Fecundity", "Rk"))
+  expect_identical(colnames(sr), c(
+    "Type", "pi", "u", "Eggs", "Recruits",
+    "Spawners", "Fecundity", "Rk"
+  ))
   expect_identical(sr$Rk, c(3, 3, 3, 5, 5, 5))
 
   skip_if(length(tools::Rd_db("ypr")) == 0)
@@ -130,18 +146,23 @@ test_that("ypr_tabulate_yield", {
 
   expect_identical(checkr::check_data(
     parameters,
-    values = list(Parameter = ypr:::.parameters$Parameter,
+    values = list(
+      Parameter = ypr:::.parameters$Parameter,
       Value = c(min(ypr:::.parameters$Lower), max(ypr:::.parameters$Upper)),
-      Description = ""),
+      Description = ""
+    ),
     exclusive = TRUE,
     order = TRUE,
     nrow = nrow(ypr:::.parameters),
-    key = "Parameter"), parameters)
+    key = "Parameter"
+  ), parameters)
 
 
 
-  expect_identical(ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
-    ypr_population(BH = 1L))
+  expect_identical(
+    ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
+    ypr_population(BH = 1L)
+  )
 })
 
 test_that("ypr_tabulate_yield extinct population", {
@@ -166,8 +187,10 @@ test_that("ypr_tabulate_biomass", {
       Survivors = c(0, 1),
       Spawners = c(0, .Machine$double.xmax),
       Biomass = c(0, .Machine$double.xmax),
-      Eggs = c(0, .Machine$double.xmax)),
+      Eggs = c(0, .Machine$double.xmax)
+    ),
     nrow = TRUE,
     exclusive = TRUE,
-    order = TRUE), biomass)
+    order = TRUE
+  ), biomass)
 })

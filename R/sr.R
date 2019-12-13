@@ -12,8 +12,8 @@ sr <- function(schedule, population) {
 
     phiF <- sum(Fecundity * Spawning / 2 * FishedSurvivorship)
 
-    alpha <-  Rk / phi
-    if(BH) {
+    alpha <- Rk / phi
+    if (BH) {
       beta <- (alpha * phi - 1) / (R0 * phi)
       kappa <- alpha / beta
       R0F <- (alpha * phiF - 1) / (beta * phiF)
@@ -27,11 +27,13 @@ sr <- function(schedule, population) {
     R0F <- R0F / kappa * Rmax
     S0 <- sum(Spawning * Survivorship * R0)
     S0F <- sum(Spawning * FishedSurvivorship * R0F)
-    sr <- data.frame(alpha = alpha, beta = beta,
+    sr <- data.frame(
+      alpha = alpha, beta = beta,
       Rk = Rk,
       phi = phi, phiF = phiF,
       R0 = R0, R0F = R0F,
-      S0 = S0, S0F = S0F)
+      S0 = S0, S0F = S0F
+    )
   })
   as_tibble(sr)
 }

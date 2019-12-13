@@ -96,29 +96,38 @@ ypr_report <- function(population, title = "Population Report",
   chk_flag(view)
   chk_flag(ask)
 
-  if(grepl("[.](R|r)md$", file)) {
+  if (grepl("[.](R|r)md$", file)) {
     wrn("File extension on argument `file` is deprecated (please remove).")
     file <- sub("[.](R|r)md$", "", file)
   }
   file <- p0(file, ".Rmd")
 
-  if(!ask_file(file, ask)) return(invisible(character(0)))
+  if (!ask_file(file, ask)) {
+    return(invisible(character(0)))
+  }
 
   file.create(file)
   con <- file(file, "w")
-  writeLines(lines_head(population = population, title = title,
-    description = description, date = date),
-  con = con)
+  writeLines(lines_head(
+    population = population, title = title,
+    description = description, date = date
+  ),
+  con = con
+  )
   writeLines(lines_body(), con = con)
   close(con)
-  if(view) {
-    if(!requireNamespace("rmarkdown"))
+  if (view) {
+    if (!requireNamespace("rmarkdown")) {
       err("Package 'rmarkdown' is required to render the report to html.")
+    }
     file_html <- p0(sub("[.](R|r)md$", "", file), ".html")
-    if(!ask_file(file_html, ask)) return(invisible(readLines(file)))
+    if (!ask_file(file_html, ask)) {
+      return(invisible(readLines(file)))
+    }
     rmarkdown::render(file, output_format = "html_document", quiet = TRUE)
-    if(!requireNamespace("rstudioapi"))
+    if (!requireNamespace("rstudioapi")) {
       err("Package 'rstudioapi' is required to view the html report.")
+    }
     rstudioapi::viewer(file_html)
   }
   invisible(readLines(file))

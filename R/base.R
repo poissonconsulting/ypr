@@ -28,24 +28,42 @@ plot.ypr_population <- function(x, type = "b", ...) {
   schedule <- ypr_schedule(x)
 
   with(schedule, {
-    plot(Length ~ Age, xlim = c(0, max(Age)), ylim = c(0, max(Length)),
-      type = type, ...)
-    plot(Weight ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
-      type = type, ...)
-    plot(Fecundity ~ Length, xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
-      type = type, ...)
-    plot(Spawning ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(Vulnerability ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(NaturalMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(FishingMortality ~ Length, xlim = c(0, max(Length)), ylim = c(0, 1),
-      type = type, ...)
-    plot(Survivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-      type = type, ...)
-    plot(FishedSurvivorship ~ Age, xlim = c(0, max(Age)), ylim = c(0, 1),
-      type = type, ...)
+    plot(Length ~ Age,
+      xlim = c(0, max(Age)), ylim = c(0, max(Length)),
+      type = type, ...
+    )
+    plot(Weight ~ Length,
+      xlim = c(0, max(Length)), ylim = c(0, max(Weight)),
+      type = type, ...
+    )
+    plot(Fecundity ~ Length,
+      xlim = c(0, max(Length)), ylim = c(0, max(Fecundity)),
+      type = type, ...
+    )
+    plot(Spawning ~ Length,
+      xlim = c(0, max(Length)), ylim = c(0, 1),
+      type = type, ...
+    )
+    plot(Vulnerability ~ Length,
+      xlim = c(0, max(Length)), ylim = c(0, 1),
+      type = type, ...
+    )
+    plot(NaturalMortality ~ Length,
+      xlim = c(0, max(Length)), ylim = c(0, 1),
+      type = type, ...
+    )
+    plot(FishingMortality ~ Length,
+      xlim = c(0, max(Length)), ylim = c(0, 1),
+      type = type, ...
+    )
+    plot(Survivorship ~ Age,
+      xlim = c(0, max(Age)), ylim = c(0, 1),
+      type = type, ...
+    )
+    plot(FishedSurvivorship ~ Age,
+      xlim = c(0, max(Age)), ylim = c(0, 1),
+      type = type, ...
+    )
   })
   invisible(x)
 }
@@ -65,11 +83,13 @@ print.ypr_population <- function(x, ...) {
 #' @export
 print.ypr_populations <- function(x, ...) {
   suppressWarnings(chk_populations(x))
-  if(length(x) == 1) return(print(x[[1]]))
+  if (length(x) == 1) {
+    return(print(x[[1]]))
+  }
   x$FUN <- c
   x <- do.call("mapply", x)
   x <- as.data.frame(x)
-  x <- lapply(x, function(x) if(length(unique(x)) == 1) x[1] else x)
+  x <- lapply(x, function(x) if (length(unique(x)) == 1) x[1] else x)
 
   nchar <- nchar(names(x))
   nchar <- max(nchar) - nchar + 1
