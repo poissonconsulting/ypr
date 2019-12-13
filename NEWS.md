@@ -1,17 +1,9 @@
-- Added `ypr_populations_expand()` to create all combinations of parameters.
-- Added `ypr_populations_update()` (as well as `update.ypr_population()` and `update.ypr_populations()`).
-- `ypr_populations` no longer requires names.
-- Added `ypr_population_names()` to allow user to generate names.
-- Added `as_ypr_populations.data.frame()`.
-- Added `as_ypr_population.data.frame()`.
-- Added `data.frame.ypr_population()` and `data.frame.ypr_populations()`.
-- `print.ypr_population()` now plots all values where more than one.
-- Added `ypr_age_at_length()` to get ages at specific lengths for a given population.
-- `ypr_population()` now accepts ages for `L2`, `Ln`, `Ls` and `Lv` (as negative values).
-- Added `ypr_length_at_age()` to get lengths at specific ages for a given population.
-- Improved handling of unsustainable populations (no longer negative fish numbers).
-- Added `expand = TRUE` argument to `ypr_populations()` to allow control over all combinations.
-- Added parameters `k2`, `Linf2` and `L2` to allow for biphasic growth.
+# ypr 0.4.0
+
+## Major Features
+
+## Population Parameters
+
 - Replaced parameters 
     - `M` (annual instantaneous natural mortality rate)
     - `Mb` (annual instantaneous natual mortality rate (as a function of length) scaling exponent)
@@ -20,19 +12,45 @@
     - `n` (annual natural mortality rate from age tR to length Ln)
     - `nL` (annual natural mortality rate from length Ln)
     - `Ln` (length at which the natural mortality rate switches from n to nA)
+- Added parameters `k2`, `Linf2` and `L2` to allow for biphasic growth.
+- Set `Lp` value to be 1000 as opposed to Linf.
+- Set `Ls` and `Lv` arguments to be 50 as opposed to `Linf/2`.
+- Allow `L2`, `Ln`, `Ls` and `Lv` to also take ages (as negative values).
+
+## Population(s)
+
+- Added `expand = TRUE` argument to `ypr_populations()` to allow control over all combinations.
+- Added `ypr_populations_expand()` to create all combinations of parameters.
+- Added `ypr_populations_update()` (as well as `update.ypr_population()` and `update.ypr_populations()`).
+- `ypr_populations` no longer requires names.
+- Added `ypr_population_names()` to allow user to generate names.
+- Added `as_ypr_populations.data.frame()`.
+- Added `data.frame.ypr_population()` and `data.frame.ypr_populations()`.
+- Added `ypr_age_at_length()` to get ages at specific lengths for a given population.
+- Added `ypr_length_at_age()` to get lengths at specific ages for a given population.
+
+## Population Reports
 
 - Added `description = ""` argument to `ypr_report()` to allow user to describe report.
 - `ypr_report()` now starts with table of parameter values with parameter descriptions.
 - Added `view = FALSE` argument to `ypr_report()` to allow user to view report in browser.
 - Added `ask = TRUE` argument to `ypr_report()` to ask before overwriting or creating a file.
 - Deprecated requirement to provide file extension in `ypr_report()`.
+
+## Plots
+
 - Added plot of biomass and eggs to report.
-- Added `ypr_tabulate_biomass()` to easily calculate total biomass and eggs.
-- Rename column `HandlingMortality` to `HandlingMortalities` in `ypr_tabulate_fish` and `ypr_plot_fish()`.
-- Rename column `Spawning` to `Spawners` in `ypr_tabulate_fish` and `ypr_plot_fish()`.
-- Set Lp argument to `ypr_population()` to be 1000 as opposed to Linf.
-- Set Ls and Lv arguments to `ypr_population()` to be 50 as opposed to Linf/2.
 - Added `percent = FALSE` argument to `ypr_plot_fish()`
+
+## Tables
+
+- Added `ypr_tabulate_biomass()` to easily calculate total biomass and eggs.
+- Renamed column `HandlingMortality` to `HandlingMortalities` in `ypr_tabulate_fish()` and `ypr_plot_fish()`.
+- Renamed column `Spawning` to `Spawners` in `ypr_tabulate_fish()` and `ypr_plot_fish()`.
+
+## Bug Fixes
+
+- Improved handling of unsustainable populations (no longer negative fish numbers).
 
 # ypr 0.3.1
 
