@@ -172,7 +172,7 @@ app](man/figures/yield.png)
 
 Development of ypr was partially supported by the [Habitat Conservation
 Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and
-the [Ministy of Forests, Lands and Natural Resource
+the [Ministry of Forests, Lands and Natural Resource
 Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
 The hex was designed by [The Forest](http://www.theforest.ca).

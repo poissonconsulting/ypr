@@ -6,7 +6,7 @@
 
 - Replaced parameters 
     - `M` (annual instantaneous natural mortality rate)
-    - `Mb` (annual instantaneous natual mortality rate (as a function of length) scaling exponent)
+    - `Mb` (annual instantaneous natural mortality rate (as a function of length) scaling exponent)
     - `A0` (initial post age tR density independent mortality probability)
   with
     - `n` (annual natural mortality rate from age tR to length Ln)
@@ -70,7 +70,7 @@
 - Set default value of `Wa` to be 0.01.
 - Added `ypr_populations()` to generate all combinations of parameters.
 - Made `ypr_tabulate_sr()`, `ypr_tabulate_yield()`, `ypr_tabulate_yields()`, `ypr_plot_yield()` generic with definitions for `ypr_population` and `ypr_populations` objects.
-- Added scaling parameter `A0` for inital interval mortality of recruits.
+- Added scaling parameter `A0` for initial interval mortality of recruits.
 - Added scaling parameters `Ea` and `Eb` to allow plots of yield per effort.
 - Added `Age`, `Length`, `Weight` and `Effort` to `ypr_tabulate_yield()` and added `ypr_tabulate_yields()`
 - Added `y` arg to `ypr_plot_yield()` to allow plotting of mean age, length, weight, effort or yield per effort by exploitation or capture probability.
