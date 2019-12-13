@@ -14,7 +14,7 @@ License: MIT + file LICENSE
 Depends:
     R (>= 3.4.0)
 Imports:
-    chk (>= 0.0.1.9040),
+    chk,
     yesno,
     ggplot2,
     graphics,
@@ -30,8 +30,6 @@ Suggests:
     rmarkdown,
     rstudioapi,
     tidyr
-Remotes: 
-    poissonconsulting/chk
 URL: https://github.com/poissonconsulting/ypr
 BugReports: https://github.com/poissonconsulting/ypr/issues
 Encoding: UTF-8
