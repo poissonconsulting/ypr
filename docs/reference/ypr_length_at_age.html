@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Instantaneous to Interval Mortality — ypr_inst2inter • ypr</title>
+<title>Length At Age — ypr_length_at_age • ypr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Instantaneous to Interval Mortality — ypr_inst2inter" />
-<meta property="og:description" content="Instantaneous to Interval Mortality" />
+<meta property="og:title" content="Length At Age — ypr_length_at_age" />
+<meta property="og:description" content="Length At Age" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -119,32 +119,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Instantaneous to Interval Mortality</h1>
+    <h1>Length At Age</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>ypr_inst2inter.Rd</code></div>
+    <div class="hidden name"><code>ypr_length_at_age.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Instantaneous to Interval Mortality</p>
+    <p>Length At Age</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_inst2inter</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_length_at_age</span>(<span class='no'>population</span>, <span class='no'>age</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A numeric vector of instantaneous mortality rates.</p></td>
+      <th>population</th>
+      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td><p>A numeric vector of the age (yr).</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A numeric vector of corresponding interval mortality rates.</p>
+    <p>A double vector of the lengths.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_inst2inter</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.2</span>, <span class='fl'>3</span>))</div><div class='output co'>#&gt; [1] 0.0000000 0.1812692 0.9502129</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_length_at_age</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(), <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>0.5</span>))</div><div class='output co'>#&gt;  [1]  0.000000  7.225651 13.929202 20.148378 25.918178 31.271072 36.237185
+#&gt;  [8] 40.844464 45.118836 49.084358 52.763345</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

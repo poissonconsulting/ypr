@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stock-Recruitment Parameters — ypr_tabulate_sr.ypr_populations • ypr</title>
+<title>Population Names — ypr_population_names • ypr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Stock-Recruitment Parameters — ypr_tabulate_sr.ypr_populations" />
-<meta property="og:description" content="Stock-Recruitment Parameters" />
+<meta property="og:title" content="Population Names — ypr_population_names" />
+<meta property="og:description" content="Population Names" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -119,62 +119,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Stock-Recruitment Parameters</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/tabulate.R'><code>R/tabulate.R</code></a></small>
-    <div class="hidden name"><code>ypr_tabulate_sr.ypr_populations.Rd</code></div>
+    <h1>Population Names</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/population.R'><code>R/population.R</code></a></small>
+    <div class="hidden name"><code>ypr_population_names.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Stock-Recruitment Parameters</p>
+    <p>Population Names</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for ypr_populations</span>
-<span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='no'>object</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_population_names</span>(<span class='no'>populations</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>The populations or populations.</p></td>
-    </tr>
-    <tr>
-      <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
-    </tr>
-    <tr>
-      <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for harvested fish or captures.</p></td>
-    </tr>
-    <tr>
-      <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
-    </tr>
-    <tr>
-      <th>all</th>
-      <td><p>A flag indicating whether to include all parameter values.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Unused parameters.</p></td>
+      <th>populations</th>
+      <td><p>An object of class <code><a href='ypr_populations.html'>ypr_populations()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A table of stock-recruitment parameters.</p>
+    <p>A character vector of the unique population names.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>)))</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   Type         pi      u   Eggs Recruits Spawners Fecundity    Rk
-#&gt; </span><span style='color: #555555;'>*</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> unfished 0      0      </span><span style='text-decoration: underline;'>2</span><span>683.    0.6      1.43       </span><span style='text-decoration: underline;'>3</span><span>764.   2.5
-#&gt; </span><span style='color: #555555;'>2</span><span> actual   0.2    0.2     -</span><span style='color: #BB0000;'>66.7</span><span>  -</span><span style='color: #BB0000;'>0.038</span><span style='color: #BB0000;text-decoration: underline;'>7</span><span>  -</span><span style='color: #BB0000;'>0.050</span><span style='color: #BB0000;text-decoration: underline;'>4</span><span>     </span><span style='text-decoration: underline;'>2</span><span>650.   2.5
-#&gt; </span><span style='color: #555555;'>3</span><span> optimal  0.086</span><span style='text-decoration: underline;'>4</span><span> 0.086</span><span style='text-decoration: underline;'>4</span><span> </span><span style='text-decoration: underline;'>1</span><span>030.    0.365    0.645      </span><span style='text-decoration: underline;'>3</span><span>195.   2.5
-#&gt; </span><span style='color: #555555;'>4</span><span> unfished 0      0      </span><span style='text-decoration: underline;'>3</span><span>500.    0.783    1.86       </span><span style='text-decoration: underline;'>3</span><span>764.   4.6
-#&gt; </span><span style='color: #555555;'>5</span><span> actual   0.2    0.2     750.    0.435    0.566      </span><span style='text-decoration: underline;'>2</span><span>650.   4.6
-#&gt; </span><span style='color: #555555;'>6</span><span> optimal  0.157  0.157  </span><span style='text-decoration: underline;'>1</span><span>077.    0.526    0.761      </span><span style='text-decoration: underline;'>2</span><span>833.   4.6</div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_population_names</span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>3</span>, <span class='fl'>2.5</span>), <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; [1] "Rk_2_5_Popn_1" "Rk_3"          "Rk_2_5_Popn_2"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

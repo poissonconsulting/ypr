@@ -52,7 +52,7 @@ phiFLifetime eggs deposited per recruit at the fished equilibrium
 R0Age tR recruits at the unfished equilibrium
 R0FAge tR recruits at the fished equilibrium
 S0Spawners at the unfished equilibrium
-S0Fspawners at the fished equilibrium
+S0FSpawners at the fished equilibrium
 
 
 " />
@@ -89,7 +89,7 @@ S0Fspawners at the fished equilibrium
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -146,7 +146,7 @@ S0Fspawners at the fished equilibrium
 <dt>R0</dt><dd><p>Age tR recruits at the unfished equilibrium</p></dd>
 <dt>R0F</dt><dd><p>Age tR recruits at the fished equilibrium</p></dd>
 <dt>S0</dt><dd><p>Spawners at the unfished equilibrium</p></dd>
-<dt>S0F</dt><dd><p>spawners at the fished equilibrium</p></dd>
+<dt>S0F</dt><dd><p>Spawners at the fished equilibrium</p></dd>
 
 </dl>
 
@@ -171,10 +171,10 @@ S0Fspawners at the fished equilibrium
     <pre class="examples"><div class='input'><span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 9</span><span>
 #&gt;      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F
 #&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>671</span><span> 0.000</span><span style='text-decoration: underline;'>671</span><span>     3 </span><span style='text-decoration: underline;'>4</span><span>472. </span><span style='text-decoration: underline;'>1</span><span>722. 0.667 0.134  1.58 0.175</div><div class='input'><span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 9</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.667 0.186  1.33 0.211</div><div class='input'><span class='fu'>ypr_sr</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 9</span><span>
 #&gt;      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F
 #&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>671</span><span> 0.000</span><span style='text-decoration: underline;'>247</span><span>     3 </span><span style='text-decoration: underline;'>4</span><span>472. </span><span style='text-decoration: underline;'>1</span><span>722. 0.995 0.340  2.36 0.441</div></span></pre>
+#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>308</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.995 0.455  1.98 0.517</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

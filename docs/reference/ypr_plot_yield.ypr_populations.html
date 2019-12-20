@@ -78,7 +78,7 @@ by the annual interval exploitation/capture probability." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -131,9 +131,17 @@ by the annual interval exploitation/capture probability.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for ypr_populations</span>
-<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>object</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Yield"</span>,
-  <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>u</span> <span class='kw'>=</span> <span class='no'>harvest</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(
+  <span class='no'>object</span>,
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Yield"</span>,
+  <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>),
+  <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>u</span> <span class='kw'>=</span> <span class='no'>harvest</span>,
+  <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,23 +160,23 @@ by the annual interval exploitation/capture probability.</p>
     </tr>
     <tr>
       <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
+      <td><p>The minimum length (trophy) fish to consider when calculating the yield (cm).</p></td>
     </tr>
     <tr>
       <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for harvested fish or captures.</p></td>
+      <td><p>A flag specifying whether to calculate the yield for harvested fish or captures.</p></td>
     </tr>
     <tr>
       <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
+      <td><p>A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
     </tr>
     <tr>
       <th>u</th>
-      <td><p>A flag indicating whether to plot the exploitation rate as opposed to the capture rate.</p></td>
+      <td><p>A flag specifying whether to plot the exploitation rate as opposed to the capture rate.</p></td>
     </tr>
     <tr>
       <th>plot_values</th>
-      <td><p>A flag indicating whether to plot the actual and optimal values.</p></td>
+      <td><p>A flag specifying whether to plot the actual and optimal values.</p></td>
     </tr>
     <tr>
       <th>...</th>

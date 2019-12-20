@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -128,11 +128,39 @@
     <p>Generates an object of class <code>ypr_population</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_population</span>(<span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Wb</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>Ls</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>Sp</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>es</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>Sm</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>tR</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
-  <span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>M</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>Mb</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>Vp</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-  <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>Nc</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>Rmax</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>A0</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>Wa</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>q</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_population</span>(
+  <span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fl'>20L</span>,
+  <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.15</span>,
+  <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='kw'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>k2</span> <span class='kw'>=</span> <span class='fl'>0.15</span>,
+  <span class='kw'>Linf2</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='kw'>L2</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='kw'>Wb</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>Ls</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>Sp</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='kw'>es</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>Sm</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>fb</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>tR</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+  <span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+  <span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>nL</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>Ln</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='kw'>Lv</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>Vp</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>Lup</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='kw'>Nc</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>Rmax</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>Wa</span> <span class='kw'>=</span> <span class='fl'>0.01</span>,
+  <span class='kw'>fa</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>q</span> <span class='kw'>=</span> <span class='fl'>0.1</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,7 +171,7 @@
     </tr>
     <tr>
       <th>k</th>
-      <td><p>The VB growth coefficient (per yr).</p></td>
+      <td><p>The VB growth coefficient (yr-1).</p></td>
     </tr>
     <tr>
       <th>Linf</th>
@@ -154,12 +182,24 @@
       <td><p>The (theoretical) age at zero length (yr).</p></td>
     </tr>
     <tr>
+      <th>k2</th>
+      <td><p>The VB growth coefficient after length L2 (yr-1).</p></td>
+    </tr>
+    <tr>
+      <th>Linf2</th>
+      <td><p>The VB mean maximum length after length L2 (cm).</p></td>
+    </tr>
+    <tr>
+      <th>L2</th>
+      <td><p>The length (or age if negative) at which growth switches from the first to second phase (cm or yr).</p></td>
+    </tr>
+    <tr>
       <th>Wb</th>
       <td><p>The weight (as a function of length) scaling exponent.</p></td>
     </tr>
     <tr>
       <th>Ls</th>
-      <td><p>The length at which 50% mature (cm).</p></td>
+      <td><p>The length (or age if negative) at which 50 % mature (cm or yr).</p></td>
     </tr>
     <tr>
       <th>Sp</th>
@@ -190,16 +230,20 @@
       <td><p>The lifetime spawners per spawner at low density.</p></td>
     </tr>
     <tr>
-      <th>M</th>
-      <td><p>The instantaneous mortality rate (per yr).</p></td>
+      <th>n</th>
+      <td><p>The annual interval natural mortality rate from age tR.</p></td>
     </tr>
     <tr>
-      <th>Mb</th>
-      <td><p>The instantaneous mortality rate (as a function of length) scaling exponent.</p></td>
+      <th>nL</th>
+      <td><p>The annual interval natural mortality rate from length Ln.</p></td>
+    </tr>
+    <tr>
+      <th>Ln</th>
+      <td><p>The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).</p></td>
     </tr>
     <tr>
       <th>Lv</th>
-      <td><p>The length at which 50% vulnerable to harvest (cm).</p></td>
+      <td><p>The length (or age if negative) at which 50 % vulnerable to harvest (cm or yr).</p></td>
     </tr>
     <tr>
       <th>Vp</th>
@@ -234,10 +278,6 @@
       <td><p>The number of recruits at the carrying capacity (ind).</p></td>
     </tr>
     <tr>
-      <th>A0</th>
-      <td><p>The initial post age tR density independent mortality probability.</p></td>
-    </tr>
-    <tr>
       <th>Wa</th>
       <td><p>The (extrapolated) weight of a 1 cm individual (g).</p></td>
     </tr>
@@ -260,34 +300,37 @@
 <code><a href='ypr_yield.html'>ypr_yield()</a></code> and <code><a href='ypr_optimize.html'>ypr_optimize()</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_population</span>(<span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>90</span>)</div><div class='output co'>#&gt; tmax: 20
-#&gt; k:    0.1
-#&gt; Linf: 90
-#&gt; t0:   0
-#&gt; Wb:   3
-#&gt; Ls:   50
-#&gt; Sp:   100
-#&gt; es:   1
-#&gt; Sm:   0
-#&gt; fb:   1
-#&gt; tR:   1
-#&gt; BH:   1
-#&gt; Rk:   3
-#&gt; M:    0.2
-#&gt; Mb:   0
-#&gt; Lv:   50
-#&gt; Vp:   100
-#&gt; Llo:  0
-#&gt; Lup:  1000
-#&gt; Nc:   0
-#&gt; pi:   0.2
-#&gt; rho:  0
-#&gt; Hm:   0
-#&gt; Rmax: 1
-#&gt; A0:   0
-#&gt; Wa:   0.01
-#&gt; fa:   1
-#&gt; q:    0.1</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_population</span>(<span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>Linf</span> <span class='kw'>=</span> <span class='fl'>90</span>)</div><div class='output co'>#&gt; tmax:  20
+#&gt; k:     0.1
+#&gt; Linf:  90
+#&gt; t0:    0
+#&gt; k2:    0.15
+#&gt; Linf2: 100
+#&gt; L2:    1000
+#&gt; Wb:    3
+#&gt; Ls:    50
+#&gt; Sp:    100
+#&gt; es:    1
+#&gt; Sm:    0
+#&gt; fb:    1
+#&gt; tR:    1
+#&gt; BH:    1
+#&gt; Rk:    3
+#&gt; n:     0.2
+#&gt; nL:    0.2
+#&gt; Ln:    1000
+#&gt; Lv:    50
+#&gt; Vp:    100
+#&gt; Llo:   0
+#&gt; Lup:   1000
+#&gt; Nc:    0
+#&gt; pi:    0.2
+#&gt; rho:   0
+#&gt; Hm:    0
+#&gt; Rmax:  1
+#&gt; Wa:    0.01
+#&gt; fa:    1
+#&gt; q:     0.1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

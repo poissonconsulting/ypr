@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tabulate Yield — ypr_tabulate_yield.ypr_population • ypr</title>
+<title>Coerce to a Population Parameter Object — as_ypr_population • ypr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Tabulate Yield — ypr_tabulate_yield.ypr_population" />
-<meta property="og:description" content="Tabulate Yield" />
+<meta property="og:title" content="Coerce to a Population Parameter Object — as_ypr_population" />
+<meta property="og:description" content="Coerce to a Population Parameter Object" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -119,72 +119,78 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Tabulate Yield</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/tabulate.R'><code>R/tabulate.R</code></a></small>
-    <div class="hidden name"><code>ypr_tabulate_yield.ypr_population.Rd</code></div>
+    <h1>Coerce to a Population Parameter Object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/as-ypr-population.R'><code>R/as-ypr-population.R</code></a></small>
+    <div class="hidden name"><code>as_ypr_population.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Tabulate Yield</p>
+    <p>Coerce to a Population Parameter Object</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for ypr_population</span>
-<span class='fu'><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a></span>(<span class='no'>object</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"both"</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>as_ypr_population</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for data.frame</span>
+<span class='fu'>as_ypr_population</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>The populations or populations.</p></td>
-    </tr>
-    <tr>
-      <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
-    </tr>
-    <tr>
-      <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for harvested fish or captures.</p></td>
-    </tr>
-    <tr>
-      <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
-    </tr>
-    <tr>
-      <th>type</th>
-      <td><p>A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.</p></td>
-    </tr>
-    <tr>
-      <th>all</th>
-      <td><p>A flag indicating whether to include all parameter values.</p></td>
+      <th>x</th>
+      <td><p>The object to coerce.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Unused parameters.</p></td>
+      <td><p>Unused.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
-    <p>A data frame.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code> and <code><a href='ypr_yield.html'>ypr_yield()</a></code></p></div>
+    
+<ul>
+<li><p><code>data.frame</code>: Coerce data frame to ypr_population</p></li>
+</ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a></span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 8</span><span>
-#&gt;   Type       pi     u  Yield   Age Length Weight Effort
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> actual  0.2   0.2   0.034</span><span style='text-decoration: underline;'>9</span><span>  6.88   62.6  </span><span style='text-decoration: underline;'>2</span><span>650.   2.12
-#&gt; </span><span style='color: #555555;'>2</span><span> optimal 0.106 0.106 0.073</span><span style='text-decoration: underline;'>9</span><span>  7.62   65.6  </span><span style='text-decoration: underline;'>3</span><span>085.   1.06</div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>as_ypr_population</span>(<span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()))</div><div class='output co'>#&gt; tmax:  20
+#&gt; k:     0.15
+#&gt; Linf:  100
+#&gt; t0:    0
+#&gt; k2:    0.15
+#&gt; Linf2: 100
+#&gt; L2:    1000
+#&gt; Wb:    3
+#&gt; Ls:    50
+#&gt; Sp:    100
+#&gt; es:    1
+#&gt; Sm:    0
+#&gt; fb:    1
+#&gt; tR:    1
+#&gt; BH:    1
+#&gt; Rk:    3
+#&gt; n:     0.2
+#&gt; nL:    0.2
+#&gt; Ln:    1000
+#&gt; Lv:    50
+#&gt; Vp:    100
+#&gt; Llo:   0
+#&gt; Lup:   1000
+#&gt; Nc:    0
+#&gt; pi:    0.2
+#&gt; rho:   0
+#&gt; Hm:    0
+#&gt; Rmax:  1
+#&gt; Wa:    0.01
+#&gt; fa:    1
+#&gt; q:     0.1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

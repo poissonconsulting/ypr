@@ -78,7 +78,7 @@ Bull Trout in Chilliwack Lake from Taylor (2005)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -141,34 +141,37 @@ Bull Trout in Chilliwack Lake from Taylor (2005)</p>
     <p>Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>chilliwack_bt_05</span></div><div class='output co'>#&gt; tmax: 20
-#&gt; k:    0.12
-#&gt; Linf: 86
-#&gt; t0:   0.018
-#&gt; Wb:   2.8
-#&gt; Ls:   38.5
-#&gt; Sp:   100
-#&gt; es:   1
-#&gt; Sm:   0
-#&gt; fb:   1
-#&gt; tR:   1
-#&gt; BH:   1
-#&gt; Rk:   2.5, 4.6
-#&gt; M:    0.19
-#&gt; Mb:   0
-#&gt; Lv:   36.5
-#&gt; Vp:   11.7
-#&gt; Llo:  0, 60, 1000
-#&gt; Lup:  1000
-#&gt; Nc:   0.15
-#&gt; pi:   0.2
-#&gt; rho:  0
-#&gt; Hm:   0.05, 0.2
-#&gt; Rmax: 250
-#&gt; A0:   0
-#&gt; Wa:   0.022
-#&gt; fa:   2.29
-#&gt; q:    0.1</div><div class='input'><span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a></span>(<span class='no'>chilliwack_bt_05</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"optimal"</span>)
+    <pre class="examples"><div class='input'><span class='no'>chilliwack_bt_05</span></div><div class='output co'>#&gt; tmax:  20
+#&gt; k:     0.12
+#&gt; Linf:  86
+#&gt; t0:    0.018
+#&gt; k2:    0.12
+#&gt; Linf2: 86
+#&gt; L2:    1000
+#&gt; Wb:    2.8
+#&gt; Ls:    38.5
+#&gt; Sp:    100
+#&gt; es:    1
+#&gt; Sm:    0
+#&gt; fb:    1
+#&gt; tR:    1
+#&gt; BH:    1
+#&gt; Rk:    2.5, 4.6, 2.5, 4.6, 2.5, 4.6, 2.5, 4.6, 2.5, 4.6, 2.5, 4.6
+#&gt; n:     0.17
+#&gt; nL:    0.17
+#&gt; Ln:    50
+#&gt; Lv:    36.5
+#&gt; Vp:    11.7
+#&gt; Llo:   0, 0, 60, 60, 1000, 1000, 0, 0, 60, 60, 1000, 1000
+#&gt; Lup:   1000
+#&gt; Nc:    0.15
+#&gt; pi:    0.2
+#&gt; rho:   0
+#&gt; Hm:    0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2
+#&gt; Rmax:  250
+#&gt; Wa:    0.022
+#&gt; fa:    2.29
+#&gt; q:     0.1</div><div class='input'><span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a></span>(<span class='no'>chilliwack_bt_05</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"optimal"</span>)
 <span class='no'>yield</span>$<span class='no'>pi</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='no'>yield</span>$<span class='no'>pi</span>, <span class='fl'>2</span>)
 <span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='no'>yield</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Llo"</span>, <span class='st'>"Hm"</span>, <span class='st'>"Rk"</span>, <span class='st'>"pi"</span>)]
 <span class='no'>yield</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>tidyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/spread.html'>spread</a></span>(<span class='no'>yield</span>, <span class='no'>Rk</span>, <span class='no'>pi</span>)
@@ -176,12 +179,12 @@ Bull Trout in Chilliwack Lake from Taylor (2005)</p>
 <span class='no'>yield</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 4</span><span>
 #&gt;     Llo    Hm `2.5` `4.6`
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     0  0.2   0.08  0.15
-#&gt; </span><span style='color: #555555;'>2</span><span>    60  0.2   0.14  0.26
+#&gt; </span><span style='color: #555555;'>1</span><span>     0  0.2   0.08  0.14
+#&gt; </span><span style='color: #555555;'>2</span><span>    60  0.2   0.14  0.25
 #&gt; </span><span style='color: #555555;'>3</span><span>  </span><span style='text-decoration: underline;'>1</span><span>000  0.2   0.25  0.45
-#&gt; </span><span style='color: #555555;'>4</span><span>     0  0.05  0.08  0.15
-#&gt; </span><span style='color: #555555;'>5</span><span>    60  0.05  0.18  0.38
-#&gt; </span><span style='color: #555555;'>6</span><span>  </span><span style='text-decoration: underline;'>1</span><span>000  0.05  0.42  0.75</div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+#&gt; </span><span style='color: #555555;'>4</span><span>     0  0.05  0.08  0.14
+#&gt; </span><span style='color: #555555;'>5</span><span>    60  0.05  0.17  0.37
+#&gt; </span><span style='color: #555555;'>6</span><span>  </span><span style='text-decoration: underline;'>1</span><span>000  0.05  0.41  0.74</div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='no'>chilliwack_bt_05</span>, <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) +
   <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='no'>Rk</span> ~ <span class='no'>Hm</span>) +
   <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='no'>Llo</span>, <span class='kw'>linetype</span> <span class='kw'>=</span> <span class='no'>Llo</span>)

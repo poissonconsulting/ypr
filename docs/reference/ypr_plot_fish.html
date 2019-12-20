@@ -44,7 +44,7 @@
 
 <meta property="og:title" content="Plot Fish — ypr_plot_fish" />
 <meta property="og:description" content="Produces a frequency histogram of the number of fish in the
-'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
+'Survivors', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
 'Length', 'Age' or 'Weight' class." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -128,12 +128,18 @@
 
     <div class="ref-description">
     <p>Produces a frequency histogram of the number of fish in the
-'Surviving', 'Spawning', 'Caught', 'Harvested' or 'Released' categories by
+'Survivors', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
 'Length', 'Age' or 'Weight' class.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_plot_fish</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Surviving"</span>,
-  <span class='kw'>percent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_plot_fish</span>(
+  <span class='no'>population</span>,
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>,
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Survivors"</span>,
+  <span class='kw'>percent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

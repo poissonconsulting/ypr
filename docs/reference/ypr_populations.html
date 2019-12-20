@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -128,14 +128,18 @@
     <p>Populations</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_populations</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_populations</span>(<span class='no'>...</span>, <span class='kw'>expand</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>One or more of the arguments from <code><a href='ypr_population.html'>ypr_population()</a></code>.</p></td>
+      <td><p>Unused parameters.</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>A flag specifying whether to expand parameter combinations.</p></td>
     </tr>
     </table>
 
@@ -147,34 +151,37 @@
     <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_populations</span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>), <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.05</span>))</div><div class='output co'>#&gt; tmax: 20
-#&gt; k:    0.15
-#&gt; Linf: 100
-#&gt; t0:   0
-#&gt; Wb:   3
-#&gt; Ls:   50
-#&gt; Sp:   100
-#&gt; es:   1
-#&gt; Sm:   0
-#&gt; fb:   1
-#&gt; tR:   1
-#&gt; BH:   1
-#&gt; Rk:   2.5, 4.6
-#&gt; M:    0.2
-#&gt; Mb:   0
-#&gt; Lv:   50
-#&gt; Vp:   100
-#&gt; Llo:  0
-#&gt; Lup:  1000
-#&gt; Nc:   0
-#&gt; pi:   0.2
-#&gt; rho:  0
-#&gt; Hm:   0.05, 0.2
-#&gt; Rmax: 1
-#&gt; A0:   0
-#&gt; Wa:   0.01
-#&gt; fa:   1
-#&gt; q:    0.1</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_populations</span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>), <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.05</span>))</div><div class='output co'>#&gt; tmax:  20
+#&gt; k:     0.15
+#&gt; Linf:  100
+#&gt; t0:    0
+#&gt; k2:    0.15
+#&gt; Linf2: 100
+#&gt; L2:    1000
+#&gt; Wb:    3
+#&gt; Ls:    50
+#&gt; Sp:    100
+#&gt; es:    1
+#&gt; Sm:    0
+#&gt; fb:    1
+#&gt; tR:    1
+#&gt; BH:    1
+#&gt; Rk:    2.5, 4.6, 2.5, 4.6
+#&gt; n:     0.2
+#&gt; nL:    0.2
+#&gt; Ln:    1000
+#&gt; Lv:    50
+#&gt; Vp:    100
+#&gt; Llo:   0
+#&gt; Lup:   1000
+#&gt; Nc:    0
+#&gt; pi:    0.2
+#&gt; rho:   0
+#&gt; Hm:    0.05, 0.05, 0.2, 0.2
+#&gt; Rmax:  1
+#&gt; Wa:    0.01
+#&gt; fa:    1
+#&gt; q:     0.1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

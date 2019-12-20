@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Stock-Recruitment Parameters — ypr_tabulate_sr.ypr_population • ypr</title>
+<title>Age At Length — ypr_age_at_length • ypr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Stock-Recruitment Parameters — ypr_tabulate_sr.ypr_population" />
-<meta property="og:description" content="Stock-Recruitment Parameters" />
+<meta property="og:title" content="Age At Length — ypr_age_at_length" />
+<meta property="og:description" content="Age At Length" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -119,64 +119,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Stock-Recruitment Parameters</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/tabulate.R'><code>R/tabulate.R</code></a></small>
-    <div class="hidden name"><code>ypr_tabulate_sr.ypr_population.Rd</code></div>
+    <h1>Age At Length</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>ypr_age_at_length.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Stock-Recruitment Parameters</p>
+    <p>Age At Length</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for ypr_population</span>
-<span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='no'>object</span>, <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_age_at_length</span>(<span class='no'>population</span>, <span class='no'>length</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>The populations or populations.</p></td>
+      <th>population</th>
+      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
-    </tr>
-    <tr>
-      <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for harvested fish or captures.</p></td>
-    </tr>
-    <tr>
-      <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
-    </tr>
-    <tr>
-      <th>all</th>
-      <td><p>A flag indicating whether to include all parameter values.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Unused parameters.</p></td>
+      <th>length</th>
+      <td><p>A numeric vector of the length (cm).</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame of stock-recruitment parameters.</p>
+    <p>A double vector of the lengths.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 3 x 7</span><span>
-#&gt;   Type        pi     u  Eggs Recruits Spawners Fecundity
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> unfished 0     0     </span><span style='text-decoration: underline;'>2</span><span>981.    0.667    1.58      </span><span style='text-decoration: underline;'>3</span><span>764.
-#&gt; </span><span style='color: #555555;'>2</span><span> actual   0.2   0.2    231.    0.134    0.175     </span><span style='text-decoration: underline;'>2</span><span>650.
-#&gt; </span><span style='color: #555555;'>3</span><span> optimal  0.106 0.106 </span><span style='text-decoration: underline;'>1</span><span>075.    0.419    0.697     </span><span style='text-decoration: underline;'>3</span><span>085.</div><div class='input'><span class='fu'><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a></span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(<span class='kw'>BH</span> <span class='kw'>=</span> <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 7</span><span>
-#&gt;   Type        pi     u  Eggs Recruits Spawners Fecundity
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> unfished 0     0     </span><span style='text-decoration: underline;'>4</span><span>451.    0.995    2.36      </span><span style='text-decoration: underline;'>3</span><span>764.
-#&gt; </span><span style='color: #555555;'>2</span><span> actual   0.2   0.2    585.    0.340    0.441     </span><span style='text-decoration: underline;'>2</span><span>650.
-#&gt; </span><span style='color: #555555;'>3</span><span> optimal  0.124 0.124 </span><span style='text-decoration: underline;'>1</span><span>869.    0.791    1.25      </span><span style='text-decoration: underline;'>2</span><span>991.</div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_age_at_length</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>(), <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>100</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>10</span>))</div><div class='output co'>#&gt;  [1]  0.0000000  0.7024034  1.4876237  2.3778330  3.4055042  4.6209812
+#&gt;  [7]  6.1086049  8.0264854 10.7295861 15.3505673        Inf</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

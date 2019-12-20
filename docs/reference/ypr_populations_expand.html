@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interval to Instantaneous Mortality — ypr_inter2inst • ypr</title>
+<title>Expand Populations — ypr_populations_expand • ypr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Interval to Instantaneous Mortality — ypr_inter2inst" />
-<meta property="og:description" content="Interval to Instantaneous Mortality" />
+<meta property="og:title" content="Expand Populations — ypr_populations_expand" />
+<meta property="og:description" content="An object of class ypr_population() of all unique combinations of parameter values." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -119,38 +119,72 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Interval to Instantaneous Mortality</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>ypr_inter2inst.Rd</code></div>
+    <h1>Expand Populations</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/population.R'><code>R/population.R</code></a></small>
+    <div class="hidden name"><code>ypr_populations_expand.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Interval to Instantaneous Mortality</p>
+    <p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code> of all unique combinations of parameter values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_inter2inst</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_populations_expand</span>(<span class='no'>populations</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A numeric vector of interval mortality rates.</p></td>
+      <th>populations</th>
+      <td><p>An object of class <code><a href='ypr_populations.html'>ypr_populations()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A numeric vector of corresponding instantaneous mortality rates.</p>
+    <p>An object of class <code>ypr_population</code>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_inter2inst</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>0.99</span>, <span class='fl'>1</span>))</div><div class='output co'>#&gt; [1] 0.0000000 0.6931472 4.6051702       Inf</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_populations_expand</span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4</span>, <span class='fl'>2.5</span>), <span class='kw'>Hm</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span>)))</div><div class='output co'>#&gt; tmax:  20
+#&gt; k:     0.15
+#&gt; Linf:  100
+#&gt; t0:    0
+#&gt; k2:    0.15
+#&gt; Linf2: 100
+#&gt; L2:    1000
+#&gt; Wb:    3
+#&gt; Ls:    50
+#&gt; Sp:    100
+#&gt; es:    1
+#&gt; Sm:    0
+#&gt; fb:    1
+#&gt; tR:    1
+#&gt; BH:    1
+#&gt; Rk:    2.5, 4, 2.5, 4
+#&gt; n:     0.2
+#&gt; nL:    0.2
+#&gt; Ln:    1000
+#&gt; Lv:    50
+#&gt; Vp:    100
+#&gt; Llo:   0
+#&gt; Lup:   1000
+#&gt; Nc:    0
+#&gt; pi:    0.2
+#&gt; rho:   0
+#&gt; Hm:    0.1, 0.1, 0.2, 0.2
+#&gt; Rmax:  1
+#&gt; Wa:    0.01
+#&gt; fa:    1
+#&gt; q:     0.1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

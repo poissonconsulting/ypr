@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot Population Schedule Terms — ypr_plot_schedule • ypr</title>
+<title>Coerce to a Populations Parameter Object — as_ypr_populations • ypr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Plot Population Schedule Terms — ypr_plot_schedule" />
-<meta property="og:description" content="Produces a bivariate line plot of two schedule terms." />
+<meta property="og:title" content="Coerce to a Populations Parameter Object — as_ypr_populations" />
+<meta property="og:description" content="Coerce to a Populations Parameter Object" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -119,50 +119,78 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot Population Schedule Terms</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
-    <div class="hidden name"><code>ypr_plot_schedule.Rd</code></div>
+    <h1>Coerce to a Populations Parameter Object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/as-ypr-populations.R'><code>R/as-ypr-populations.R</code></a></small>
+    <div class="hidden name"><code>as_ypr_populations.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Produces a bivariate line plot of two schedule terms.</p>
+    <p>Coerce to a Populations Parameter Object</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_plot_schedule</span>(<span class='no'>population</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Age"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Length"</span>)</pre>
+    <pre class="usage"><span class='fu'>as_ypr_populations</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for data.frame</span>
+<span class='fu'>as_ypr_populations</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>population</th>
-      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code>.</p></td>
-    </tr>
-    <tr>
       <th>x</th>
-      <td><p>A string of the term on the x-axis.</p></td>
+      <td><p>The object to coerce.</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>A string of the term on the y-axis.</p></td>
+      <th>...</th>
+      <td><p>Unused.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
-    <p>A ggplot2 object.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code> and <code><a href='ypr_schedule.html'>ypr_schedule()</a></code></p></div>
+    
+<ul>
+<li><p><code>data.frame</code>: Coerce data frame to ypr_populations</p></li>
+</ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_plot_schedule</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='img'><img src='ypr_plot_schedule-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>as_ypr_populations</span>(<span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>4</span>))))</div><div class='output co'>#&gt; tmax:  20
+#&gt; k:     0.15
+#&gt; Linf:  100
+#&gt; t0:    0
+#&gt; k2:    0.15
+#&gt; Linf2: 100
+#&gt; L2:    1000
+#&gt; Wb:    3
+#&gt; Ls:    50
+#&gt; Sp:    100
+#&gt; es:    1
+#&gt; Sm:    0
+#&gt; fb:    1
+#&gt; tR:    1
+#&gt; BH:    1
+#&gt; Rk:    3, 4
+#&gt; n:     0.2
+#&gt; nL:    0.2
+#&gt; Ln:    1000
+#&gt; Lv:    50
+#&gt; Vp:    100
+#&gt; Llo:   0
+#&gt; Lup:   1000
+#&gt; Nc:    0
+#&gt; pi:    0.2
+#&gt; rho:   0
+#&gt; Hm:    0
+#&gt; Rmax:  1
+#&gt; Wa:    0.01
+#&gt; fa:    1
+#&gt; q:     0.1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

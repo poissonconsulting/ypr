@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -122,6 +122,94 @@
       <small>Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="ypr-040" class="section level1">
+<h1 class="page-header">
+<a href="#ypr-040" class="anchor"></a>ypr 0.4.0<small> Unreleased </small>
+</h1>
+<div id="major-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#major-features" class="anchor"></a>Major Features</h2>
+</div>
+<div id="population-parameters" class="section level2">
+<h2 class="hasAnchor">
+<a href="#population-parameters" class="anchor"></a>Population Parameters</h2>
+<ul>
+<li>Replaced parameters
+<ul>
+<li>
+<code>M</code> (annual instantaneous natural mortality rate)</li>
+<li>
+<code>Mb</code> (annual instantaneous natural mortality rate (as a function of length) scaling exponent)</li>
+<li>
+<code>A0</code> (initial post age tR density independent mortality probability) with</li>
+<li>
+<code>n</code> (annual natural mortality rate from age tR to length Ln)</li>
+<li>
+<code>nL</code> (annual natural mortality rate from length Ln)</li>
+<li>
+<code>Ln</code> (length at which the natural mortality rate switches from n to nA)</li>
+</ul>
+</li>
+<li>Added parameters <code>k2</code>, <code>Linf2</code> and <code>L2</code> to allow for biphasic growth.</li>
+<li>Set <code>Lp</code> value to be 1000 as opposed to Linf.</li>
+<li>Set <code>Ls</code> and <code>Lv</code> arguments to be 50 as opposed to <code>Linf/2</code>.</li>
+<li>Allow <code>L2</code>, <code>Ln</code>, <code>Ls</code> and <code>Lv</code> to also take ages (as negative values).</li>
+</ul>
+</div>
+<div id="populations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#populations" class="anchor"></a>Population(s)</h2>
+<ul>
+<li>Added <code>expand = TRUE</code> argument to <code><a href="../reference/ypr_populations.html">ypr_populations()</a></code> to allow control over all combinations.</li>
+<li>Added <code><a href="../reference/ypr_populations_expand.html">ypr_populations_expand()</a></code> to create all combinations of parameters.</li>
+<li>Added <code><a href="../reference/ypr_populations_update.html">ypr_populations_update()</a></code> (as well as <code><a href="../reference/ypr_population_update.html">update.ypr_population()</a></code> and <code><a href="../reference/ypr_populations_update.html">update.ypr_populations()</a></code>).</li>
+<li>
+<code>ypr_populations</code> no longer requires names.</li>
+<li>Added <code><a href="../reference/ypr_population_names.html">ypr_population_names()</a></code> to allow user to generate names.</li>
+<li>Added <code><a href="../reference/as_ypr_populations.html">as_ypr_populations.data.frame()</a></code>.</li>
+<li>Added <code>data.frame.ypr_population()</code> and <code>data.frame.ypr_populations()</code>.</li>
+<li>Added <code><a href="../reference/ypr_age_at_length.html">ypr_age_at_length()</a></code> to get ages at specific lengths for a given population.</li>
+<li>Added <code><a href="../reference/ypr_length_at_age.html">ypr_length_at_age()</a></code> to get lengths at specific ages for a given population.</li>
+</ul>
+</div>
+<div id="population-reports" class="section level2">
+<h2 class="hasAnchor">
+<a href="#population-reports" class="anchor"></a>Population Reports</h2>
+<ul>
+<li>Added <code>description = ""</code> argument to <code><a href="../reference/ypr_report.html">ypr_report()</a></code> to allow user to describe report.</li>
+<li>
+<code><a href="../reference/ypr_report.html">ypr_report()</a></code> now starts with table of parameter values with parameter descriptions.</li>
+<li>Added <code>view = FALSE</code> argument to <code><a href="../reference/ypr_report.html">ypr_report()</a></code> to allow user to view report in browser.</li>
+<li>Added <code>ask = TRUE</code> argument to <code><a href="../reference/ypr_report.html">ypr_report()</a></code> to ask before overwriting or creating a file.</li>
+<li>Deprecated requirement to provide file extension in <code><a href="../reference/ypr_report.html">ypr_report()</a></code>.</li>
+</ul>
+</div>
+<div id="plots" class="section level2">
+<h2 class="hasAnchor">
+<a href="#plots" class="anchor"></a>Plots</h2>
+<ul>
+<li>Added plot of biomass and eggs to report.</li>
+<li>Added <code>percent = FALSE</code> argument to <code><a href="../reference/ypr_plot_fish.html">ypr_plot_fish()</a></code>
+</li>
+</ul>
+</div>
+<div id="tables" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tables" class="anchor"></a>Tables</h2>
+<ul>
+<li>Added <code><a href="../reference/ypr_tabulate_biomass.html">ypr_tabulate_biomass()</a></code> to easily calculate total biomass and eggs.</li>
+<li>Renamed column <code>HandlingMortality</code> to <code>HandlingMortalities</code> in <code><a href="../reference/ypr_tabulate_fish.html">ypr_tabulate_fish()</a></code> and <code><a href="../reference/ypr_plot_fish.html">ypr_plot_fish()</a></code>.</li>
+<li>Renamed column <code>Spawning</code> to <code>Spawners</code> in <code><a href="../reference/ypr_tabulate_fish.html">ypr_tabulate_fish()</a></code> and <code><a href="../reference/ypr_plot_fish.html">ypr_plot_fish()</a></code>.</li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug Fixes</h2>
+<ul>
+<li>Improved handling of unsustainable populations (no longer negative fish numbers).</li>
+</ul>
+</div>
+</div>
     <div id="ypr-031" class="section level1">
 <h1 class="page-header">
 <a href="#ypr-031" class="anchor"></a>ypr 0.3.1<small> 2019-04-26 </small>
@@ -152,7 +240,7 @@
 <li>Set default value of <code>Wa</code> to be 0.01.</li>
 <li>Added <code><a href="../reference/ypr_populations.html">ypr_populations()</a></code> to generate all combinations of parameters.</li>
 <li>Made <code><a href="../reference/ypr_tabulate_sr.html">ypr_tabulate_sr()</a></code>, <code><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield()</a></code>, <code><a href="../reference/ypr_tabulate_yields.html">ypr_tabulate_yields()</a></code>, <code><a href="../reference/ypr_plot_yield.html">ypr_plot_yield()</a></code> generic with definitions for <code>ypr_population</code> and <code>ypr_populations</code> objects.</li>
-<li>Added scaling parameter <code>A0</code> for inital interval mortality of recruits.</li>
+<li>Added scaling parameter <code>A0</code> for initial interval mortality of recruits.</li>
 <li>Added scaling parameters <code>Ea</code> and <code>Eb</code> to allow plots of yield per effort.</li>
 <li>Added <code>Age</code>, <code>Length</code>, <code>Weight</code> and <code>Effort</code> to <code><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield()</a></code> and added <code><a href="../reference/ypr_tabulate_yields.html">ypr_tabulate_yields()</a></code>
 </li>
@@ -172,7 +260,7 @@
 <li>Added <code><a href="../reference/ypr_population_update.html">ypr_population_update()</a></code> to update population parameters.</li>
 <li>Added <code>ypr_yield_tabulate()</code> to tabulate actual and optimal yields.</li>
 <li>Added <code><a href="../reference/ypr_sr.html">ypr_sr()</a></code> to get stock recruitment parameters and <code><a href="../reference/ypr_plot_sr.html">ypr_plot_sr()</a></code> to plot.</li>
-<li>Added <code><a href="../reference/ypr_inst2inter.html">ypr_inst2inter()</a></code> and <code>ypr_inter2instant()</code> to convert mortality rates.</li>
+<li>Added <code>ypr_inst2inter()</code> and <code>ypr_inter2instant()</code> to convert mortality rates.</li>
 <li>Switched <code>nu</code> for <code>M</code> and <code>R0</code> for <code>Rmax</code>.</li>
 <li>Switched yield parameters <code>harvest</code> and <code>biomass</code> to <code>FALSE</code> by default.</li>
 <li>Renamed <code>a</code> to <code>Wa</code> and <code>b</code> to <code>Wb</code> and <code>eta</code> to <code>Hm</code> and <code>mu</code> to <code>pi</code> and <code>Rt</code> to <code>tR</code>.</li>
@@ -193,6 +281,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#ypr-040">0.4.0</a></li>
         <li><a href="#ypr-031">0.3.1</a></li>
         <li><a href="#ypr-030">0.3.0</a></li>
         <li><a href="#ypr-020">0.2.0</a></li>

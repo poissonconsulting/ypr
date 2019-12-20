@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@
     </tr>
     <tr>
       <th>k</th>
-      <td><p>The VB growth coefficient (per yr).</p></td>
+      <td><p>The VB growth coefficient (yr-1).</p></td>
     </tr>
     <tr>
       <th>Linf</th>
@@ -149,12 +149,24 @@
       <td><p>The (theoretical) age at zero length (yr).</p></td>
     </tr>
     <tr>
+      <th>k2</th>
+      <td><p>The VB growth coefficient after length L2 (yr-1).</p></td>
+    </tr>
+    <tr>
+      <th>Linf2</th>
+      <td><p>The VB mean maximum length after length L2 (cm).</p></td>
+    </tr>
+    <tr>
+      <th>L2</th>
+      <td><p>The length (or age if negative) at which growth switches from the first to second phase (cm or yr).</p></td>
+    </tr>
+    <tr>
       <th>Wb</th>
       <td><p>The weight (as a function of length) scaling exponent.</p></td>
     </tr>
     <tr>
       <th>Ls</th>
-      <td><p>The length at which 50% mature (cm).</p></td>
+      <td><p>The length (or age if negative) at which 50 % mature (cm or yr).</p></td>
     </tr>
     <tr>
       <th>Sp</th>
@@ -185,16 +197,20 @@
       <td><p>The lifetime spawners per spawner at low density.</p></td>
     </tr>
     <tr>
-      <th>M</th>
-      <td><p>The instantaneous mortality rate (per yr).</p></td>
+      <th>n</th>
+      <td><p>The annual interval natural mortality rate from age tR.</p></td>
     </tr>
     <tr>
-      <th>Mb</th>
-      <td><p>The instantaneous mortality rate (as a function of length) scaling exponent.</p></td>
+      <th>nL</th>
+      <td><p>The annual interval natural mortality rate from length Ln.</p></td>
+    </tr>
+    <tr>
+      <th>Ln</th>
+      <td><p>The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).</p></td>
     </tr>
     <tr>
       <th>Lv</th>
-      <td><p>The length at which 50% vulnerable to harvest (cm).</p></td>
+      <td><p>The length (or age if negative) at which 50 % vulnerable to harvest (cm or yr).</p></td>
     </tr>
     <tr>
       <th>Vp</th>
@@ -229,10 +245,6 @@
       <td><p>The number of recruits at the carrying capacity (ind).</p></td>
     </tr>
     <tr>
-      <th>A0</th>
-      <td><p>The initial post age tR density independent mortality probability.</p></td>
-    </tr>
-    <tr>
       <th>Wa</th>
       <td><p>The (extrapolated) weight of a 1 cm individual (g).</p></td>
     </tr>
@@ -246,11 +258,11 @@
     </tr>
     <tr>
       <th>all</th>
-      <td><p>A flag indicating whether to include all parameter values.</p></td>
+      <td><p>A flag specifying whether to include all parameter values.</p></td>
     </tr>
     <tr>
       <th>u</th>
-      <td><p>A flag indicating whether to plot the exploitation rate as opposed to the capture rate.</p></td>
+      <td><p>A flag specifying whether to plot the exploitation rate as opposed to the capture rate.</p></td>
     </tr>
     <tr>
       <th>percent</th>
@@ -265,20 +277,24 @@
       <td><p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code>.</p></td>
     </tr>
     <tr>
+      <th>populations</th>
+      <td><p>An object of class <code><a href='ypr_populations.html'>ypr_populations()</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>plot_values</th>
-      <td><p>A flag indicating whether to plot the actual and optimal values.</p></td>
+      <td><p>A flag specifying whether to plot the actual and optimal values.</p></td>
     </tr>
     <tr>
       <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
+      <td><p>The minimum length (trophy) fish to consider when calculating the yield (cm).</p></td>
     </tr>
     <tr>
       <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for harvested fish or captures.</p></td>
+      <td><p>A flag specifying whether to calculate the yield for harvested fish or captures.</p></td>
     </tr>
     <tr>
       <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
+      <td><p>A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
     </tr>
     <tr>
       <th>title</th>
@@ -290,7 +306,7 @@
     </tr>
     <tr>
       <th>file</th>
-      <td><p>A string of the file name.</p></td>
+      <td><p>A string of the path to the file (without the extension).</p></td>
     </tr>
     <tr>
       <th>binwidth</th>
@@ -307,6 +323,30 @@
     <tr>
       <th>...</th>
       <td><p>Unused parameters.</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>A flag specifying whether to expand parameter combinations.</p></td>
+    </tr>
+    <tr>
+      <th>view</th>
+      <td><p>A flag specifying whether to view the report (after rendering it to html).</p></td>
+    </tr>
+    <tr>
+      <th>ask</th>
+      <td><p>A flag specifying whether to ask before overwriting or creating a file.</p></td>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td><p>A string describing the population.</p></td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td><p>A numeric vector of the age (yr).</p></td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td><p>A numeric vector of the length (cm).</p></td>
     </tr>
     </table>
 

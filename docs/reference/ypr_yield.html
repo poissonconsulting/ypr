@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -139,15 +139,15 @@
     </tr>
     <tr>
       <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield.</p></td>
+      <td><p>The minimum length (trophy) fish to consider when calculating the yield (cm).</p></td>
     </tr>
     <tr>
       <th>harvest</th>
-      <td><p>A flag indicating whether to calculate the yield for harvested fish or captures.</p></td>
+      <td><p>A flag specifying whether to calculate the yield for harvested fish or captures.</p></td>
     </tr>
     <tr>
       <th>biomass</th>
-      <td><p>A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
+      <td><p>A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
     </tr>
     </table>
 
@@ -163,13 +163,13 @@ If the yield is given in terms of the biomass (kg) then the scaling also depends
     <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code> and <code><a href='ypr_optimize.html'>ypr_optimize()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_yield</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; [1] 0.03493376
+    <pre class="examples"><div class='input'><span class='fu'>ypr_yield</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; [1] 0.04220691
 #&gt; attr(,"Age")
-#&gt; [1] 6.883729
+#&gt; [1] 6.7687
 #&gt; attr(,"Length")
-#&gt; [1] 62.62232
+#&gt; [1] 62.13068
 #&gt; attr(,"Weight")
-#&gt; [1] 2649.621
+#&gt; [1] 2580.272
 #&gt; attr(,"Effort")
 #&gt; [1] 2.117905</div></pre>
   </div>
