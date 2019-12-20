@@ -17,7 +17,7 @@
 #' @param Rk The lifetime spawners per spawner at low density.
 #' @param n The annual interval natural mortality rate from age tR.
 #' @param nL The annual interval natural mortality rate from length Ln.
-#' @param Ln The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).
+#' @param Ln The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).
 #' @param Lv The length (or age if negative) at which 50 % vulnerable to harvest (cm or yr).
 #' @param Vp The vulnerability to harvest (as a function of length) power.
 #' @param Llo The lower harvest slot length (cm).

@@ -40,7 +40,7 @@
 
 \item{nL}{The annual interval natural mortality rate from length Ln.}
 
-\item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nA (cm or yr).}
+\item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).}
 
 \item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest (cm or yr).}
 
