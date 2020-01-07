@@ -177,7 +177,7 @@ ypr_tabulate_biomass <- function(population) {
   schedule <- ypr_schedule(population)
   fish <- ypr_tabulate_fish(population)
 
-  schedule <- schedule[c("Age", "Weight", "Fecundity")]
+  schedule <- schedule[c("Age", "Length", "Weight", "Fecundity")]
   fish <- fish[c("Survivors", "Spawners")]
 
   biomass <- cbind(schedule, fish)
