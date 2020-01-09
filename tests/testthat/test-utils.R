@@ -30,6 +30,28 @@ test_that("ypr_length_at_age", {
   )
 })
 
+test_that("ypr_length_at_age with biphasic growth", {
+
+  pop1 <- ypr_population(tmax = 9L, k = 0.54, Linf = 43.90, t0 = 0.65,
+                         k2 = 0.7, Linf2 = 82.56, L2 = -3.6)
+
+  pop2 <- ypr_population_update(pop1, k2 = 0.27, Linf2 = 54.2)
+
+  length1 <- ypr_length_at_age(pop1, 1:9L)
+  length2 <- ypr_length_at_age(pop2, 1:9L)
+
+  expect_equal(length1,
+               c(7.56017235610119, 22.723028948946, 53.4078559389573, 68.0834736852762,
+                 75.3711697821585, 78.9901325623683, 80.7872562939886, 81.679681528206,
+                 82.122846784251))
+
+  expect_equal(length2,
+               c(7.56017235610119, 22.723028948946, 38.2853759487198, 42.0511023391726,
+                 44.9257806469274, 47.1202511198824, 48.7954648798639, 50.0742887128647,
+                 51.0505166038468))
+})
+
+
 test_that("ypr_age_at_length", {
   expect_equal(
     ypr_age_at_length(ypr_population(), seq(0, 100, by = 10)),

@@ -29,27 +29,6 @@ test_that("schedule", {
   expect_equal(schedule$Fecundity[20], 857.9516, tolerance = 1e-6)
 })
 
-test_that("schedule with biphasic growth", {
-
-  pop1 <- ypr_population(tmax = 9L, k = 0.54, Linf = 43.90, t0 = 0.65,
-                         k2 = 0.7, Linf2 = 82.56, L2 = -3.6)
-
-  pop2 <- ypr_population_update(pop1, k2 = 0.27, Linf2 = 54.2)
-
-  schedule1 <- ypr_schedule(pop1)
-  schedule2 <- ypr_schedule(pop2)
-
-  expect_equal(schedule1$Length,
-               c(7.56017235610119, 22.723028948946, 53.4078559389573, 68.0834736852762,
-                 75.3711697821585, 78.9901325623683, 80.7872562939886, 81.679681528206,
-                 82.122846784251))
-
-  expect_equal(schedule2$Length,
-               c(7.56017235610119, 22.723028948946, 38.2853759487198, 42.0511023391726,
-                 44.9257806469274, 47.1202511198824, 48.7954648798639, 50.0742887128647,
-                 51.0505166038468))
-})
-
 test_that("schedule with biphasic length loss", {
   schedule <- ypr_schedule(ypr_population(Linf = 300, L2 = 150))
   expect_equal(
