@@ -98,7 +98,7 @@ ypr_plot_schedule(population, "Length", "Spawning")
 
 ### Natural Mortality
 
-By default the natural mortality rate is assumed to be constant
+By default the natural annual interval mortality rate ($n$) is assumed to be constant
 
 ```{r}
 ypr_plot_schedule(population, "Length", "NaturalMortality")
@@ -155,7 +155,7 @@ This requires the lifetime number of spawners per spawner at low density ($R_k$)
 
 If recruitment follows a Beverton-Holt ($BH = 1$) curve then
 
-$$R = \alpha \cdot E / (\beta \cdot E + 1)$$
+$$R = \frac{\alpha \cdot E}{(\beta \cdot E + 1)}$$
 
 ```{r}
 population <- ypr_population_update(population, Rk = 3)
