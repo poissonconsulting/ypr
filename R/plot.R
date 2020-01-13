@@ -178,8 +178,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
         geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
       } else {
         NULL
-      }
-    ) +
+      }) +
     geom_line() +
     expand_limits(x = 0, y = 0) +
     scale_x_continuous(labels = labels_x) +
@@ -244,8 +243,7 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
         )
       } else {
         NULL
-      }
-    ) +
+      }) +
     geom_line() +
     expand_limits(x = 0) +
     scale_x_continuous(xlab, labels = scales::percent) +
@@ -323,8 +321,7 @@ ypr_plot_yield.ypr_populations <- function(
         )
       } else {
         NULL
-      }
-    ) +
+      }) +
     geom_line() +
     expand_limits(x = 0) +
     scale_x_continuous(xlab, labels = scales::percent) +
