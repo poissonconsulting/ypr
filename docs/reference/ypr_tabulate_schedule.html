@@ -120,15 +120,17 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Life-History Schedule</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/schedule.R'><code>R/schedule.R</code></a></small>
-    <div class="hidden name"><code>ypr_schedule.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/ypr/blob/master/R/deprecated.R'><code>R/deprecated.R</code></a>, <a href='https://github.com/poissonconsulting/ypr/blob/master/R/schedule.R'><code>R/schedule.R</code></a></small>
+    <div class="hidden name"><code>ypr_tabulate_schedule.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Generates the life-history schedule by age for a population.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_schedule</span>(<span class='no'>population</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_schedule</span>(<span class='no'>population</span>)
+
+<span class='fu'>ypr_tabulate_schedule</span>(<span class='no'>population</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -142,12 +144,18 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A tibble of the life-history schedule by age.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>ypr_schedule</code>: Tabulate Schedule (Deprecated)</p></li>
+</ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_schedule</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 20 x 11</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_schedule</span>(<span class='fu'><a href='ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 20 x 11</span><span>
 #&gt;      Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span>     1   13.9   27.0      27.0 3.13</span><span style='color: #555555;'>e</span><span style='color: #BB0000;'>-56</span><span>            0.200      3.13</span><span style='color: #555555;'>e</span><span style='color: #BB0000;'>-56</span><span>
@@ -178,6 +186,7 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#functions">Functions</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

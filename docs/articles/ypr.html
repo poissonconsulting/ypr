@@ -320,7 +320,7 @@
 <div id="natural-mortality" class="section level3">
 <h3 class="hasAnchor">
 <a href="#natural-mortality" class="anchor"></a>Natural Mortality</h3>
-<p>By default the natural mortality rate is assumed to be constant</p>
+<p>By default the natural annual interval mortality rate (<span class="math inline">\(n\)</span>) is assumed to be constant</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(population, <span class="st">"Length"</span>, <span class="st">"NaturalMortality"</span>)</span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
 <p>although like growth it can vary biphasically</p>
@@ -358,7 +358,7 @@
 <p>With growth, reproduction and death defined, the final task is to estimate the recruitment (birth) rate.</p>
 <p>This requires the lifetime number of spawners per spawner at low density (<span class="math inline">\(R_k\)</span>) and the recruitment age (<span class="math inline">\(R_t\)</span>; by default 1) to be defined.</p>
 <p>If recruitment follows a Beverton-Holt (<span class="math inline">\(BH = 1\)</span>) curve then</p>
-<p><span class="math display">\[R = \alpha \cdot E / (\beta \cdot E + 1)\]</span></p>
+<p><span class="math display">\[R = \frac{\alpha \cdot E}{(\beta \cdot E + 1)}\]</span></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>population &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span>(population, <span class="dt">Rk =</span> <span class="dv">3</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="kw"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(population, <span class="dt">plot_values =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-13-1.png" width="384"></p>
