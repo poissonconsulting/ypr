@@ -21,12 +21,12 @@ ypr_plot_yield <- function(object, ...) {
 #' @param x A string of the term on the x-axis.
 #' @param y A string of the term on the y-axis.
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_schedule()]
+#' @seealso [ypr_population()] and [ypr_tabulate_schedule()]
 #' @export
 #' @examples
 #' ypr_plot_schedule(ypr_population())
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
-  schedule <- ypr_schedule(population = population)
+  schedule <- ypr_tabulate_schedule(population = population)
 
   chk_string(x)
   chk_subset(x, values = colnames(schedule))
@@ -140,7 +140,7 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
   chk_flag(biomass)
   chk_flag(harvest)
   chk_flag(plot_values)
-  schedule <- ypr_schedule(population)
+  schedule <- ypr_tabulate_schedule(population)
 
   schedule <- as.list(schedule)
   schedule$BH <- population$BH

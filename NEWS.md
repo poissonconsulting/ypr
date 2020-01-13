@@ -36,6 +36,7 @@
 - Added `view = FALSE` argument to `ypr_report()` to allow user to view report in browser.
 - Added `ask = TRUE` argument to `ypr_report()` to ask before overwriting or creating a file.
 - Deprecated requirement to provide file extension in `ypr_report()`.
+- Soft deprecated `ypr_schedule()` for `ypr_tabulate_schedule()`.
 
 ## Plots
 

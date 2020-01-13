@@ -1,7 +1,7 @@
 context("schedule")
 
 test_that("schedule", {
-  schedule <- ypr_schedule(ypr_population(
+  schedule <- ypr_tabulate_schedule(ypr_population(
     Rmax = 100, Rk = 2, Wa = 0.01,
     n = ypr:::inst2inter(0.2), fa = 0.1
   ))
@@ -30,7 +30,7 @@ test_that("schedule", {
 })
 
 test_that("schedule with biphasic length loss", {
-  schedule <- ypr_schedule(ypr_population(Linf = 300, L2 = 150))
+  schedule <- ypr_tabulate_schedule(ypr_population(Linf = 300, L2 = 150))
   expect_equal(
     schedule$Length,
     c(

@@ -16,7 +16,7 @@ as.data.frame.ypr_populations <- function(x, ...) {
 #' @inheritParams graphics::plot.default
 #' @param ... Additional arguments passed to graphics::plot.formula functions.
 #' @return An invisible copy of the original object.
-#' @seealso [ypr_population()] and [ypr_schedule()]
+#' @seealso [ypr_population()] and [ypr_tabulate_schedule()]
 #' @export
 #' @examples
 #' \dontrun{
@@ -25,7 +25,7 @@ as.data.frame.ypr_populations <- function(x, ...) {
 plot.ypr_population <- function(x, type = "b", ...) {
   chk_population(x)
 
-  schedule <- ypr_schedule(x)
+  schedule <- ypr_tabulate_schedule(x)
 
   with(schedule, {
     plot(Length ~ Age,

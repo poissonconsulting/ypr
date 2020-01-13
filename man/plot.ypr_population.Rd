@@ -33,5 +33,5 @@ plot(ypr_population())
 }
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_schedule]{ypr_schedule()}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}}
 }

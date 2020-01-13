@@ -62,7 +62,7 @@ sr <- function(schedule, population) {
 ypr_sr <- function(population) {
   chk_population(population)
 
-  schedule <- ypr_schedule(population)
+  schedule <- ypr_tabulate_schedule(population)
 
   sr <- sr(schedule, population)
   sr$R0F <- max(sr$R0F, 0)

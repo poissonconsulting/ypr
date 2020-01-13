@@ -4,7 +4,7 @@
 #'
 #' @inheritParams params
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population_update()], [ypr_schedule()],
+#' @seealso [ypr_population_update()], [ypr_tabulate_schedule()],
 #' [ypr_yield()] and [ypr_optimize()].
 #' @export
 #' @examples

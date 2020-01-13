@@ -132,7 +132,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   chk_whole_number(binwidth)
   chk_range(binwidth, c(1L, 1000L))
 
-  table <- ypr_schedule(population = population)
+  table <- ypr_tabulate_schedule(population = population)
   table <- as.data.frame(table)
 
   R0F <- sr(table, population)$R0F
@@ -174,7 +174,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' @examples
 #' ypr_tabulate_biomass(ypr_population())
 ypr_tabulate_biomass <- function(population) {
-  schedule <- ypr_schedule(population)
+  schedule <- ypr_tabulate_schedule(population)
   fish <- ypr_tabulate_fish(population)
 
   schedule <- schedule[c("Age", "Length", "Weight", "Fecundity")]

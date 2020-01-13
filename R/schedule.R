@@ -7,8 +7,8 @@
 #' @seealso [ypr_population()]
 #' @export
 #' @examples
-#' ypr_schedule(ypr_population())
-ypr_schedule <- function(population) {
+#' ypr_tabulate_schedule(ypr_population())
+ypr_tabulate_schedule <- function(population) {
   chk_population(population)
 
   schedule <- with(population, {

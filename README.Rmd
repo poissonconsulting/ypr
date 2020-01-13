@@ -34,7 +34,7 @@ The key life history parameters are
 - The growth coefficient (`k`) and mean maximum length (`Linf`) from the Von Bertalanffy growth curve
 - The length at which 50% mature (`Ls`)
 - The length at which 50% vulnerable to harvest (`Lv`)
-- The instantaneous annual natural mortality rate (`M`)
+- The interval annual natural mortality rate (`n`)
 - The lifetime number of spawners per spawner at low density (`Rk`)
 
 The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.
@@ -47,7 +47,7 @@ The calculations do not account for stochasticity, predator-prey dynamics, angle
 library(ypr)
 population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
-head(ypr_schedule(population))
+head(ypr_tabulate_schedule(population))
 ```
 
 ### Fish

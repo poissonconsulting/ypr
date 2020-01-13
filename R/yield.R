@@ -35,7 +35,7 @@ yield <- function(schedule, population, Ly = 0, harvest = TRUE, biomass = FALSE)
 
 yield_pi <- function(pi, population, Ly, harvest, biomass) {
   population$pi <- pi
-  schedule <- ypr_schedule(population)
+  schedule <- ypr_tabulate_schedule(population)
   yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
 }
 
@@ -59,7 +59,7 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
   chk_flag(biomass)
   chk_flag(harvest)
 
-  schedule <- ypr_schedule(population)
+  schedule <- ypr_tabulate_schedule(population)
 
   yield <- yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
 
