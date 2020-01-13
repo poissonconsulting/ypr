@@ -1,6 +1,6 @@
 ## Test environments
 
-release 3.6.1
+release 3.6.2
 
 * OS X (local) - release
 
