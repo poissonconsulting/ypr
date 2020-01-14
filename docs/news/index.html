@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9000</span>
       </span>
     </div>
 
@@ -124,7 +124,7 @@
 
     <div id="ypr-040" class="section level1">
 <h1 class="page-header">
-<a href="#ypr-040" class="anchor"></a>ypr 0.4.0<small> Unreleased </small>
+<a href="#ypr-040" class="anchor"></a>ypr 0.4.0<small> 2020-01-13 </small>
 </h1>
 <div id="major-features" class="section level2">
 <h2 class="hasAnchor">
@@ -133,15 +133,17 @@
 <div id="population-parameters" class="section level2">
 <h2 class="hasAnchor">
 <a href="#population-parameters" class="anchor"></a>Population Parameters</h2>
-<ul>
-<li>Replaced parameters
+<p>Replaced parameters</p>
 <ul>
 <li>
 <code>M</code> (annual instantaneous natural mortality rate)</li>
 <li>
 <code>Mb</code> (annual instantaneous natural mortality rate (as a function of length) scaling exponent)</li>
 <li>
-<code>A0</code> (initial post age tR density independent mortality probability) with</li>
+<code>A0</code> (initial post age tR density independent mortality probability)</li>
+</ul>
+<p>with</p>
+<ul>
 <li>
 <code>n</code> (annual natural mortality rate from age tR to length Ln)</li>
 <li>
@@ -149,7 +151,8 @@
 <li>
 <code>Ln</code> (length at which the natural mortality rate switches from n to nA)</li>
 </ul>
-</li>
+<p>And</p>
+<ul>
 <li>Added parameters <code>k2</code>, <code>Linf2</code> and <code>L2</code> to allow for biphasic growth.</li>
 <li>Set <code>Lp</code> value to be 1000 as opposed to Linf.</li>
 <li>Set <code>Ls</code> and <code>Lv</code> arguments to be 50 as opposed to <code>Linf/2</code>.</li>
