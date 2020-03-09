@@ -1,3 +1,7 @@
+# ypr 0.4.0.9001
+
+- Removed suggests dependency on checkr.
+
 # ypr 0.4.0
 
 ## Major Features
