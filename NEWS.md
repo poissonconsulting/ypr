@@ -1,5 +1,6 @@
-# ypr 0.4.0.9001
+# ypr 0.5.0
 
+- Pass yield parameters Ly, harvest and biomass to ypr_report().
 - Removed suggests dependency on checkr.
 
 # ypr 0.4.0
