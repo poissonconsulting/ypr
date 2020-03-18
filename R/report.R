@@ -70,9 +70,9 @@ knitr::kable(ypr_tabulate_sr(population))
 ```
 
 ```{r, fig.width = 6, fig.height = 4}
-ypr_plot_yield(population, Ly = ', Ly, ', harvest = ', harvest, ', biomass = ', biomass, ')
-knitr::kable(ypr_tabulate_yield(population, Ly = ', Ly, ', harvest = ', harvest, ', biomass = ', biomass, '))
-```')
+ypr_plot_yield(population, Ly = ', Ly, ", harvest = ", harvest, ", biomass = ", biomass, ")
+knitr::kable(ypr_tabulate_yield(population, Ly = ", Ly, ", harvest = ", harvest, ", biomass = ", biomass, "))
+```")
 }
 
 #' Report
@@ -122,9 +122,11 @@ ypr_report <- function(population,
   ),
   con = con
   )
-  writeLines(lines_body(Ly = Ly,
-                       harvest = harvest,
-                       biomass = biomass), con = con)
+  writeLines(lines_body(
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  ), con = con)
   close(con)
   if (view) {
     if (!requireNamespace("rmarkdown")) {

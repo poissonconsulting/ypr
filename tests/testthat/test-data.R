@@ -25,5 +25,6 @@ test_that(".data", {
         Log = c(0L, 1L)
       ),
       key = "Parameter", exclusive = TRUE, order = TRUE
-    ))
+    )
+  )
 })
