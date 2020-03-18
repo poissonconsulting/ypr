@@ -32,8 +32,6 @@ Suggests:
     rmarkdown,
     rstudioapi,
     tidyr
-Remotes:
-    poissonconsulting/chk
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
