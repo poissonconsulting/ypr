@@ -34,4 +34,6 @@ The URL is valid.
 
 ## Reverse dependencies
 
-There are no reverse dependencies.
+✓ shinyypr 0.0.1                         ── E: 0     | W: 0     | N: 0                       
+OK: 1                                                                                      
+BROKEN: 0
