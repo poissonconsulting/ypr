@@ -18,3 +18,4 @@
 ^\.covrignore$
 ^pkgdown$
 ^revdep$
+^\.github$
