@@ -11,13 +11,11 @@ bibliography: bibliography.bib
 
 <!-- badges: start -->
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/ypr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/ypr)
+[![R build status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
 [![Coverage status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
 ![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
-[![R build status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
 [![Codecov test coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
 <!-- badges: end -->
 
@@ -44,6 +42,7 @@ The calculations do not account for stochasticity, predator-prey dynamics, angle
 
 ```r
 library(ypr)
+#> Warning: package 'ypr' was built under R version 3.6.3
 population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```
@@ -53,17 +52,16 @@ ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```r
 head(ypr_tabulate_schedule(population))
 #> # A tibble: 6 x 11
-#>     Age Length Weight Fecundity Spawning NaturalMortality
-#>   <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>
-#> 1     1   13.9   27.0      27.0 3.13e-56            0.200
-#> 2     2   25.9  174.      174.  2.91e-29            0.200
-#> 3     3   36.2  476.      476.  1.04e-14            0.200
-#> 4     4   45.1  918.      918.  3.46e- 5            0.200
-#> 5     5   52.8 1469.     1469.  9.95e- 1            0.200
-#> 6     6   59.3 2090.     2090.  1.00e+ 0            0.200
-#> # ... with 5 more variables: Vulnerability <dbl>,
-#> #   Retention <dbl>, FishingMortality <dbl>, Survivorship <dbl>,
-#> #   FishedSurvivorship <dbl>
+#>     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
+#>   <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>         <dbl>
+#> 1     1   13.9   27.0      27.0 3.13e-56            0.200      3.13e-56
+#> 2     2   25.9  174.      174.  2.91e-29            0.200      2.91e-29
+#> 3     3   36.2  476.      476.  1.04e-14            0.200      1.04e-14
+#> 4     4   45.1  918.      918.  3.46e- 5            0.200      3.46e- 5
+#> 5     5   52.8 1469.     1469.  9.95e- 1            0.200      9.95e- 1
+#> 6     6   59.3 2090.     2090.  1.00e+ 0            0.200      1.00e+ 0
+#> # ... with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
+#> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
 
 ### Fish
@@ -78,15 +76,14 @@ ypr_plot_fish(population, color = "white")
 ```r
 head(ypr_tabulate_fish(population))
 #> # A tibble: 6 x 7
-#>     Age Survivors Spawners   Caught Harvested Released
-#>   <dbl>     <dbl>    <dbl>    <dbl>     <dbl>    <dbl>
-#> 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55
-#> 2     2      56.1 1.63e-27 3.26e-28  1.30e-28 1.96e-28
-#> 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14
-#> 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4
-#> 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0
-#> 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0
-#> # ... with 1 more variable: HandlingMortalities <dbl>
+#>     Age Survivors Spawners   Caught Harvested Released HandlingMortalities
+#>   <dbl>     <dbl>    <dbl>    <dbl>     <dbl>    <dbl>               <dbl>
+#> 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0
+#> 2     2      56.1 1.63e-27 3.26e-28  1.30e-28 1.96e-28                   0
+#> 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0
+#> 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0
+#> 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0
+#> 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0
 ```
 
 ### Stock-Recruitment
