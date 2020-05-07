@@ -2,8 +2,16 @@
 .Rhistory
 .RData
 .Ruserdata
-inst/doc
+
+.DS_Store
+.Renviron
+.RProfile
+.httr-oauth
+
+*.html
+
+docs/
+inst/docs/
+scripts/
 
 report.Rmd
-report.html
-docs/
