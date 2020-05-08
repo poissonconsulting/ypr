@@ -92,7 +92,7 @@
 <a href="#ypr-" class="anchor"></a>ypr <img src="reference/figures/logo.png" align="right">
 </h1></div>
 <!-- badges: start -->
-<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://travis-ci.org/poissonconsulting/ypr"><img src="https://travis-ci.org/poissonconsulting/ypr.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/project/poissonconsulting/ypr"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/ypr?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <a href="https://codecov.io/github/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a> <a href="https://cran.r-project.org/package=ypr"><img src="https://www.r-pkg.org/badges/version/ypr" alt="CRAN status"></a> <img src="http://cranlogs.r-pkg.org/badges/ypr" alt="CRAN Downloads"><a href="https://github.com/poissonconsulting/ypr/actions"><img src="https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://codecov.io/gh/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
+<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://github.com/poissonconsulting/ypr/actions"><img src="https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://codecov.io/github/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a> <a href="https://cran.r-project.org/package=ypr"><img src="https://www.r-pkg.org/badges/version/ypr" alt="CRAN status"></a> <img src="http://cranlogs.r-pkg.org/badges/ypr" alt="CRAN Downloads"><a href="https://codecov.io/gh/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
@@ -114,22 +114,22 @@
 <h3 class="hasAnchor">
 <a href="#schedule" class="anchor"></a>Schedule</h3>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ypr</span>)
+<span class="co">#&gt; Warning: package 'ypr' was built under R version 3.6.3</span>
 <span class="no">population</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/ypr_population.html">ypr_population</a></span>(<span class="kw">Rk</span> <span class="kw">=</span> <span class="fl">5</span>, <span class="kw">Ls</span> <span class="kw">=</span> <span class="fl">50</span>, <span class="kw">Rmax</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">rho</span> <span class="kw">=</span> <span class="fl">0.6</span>)
 <span class="fu"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(<span class="no">population</span>, <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Length"</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Spawning"</span>)</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/ypr_tabulate_schedule.html">ypr_tabulate_schedule</a></span>(<span class="no">population</span>))
 <span class="co">#&gt; # A tibble: 6 x 11</span>
-<span class="co">#&gt;     Age Length Weight Fecundity Spawning NaturalMortality</span>
-<span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1   13.9   27.0      27.0 3.13e-56            0.200</span>
-<span class="co">#&gt; 2     2   25.9  174.      174.  2.91e-29            0.200</span>
-<span class="co">#&gt; 3     3   36.2  476.      476.  1.04e-14            0.200</span>
-<span class="co">#&gt; 4     4   45.1  918.      918.  3.46e- 5            0.200</span>
-<span class="co">#&gt; 5     5   52.8 1469.     1469.  9.95e- 1            0.200</span>
-<span class="co">#&gt; 6     6   59.3 2090.     2090.  1.00e+ 0            0.200</span>
-<span class="co">#&gt; # ... with 5 more variables: Vulnerability &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;, Survivorship &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   FishedSurvivorship &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt;     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability</span>
+<span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     1   13.9   27.0      27.0 3.13e-56            0.200      3.13e-56</span>
+<span class="co">#&gt; 2     2   25.9  174.      174.  2.91e-29            0.200      2.91e-29</span>
+<span class="co">#&gt; 3     3   36.2  476.      476.  1.04e-14            0.200      1.04e-14</span>
+<span class="co">#&gt; 4     4   45.1  918.      918.  3.46e- 5            0.200      3.46e- 5</span>
+<span class="co">#&gt; 5     5   52.8 1469.     1469.  9.95e- 1            0.200      9.95e- 1</span>
+<span class="co">#&gt; 6     6   59.3 2090.     2090.  1.00e+ 0            0.200      1.00e+ 0</span>
+<span class="co">#&gt; # ... with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></pre></div>
 </div>
 <div id="fish" class="section level3">
 <h3 class="hasAnchor">
@@ -138,15 +138,14 @@
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
 <div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span>(<span class="no">population</span>))
 <span class="co">#&gt; # A tibble: 6 x 7</span>
-<span class="co">#&gt;     Age Survivors Spawners   Caught Harvested Released</span>
-<span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55</span>
-<span class="co">#&gt; 2     2      56.1 1.63e-27 3.26e-28  1.30e-28 1.96e-28</span>
-<span class="co">#&gt; 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14</span>
-<span class="co">#&gt; 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4</span>
-<span class="co">#&gt; 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0</span>
-<span class="co">#&gt; 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0</span>
-<span class="co">#&gt; # ... with 1 more variable: HandlingMortalities &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt;     Age Survivors Spawners   Caught Harvested Released HandlingMortalities</span>
+<span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0</span>
+<span class="co">#&gt; 2     2      56.1 1.63e-27 3.26e-28  1.30e-28 1.96e-28                   0</span>
+<span class="co">#&gt; 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0</span>
+<span class="co">#&gt; 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0</span>
+<span class="co">#&gt; 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0</span>
+<span class="co">#&gt; 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span></pre></div>
 </div>
 <div id="stock-recruitment" class="section level3">
 <h3 class="hasAnchor">
