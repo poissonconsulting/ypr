@@ -1,27 +1,16 @@
 ## Test environments
 
-release 3.6.2
+release 4.0.2
 
-* OS X (local) - release
-
-* Ubuntu (travis) - oldrelease, release and devel
-
-* Windows (appveyor) - release
-* Windows (win-builder) - release and devel
+* OSX (local) - release
+* OSX (actions) - oldrel, release and devel
+* Ubuntu (actions) - 3.4 to release
+* Windows (actions) - release
+* Windows (winbuilder) - devel
 
 ## R CMD check results
 
-0 errors | 0 warnings | 2 notes
-
-> For the future: Is there some reference about the method you can add in the Description field in the form Authors (year) doi:.....?
-
-Done.
-
-> Possibly mis-spelled words in DESCRIPTION:
-  Martell (6:33)
-  isbn (6:49)
-
-These words are spelt correctly.
+0 errors | 0 warnings | 1 note
 
 > Found the following (possibly) invalid URLs:
   URL: https://poissonconsulting.shinyapps.io/ypr-shiny/
@@ -32,8 +21,10 @@ These words are spelt correctly.
 
 The URL is valid.
 
+
 ## Reverse dependencies
 
-✓ shinyypr 0.0.1                         ── E: 0     | W: 0     | N: 0                       
+✓ shinyypr 0.0.1                         ── E: 0     | W: 0     | N: 0
+
 OK: 1                                                                                      
 BROKEN: 0
