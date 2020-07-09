@@ -19,7 +19,7 @@
     \code{"h"} for histogram-like vertical lines.  Finally,
     \code{"n"} does not produce any points or lines.}
 
-\item{...}{Additional arguments passed to graphics::plot.formula functions.}
+\item{...}{Additional arguments passed to \link[graphics:plot.default]{graphics::plot} formual functions.}
 }
 \value{
 An invisible copy of the original object.

@@ -14,7 +14,7 @@ as.data.frame.ypr_populations <- function(x, ...) {
 #'
 #' @param x The population to plot.
 #' @inheritParams graphics::plot.default
-#' @param ... Additional arguments passed to graphics::plot.formula functions.
+#' @param ... Additional arguments passed to [graphics::plot] formula functions.
 #' @return An invisible copy of the original object.
 #' @seealso [ypr_population()] and [ypr_tabulate_schedule()]
 #' @export
