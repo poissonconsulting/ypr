@@ -1,55 +1,58 @@
----
-output: github_document
-bibliography: bibliography.bib
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
 
 # ypr <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![R build status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
-[![Coverage status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![CRAN status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
-[![Codecov test coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
+
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![R build
+status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
+[![Coverage
+status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr) [![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
 <!-- badges: end -->
 
 ## Introduction
 
-[`ypr`](https://github.com/poissonconsulting/ypr) is an R package that implements equilibrium-based yield per recruit methods.
-Yield per recruit methods can used to estimate the optimal yield for a fish population [@walters_fisheries_2004].
-The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.
+[`ypr`](https://github.com/poissonconsulting/ypr) is an R package that
+implements equilibrium-based yield per recruit methods. Yield per
+recruit methods can used to estimate the optimal yield for a fish
+population (Walters and Martell 2004). The yield can be based on the
+number of fish caught (or harvested) or biomass for all fish or just
+large (trophy) individuals.
 
 The key life history parameters are
 
-- The growth coefficient (`k`) and mean maximum length (`Linf`) from the Von Bertalanffy growth curve
-- The length at which 50% mature (`Ls`)
-- The length at which 50% vulnerable to harvest (`Lv`)
-- The interval annual natural mortality rate (`n`)
-- The lifetime number of spawners per spawner at low density (`Rk`)
+  - The growth coefficient (`k`) and mean maximum length (`Linf`) from
+    the Von Bertalanffy growth curve
+  - The length at which 50% mature (`Ls`)
+  - The length at which 50% vulnerable to harvest (`Lv`)
+  - The interval annual natural mortality rate (`n`)
+  - The lifetime number of spawners per spawner at low density (`Rk`)
 
-The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.
+The calculations do not account for stochasticity, predator-prey
+dynamics, angler responses or density-dependent growth.
 
 ## Demonstration
 
 ### Schedule
 
-
-```r
+``` r
 library(ypr)
-#> Warning: package 'ypr' was built under R version 3.6.3
 population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```
 
-![plot of chunk unnamed-chunk-1](man/figures/README-unnamed-chunk-1-1.png)
+![](man/figures/README-unnamed-chunk-1-1.png)<!-- -->
 
-```r
+``` r
 head(ypr_tabulate_schedule(population))
 #> # A tibble: 6 x 11
 #>     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
@@ -60,20 +63,19 @@ head(ypr_tabulate_schedule(population))
 #> 4     4   45.1  918.      918.  3.46e- 5            0.200      3.46e- 5
 #> 5     5   52.8 1469.     1469.  9.95e- 1            0.200      9.95e- 1
 #> 6     6   59.3 2090.     2090.  1.00e+ 0            0.200      1.00e+ 0
-#> # ... with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
+#> # … with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
 #> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
 
 ### Fish
 
-
-```r
+``` r
 ypr_plot_fish(population, color = "white")
 ```
 
-![plot of chunk unnamed-chunk-2](man/figures/README-unnamed-chunk-2-1.png)
+![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
 
-```r
+``` r
 head(ypr_tabulate_fish(population))
 #> # A tibble: 6 x 7
 #>     Age Survivors Spawners   Caught Harvested Released HandlingMortalities
@@ -88,14 +90,13 @@ head(ypr_tabulate_fish(population))
 
 ### Stock-Recruitment
 
-
-```r
+``` r
 ypr_plot_sr(population)
 ```
 
-![plot of chunk unnamed-chunk-3](man/figures/README-unnamed-chunk-3-1.png)
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
-```r
+``` r
 ypr_tabulate_sr(population)
 #> # A tibble: 3 x 7
 #>   Type        pi     u    Eggs Recruits Spawners Fecundity
@@ -107,8 +108,7 @@ ypr_tabulate_sr(population)
 
 ### Yield
 
-
-```r
+``` r
 ypr_tabulate_yield(population)
 #> # A tibble: 2 x 8
 #>   Type       pi     u Yield   Age Length Weight Effort
@@ -118,61 +118,82 @@ ypr_tabulate_yield(population)
 ypr_plot_yield(population)
 ```
 
-![plot of chunk unnamed-chunk-4](man/figures/README-unnamed-chunk-4-1.png)
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 ### Uncertainty
 
-
-```r
+``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 3.6.3
 populations <- ypr_populations(Rk = c(3, 7), Ls = c(40, 60), Rmax = 100)
 ypr_plot_yield(populations, plot_values = FALSE) +
   facet_grid(Rk ~ Ls)
 ```
 
-![plot of chunk unnamed-chunk-5](man/figures/README-unnamed-chunk-5-1.png)
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 ## Installation
 
 To install the latest release from [CRAN](https://cran.r-project.org)
 
-```r
+``` r
 install.packages("ypr")
 ```
 
-To install the developmental version from [GitHub](https://github.com/poissonconsulting/ypr)
+To install the developmental version from
+[GitHub](https://github.com/poissonconsulting/ypr)
 
-```r
+``` r
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/ypr")
 ```
 
-
 ## Information
 
-For more information see the [Get Started](https://poissonconsulting.github.io/ypr/articles/ypr.html) vignette.
+For more information see the [Get
+Started](https://poissonconsulting.github.io/ypr/articles/ypr.html)
+vignette.
 
 ### Interaction
 
-To interactively explore the effects of altering individual parameters on the schedule, stock-recruitment and yield see the ypr shiny [app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
+To interactively explore the effects of altering individual parameters
+on the schedule, stock-recruitment and yield see the ypr shiny
+[app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
 
-![A screenshot of the yield from the ypr shiny app](man/figures/yield.png)
+![A screenshot of the yield from the ypr shiny
+app](man/figures/yield.png)
 
 ## Creditation
 
-Development of ypr was partially supported by the [Habitat Conservation Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html)
-and the [Ministry of Forests, Lands and Natural Resource Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
+Development of ypr was partially supported by the [Habitat Conservation
+Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and
+the [Ministry of Forests, Lands and Natural Resource
+Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
 The hex was designed by [The Forest](http://www.theforest.ca).
 
 ## Contribution
 
-Please report any [issues](https://github.com/poissonconsulting/ypr/issues).
+Please report any
+[issues](https://github.com/poissonconsulting/ypr/issues).
 
-[Pull requests](https://github.com/poissonconsulting/ypr/pulls) are always welcome.
+[Pull requests](https://github.com/poissonconsulting/ypr/pulls) are
+always welcome.
 
-Please note that this project is released with a [Contributor Code of Conduct](https://github.com/poissonconsulting/ypr/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+## Code of Conduct
 
-## References 
+Please note that the ypr project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
+## References
+
+<div id="refs" class="references">
+
+<div id="ref-walters_fisheries_2004">
+
+Walters, Carl J., and Steven J. D. Martell. 2004. *Fisheries Ecology and
+Management*. Princeton, N.J: Princeton University Press.
+
+</div>
+
+</div>
