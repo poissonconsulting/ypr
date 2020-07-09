@@ -83,20 +83,16 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<hr>
-<p>output: github_document bibliography: bibliography.bib —</p>
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="ypr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#ypr-" class="anchor"></a>ypr <img src="reference/figures/logo.png" align="right">
 </h1></div>
 <!-- badges: start -->
-<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://github.com/poissonconsulting/ypr/actions"><img src="https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://codecov.io/github/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Coverage status"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a> <a href="https://cran.r-project.org/package=ypr"><img src="https://www.r-pkg.org/badges/version/ypr" alt="CRAN status"></a> <img src="http://cranlogs.r-pkg.org/badges/ypr" alt="CRAN Downloads"><a href="https://codecov.io/gh/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
+
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p><a href="https://github.com/poissonconsulting/ypr"><code>ypr</code></a> is an R package that implements equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population [@walters_fisheries_2004]. The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.</p>
+<p><a href="https://github.com/poissonconsulting/ypr"><code>ypr</code></a> is an R package that implements equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population (Walters and Martell 2004). The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.</p>
 <p>The key life history parameters are</p>
 <ul>
 <li>The growth coefficient (<code>k</code>) and mean maximum length (<code>Linf</code>) from the Von Bertalanffy growth curve</li>
@@ -113,12 +109,14 @@
 <div id="schedule" class="section level3">
 <h3 class="hasAnchor">
 <a href="#schedule" class="anchor"></a>Schedule</h3>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ypr</span>)
-<span class="co">#&gt; Warning: package 'ypr' was built under R version 3.6.3</span>
-<span class="no">population</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/ypr_population.html">ypr_population</a></span>(<span class="kw">Rk</span> <span class="kw">=</span> <span class="fl">5</span>, <span class="kw">Ls</span> <span class="kw">=</span> <span class="fl">50</span>, <span class="kw">Rmax</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">rho</span> <span class="kw">=</span> <span class="fl">0.6</span>)
-<span class="fu"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(<span class="no">population</span>, <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Length"</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Spawning"</span>)</pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/ypr_tabulate_schedule.html">ypr_tabulate_schedule</a></span>(<span class="no">population</span>))
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/poissonconsulting/ypr">ypr</a></span>)
+<span class="kw">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ypr_population.html">ypr_population</a></span>(Rk = <span class="fl">5</span>, Ls = <span class="fl">50</span>, Rmax = <span class="fl">100</span>, rho = <span class="fl">0.6</span>)
+<span class="fu"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span>(<span class="kw">population</span>, x = <span class="st">"Length"</span>, y = <span class="st">"Spawning"</span>)
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-1-1.png"><!-- --></p>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/ypr_schedule.html">ypr_tabulate_schedule</a></span>(<span class="kw">population</span>))
 <span class="co">#&gt; # A tibble: 6 x 11</span>
 <span class="co">#&gt;     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability</span>
 <span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span>
@@ -128,15 +126,19 @@
 <span class="co">#&gt; 4     4   45.1  918.      918.  3.46e- 5            0.200      3.46e- 5</span>
 <span class="co">#&gt; 5     5   52.8 1469.     1469.  9.95e- 1            0.200      9.95e- 1</span>
 <span class="co">#&gt; 6     6   59.3 2090.     2090.  1.00e+ 0            0.200      1.00e+ 0</span>
-<span class="co">#&gt; # ... with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; # … with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span>
+</pre></div>
 </div>
 <div id="fish" class="section level3">
 <h3 class="hasAnchor">
 <a href="#fish" class="anchor"></a>Fish</h3>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span>(<span class="no">population</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"white"</span>)</pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span>(<span class="no">population</span>))
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span>(<span class="kw">population</span>, color = <span class="st">"white"</span>)
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png"><!-- --></p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span>(<span class="kw">population</span>))
 <span class="co">#&gt; # A tibble: 6 x 7</span>
 <span class="co">#&gt;     Age Survivors Spawners   Caught Harvested Released HandlingMortalities</span>
 <span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;</span>
@@ -145,52 +147,64 @@
 <span class="co">#&gt; 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0</span>
 <span class="co">#&gt; 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0</span>
 <span class="co">#&gt; 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0</span>
-<span class="co">#&gt; 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span></pre></div>
+<span class="co">#&gt; 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span>
+</pre></div>
 </div>
 <div id="stock-recruitment" class="section level3">
 <h3 class="hasAnchor">
 <a href="#stock-recruitment" class="anchor"></a>Stock-Recruitment</h3>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(<span class="no">population</span>)</pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span>(<span class="no">population</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span>(<span class="kw">population</span>)
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png"><!-- --></p>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span>(<span class="kw">population</span>)
 <span class="co">#&gt; # A tibble: 3 x 7</span>
 <span class="co">#&gt;   Type        pi     u    Eggs Recruits Spawners Fecundity</span>
 <span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 unfished 0     0     286350.     80      159.      3600.</span>
 <span class="co">#&gt; 2 actual   0.2   0.08  167831.     70.1    108.      3112.</span>
-<span class="co">#&gt; 3 optimal  0.458 0.183  84129.     54.0     63.7     2641.</span></pre></div>
+<span class="co">#&gt; 3 optimal  0.458 0.183  84129.     54.0     63.7     2641.</span>
+</pre></div>
 </div>
 <div id="yield" class="section level3">
 <h3 class="hasAnchor">
 <a href="#yield" class="anchor"></a>Yield</h3>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(<span class="no">population</span>)
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span>(<span class="kw">population</span>)
 <span class="co">#&gt; # A tibble: 2 x 8</span>
 <span class="co">#&gt;   Type       pi     u Yield   Age Length Weight Effort</span>
 <span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 actual  0.2   0.08   8.63  7.67   65.8  3112.   2.12</span>
 <span class="co">#&gt; 2 optimal 0.458 0.183 11.7   6.87   62.6  2641.   5.82</span>
-<span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(<span class="no">population</span>)</pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"></p>
+<span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(<span class="kw">population</span>)
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png"><!-- --></p>
 </div>
 <div id="uncertainty" class="section level3">
 <h3 class="hasAnchor">
 <a href="#uncertainty" class="anchor"></a>Uncertainty</h3>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
-<span class="co">#&gt; Warning: package 'ggplot2' was built under R version 3.6.3</span>
-<span class="no">populations</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/ypr_populations.html">ypr_populations</a></span>(<span class="kw">Rk</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">7</span>), <span class="kw">Ls</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">40</span>, <span class="fl">60</span>), <span class="kw">Rmax</span> <span class="kw">=</span> <span class="fl">100</span>)
-<span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(<span class="no">populations</span>, <span class="kw">plot_values</span> <span class="kw">=</span> <span class="fl">FALSE</span>) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(<span class="no">Rk</span> ~ <span class="no">Ls</span>)</pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5"></p>
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
+<span class="kw">populations</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ypr_populations.html">ypr_populations</a></span>(Rk = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">7</span>), Ls = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">40</span>, <span class="fl">60</span>), Rmax = <span class="fl">100</span>)
+<span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span>(<span class="kw">populations</span>, plot_values = <span class="fl">FALSE</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span>(<span class="kw">Rk</span> <span class="op">~</span> <span class="kw">Ls</span>)
+</pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png"><!-- --></p>
 </div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org">CRAN</a></p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"ypr"</span>)</pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"ypr"</span>)
+</pre></div>
 <p>To install the developmental version from <a href="https://github.com/poissonconsulting/ypr">GitHub</a></p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="co"># install.packages("remotes")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"poissonconsulting/ypr"</span>)</pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="co"># install.packages("remotes")</span>
+<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"poissonconsulting/ypr"</span>)
+</pre></div>
 </div>
 <div id="information" class="section level2">
 <h2 class="hasAnchor">
@@ -214,14 +228,22 @@
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/ypr/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/ypr/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that this project is released with a <a href="https://github.com/poissonconsulting/ypr/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing, you agree to abide by its terms.</p>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the ypr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
+<div id="refs" class="references">
+<div id="ref-walters_fisheries_2004">
+<p>Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.</p>
 </div>
 </div>
-
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -246,6 +268,7 @@
 <div class="community">
 <h2>Community</h2>
 <ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
@@ -257,7 +280,18 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://github.com/poissonconsulting/ypr/actions"><img src="https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://codecov.io/github/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+<li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
+<li><a href="https://cran.r-project.org/package=ypr"><img src="https://www.r-pkg.org/badges/version/ypr" alt="CRAN status"></a></li>
+<li><a href="https://codecov.io/gh/poissonconsulting/ypr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 

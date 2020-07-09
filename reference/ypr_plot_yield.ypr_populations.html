@@ -134,16 +134,16 @@ by the annual interval exploitation/capture probability.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for ypr_populations</span>
-<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(
-  <span class='no'>object</span>,
-  <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Yield"</span>,
-  <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>),
-  <span class='kw'>Ly</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>harvest</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>biomass</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>u</span> <span class='kw'>=</span> <span class='no'>harvest</span>,
-  <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_plot_yield.html'>ypr_plot_yield</a></span>(
+  <span class='kw'>object</span>,
+  y = <span class='st'>"Yield"</span>,
+  pi = <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>100</span>),
+  Ly = <span class='fl'>0</span>,
+  harvest = <span class='fl'>TRUE</span>,
+  biomass = <span class='fl'>FALSE</span>,
+  u = <span class='kw'>harvest</span>,
+  plot_values = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -192,17 +192,17 @@ by the annual interval exploitation/capture probability.</p>
     <p>A ggplot2 object.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_populations.html'>ypr_populations()</a></code> and <code><a href='ypr_yields.html'>ypr_yields()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/ypr/man/ypr_populations.html'>ypr_populations()</a></code> and <code><a href='https://rdrr.io/pkg/ypr/man/ypr_yields.html'>ypr_yields()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>), <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>60</span>)), <span class='kw'>plot_values</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>Llo</span>) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes_.html'>aes_string</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"Rk"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"Rk"</span>) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"blue"</span>))
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_populations.html'>ypr_populations</a></span>(Rk = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>), Llo = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>60</span>)), plot_values = <span class='fl'>FALSE</span>) <span class='op'>+</span>
+  <span class='kw'>ggplot2</span>::<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(<span class='op'>~</span><span class='kw'>Llo</span>) <span class='op'>+</span>
+  <span class='kw'>ggplot2</span>::<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes_.html'>aes_string</a></span>(group = <span class='st'>"Rk"</span>, color = <span class='st'>"Rk"</span>) <span class='op'>+</span>
+  <span class='kw'>ggplot2</span>::<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span>(values = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"blue"</span>))
 
-<span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span>(<span class='kw'>Rk</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>), <span class='kw'>Llo</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>60</span>))) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='no'>Rk</span> ~ <span class='no'>Llo</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_populations.html'>ypr_populations</a></span>(Rk = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2.5</span>, <span class='fl'>4.6</span>), Llo = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>60</span>))) <span class='op'>+</span>
+  <span class='kw'>ggplot2</span>::<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span>(<span class='kw'>Rk</span> <span class='op'>~</span> <span class='kw'>Llo</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
