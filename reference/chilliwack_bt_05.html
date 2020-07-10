@@ -81,7 +81,7 @@ Bull Trout in Chilliwack Lake from Taylor (2005)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
       </span>
     </div>
 
@@ -179,7 +179,13 @@ Bull Trout in Chilliwack Lake from Taylor (2005)</p>
 <span class='kw'>yield</span> <span class='op'>&lt;-</span> <span class='kw'>yield</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Llo"</span>, <span class='st'>"Hm"</span>, <span class='st'>"Rk"</span>, <span class='st'>"pi"</span>)]
 <span class='kw'>yield</span> <span class='op'>&lt;-</span> <span class='kw'>tidyr</span>::<span class='fu'><a href='https://tidyr.tidyverse.org/reference/spread.html'>spread</a></span>(<span class='kw'>yield</span>, <span class='kw'>Rk</span>, <span class='kw'>pi</span>)
 <span class='kw'>yield</span> <span class='op'>&lt;-</span> <span class='kw'>yield</span>[<span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span>(<span class='op'>-</span><span class='kw'>yield</span><span class='op'>$</span><span class='kw'>Hm</span>), ]
-<span class='kw'>yield</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 4</span><span>
+<span class='kw'>yield</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>We detected these problematic arguments:</span>
+#&gt; <span class='warning'>* `needs_dots`</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
+#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 4</span><span>
 #&gt;     Llo    Hm `2.5` `4.6`
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>     0  0.2   0.08  0.14
