@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build
 status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
 [![Coverage
@@ -30,12 +30,12 @@ large (trophy) individuals.
 
 The key life history parameters are
 
-  - The growth coefficient (`k`) and mean maximum length (`Linf`) from
+-   The growth coefficient (`k`) and mean maximum length (`Linf`) from
     the Von Bertalanffy growth curve
-  - The length at which 50% mature (`Ls`)
-  - The length at which 50% vulnerable to harvest (`Lv`)
-  - The interval annual natural mortality rate (`n`)
-  - The lifetime number of spawners per spawner at low density (`Rk`)
+-   The length at which 50% mature (`Ls`)
+-   The length at which 50% vulnerable to harvest (`Lv`)
+-   The interval annual natural mortality rate (`n`)
+-   The lifetime number of spawners per spawner at low density (`Rk`)
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
@@ -187,9 +187,9 @@ By contributing to this project, you agree to abide by its terms.
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-walters_fisheries_2004">
+<div id="ref-walters_fisheries_2004" class="csl-entry">
 
 Walters, Carl J., and Steven J. D. Martell. 2004. *Fisheries Ecology and
 Management*. Princeton, N.J: Princeton University Press.
