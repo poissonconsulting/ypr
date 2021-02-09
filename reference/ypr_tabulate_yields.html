@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -87,12 +89,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/ypr.html">Get started</a>
 </li>
 <li>
@@ -105,7 +101,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/ypr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -131,29 +127,29 @@
     <p>Tabulate Yields</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_yields.html'>ypr_tabulate_yields</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>ypr_tabulate_yields</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for ypr_population</span>
-<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_yields.html'>ypr_tabulate_yields</a></span>(
-  <span class='kw'>object</span>,
-  pi = <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>100</span>),
-  Ly = <span class='fl'>0</span>,
-  harvest = <span class='fl'>TRUE</span>,
-  biomass = <span class='fl'>FALSE</span>,
-  all = <span class='fl'>FALSE</span>,
-  <span class='kw'>...</span>
-)
+<span class='fu'>ypr_tabulate_yields</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,
+  Ly <span class='op'>=</span> <span class='fl'>0</span>,
+  harvest <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  biomass <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  all <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for ypr_populations</span>
-<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_yields.html'>ypr_tabulate_yields</a></span>(
-  <span class='kw'>object</span>,
-  pi = <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>100</span>),
-  Ly = <span class='fl'>0</span>,
-  harvest = <span class='fl'>TRUE</span>,
-  biomass = <span class='fl'>FALSE</span>,
-  all = <span class='fl'>FALSE</span>,
-  <span class='kw'>...</span>
-)</pre>
+<span class='fu'>ypr_tabulate_yields</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,
+  Ly <span class='op'>=</span> <span class='fl'>0</span>,
+  harvest <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  biomass <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  all <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -201,20 +197,15 @@
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other tabulate: 
-<code><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_biomass.html'>ypr_tabulate_biomass</a>()</code>,
-<code><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_fish.html'>ypr_tabulate_fish</a>()</code>,
-<code><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_parameters.html'>ypr_tabulate_parameters</a>()</code>,
-<code><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_sr.html'>ypr_tabulate_sr</a>()</code>,
-<code><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p></div>
+<code><a href='ypr_tabulate_biomass.html'>ypr_tabulate_biomass</a>()</code>,
+<code><a href='ypr_tabulate_fish.html'>ypr_tabulate_fish</a>()</code>,
+<code><a href='ypr_tabulate_parameters.html'>ypr_tabulate_parameters</a>()</code>,
+<code><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a>()</code>,
+<code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_yields.html'>ypr_tabulate_yields</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population</a></span>())</div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 100 x 7</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_yields</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 100 x 7</span><span>
 #&gt;        pi      u  Yield   Age Length Weight Effort
 #&gt;     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 0      0      0      </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>  0     
@@ -227,13 +218,8 @@
 #&gt; </span><span style='color: #555555;'> 8</span><span> 0.070</span><span style='text-decoration: underline;'>7</span><span> 0.070</span><span style='text-decoration: underline;'>7</span><span> 0.058</span><span style='text-decoration: underline;'>5</span><span>  7.76   66.1  </span><span style='text-decoration: underline;'>3</span><span>163. 0.696 
 #&gt; </span><span style='color: #555555;'> 9</span><span> 0.080</span><span style='text-decoration: underline;'>8</span><span> 0.080</span><span style='text-decoration: underline;'>8</span><span> 0.062</span><span style='text-decoration: underline;'>0</span><span>  7.66   65.7  </span><span style='text-decoration: underline;'>3</span><span>108. 0.800 
 #&gt; </span><span style='color: #555555;'>10</span><span> 0.090</span><span style='text-decoration: underline;'>9</span><span> 0.090</span><span style='text-decoration: underline;'>9</span><span> 0.064</span><span style='text-decoration: underline;'>6</span><span>  7.57   65.4  </span><span style='text-decoration: underline;'>3</span><span>054. 0.905 
-#&gt; </span><span style='color: #555555;'># … with 90 more rows</span><span></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_yields.html'>ypr_tabulate_yields</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_populations.html'>ypr_populations</a></span>(Rk = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>5</span>)), pi = <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>10</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 20 x 8</span><span>
+#&gt; </span><span style='color: #555555;'># … with 90 more rows</span><span></div><div class='input'><span class='fu'>ypr_tabulate_yields</span><span class='op'>(</span><span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span>Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>, pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 20 x 8</span><span>
 #&gt;       pi     u   Yield   Age Length Weight Effort    Rk
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 0     0     0       </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>    0        3
@@ -271,7 +257,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

@@ -54,6 +54,8 @@ Bull Trout in Quesnel Lake, BC." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -88,12 +90,6 @@ Bull Trout in Quesnel Lake, BC." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/ypr.html">Get started</a>
 </li>
 <li>
@@ -106,7 +102,7 @@ Bull Trout in Quesnel Lake, BC." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/ypr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -133,18 +129,19 @@ Bull Trout in Quesnel Lake, BC." />
 Bull Trout in Quesnel Lake, BC.</p>
     </div>
 
-    <pre class="usage"><span class='kw'>quesnel_bt</span></pre>
+    <pre class="usage"><span class='va'>quesnel_bt</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population()</a></code>.</p>
+    <p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The estimates are liable to change and should not be used for management.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>quesnel_bt</span></div><div class='output co'>#&gt; tmax:  20
+    <pre class="examples"><div class='input'><span class='va'>quesnel_bt</span>
+</div><div class='output co'>#&gt; tmax:  20
 #&gt; k:     0.13
 #&gt; Linf:  100
 #&gt; t0:    0
@@ -174,7 +171,8 @@ Bull Trout in Quesnel Lake, BC.</p>
 #&gt; Rmax:  1
 #&gt; Wa:    0.01
 #&gt; fa:    1
-#&gt; q:     0.1</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_plot_yield.html'>ypr_plot_yield</a></span>(<span class='kw'>quesnel_bt</span>)</div><div class='img'><img src='quesnel_bt-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt; q:     0.1</div><div class='input'><span class='fu'><a href='ypr_plot_yield.html'>ypr_plot_yield</a></span><span class='op'>(</span><span class='va'>quesnel_bt</span><span class='op'>)</span>
+</div><div class='img'><img src='quesnel_bt-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -190,7 +188,7 @@ Bull Trout in Quesnel Lake, BC.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

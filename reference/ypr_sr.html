@@ -65,6 +65,8 @@ S0FSpawners at the fished equilibrium
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -99,12 +101,6 @@ S0FSpawners at the fished equilibrium
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/ypr.html">Get started</a>
 </li>
 <li>
@@ -117,7 +113,7 @@ S0FSpawners at the fished equilibrium
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/ypr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -155,14 +151,14 @@ S0FSpawners at the fished equilibrium
 
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_sr.html'>ypr_sr</a></span>(<span class='kw'>population</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>population</th>
-      <td><p>An object of class <code><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population()</a></code>.</p></td>
+      <td><p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code>.</p></td>
     </tr>
     </table>
 
@@ -171,22 +167,12 @@ S0FSpawners at the fished equilibrium
     <p>A data frame of the SR parameters.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_sr.html'>ypr_sr</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population</a></span>()) <span class='co'># Beverton-Holt</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 9</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Beverton-Holt</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 9</span><span>
 #&gt;      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F
 #&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.667 0.186  1.33 0.211</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_sr.html'>ypr_sr</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population</a></span>(BH = <span class='fl'>0L</span>)) <span class='co'># Ricker</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 9</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.667 0.186  1.33 0.211</div><div class='input'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span>BH <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Ricker</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 9</span><span>
 #&gt;      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F
 #&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>308</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.995 0.455  1.98 0.517</div></span></pre>
@@ -205,7 +191,7 @@ S0FSpawners at the fished equilibrium
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

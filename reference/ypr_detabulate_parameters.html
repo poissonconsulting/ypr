@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -87,12 +89,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/ypr.html">Get started</a>
 </li>
 <li>
@@ -105,7 +101,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/ypr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -131,7 +127,7 @@
     <p>Detabulate Population Parameters</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_detabulate_parameters.html'>ypr_detabulate_parameters</a></span>(<span class='kw'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>ypr_detabulate_parameters</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,13 +141,14 @@ one or more parameters and their values.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population()</a></code></p>
+    <p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_parameters.html'>ypr_tabulate_parameters()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ypr_tabulate_parameters.html'>ypr_tabulate_parameters()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_detabulate_parameters.html'>ypr_detabulate_parameters</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_tabulate_parameters.html'>ypr_tabulate_parameters</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/ypr/man/ypr_population.html'>ypr_population</a></span>()))</div><div class='output co'>#&gt; tmax:  20
+    <pre class="examples"><div class='input'><span class='fu'>ypr_detabulate_parameters</span><span class='op'>(</span><span class='fu'><a href='ypr_tabulate_parameters.html'>ypr_tabulate_parameters</a></span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; tmax:  20
 #&gt; k:     0.15
 #&gt; Linf:  100
 #&gt; t0:    0
@@ -197,7 +194,7 @@ one or more parameters and their values.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
