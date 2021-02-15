@@ -1,5 +1,3 @@
-context("tabulate")
-
 check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
   x_name <- deparse(x_name)
 

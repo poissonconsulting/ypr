@@ -1,5 +1,3 @@
-context("schedule")
-
 test_that("schedule", {
   schedule <- ypr_tabulate_schedule(ypr_population(
     Rmax = 100, Rk = 2, Wa = 0.01,
