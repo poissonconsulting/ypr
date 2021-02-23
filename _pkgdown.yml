@@ -1,0 +1,59 @@
+destination: docs
+
+reference:
+- title: Reference Data Parameters
+  desc: Reference data population parameters
+  contents:
+  - '`adams_bt_03`'
+  - '`chilliwack_bt_05`'
+  - '`kootenay_bt_13`'
+  - '`kootenay_rb`'
+  - '`kootenay_rb_13`'
+  - '`quesnel_bt`'
+  - '`quesnel_lt`'
+  - '`quesnel_rb`'
+- title: Calculate
+  desc: Calculations
+  contents:
+  - '`ypr_age_at_length`'
+  - '`ypr_exploitation`'
+  - '`ypr_length_at_age`'
+  - '`ypr_optimize`'
+  - '`ypr_yield`'
+  - '`ypr_yields`'
+- title: Population Parameters
+  desc: Population parameters
+  contents:
+  - '`as_ypr_population`'
+  - '`as_ypr_populations`'
+  - '`update.ypr_populations`'
+  - '`ypr_population`'
+  - '`ypr_populations`'
+  - '`ypr_population_names`'
+  - '`ypr_populations_expand`'
+  - '`ypr_population_update`'
+  - '`ypr_sr`'
+- title: Plot
+  desc: Generate plots
+  contents:
+  - '`plot.ypr_population`'
+  - '`ypr_plot_biomass`'
+  - '`ypr_plot_fish`'
+  - '`ypr_plot_schedule`'
+  - '`ypr_plot_sr`'
+  - '`ypr_plot_yield`'
+  - '`ypr_plot_yield.ypr_population`'
+  - '`ypr_plot_yield.ypr_populations`'
+- title: Tabulate
+  desc: Tabulate values or generate report
+  contents:
+  - '`ypr_report`'
+  - '`ypr_detabulate_parameters`'
+  - '`ypr_schedule`'
+  - '`ypr_tabulate_biomass`'
+  - '`ypr_tabulate_fish`'
+  - '`ypr_tabulate_parameters`'
+  - '`ypr_tabulate_schedule`'
+  - '`ypr_tabulate_sr`'
+  - '`ypr_tabulate_yield`'
+  - '`ypr_tabulate_yields`'
