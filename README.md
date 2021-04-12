@@ -9,14 +9,13 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build
 status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
-[![Coverage
-status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
+[![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr) [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
 <!-- badges: end -->
 
 ## Introduction
@@ -39,6 +38,9 @@ The key life history parameters are
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
+
+A shiny app is available at
+<https://poissonconsulting.shinyapps.io/shinyypr/>.
 
 ## Demonstration
 
@@ -157,7 +159,7 @@ vignette.
 
 To interactively explore the effects of altering individual parameters
 on the schedule, stock-recruitment and yield see the ypr shiny
-[app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
+[app](https://poissonconsulting.shinyapps.io/shinyypr/).
 
 ![A screenshot of the yield from the ypr shiny
 app](man/figures/yield.png)
