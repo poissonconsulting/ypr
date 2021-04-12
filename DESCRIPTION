@@ -1,15 +1,20 @@
 Package: ypr
-Version: 0.5.1.9000
 Title: Yield Per Recruit
-Description: An implementation of equilibrium-based yield per recruit methods.
-    Yield per recruit methods can used to estimate the optimal yield for a fish population
-    as described by Walters and Martell (2004) <isbn:0-691-11544-3>.
-    The yield can be based on the number of fish caught (or harvested) or 
-    biomass caught for all fish or just large (trophy) individuals.
-Authors@R: c(
-    person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
-    person("Poisson Consulting", role = c("cph", "fnd"))
-    )
+Version: 0.5.1.9000
+Authors@R: 
+    c(person(given = "Joe",
+             family = "Thorley",
+             role = c("aut", "cre"),
+             email = "joe@poissonconsulting.ca",
+             comment = c(ORCID = "0000-0002-7683-4592")),
+      person(given = "Poisson Consulting",
+             role = c("cph", "fnd")))
+Description: An implementation of equilibrium-based yield per recruit
+    methods.  Yield per recruit methods can used to estimate the optimal
+    yield for a fish population as described by Walters and Martell (2004)
+    <isbn:0-691-11544-3>.  The yield can be based on the number of fish
+    caught (or harvested) or biomass caught for all fish or just large
+    (trophy) individuals.
 License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/ypr
 BugReports: https://github.com/poissonconsulting/ypr/issues
@@ -17,25 +22,26 @@ Depends:
     R (>= 3.4)
 Imports:
     chk,
-    yesno,
     ggplot2,
     graphics,
+    lifecycle,
+    purrr,
     scales,
     stats,
     tools,
-    purrr,
-    lifecycle
+    yesno
 Suggests:
     covr,
-    testthat,
     knitr,
     rmarkdown,
     rstudioapi,
+    testthat,
     tidyr
-Encoding: UTF-8
-LazyData: true
+VignetteBuilder: 
+    knitr
 ByteCompile: true
-RoxygenNote: 7.1.1.9000
-VignetteBuilder: knitr
+Encoding: UTF-8
 Language: en-US
+LazyData: true
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
