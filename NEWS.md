@@ -2,11 +2,6 @@
 
 # ypr 0.5.2
 
-- Same as previous version.
-
-
-# ypr 0.5.1.9001
-
 - Internal changes only. 
 
 # ypr 0.5.1.9000
