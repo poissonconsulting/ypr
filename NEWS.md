@@ -2,7 +2,6 @@
 
 - Same as previous version.
 
-
 # ypr 0.5.1
 
 - House-keeping.
