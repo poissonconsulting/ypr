@@ -2,7 +2,7 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Parameter Descriptions for chk Functions}
+\title{Parameter Descriptions for ypr Functions}
 \arguments{
 \item{tmax}{The maximum age (yr).}
 
@@ -115,6 +115,6 @@
 \item{x}{The object to coerce.}
 }
 \description{
-Parameter Descriptions for chk Functions
+Parameter Descriptions for ypr Functions
 }
 \keyword{internal}

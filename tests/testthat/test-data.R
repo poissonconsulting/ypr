@@ -9,7 +9,7 @@ test_that("data", {
 })
 
 test_that(".data", {
-  expect_null(
+  expect_error(
     chk::check_data(
       .parameters,
       values = list(
@@ -23,6 +23,6 @@ test_that(".data", {
         Log = c(0L, 1L)
       ),
       key = "Parameter", exclusive = TRUE, order = TRUE
-    )
+    ), NA
   )
 })
