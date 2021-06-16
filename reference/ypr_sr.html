@@ -100,7 +100,7 @@ S0FSpawners at the fished equilibrium
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -157,7 +157,7 @@ S0FSpawners at the fished equilibrium
 
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,15 +173,17 @@ S0FSpawners at the fished equilibrium
     <p>A data frame of the SR parameters.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Beverton-Holt</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 9</span><span>
-#&gt;      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F
-#&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.667 0.186  1.33 0.211</div><div class='input'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span>BH <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Ricker</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 9</span><span>
-#&gt;      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F
-#&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>838</span><span> 0.000</span><span style='text-decoration: underline;'>308</span><span>     3 </span><span style='text-decoration: underline;'>3</span><span>579. </span><span style='text-decoration: underline;'>1</span><span>465. 0.995 0.455  1.98 0.517</div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Beverton-Holt</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1 x 9</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>838</span> 0.000<span style='text-decoration: underline;'>838</span>     3 <span style='text-decoration: underline;'>3</span>579. <span style='text-decoration: underline;'>1</span>465. 0.667 0.186  1.33 0.211</span>
+<span class='r-in'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span>BH <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Ricker</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1 x 9</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>838</span> 0.000<span style='text-decoration: underline;'>308</span>     3 <span style='text-decoration: underline;'>3</span>579. <span style='text-decoration: underline;'>1</span>465. 0.995 0.455  1.98 0.517</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -193,11 +195,11 @@ S0FSpawners at the fished equilibrium
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

@@ -88,7 +88,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
     <p>Tabulate Population Parameters</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_tabulate_parameters</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_tabulate_parameters</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,21 +158,22 @@
 <code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_parameters</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 31 x 3</span><span>
-#&gt;    Parameter   Value Description                                                
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                                      
-#&gt; </span><span style='color: #555555;'> 1</span><span> tmax        20    The maximum age (yr).                                      
-#&gt; </span><span style='color: #555555;'> 2</span><span> k            0.15 The VB growth coefficient (yr-1).                          
-#&gt; </span><span style='color: #555555;'> 3</span><span> Linf       100    The VB mean maximum length (cm).                           
-#&gt; </span><span style='color: #555555;'> 4</span><span> t0           0    The (theoretical) age at zero length (yr).                 
-#&gt; </span><span style='color: #555555;'> 5</span><span> k2           0.15 The VB growth coefficient after length L2 (yr-1).          
-#&gt; </span><span style='color: #555555;'> 6</span><span> Linf2      100    The VB mean maximum length after length L2 (cm).           
-#&gt; </span><span style='color: #555555;'> 7</span><span> L2        </span><span style='text-decoration: underline;'>1</span><span>000    The length (or age if negative) at which growth switches f…
-#&gt; </span><span style='color: #555555;'> 8</span><span> Wb           3    The weight (as a function of length) scaling exponent.     
-#&gt; </span><span style='color: #555555;'> 9</span><span> Ls          50    The length (or age if negative) at which 50 % mature (cm o…
-#&gt; </span><span style='color: #555555;'>10</span><span> Sp         100    The maturity (as a function of length) power.              
-#&gt; </span><span style='color: #555555;'># … with 21 more rows</span><span></div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_tabulate_parameters</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 31 x 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Parameter   Value Description                                                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> tmax        20    The maximum age (yr).                                      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> k            0.15 The VB growth coefficient (yr-1).                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Linf       100    The VB mean maximum length (cm).                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> t0           0    The (theoretical) age at zero length (yr).                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> k2           0.15 The VB growth coefficient after length L2 (yr-1).          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Linf2      100    The VB mean maximum length after length L2 (cm).           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> L2        <span style='text-decoration: underline;'>1</span>000    The length (or age if negative) at which growth switches f…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Wb           3    The weight (as a function of length) scaling exponent.     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Ls          50    The length (or age if negative) at which 50 % mature (cm o…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sp         100    The maturity (as a function of length) power.              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 21 more rows</span></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -184,11 +185,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

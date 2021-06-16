@@ -88,7 +88,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
     <p>Tabulate Stock-Recruitment Parameters</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for ypr_population</span>
 <span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span>
@@ -153,7 +153,7 @@
   biomass <span class='op'>=</span> <span class='cn'>FALSE</span>,
   all <span class='op'>=</span> <span class='cn'>FALSE</span>,
   <span class='va'>...</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,28 +204,31 @@
 <code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Beverton-Holt</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 3 x 7</span><span>
-#&gt;   Type        pi     u  Eggs Recruits Spawners Fecundity
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> unfished 0     0     </span><span style='text-decoration: underline;'>2</span><span>386.    0.667    1.33      </span><span style='text-decoration: underline;'>3</span><span>600.
-#&gt; </span><span style='color: #555555;'>2</span><span> actual   0.2   0.2    272.    0.186    0.211     </span><span style='text-decoration: underline;'>2</span><span>580.
-#&gt; </span><span style='color: #555555;'>3</span><span> optimal  0.115 0.115  853.    0.417    0.582     </span><span style='text-decoration: underline;'>2</span><span>933.</div><div class='input'><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span>BH <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Ricker</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 7</span><span>
-#&gt;   Type        pi     u  Eggs Recruits Spawners Fecundity
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> unfished 0     0     </span><span style='text-decoration: underline;'>3</span><span>563.    0.995    1.98      </span><span style='text-decoration: underline;'>3</span><span>600.
-#&gt; </span><span style='color: #555555;'>2</span><span> actual   0.2   0.2    667.    0.455    0.517     </span><span style='text-decoration: underline;'>2</span><span>580.
-#&gt; </span><span style='color: #555555;'>3</span><span> optimal  0.135 0.135 </span><span style='text-decoration: underline;'>1</span><span>485.    0.787    1.04      </span><span style='text-decoration: underline;'>2</span><span>844.</div><div class='input'><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span>Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>, <span class='fl'>4.6</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 8</span><span>
-#&gt;   Type         pi      u   Eggs Recruits Spawners Fecundity    Rk
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> unfished 0      0      </span><span style='text-decoration: underline;'>2</span><span>148.    0.6      1.19       </span><span style='text-decoration: underline;'>3</span><span>600.   2.5
-#&gt; </span><span style='color: #555555;'>2</span><span> actual   0.2    0.2      33.6   0.023</span><span style='text-decoration: underline;'>0</span><span>   0.026</span><span style='text-decoration: underline;'>1</span><span>     </span><span style='text-decoration: underline;'>2</span><span>580.   2.5
-#&gt; </span><span style='color: #555555;'>3</span><span> optimal  0.093</span><span style='text-decoration: underline;'>6</span><span> 0.093</span><span style='text-decoration: underline;'>6</span><span>  818.    0.364    0.538      </span><span style='text-decoration: underline;'>3</span><span>041.   2.5
-#&gt; </span><span style='color: #555555;'>4</span><span> unfished 0      0      </span><span style='text-decoration: underline;'>2</span><span>801.    0.783    1.56       </span><span style='text-decoration: underline;'>3</span><span>600.   4.6
-#&gt; </span><span style='color: #555555;'>5</span><span> actual   0.2    0.2     687.    0.469    0.533      </span><span style='text-decoration: underline;'>2</span><span>580.   4.6
-#&gt; </span><span style='color: #555555;'>6</span><span> optimal  0.171  0.171   851.    0.522    0.633      </span><span style='text-decoration: underline;'>2</span><span>688.   4.6</div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Beverton-Holt</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3 x 7</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Type        pi     u  Eggs Recruits Spawners Fecundity</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> unfished 0     0     <span style='text-decoration: underline;'>2</span>386.    0.667    1.33      <span style='text-decoration: underline;'>3</span>600.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> actual   0.2   0.2    272.    0.186    0.211     <span style='text-decoration: underline;'>2</span>580.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> optimal  0.115 0.115  853.    0.417    0.582     <span style='text-decoration: underline;'>2</span>933.</span>
+<span class='r-in'><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span>BH <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Ricker</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3 x 7</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Type        pi     u  Eggs Recruits Spawners Fecundity</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> unfished 0     0     <span style='text-decoration: underline;'>3</span>563.    0.995    1.98      <span style='text-decoration: underline;'>3</span>600.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> actual   0.2   0.2    667.    0.455    0.517     <span style='text-decoration: underline;'>2</span>580.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> optimal  0.135 0.135 <span style='text-decoration: underline;'>1</span>485.    0.787    1.04      <span style='text-decoration: underline;'>2</span>844.</span>
+<span class='r-in'><span class='fu'>ypr_tabulate_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span>Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>, <span class='fl'>4.6</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 x 8</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Type         pi      u   Eggs Recruits Spawners Fecundity    Rk</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> unfished 0      0      <span style='text-decoration: underline;'>2</span>148.    0.6      1.19       <span style='text-decoration: underline;'>3</span>600.   2.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> actual   0.2    0.2      33.6   0.023<span style='text-decoration: underline;'>0</span>   0.026<span style='text-decoration: underline;'>1</span>     <span style='text-decoration: underline;'>2</span>580.   2.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> optimal  0.093<span style='text-decoration: underline;'>6</span> 0.093<span style='text-decoration: underline;'>6</span>  818.    0.364    0.538      <span style='text-decoration: underline;'>3</span>041.   2.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> unfished 0      0      <span style='text-decoration: underline;'>2</span>801.    0.783    1.56       <span style='text-decoration: underline;'>3</span>600.   4.6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> actual   0.2    0.2     687.    0.469    0.533      <span style='text-decoration: underline;'>2</span>580.   4.6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> optimal  0.171  0.171   851.    0.522    0.633      <span style='text-decoration: underline;'>2</span>688.   4.6</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -237,11 +240,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley, Poisson Consulting.</p>
+  <p><p>Developed by Joe Thorley, Poisson Consulting.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
