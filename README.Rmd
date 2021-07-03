@@ -112,7 +112,7 @@ To interactively explore the effects of altering individual parameters on the sc
 Development of ypr was partially supported by the [Habitat Conservation Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html)
 and the [Ministry of Forests, Lands and Natural Resource Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
-The hex was designed by [The Forest](http://www.theforest.ca).
+The hex was designed by [The Forest](https://www.theforest.ca).
 
 ## Contribution
 
