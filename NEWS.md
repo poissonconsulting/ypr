@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ypr 0.5.2.9000
+
+- Same as previous version.
+
+
 # ypr 0.5.2
 
 - Internal changes only. 
