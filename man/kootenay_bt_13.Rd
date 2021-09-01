@@ -24,4 +24,15 @@ ypr_plot_yield(kootenay_bt_13)
 \references{
 Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 }
+\seealso{
+Other data: 
+\code{\link{adams_bt_03}},
+\code{\link{chilliwack_bt_05}},
+\code{\link{kootenay_rb_13}},
+\code{\link{kootenay_rb}},
+\code{\link{quesnel_bt}},
+\code{\link{quesnel_lt}},
+\code{\link{quesnel_rb}}
+}
+\concept{data}
 \keyword{datasets}

@@ -26,10 +26,17 @@ ypr_tabulate_fish(ypr_population())
 }
 \seealso{
 Other tabulate: 
+\code{\link{ypr_detabulate_parameters}()},
+\code{\link{ypr_report}()},
+\code{\link{ypr_schedule}()},
 \code{\link{ypr_tabulate_biomass}()},
 \code{\link{ypr_tabulate_parameters}()},
 \code{\link{ypr_tabulate_sr}()},
 \code{\link{ypr_tabulate_yields}()},
 \code{\link{ypr_tabulate_yield}()}
+
+Other fish: 
+\code{\link{ypr_plot_fish}()}
 }
+\concept{fish}
 \concept{tabulate}

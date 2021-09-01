@@ -27,7 +27,7 @@ ypr_tabulate_sr(object, ...)
 )
 }
 \arguments{
-\item{object}{The populations or populations.}
+\item{object}{The population or populations.}
 
 \item{...}{Unused parameters.}
 
@@ -59,10 +59,30 @@ ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 }
 \seealso{
 Other tabulate: 
+\code{\link{ypr_detabulate_parameters}()},
+\code{\link{ypr_report}()},
+\code{\link{ypr_schedule}()},
 \code{\link{ypr_tabulate_biomass}()},
 \code{\link{ypr_tabulate_fish}()},
 \code{\link{ypr_tabulate_parameters}()},
 \code{\link{ypr_tabulate_yields}()},
 \code{\link{ypr_tabulate_yield}()}
+
+Other populations: 
+\code{\link{as_ypr_populations}()},
+\code{\link{chilliwack_bt_05}},
+\code{\link{update.ypr_populations}()},
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_population_names}()},
+\code{\link{ypr_populations_expand}()},
+\code{\link{ypr_populations}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
+
+Other sr: 
+\code{\link{ypr_plot_sr}()},
+\code{\link{ypr_sr}()}
 }
+\concept{populations}
+\concept{sr}
 \concept{tabulate}

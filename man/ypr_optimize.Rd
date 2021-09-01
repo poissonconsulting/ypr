@@ -26,5 +26,11 @@ Finds the interval annual capture probability (pi) that maximises the yield for 
 ypr_optimize(ypr_population())
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_yield]{ypr_yield()}}
+Other calculate: 
+\code{\link{ypr_age_at_length}()},
+\code{\link{ypr_exploitation}()},
+\code{\link{ypr_length_at_age}()},
+\code{\link{ypr_yields}()},
+\code{\link{ypr_yield}()}
 }
+\concept{calculate}

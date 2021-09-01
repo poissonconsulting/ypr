@@ -24,4 +24,15 @@ ypr_plot_yield(kootenay_rb)
 \references{
 Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay Lake, British Columbia (2008–2013). PeerJ 5: e2874. doi:10.7717/peerj.2874.
 }
+\seealso{
+Other data: 
+\code{\link{adams_bt_03}},
+\code{\link{chilliwack_bt_05}},
+\code{\link{kootenay_bt_13}},
+\code{\link{kootenay_rb_13}},
+\code{\link{quesnel_bt}},
+\code{\link{quesnel_lt}},
+\code{\link{quesnel_rb}}
+}
+\concept{data}
 \keyword{datasets}

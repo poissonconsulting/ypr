@@ -21,4 +21,15 @@ The estimates are liable to change and should not be used for management.
 quesnel_bt
 ypr_plot_yield(quesnel_bt)
 }
+\seealso{
+Other data: 
+\code{\link{adams_bt_03}},
+\code{\link{chilliwack_bt_05}},
+\code{\link{kootenay_bt_13}},
+\code{\link{kootenay_rb_13}},
+\code{\link{kootenay_rb}},
+\code{\link{quesnel_lt}},
+\code{\link{quesnel_rb}}
+}
+\concept{data}
 \keyword{datasets}

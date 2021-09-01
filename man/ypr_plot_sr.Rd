@@ -34,5 +34,15 @@ ypr_plot_sr(ypr_population(Rk = 10))
 ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_sr]{ypr_sr()}}
+Other sr: 
+\code{\link{ypr_sr}()},
+\code{\link{ypr_tabulate_sr}()}
+
+Other plot: 
+\code{\link{ypr_plot_biomass}()},
+\code{\link{ypr_plot_fish}()},
+\code{\link{ypr_plot_schedule}()},
+\code{\link{ypr_plot_yield}()}
 }
+\concept{plot}
+\concept{sr}

@@ -110,7 +110,3 @@ Generates an object of class \code{ypr_population}.
 \examples{
 ypr_population(k = 0.1, Linf = 90)
 }
-\seealso{
-\code{\link[=ypr_population_update]{ypr_population_update()}}, \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}},
-\code{\link[=ypr_yield]{ypr_yield()}} and \code{\link[=ypr_optimize]{ypr_optimize()}}.
-}

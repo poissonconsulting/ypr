@@ -26,5 +26,5 @@ plot(ypr_population())
 }
 }
 \seealso{
-\link[graphics:plot.default]{graphics::plot}, \code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}}
+\link[graphics:plot.default]{graphics::plot}
 }
