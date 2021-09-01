@@ -26,7 +26,6 @@ Imports:
     graphics,
     lifecycle,
     purrr,
-    scales,
     stats,
     tools,
     yesno
@@ -35,6 +34,7 @@ Suggests:
     knitr,
     rmarkdown,
     rstudioapi,
+    scales,
     testthat,
     tidyr
 VignetteBuilder: 

@@ -148,10 +148,10 @@ ypr_population_names <- function(populations) {
     return(paste0("Popn_", 1:nrow(populations)))
   }
   populations <- as.list(populations)
-  populations <- map(populations, .sub, pattern = "[.]", replacement = "_")
-  populations <- map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
-  populations <- transpose(populations)
-  populations <- map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
+  populations <- purrr::map(populations, .sub, pattern = "[.]", replacement = "_")
+  populations <- purrr::map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
+  populations <- purrr::transpose(populations)
+  populations <- purrr::map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
   names <- unlist(populations)
   duplicates <- unique(names[duplicated(names)])
   for (duplicate in duplicates) {
