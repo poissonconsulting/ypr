@@ -23,8 +23,8 @@ age_at_length <- function(population, length) {
     t <- -log(1 - pmin(length / Linf, 1)) / k + t0
     t2 <- -log(1 - pmin(L2 / Linf, 1)) / k + t0
     t[t > t2] <- -log(1 - pmin((length[t > t2] - L2) /
-                                 (Linf2 - L2), 1)) /
-                                 k2 + t2
+      (Linf2 - L2), 1)) /
+      k2 + t2
     t
   })
 }

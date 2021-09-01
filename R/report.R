@@ -7,8 +7,10 @@ lines_population <- function(population) {
   population <- lapply(population, as.character)
   population <- mapply(paste, names(population), population, sep = " = ")
   population <- unlist(population)
-  population[integer_parameters()] <- paste0(population[integer_parameters()],
-                                             "L")
+  population[integer_parameters()] <- paste0(
+    population[integer_parameters()],
+    "L"
+  )
   population <- paste(population, collapse = ", ")
   paste0("ypr_population(", population, ")", collapse = "")
 }
@@ -37,7 +39,8 @@ population <- ", lines_population(population), "
 }
 
 lines_body <- function(Ly, harvest, biomass) {
-  p0('```{r}
+  p0(
+    '```{r}
 knitr::kable(ypr_tabulate_parameters(population))
 ```
 
@@ -72,14 +75,15 @@ knitr::kable(ypr_tabulate_sr(population))
 
 ```{r, fig.width = 6, fig.height = 4}
 ypr_plot_yield(population, Ly = ',
-               Ly, ", harvest = ",
-               harvest, ", biomass = ",
-               biomass, ")
+    Ly, ", harvest = ",
+    harvest, ", biomass = ",
+    biomass, ")
 knitr::kable(ypr_tabulate_yield(population, Ly = ",
-                                Ly, ", harvest = ",
-                                harvest, ", biomass = ",
-                                biomass, "))
-```")
+    Ly, ", harvest = ",
+    harvest, ", biomass = ",
+    biomass, "))
+```"
+  )
 }
 
 #' Report

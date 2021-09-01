@@ -40,8 +40,11 @@ ypr_tabulate_yield <- function(object, ...) {
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
-#' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)),
-#'                                     pi = seq(0, 1, length.out = 10))
+#' ypr_tabulate_yields(
+#'   ypr_populations(
+#'     Rk = c(3, 5)),
+#'     pi = seq(0, 1, length.out = 10)
+#' )
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
@@ -103,10 +106,12 @@ ypr_detabulate_parameters <- function(x) {
   chk_not_any_na(x$Value)
   chk_range(x$Value, c(min(.parameters$Lower), max(.parameters$Upper)))
 
-  x <- merge(x,
-             .parameters[c("Parameter", "Integer")],
-             by = "Parameter",
-             sort = FALSE)
+  x <- merge(
+    x,
+    .parameters[c("Parameter", "Integer")],
+    by = "Parameter",
+    sort = FALSE
+  )
 
   parameters <- as.list(x$Value)
   names(parameters) <- x$Parameter
@@ -205,10 +210,12 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
   sr$BH <- object$BH
 
   pi <- object$pi
-  object$pi <- ypr_optimise(object,
-                            Ly = Ly,
-                            harvest = harvest,
-                            biomass = biomass)
+  object$pi <- ypr_optimise(
+    object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
   optimal_sr <- ypr_sr(object)
 
   table <- with(sr, {

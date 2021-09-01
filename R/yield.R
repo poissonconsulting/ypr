@@ -67,11 +67,13 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
 
   schedule <- ypr_tabulate_schedule(population)
 
-  yield <- yield(schedule,
-                 population,
-                 Ly = Ly,
-                 harvest = harvest,
-                 biomass = biomass)
+  yield <- yield(
+    schedule,
+    population,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   sanitize(yield)
 }
