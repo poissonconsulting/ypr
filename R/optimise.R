@@ -8,10 +8,12 @@ optimize <- function(population, Ly, harvest, biomass) {
 
 #' Optimize Capture
 #'
-#' Finds the interval annual capture probability (pi) that maximises the yield for a given population.
+#' Finds the interval annual capture probability (pi) that maximises the yield
+#' for a given population.
 #'
 #' @inheritParams params
-#' @return The interval annual capture probability (pi) that maximises the yield.
+#' @return The interval annual capture probability (pi) that maximises the
+#'   yield.
 #' @family calculate
 #' @aliases ypr_optimise
 #' @export

@@ -1,7 +1,7 @@
 #' Plot Yield by Capture
 #'
-#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval capture/exploitation probability.
+#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
+#' annual interval capture/exploitation probability.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
@@ -65,9 +65,9 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 
 #' Plot Fish
 #'
-#' Produces a frequency histogram of the number of fish in the
-#' 'Survivors', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
-#' 'Length', 'Age' or 'Weight' class.
+#' Produces a frequency histogram of the number of fish in the 'Survivors',
+#' 'Spawners', 'Caught', 'Harvested' or 'Released' categories by 'Length', 'Age'
+#' or 'Weight' class.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
@@ -113,8 +113,8 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
 
 #' Plot Biomass
 #'
-#' Produces a frequency histogram of the total fish 'Biomass' or 'Eggs' deposition by
-#' 'Age' class.
+#' Produces a frequency histogram of the total fish 'Biomass' or 'Eggs'
+#' deposition by 'Age' class.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule

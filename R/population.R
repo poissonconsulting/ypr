@@ -63,7 +63,8 @@ ypr_populations_update <- function(populations, ...) {
 
 #' Expand Populations
 #'
-#' An object of class [ypr_population()] of all unique combinations of parameter values.
+#' An object of class [ypr_population()] of all unique combinations of parameter
+#' values.
 #'
 #' @inheritParams params
 #' @return An object of class `ypr_population`.

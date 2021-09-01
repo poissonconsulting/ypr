@@ -43,8 +43,9 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #'
 #' Calculates the yield for a population.
 #'
-#' By default, with `Rmax = 1` the number of individuals is the proportion of the recruits at the carrying capacity.
-#' If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of `Wa` (g).
+#' By default, with `Rmax = 1` the number of individuals is the proportion of
+#' the recruits at the carrying capacity. If the yield is given in terms of the
+#' biomass (kg) then the scaling also depends on the value of `Wa` (g).
 #'
 #' @inheritParams params
 #' @return The yield as number of fish or biomass.

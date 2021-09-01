@@ -82,9 +82,8 @@ ypr_tabulate_parameters <- function(population) {
 
 #' Detabulate Population Parameters
 #'
-#' @param x A data frame with columns Parameter and Value specifying
-#' one or more parameters and their values.
-
+#' @param x A data frame with columns Parameter and Value specifying one or more
+#'   parameters and their values.
 #' @return An object of class [ypr_population()]
 #' @family tabulate
 #' @family parameters
@@ -119,8 +118,8 @@ ypr_detabulate_parameters <- function(x) {
 
 #' Tabulate Fish Numbers
 #'
-#' Produces a data frame of the number of fish in the
-#' 'Survivors', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
+#' Produces a data frame of the number of fish in the 'Survivors', 'Spawners',
+#' 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
 #' 'Length', 'Age' or 'Weight' class.
 #'
 #' @inheritParams params
@@ -170,8 +169,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' Tablulate Biomass (and Eggs)
 #'
 #' Produces a data frame of the 'Weight' and 'Fecundity' and the number of
-#' 'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
-#' 'Age' class.
+#' 'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by 'Age' class.
 #'
 #' @inheritParams params
 #' @return A data frame
