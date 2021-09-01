@@ -145,15 +145,26 @@ ypr_populations <- function(..., expand = TRUE) {
 #' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
 ypr_population_names <- function(populations) {
   populations <- as.data.frame(populations)
-  populations <- populations[, vapply(populations, FUN = function(x) length(unique(x)) > 1, TRUE)]
+  populations <- populations[, vapply(populations,
+                                      FUN = function(x) length(unique(x)) > 1,
+                                      TRUE)]
   if (!ncol(populations)) {
     return(paste0("Popn_", 1:nrow(populations)))
   }
   populations <- as.list(populations)
-  populations <- purrr::map(populations, .sub, pattern = "[.]", replacement = "_")
-  populations <- purrr::map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
+  populations <- purrr::map(populations,
+                            .sub,
+                            pattern = "[.]",
+                            replacement = "_"
+                           )
+  populations <- purrr::map2(populations,
+                             names(populations),
+                             function(x, y) paste(y, x, sep = "_")
+                            )
   populations <- purrr::transpose(populations)
-  populations <- purrr::map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
+  populations <- purrr::map(populations,
+                            function(x) paste0(unname(unlist(x)),
+                                               collapse = "_"))
   names <- unlist(populations)
   duplicates <- unique(names[duplicated(names)])
   for (duplicate in duplicates) {

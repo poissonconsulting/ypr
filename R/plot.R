@@ -11,7 +11,8 @@
 #' @family plot
 #' @examples
 #' \dontrun{
-#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
+#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)),
+#'                plot_values = FALSE) +
 #'   ggplot2::facet_wrap(~Llo) +
 #'   ggplot2::aes_string(group = "Rk", color = "Rk") +
 #'   ggplot2::scale_color_manual(values = c("black", "blue"))
@@ -159,7 +160,11 @@ ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
 #' @examples
 #' ypr_plot_sr(ypr_population(Rk = 10))
 #' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
-ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plot_values = TRUE) {
+ypr_plot_sr <- function(population,
+                        Ly = 0,
+                        harvest = TRUE,
+                        biomass = FALSE,
+                        plot_values = TRUE) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_population(population)
@@ -182,7 +187,11 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
     data
   })
 
-  data2 <- ypr_tabulate_sr(population, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_sr(population,
+                           Ly = Ly,
+                           harvest = harvest,
+                           biomass = biomass
+                          )
   data2$Type <- factor(data2$Type, levels = c("actual", "optimal", "unfished"))
   data2 <- rbind(data2, data2, data2)
   data2$Recruits[1:3] <- 0
@@ -200,10 +209,23 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
     ggplot2::waiver()
   }
 
-  ggplot2::ggplot(data = data, ggplot2::aes_string(x = "Eggs", y = "Recruits")) +
+  ggplot2::ggplot(
+    data = data,
+    ggplot2::aes_string(
+      x = "Eggs",
+      y = "Recruits"
+    )
+  ) +
     (
       if (plot_values) {
-        ggplot2::geom_path(data = data2, ggplot2::aes_string(group = "Type", color = "Type"), linetype = "dotted")
+        ggplot2::geom_path(
+          data = data2,
+          ggplot2::aes_string(
+            group = "Type",
+            color = "Type"
+          ),
+          linetype = "dotted"
+        )
       } else {
         NULL
       }) +
@@ -218,9 +240,15 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
 
 #' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
-ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                          Ly = 0, harvest = TRUE, biomass = FALSE,
-                                          u = harvest, plot_values = TRUE, ...) {
+ypr_plot_yield.ypr_population <- function(object,
+                                          y = "Yield",
+                                          pi = seq(0, 1, length.out = 100),
+                                          Ly = 0,
+                                          harvest = TRUE,
+                                          biomass = FALSE,
+                                          u = harvest,
+                                          plot_values = TRUE,
+                                          ...) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_population(object)
@@ -233,12 +261,20 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
-  data <- ypr_tabulate_yields(object,
-    pi = pi, Ly = Ly, harvest = harvest,
+  data <- ypr_tabulate_yields(
+    object,
+    pi = pi,
+    Ly = Ly,
+    harvest = harvest,
     biomass = biomass
   )
 
-  data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_yield(
+    object = object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
@@ -258,7 +294,14 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
     (
       if (plot_values) {
         list(
-          ggplot2::geom_path(data = data2, ggplot2::aes_string(group = "Type", color = "Type"), linetype = "dotted"),
+          ggplot2::geom_path(
+            data = data2,
+            ggplot2::aes_string(
+              group = "Type",
+              color = "Type"
+            ),
+            linetype = "dotted"
+          ),
           ggplot2::scale_color_manual(values = c("red", "blue"))
         )
       } else {
@@ -273,9 +316,15 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
 
 #' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
-ypr_plot_yield.ypr_populations <- function(
-                                           object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                           Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
+ypr_plot_yield.ypr_populations <- function(object,
+                                           y = "Yield",
+                                           pi = seq(0, 1, length.out = 100),
+                                           Ly = 0,
+                                           harvest = TRUE,
+                                           biomass = FALSE,
+                                           u = harvest,
+                                           plot_values = TRUE,
+                                           ...) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_string(y)
@@ -287,7 +336,12 @@ ypr_plot_yield.ypr_populations <- function(
     biomass = biomass
   )
 
-  data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_yield(
+    object = object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
@@ -320,7 +374,14 @@ ypr_plot_yield.ypr_populations <- function(
     (
       if (plot_values) {
         list(
-          ggplot2::geom_path(data = data2, ggplot2::aes_string(group = "Type", color = "Type"), linetype = "dotted"),
+          ggplot2::geom_path(
+            data = data2,
+            ggplot2::aes_string(
+              group = "Type",
+              color = "Type"
+            ),
+            linetype = "dotted"
+          ),
           ggplot2::scale_color_manual(values = c("red", "blue"))
         )
       } else {
