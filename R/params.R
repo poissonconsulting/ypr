@@ -45,7 +45,7 @@
 #' @param file A string of the path to the file (without the extension).
 #' @param binwidth A positive integer of the width of the bins for grouping.
 #' @param type A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.
-#' @param object The populations or populations.
+#' @param object The population or populations.
 #' @param ... Unused parameters.
 #' @param expand A flag specifying whether to expand parameter combinations.
 #' @param view A flag specifying whether to view the report (after rendering it to html).
