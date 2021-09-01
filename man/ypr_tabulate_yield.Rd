@@ -68,10 +68,10 @@ ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 Other tabulate: 
 \code{\link{ypr_detabulate_parameters}()},
 \code{\link{ypr_report}()},
-\code{\link{ypr_schedule}()},
 \code{\link{ypr_tabulate_biomass}()},
 \code{\link{ypr_tabulate_fish}()},
 \code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_schedule}()},
 \code{\link{ypr_tabulate_sr}()},
 \code{\link{ypr_tabulate_yields}()}
 
