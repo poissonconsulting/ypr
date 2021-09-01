@@ -48,7 +48,8 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #'
 #' @inheritParams params
 #' @return The yield as number of fish or biomass.
-#' @seealso [ypr_population()] and [ypr_optimize()]
+#' @family yield
+#' @family calculate
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())

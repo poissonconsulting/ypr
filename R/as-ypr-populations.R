@@ -1,8 +1,8 @@
 #' Coerce to a Populations Parameter Object
 #'
 #' @inheritParams params
+#' @family populations
 #' @export
-#'
 #' @examples
 #' as_ypr_populations(as.data.frame(ypr_populations(Rk = c(3, 4))))
 as_ypr_populations <- function(x, ...) UseMethod("as_ypr_populations")

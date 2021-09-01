@@ -17,7 +17,7 @@ as.data.frame.ypr_populations <- function(x, ...) {
 #' Possible values include 'b', 'p' and 'l'.
 #' @param ... Additional arguments passed to [graphics::plot] function.
 #' @return An invisible copy of the original object.
-#' @seealso [graphics::plot], [ypr_population()] and [ypr_tabulate_schedule()]
+#' @seealso [graphics::plot]
 #' @export
 #' @examples
 #' \dontrun{

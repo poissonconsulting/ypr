@@ -4,7 +4,8 @@
 #'
 #' @inheritParams params
 #' @return A tibble of the life-history schedule by age.
-#' @seealso [ypr_population()]
+#' @family tabulate
+#' @family schedule
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())

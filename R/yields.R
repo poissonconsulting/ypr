@@ -3,8 +3,9 @@
 #' Calculates the yield(s) for a population based on one or more capture rates.
 #'
 #' @inheritParams params
-#' @seealso [ypr_yield()]
 #' @return A numeric vector of the yields.
+#' @family yield
+#' @family calculate
 #' @export
 #' @examples
 #' pi <- seq(0, 1, length.out = 30)

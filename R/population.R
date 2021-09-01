@@ -5,8 +5,6 @@
 #' @inheritParams params
 #' @param pi The annual capture probability.
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population_update()], [ypr_tabulate_schedule()],
-#' [ypr_yield()] and [ypr_optimize()].
 #' @export
 #' @examples
 #' ypr_population(k = 0.1, Linf = 90)
@@ -34,7 +32,6 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #' @inheritParams params
 #' @param ... One or more of the arguments from `ypr_population()`.
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_population_update(ypr_population(), Rk = 2.5)
@@ -53,7 +50,7 @@ ypr_population_update <- function(population, ...) {
 #' @inheritParams params
 #' @param ... One or more of the arguments from `ypr_population()`.
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population()]
+#' @family populations
 #' @export
 #' @examples
 #' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
@@ -70,7 +67,7 @@ ypr_populations_update <- function(populations, ...) {
 #'
 #' @inheritParams params
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population()]
+#' @family populations
 #' @export
 #' @examples
 #' ypr_populations_expand(ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
@@ -90,7 +87,7 @@ ypr_populations_expand <- function(populations) {
 #' @inheritParams ypr_population_update
 #'
 #' @return A list of [ypr_population()] objects
-#' @seealso [ypr_population()]
+#' @family populations
 #' @export
 #' @examples
 #' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
@@ -140,8 +137,8 @@ ypr_populations <- function(..., expand = TRUE) {
 #' @inheritParams params
 #'
 #' @return A character vector of the unique population names.
+#' @family populations
 #' @export
-#'
 #' @examples
 #' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
 ypr_population_names <- function(populations) {

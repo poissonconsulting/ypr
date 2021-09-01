@@ -3,6 +3,8 @@
 #' @inheritParams params
 #' @return A data.frame of stock-recruitment parameters.
 #' @family tabulate
+#' @family populations
+#' @family sr
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
@@ -18,6 +20,8 @@ ypr_tabulate_sr <- function(object, ...) {
 #'
 #' @return A data frame.
 #' @family tabulate
+#' @family populations
+#' @family yield
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
@@ -32,6 +36,7 @@ ypr_tabulate_yield <- function(object, ...) {
 #'
 #' @return A data frame.
 #' @family tabulate
+#' @family populations
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
@@ -45,7 +50,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #' @inheritParams params
 #' @return A table of population parameters
 #' @family tabulate
-#' @seealso [ypr_detabulate_parameters()]
+#' @family parameters
 #' @export
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
@@ -81,7 +86,8 @@ ypr_tabulate_parameters <- function(population) {
 #' one or more parameters and their values.
 
 #' @return An object of class [ypr_population()]
-#' @seealso [ypr_tabulate_parameters()]
+#' @family tabulate
+#' @family parameters
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
@@ -121,6 +127,7 @@ ypr_detabulate_parameters <- function(x) {
 #' @inheritParams ypr_plot_schedule
 #' @return A data frame
 #' @family tabulate
+#' @family fish
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
@@ -169,6 +176,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' @inheritParams params
 #' @return A data frame
 #' @family tabulate
+#' @family biomass
 #' @export
 #' @examples
 #' ypr_tabulate_biomass(ypr_population())

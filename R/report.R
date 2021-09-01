@@ -81,6 +81,7 @@ knitr::kable(ypr_tabulate_yield(population, Ly = ", Ly, ", harvest = ", harvest,
 #'
 #' @inheritParams params
 #' @return An invisible character vector of the contents of the file.
+#' @family tabulate
 #' @export
 #' @examples
 #' ypr_report(ypr_population(), file = tempfile(), ask = FALSE)

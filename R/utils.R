@@ -30,10 +30,9 @@ age_at_length <- function(population, length) {
 #' Length At Age
 #'
 #' @inheritParams params
-#'
 #' @return A double vector of the lengths.
+#' @family calculate
 #' @export
-#'
 #' @examples
 #' ypr_length_at_age(ypr_population(), seq(0, 5, by = 0.5))
 ypr_length_at_age <- function(population, age) {
@@ -48,10 +47,9 @@ ypr_length_at_age <- function(population, age) {
 #' Age At Length
 #'
 #' @inheritParams params
-#'
 #' @return A double vector of the lengths.
+#' @family calculate
 #' @export
-#'
 #' @examples
 #' ypr_age_at_length(ypr_population(), seq(0, 100, by = 10))
 ypr_age_at_length <- function(population, length) {

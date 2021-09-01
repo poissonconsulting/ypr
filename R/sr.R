@@ -55,6 +55,7 @@ sr <- function(schedule, population) {
 #'
 #' @inheritParams params
 #' @return A data frame of the SR parameters.
+#' @family sr
 #' @export
 #' @examples
 #' ypr_sr(ypr_population()) # Beverton-Holt
