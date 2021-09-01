@@ -1,14 +1,28 @@
 #' Plot Yield by Capture
 #'
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval capture probability.
+#' by the annual interval capture/exploitation probability.
 #'
 #' @inheritParams params
+#' @inheritParams ypr_plot_schedule
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_yields()]
-#' @export
+#' @family populations
+#' @family yield
+#' @family plot
 #' @examples
+#' \dontrun{
+#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
+#'   ggplot2::facet_wrap(~Llo) +
+#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
+#'   ggplot2::scale_color_manual(values = c("black", "blue"))
+#'
+#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
+#'   ggplot2::facet_grid(Rk ~ Llo)
+#' }
+#'
 #' ypr_plot_yield(ypr_population())
+#' @export
+#'
 ypr_plot_yield <- function(object, ...) {
   UseMethod("ypr_plot_yield")
 }
@@ -21,7 +35,8 @@ ypr_plot_yield <- function(object, ...) {
 #' @param x A string of the term on the x-axis.
 #' @param y A string of the term on the y-axis.
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_tabulate_schedule()]
+#' @family schedule
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_schedule(ypr_population())
@@ -55,7 +70,9 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
+#' @seealso [ggplot2::geom_histogram()]
+#' @family fish
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_fish(ypr_population(), color = "white")
@@ -98,7 +115,9 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
+#' @seealso [ggplot2::geom_histogram()]
+#' @family biomass
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_biomass(ypr_population(), color = "white")
@@ -128,7 +147,8 @@ ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
 #'
 #' @inheritParams params
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_sr()]
+#' @family sr
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_sr(ypr_population(Rk = 10))
@@ -187,18 +207,9 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
     NULL
 }
 
-#' Plot Yield by Exploitation/Capture Probability
-#'
-#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval exploitation/capture probability.
-#'
-#' @inheritParams params
-#' @inheritParams ypr_plot_schedule
-#' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_yields()]
+
+#' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
-#' @examples
-#' ypr_plot_yield(ypr_population())
 ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                           Ly = 0, harvest = TRUE, biomass = FALSE,
                                           u = harvest, plot_values = TRUE, ...) {
@@ -249,26 +260,9 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
     NULL
 }
 
-#' Plot Yield by Exploitation/Capture Probability
-#'
-#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval exploitation/capture probability.
-#'
-#' @inheritParams params
-#' @inheritParams ypr_plot_schedule
-#' @return A ggplot2 object.
-#' @seealso [ypr_populations()] and [ypr_yields()]
+
+#' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
-#' @examples
-#' \dontrun{
-#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
-#'   ggplot2::facet_wrap(~Llo) +
-#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
-#'   ggplot2::scale_color_manual(values = c("black", "blue"))
-#'
-#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
-#'   ggplot2::facet_grid(Rk ~ Llo)
-#' }
 ypr_plot_yield.ypr_populations <- function(
                                            object, y = "Yield", pi = seq(0, 1, length.out = 100),
                                            Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
