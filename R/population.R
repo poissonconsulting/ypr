@@ -149,7 +149,7 @@ ypr_population_names <- function(populations) {
                                       FUN = function(x) length(unique(x)) > 1,
                                       TRUE)]
   if (!ncol(populations)) {
-    return(paste0("Popn_", 1:nrow(populations)))
+    return(paste0("Popn_", seq_len(nrow(populations))))
   }
   populations <- as.list(populations)
   populations <- purrr::map(populations,

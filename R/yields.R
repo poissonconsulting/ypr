@@ -10,8 +10,11 @@
 #' @examples
 #' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
-ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                       Ly = 0, harvest = TRUE, biomass = FALSE) {
+ypr_yields <- function(population,
+                       pi = seq(0, 1, length.out = 100),
+                       Ly = 0,
+                       harvest = TRUE,
+                       biomass = FALSE) {
   chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)

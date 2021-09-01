@@ -1,4 +1,8 @@
-yield <- function(schedule, population, Ly = 0, harvest = TRUE, biomass = FALSE) {
+yield <- function(schedule,
+                  population,
+                  Ly = 0,
+                  harvest = TRUE,
+                  biomass = FALSE) {
   schedule <- as.list(schedule)
 
   schedule$pi <- population$pi

@@ -20,7 +20,9 @@ optimize <- function(population, Ly, harvest, biomass) {
 #' @examples
 #' ypr_optimize(ypr_population())
 ypr_optimize <- function(population,
-                         Ly = 0, harvest = TRUE, biomass = FALSE) {
+                         Ly = 0,
+                         harvest = TRUE,
+                         biomass = FALSE) {
   chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)
