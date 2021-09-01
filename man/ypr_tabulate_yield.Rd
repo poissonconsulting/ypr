@@ -33,13 +33,17 @@ ypr_tabulate_yield(object, ...)
 
 \item{...}{Unused parameters.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
-\item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
+\item{type}{A string indicating whether to include 'both' or just the
+'actual' or 'optimal' yield.}
 
 \item{all}{A flag specifying whether to include all parameter values.}
 }

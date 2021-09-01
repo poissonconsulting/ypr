@@ -17,8 +17,8 @@ ypr_tabulate_fish(population, x = "Age", binwidth = 1L)
 A data frame
 }
 \description{
-Produces a data frame of the number of fish in the
-'Survivors', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
+Produces a data frame of the number of fish in the 'Survivors', 'Spawners',
+'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
 'Length', 'Age' or 'Weight' class.
 }
 \examples{

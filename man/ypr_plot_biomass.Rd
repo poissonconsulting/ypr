@@ -17,8 +17,8 @@ ypr_plot_biomass(population, y = "Biomass", color = NULL)
 A ggplot2 object.
 }
 \description{
-Produces a frequency histogram of the total fish 'Biomass' or 'Eggs' deposition by
-'Age' class.
+Produces a frequency histogram of the total fish 'Biomass' or 'Eggs'
+deposition by 'Age' class.
 }
 \examples{
 ypr_plot_biomass(ypr_population(), color = "white")

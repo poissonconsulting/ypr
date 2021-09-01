@@ -14,8 +14,7 @@ A data frame
 }
 \description{
 Produces a data frame of the 'Weight' and 'Fecundity' and the number of
-'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
-'Age' class.
+'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by 'Age' class.
 }
 \examples{
 ypr_tabulate_biomass(ypr_population())

@@ -13,10 +13,12 @@ ypr_populations_expand(populations)
 An object of class \code{ypr_population}.
 }
 \description{
-An object of class \code{\link[=ypr_population]{ypr_population()}} of all unique combinations of parameter values.
+An object of class \code{\link[=ypr_population]{ypr_population()}} of all unique combinations of parameter
+values.
 }
 \examples{
-ypr_populations_expand(ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
+ypr_populations_expand(ypr_populations(Rk = c(2.5, 4, 2.5),
+                                       Hm = c(0.1, 0.2, 0.1)))
 }
 \seealso{
 Other populations: 

@@ -15,13 +15,17 @@ ypr_plot_sr(
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
-\item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
+\item{plot_values}{A flag specifying whether to plot the actual and optimal
+values.}
 }
 \value{
 A ggplot2 object.

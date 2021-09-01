@@ -11,8 +11,8 @@ An object of class \code{\link[=ypr_populations]{ypr_populations()}}.
 chilliwack_bt_05
 }
 \description{
-The populations parameters for
-Bull Trout in Chilliwack Lake from Taylor (2005)
+The populations parameters for Bull Trout in Chilliwack Lake from Taylor
+(2005)
 }
 \examples{
 chilliwack_bt_05
@@ -29,7 +29,8 @@ ypr_plot_yield(chilliwack_bt_05, plot_values = FALSE) +
 }
 }
 \references{
-Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
+Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char
+Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
 }
 \seealso{
 Other populations: 

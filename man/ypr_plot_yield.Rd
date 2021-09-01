@@ -41,22 +41,27 @@ ypr_plot_yield(object, ...)
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
-\item{u}{A flag specifying whether to plot the exploitation rate as opposed to the capture rate.}
+\item{u}{A flag specifying whether to plot the exploitation rate as opposed
+to the capture rate.}
 
-\item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
+\item{plot_values}{A flag specifying whether to plot the actual and optimal
+values.}
 }
 \value{
 A ggplot2 object.
 }
 \description{
-Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-by the annual interval capture/exploitation probability.
+Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
+annual interval capture/exploitation probability.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -67,7 +72,8 @@ by the annual interval capture/exploitation probability.
 
 \examples{
 \dontrun{
-ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
+ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)),
+               plot_values = FALSE) +
   ggplot2::facet_wrap(~Llo) +
   ggplot2::aes_string(group = "Rk", color = "Rk") +
   ggplot2::scale_color_manual(values = c("black", "blue"))

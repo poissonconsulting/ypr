@@ -11,8 +11,7 @@ An object of class \code{\link[=ypr_population]{ypr_population()}}.
 kootenay_rb
 }
 \description{
-The population parameters for
-Rainbow Trout in Kootenay Lake.
+The population parameters for Rainbow Trout in Kootenay Lake.
 }
 \details{
 The estimates are liable to change and should not be used for management.
@@ -22,7 +21,9 @@ kootenay_rb
 ypr_plot_yield(kootenay_rb)
 }
 \references{
-Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay Lake, British Columbia (2008–2013). PeerJ 5: e2874. doi:10.7717/peerj.2874.
+Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural
+mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay
+Lake, British Columbia (2008–2013). PeerJ 5: e2874. doi:10.7717/peerj.2874.
 }
 \seealso{
 Other data: 

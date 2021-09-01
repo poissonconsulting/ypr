@@ -35,11 +35,14 @@ ypr_tabulate_yields(object, ...)
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
 \item{all}{A flag specifying whether to include all parameter values.}
 }
@@ -58,7 +61,8 @@ Tabulate Yields
 
 \examples{
 ypr_tabulate_yields(ypr_population())
-ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
+ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)),
+                                    pi = seq(0, 1, length.out = 10))
 }
 \seealso{
 Other tabulate: 

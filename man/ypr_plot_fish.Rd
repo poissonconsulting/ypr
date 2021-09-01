@@ -20,7 +20,8 @@ ypr_plot_fish(
 
 \item{y}{A string of the term on the y-axis.}
 
-\item{percent}{A flag specifying whether to plot the number of fish as a percent or frequency (the default).}
+\item{percent}{A flag specifying whether to plot the number of fish as a
+percent or frequency (the default).}
 
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
 
@@ -30,9 +31,9 @@ ypr_plot_fish(
 A ggplot2 object.
 }
 \description{
-Produces a frequency histogram of the number of fish in the
-'Survivors', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
-'Length', 'Age' or 'Weight' class.
+Produces a frequency histogram of the number of fish in the 'Survivors',
+'Spawners', 'Caught', 'Harvested' or 'Released' categories by 'Length', 'Age'
+or 'Weight' class.
 }
 \examples{
 ypr_plot_fish(ypr_population(), color = "white")

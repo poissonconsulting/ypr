@@ -11,8 +11,7 @@ An object of class \code{\link[=ypr_population]{ypr_population()}}.
 quesnel_lt
 }
 \description{
-The population parameters for
-Lake Trout in Quesnel Lake, BC.
+The population parameters for Lake Trout in Quesnel Lake, BC.
 }
 \details{
 The estimates are liable to change and should not be used for management.
