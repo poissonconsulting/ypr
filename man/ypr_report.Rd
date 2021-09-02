@@ -50,7 +50,9 @@ An invisible character vector of the contents of the file.
 Creates an Rmd file that can be used to generate a report.
 }
 \examples{
+\dontrun{
 ypr_report(ypr_population(), file = tempfile(), ask = FALSE)
+}
 }
 \seealso{
 Other tabulate: 
