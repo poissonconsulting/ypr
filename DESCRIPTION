@@ -31,12 +31,15 @@ Imports:
     yesno
 Suggests:
     covr,
+    fs,
     knitr,
     rmarkdown,
     rstudioapi,
     scales,
     testthat,
-    tidyr
+    tidyr,
+    usethis,
+    withr
 VignetteBuilder: 
     knitr
 ByteCompile: true
