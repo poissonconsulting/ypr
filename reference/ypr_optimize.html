@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Optimize Capture — ypr_optimize" />
-<meta property="og:description" content="Finds the interval annual capture probability (pi) that maximises the yield for a given population." />
+<meta property="og:description" content="Finds the interval annual capture probability (pi) that maximises the yield
+for a given population." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -130,7 +131,8 @@
     </div>
 
     <div class="ref-description">
-    <p>Finds the interval annual capture probability (pi) that maximises the yield for a given population.</p>
+    <p>Finds the interval annual capture probability (pi) that maximises the yield
+for a given population.</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_optimize</span><span class='op'>(</span><span class='va'>population</span>, Ly <span class='op'>=</span> <span class='fl'>0</span>, harvest <span class='op'>=</span> <span class='cn'>TRUE</span>, biomass <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></code></pre></div>
@@ -144,24 +146,33 @@
     </tr>
     <tr>
       <th>Ly</th>
-      <td><p>The minimum length (trophy) fish to consider when calculating the yield (cm).</p></td>
+      <td><p>The minimum length (trophy) fish to consider when calculating the
+yield (cm).</p></td>
     </tr>
     <tr>
       <th>harvest</th>
-      <td><p>A flag specifying whether to calculate the yield for harvested fish or captures.</p></td>
+      <td><p>A flag specifying whether to calculate the yield for harvested
+fish or captures.</p></td>
     </tr>
     <tr>
       <th>biomass</th>
-      <td><p>A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.</p></td>
+      <td><p>A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The interval annual capture probability (pi) that maximises the yield.</p>
+    <p>The interval annual capture probability (pi) that maximises the
+yield.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code> and <code><a href='ypr_yield.html'>ypr_yield()</a></code></p></div>
+    <div class='dont-index'><p>Other calculate: 
+<code><a href='ypr_age_at_length.html'>ypr_age_at_length</a>()</code>,
+<code><a href='ypr_exploitation.html'>ypr_exploitation</a>()</code>,
+<code><a href='ypr_length_at_age.html'>ypr_length_at_age</a>()</code>,
+<code><a href='ypr_yields.html'>ypr_yields</a>()</code>,
+<code><a href='ypr_yield.html'>ypr_yield</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_optimize</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>

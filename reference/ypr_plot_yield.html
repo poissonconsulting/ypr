@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Plot Yield by Capture — ypr_plot_yield" />
-<meta property="og:description" content="Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-by the annual interval capture probability." />
+<meta property="og:description" content="Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
+annual interval capture/exploitation probability." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,34 +131,133 @@ by the annual interval capture probability." />
     </div>
 
     <div class="ref-description">
-    <p>Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-by the annual interval capture probability.</p>
+    <p>Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
+annual interval capture/exploitation probability.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_plot_yield</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_plot_yield</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S3 method for ypr_population</span>
+<span class='fu'>ypr_plot_yield</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  y <span class='op'>=</span> <span class='st'>"Yield"</span>,
+  pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,
+  Ly <span class='op'>=</span> <span class='fl'>0</span>,
+  harvest <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  biomass <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  u <span class='op'>=</span> <span class='va'>harvest</span>,
+  plot_values <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S3 method for ypr_populations</span>
+<span class='fu'>ypr_plot_yield</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  y <span class='op'>=</span> <span class='st'>"Yield"</span>,
+  pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>,
+  Ly <span class='op'>=</span> <span class='fl'>0</span>,
+  harvest <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  biomass <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  u <span class='op'>=</span> <span class='va'>harvest</span>,
+  plot_values <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>The populations or populations.</p></td>
+      <td><p>The population or populations.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Unused parameters.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>A string of the term on the y-axis.</p></td>
+    </tr>
+    <tr>
+      <th>pi</th>
+      <td><p>A vector of probabilities of capture to calculate the yield for.</p></td>
+    </tr>
+    <tr>
+      <th>Ly</th>
+      <td><p>The minimum length (trophy) fish to consider when calculating the
+yield (cm).</p></td>
+    </tr>
+    <tr>
+      <th>harvest</th>
+      <td><p>A flag specifying whether to calculate the yield for harvested
+fish or captures.</p></td>
+    </tr>
+    <tr>
+      <th>biomass</th>
+      <td><p>A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.</p></td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td><p>A flag specifying whether to plot the exploitation rate as opposed
+to the capture rate.</p></td>
+    </tr>
+    <tr>
+      <th>plot_values</th>
+      <td><p>A flag specifying whether to plot the actual and optimal
+values.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A ggplot2 object.</p>
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    
+<ul>
+<li><p><code>ypr_population</code>: Plot Yield by Capture</p></li>
+<li><p><code>ypr_populations</code>: Plot Yield by Capture</p></li>
+</ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code> and <code><a href='ypr_yields.html'>ypr_yields()</a></code></p></div>
+    <div class='dont-index'><p>Other populations: 
+<code><a href='as_ypr_populations.html'>as_ypr_populations</a>()</code>,
+<code><a href='chilliwack_bt_05.html'>chilliwack_bt_05</a></code>,
+<code><a href='ypr_populations_update.html'>update.ypr_populations</a>()</code>,
+<code><a href='ypr_population_names.html'>ypr_population_names</a>()</code>,
+<code><a href='ypr_populations_expand.html'>ypr_populations_expand</a>()</code>,
+<code><a href='ypr_populations.html'>ypr_populations</a>()</code>,
+<code><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a>()</code>,
+<code><a href='ypr_tabulate_yields.html'>ypr_tabulate_yields</a>()</code>,
+<code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p>
+<p>Other yield: 
+<code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code>,
+<code><a href='ypr_yields.html'>ypr_yields</a>()</code>,
+<code><a href='ypr_yield.html'>ypr_yield</a>()</code></p>
+<p>Other plot: 
+<code><a href='ypr_plot_biomass.html'>ypr_plot_biomass</a>()</code>,
+<code><a href='ypr_plot_fish.html'>ypr_plot_fish</a>()</code>,
+<code><a href='ypr_plot_schedule.html'>ypr_plot_schedule</a>()</code>,
+<code><a href='ypr_plot_sr.html'>ypr_plot_sr</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_plot_yield</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='fu'>ypr_plot_yield</span><span class='op'>(</span><span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span></span>
+<span class='r-in'>  Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>, <span class='fl'>4.6</span><span class='op'>)</span>,</span>
+<span class='r-in'>  Llo <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>60</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span>,</span>
+<span class='r-in'>plot_values <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span class='r-in'><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>Llo</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes_.html'>aes_string</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='st'>"Rk"</span>, color <span class='op'>=</span> <span class='st'>"Rk"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"black"</span>, <span class='st'>"blue"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>ypr_plot_yield</span><span class='op'>(</span><span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span>Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>, <span class='fl'>4.6</span><span class='op'>)</span>, Llo <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>60</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='va'>Rk</span> <span class='op'>~</span> <span class='va'>Llo</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>ypr_plot_yield</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-plt'><img src='ypr_plot_yield-1.png' alt='' width='700' height='433' /></span>
 </code></pre></div>
   </div>

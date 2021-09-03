@@ -48,8 +48,7 @@
 
 <meta property="og:title" content="Tablulate Biomass (and Eggs) — ypr_tabulate_biomass" />
 <meta property="og:description" content="Produces a data frame of the 'Weight' and 'Fecundity' and the number of
-'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
-'Age' class." />
+'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by 'Age' class." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -133,8 +132,7 @@
 
     <div class="ref-description">
     <p>Produces a data frame of the 'Weight' and 'Fecundity' and the number of
-'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
-'Age' class.</p>
+'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by 'Age' class.</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_tabulate_biomass</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span></code></pre></div>
@@ -154,15 +152,20 @@
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other tabulate: 
+<code><a href='ypr_detabulate_parameters.html'>ypr_detabulate_parameters</a>()</code>,
+<code><a href='ypr_report.html'>ypr_report</a>()</code>,
 <code><a href='ypr_tabulate_fish.html'>ypr_tabulate_fish</a>()</code>,
 <code><a href='ypr_tabulate_parameters.html'>ypr_tabulate_parameters</a>()</code>,
+<code><a href='ypr_tabulate_schedule.html'>ypr_tabulate_schedule</a>()</code>,
 <code><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a>()</code>,
 <code><a href='ypr_tabulate_yields.html'>ypr_tabulate_yields</a>()</code>,
-<code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p></div>
+<code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p>
+<p>Other biomass: 
+<code><a href='ypr_plot_biomass.html'>ypr_plot_biomass</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_tabulate_biomass</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 20 x 8</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 20 × 8</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>      Age Length Weight Fecundity Survivors Spawners Biomass     Eggs</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>     1   13.9   27.0      27.0 0.186     5.82<span style='color: #949494;'>e</span><span style='color: #BB0000;'>-57</span>   5.02  7.86<span style='color: #949494;'>e</span><span style='color: #BB0000;'>-56</span></span>

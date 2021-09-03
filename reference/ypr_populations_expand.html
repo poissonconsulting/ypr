@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Expand Populations — ypr_populations_expand" />
-<meta property="og:description" content="An object of class ypr_population() of all unique combinations of parameter values." />
+<meta property="og:description" content="An object of class ypr_population() of all unique combinations of parameter
+values." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -130,7 +131,8 @@
     </div>
 
     <div class="ref-description">
-    <p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code> of all unique combinations of parameter values.</p>
+    <p>An object of class <code><a href='ypr_population.html'>ypr_population()</a></code> of all unique combinations of parameter
+values.</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>ypr_populations_expand</span><span class='op'>(</span><span class='va'>populations</span><span class='op'>)</span></code></pre></div>
@@ -149,10 +151,24 @@
     <p>An object of class <code>ypr_population</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ypr_population.html'>ypr_population()</a></code></p></div>
+    <div class='dont-index'><p>Other populations: 
+<code><a href='as_ypr_populations.html'>as_ypr_populations</a>()</code>,
+<code><a href='chilliwack_bt_05.html'>chilliwack_bt_05</a></code>,
+<code><a href='ypr_populations_update.html'>update.ypr_populations</a>()</code>,
+<code><a href='ypr_plot_yield.html'>ypr_plot_yield</a>()</code>,
+<code><a href='ypr_population_names.html'>ypr_population_names</a>()</code>,
+<code><a href='ypr_populations.html'>ypr_populations</a>()</code>,
+<code><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a>()</code>,
+<code><a href='ypr_tabulate_yields.html'>ypr_tabulate_yields</a>()</code>,
+<code><a href='ypr_tabulate_yield.html'>ypr_tabulate_yield</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_populations_expand</span><span class='op'>(</span><span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span>Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>, <span class='fl'>4</span>, <span class='fl'>2.5</span><span class='op'>)</span>, Hm <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_populations_expand</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='fu'><a href='ypr_populations.html'>ypr_populations</a></span><span class='op'>(</span></span>
+<span class='r-in'>    Rk <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2.5</span>, <span class='fl'>4</span>, <span class='fl'>2.5</span><span class='op'>)</span>,</span>
+<span class='r-in'>    Hm <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> tmax:  20</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> k:     0.15</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> Linf:  100</span>

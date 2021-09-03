@@ -109,12 +109,6 @@
     <loc>/reference/ypr_plot_yield.html</loc>
   </url>
   <url>
-    <loc>/reference/ypr_plot_yield.ypr_population.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_plot_yield.ypr_populations.html</loc>
-  </url>
-  <url>
     <loc>/reference/ypr_population.html</loc>
   </url>
   <url>
@@ -134,6 +128,9 @@
   </url>
   <url>
     <loc>/reference/ypr_report.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ypr_schedule.html</loc>
   </url>
   <url>
     <loc>/reference/ypr_sr.html</loc>

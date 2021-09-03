@@ -171,15 +171,20 @@ S0FSpawners at the fished equilibrium
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A data frame of the SR parameters.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other sr: 
+<code><a href='ypr_plot_sr.html'>ypr_plot_sr</a>()</code>,
+<code><a href='ypr_tabulate_sr.html'>ypr_tabulate_sr</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Beverton-Holt</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1 x 9</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1 × 9</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>838</span> 0.000<span style='text-decoration: underline;'>838</span>     3 <span style='text-decoration: underline;'>3</span>579. <span style='text-decoration: underline;'>1</span>465. 0.667 0.186  1.33 0.211</span>
 <span class='r-in'><span class='fu'>ypr_sr</span><span class='op'>(</span><span class='fu'><a href='ypr_population.html'>ypr_population</a></span><span class='op'>(</span>BH <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Ricker</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1 x 9</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1 × 9</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>838</span> 0.000<span style='text-decoration: underline;'>308</span>     3 <span style='text-decoration: underline;'>3</span>579. <span style='text-decoration: underline;'>1</span>465. 0.995 0.455  1.98 0.517</span>
