@@ -28,6 +28,7 @@ Useful links:
 
 Other contributors:
 \itemize{
+  \item Ayla Pearson (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 
