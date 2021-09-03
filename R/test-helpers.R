@@ -13,12 +13,7 @@ create_local_package <- function(dir = fs::file_temp(pattern = "testpkg"),
   old_project <- proj_get_() # this could be `NULL`, i.e. no active project
   old_wd <- getwd()          # not necessarily same as `old_project`
 
-  withr::defer(
-    {
-      fs::dir_delete(dir)
-    },
-    envir = env
-  )
+  withr::defer({fs::dir_delete(dir)}, envir = env)
 
   usethis::ui_silence(
     usethis::create_package(
@@ -31,13 +26,7 @@ create_local_package <- function(dir = fs::file_temp(pattern = "testpkg"),
 
   withr::defer(usethis::proj_set(old_project, force = TRUE), envir = env)
   usethis::proj_set(dir)
-
-  withr::defer(
-    {
-      setwd(old_wd)
-    },
-    envir = env
-  )
+  withr::defer({setwd(old_wd)}, envir = env)
   setwd(usethis::proj_get())
 
   invisible(usethis::proj_get())
