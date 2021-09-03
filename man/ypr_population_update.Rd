@@ -10,7 +10,7 @@
 ypr_population_update(population, ...)
 }
 \arguments{
-\item{object}{The populations or populations.}
+\item{object}{The population or populations.}
 
 \item{...}{One or more of the arguments from \code{ypr_population()}.}
 
@@ -29,7 +29,4 @@ Updates an object of class \code{\link[=ypr_population]{ypr_population()}}.
 
 \examples{
 ypr_population_update(ypr_population(), Rk = 2.5)
-}
-\seealso{
-\code{\link[=ypr_population]{ypr_population()}}
 }

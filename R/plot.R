@@ -1,14 +1,33 @@
 #' Plot Yield by Capture
 #'
-#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval capture probability.
+#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
+#' annual interval capture/exploitation probability.
 #'
 #' @inheritParams params
+#' @inheritParams ypr_plot_schedule
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_yields()]
-#' @export
+#' @family populations
+#' @family yield
+#' @family plot
 #' @examples
+#' \dontrun{
+#' ypr_plot_yield(ypr_populations(
+#'   Rk = c(2.5, 4.6),
+#'   Llo = c(0, 60)
+#' ),
+#' plot_values = FALSE
+#' ) +
+#'   ggplot2::facet_wrap(~Llo) +
+#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
+#'   ggplot2::scale_color_manual(values = c("black", "blue"))
+#'
+#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
+#'   ggplot2::facet_grid(Rk ~ Llo)
+#' }
+#'
 #' ypr_plot_yield(ypr_population())
+#' @export
+#'
 ypr_plot_yield <- function(object, ...) {
   UseMethod("ypr_plot_yield")
 }
@@ -21,11 +40,14 @@ ypr_plot_yield <- function(object, ...) {
 #' @param x A string of the term on the x-axis.
 #' @param y A string of the term on the y-axis.
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_tabulate_schedule()]
+#' @family schedule
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_schedule(ypr_population())
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
+  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
+  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   schedule <- ypr_tabulate_schedule(population = population)
 
   chk_string(x)
@@ -37,31 +59,35 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   labels <- if (sum(schedule[[y]]) >= 1000) {
     scales::comma
   } else {
-    waiver()
+    ggplot2::waiver()
   }
 
-  ggplot(data = schedule, aes_string(x = x, y = y)) +
-    geom_line() +
-    scale_y_continuous(y, labels = labels) +
-    expand_limits(x = 0, y = 0)
+  ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y)) +
+    ggplot2::geom_line() +
+    ggplot2::scale_y_continuous(y, labels = labels) +
+    ggplot2::expand_limits(x = 0, y = 0)
 }
 
 #' Plot Fish
 #'
-#' Produces a frequency histogram of the number of fish in the
-#' 'Survivors', 'Spawners', 'Caught', 'Harvested' or 'Released' categories by
-#' 'Length', 'Age' or 'Weight' class.
+#' Produces a frequency histogram of the number of fish in the 'Survivors',
+#' 'Spawners', 'Caught', 'Harvested' or 'Released' categories by 'Length', 'Age'
+#' or 'Weight' class.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
+#' @seealso [ggplot2::geom_histogram()]
+#' @family fish
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_fish(ypr_population(), color = "white")
 ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
                           percent = FALSE,
                           binwidth = 1L, color = NULL) {
+  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
+  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_string(y)
   chk_subset(y, c(
     "Survivors", "Spawners", "Caught", "Harvested",
@@ -77,32 +103,36 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
   } else if (sum(fish[[y]]) >= 1000) {
     scales::comma
   } else {
-    waiver()
+    ggplot2::waiver()
   }
 
-  ggplot(data = fish, aes_string(x = x, weight = y)) +
+  ggplot2::ggplot(data = fish, ggplot2::aes_string(x = x, weight = y)) +
     (if (is.null(color)) {
-      geom_bar(width = binwidth)
+      ggplot2::geom_bar(width = binwidth)
     } else {
-      geom_bar(width = binwidth, color = color)
+      ggplot2::geom_bar(width = binwidth, color = color)
     }) +
-    scale_y_continuous(y, labels = labels) +
-    expand_limits(x = 0, y = 0)
+    ggplot2::scale_y_continuous(y, labels = labels) +
+    ggplot2::expand_limits(x = 0, y = 0)
 }
 
 #' Plot Biomass
 #'
-#' Produces a frequency histogram of the total fish 'Biomass' or 'Eggs' deposition by
-#' 'Age' class.
+#' Produces a frequency histogram of the total fish 'Biomass' or 'Eggs'
+#' deposition by 'Age' class.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ggplot2::geom_histogram()]
+#' @seealso [ggplot2::geom_histogram()]
+#' @family biomass
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_biomass(ypr_population(), color = "white")
 ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
+  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
+  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_string(y)
   chk_subset(y, c("Biomass", "Eggs"))
 
@@ -111,29 +141,36 @@ ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
   labels <- if (sum(biomass[[y]]) >= 1000) {
     scales::comma
   } else {
-    waiver()
+    ggplot2::waiver()
   }
 
-  ggplot(data = biomass, aes_string(x = "Age", weight = y)) +
+  ggplot2::ggplot(data = biomass, ggplot2::aes_string(x = "Age", weight = y)) +
     (if (is.null(color)) {
-      geom_bar(width = 1)
+      ggplot2::geom_bar(width = 1)
     } else {
-      geom_bar(width = 1, color = color)
+      ggplot2::geom_bar(width = 1, color = color)
     }) +
-    scale_y_continuous(y, labels = labels) +
-    expand_limits(x = 0, y = 0)
+    ggplot2::scale_y_continuous(y, labels = labels) +
+    ggplot2::expand_limits(x = 0, y = 0)
 }
 
 #' Plot Stock-Recruitment Curve
 #'
 #' @inheritParams params
 #' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_sr()]
+#' @family sr
+#' @family plot
 #' @export
 #' @examples
 #' ypr_plot_sr(ypr_population(Rk = 10))
 #' ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
-ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plot_values = TRUE) {
+ypr_plot_sr <- function(population,
+                        Ly = 0,
+                        harvest = TRUE,
+                        biomass = FALSE,
+                        plot_values = TRUE) {
+  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
+  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)
@@ -154,7 +191,12 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
     data
   })
 
-  data2 <- ypr_tabulate_sr(population, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_sr(
+    population,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
   data2$Type <- factor(data2$Type, levels = c("actual", "optimal", "unfished"))
   data2 <- rbind(data2, data2, data2)
   data2$Recruits[1:3] <- 0
@@ -163,45 +205,57 @@ ypr_plot_sr <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE, plo
   labels_x <- if (sum(data[["Eggs"]]) >= 1000) {
     scales::comma
   } else {
-    waiver()
+    ggplot2::waiver()
   }
 
   labels_y <- if (sum(data[["Recruits"]]) >= 1000) {
     scales::comma
   } else {
-    waiver()
+    ggplot2::waiver()
   }
 
-  ggplot(data = data, aes_string(x = "Eggs", y = "Recruits")) +
+  ggplot2::ggplot(
+    data = data,
+    ggplot2::aes_string(
+      x = "Eggs",
+      y = "Recruits"
+    )
+  ) +
     (
       if (plot_values) {
-        geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted")
+        ggplot2::geom_path(
+          data = data2,
+          ggplot2::aes_string(
+            group = "Type",
+            color = "Type"
+          ),
+          linetype = "dotted"
+        )
       } else {
         NULL
       }) +
-    geom_line() +
-    expand_limits(x = 0, y = 0) +
-    scale_x_continuous(labels = labels_x) +
-    scale_y_continuous(labels = labels_y) +
-    scale_color_manual(values = c("red", "blue", "black")) +
+    ggplot2::geom_line() +
+    ggplot2::expand_limits(x = 0, y = 0) +
+    ggplot2::scale_x_continuous(labels = labels_x) +
+    ggplot2::scale_y_continuous(labels = labels_y) +
+    ggplot2::scale_color_manual(values = c("red", "blue", "black")) +
     NULL
 }
 
-#' Plot Yield by Exploitation/Capture Probability
-#'
-#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval exploitation/capture probability.
-#'
-#' @inheritParams params
-#' @inheritParams ypr_plot_schedule
-#' @return A ggplot2 object.
-#' @seealso [ypr_population()] and [ypr_yields()]
+
+#' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
-#' @examples
-#' ypr_plot_yield(ypr_population())
-ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                          Ly = 0, harvest = TRUE, biomass = FALSE,
-                                          u = harvest, plot_values = TRUE, ...) {
+ypr_plot_yield.ypr_population <- function(object,
+                                          y = "Yield",
+                                          pi = seq(0, 1, length.out = 100),
+                                          Ly = 0,
+                                          harvest = TRUE,
+                                          biomass = FALSE,
+                                          u = harvest,
+                                          plot_values = TRUE,
+                                          ...) {
+  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
+  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_population(object)
   chk_number(Ly)
   chk_gte(Ly)
@@ -212,12 +266,20 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
 
-  data <- ypr_tabulate_yields(object,
-    pi = pi, Ly = Ly, harvest = harvest,
+  data <- ypr_tabulate_yields(
+    object,
+    pi = pi,
+    Ly = Ly,
+    harvest = harvest,
     biomass = biomass
   )
 
-  data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_yield(
+    object = object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
@@ -233,45 +295,43 @@ ypr_plot_yield.ypr_population <- function(object, y = "Yield", pi = seq(0, 1, le
   xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
   x <- if (u) "u" else "pi"
 
-  ggplot(data = data, aes_string(x = x, y = y)) +
+  ggplot2::ggplot(data = data, ggplot2::aes_string(x = x, y = y)) +
     (
       if (plot_values) {
         list(
-          geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted"),
-          scale_color_manual(values = c("red", "blue"))
+          ggplot2::geom_path(
+            data = data2,
+            ggplot2::aes_string(
+              group = "Type",
+              color = "Type"
+            ),
+            linetype = "dotted"
+          ),
+          ggplot2::scale_color_manual(values = c("red", "blue"))
         )
       } else {
         NULL
       }) +
-    geom_line() +
-    expand_limits(x = 0) +
-    scale_x_continuous(xlab, labels = scales::percent) +
+    ggplot2::geom_line() +
+    ggplot2::expand_limits(x = 0) +
+    ggplot2::scale_x_continuous(xlab, labels = scales::percent) +
     NULL
 }
 
-#' Plot Yield by Exploitation/Capture Probability
-#'
-#' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE'
-#' by the annual interval exploitation/capture probability.
-#'
-#' @inheritParams params
-#' @inheritParams ypr_plot_schedule
-#' @return A ggplot2 object.
-#' @seealso [ypr_populations()] and [ypr_yields()]
+
+#' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
-#' @examples
-#' \dontrun{
-#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)), plot_values = FALSE) +
-#'   ggplot2::facet_wrap(~Llo) +
-#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
-#'   ggplot2::scale_color_manual(values = c("black", "blue"))
-#'
-#' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
-#'   ggplot2::facet_grid(Rk ~ Llo)
-#' }
-ypr_plot_yield.ypr_populations <- function(
-                                           object, y = "Yield", pi = seq(0, 1, length.out = 100),
-                                           Ly = 0, harvest = TRUE, biomass = FALSE, u = harvest, plot_values = TRUE, ...) {
+ypr_plot_yield.ypr_populations <- function(object,
+                                           y = "Yield",
+                                           pi = seq(0, 1, length.out = 100),
+                                           Ly = 0,
+                                           harvest = TRUE,
+                                           biomass = FALSE,
+                                           u = harvest,
+                                           plot_values = TRUE,
+                                           ...) {
+  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
+  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
   chk_string(y)
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)
@@ -281,7 +341,12 @@ ypr_plot_yield.ypr_populations <- function(
     biomass = biomass
   )
 
-  data2 <- ypr_tabulate_yield(object = object, Ly = Ly, harvest = harvest, biomass = biomass)
+  data2 <- ypr_tabulate_yield(
+    object = object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
@@ -310,18 +375,25 @@ ypr_plot_yield.ypr_populations <- function(
   xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
   x <- if (u) "u" else "pi"
 
-  ggplot(data = data, aes_string(x = x, y = y)) +
+  ggplot2::ggplot(data = data, ggplot2::aes_string(x = x, y = y)) +
     (
       if (plot_values) {
         list(
-          geom_path(data = data2, aes_string(group = "Type", color = "Type"), linetype = "dotted"),
-          scale_color_manual(values = c("red", "blue"))
+          ggplot2::geom_path(
+            data = data2,
+            ggplot2::aes_string(
+              group = "Type",
+              color = "Type"
+            ),
+            linetype = "dotted"
+          ),
+          ggplot2::scale_color_manual(values = c("red", "blue"))
         )
       } else {
         NULL
       }) +
-    geom_line() +
-    expand_limits(x = 0) +
-    scale_x_continuous(xlab, labels = scales::percent) +
+    ggplot2::geom_line() +
+    ggplot2::expand_limits(x = 0) +
+    ggplot2::scale_x_continuous(xlab, labels = scales::percent) +
     NULL
 }

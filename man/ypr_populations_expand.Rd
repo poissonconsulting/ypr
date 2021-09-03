@@ -13,11 +13,27 @@ ypr_populations_expand(populations)
 An object of class \code{ypr_population}.
 }
 \description{
-An object of class \code{\link[=ypr_population]{ypr_population()}} of all unique combinations of parameter values.
+An object of class \code{\link[=ypr_population]{ypr_population()}} of all unique combinations of parameter
+values.
 }
 \examples{
-ypr_populations_expand(ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
+ypr_populations_expand(
+  ypr_populations(
+    Rk = c(2.5, 4, 2.5),
+    Hm = c(0.1, 0.2, 0.1)
+  )
+)
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}}
+Other populations: 
+\code{\link{as_ypr_populations}()},
+\code{\link{chilliwack_bt_05}},
+\code{\link{update.ypr_populations}()},
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_population_names}()},
+\code{\link{ypr_populations}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
+\concept{populations}

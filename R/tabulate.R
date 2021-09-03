@@ -3,6 +3,8 @@
 #' @inheritParams params
 #' @return A data.frame of stock-recruitment parameters.
 #' @family tabulate
+#' @family populations
+#' @family sr
 #' @export
 #' @examples
 #' ypr_tabulate_sr(ypr_population()) # Beverton-Holt
@@ -18,6 +20,8 @@ ypr_tabulate_sr <- function(object, ...) {
 #'
 #' @return A data frame.
 #' @family tabulate
+#' @family populations
+#' @family yield
 #' @export
 #' @examples
 #' ypr_tabulate_yield(ypr_population())
@@ -32,10 +36,16 @@ ypr_tabulate_yield <- function(object, ...) {
 #'
 #' @return A data frame.
 #' @family tabulate
+#' @family populations
 #' @export
 #' @examples
 #' ypr_tabulate_yields(ypr_population())
-#' ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 10))
+#' ypr_tabulate_yields(
+#'   ypr_populations(
+#'     Rk = c(3, 5)
+#'   ),
+#'   pi = seq(0, 1, length.out = 10)
+#' )
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
@@ -45,7 +55,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #' @inheritParams params
 #' @return A table of population parameters
 #' @family tabulate
-#' @seealso [ypr_detabulate_parameters()]
+#' @family parameters
 #' @export
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
@@ -77,11 +87,11 @@ ypr_tabulate_parameters <- function(population) {
 
 #' Detabulate Population Parameters
 #'
-#' @param x A data frame with columns Parameter and Value specifying
-#' one or more parameters and their values.
-
+#' @param x A data frame with columns Parameter and Value specifying one or more
+#'   parameters and their values.
 #' @return An object of class [ypr_population()]
-#' @seealso [ypr_tabulate_parameters()]
+#' @family tabulate
+#' @family parameters
 #' @export
 #' @examples
 #' ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
@@ -97,7 +107,12 @@ ypr_detabulate_parameters <- function(x) {
   chk_not_any_na(x$Value)
   chk_range(x$Value, c(min(.parameters$Lower), max(.parameters$Upper)))
 
-  x <- merge(x, .parameters[c("Parameter", "Integer")], by = "Parameter", sort = FALSE)
+  x <- merge(
+    x,
+    .parameters[c("Parameter", "Integer")],
+    by = "Parameter",
+    sort = FALSE
+  )
 
   parameters <- as.list(x$Value)
   names(parameters) <- x$Parameter
@@ -113,14 +128,15 @@ ypr_detabulate_parameters <- function(x) {
 
 #' Tabulate Fish Numbers
 #'
-#' Produces a data frame of the number of fish in the
-#' 'Survivors', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
+#' Produces a data frame of the number of fish in the 'Survivors', 'Spawners',
+#' 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
 #' 'Length', 'Age' or 'Weight' class.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
 #' @return A data frame
 #' @family tabulate
+#' @family fish
 #' @export
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
@@ -163,12 +179,12 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
 #' Tablulate Biomass (and Eggs)
 #'
 #' Produces a data frame of the 'Weight' and 'Fecundity' and the number of
-#' 'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by
-#' 'Age' class.
+#' 'Survivors' and 'Spawners' and the total 'Biomass' and 'Eggs' by 'Age' class.
 #'
 #' @inheritParams params
 #' @return A data frame
 #' @family tabulate
+#' @family biomass
 #' @export
 #' @examples
 #' ypr_tabulate_biomass(ypr_population())
@@ -195,7 +211,12 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
   sr$BH <- object$BH
 
   pi <- object$pi
-  object$pi <- ypr_optimise(object, Ly = Ly, harvest = harvest, biomass = biomass)
+  object$pi <- ypr_optimise(
+    object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
   optimal_sr <- ypr_sr(object)
 
   table <- with(sr, {
@@ -220,7 +241,10 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 
 #' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
 #' @export
-ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
+ypr_tabulate_sr.ypr_populations <- function(object,
+                                            Ly = 0,
+                                            harvest = TRUE,
+                                            biomass = FALSE,
                                             all = FALSE, ...) {
   chk_flag(all)
 
@@ -238,8 +262,13 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
-ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
-                                              type = "both", all = FALSE, ...) {
+ypr_tabulate_yield.ypr_population <- function(object,
+                                              Ly = 0,
+                                              harvest = TRUE,
+                                              biomass = FALSE,
+                                              type = "both",
+                                              all = FALSE,
+                                              ...) {
   chk_string(type)
   chk_subset(type, c("both", "actual", "optimal"))
   actual_pi <- object$pi
@@ -297,8 +326,13 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
-ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biomass = FALSE,
-                                               type = "both", all = FALSE, ...) {
+ypr_tabulate_yield.ypr_populations <- function(object,
+                                               Ly = 0,
+                                               harvest = TRUE,
+                                               biomass = FALSE,
+                                               type = "both",
+                                               all = FALSE,
+                                               ...) {
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield,
@@ -315,8 +349,13 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 
 #' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
-ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out = 100),
-                                               Ly = 0, harvest = TRUE, biomass = FALSE, all = FALSE, ...) {
+ypr_tabulate_yields.ypr_population <- function(object,
+                                               pi = seq(0, 1, length.out = 100),
+                                               Ly = 0,
+                                               harvest = TRUE,
+                                               biomass = FALSE,
+                                               all = FALSE,
+                                               ...) {
   chk_number(Ly)
   chk_numeric(pi)
   chk_not_empty(pi)
@@ -335,9 +374,13 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 
 #' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
-ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.out = 100),
-                                                Ly = 0, harvest = TRUE, biomass = FALSE,
-                                                all = FALSE, ...) {
+ypr_tabulate_yields.ypr_populations <- function(object,
+                                                pi = seq(0, 1, length.out = 100),
+                                                Ly = 0,
+                                                harvest = TRUE,
+                                                biomass = FALSE,
+                                                all = FALSE,
+                                                ...) {
   chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yields,

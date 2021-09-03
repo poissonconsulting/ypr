@@ -26,7 +26,6 @@ Imports:
     graphics,
     lifecycle,
     purrr,
-    scales,
     stats,
     tools,
     yesno
@@ -35,8 +34,11 @@ Suggests:
     knitr,
     rmarkdown,
     rstudioapi,
-    testthat,
-    tidyr
+    scales,
+    testthat (>= 3.0.0),
+    tidyr,
+    usethis,
+    withr
 VignetteBuilder: 
     knitr
 ByteCompile: true
@@ -45,3 +47,4 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Config/testthat/edition: 3

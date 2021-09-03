@@ -29,17 +29,21 @@ ypr_tabulate_yield(object, ...)
 )
 }
 \arguments{
-\item{object}{The populations or populations.}
+\item{object}{The population or populations.}
 
 \item{...}{Unused parameters.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
-\item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
+\item{type}{A string indicating whether to include 'both' or just the
+'actual' or 'optimal' yield.}
 
 \item{all}{A flag specifying whether to include all parameter values.}
 }
@@ -62,10 +66,31 @@ ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 }
 \seealso{
 Other tabulate: 
+\code{\link{ypr_detabulate_parameters}()},
+\code{\link{ypr_report}()},
 \code{\link{ypr_tabulate_biomass}()},
 \code{\link{ypr_tabulate_fish}()},
 \code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_schedule}()},
 \code{\link{ypr_tabulate_sr}()},
 \code{\link{ypr_tabulate_yields}()}
+
+Other populations: 
+\code{\link{as_ypr_populations}()},
+\code{\link{chilliwack_bt_05}},
+\code{\link{update.ypr_populations}()},
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_population_names}()},
+\code{\link{ypr_populations_expand}()},
+\code{\link{ypr_populations}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()}
+
+Other yield: 
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_yields}()},
+\code{\link{ypr_yield}()}
 }
+\concept{populations}
 \concept{tabulate}
+\concept{yield}

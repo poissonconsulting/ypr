@@ -17,12 +17,23 @@ ypr_plot_biomass(population, y = "Biomass", color = NULL)
 A ggplot2 object.
 }
 \description{
-Produces a frequency histogram of the total fish 'Biomass' or 'Eggs' deposition by
-'Age' class.
+Produces a frequency histogram of the total fish 'Biomass' or 'Eggs'
+deposition by 'Age' class.
 }
 \examples{
 ypr_plot_biomass(ypr_population(), color = "white")
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[ggplot2:geom_histogram]{ggplot2::geom_histogram()}}
+\code{\link[ggplot2:geom_histogram]{ggplot2::geom_histogram()}}
+
+Other biomass: 
+\code{\link{ypr_tabulate_biomass}()}
+
+Other plot: 
+\code{\link{ypr_plot_fish}()},
+\code{\link{ypr_plot_schedule}()},
+\code{\link{ypr_plot_sr}()},
+\code{\link{ypr_plot_yield}()}
 }
+\concept{biomass}
+\concept{plot}

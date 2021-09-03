@@ -51,7 +51,8 @@ ypr_population(
 
 \item{Linf2}{The VB mean maximum length after length L2 (cm).}
 
-\item{L2}{The length (or age if negative) at which growth switches from the first to second phase (cm or yr).}
+\item{L2}{The length (or age if negative) at which growth switches from the
+first to second phase (cm or yr).}
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
@@ -75,9 +76,11 @@ ypr_population(
 
 \item{nL}{The annual interval natural mortality rate from length Ln.}
 
-\item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).}
+\item{Ln}{The length  (or age if negative) at which the natural mortality
+rate switches from n to nL (cm or yr).}
 
-\item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest (cm or yr).}
+\item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest
+(cm or yr).}
 
 \item{Vp}{The vulnerability to harvest (as a function of length) power.}
 
@@ -99,7 +102,8 @@ ypr_population(
 
 \item{fa}{The (theoretical) fecundity of a 1 g female (eggs).}
 
-\item{q}{The catchability (annual probability of capture) for a unit of effort.}
+\item{q}{The catchability (annual probability of capture) for a unit of
+effort.}
 }
 \value{
 An object of class \code{ypr_population}.
@@ -109,8 +113,4 @@ Generates an object of class \code{ypr_population}.
 }
 \examples{
 ypr_population(k = 0.1, Linf = 90)
-}
-\seealso{
-\code{\link[=ypr_population_update]{ypr_population_update()}}, \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}},
-\code{\link[=ypr_yield]{ypr_yield()}} and \code{\link[=ypr_optimize]{ypr_optimize()}}.
 }

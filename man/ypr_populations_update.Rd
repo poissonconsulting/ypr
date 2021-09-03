@@ -10,7 +10,7 @@
 ypr_populations_update(populations, ...)
 }
 \arguments{
-\item{object}{The populations or populations.}
+\item{object}{The population or populations.}
 
 \item{...}{One or more of the arguments from \code{ypr_population()}.}
 
@@ -31,5 +31,15 @@ Updates an object of class \code{\link[=ypr_population]{ypr_population()}}.
 ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}}
+Other populations: 
+\code{\link{as_ypr_populations}()},
+\code{\link{chilliwack_bt_05}},
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_population_names}()},
+\code{\link{ypr_populations_expand}()},
+\code{\link{ypr_populations}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
+\concept{populations}

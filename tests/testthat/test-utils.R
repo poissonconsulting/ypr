@@ -92,5 +92,9 @@ test_that("ypr_age_at_length", {
 
   expect_equal(ypr_length_at_age(pop, ypr_age_at_length(pop, seq)), seq)
 
-  expect_equal(ypr_age_at_length(ypr_population(Linf = 43.9, k = 0.54, t0 = 0.65), 7.560172), 1, tolerance = 1e-07)
+  expect_equal(
+    ypr_age_at_length(ypr_population(Linf = 43.9, k = 0.54, t0 = 0.65), 7.560172),
+    1,
+    tolerance = 1e-07
+  )
 })

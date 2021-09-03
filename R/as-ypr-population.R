@@ -2,7 +2,6 @@
 #'
 #' @inheritParams params
 #' @export
-#'
 #' @examples
 #' as_ypr_population(as.data.frame(ypr_population()))
 as_ypr_population <- function(x, ...) UseMethod("as_ypr_population")

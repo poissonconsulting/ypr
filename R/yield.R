@@ -1,4 +1,8 @@
-yield <- function(schedule, population, Ly = 0, harvest = TRUE, biomass = FALSE) {
+yield <- function(schedule,
+                  population,
+                  Ly = 0,
+                  harvest = TRUE,
+                  biomass = FALSE) {
   schedule <- as.list(schedule)
 
   schedule$pi <- population$pi
@@ -43,12 +47,14 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #'
 #' Calculates the yield for a population.
 #'
-#' By default, with `Rmax = 1` the number of individuals is the proportion of the recruits at the carrying capacity.
-#' If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of `Wa` (g).
+#' By default, with `Rmax = 1` the number of individuals is the proportion of
+#' the recruits at the carrying capacity. If the yield is given in terms of the
+#' biomass (kg) then the scaling also depends on the value of `Wa` (g).
 #'
 #' @inheritParams params
 #' @return The yield as number of fish or biomass.
-#' @seealso [ypr_population()] and [ypr_optimize()]
+#' @family yield
+#' @family calculate
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
@@ -61,7 +67,13 @@ ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
 
   schedule <- ypr_tabulate_schedule(population)
 
-  yield <- yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
+  yield <- yield(
+    schedule,
+    population,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   sanitize(yield)
 }

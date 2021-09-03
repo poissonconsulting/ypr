@@ -30,3 +30,9 @@ Returns a single rowed data frame of the SR parameters:
 ypr_sr(ypr_population()) # Beverton-Holt
 ypr_sr(ypr_population(BH = 0L)) # Ricker
 }
+\seealso{
+Other sr: 
+\code{\link{ypr_plot_sr}()},
+\code{\link{ypr_tabulate_sr}()}
+}
+\concept{sr}

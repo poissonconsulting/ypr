@@ -5,8 +5,6 @@
 #' @inheritParams params
 #' @param pi The annual capture probability.
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population_update()], [ypr_tabulate_schedule()],
-#' [ypr_yield()] and [ypr_optimize()].
 #' @export
 #' @examples
 #' ypr_population(k = 0.1, Linf = 90)
@@ -34,7 +32,6 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #' @inheritParams params
 #' @param ... One or more of the arguments from `ypr_population()`.
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_population_update(ypr_population(), Rk = 2.5)
@@ -53,7 +50,7 @@ ypr_population_update <- function(population, ...) {
 #' @inheritParams params
 #' @param ... One or more of the arguments from `ypr_population()`.
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population()]
+#' @family populations
 #' @export
 #' @examples
 #' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
@@ -66,14 +63,20 @@ ypr_populations_update <- function(populations, ...) {
 
 #' Expand Populations
 #'
-#' An object of class [ypr_population()] of all unique combinations of parameter values.
+#' An object of class [ypr_population()] of all unique combinations of parameter
+#' values.
 #'
 #' @inheritParams params
 #' @return An object of class `ypr_population`.
-#' @seealso [ypr_population()]
+#' @family populations
 #' @export
 #' @examples
-#' ypr_populations_expand(ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
+#' ypr_populations_expand(
+#'   ypr_populations(
+#'     Rk = c(2.5, 4, 2.5),
+#'     Hm = c(0.1, 0.2, 0.1)
+#'   )
+#' )
 ypr_populations_expand <- function(populations) {
   populations <- as.data.frame(populations)
   populations <- unique(populations)
@@ -90,7 +93,7 @@ ypr_populations_expand <- function(populations) {
 #' @inheritParams ypr_population_update
 #'
 #' @return A list of [ypr_population()] objects
-#' @seealso [ypr_population()]
+#' @family populations
 #' @export
 #' @examples
 #' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
@@ -140,21 +143,41 @@ ypr_populations <- function(..., expand = TRUE) {
 #' @inheritParams params
 #'
 #' @return A character vector of the unique population names.
+#' @family populations
 #' @export
-#'
 #' @examples
 #' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
 ypr_population_names <- function(populations) {
   populations <- as.data.frame(populations)
-  populations <- populations[, vapply(populations, FUN = function(x) length(unique(x)) > 1, TRUE)]
+  populations <- populations[, vapply(
+    populations,
+    FUN = function(x) length(unique(x)) > 1,
+    TRUE
+  )]
   if (!ncol(populations)) {
-    return(paste0("Popn_", 1:nrow(populations)))
+    return(paste0("Popn_", seq_len(nrow(populations))))
   }
   populations <- as.list(populations)
-  populations <- map(populations, .sub, pattern = "[.]", replacement = "_")
-  populations <- map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
-  populations <- transpose(populations)
-  populations <- map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
+  populations <- purrr::map(
+    populations,
+    .sub,
+    pattern = "[.]",
+    replacement = "_"
+  )
+  populations <- purrr::map2(
+    populations,
+    names(populations),
+    function(x, y) paste(y, x, sep = "_")
+  )
+  populations <- purrr::transpose(populations)
+  populations <- purrr::map(
+    populations,
+    function(x) {
+      paste0(unname(unlist(x)),
+        collapse = "_"
+      )
+    }
+  )
   names <- unlist(populations)
   duplicates <- unique(names[duplicated(names)])
   for (duplicate in duplicates) {

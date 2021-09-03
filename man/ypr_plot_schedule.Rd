@@ -23,5 +23,14 @@ Produces a bivariate line plot of two schedule terms.
 ypr_plot_schedule(ypr_population())
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}}
+Other schedule: 
+\code{\link{ypr_tabulate_schedule}()}
+
+Other plot: 
+\code{\link{ypr_plot_biomass}()},
+\code{\link{ypr_plot_fish}()},
+\code{\link{ypr_plot_sr}()},
+\code{\link{ypr_plot_yield}()}
 }
+\concept{plot}
+\concept{schedule}

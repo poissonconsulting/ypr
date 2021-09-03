@@ -4,7 +4,8 @@
 #'
 #' @inheritParams params
 #' @return A tibble of the life-history schedule by age.
-#' @seealso [ypr_population()]
+#' @family tabulate
+#' @family schedule
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())
@@ -18,13 +19,15 @@ ypr_tabulate_schedule <- function(population) {
     W <- Wa * L^Wb
     E <- fa * W^fb
     if (Ls < 0) Ls <- length_at_age(population, -Ls)
-    S <- exp(log(L / 1000) * Sp) / (exp(log(Ls / 1000) * Sp) + exp(log(L / 1000) * Sp)) * es
+    S <- exp(log(L / 1000) * Sp) / (exp(log(Ls / 1000) * Sp) +
+      exp(log(L / 1000) * Sp)) * es
     N <- rep(n, nt)
     if (Ln < 0) Ln <- length_at_age(population, -Ln)
     N[L >= Ln] <- nL
     N <- 1 - ((1 - N) * (1 - S * Sm))
     if (Lv < 0) Lv <- length_at_age(population, -Lv)
-    V <- exp(log(L / 1000) * Vp) / (exp(log(Lv / 1000) * Vp) + exp(log(L / 1000) * Vp))
+    V <- exp(log(L / 1000) * Vp) / (exp(log(Lv / 1000) * Vp) +
+      exp(log(L / 1000) * Vp))
     C <- pi * V
     R <- rep(1 - rho, nt)
     R[L < Llo | L > Lup] <- Nc

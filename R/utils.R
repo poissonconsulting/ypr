@@ -22,7 +22,9 @@ age_at_length <- function(population, length) {
     if (L2 < 0) L2 <- Linf * (1 - exp(-k * (-L2 - t0)))
     t <- -log(1 - pmin(length / Linf, 1)) / k + t0
     t2 <- -log(1 - pmin(L2 / Linf, 1)) / k + t0
-    t[t > t2] <- -log(1 - pmin((length[t > t2] - L2) / (Linf2 - L2), 1)) / k2 + t2
+    t[t > t2] <- -log(1 - pmin((length[t > t2] - L2) /
+      (Linf2 - L2), 1)) /
+      k2 + t2
     t
   })
 }
@@ -30,10 +32,9 @@ age_at_length <- function(population, length) {
 #' Length At Age
 #'
 #' @inheritParams params
-#'
 #' @return A double vector of the lengths.
+#' @family calculate
 #' @export
-#'
 #' @examples
 #' ypr_length_at_age(ypr_population(), seq(0, 5, by = 0.5))
 ypr_length_at_age <- function(population, age) {
@@ -48,10 +49,9 @@ ypr_length_at_age <- function(population, age) {
 #' Age At Length
 #'
 #' @inheritParams params
-#'
 #' @return A double vector of the lengths.
+#' @family calculate
 #' @export
-#'
 #' @examples
 #' ypr_age_at_length(ypr_population(), seq(0, 100, by = 10))
 ypr_age_at_length <- function(population, length) {

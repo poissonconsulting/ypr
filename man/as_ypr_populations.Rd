@@ -25,3 +25,16 @@ Coerce to a Populations Parameter Object
 \examples{
 as_ypr_populations(as.data.frame(ypr_populations(Rk = c(3, 4))))
 }
+\seealso{
+Other populations: 
+\code{\link{chilliwack_bt_05}},
+\code{\link{update.ypr_populations}()},
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_population_names}()},
+\code{\link{ypr_populations_expand}()},
+\code{\link{ypr_populations}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
+}
+\concept{populations}
