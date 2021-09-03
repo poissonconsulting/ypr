@@ -1,4 +1,4 @@
-## Taken from usethis package https://usethis.r-lib.org/index.html
+## Inspiration from usethis package https://usethis.r-lib.org/index.html
 ## If session temp directory appears to be, or be within, a project, there
 ## will be large scale, spurious test failures.
 ## The IDE sometimes leaves .Rproj files behind in session temp directory or
@@ -39,7 +39,6 @@ create_local_package <- function(dir = tempfile(pattern = "testpkg"),
 
   invisible(usethis::proj_get())
 }
-
 
 proj <- new.env(parent = emptyenv())
 
