@@ -36,7 +36,7 @@ Suggests:
     rmarkdown,
     rstudioapi,
     scales,
-    testthat,
+    testthat (>= 3.0.0),
     tidyr,
     usethis,
     withr
@@ -48,3 +48,4 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Config/testthat/edition: 3
