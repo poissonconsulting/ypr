@@ -75,7 +75,8 @@ ypr_populations_update <- function(populations, ...) {
 #'   ypr_populations(
 #'     Rk = c(2.5, 4, 2.5),
 #'     Hm = c(0.1, 0.2, 0.1)
-#' ))
+#'   )
+#' )
 ypr_populations_expand <- function(populations) {
   populations <- as.data.frame(populations)
   populations <- unique(populations)

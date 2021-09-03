@@ -60,14 +60,15 @@ ypr_report <- function(population,
     return(invisible(character(0)))
   }
 
-  data <- list(title = title,
-               date = date,
-               description = description,
-               population = lines_population(population),
-               Ly = Ly,
-               harvest = harvest,
-               biomass = biomass
-               )
+  data <- list(
+    title = title,
+    date = date,
+    description = description,
+    population = lines_population(population),
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
   usethis::use_template(
     template = "template-report.Rmd",

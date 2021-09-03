@@ -42,8 +42,9 @@ ypr_tabulate_yield <- function(object, ...) {
 #' ypr_tabulate_yields(ypr_population())
 #' ypr_tabulate_yields(
 #'   ypr_populations(
-#'     Rk = c(3, 5)),
-#'     pi = seq(0, 1, length.out = 10)
+#'     Rk = c(3, 5)
+#'   ),
+#'   pi = seq(0, 1, length.out = 10)
 #' )
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")

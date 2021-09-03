@@ -1,5 +1,4 @@
 test_that("yield", {
-
   expect_equal(
     ypr_yield(ypr_population(n = ypr:::inst2inter(0.2))),
     0.03493376,
@@ -18,7 +17,8 @@ test_that("yield", {
     ypr_yield(ypr_population(rho = 0.4, n = ypr:::inst2inter(0.2))),
     ypr_yield(ypr_population(pi = 0.2 * 0.6, n = ypr:::inst2inter(0.2))),
     tolerance = 1e-06,
-    ignore_attr = TRUE)
+    ignore_attr = TRUE
+  )
 
   expect_equal(
     ypr_yield(ypr_population(rho = 0.4, n = ypr:::inst2inter(0.2)), harvest = FALSE),

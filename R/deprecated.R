@@ -13,6 +13,7 @@ ypr_schedule <- function(population) {
   lifecycle::deprecate_warn(
     when = "0.4.0",
     what = "ypr_schedule()",
-    with = "ypr_tabulate_schedule()")
+    with = "ypr_tabulate_schedule()"
+  )
   ypr_tabulate_schedule(population)
 }
