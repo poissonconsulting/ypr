@@ -5,20 +5,19 @@
 ## one of its parents.
 ## Delete such files manually.
 
-create_local_package <- function(dir = fs::file_temp(pattern = "testpkg"),
-                                 env = parent.frame(),
-                                 rstudio = FALSE) {
-  thing <- "package"
+create_local_package <- function(dir = tempfile(pattern = "testpkg"),
+                                 env = parent.frame()
+                                 ) {
 
   old_project <- proj_get_() # this could be `NULL`, i.e. no active project
   old_wd <- getwd()          # not necessarily same as `old_project`
 
-  withr::defer({fs::dir_delete(dir)}, envir = env)
+  withr::defer({unlink(dir, recursive=TRUE)}, envir = env)
 
-  usethis::ui_silence(
+  withr::with_options(list(usethis.quiet = TRUE),
     usethis::create_package(
       dir,
-      rstudio = rstudio,
+      rstudio = FALSE,
       open = FALSE,
       check_name = FALSE
     )

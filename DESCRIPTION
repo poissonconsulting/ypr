@@ -31,7 +31,6 @@ Imports:
     yesno
 Suggests:
     covr,
-    fs,
     knitr,
     rmarkdown,
     rstudioapi,
