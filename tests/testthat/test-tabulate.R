@@ -64,7 +64,7 @@ test_that("ypr_tabulate_yield", {
 
   expect_identical(yields$pi[1:2], c(0, 1 / 9))
   expect_equal(yields$Effort[1:2], c(0, 1.117905), tolerance = 1e-07)
-  expect_equal(yields$Yield[1:2], c(0, 0.0738), tolerance = 1e-04)
+  expect_equal(yields$Yield[1:2], c(0, 0.0738), tolerance = 1e-03)
   expect_equal(yields$Weight[1:2], c(NA, 3057.662), tolerance = 1e-07)
 
   yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 2))
@@ -104,7 +104,7 @@ test_that("ypr_tabulate_yield", {
     "Harvested", "Released", "HandlingMortalities"
   ))
   expect_identical(fish[[1]], as.double(1:20))
-  expect_equal(fish$Survivors[1:2], c(0.134, 0.110), tolerance = 0.001)
+  expect_equal(fish$Survivors[1:2], c(0.134, 0.110), tolerance = 0.01)
 
   fish <- ypr_tabulate_fish(ypr_population(), x = "Length")
   expect_identical(colnames(fish), c(

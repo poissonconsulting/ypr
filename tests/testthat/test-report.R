@@ -3,7 +3,7 @@ test_that("report", {
   # used to create temp package for testing
   create_local_package()
   report <- ypr_report(ypr_population(), ask = FALSE)
-  expect_is(report, "character")
+  expect_type(report, "character")
   expect_identical(report[1], "---")
   expect_identical(report[2], "title: \"Population Report\"")
   expect_identical(report[55], "ypr_plot_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)")
@@ -15,7 +15,7 @@ test_that("report setting yield parameters", {
   # used to create temp package for testing
   create_local_package()
   report <- ypr_report(ypr_population(), Ly = 10, harvest = FALSE, biomass = TRUE, file = "file1", ask = FALSE)
-  expect_is(report, "character")
+  expect_type(report, "character")
   expect_identical(report[55], "ypr_plot_yield(population, Ly = 10, harvest = FALSE, biomass = TRUE)")
   expect_identical(report[56], "knitr::kable(ypr_tabulate_yield(population, Ly = 10, harvest = FALSE, biomass = TRUE))")
 })
