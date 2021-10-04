@@ -6,8 +6,10 @@
 #'   population
 #' @param weights A numeric vector giving the weighting for how much it
 #'   contributes to the overall population
+#' @param names A character vector providing names for each ecotype. Default is
+#'   NULL.
 #' @export
-as_ypr_ecotypes <- function(populations, weights) {
+as_ypr_ecotypes <- function(populations, weights, names = NULL) {
 
   chk::chk_s3_class(populations, "ypr_populations")
   chk::check_dim(populations, values = TRUE)
@@ -22,11 +24,27 @@ as_ypr_ecotypes <- function(populations, weights) {
                           " do not match. ", length(populations), " != ",
                           length(weights)))
   }
+
+  chk::chk_null_or(names, vld = chk::vld_character)
+  if (!is.null(names)) {
+    if (!chk::vld_equal(length(populations), length(names))) {
+      chk::abort_chk(paste0("Length of ", deparse(substitute(populations)),
+                            " and ", deparse(substitute(names)),
+                            " do not match. ", length(populations), " != ",
+                            length(names)))
+    }
+  }
+
   # convert weights into percents
   weights <- weights / sum(weights)
   ecotype <- populations
 
-  class(ecotype) <- c("ypr_ecotype")
+  class(ecotype) <- c("ypr_ecotypes")
   attr(ecotype, "weights") <- weights
+
+  if (!is.null(names)) {
+    names(ecotype) <- names
+  }
+
   ecotype
 }

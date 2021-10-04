@@ -67,7 +67,7 @@ test_that("outputs ecotype class object", {
   populations <- chilliwack_bt_05
   weights <- c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
   ecotype <- as_ypr_ecotypes(populations, weights)
-  expect_s3_class(ecotype, "ypr_ecotype")
+  expect_s3_class(ecotype, "ypr_ecotypes")
   expect_equal(
     attr(ecotype, "weights"),
     rep(0.08333333, 12),
@@ -98,7 +98,30 @@ test_that("outputs proper wieght proportions when not all even", {
   )
 })
 
+test_that("ecotypes names can be null and default names are used", {
+  pops <- ypr_populations_update(ypr_populations(Rk = c(2.5, 4)))
+  ecotypes <- as_ypr_ecotypes(pops, c(1, 2))
+  expect_named(ecotypes, c("Rk_2_5", "Rk_4"))
+})
 
+test_that("ecotypes names are provided and output as the names", {
+  pops <- ypr_populations_update(ypr_populations(Rk = c(2.5, 4)))
+  ecotypes <- as_ypr_ecotypes(pops,  c(1, 2), c("small", "big"))
+  expect_named(ecotypes, c("small", "big"))
+})
 
+test_that("ecotypes names fail as too many passed", {
+  pops <- ypr_populations_update(ypr_populations(Rk = c(2.5, 4)))
+  expect_error(
+    as_ypr_ecotypes(pops,  c(1, 2), c("small", "big", "bigger")),
+    'Length of pops and c\\("small", "big", "bigger"\\) do not match. 2 != 3.'
+  )
+})
 
-
+test_that("ecotypes names fail as not enough are passed", {
+  pops <- ypr_populations_update(ypr_populations(Rk = c(2.5, 4)))
+  expect_error(
+    as_ypr_ecotypes(pops,  c(1, 2), c("small")),
+    'Length of pops and c\\("small"\\) do not match. 2 != 1.'
+  )
+})
