@@ -48,7 +48,7 @@ ypr_plot_yield <- function(object, ...) {
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
-  schedule <- ypr_tabulate_schedule(population = population)
+  schedule <- ypr_tabulate_schedule(object = population)
 
   chk_string(x)
   chk_subset(x, values = colnames(schedule))
