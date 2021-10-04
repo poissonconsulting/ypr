@@ -2,7 +2,6 @@
 #'
 #' Creates an object of class ecotype.
 #'
-#' @inheritParams params
 #' @param populations A list with all parameters for each ecotype in the
 #'   population
 #' @param weights A numeric vector giving the weighting for how much it
