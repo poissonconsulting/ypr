@@ -4,6 +4,7 @@
 \alias{ypr_tabulate_yield}
 \alias{ypr_tabulate_yield.ypr_population}
 \alias{ypr_tabulate_yield.ypr_populations}
+\alias{ypr_tabulate_yield.ypr_ecotype}
 \title{Tabulate Yield}
 \usage{
 ypr_tabulate_yield(object, ...)
@@ -19,6 +20,16 @@ ypr_tabulate_yield(object, ...)
 )
 
 \method{ypr_tabulate_yield}{ypr_populations}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  type = "both",
+  all = FALSE,
+  ...
+)
+
+\method{ypr_tabulate_yield}{ypr_ecotype}(
   object,
   Ly = 0,
   harvest = TRUE,
@@ -58,6 +69,8 @@ Tabulate Yield
 \item \code{ypr_population}: Tabulate Yield
 
 \item \code{ypr_populations}: Tabulate Yield
+
+\item \code{ypr_ecotype}: Tabulate Yield
 }}
 
 \examples{
