@@ -351,14 +351,14 @@ ypr_tabulate_yield.ypr_populations <- function(object,
 
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
-ypr_tabulate_yield.ypr_ecotype <- function(object,
+ypr_tabulate_yield.ypr_ecotypes <- function(object,
                                             Ly = 0,
                                             harvest = TRUE,
                                             biomass = FALSE,
                                             type = "both",
                                             all = FALSE,
                                             ...) {
-  chk_flag(all)
+  chk::chk_flag(all)
 
   yield <- lapply(object, ypr_tabulate_yield,
                   Ly = Ly, harvest = harvest,
@@ -366,11 +366,14 @@ ypr_tabulate_yield.ypr_ecotype <- function(object,
   )
 
   weights <- attr(object, "weights")
+  eco_names <- names(object)
 
-  yield <- mapply(function(yield, weights) {
-    yield |> dplyr::mutate(Weighting = weights)
+  yield <- mapply(function(yield, weights, eco_names) {
+    yield[["Ecotype"]] <- eco_names
+    yield[["Weighting"]] <- weights
+    yield
 
-  }, yield, weights, SIMPLIFY = FALSE)
+  }, yield, weights, eco_names, SIMPLIFY = FALSE)
 
   yield <- do.call("rbind", yield)
   if (!all) yield <- drop_constant_parameters(yield)
