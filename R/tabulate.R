@@ -360,6 +360,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                                             average = TRUE,
                                             ...) {
   chk::chk_flag(all)
+  chk::chk_flag(average)
 
   yield <- lapply(object, ypr_tabulate_yield,
                   Ly = Ly, harvest = harvest,
