@@ -1,9 +1,12 @@
 #' Ecotype Parameters
 #'
+#' Creates an object of class ecotype.
 #'
 #' @inheritParams params
-#' @param populations A list with all your population parameters per
-#' @param ratios A vector or list containing the ratio for ecotype
+#' @param populations A list with all parameters for each ecotype in the
+#'   population
+#' @param weights A numeric vector giving the weighting for how much it
+#'   contributes to the overall population
 #' @export
 as_ypr_ecotypes <- function(populations, weights) {
 
@@ -22,19 +25,9 @@ as_ypr_ecotypes <- function(populations, weights) {
   }
   # convert weights into percents
   weights <- weights / sum(weights)
+  ecotype <- populations
 
-
-
-
-
+  class(ecotype) <- c("ypr_ecotype")
+  attr(ecotype, "weights") <- weights
+  ecotype
 }
-
-# testing
-a <- ypr::chilliwack_bt_05
-
-a <- ypr::ypr_populations(Hm = c(0.2, 0.05))
-
-ypr_ecotypes(a, c(1, 4, 3))
-
-
-
