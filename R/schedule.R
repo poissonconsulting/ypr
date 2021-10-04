@@ -9,7 +9,14 @@
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())
-ypr_tabulate_schedule <- function(population) {
+ypr_tabulate_schedule <- function(object) {
+  UseMethod("ypr_tabulate_schedule")
+}
+
+#' @describeIn ypr_tabulate_schedule Tabulate Schedule
+#' @export
+ypr_tabulate_schedule.ypr_population <- function(object) {
+  population <- object
   chk_population(population)
 
   schedule <- with(population, {
