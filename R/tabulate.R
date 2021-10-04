@@ -347,9 +347,9 @@ ypr_tabulate_yield.ypr_populations <- function(object,
   as_tibble(yield)
 }
 
-
-
 #' @describeIn ypr_tabulate_yield Tabulate Yield
+#' @param average A flag to either give each ecotype separately or averaged
+#'   based on the proportions
 #' @export
 ypr_tabulate_yield.ypr_ecotypes <- function(object,
                                             Ly = 0,
@@ -357,6 +357,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                                             biomass = FALSE,
                                             type = "both",
                                             all = FALSE,
+                                            average = TRUE,
                                             ...) {
   chk::chk_flag(all)
 
@@ -370,7 +371,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
 
   yield <- mapply(function(yield, weights, eco_names) {
     yield[["Ecotype"]] <- eco_names
-    yield[["Weighting"]] <- weights
+    yield[["Proportions"]] <- weights
     yield
 
   }, yield, weights, eco_names, SIMPLIFY = FALSE)
@@ -378,7 +379,61 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
   yield <- do.call("rbind", yield)
   if (!all) yield <- drop_constant_parameters(yield)
   as_tibble(yield)
+
+  if (!average) {
+    return(yield)
+  }
+
+  yield <- average_ecotypes(yield)
+  yield
+
 }
+
+
+average_ecotypes <- function(yield) {
+
+  y <- yield %>%
+    dplyr::mutate(pi = pi * Weighting,
+                  u = u * Weighting,
+                  Yield = Yield * Weighting,
+                  Age = Age * Weighting,
+                  Length = Length * Weighting,
+                  Effort = Effort * Weighting,
+                  Rk = Rk * Weighting)
+
+  y1 <- y %>%
+    dplyr::filter(Type == "actual") %>%
+    dplyr::mutate(pi = sum(pi),
+                  u = sum(u),
+                  Yield = sum(Yield),
+                  Age = sum(Age),
+                  Length = sum(Length),
+                  Weight = sum(Weight),
+                  Effort = sum(Effort),
+                  Rk = sum(Rk)) %>%
+    dplyr::slice_head(n = 1) %>%
+    dplyr::mutate(Ecotype = "all",
+                  Weighting = 1)
+
+
+  y2 <- y %>%
+    dplyr::filter(Type == "optimal") %>%
+    dplyr::mutate(pi = sum(pi),
+                  u = sum(u),
+                  Yield = sum(Yield),
+                  Age = sum(Age),
+                  Length = sum(Length),
+                  Weight = sum(Weight),
+                  Effort = sum(Effort),
+                  Rk = sum(Rk)) %>%
+    dplyr::slice_head(n = 1) %>%
+    dplyr::mutate(Ecotype = "all",
+                  Weighting = 1)
+
+  yield <- dplyr::bind_rows(y1, y2)
+  yield
+}
+
 
 
 
