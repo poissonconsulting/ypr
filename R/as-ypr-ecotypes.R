@@ -8,8 +8,12 @@
 #'   contributes to the overall population
 #' @param names A character vector providing names for each ecotype. Default is
 #'   NULL.
+#' @examples
+#' as_ypr_ecotypes()
 #' @export
-as_ypr_ecotypes <- function(populations, weights, names = NULL) {
+as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
+                            weights = c(0.5, 0.5),
+                            names = NULL) {
 
   chk::chk_s3_class(populations, "ypr_populations")
   chk::check_dim(populations, values = TRUE)
