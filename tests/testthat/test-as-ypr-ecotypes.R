@@ -15,9 +15,8 @@ test_that("ecotype erros with a list", {
 })
 
 test_that("ecotype errors when incorrect weight parameters given", {
-  populations <- chilliwack_bt_05
   expect_error(
-    as_ypr_ecotypes(populations, c("a", "b", "c")),
+    as_ypr_ecotypes(weights = c("a", "b")),
     "`weights` must be numeric."
   )
 })
@@ -114,5 +113,17 @@ test_that("ecotypes names fail as not enough are passed", {
   expect_error(
     as_ypr_ecotypes(populations,  c(1, 2), c("small")),
     'Length of populations and c\\("small"\\) do not match. 2 != 1.'
+  )
+})
+
+test_that("ecotypes will throw error if constant values are not the same", {
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Rk = c(10, 20))),
+    "Rk must be the same across all ecotypes."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(pi = c(0.1, 0.2))),
+    "Pi must be the same across all ecotypes."
   )
 })
