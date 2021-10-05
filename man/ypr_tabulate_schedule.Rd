@@ -2,12 +2,18 @@
 % Please edit documentation in R/schedule.R
 \name{ypr_tabulate_schedule}
 \alias{ypr_tabulate_schedule}
+\alias{ypr_tabulate_schedule.ypr_population}
+\alias{ypr_tabulate_schedule.ypr_ecotypes}
 \title{Life-History Schedule}
 \usage{
-ypr_tabulate_schedule(population)
+ypr_tabulate_schedule(object)
+
+\method{ypr_tabulate_schedule}{ypr_population}(object)
+
+\method{ypr_tabulate_schedule}{ypr_ecotypes}(object)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 }
 \value{
 A tibble of the life-history schedule by age.
@@ -15,6 +21,13 @@ A tibble of the life-history schedule by age.
 \description{
 Generates the life-history schedule by age for a population.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Tabulate Schedule
+
+\item \code{ypr_ecotypes}: Tabulate Schedule
+}}
+
 \examples{
 ypr_tabulate_schedule(ypr_population())
 }

@@ -36,6 +36,7 @@ ypr_tabulate_yield(object, ...)
   biomass = FALSE,
   type = "both",
   all = FALSE,
+  average = TRUE,
   ...
 )
 }
@@ -57,6 +58,9 @@ the biomass versus number of individuals.}
 'actual' or 'optimal' yield.}
 
 \item{all}{A flag specifying whether to include all parameter values.}
+
+\item{average}{A flag to either give each ecotype separately or averaged
+based on the proportions}
 }
 \value{
 A data frame.
