@@ -9,45 +9,41 @@
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())
-ypr_tabulate_schedule <- function(object) {
+ypr_tabulate_schedule <- function(object, ...) {
   UseMethod("ypr_tabulate_schedule")
 }
 
 #' @describeIn ypr_tabulate_schedule Tabulate Schedule
 #' @export
-ypr_tabulate_schedule.ypr_population <- function(object) {
-  population <- object
-  chk_population(population)
+ypr_tabulate_schedule.ypr_population <- function(object, ...) {
+  chk::chk_unused(...)
+  chk_population(object)
 
-  schedule <- math(population)
+  schedule <- impl_tabulate_schedule(object)
 
   as_tibble(schedule)
 }
 
 #' @describeIn ypr_tabulate_schedule Tabulate Schedule
 #' @export
-ypr_tabulate_schedule.ypr_ecotypes <- function(object) {
+ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
+  chk::chk_unused(...)
 
-  chk::chk_s3_class(object, "ypr_ecotypes")
+  schedules <- lapply(object, impl_tabulate_schedule)
 
   weights <- attr(object, "weights")
   eco_names <- names(object)
 
-  # need to loop and then add the weights and names
-  schedule <- math(population)
+  schedules <- mapply(function(schedules, weights, eco_names) {
+    schedules[["Ecotype"]] <- eco_names
+    schedules[["Proportion"]] <- weights
+    as_tibble(schedules)
+  }, schedules, weights, eco_names, SIMPLIFY = FALSE)
 
-  schedule <- as_tibble(schedule)
-
-
-
-  yield[["Ecotype"]] <- eco_names
-  yield[["Proportions"]] <- weights
-
-
+  schedules
 }
 
-
-math <- function(population) {
+impl_tabulate_schedule <- function(population) {
 
   schedule <- with(population, {
     t <- tR:tmax
@@ -85,9 +81,3 @@ math <- function(population) {
   })
 
 }
-
-
-
-
-
-
