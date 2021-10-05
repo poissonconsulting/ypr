@@ -58,7 +58,17 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
+ypr_yield <- function(population,
+                      Ly = 0,
+                      harvest = TRUE,
+                      biomass = FALSE,
+                      ...) {
+  UseMethod("ypr_yield")
+}
+
+#' @describeIn ypr_yield Yield
+#' @export
+ypr_yield.ypr_population <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
   chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)
