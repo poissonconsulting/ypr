@@ -4,7 +4,11 @@
 \alias{as_ypr_ecotypes}
 \title{Ecotype Parameters}
 \usage{
-as_ypr_ecotypes(populations, weights, names = NULL)
+as_ypr_ecotypes(
+  populations = ypr_populations(Linf = c(100, 1000)),
+  weights = c(0.5, 0.5),
+  names = NULL
+)
 }
 \arguments{
 \item{populations}{A list with all parameters for each ecotype in the
@@ -18,4 +22,7 @@ NULL.}
 }
 \description{
 Creates an object of class ecotype.
+}
+\examples{
+as_ypr_ecotypes()
 }

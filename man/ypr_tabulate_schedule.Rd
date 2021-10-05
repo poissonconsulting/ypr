@@ -6,14 +6,16 @@
 \alias{ypr_tabulate_schedule.ypr_ecotypes}
 \title{Life-History Schedule}
 \usage{
-ypr_tabulate_schedule(object)
+ypr_tabulate_schedule(object, ...)
 
-\method{ypr_tabulate_schedule}{ypr_population}(object)
+\method{ypr_tabulate_schedule}{ypr_population}(object, ...)
 
-\method{ypr_tabulate_schedule}{ypr_ecotypes}(object)
+\method{ypr_tabulate_schedule}{ypr_ecotypes}(object, ...)
 }
 \arguments{
 \item{object}{The population or populations.}
+
+\item{...}{Unused parameters.}
 }
 \value{
 A tibble of the life-history schedule by age.
