@@ -40,7 +40,8 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
     as_tibble(schedules)
   }, schedules, weights, eco_names, SIMPLIFY = FALSE)
 
-  schedules
+  schedule <- do.call("rbind", schedules)
+  schedule
 }
 
 impl_tabulate_schedule <- function(population) {
