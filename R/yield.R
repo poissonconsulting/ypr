@@ -71,8 +71,33 @@ ypr_yield <- function(population,
 ypr_yield.ypr_population <- function(population,
                                      Ly = 0,
                                      harvest = TRUE,
-                                     biomass = FALSE) {
+                                     biomass = FALSE,
+                                     ...) {
   chk_population(population)
+  chk_number(Ly)
+  chk_gte(Ly)
+  chk_flag(biomass)
+  chk_flag(harvest)
+
+  schedule <- ypr_tabulate_schedule(population)
+
+  yield <- yield(
+    schedule,
+    population,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
+
+  sanitize(yield)
+}
+
+#' @describeIn ypr_yield Yield
+#' @export
+ypr_yield.ypr_ecotypes <- function(population,
+                                   Ly = 0,
+                                   harvest = TRUE,
+                                   biomass = FALSE) {
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)

@@ -3,11 +3,14 @@
 \name{ypr_yield}
 \alias{ypr_yield}
 \alias{ypr_yield.ypr_population}
+\alias{ypr_yield.ypr_ecotypes}
 \title{Yield}
 \usage{
 ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 
-\method{ypr_yield}{ypr_population}(population, Ly = 0, harvest = TRUE, biomass = FALSE)
+\method{ypr_yield}{ypr_population}(population, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
+
+\method{ypr_yield}{ypr_ecotypes}(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
@@ -37,6 +40,8 @@ biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 \section{Methods (by class)}{
 \itemize{
 \item \code{ypr_population}: Yield
+
+\item \code{ypr_ecotypes}: Yield
 }}
 
 \examples{
