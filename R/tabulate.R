@@ -372,7 +372,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
 
   yield <- mapply(function(yield, weights, eco_names) {
     yield[["Ecotype"]] <- eco_names
-    yield[["Proportions"]] <- weights
+    yield[["Proportion"]] <- weights
     yield
 
   }, yield, weights, eco_names, SIMPLIFY = FALSE)
