@@ -40,3 +40,18 @@ test_that("schedule with biphasic length loss", {
     )
   )
 })
+
+test_that("ecotype schedule is created as expected", {
+  schedule <- ypr_tabulate_schedule(as_ypr_ecotypes())
+  expect_snapshot_output(schedule)
+})
+
+test_that("ecotype schedule produces 60 rows for 3 ecotypes", {
+  ecotype <- as_ypr_ecotypes(
+    populations = ypr_populations(Linf = c(10, 100, 1000)),
+    weights = c(1, 2, 1)
+  )
+  schedule <- ypr_tabulate_schedule(ecotype)
+  expect_equal(nrow(schedule), 60)
+  expect_s3_class(schedule, "data.frame")
+})
