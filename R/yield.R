@@ -68,7 +68,10 @@ ypr_yield <- function(population,
 
 #' @describeIn ypr_yield Yield
 #' @export
-ypr_yield.ypr_population <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
+ypr_yield.ypr_population <- function(population,
+                                     Ly = 0,
+                                     harvest = TRUE,
+                                     biomass = FALSE) {
   chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)
