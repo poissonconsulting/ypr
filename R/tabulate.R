@@ -390,17 +390,17 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
 
 }
 
-
+### HACK function not to be used further down the road
 average_ecotypes <- function(yield) {
 
   y <- yield %>%
-    dplyr::mutate(pi = pi * Weighting,
-                  u = u * Weighting,
-                  Yield = Yield * Weighting,
-                  Age = Age * Weighting,
-                  Length = Length * Weighting,
-                  Effort = Effort * Weighting,
-                  Rk = Rk * Weighting)
+    dplyr::mutate(pi = pi * Proportion,
+                  u = u * Proportion,
+                  Yield = Yield * Proportion,
+                  Age = Age * Proportion,
+                  Length = Length * Proportion,
+                  Effort = Effort * Proportion,
+                  Linf = Linf * Proportion)
 
   y1 <- y %>%
     dplyr::filter(Type == "actual") %>%
@@ -411,10 +411,10 @@ average_ecotypes <- function(yield) {
                   Length = sum(Length),
                   Weight = sum(Weight),
                   Effort = sum(Effort),
-                  Rk = sum(Rk)) %>%
+                  Linf = sum(Linf)) %>%
     dplyr::slice_head(n = 1) %>%
     dplyr::mutate(Ecotype = "all",
-                  Weighting = 1)
+                  Proportion = 1)
 
 
   y2 <- y %>%
@@ -426,10 +426,10 @@ average_ecotypes <- function(yield) {
                   Length = sum(Length),
                   Weight = sum(Weight),
                   Effort = sum(Effort),
-                  Rk = sum(Rk)) %>%
+                  Linf = sum(Linf)) %>%
     dplyr::slice_head(n = 1) %>%
     dplyr::mutate(Ecotype = "all",
-                  Weighting = 1)
+                  Proportion = 1)
 
   yield <- dplyr::bind_rows(y1, y2)
   yield
