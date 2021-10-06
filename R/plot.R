@@ -281,8 +281,6 @@ ypr_plot_yield.ypr_population <- function(object,
     biomass = biomass
   )
 
-  print(data)
-
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
 
