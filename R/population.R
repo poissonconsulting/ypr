@@ -73,11 +73,11 @@ ypr_populations_update <- function(populations, ...) {
 #' @examples
 #' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4), weights = c(1, 1)), Linf = 2.5)
 ypr_ecotypes_update <- function(ecotypes, ...) {
-  weights <- attr(ecotypes, "weights")
+  proportions <- attr(ecotypes, "proportions")
   ecotypes <- lapply(ecotypes, ypr_population_update, ...)
   class(ecotypes) <- "ypr_ecotypes"
   names(ecotypes) <- ypr_population_names(ecotypes)
-  attr(ecotypes, "weights") <- weights
+  attr(ecotypes, "proportions") <- proportions
   ecotypes
 }
 
@@ -198,16 +198,15 @@ ypr_ecotypes <- function(..., weights) {
     )
   }
   parameters <- as.data.frame(parameters)
-
   ecotypes <- list()
   for (i in seq_len(nrow(parameters))) {
     ecotype <- as.list(parameters[i, , drop = FALSE])
     attr(ecotype, "out.attrs") <- NULL
     ecotypes[[i]] <- do.call("ypr_population", ecotype)
   }
+
   class(ecotypes) <- "ypr_ecotypes"
   names(ecotypes) <- ypr_population_names(ecotypes)
-
   if (!chk::vld_equal(length(ecotypes), length(weights))) {
     chk::abort_chk(paste0("Length of parameters and weights do not match. ",
                           length(ecotypes), " != ",
@@ -215,7 +214,7 @@ ypr_ecotypes <- function(..., weights) {
   }
   # convert weights into percents
   weights <- weights / sum(weights)
-  attr(ecotypes, "weights") <- weights
+  attr(ecotypes, "proportions") <- weights
 
   ecotypes
 }

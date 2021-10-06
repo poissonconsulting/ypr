@@ -10,6 +10,7 @@ as.data.frame.ypr_populations <- function(x, ...) {
   as_tibble(do.call("rbind", x))
 }
 
+### takes attributes and places them on the end
 #' @export
 as.data.frame.ypr_ecotypes <- function(x, ...) {
   x <- lapply(x, as.data.frame)
@@ -115,6 +116,7 @@ print.ypr_populations <- function(x, ...) {
   invisible(x)
 }
 
+### Add ecotype and proportion and weight formatted as other things
 #' @export
 print.ypr_ecotypes <- function(x, ...) {
   suppressWarnings(chk_ecotypes(x))

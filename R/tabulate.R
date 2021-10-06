@@ -389,15 +389,15 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                   biomass = biomass, type = type, all = TRUE, ...
   )
 
-  weights <- attr(object, "weights")
+  proportions <- attr(object, "proportions")
   eco_names <- names(object)
 
   yield <- mapply(function(yield, weights, eco_names) {
     yield[["Ecotype"]] <- eco_names
-    yield[["Proportion"]] <- weights
+    yield[["Proportion"]] <- proportions
     yield
 
-  }, yield, weights, eco_names, SIMPLIFY = FALSE)
+  }, yield, proportions, eco_names, SIMPLIFY = FALSE)
 
   yield <- do.call("rbind", yield)
   if (!all) yield <- drop_constant_parameters(yield)

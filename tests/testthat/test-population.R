@@ -182,8 +182,8 @@ test_that("ypr_ecotypes errors when incorrect length of weight provided", {
 
 test_that("ypr_ecotypes provides correct weights", {
   ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
-  weights <- attr(ecotypes, "weights")
-  expect_equal(weights, c(0.5, 0.5))
+  proportions <- attr(ecotypes, "proportions")
+  expect_equal(proportions, c(0.5, 0.5))
 })
 
 test_that("update parameter in ypr_ecotypes", {

@@ -48,7 +48,7 @@ as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
   ecotype <- populations
 
   class(ecotype) <- c("ypr_ecotypes")
-  attr(ecotype, "weights") <- weights
+  attr(ecotype, "proportions") <- weights
 
   if (!is.null(names)) {
     names(ecotype) <- names

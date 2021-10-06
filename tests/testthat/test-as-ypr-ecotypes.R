@@ -72,7 +72,7 @@ test_that("outputs proper wieght proportions when all the same", {
   weights <- c(1, 1)
   ecotype <- as_ypr_ecotypes(populations, weights)
   expect_equal(
-    attr(ecotype, "weights"),
+    attr(ecotype, "proportions"),
     c(0.5, 0.5)
   )
 })
@@ -82,7 +82,7 @@ test_that("outputs proper wieght proportions when not all even", {
   weights <- c(3, 1, 2, 1)
   ecotype <- as_ypr_ecotypes(populations, weights)
   expect_equal(
-    attr(ecotype, "weights"),
+    attr(ecotype, "proportions"),
     c(0.4286, 0.1429, 0.2857, 0.1429),
     tolerance = 0.001
   )

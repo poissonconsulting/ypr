@@ -32,14 +32,14 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
 
   schedules <- lapply(object, impl_tabulate_schedule)
 
-  weights <- attr(object, "weights")
+  proportions <- attr(object, "proportions")
   eco_names <- names(object)
 
-  schedules <- mapply(function(schedules, weights, eco_names) {
+  schedules <- mapply(function(schedules, proportions, eco_names) {
     schedules[["Ecotype"]] <- eco_names
-    schedules[["Proportion"]] <- weights
+    schedules[["Proportion"]] <- proportions
     as_tibble(schedules)
-  }, schedules, weights, eco_names, SIMPLIFY = FALSE)
+  }, schedules, proportions, eco_names, SIMPLIFY = FALSE)
 
   schedule <- do.call("rbind", schedules)
 
