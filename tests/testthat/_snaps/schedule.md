@@ -2,7 +2,7 @@
 
     # A tibble: 40 x 13
          Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
-     * <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>         <dbl>
+       <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>         <dbl>
      1     1   13.9   27.0      27.0 3.13e-56              0.2      3.13e-56
      2     2   25.9  174.      174.  2.91e-29              0.2      2.91e-29
      3     3   36.2  476.      476.  1.04e-14              0.2      1.04e-14
