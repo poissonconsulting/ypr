@@ -13,12 +13,14 @@ ypr_ecotypes_update(ecotypes, ...)
 \item{object}{The population or populations.}
 
 \item{...}{One or more of the arguments from \code{ypr_population()}.}
+
+\item{ecotypes}{An object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.}
 }
 \value{
 An object of class \code{ypr_ecotypes}.
 }
 \description{
-Updates an object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.
+Allows updates to a parameter of an object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.
 }
 \section{Methods (by generic)}{
 \itemize{
@@ -26,7 +28,7 @@ Updates an object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.
 }}
 
 \examples{
-ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
+ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4), weights = c(1, 1)), Linf = 2.5)
 }
 \seealso{
 Other ecotypes: 

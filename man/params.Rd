@@ -84,6 +84,8 @@ percent or frequency (the default).}
 
 \item{populations}{An object of class \code{\link[=ypr_populations]{ypr_populations()}}.}
 
+\item{ecotypes}{An object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.}
+
 \item{plot_values}{A flag specifying whether to plot the actual and optimal
 values.}
 
