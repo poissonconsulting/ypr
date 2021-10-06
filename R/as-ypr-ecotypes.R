@@ -8,6 +8,7 @@
 #'   contributes to the overall population
 #' @param names A character vector providing names for each ecotype. Default is
 #'   NULL.
+#' @family ecotypes
 #' @examples
 #' as_ypr_ecotypes()
 #' @export
