@@ -3,7 +3,7 @@
 \name{update.ypr_ecotypes}
 \alias{update.ypr_ecotypes}
 \alias{ypr_ecotypes_update}
-\title{Update Ecotype Parameters}
+\title{Update Ecotypes Parameters}
 \usage{
 \method{update}{ypr_ecotypes}(object, ...)
 
