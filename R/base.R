@@ -10,6 +10,12 @@ as.data.frame.ypr_populations <- function(x, ...) {
   as_tibble(do.call("rbind", x))
 }
 
+#' @export
+as.data.frame.ypr_ecotypes <- function(x, ...) {
+  x <- lapply(x, as.data.frame)
+  as_tibble(do.call("rbind", x))
+}
+
 #' Plot Population Schedule
 #'
 #' @param x The population to plot.
@@ -87,6 +93,31 @@ print.ypr_population <- function(x, ...) {
 #' @export
 print.ypr_populations <- function(x, ...) {
   suppressWarnings(chk_populations(x))
+  if (length(x) == 1) {
+    return(print(x[[1]]))
+  }
+  x$FUN <- c
+  x <- do.call("mapply", x)
+  x <- as.data.frame(x)
+  x <- lapply(x, function(x) if (length(unique(x)) == 1) x[1] else x)
+
+  nchar <- nchar(names(x))
+  nchar <- max(nchar) - nchar + 1
+  space <- vapply(
+    nchar,
+    function(x) paste0(rep(" ", times = x), collapse = ""), ""
+  )
+  names <- names(x)
+  x <- lapply(x, paste0, collapse = ", ")
+  x <- paste0(names, ":", space, x, collapse = "\n")
+  x <- paste0(x, "\n", collapse = "")
+  cat(x)
+  invisible(x)
+}
+
+#' @export
+print.ypr_ecotypes <- function(x, ...) {
+  suppressWarnings(chk_ecotypes(x))
   if (length(x) == 1) {
     return(print(x[[1]]))
   }
