@@ -32,7 +32,7 @@ Generates the life-history schedule by age for a population.
 
 \examples{
 ypr_tabulate_schedule(ypr_population())
-ypr_tabulate_schedule(as_ypr_ecotypes())
+ypr_tabulate_schedule(ypr_ecotypes(Linf = c(10, 20), weights = c(1, 1)))
 }
 \seealso{
 Other tabulate: 
