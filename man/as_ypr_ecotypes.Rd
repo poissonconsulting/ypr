@@ -25,6 +25,7 @@ Creates an object of class ecotype.
 }
 \examples{
 as_ypr_ecotypes()
+as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))
 }
 \seealso{
 Other ecotypes: 

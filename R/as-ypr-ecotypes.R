@@ -11,6 +11,7 @@
 #' @family ecotypes
 #' @examples
 #' as_ypr_ecotypes()
+#' as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))
 #' @export
 as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
                             weights = c(0.5, 0.5),

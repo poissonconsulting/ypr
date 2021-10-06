@@ -80,6 +80,7 @@ ypr_tabulate_yields(
   ),
   pi = seq(0, 1, length.out = 10)
 )
+ypr_tabulate_yields(as_ypr_ecotypes())
 }
 \seealso{
 Other tabulate: 

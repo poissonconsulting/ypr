@@ -20,6 +20,7 @@ Ecotypes
 }
 \examples{
 ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+ypr_ecotypes(Linf = c(1, 2), t0 = c(0, 0.5), weights = c(1, 1))
 }
 \seealso{
 Other ecotypes: 

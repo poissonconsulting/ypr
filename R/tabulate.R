@@ -46,6 +46,7 @@ ypr_tabulate_yield <- function(object, ...) {
 #'   ),
 #'   pi = seq(0, 1, length.out = 10)
 #' )
+#' ypr_tabulate_yields(as_ypr_ecotypes())
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
