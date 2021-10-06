@@ -46,7 +46,7 @@ ypr_tabulate_yield <- function(object, ...) {
 #'   ),
 #'   pi = seq(0, 1, length.out = 10)
 #' )
-#' ypr_tabulate_yields(as_ypr_ecotypes())
+#' ypr_tabulate_yields(ypr_ecotypes(Linf = c(10, 20), weights = c(1, 1)))
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
@@ -252,6 +252,27 @@ ypr_tabulate_sr.ypr_populations <- function(object,
   sr <- lapply(object, ypr_tabulate_sr,
     Ly = Ly, harvest = harvest,
     biomass = biomass, all = TRUE, ...
+  )
+
+  sr <- do.call("rbind", sr)
+
+  if (!all) sr <- drop_constant_parameters(sr)
+
+  as_tibble(sr)
+}
+
+#' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
+#' @export
+ypr_tabulate_sr.ypr_ecotypes <- function(object,
+                                         Ly = 0,
+                                         harvest = TRUE,
+                                         biomass = FALSE,
+                                         all = FALSE, ...) {
+  chk_flag(all)
+
+  sr <- lapply(object, ypr_tabulate_sr,
+               Ly = Ly, harvest = harvest,
+               biomass = biomass, all = TRUE, ...
   )
 
   sr <- do.call("rbind", sr)
