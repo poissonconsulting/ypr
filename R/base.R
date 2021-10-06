@@ -10,11 +10,15 @@ as.data.frame.ypr_populations <- function(x, ...) {
   as_tibble(do.call("rbind", x))
 }
 
-### takes attributes and places them on the end
 #' @export
 as.data.frame.ypr_ecotypes <- function(x, ...) {
+
+  rname <- attr(x, "names")
+  proportions <- attr(x, "proportions")
   x <- lapply(x, as.data.frame)
-  as_tibble(do.call("rbind", x))
+  x <- as_tibble(do.call("rbind", x))
+  attr(x, "proportions") <- proportions
+  x
 }
 
 #' Plot Population Schedule
@@ -123,6 +127,9 @@ print.ypr_ecotypes <- function(x, ...) {
   if (length(x) == 1) {
     return(print(x[[1]]))
   }
+  eco_names <- attr(x, "names")
+  proportions <- attr(x, "proportions")
+
   x$FUN <- c
   x <- do.call("mapply", x)
   x <- as.data.frame(x)
@@ -138,7 +145,16 @@ print.ypr_ecotypes <- function(x, ...) {
   x <- lapply(x, paste0, collapse = ", ")
   x <- paste0(names, ":", space, x, collapse = "\n")
   x <- paste0(x, "\n", collapse = "")
-  cat(x)
+
+  eco_names <- paste0(eco_names, collapse = ", ")
+  eco_names <- paste0("Ecotype", ": ", eco_names, collapse = "\n")
+  eco_names <- paste0(eco_names, "\n", collapse = "")
+
+  proportions <- paste0(proportions, collapse = ", ")
+  proportions <- paste0("Proportion", ": ", proportions, collapse = "\n")
+  proportions <- paste0(proportions, "\n", collapse = "")
+
+  cat(x, eco_names, proportions, sep = "")
   invisible(x)
 }
 
