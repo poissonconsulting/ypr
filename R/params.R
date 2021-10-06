@@ -42,6 +42,7 @@
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
 #' @param populations An object of class [ypr_populations()].
+#' @param ecotypes An object of class [ypr_ecotypes()].
 #' @param plot_values A flag specifying whether to plot the actual and optimal
 #'   values.
 #' @param Ly The minimum length (trophy) fish to consider when calculating the
