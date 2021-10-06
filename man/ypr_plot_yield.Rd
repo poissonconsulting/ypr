@@ -4,6 +4,7 @@
 \alias{ypr_plot_yield}
 \alias{ypr_plot_yield.ypr_population}
 \alias{ypr_plot_yield.ypr_populations}
+\alias{ypr_plot_yield.ypr_ecotypes}
 \title{Plot Yield by Capture}
 \usage{
 ypr_plot_yield(object, ...)
@@ -21,6 +22,18 @@ ypr_plot_yield(object, ...)
 )
 
 \method{ypr_plot_yield}{ypr_populations}(
+  object,
+  y = "Yield",
+  pi = seq(0, 1, length.out = 100),
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  u = harvest,
+  plot_values = TRUE,
+  ...
+)
+
+\method{ypr_plot_yield}{ypr_ecotypes}(
   object,
   y = "Yield",
   pi = seq(0, 1, length.out = 100),
@@ -68,6 +81,8 @@ annual interval capture/exploitation probability.
 \item \code{ypr_population}: Plot Yield by Capture
 
 \item \code{ypr_populations}: Plot Yield by Capture
+
+\item \code{ypr_ecotypes}: Plot Yield by Capture
 }}
 
 \examples{
