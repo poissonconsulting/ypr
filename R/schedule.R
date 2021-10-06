@@ -9,6 +9,7 @@
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())
+#' ypr_tabulate_schedule(as_ypr_ecotypes())
 ypr_tabulate_schedule <- function(object, ...) {
   UseMethod("ypr_tabulate_schedule")
 }
@@ -41,6 +42,11 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
   }, schedules, weights, eco_names, SIMPLIFY = FALSE)
 
   schedule <- do.call("rbind", schedules)
+
+  # multiple proportion by Surviorship & FishedSurvivorship
+  schedule$Survivorship1 <- schedule$Survivorship * schedule$Proportion
+  schedule$FishedSurvivorship1 <- schedule$FishedSurvivorship * schedule$Proportion
+
   schedule
 }
 
