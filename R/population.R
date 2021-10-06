@@ -61,6 +61,26 @@ ypr_populations_update <- function(populations, ...) {
   populations
 }
 
+#' Update Ecotype Parameters
+#'
+#' Updates an object of class [ypr_ecotypes()].
+#'
+#' @inheritParams params
+#' @param ... One or more of the arguments from `ypr_population()`.
+#' @return An object of class `ypr_ecotypes`.
+#' @family ecotypes
+#' @export
+#' @examples
+#' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
+ypr_ecotypes_update <- function(ecotypes, ...) {
+  weights <- attr(ecotypes, "weights")
+  ecotypes <- lapply(ecotypes, ypr_population_update, ...)
+  class(ecotypes) <- "ypr_ecotypes"
+  names(ecotypes) <- ypr_population_names(ecotypes)
+  attr(ecotypes, "weights") <- weights
+  ecotypes
+}
+
 #' Expand Populations
 #'
 #' An object of class [ypr_population()] of all unique combinations of parameter
@@ -196,7 +216,7 @@ ypr_population_names <- function(populations) {
 #' @family ecotypes
 #' @export
 #' @examples
-#' ypr_ecotypes()
+#' ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
 ypr_ecotypes <- function(..., weights) {
 
   chk::chk_numeric(weights)
@@ -208,40 +228,42 @@ ypr_ecotypes <- function(..., weights) {
   parameters <- list(...)
 
   if (!length(parameters)) {
-    ecotypes <- list(ecotype)
-    class(ecotypes) <- "ypr_ecotypes"
+    populations <- list(ecotype)
+    class(populations) <- "ypr_populations"
     return(ecotypes)
   }
   chk_named(parameters, x_name = "`...`")
   chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
   chk_unique(names(parameters), x_name = "`names(...)`")
 
-  if (expand) {
-    parameters <- lapply(parameters, function(x) sort(unique(x)))
-    parameters <- expand.grid(parameters)
-  } else {
-    lengths <- vapply(parameters, length, FUN.VALUE = 1L)
-    lengths <- unique(lengths)
-    lengths <- lengths[lengths != 1]
-    if (length(lengths) > 1) {
-      err(
-        "Non-scalar parameter values must all be the same length (not ",
-        cc(sort(lengths), conj = " and ", brac = ""), ")"
-      )
-    }
-    parameters <- as.data.frame(parameters)
+  lengths <- vapply(parameters, length, FUN.VALUE = 1L)
+  lengths <- unique(lengths)
+  lengths <- lengths[lengths != 1]
+  if (length(lengths) > 1) {
+    err(
+      "Non-scalar parameter values must all be the same length (not ",
+      cc(sort(lengths), conj = " and ", brac = ""), ")"
+    )
   }
+  parameters <- as.data.frame(parameters)
+
   ecotypes <- list()
   for (i in seq_len(nrow(parameters))) {
     ecotype <- as.list(parameters[i, , drop = FALSE])
     attr(ecotype, "out.attrs") <- NULL
-    ecotypes[[i]] <- do.call("ypr_ecotypes", ecotype)
+    ecotypes[[i]] <- do.call("ypr_population", ecotype)
   }
   class(ecotypes) <- "ypr_ecotypes"
   names(ecotypes) <- ypr_population_names(ecotypes)
+
+  if (!chk::vld_equal(length(ecotypes), length(weights))) {
+    chk::abort_chk(paste0("Length of parameters and weights do not match. ",
+                          length(ecotypes), " != ",
+                          length(weights)))
+  }
+  # convert weights into percents
+  weights <- weights / sum(weights)
+  attr(ecotypes, "weights") <- weights
+
   ecotypes
-
 }
-
-
-
