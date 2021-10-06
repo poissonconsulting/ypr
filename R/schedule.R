@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())
-#' ypr_tabulate_schedule(as_ypr_ecotypes())
+#' ypr_tabulate_schedule(ypr_ecotypes(Linf = c(10, 20), weights = c(1, 1)))
 ypr_tabulate_schedule <- function(object, ...) {
   UseMethod("ypr_tabulate_schedule")
 }

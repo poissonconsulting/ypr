@@ -61,7 +61,7 @@ ypr_populations_update <- function(populations, ...) {
   populations
 }
 
-#' Update Ecotype Parameters
+#' Update Ecotypes Parameters
 #'
 #' Allows updates to a parameter of an object of class [ypr_ecotypes()].
 #'
