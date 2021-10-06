@@ -144,3 +144,44 @@ test_that("ypr_populations_expand", {
   expect_identical(names(pops), c("Rk_2_5_Hm_0_1", "Rk_4_Hm_0_1", "Rk_2_5_Hm_0_2", "Rk_4_Hm_0_2"))
   expect_identical(pops, ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
 })
+
+test_that("ypr_ecotypes creates an ecotype", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+  expect_s3_class(ecotypes, "ypr_ecotypes")
+  expect_length(ecotypes, 2L)
+  expect_snapshot_output(ecotypes)
+})
+
+test_that("ypr_ecotypes creates an ecotype when 1 parameter is provided", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+  expect_s3_class(ecotypes, "ypr_ecotypes")
+  expect_length(ecotypes, 2L)
+  expect_snapshot_output(ecotypes)
+})
+
+test_that("ypr_ecotypes creates an ecotype when 2 parameters is provided", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), k2 = c(0.15, 0.25), weights = c(1, 1))
+  expect_s3_class(ecotypes, "ypr_ecotypes")
+  expect_length(ecotypes, 2L)
+  expect_snapshot_output(ecotypes)
+})
+
+test_that("ypr_ecotypes errors when no weight provided", {
+  expect_error(
+    ypr_ecotypes(Linf = c(1, 2)),
+    'argument "weights" is missing, with no default'
+  )
+})
+
+test_that("ypr_ecotypes errors when incorrect length of weight provided", {
+  expect_error(
+    ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1, 1)),
+    "Length of parameters and weights do not match. 2 != 3."
+  )
+})
+
+test_that("ypr_ecotypes provides correct weights", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+  weights <- attr(ecotypes, "weights")
+  expect_equal(weights, c(0.5, 0.5))
+})
