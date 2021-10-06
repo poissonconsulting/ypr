@@ -63,7 +63,7 @@ ypr_populations_update <- function(populations, ...) {
 
 #' Update Ecotype Parameters
 #'
-#' Updates an object of class [ypr_ecotypes()].
+#' Allows updates to a parameter of an object of class [ypr_ecotypes()].
 #'
 #' @inheritParams params
 #' @param ... One or more of the arguments from `ypr_population()`.
@@ -71,7 +71,7 @@ ypr_populations_update <- function(populations, ...) {
 #' @family ecotypes
 #' @export
 #' @examples
-#' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
+#' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4), weights = c(1, 1)), Linf = 2.5)
 ypr_ecotypes_update <- function(ecotypes, ...) {
   weights <- attr(ecotypes, "weights")
   ecotypes <- lapply(ecotypes, ypr_population_update, ...)
