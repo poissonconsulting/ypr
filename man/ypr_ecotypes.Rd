@@ -19,10 +19,11 @@ A list of \code{\link[=ypr_ecotypes]{ypr_ecotypes()}} objects
 Ecotypes
 }
 \examples{
-ypr_ecotypes()
+ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
 }
 \seealso{
 Other ecotypes: 
-\code{\link{as_ypr_ecotypes}()}
+\code{\link{as_ypr_ecotypes}()},
+\code{\link{update.ypr_ecotypes}()}
 }
 \concept{ecotypes}

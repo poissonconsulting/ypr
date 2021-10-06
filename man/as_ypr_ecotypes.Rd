@@ -28,6 +28,7 @@ as_ypr_ecotypes()
 }
 \seealso{
 Other ecotypes: 
+\code{\link{update.ypr_ecotypes}()},
 \code{\link{ypr_ecotypes}()}
 }
 \concept{ecotypes}
