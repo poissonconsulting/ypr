@@ -26,3 +26,8 @@ Creates an object of class ecotype.
 \examples{
 as_ypr_ecotypes()
 }
+\seealso{
+Other ecotypes: 
+\code{\link{ypr_ecotypes}()}
+}
+\concept{ecotypes}
