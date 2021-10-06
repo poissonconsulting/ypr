@@ -80,18 +80,15 @@ ypr_yield.ypr_population <- function(object,
 
   schedule <- ypr_tabulate_schedule(object)
 
-  print(schedule)
+  yield <- yield(
+    schedule,
+    object,
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
-
-  # yield <- yield(
-  #   schedule,
-  #   object,
-  #   Ly = Ly,
-  #   harvest = harvest,
-  #   biomass = biomass
-  # )
-  #
-  # sanitize(yield)
+  sanitize(yield)
 }
 
 #' @describeIn ypr_yield Yield
@@ -99,7 +96,8 @@ ypr_yield.ypr_population <- function(object,
 ypr_yield.ypr_ecotypes <- function(object,
                                    Ly = 0,
                                    harvest = TRUE,
-                                   biomass = FALSE) {
+                                   biomass = FALSE,
+                                   ...) {
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)

@@ -6,14 +6,14 @@
 \alias{ypr_yield.ypr_ecotypes}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
+ypr_yield(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 
-\method{ypr_yield}{ypr_population}(population, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
+\method{ypr_yield}{ypr_population}(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 
-\method{ypr_yield}{ypr_ecotypes}(population, Ly = 0, harvest = TRUE, biomass = FALSE)
+\method{ypr_yield}{ypr_ecotypes}(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the
 yield (cm).}
