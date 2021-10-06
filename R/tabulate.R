@@ -261,6 +261,8 @@ ypr_tabulate_sr.ypr_populations <- function(object,
   as_tibble(sr)
 }
 
+### double check function output correct items
+### write tests for output
 #' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
 #' @export
 ypr_tabulate_sr.ypr_ecotypes <- function(object,
@@ -369,6 +371,8 @@ ypr_tabulate_yield.ypr_populations <- function(object,
   as_tibble(yield)
 }
 
+### double check function output correct items
+### write tests for output
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @param average A flag to either give each ecotype separately or averaged
 #'   based on the proportions
@@ -509,6 +513,8 @@ ypr_tabulate_yields.ypr_populations <- function(object,
   as_tibble(yield)
 }
 
+### double check function output correct items
+### write tests for output
 #' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
 ypr_tabulate_yields.ypr_ecotypes <- function(object,

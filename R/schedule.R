@@ -43,7 +43,7 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
 
   schedule <- do.call("rbind", schedules)
 
-  # multiple proportion by Surviorship & FishedSurvivorship
+  # apply ecotype proportions to relevant parameters
   schedule$Survivorship <- schedule$Survivorship * schedule$Proportion
   schedule$FishedSurvivorship <- schedule$FishedSurvivorship * schedule$Proportion
 
