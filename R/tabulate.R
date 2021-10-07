@@ -277,10 +277,18 @@ ypr_tabulate_sr.ypr_ecotypes <- function(object,
                biomass = biomass, all = TRUE, ...
   )
 
+  proportions <- attr(object, "proportions")
+  eco_names <- names(object)
+
+  sr <- mapply(function(sr, proportions, eco_names) {
+    sr[["Ecotype"]] <- eco_names
+    sr[["Proportion"]] <- proportions
+    sr
+
+  }, sr, proportions, eco_names, SIMPLIFY = FALSE)
+
   sr <- do.call("rbind", sr)
-
   if (!all) sr <- drop_constant_parameters(sr)
-
   as_tibble(sr)
 }
 
@@ -396,7 +404,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
   proportions <- attr(object, "proportions")
   eco_names <- names(object)
 
-  yield <- mapply(function(yield, weights, eco_names) {
+  yield <- mapply(function(yield, proportions, eco_names) {
     yield[["Ecotype"]] <- eco_names
     yield[["Proportion"]] <- proportions
     yield
