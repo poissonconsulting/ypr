@@ -55,8 +55,6 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @family yield
 #' @family calculate
 #' @export
-#' @examples
-#' ypr_yield(ypr_population())
 ypr_yield <- function(object,
                       Ly = 0,
                       harvest = TRUE,
@@ -67,6 +65,8 @@ ypr_yield <- function(object,
 
 #' @describeIn ypr_yield Yield
 #' @export
+#' @examples
+#' ypr_yield(ypr_population())
 ypr_yield.ypr_population <- function(object,
                                      Ly = 0,
                                      harvest = TRUE,
@@ -93,11 +93,14 @@ ypr_yield.ypr_population <- function(object,
 
 #' @describeIn ypr_yield Yield
 #' @export
+#' @examples
+#' ypr_yield(ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1)))
 ypr_yield.ypr_ecotypes <- function(object,
                                    Ly = 0,
                                    harvest = TRUE,
                                    biomass = FALSE,
                                    ...) {
+  chk_ecotypes(object)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -105,23 +108,13 @@ ypr_yield.ypr_ecotypes <- function(object,
 
   schedule <- ypr_tabulate_schedule(object)
 
-  ### HACK until we know what to do with yield
-  yield_list <- list()
-  for (i in names(object)) {
-    dat <- schedule[schedule$Ecotype == i, ]
-    ecotype <- object[[i]]
+  yield <- yield(
+    schedule,
+    object[[1]],
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  )
 
-    yield <- yield(
-      dat,
-      ecotype,
-      Ly = Ly,
-      harvest = harvest,
-      biomass = biomass
-    )
-
-    sanitize(yield)
-    yield_list <- c(yield_list, yield)
-  }
-
-  yield_list
+  sanitize(yield)
 }
