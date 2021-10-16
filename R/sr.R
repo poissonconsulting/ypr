@@ -1,9 +1,9 @@
-sr <- function(schedule, population) {
+sr <- function(schedule, object) {
   schedule <- as.list(schedule)
 
-  schedule$BH <- population$BH
-  schedule$Rk <- population$Rk
-  schedule$Rmax <- population$Rmax
+  schedule$BH <- get_par(object, "BH")[1]
+  schedule$Rk <- get_par(object, "Rk")[1]
+  schedule$Rmax <- get_par(object, "Rmax")[1]
 
   R0 <- 1
 
@@ -60,12 +60,12 @@ sr <- function(schedule, population) {
 #' @examples
 #' ypr_sr(ypr_population()) # Beverton-Holt
 #' ypr_sr(ypr_population(BH = 0L)) # Ricker
-ypr_sr <- function(population) {
-  chk_population(population)
+ypr_sr <- function(object) {
+  chk_population(object)
 
-  schedule <- ypr_tabulate_schedule(population)
+  schedule <- ypr_tabulate_schedule(object)
 
-  sr <- sr(schedule, population)
+  sr <- sr(schedule, object)
   sr$R0F <- max(sr$R0F, 0)
   sr$S0F <- max(sr$S0F, 0)
   sr

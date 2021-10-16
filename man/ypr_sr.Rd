@@ -4,10 +4,10 @@
 \alias{ypr_sr}
 \title{Stock-Recruitment Parameters}
 \usage{
-ypr_sr(population)
+ypr_sr(object)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 }
 \value{
 A data frame of the SR parameters.

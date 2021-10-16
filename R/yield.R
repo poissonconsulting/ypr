@@ -1,13 +1,13 @@
 yield <- function(schedule,
-                  population,
+                  object,
                   Ly = 0,
                   harvest = TRUE,
                   biomass = FALSE) {
   schedule <- as.list(schedule)
 
-  schedule$pi <- population$pi
-  schedule$q <- population$q
-  schedule <- c(schedule, sr(schedule, population))
+  schedule$pi <- get_par(object, "pi")[1]
+  schedule$q <- get_par(object, "q")[1]
+  schedule <- c(schedule, sr(schedule, object))
 
   yield <- with(schedule, {
     FishedSurvivorship[Length < Ly] <- 0
@@ -36,10 +36,10 @@ yield <- function(schedule,
   yield
 }
 
-yield_pi <- function(pi, population, Ly, harvest, biomass) {
-  population$pi <- pi
-  schedule <- ypr_tabulate_schedule(population)
-  yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
+yield_pi <- function(pi, object, Ly, harvest, biomass) {
+  object <- set_par(object, "pi", pi)
+  schedule <- ypr_tabulate_schedule(object)
+  yield(schedule, object, Ly = Ly, harvest = harvest, biomass = biomass)
 }
 
 #' Yield
@@ -55,24 +55,14 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @family yield
 #' @family calculate
 #' @export
+#' @examples
+#' ypr_yield(ypr_population())
+#' ypr_yield(ypr_ecotypes(Linf = c(100, 200), weights = c(0.5, 0.5)))
 ypr_yield <- function(object,
                       Ly = 0,
                       harvest = TRUE,
                       biomass = FALSE,
                       ...) {
-  UseMethod("ypr_yield")
-}
-
-#' @describeIn ypr_yield Yield
-#' @export
-#' @examples
-#' ypr_yield(ypr_population())
-ypr_yield.ypr_population <- function(object,
-                                     Ly = 0,
-                                     harvest = TRUE,
-                                     biomass = FALSE,
-                                     ...) {
-  chk_population(object)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -83,34 +73,6 @@ ypr_yield.ypr_population <- function(object,
   yield <- yield(
     schedule,
     object,
-    Ly = Ly,
-    harvest = harvest,
-    biomass = biomass
-  )
-
-  sanitize(yield)
-}
-
-#' @describeIn ypr_yield Yield
-#' @export
-#' @examples
-#' ypr_yield(ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1)))
-ypr_yield.ypr_ecotypes <- function(object,
-                                   Ly = 0,
-                                   harvest = TRUE,
-                                   biomass = FALSE,
-                                   ...) {
-  chk_ecotypes(object)
-  chk_number(Ly)
-  chk_gte(Ly)
-  chk_flag(biomass)
-  chk_flag(harvest)
-
-  schedule <- ypr_tabulate_schedule(object)
-
-  yield <- yield(
-    schedule,
-    object[[1]],
     Ly = Ly,
     harvest = harvest,
     biomass = biomass

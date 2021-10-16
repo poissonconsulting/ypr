@@ -2,15 +2,9 @@
 % Please edit documentation in R/yield.R
 \name{ypr_yield}
 \alias{ypr_yield}
-\alias{ypr_yield.ypr_population}
-\alias{ypr_yield.ypr_ecotypes}
 \title{Yield}
 \usage{
 ypr_yield(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
-
-\method{ypr_yield}{ypr_population}(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
-
-\method{ypr_yield}{ypr_ecotypes}(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 }
 \arguments{
 \item{object}{The population or populations.}
@@ -37,16 +31,9 @@ By default, with \code{Rmax = 1} the number of individuals is the proportion of
 the recruits at the carrying capacity. If the yield is given in terms of the
 biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{ypr_population}: Yield
-
-\item \code{ypr_ecotypes}: Yield
-}}
-
 \examples{
 ypr_yield(ypr_population())
-ypr_yield(ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1)))
+ypr_yield(ypr_ecotypes(Linf = c(100, 200), weights = c(0.5, 0.5)))
 }
 \seealso{
 Other yield: 

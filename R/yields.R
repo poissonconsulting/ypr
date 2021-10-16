@@ -10,12 +10,11 @@
 #' @examples
 #' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
-ypr_yields <- function(population,
+ypr_yields <- function(object,
                        pi = seq(0, 1, length.out = 100),
                        Ly = 0,
                        harvest = TRUE,
                        biomass = FALSE) {
-  chk_population(population)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -27,7 +26,7 @@ ypr_yields <- function(population,
 
   yields <- vapply(pi,
     FUN = yield_pi, FUN.VALUE = 1,
-    population = population, Ly = Ly, harvest = harvest,
+    object = object, Ly = Ly, harvest = harvest,
     biomass = biomass
   )
   sanitize(yields)
