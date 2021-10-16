@@ -17,10 +17,9 @@ as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
                             weights = c(0.5, 0.5),
                             names = NULL) {
   chk_populations(populations)
-  chk::chk_s3_class(populations, "ypr_populations")
   chk::check_dim(populations, values = TRUE)
 
-  chk_ecotypes(populations)
+#  chk_ecotypes(populations) better to check all identical
 
   chk::chk_numeric(weights)
   chk::chk_not_any_na(weights)
@@ -53,6 +52,6 @@ as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
   if (!is.null(names)) {
     names(ecotype) <- names
   }
-
+  chk_ecotypes(ecotype)
   ecotype
 }

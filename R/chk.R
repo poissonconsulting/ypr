@@ -25,18 +25,6 @@ chk_populations <- function(x, x_name = NULL) {
   x
 }
 
-chk_ecotypes <- function(x) {
-  check_same(x, "BH")
-  check_same(x, "Rk")
-  check_same(x, "tR")
-  check_same(x, "Rmax")
-  check_same(x, "pi")
-  check_same(x, "Llo")
-  check_same(x, "Lup")
-  check_same(x, "rho")
-  check_same(x, "q")
-}
-
 check_same <- function(populations, parameter) {
   param_list <- numeric(length(populations))
   for (i in seq_len(length(populations))) {
@@ -47,3 +35,26 @@ check_same <- function(populations, parameter) {
     chk::abort_chk(parameter, " must be the same across all ecotypes")
   }
 }
+
+chk_ecotypes <- function(x, x_name = NULL) {
+  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+
+  chk_list(x, x_name = x_name)
+
+  chk_s3_class(x, "ypr_ecotypes", x_name)
+  x_name <- paste("elements of", x_name)
+
+  chk_all(x, chk_population, x_name = x_name)
+
+  check_same(x, "BH")
+  check_same(x, "Rk")
+  check_same(x, "tR")
+  check_same(x, "Rmax")
+  check_same(x, "pi")
+  check_same(x, "Llo")
+  check_same(x, "Lup")
+  check_same(x, "rho")
+  check_same(x, "q")
+  x
+}
+
