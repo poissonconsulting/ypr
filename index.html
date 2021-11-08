@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ypr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.2.9000</span>
       </span>
     </div>
 
@@ -63,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/poissonconsulting/ypr/">
+  <a href="https://github.com/poissonconsulting/ypr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -80,15 +80,14 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="ypr-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#ypr-" class="anchor" aria-hidden="true"></a>ypr <img src="reference/figures/logo.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="ypr-">ypr <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#ypr-"></a>
 </h1></div>
 <!-- badges: start -->
 
-<div id="introduction" class="section level2">
-<h2 class="hasAnchor">
-<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h2>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p><a href="https://github.com/poissonconsulting/ypr" class="external-link"><code>ypr</code></a> is an R package that implements equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population (Walters and Martell 2004). The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.</p>
 <p>The key life history parameters are</p>
 <ul>
@@ -101,12 +100,12 @@
 <p>The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.</p>
 <p>A shiny app is available at <a href="https://poissonconsulting.shinyapps.io/shinyypr/" class="external-link uri">https://poissonconsulting.shinyapps.io/shinyypr/</a>.</p>
 </div>
-<div id="demonstration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#demonstration" class="anchor" aria-hidden="true"></a>Demonstration</h2>
-<div id="schedule" class="section level3">
-<h3 class="hasAnchor">
-<a href="#schedule" class="anchor" aria-hidden="true"></a>Schedule</h3>
+<div class="section level2">
+<h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
+</h2>
+<div class="section level3">
+<h3 id="schedule">Schedule<a class="anchor" aria-label="anchor" href="#schedule"></a>
+</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/ypr" class="external-link">ypr</a></span><span class="op">)</span>
 <span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ypr_population.html">ypr_population</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fl">5</span>, Ls <span class="op">=</span> <span class="fl">50</span>, Rmax <span class="op">=</span> <span class="fl">100</span>, rho <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>
@@ -126,9 +125,9 @@
 <span class="co">#&gt; # … with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></code></pre></div>
 </div>
-<div id="fish" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fish" class="anchor" aria-hidden="true"></a>Fish</h3>
+<div class="section level3">
+<h3 id="fish">Fish<a class="anchor" aria-label="anchor" href="#fish"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">population</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png"><!-- --></p>
@@ -144,9 +143,9 @@
 <span class="co">#&gt; 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0</span>
 <span class="co">#&gt; 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span></code></pre></div>
 </div>
-<div id="stock-recruitment" class="section level3">
-<h3 class="hasAnchor">
-<a href="#stock-recruitment" class="anchor" aria-hidden="true"></a>Stock-Recruitment</h3>
+<div class="section level3">
+<h3 id="stock-recruitment">Stock-Recruitment<a class="anchor" aria-label="anchor" href="#stock-recruitment"></a>
+</h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png"><!-- --></p>
@@ -159,9 +158,9 @@
 <span class="co">#&gt; 2 actual   0.2   0.08  167831.     70.1    108.      3112.</span>
 <span class="co">#&gt; 3 optimal  0.458 0.183  84129.     54.0     63.7     2641.</span></code></pre></div>
 </div>
-<div id="yield" class="section level3">
-<h3 class="hasAnchor">
-<a href="#yield" class="anchor" aria-hidden="true"></a>Yield</h3>
+<div class="section level3">
+<h3 id="yield">Yield<a class="anchor" aria-label="anchor" href="#yield"></a>
+</h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 x 8</span>
@@ -172,9 +171,9 @@
 <span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png"><!-- --></p>
 </div>
-<div id="uncertainty" class="section level3">
-<h3 class="hasAnchor">
-<a href="#uncertainty" class="anchor" aria-hidden="true"></a>Uncertainty</h3>
+<div class="section level3">
+<h3 id="uncertainty">Uncertainty<a class="anchor" aria-label="anchor" href="#uncertainty"></a>
+</h3>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
 <span class="va">populations</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span><span class="op">)</span>, Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span><span class="op">)</span>, Rmax <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
@@ -183,9 +182,9 @@
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png"><!-- --></p>
 </div>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ypr"</span><span class="op">)</span></code></pre></div>
@@ -194,39 +193,39 @@
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/ypr"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#information" class="anchor" aria-hidden="true"></a>Information</h2>
+<div class="section level2">
+<h2 id="information">Information<a class="anchor" aria-label="anchor" href="#information"></a>
+</h2>
 <p>For more information see the <a href="https://poissonconsulting.github.io/ypr/articles/ypr.html" class="external-link">Get Started</a> vignette.</p>
-<div id="interaction" class="section level3">
-<h3 class="hasAnchor">
-<a href="#interaction" class="anchor" aria-hidden="true"></a>Interaction</h3>
+<div class="section level3">
+<h3 id="interaction">Interaction<a class="anchor" aria-label="anchor" href="#interaction"></a>
+</h3>
 <p>To interactively explore the effects of altering individual parameters on the schedule, stock-recruitment and yield see the ypr shiny <a href="https://poissonconsulting.shinyapps.io/shinyypr/" class="external-link">app</a>.</p>
 <div class="figure">
 <img src="reference/figures/yield.png" alt=""><p class="caption">A screenshot of the yield from the ypr shiny app</p>
 </div>
 </div>
 </div>
-<div id="creditation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#creditation" class="anchor" aria-hidden="true"></a>Creditation</h2>
+<div class="section level2">
+<h2 id="creditation">Creditation<a class="anchor" aria-label="anchor" href="#creditation"></a>
+</h2>
 <p>Development of ypr was partially supported by the <a href="https://www.poissonconsulting.ca/orgs/hctf.html" class="external-link">Habitat Conservation Trust Foundation</a> and the <a href="https://www.poissonconsulting.ca/orgs/mflnro.html" class="external-link">Ministry of Forests, Lands and Natural Resource Operations</a>.</p>
 <p>The hex was designed by <a href="https://www.theforest.ca" class="external-link">The Forest</a>.</p>
 </div>
-<div id="contribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contribution" class="anchor" aria-hidden="true"></a>Contribution</h2>
+<div class="section level2">
+<h2 id="contribution">Contribution<a class="anchor" aria-label="anchor" href="#contribution"></a>
+</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/ypr/issues" class="external-link">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/ypr/pulls" class="external-link">Pull requests</a> are always welcome.</p>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
 <p>Please note that the ypr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor" aria-hidden="true"></a>References</h2>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-walters_fisheries_2004" class="csl-entry">
 <p>Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.</p>
@@ -240,12 +239,9 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=ypr">https://​cloud.r-project.org/​package=ypr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/poissonconsulting/ypr/">https://​github.com/​poissonconsulting/​ypr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/poissonconsulting/ypr/issues">https://​github.com/​poissonconsulting/​ypr/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=ypr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/poissonconsulting/ypr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/poissonconsulting/ypr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -253,7 +249,7 @@
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 
@@ -268,9 +264,9 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Poisson Consulting <br><small class="roles"> Copyright holder, funder </small>  </li>
-<li><a href="authors.html">More on authors...</a></li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
@@ -296,7 +292,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
