@@ -166,11 +166,10 @@ test_that("ypr_ecotypes creates an ecotype when 2 parameters is provided", {
   expect_snapshot_output(ecotypes)
 })
 
-test_that("ypr_ecotypes errors when no weight provided", {
-  expect_error(
-    ypr_ecotypes(Linf = c(1, 2)),
-    'argument "weights" is missing, with no default'
-  )
+test_that("ypr_ecotypes does not error when no weights provided", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2))
+  expect_length(ecotypes, 2L)
+  expect_snapshot_output(ecotypes)
 })
 
 test_that("ypr_ecotypes errors when incorrect length of weight provided", {

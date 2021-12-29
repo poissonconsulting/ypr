@@ -127,6 +127,11 @@ file.}
 
 \item{length}{A numeric vector of the length (cm).}
 
+\item{weights}{A numeric vector giving the weighting for how much it
+contributes to the overall population.}
+
+\item{names}{A character vector of unique ecotype names.}
+
 \item{x}{The object to coerce.}
 }
 \description{
