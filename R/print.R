@@ -43,7 +43,7 @@ print.ypr_populations <- function(x, ...) {
 #' @export
 print.ypr_ecotypes <- function(x, ...) {
   suppressWarnings(chk_ecotypes(x))
-  if (length(x) == 1) {
+  if (length(x) == 1) { ### should print with name and weight so not confused
     return(print(x[[1]]))
   }
   eco_names <- attr(x, "names")
