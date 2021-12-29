@@ -28,7 +28,7 @@ as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "dee
 }
 \seealso{
 Other ecotypes: 
-\code{\link{update.ypr_ecotypes}()},
+\code{\link{ypr_ecotypes_update}()},
 \code{\link{ypr_ecotypes}()}
 }
 \concept{ecotypes}

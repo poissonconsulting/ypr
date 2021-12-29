@@ -107,9 +107,9 @@ ypr_plot_yield(ypr_population())
 Other populations: 
 \code{\link{as_ypr_populations}()},
 \code{\link{chilliwack_bt_05}},
-\code{\link{update.ypr_populations}()},
 \code{\link{ypr_population_names}()},
 \code{\link{ypr_populations_expand}()},
+\code{\link{ypr_populations_update}()},
 \code{\link{ypr_populations}()},
 \code{\link{ypr_tabulate_sr}()},
 \code{\link{ypr_tabulate_yields}()},
