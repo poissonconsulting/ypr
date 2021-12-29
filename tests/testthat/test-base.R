@@ -35,7 +35,7 @@ test_that("data.frame conversion for ecotypes functions as expected", {
       rho = c(0, 0), Hm = c(0, 0), Rmax = c(1, 1), Wa = c(0.01, 0.01),
       fa = c(1, 1), q = c(0.1, 0.1)
       ),
-      row.names = c("Linf_100", "Linf_1000"),
+      row.names = c(1L, 2L),
       proportions = c(0.5, 0.5),
       class = c("tbl_df", "tbl", "data.frame")
     )

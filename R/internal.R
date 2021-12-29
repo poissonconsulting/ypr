@@ -22,11 +22,6 @@ add_parameters <- function(x, object) {
   merge(x, object)
 }
 
-as_tibble <- function(x) {
-  class(x) <- c("tbl_df", "tbl", "data.frame")
-  x
-}
-
 drop_constant_parameters <- function(x) {
   parameters <- .parameters$Parameter
   parameters <- parameters[parameters != "pi"]
