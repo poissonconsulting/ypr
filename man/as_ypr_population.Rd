@@ -2,26 +2,16 @@
 % Please edit documentation in R/as-ypr-population.R
 \name{as_ypr_population}
 \alias{as_ypr_population}
-\alias{as_ypr_population.data.frame}
-\title{Coerce to a Population Parameter Object}
+\title{Coerce to a Population Object}
 \usage{
-as_ypr_population(x, ...)
-
-\method{as_ypr_population}{data.frame}(x, ...)
+as_ypr_population(x)
 }
 \arguments{
 \item{x}{The object to coerce.}
-
-\item{...}{Unused parameters.}
 }
 \description{
-Coerce to a Population Parameter Object
+Creates an object of class ypr_population from a data frame of population parameters.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{data.frame}: Coerce data frame to ypr_population
-}}
-
 \examples{
 as_ypr_population(as.data.frame(ypr_population()))
 }

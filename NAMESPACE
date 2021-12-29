@@ -3,8 +3,6 @@
 S3method(as.data.frame,ypr_ecotypes)
 S3method(as.data.frame,ypr_population)
 S3method(as.data.frame,ypr_populations)
-S3method(as_ypr_population,data.frame)
-S3method(as_ypr_populations,data.frame)
 S3method(plot,ypr_population)
 S3method(print,ypr_ecotypes)
 S3method(print,ypr_population)

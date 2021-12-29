@@ -2,7 +2,7 @@
 % Please edit documentation in R/as-ypr-ecotypes.R
 \name{as_ypr_ecotypes}
 \alias{as_ypr_ecotypes}
-\title{Ecotype Parameters}
+\title{Coerce to an Ecotypes Object}
 \usage{
 as_ypr_ecotypes(
   populations = ypr_populations(Linf = c(100, 1000)),
@@ -11,17 +11,16 @@ as_ypr_ecotypes(
 )
 }
 \arguments{
-\item{populations}{A list with all parameters for each ecotype in the
-population}
+\item{populations}{A list with each element providing the population
+parameters for each ecotype.}
 
-\item{weights}{A numeric vector giving the weighting for how much it
-contributes to the overall population}
+\item{weights}{A numeric vector giving the relative proportion of recruits belonging
+to each ecotype.}
 
-\item{names}{A character vector providing names for each ecotype. Default is
-NULL.}
+\item{names}{An optional character vector providing names for each ecotype.}
 }
 \description{
-Creates an object of class ecotype.
+Creates an object of class ypr_ecotypes from a list of ypr_populations.
 }
 \examples{
 as_ypr_ecotypes()

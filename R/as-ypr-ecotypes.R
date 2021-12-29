@@ -1,13 +1,12 @@
-#' Ecotype Parameters
+#' Coerce to an Ecotypes Object
 #'
-#' Creates an object of class ecotype.
+#' Creates an object of class ypr_ecotypes from a list of ypr_populations.
 #'
-#' @param populations A list with all parameters for each ecotype in the
-#'   population
-#' @param weights A numeric vector giving the weighting for how much it
-#'   contributes to the overall population
-#' @param names A character vector providing names for each ecotype. Default is
-#'   NULL.
+#' @param populations A list with each element providing the population
+#' parameters for each ecotype.
+#' @param weights A numeric vector giving the relative proportion of recruits belonging
+#' to each ecotype.
+#' @param names An optional character vector providing names for each ecotype.
 #' @family ecotypes
 #' @examples
 #' as_ypr_ecotypes()
@@ -18,8 +17,6 @@ as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
                             names = NULL) {
   chk_populations(populations)
   chk::check_dim(populations, values = TRUE)
-
-#  chk_ecotypes(populations) better to check all identical
 
   chk::chk_numeric(weights)
   chk::chk_not_any_na(weights)
@@ -42,7 +39,6 @@ as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
     }
   }
 
-  # convert weights into percents
   weights <- weights / sum(weights)
   ecotype <- populations
 
