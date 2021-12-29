@@ -379,8 +379,6 @@ ypr_tabulate_yield.ypr_populations <- function(object,
   as_tibble(yield)
 }
 
-### double check function output correct items
-### write tests for output
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @param average A flag to either give each ecotype separately or averaged
 #'   based on the proportions
@@ -418,60 +416,9 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
   if (!average) {
     return(yield)
   }
-
-  yield <- average_ecotypes(yield)
-  yield
-
-}
-
-### HACK function not to be used further down the road
-average_ecotypes <- function(yield) {
-
-  y <- yield %>%
-    dplyr::mutate(pi = pi * Proportion,
-                  u = u * Proportion,
-                  Yield = Yield * Proportion,
-                  Age = Age * Proportion,
-                  Length = Length * Proportion,
-                  Effort = Effort * Proportion,
-                  Linf = Linf * Proportion)
-
-  y1 <- y %>%
-    dplyr::filter(Type == "actual") %>%
-    dplyr::mutate(pi = sum(pi),
-                  u = sum(u),
-                  Yield = sum(Yield),
-                  Age = sum(Age),
-                  Length = sum(Length),
-                  Weight = sum(Weight),
-                  Effort = sum(Effort),
-                  Linf = sum(Linf)) %>%
-    dplyr::slice_head(n = 1) %>%
-    dplyr::mutate(Ecotype = "all",
-                  Proportion = 1)
-
-
-  y2 <- y %>%
-    dplyr::filter(Type == "optimal") %>%
-    dplyr::mutate(pi = sum(pi),
-                  u = sum(u),
-                  Yield = sum(Yield),
-                  Age = sum(Age),
-                  Length = sum(Length),
-                  Weight = sum(Weight),
-                  Effort = sum(Effort),
-                  Linf = sum(Linf)) %>%
-    dplyr::slice_head(n = 1) %>%
-    dplyr::mutate(Ecotype = "all",
-                  Proportion = 1)
-
-  yield <- dplyr::bind_rows(y1, y2)
+  .NotYetImplemented()
   yield
 }
-
-
-
-
 
 #' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
@@ -521,8 +468,6 @@ ypr_tabulate_yields.ypr_populations <- function(object,
   as_tibble(yield)
 }
 
-### double check function output correct items
-### write tests for output
 #' @describeIn ypr_tabulate_yields Tabulate Yields
 #' @export
 ypr_tabulate_yields.ypr_ecotypes <- function(object,

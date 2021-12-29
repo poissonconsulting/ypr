@@ -1,4 +1,4 @@
-test_that("ecotype erros with a population", {
+test_that("ecotype errors with a population", {
   population <- adams_bt_03
   expect_error(
     as_ypr_ecotypes(population, 1),
@@ -6,7 +6,7 @@ test_that("ecotype erros with a population", {
   )
 })
 
-test_that("ecotype erros with a list", {
+test_that("ecotype errors with a list", {
   population <- list(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, k2 = 0.15)
   expect_error(
     as_ypr_ecotypes(population, 1),

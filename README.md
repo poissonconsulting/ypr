@@ -55,7 +55,7 @@ ypr_plot_schedule(population, x = "Length", y = "Spawning")
 
 ``` r
 head(ypr_tabulate_schedule(population))
-#> # A tibble: 6 x 11
+#> # A tibble: 6 × 11
 #>     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
 #>   <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>         <dbl>
 #> 1     1   13.9   27.0      27.0 3.13e-56              0.2      3.13e-56
@@ -78,7 +78,7 @@ ypr_plot_fish(population, color = "white")
 
 ``` r
 head(ypr_tabulate_fish(population))
-#> # A tibble: 6 x 7
+#> # A tibble: 6 × 7
 #>     Age Survivors Spawners   Caught Harvested Released HandlingMortalities
 #>   <dbl>     <dbl>    <dbl>    <dbl>     <dbl>    <dbl>               <dbl>
 #> 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0
@@ -99,7 +99,7 @@ ypr_plot_sr(population)
 
 ``` r
 ypr_tabulate_sr(population)
-#> # A tibble: 3 x 7
+#> # A tibble: 3 × 7
 #>   Type        pi     u    Eggs Recruits Spawners Fecundity
 #>   <chr>    <dbl> <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
 #> 1 unfished 0     0     286350.     80      159.      3600.
@@ -111,7 +111,7 @@ ypr_tabulate_sr(population)
 
 ``` r
 ypr_tabulate_yield(population)
-#> # A tibble: 2 x 8
+#> # A tibble: 2 × 8
 #>   Type       pi     u Yield   Age Length Weight Effort
 #>   <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
 #> 1 actual  0.2   0.08   8.63  7.67   65.8  3112.   2.12
@@ -184,7 +184,7 @@ always welcome.
 
 Please note that the ypr project is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+By contributing to this project, you agree to abide by its terms
 
 ## References
 
