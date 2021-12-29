@@ -77,7 +77,7 @@ test_that("outputs proper wieght proportions when all the same", {
   )
 })
 
-test_that("outputs proper wieght proportions when not all even", {
+test_that("outputs proper weight proportions when not all even", {
   populations <- ypr_populations(Linf = c(100, 1000, 10, 200))
   weights <- c(3, 1, 2, 1)
   ecotype <- as_ypr_ecotypes(populations, weights)
@@ -116,7 +116,7 @@ test_that("ecotypes names fail as not enough are passed", {
   )
 })
 
-test_that("ecotypes will throw error if constant values are not the same", {
+test_that("ecotypes will throw error if sr values are not the same", {
   expect_error(
     as_ypr_ecotypes(ypr_populations(Rk = c(10, 20))),
     "Rk must be the same across all ecotypes."
@@ -125,5 +125,10 @@ test_that("ecotypes will throw error if constant values are not the same", {
   expect_error(
     as_ypr_ecotypes(ypr_populations(pi = c(0.1, 0.2))),
     "Pi must be the same across all ecotypes."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(BH = c(1L, 0L))),
+    "BH must be the same across all ecotypes."
   )
 })
