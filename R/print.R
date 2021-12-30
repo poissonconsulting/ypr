@@ -47,7 +47,6 @@ print.ypr_ecotypes <- function(x, ...) {
     return(print(x[[1]]))
   }
   eco_names <- attr(x, "names")
-  proportions <- attr(x, "proportions")
 
   x$FUN <- c
   x <- do.call("mapply", x)
@@ -69,10 +68,6 @@ print.ypr_ecotypes <- function(x, ...) {
   eco_names <- paste0("Ecotype", ": ", eco_names, collapse = "\n")
   eco_names <- paste0(eco_names, "\n", collapse = "")
 
-  proportions <- paste0(proportions, collapse = ", ")
-  proportions <- paste0("Proportion", ": ", proportions, collapse = "\n")
-  proportions <- paste0(proportions, "\n", collapse = "")
-
-  cat(x, eco_names, proportions, sep = "")
+  cat(x, eco_names, sep = "")
   invisible(x)
 }

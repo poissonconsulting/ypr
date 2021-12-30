@@ -2,65 +2,25 @@ test_that("ecotype now converts population", {
   expect_s3_class(as_ypr_ecotypes(ypr_population()), "ypr_ecotypes")
 })
 
-test_that("ecotype errors when incorrect weight parameters given", {
-  expect_error(
-    as_ypr_ecotypes(ypr_populations(), weights = c("a", "b")),
-    "`weights` must be numeric."
-  )
+test_that("outputs proper weight proportions when all the same", {
+  populations <- ypr_populations(Linf = c(100, 1000), RPR = c(1,1))
+  expect_identical(populations[[1]]$RPR, 1)
+  expect_identical(populations[[2]]$RPR, 1)
+
+  ecotypes <- as_ypr_ecotypes(populations)
+  expect_identical(ecotypes[[1]]$RPR, 1/2)
+  expect_identical(ecotypes[[2]]$RPR, 1/2)
 })
 
-test_that("ecotype errors when NA weight parameters given", {
-  expect_error(
-    as_ypr_ecotypes(ypr_populations(), weights = c(1, NA)),
-    "`weights` must not have any missing values."
-  )
-})
 
-test_that("ecotype errors correct NA type given as weights", {
-  expect_error(
-    as_ypr_ecotypes(ypr_populations(), weights = NA_integer_),
-    "`weights` must not have any missing values."
-  )
-})
+test_that("outputs proper weight proportions when not all the same", {
+  populations <- ypr_populations(Linf = c(100, 1000), RPR = c(1, 1/2), expand = FALSE)
+  expect_identical(populations[[1]]$RPR, 1)
+  expect_identical(populations[[2]]$RPR, 1/2)
 
-test_that("ecotype errors nothing given as weights", {
-  expect_error(
-    as_ypr_ecotypes(ypr_populations(), weights = numeric(0)),
-    "Length of populations and weights do not match. 1 != 0."
-  )
-})
-
-test_that("ecotype errors when 0's weight parameters given", {
-  expect_error(
-    as_ypr_ecotypes(ypr_populations(), c(1, 0)),
-    "`weights` must have values greater than 0."
-  )
-})
-
-test_that("outputs ecotype class object", {
-  ecotype <- as_ypr_ecotypes(ypr_populations(Linf = c(100, 1000)), c(1/2,1/2))
-  expect_s3_class(ecotype, "ypr_ecotypes")
-})
-
-test_that("outputs proper wieght proportions when all the same", {
-  populations <- ypr_populations(Linf = c(100, 1000))
-  weights <- c(1, 1)
-  ecotype <- as_ypr_ecotypes(populations, weights)
-  expect_equal(
-    attr(ecotype, "proportions"),
-    c(0.5, 0.5)
-  )
-})
-
-test_that("outputs proper weight proportions when not all even", {
-  populations <- ypr_populations(Linf = c(100, 1000, 10, 200))
-  weights <- c(3, 1, 2, 1)
-  ecotype <- as_ypr_ecotypes(populations, weights)
-  expect_equal(
-    attr(ecotype, "proportions"),
-    c(0.4286, 0.1429, 0.2857, 0.1429),
-    tolerance = 0.001
-  )
+  ecotypes <- as_ypr_ecotypes(populations)
+  expect_identical(ecotypes[[1]]$RPR, 2/3)
+  expect_identical(ecotypes[[2]]$RPR, 1/3)
 })
 
 test_that("ecotypes names can be null and default names are used", {
@@ -84,7 +44,7 @@ test_that("ecotypes names fail as too many passed", {
 
 test_that("ecotypes names fail as not enough are passed", {
   expect_error(
-    as_ypr_ecotypes(ypr_populations(Linf = c(100, 1000)),  c(1, 2), c("small")),
+    as_ypr_ecotypes(ypr_populations(Linf = c(100, 1000)),  c("small")),
     'Length of populations and names do not match. 2 != 1.'
   )
 })

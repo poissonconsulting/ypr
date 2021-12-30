@@ -101,9 +101,8 @@
     Wa:    0.01
     fa:    1
     q:     0.1
-    RPR:   1
+    RPR:   0.333333333333333
     Ecotype: river, deep, shallow
-    Proportion: 0.25, 0.5, 0.25
 
 # print ecotypes no name
 
@@ -138,9 +137,8 @@
     Wa:    0.01
     fa:    1
     q:     0.1
-    RPR:   1
+    RPR:   0.333333333333333
     Ecotype: Ls_10, Ls_15, Ls_20
-    Proportion: 0.25, 0.5, 0.25
 
 # print ecotype 1
 

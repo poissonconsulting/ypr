@@ -16,9 +16,6 @@ as.data.frame.ypr_populations <- function(x, ...) {
 as.data.frame.ypr_ecotypes <- function(x, ...) {
   chk_unused(...)
   rname <- attr(x, "names")
-  proportions <- attr(x, "proportions")
   x <- lapply(x, as.data.frame)
-  x <- do.call("rbind", x)
-  attr(x, "proportions") <- proportions
-  x
+  do.call("rbind", x)
 }

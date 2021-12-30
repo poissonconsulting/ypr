@@ -61,7 +61,6 @@ as_ypr_populations.ypr_ecotypes <- function(x, ...) {
   check_ecotypes(x)
   chk_unused(...)
 
-  attr(x, "proportions") <- NULL
   class(x) <- "ypr_populations"
   x
 }

@@ -10,15 +10,12 @@ as_ypr_ecotypes(x, ...)
 
 \method{as_ypr_ecotypes}{ypr_population}(x, ...)
 
-\method{as_ypr_ecotypes}{ypr_populations}(x, weights = NULL, names = NULL, ...)
+\method{as_ypr_ecotypes}{ypr_populations}(x, names = NULL, ...)
 }
 \arguments{
 \item{x}{The object to coerce.}
 
 \item{...}{Additional arguments.}
-
-\item{weights}{A numeric vector giving the relative proportion of recruits belonging
-to each ecotype.}
 
 \item{names}{A character vector providing names for each ecotype.}
 }
@@ -37,7 +34,7 @@ Coerce to an Ecotypes Object
 
 \examples{
 as_ypr_ecotypes(ypr_population())
-as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))
+as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c("river", "deep", "shallow"))
 }
 \seealso{
 Other ecotypes: 

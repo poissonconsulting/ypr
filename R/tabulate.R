@@ -46,7 +46,7 @@ ypr_tabulate_yield <- function(object, ...) {
 #'   ),
 #'   pi = seq(0, 1, length.out = 10)
 #' )
-#' ypr_tabulate_yields(ypr_ecotypes(Linf = c(10, 20), weights = c(1, 1)))
+#' ypr_tabulate_yields(ypr_ecotypes(Linf = c(10, 20)))
 ypr_tabulate_yields <- function(object, ...) {
   UseMethod("ypr_tabulate_yields")
 }
@@ -236,7 +236,7 @@ ypr_tabulate_sr.ypr_ecotypes <- function(object,
                biomass = biomass, all = TRUE, ...
   )
 
-  proportions <- attr(object, "proportions")
+  proportions <- get_parameter(object, "RPR")
   eco_names <- names(object)
 
   sr <- mapply(function(sr, proportions, eco_names) {
@@ -358,7 +358,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                   biomass = biomass, type = type, all = TRUE, ...
   )
 
-  proportions <- attr(object, "proportions")
+  proportions <- get_parameter(object, "RPR")
   eco_names <- names(object)
 
   yield <- mapply(function(yield, proportions, eco_names) {

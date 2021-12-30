@@ -33,7 +33,7 @@ biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
 \examples{
 ypr_yield(ypr_population())
-ypr_yield(ypr_ecotypes(Linf = c(100, 200), weights = c(0.5, 0.5)))
+ypr_yield(ypr_ecotypes(Linf = c(100, 200)))
 }
 \seealso{
 Other yield: 

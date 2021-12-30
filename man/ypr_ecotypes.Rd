@@ -4,13 +4,10 @@
 \alias{ypr_ecotypes}
 \title{Create Ecotypes Object}
 \usage{
-ypr_ecotypes(..., weights = NULL, names = NULL)
+ypr_ecotypes(..., names = NULL)
 }
 \arguments{
 \item{...}{Unused parameters.}
-
-\item{weights}{A numeric vector giving the weighting for how much it
-contributes to the overall population.}
 
 \item{names}{A character vector of unique ecotype names.}
 }
@@ -21,8 +18,8 @@ An \code{\link[=ypr_ecotypes]{ypr_ecotypes()}} objects
 Creates an ypr_ecotypes object.
 }
 \examples{
-ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
-ypr_ecotypes(Linf = c(1, 2), t0 = c(0, 0.5), weights = c(1, 1))
+ypr_ecotypes(Linf = c(1, 2))
+ypr_ecotypes(Linf = c(1, 2), t0 = c(0, 0.5))
 }
 \seealso{
 Other ecotypes: 

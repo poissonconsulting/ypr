@@ -47,7 +47,7 @@ test_that("ecotype schedule is created as expected", {
 })
 
 test_that("ecotype schedule produces 60 rows for 3 ecotypes", {
-  ecotype <- ypr_ecotypes(Linf = c(10, 100, 1000) ,weights = c(1, 2, 1))
+  ecotype <- ypr_ecotypes(Linf = c(10, 100, 1000) , RPR = c(1, 2, 1))
   schedule <- ypr_tabulate_schedule(ecotype)
   expect_equal(nrow(schedule), 60)
   expect_s3_class(schedule, "data.frame")

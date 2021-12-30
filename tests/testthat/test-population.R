@@ -146,21 +146,21 @@ test_that("ypr_populations_expand", {
 })
 
 test_that("ypr_ecotypes creates an ecotype", {
-  ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), RPR = c(1, 1))
   expect_s3_class(ecotypes, "ypr_ecotypes")
   expect_length(ecotypes, 2L)
   expect_snapshot_output(ecotypes)
 })
 
 test_that("ypr_ecotypes creates an ecotype when 1 parameter is provided", {
-  ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), RPR = c(1, 1))
   expect_s3_class(ecotypes, "ypr_ecotypes")
   expect_length(ecotypes, 2L)
   expect_snapshot_output(ecotypes)
 })
 
 test_that("ypr_ecotypes creates an ecotype when 2 parameters is provided", {
-  ecotypes <- ypr_ecotypes(Linf = c(1, 2), k2 = c(0.15, 0.25), weights = c(1, 1))
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), k2 = c(0.15, 0.25), RPR = c(1, 1))
   expect_s3_class(ecotypes, "ypr_ecotypes")
   expect_length(ecotypes, 2L)
   expect_snapshot_output(ecotypes)
@@ -172,50 +172,44 @@ test_that("ypr_ecotypes does not error when no weights provided", {
   expect_snapshot_output(ecotypes)
 })
 
-test_that("ypr_ecotypes errors when incorrect length of weight provided", {
-  expect_error(
-    ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1, 1)),
-    "Length of populations and weights do not match. 2 != 3."
-  )
-})
-
 test_that("ypr_ecotypes provides correct weights", {
-  ecotypes <- ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2), RPR = c(1, 1))
   proportions <- attr(ecotypes, "proportions")
-  expect_equal(proportions, c(0.5, 0.5))
+  expect_equal(ecotypes[[1]]$RPR, 1/2)
+  expect_equal(ecotypes[[2]]$RPR, 1/2)
 })
 
 test_that("update parameter in ypr_ecotypes", {
-
-  ecotypes <- ypr_ecotypes(Linf = c(2.5, 4), weights = c(1, 3))
+  ecotypes <- ypr_ecotypes(Linf = c(2.5, 4), RPR = c(1, 3))
   expect_s3_class(ecotypes, "ypr_ecotypes")
   expect_length(ecotypes, 2L)
-  expect_named(ecotypes, c("Linf_2_5", "Linf_4"))
+  expect_named(ecotypes, c("Linf_2_5_RPR_0_25", "Linf_4_RPR_0_75"))
   expect_equal(ecotypes[[1]]$Linf, 2.5)
   expect_equal(ecotypes[[2]]$Linf, 4)
+  expect_equal(ecotypes[[1]]$RPR, 1/4)
+  expect_equal(ecotypes[[2]]$RPR, 3/4)
 
   ecotypes_updated <- ypr_ecotypes_update(ecotypes, Linf = c(1))
   expect_s3_class(ecotypes_updated, "ypr_ecotypes")
   expect_length(ecotypes_updated, 2L)
-  expect_named(ecotypes_updated, c("Popn_1", "Popn_2"))
+  expect_named(ecotypes_updated, c('RPR_0_25', 'RPR_0_75'))
   expect_equal(ecotypes_updated[[1]]$Linf, 1)
   expect_equal(ecotypes_updated[[2]]$Linf, 1)
-
 })
 
 test_that("nothing updated when empty value passed to ypr_ecotypes_update", {
 
-  ecotypes <- ypr_ecotypes(Linf = c(2.5, 4), weights = c(1, 3))
+  ecotypes <- ypr_ecotypes(Linf = c(2.5, 4), RPR = c(1, 3))
   expect_s3_class(ecotypes, "ypr_ecotypes")
   expect_length(ecotypes, 2L)
-  expect_named(ecotypes, c("Linf_2_5", "Linf_4"))
+  expect_named(ecotypes, c('Linf_2_5_RPR_0_25', 'Linf_4_RPR_0_75'))
   expect_equal(ecotypes[[1]]$Linf, 2.5)
   expect_equal(ecotypes[[2]]$Linf, 4)
 
   ecotypes_updated <- ypr_ecotypes_update(ecotypes)
   expect_s3_class(ecotypes_updated, "ypr_ecotypes")
   expect_length(ecotypes_updated, 2L)
-  expect_named(ecotypes_updated, c("Linf_2_5", "Linf_4"))
+  expect_named(ecotypes_updated, c('Linf_2_5_RPR_0_25', 'Linf_4_RPR_0_75'))
   expect_equal(ecotypes_updated[[1]]$Linf, 2.5)
   expect_equal(ecotypes_updated[[2]]$Linf, 4)
 

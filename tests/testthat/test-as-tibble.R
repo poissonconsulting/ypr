@@ -11,7 +11,7 @@ test_that("as_tibble ypr_populations", {
 })
 
 test_that("as_tibble ypr_ecotypes", {
-  data <- as_tibble(as_ypr_ecotypes(ypr_populations(Linf = c(100, 200)), weights = c(0.75, 0.25)))
+  data <- as_tibble(as_ypr_ecotypes(ypr_populations(Linf = c(100, 200), RPR = c(0.75, 0.25), expand = FALSE)))
   expect_s3_class(data, "tbl_df")
   expect_snapshot_data(data, "ecotypes")
 })

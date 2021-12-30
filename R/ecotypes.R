@@ -7,11 +7,11 @@
 #' @family ecotypes
 #' @export
 #' @examples
-#' ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))
-#' ypr_ecotypes(Linf = c(1, 2), t0 = c(0, 0.5), weights = c(1, 1))
-ypr_ecotypes <- function(..., weights = NULL, names = NULL) {
+#' ypr_ecotypes(Linf = c(1, 2))
+#' ypr_ecotypes(Linf = c(1, 2), t0 = c(0, 0.5))
+ypr_ecotypes <- function(..., names = NULL) {
   x <- ypr_populations(..., expand = FALSE)
-  as_ypr_ecotypes(x, weights = weights, names = names)
+  as_ypr_ecotypes(x, names = names)
 }
 
 #' Update Ecotypes Parameters
@@ -24,12 +24,10 @@ ypr_ecotypes <- function(..., weights = NULL, names = NULL) {
 #' @family ecotypes
 #' @export
 #' @examples
-#' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4), weights = c(1, 1)), Linf = 2.5)
+#' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4)), Linf = 2.5)
 ypr_ecotypes_update <- function(ecotypes, ...) {
-  proportions <- attr(ecotypes, "proportions")
   ecotypes <- lapply(ecotypes, ypr_population_update, ...)
   class(ecotypes) <- "ypr_ecotypes"
   names(ecotypes) <- ypr_population_names(ecotypes)
-  attr(ecotypes, "proportions") <- proportions
   ecotypes
 }

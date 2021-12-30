@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' ypr_tabulate_schedule(ypr_population())
-#' ypr_tabulate_schedule(ypr_ecotypes(Linf = c(10, 20), weights = c(1, 1)))
+#' ypr_tabulate_schedule(ypr_ecotypes(Linf = c(10, 20)))
 ypr_tabulate_schedule <- function(object, ...) {
   UseMethod("ypr_tabulate_schedule")
 }
@@ -33,7 +33,7 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
 
   schedules <- lapply(object, impl_tabulate_schedule)
 
-  proportions <- attr(object, "proportions")
+  proportions <- get_parameter(object, "RPR")
   eco_names <- names(object)
 
   schedules <- mapply(function(schedules, proportions, eco_names) {
@@ -44,7 +44,6 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
 
   schedule <- do.call("rbind", schedules)
 
-  # apply ecotype proportions to relevant parameters
   schedule$Survivorship <- schedule$Survivorship * schedule$Proportion
   schedule$FishedSurvivorship <- schedule$FishedSurvivorship * schedule$Proportion
 

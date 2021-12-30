@@ -31,9 +31,8 @@
     Wa:    0.01
     fa:    1
     q:     0.1
-    RPR:   1
+    RPR:   0.5
     Ecotype: Linf_1, Linf_2
-    Proportion: 0.5, 0.5
 
 # ypr_ecotypes creates an ecotype when 1 parameter is provided
 
@@ -68,9 +67,8 @@
     Wa:    0.01
     fa:    1
     q:     0.1
-    RPR:   1
+    RPR:   0.5
     Ecotype: Linf_1, Linf_2
-    Proportion: 0.5, 0.5
 
 # ypr_ecotypes creates an ecotype when 2 parameters is provided
 
@@ -105,9 +103,8 @@
     Wa:    0.01
     fa:    1
     q:     0.1
-    RPR:   1
+    RPR:   0.5
     Ecotype: Linf_1_k2_0_15, Linf_2_k2_0_25
-    Proportion: 0.5, 0.5
 
 # ypr_ecotypes does not error when no weights provided
 
@@ -142,7 +139,6 @@
     Wa:    0.01
     fa:    1
     q:     0.1
-    RPR:   1
+    RPR:   0.5
     Ecotype: Linf_1, Linf_2
-    Proportion: 0.5, 0.5
 

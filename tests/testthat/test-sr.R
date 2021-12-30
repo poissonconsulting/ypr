@@ -36,12 +36,12 @@ test_that("ypr_sr extinct population", {
 test_that("ypr_sr works identical ecotypes with same weighting", {
   popn <- ypr_population(Linf = 100)
   sr <- ypr_sr(popn)
-  ecotypes <- ypr_ecotypes(Linf = c(100, 100), weights = c(0.5, 0.5))
+  ecotypes <- ypr_ecotypes(Linf = c(100, 100), RPR = c(0.5, 0.5))
   expect_equal(ypr_sr(ecotypes), sr)
 })
 
 test_that("ypr_sr works with 3 ecotypes", {
-  ecotype <- ypr_ecotypes(Linf = c(10, 100, 1000), weights = c(1, 2, 1))
+  ecotype <- ypr_ecotypes(Linf = c(10, 100, 1000), RPR = c(1, 2, 1))
   sr <- ypr_sr(ecotype)
   expect_snapshot_data(sr, "sr3")
 })

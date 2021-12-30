@@ -68,8 +68,6 @@
 #' @param description A string describing the population.
 #' @param age A numeric vector of the age (yr).
 #' @param length A numeric vector of the length (cm).
-#' @param weights A numeric vector giving the weighting for how much it
-#'   contributes to the overall population.
 #' @param names A character vector of unique ecotype names.
 #' @param x The object to coerce.
 #' @keywords internal

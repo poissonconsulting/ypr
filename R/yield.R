@@ -57,7 +57,7 @@ yield_pi <- function(pi, object, Ly, harvest, biomass) {
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-#' ypr_yield(ypr_ecotypes(Linf = c(100, 200), weights = c(0.5, 0.5)))
+#' ypr_yield(ypr_ecotypes(Linf = c(100, 200)))
 ypr_yield <- function(object,
                       Ly = 0,
                       harvest = TRUE,

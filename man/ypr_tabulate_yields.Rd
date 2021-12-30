@@ -80,7 +80,7 @@ ypr_tabulate_yields(
   ),
   pi = seq(0, 1, length.out = 10)
 )
-ypr_tabulate_yields(ypr_ecotypes(Linf = c(10, 20), weights = c(1, 1)))
+ypr_tabulate_yields(ypr_ecotypes(Linf = c(10, 20)))
 }
 \seealso{
 Other tabulate: 

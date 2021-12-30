@@ -7,13 +7,13 @@ test_that("print populations", {
 })
 
 test_that("print ecotypes", {
-  expect_snapshot_output(print(as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))))
+  expect_snapshot_output(print(as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c("river", "deep", "shallow"))))
 })
 
 test_that("print ecotypes no name", {
-  expect_snapshot_output(print(as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1))))
+  expect_snapshot_output(print(as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)))))
 })
 
 test_that("print ecotype 1", {
-  expect_snapshot_output(print(as_ypr_ecotypes(ypr_populations(), 1)))
+  expect_snapshot_output(print(as_ypr_ecotypes(ypr_populations())))
 })

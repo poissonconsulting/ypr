@@ -32,6 +32,6 @@ test_that("as_ypr_populations populations", {
     as_ypr_populations(
       ypr_ecotypes(Linf = c(150, 250))
     ),
-    ypr_populations(Linf = c(150, 250))
+    ypr_populations(Linf = c(150, 250), RPR = c(1/2, 1/2), expand = FALSE)
   )
 })
