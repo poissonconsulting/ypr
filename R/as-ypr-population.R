@@ -1,8 +1,8 @@
 #' Coerce to a Population Object
 #'
 #' @param x The object to coerce.
-#' @param ... Additional arguments.
-#' @return An object of class ypr_ecotypes.
+#' @param ... Unused.
+#' @return An object of class ypr_population.
 #' @family population
 #' @export
 as_ypr_population <- function(x, ...) {
