@@ -12,7 +12,6 @@ as.data.frame.ypr_populations <- function(x, ...) {
 
 #' @export
 as.data.frame.ypr_ecotypes <- function(x, ...) {
-
   rname <- attr(x, "names")
   proportions <- attr(x, "proportions")
   x <- lapply(x, as.data.frame)
