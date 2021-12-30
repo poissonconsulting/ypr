@@ -1,3 +1,13 @@
+#' Check Population
+#'
+#' Checks if an ypr_population object with valid parameter values.
+#'
+#' @inherit chk::check_data
+#' @family check
+#' @export
+#'
+#' @examples
+#' check_population(ypr_population())
 check_population <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
@@ -8,9 +18,19 @@ check_population <- function(x, x_name = NULL) {
   chk_superset(names(x), .parameters$Parameter, x_name = x_name)
 
   do.call("chk_parameters", x)
-  x
+  invisible(x)
 }
 
+#' Check Populations
+#'
+#' Checks if an ypr_populations object with valid parameter values.
+#'
+#' @inherit chk::check_data
+#' @family check
+#' @export
+#'
+#' @examples
+#' check_populations(ypr_populations())
 check_populations <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
 
@@ -21,10 +41,19 @@ check_populations <- function(x, x_name = NULL) {
 
 
   chk_all(x, check_population, x_name = x_name)
-
-  x
+  invisible(x)
 }
 
+#' Check Ecotypes
+#'
+#' Checks if an ypr_ecotypes object with valid parameter values.
+#'
+#' @inherit chk::check_data
+#' @family check
+#' @export
+#'
+#' @examples
+#' check_ecotypes(ypr_ecotypes())
 check_ecotypes <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
 
@@ -44,7 +73,8 @@ check_ecotypes <- function(x, x_name = NULL) {
   check_same(x, "Lup")
   check_same(x, "rho")
   check_same(x, "q")
-  x
+
+  invisible(x)
 }
 
 check_same <- function(populations, parameter) {
