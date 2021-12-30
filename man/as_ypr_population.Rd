@@ -2,16 +2,48 @@
 % Please edit documentation in R/as-ypr-population.R
 \name{as_ypr_population}
 \alias{as_ypr_population}
+\alias{as_ypr_population.data.frame}
+\alias{as_ypr_population.ypr_population}
+\alias{as_ypr_population.ypr_populations}
+\alias{as_ypr_population.ypr_ecotypes}
 \title{Coerce to a Population Object}
 \usage{
-as_ypr_population(x)
+as_ypr_population(x, ...)
+
+\method{as_ypr_population}{data.frame}(x, ...)
+
+\method{as_ypr_population}{ypr_population}(x, ...)
+
+\method{as_ypr_population}{ypr_populations}(x, ...)
+
+\method{as_ypr_population}{ypr_ecotypes}(x, ...)
 }
 \arguments{
 \item{x}{The object to coerce.}
+
+\item{...}{Additional arguments.}
+}
+\value{
+An object of class ypr_ecotypes.
 }
 \description{
-Creates an object of class ypr_population from a data frame of population parameters.
+Coerce to a Population Object
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{data.frame}: Coerce a data.frame to an Population Object
+
+\item \code{ypr_population}: Coerce a Population Object to an Population Object
+
+\item \code{ypr_populations}: Coerce a Populations Object of length 1 to a Population Object
+
+\item \code{ypr_ecotypes}: Coerce a Ecotypes Object of length 1 to a Population Object
+}}
+
 \examples{
 as_ypr_population(as.data.frame(ypr_population()))
+as_ypr_population(ypr_populations())
+as_ypr_population(ypr_populations())
+as_ypr_population(ypr_ecotypes())
 }
+\concept{population}
