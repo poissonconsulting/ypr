@@ -1,21 +1,24 @@
 #' @export
 as.data.frame.ypr_population <- function(x, ...) {
+  chk_unused(...)
   x <- unclass(x)
   as_tibble(as.data.frame(x))
 }
 
 #' @export
 as.data.frame.ypr_populations <- function(x, ...) {
+  chk_unused(...)
   x <- lapply(x, as.data.frame)
-  as_tibble(do.call("rbind", x))
+  do.call("rbind", x)
 }
 
 #' @export
 as.data.frame.ypr_ecotypes <- function(x, ...) {
+  chk_unused(...)
   rname <- attr(x, "names")
   proportions <- attr(x, "proportions")
   x <- lapply(x, as.data.frame)
-  x <- as_tibble(do.call("rbind", x))
+  x <- do.call("rbind", x)
   attr(x, "proportions") <- proportions
   x
 }
