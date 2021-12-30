@@ -18,7 +18,8 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            Llo = 0, Lup = 1000, Nc = 0,
                            pi = 0.2, rho = 0, Hm = 0,
                            Rmax = 1, Wa = 0.01, fa = 1,
-                           q = 0.1) {
+                           q = 0.1,
+                           RPR = 1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
   check_population(population)

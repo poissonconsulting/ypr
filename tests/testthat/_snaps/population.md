@@ -31,6 +31,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
     Ecotype: Linf_1, Linf_2
     Proportion: 0.5, 0.5
 
@@ -67,6 +68,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
     Ecotype: Linf_1, Linf_2
     Proportion: 0.5, 0.5
 
@@ -103,6 +105,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
     Ecotype: Linf_1_k2_0_15, Linf_2_k2_0_25
     Proportion: 0.5, 0.5
 
@@ -139,6 +142,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
     Ecotype: Linf_1, Linf_2
     Proportion: 0.5, 0.5
 

@@ -30,7 +30,7 @@ test_that("ypr_tabulate_yield", {
 
   yield <- ypr_tabulate_yield(ypr_population(), all = TRUE)
   expect_identical(check_tabulated_yield(yield, exclusive = FALSE), yield)
-  expect_identical(ncol(yield), 38L)
+  expect_identical(ncol(yield), 39L)
   expect_identical(yield$Linf, c(100, 100))
 
   yield <- ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
@@ -43,7 +43,7 @@ test_that("ypr_tabulate_yield", {
 
   yield <- ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)), all = TRUE)
   expect_identical(check_tabulated_yield(yield, exclusive = FALSE), yield)
-  expect_identical(ncol(yield), 38L)
+  expect_identical(ncol(yield), 39L)
   expect_identical(nrow(yield), 4L)
 
   yields <- ypr_tabulate_yields(
@@ -84,7 +84,7 @@ test_that("ypr_tabulate_yield", {
     pi = seq(0, 1, length.out = 2),
     all = TRUE
   )
-  expect_identical(ncol(yields), 37L)
+  expect_identical(ncol(yields), 38L)
   expect_identical(nrow(yields), 4L)
 
   sr <- ypr_tabulate_sr(ypr_population())
@@ -160,7 +160,7 @@ test_that("ypr_tabulate_yield", {
     ),
     exclusive = TRUE,
     order = TRUE,
-    nrow = nrow(ypr:::.parameters),
+    nrow = c(nrow(ypr:::.parameters) - 1, nrow(ypr:::.parameters)),
     key = "Parameter"
   ), NA)
 

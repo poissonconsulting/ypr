@@ -35,7 +35,8 @@ ypr_population(
   Rmax = 1,
   Wa = 0.01,
   fa = 1,
-  q = 0.1
+  q = 0.1,
+  RPR = 1
 )
 }
 \arguments{
@@ -104,6 +105,8 @@ rate switches from n to nL (cm or yr).}
 
 \item{q}{The catchability (annual probability of capture) for a unit of
 effort.}
+
+\item{RPR}{The relative proportion of recruits that are of the ecotype.}
 }
 \value{
 An object of class \code{ypr_population}.

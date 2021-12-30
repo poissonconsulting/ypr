@@ -70,6 +70,8 @@ rate switches from n to nL (cm or yr).}
 \item{q}{The catchability (annual probability of capture) for a unit of
 effort.}
 
+\item{RPR}{The relative proportion of recruits that are of the ecotype.}
+
 \item{all}{A flag specifying whether to include all parameter values.}
 
 \item{u}{A flag specifying whether to plot the exploitation rate as opposed

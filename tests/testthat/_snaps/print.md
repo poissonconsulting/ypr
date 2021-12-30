@@ -31,6 +31,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
 
 # print populations
 
@@ -65,6 +66,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
 
 # print ecotypes
 
@@ -99,6 +101,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
     Ecotype: river, deep, shallow
     Proportion: 0.25, 0.5, 0.25
 
@@ -135,6 +138,7 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
     Ecotype: Ls_10, Ls_15, Ls_20
     Proportion: 0.25, 0.5, 0.25
 
@@ -171,4 +175,5 @@
     Wa:    0.01
     fa:    1
     q:     0.1
+    RPR:   1
 
