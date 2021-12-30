@@ -2,7 +2,7 @@
 as.data.frame.ypr_population <- function(x, ...) {
   chk_unused(...)
   x <- unclass(x)
-  as_tibble(as.data.frame(x))
+  as.data.frame(x)
 }
 
 #' @export

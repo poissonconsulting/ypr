@@ -103,7 +103,7 @@ ypr_populations_expand <- function(populations) {
 #' @examples
 #' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
 ypr_population_names <- function(populations) {
-  populations <- as.data.frame(populations)
+  populations <- as_tibble(populations)
   populations <- populations[, vapply(
     populations,
     FUN = function(x) length(unique(x)) > 1,
