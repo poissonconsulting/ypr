@@ -1,27 +1,3 @@
-test_that("unique", {
-  pops <- ypr_populations(Rk = c(3, 3), expand = FALSE)
-  expect_identical(names(pops), c("Popn_1", "Popn_2"))
-  expect_identical(unique(pops), structure(list(Popn_1 = structure(list(
-    tmax = 20L, k = 0.15,
-    Linf = 100, t0 = 0, k2 = 0.15, Linf2 = 100, L2 = 1000, Wb = 3,
-    Ls = 50, Sp = 100, es = 1, Sm = 0, fb = 1, tR = 1L, BH = 1L,
-    Rk = 3, n = 0.2, nL = 0.2, Ln = 1000, Lv = 50, Vp = 100, Llo = 0,
-    Lup = 1000, Nc = 0, pi = 0.2, rho = 0, Hm = 0, Rmax = 1,
-    Wa = 0.01, fa = 1, q = 0.1
-  ), class = "ypr_population")), class = "ypr_populations"))
-
-  pops <- ypr_populations(Rk = c(4, 3), expand = FALSE)
-  expect_identical(names(pops), c("Rk_4", "Rk_3"))
-  expect_identical(unique(pops), pops)
-})
-
-test_that("update", {
-  expect_identical(
-    update(ypr_population(), Rk = 5),
-    ypr_population(Rk = 5)
-  )
-})
-
 test_that("data.frame conversion for ecotypes functions as expected", {
   expect_identical(
     as.data.frame(as_ypr_ecotypes()),
@@ -39,13 +15,5 @@ test_that("data.frame conversion for ecotypes functions as expected", {
       proportions = c(0.5, 0.5),
       class = c("tbl_df", "tbl", "data.frame")
     )
-  )
-})
-
-test_that("print method for ecotypes outputs correctly", {
-
-  expect_identical(
-    capture_output(print(as_ypr_ecotypes())),
-    "tmax:  20\nk:     0.15\nLinf:  100, 1000\nt0:    0\nk2:    0.15\nLinf2: 100\nL2:    1000\nWb:    3\nLs:    50\nSp:    100\nes:    1\nSm:    0\nfb:    1\ntR:    1\nBH:    1\nRk:    3\nn:     0.2\nnL:    0.2\nLn:    1000\nLv:    50\nVp:    100\nLlo:   0\nLup:   1000\nNc:    0\npi:    0.2\nrho:   0\nHm:    0\nRmax:  1\nWa:    0.01\nfa:    1\nq:     0.1\nEcotype: Linf_100, Linf_1000\nProportion: 0.5, 0.5"
   )
 })
