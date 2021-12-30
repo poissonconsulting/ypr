@@ -1,53 +1,70 @@
 #' Coerce to an Ecotypes Object
 #'
-#' Creates an object of class ypr_ecotypes from a list of ypr_populations.
+#' @param x The object to coerce.
+#' @param ... Additional arguments.
+#' @return An object of class ypr_ecotypes.
+#' @family ecotypes
+#' @export
+as_ypr_ecotypes <- function(x, ...) {
+  UseMethod("as_ypr_ecotypes")
+}
+
+#' @describeIn as_ypr_ecotypes Coerce a Population Object to an Ecotypes Object
+#' @export
+#' @examples
+#' as_ypr_ecotypes(ypr_population())
+as_ypr_ecotypes.ypr_population <- function(x, ...) {
+  check_population(x)
+  chk_unused(...)
+
+  x <- list(x)
+  class(x) <- "ypr_populations"
+  as_ypr_ecotypes(x)
+}
+
+#' @describeIn as_ypr_ecotypes Coerce a Populations Object to an Ecotypes Object
 #'
-#' @param populations A list with each element providing the population
-#' parameters for each ecotype.
 #' @param weights A numeric vector giving the relative proportion of recruits belonging
 #' to each ecotype.
-#' @param names An optional character vector providing names for each ecotype.
-#' @family ecotypes
-#' @examples
-#' as_ypr_ecotypes()
-#' as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))
+#' @param names A character vector providing names for each ecotype.
 #' @export
-as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
-                            weights = c(0.5, 0.5),
-                            names = NULL) {
-  check_populations(populations)
-  chk::check_dim(populations, values = TRUE)
+#' @examples
+#' as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))
+as_ypr_ecotypes.ypr_populations <- function(x, weights = NULL, names = NULL, ...) {
+  check_populations(x)
 
-  chk::chk_numeric(weights)
+  chk::chk_null_or(weights, vld = vld_numeric)
+  chk::chk_null_or(names, vld = vld_character)
+  chk_unused(...)
+
+  chk_gt(length(x))
+
+  if(is.null(weights)) {
+    weights <- rep(1/length(x), length(x))
+  }
   chk::chk_not_any_na(weights)
-  chk::chk_gt(weights, value = 0)
+  chk::chk_gt(weights)
 
-  if (!chk::vld_equal(length(populations), length(weights))) {
-    chk::abort_chk(paste0("Length of ", deparse(substitute(populations)),
-                          " and ", deparse(substitute(weights)),
-                          " do not match. ", length(populations), " != ",
+  if (!chk::vld_equal(length(x), length(weights))) {
+    chk::abort_chk(paste0("Length of populations and weights do not match. ",
+                          length(x), " != ",
                           length(weights)))
   }
-
-  chk::chk_null_or(names, vld = chk::vld_character)
-  if (!is.null(names)) {
-    if (!chk::vld_equal(length(populations), length(names))) {
-      chk::abort_chk(paste0("Length of ", deparse(substitute(populations)),
-                            " and ", deparse(substitute(names)),
-                            " do not match. ", length(populations), " != ",
-                            length(names)))
-    }
+  if(is.null(names)) {
+    names <- ypr_population_names(x)
   }
 
-  weights <- weights / sum(weights)
-  ecotype <- populations
-
-  class(ecotype) <- c("ypr_ecotypes")
-  attr(ecotype, "proportions") <- weights
-
-  if (!is.null(names)) {
-    names(ecotype) <- names
+  chk::chk_not_any_na(names)
+  chk::chk_unique(names)
+  if (!chk::vld_equal(length(x), length(names))) {
+    chk::abort_chk(paste0("Length of populations and names do not match. ",
+                          length(x), " != ",
+                          length(names)))
   }
-  check_ecotypes(ecotype)
-  ecotype
+
+  class(x) <- c("ypr_ecotypes")
+  names(x) <- names
+  attr(x, "proportions") <- weights / sum(weights)
+  check_ecotypes(x)
+  x
 }

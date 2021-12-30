@@ -15,10 +15,10 @@ contributes to the overall population.}
 \item{names}{A character vector of unique ecotype names.}
 }
 \value{
-A list of \code{\link[=ypr_ecotypes]{ypr_ecotypes()}} objects
+An \code{\link[=ypr_ecotypes]{ypr_ecotypes()}} objects
 }
 \description{
-Creates an object of class ecotypes.
+Creates an ypr_ecotypes object.
 }
 \examples{
 ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1))

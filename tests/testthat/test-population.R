@@ -175,7 +175,7 @@ test_that("ypr_ecotypes does not error when no weights provided", {
 test_that("ypr_ecotypes errors when incorrect length of weight provided", {
   expect_error(
     ypr_ecotypes(Linf = c(1, 2), weights = c(1, 1, 1)),
-    "Length of parameters and weights do not match. 2 != 3."
+    "Length of populations and weights do not match. 2 != 3."
   )
 })
 

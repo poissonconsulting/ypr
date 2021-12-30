@@ -41,10 +41,7 @@ test_that("ypr_sr works identical ecotypes with same weighting", {
 })
 
 test_that("ypr_sr works with 3 ecotypes", {
-  ecotype <- as_ypr_ecotypes(
-    populations = ypr_populations(Linf = c(10, 100, 1000)),
-    weights = c(1, 2, 1)
-  )
+  ecotype <- ypr_ecotypes(Linf = c(10, 100, 1000), weights = c(1, 2, 1))
   sr <- ypr_sr(ecotype)
   expect_snapshot_data(sr, "sr3")
 })

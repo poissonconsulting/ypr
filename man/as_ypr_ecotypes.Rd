@@ -2,28 +2,41 @@
 % Please edit documentation in R/as-ypr-ecotypes.R
 \name{as_ypr_ecotypes}
 \alias{as_ypr_ecotypes}
+\alias{as_ypr_ecotypes.ypr_population}
+\alias{as_ypr_ecotypes.ypr_populations}
 \title{Coerce to an Ecotypes Object}
 \usage{
-as_ypr_ecotypes(
-  populations = ypr_populations(Linf = c(100, 1000)),
-  weights = c(0.5, 0.5),
-  names = NULL
-)
+as_ypr_ecotypes(x, ...)
+
+\method{as_ypr_ecotypes}{ypr_population}(x, ...)
+
+\method{as_ypr_ecotypes}{ypr_populations}(x, weights = NULL, names = NULL, ...)
 }
 \arguments{
-\item{populations}{A list with each element providing the population
-parameters for each ecotype.}
+\item{x}{The object to coerce.}
+
+\item{...}{Additional arguments.}
 
 \item{weights}{A numeric vector giving the relative proportion of recruits belonging
 to each ecotype.}
 
-\item{names}{An optional character vector providing names for each ecotype.}
+\item{names}{A character vector providing names for each ecotype.}
+}
+\value{
+An object of class ypr_ecotypes.
 }
 \description{
-Creates an object of class ypr_ecotypes from a list of ypr_populations.
+Coerce to an Ecotypes Object
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Coerce a Population Object to an Ecotypes Object
+
+\item \code{ypr_populations}: Coerce a Populations Object to an Ecotypes Object
+}}
+
 \examples{
-as_ypr_ecotypes()
+as_ypr_ecotypes(ypr_population())
 as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c(1, 2, 1), c("river", "deep", "shallow"))
 }
 \seealso{
