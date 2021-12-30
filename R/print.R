@@ -1,7 +1,7 @@
 
 #' @export
 print.ypr_population <- function(x, ...) {
-  suppressWarnings(chk_population(x))
+  suppressWarnings(check_population(x))
   nchar <- nchar(names(x))
   nchar <- max(nchar) - nchar + 1
   space <- vapply(
@@ -16,7 +16,7 @@ print.ypr_population <- function(x, ...) {
 
 #' @export
 print.ypr_populations <- function(x, ...) {
-  suppressWarnings(chk_populations(x))
+  suppressWarnings(check_populations(x))
   if (length(x) == 1) {
     return(print(x[[1]]))
   }
@@ -42,7 +42,7 @@ print.ypr_populations <- function(x, ...) {
 ### Add ecotype and proportion and weight formatted as other things
 #' @export
 print.ypr_ecotypes <- function(x, ...) {
-  suppressWarnings(chk_ecotypes(x))
+  suppressWarnings(check_ecotypes(x))
   if (length(x) == 1) { ### should print with name and weight so not confused
     return(print(x[[1]]))
   }

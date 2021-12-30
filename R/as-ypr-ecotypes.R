@@ -15,7 +15,7 @@
 as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
                             weights = c(0.5, 0.5),
                             names = NULL) {
-  chk_populations(populations)
+  check_populations(populations)
   chk::check_dim(populations, values = TRUE)
 
   chk::chk_numeric(weights)
@@ -48,6 +48,6 @@ as_ypr_ecotypes <- function(populations = ypr_populations(Linf = c(100, 1000)),
   if (!is.null(names)) {
     names(ecotype) <- names
   }
-  chk_ecotypes(ecotype)
+  check_ecotypes(ecotype)
   ecotype
 }

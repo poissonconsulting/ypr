@@ -61,7 +61,7 @@ ypr_tabulate_yields <- function(object, ...) {
 #' @examples
 #' ypr_tabulate_parameters(ypr_population())
 ypr_tabulate_parameters <- function(population) {
-  chk_population(population)
+  check_population(population)
 
   parameters <- data.frame(
     Parameter = names(population),
@@ -142,7 +142,7 @@ ypr_detabulate_parameters <- function(x) {
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
 ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
-  chk_population(population)
+  check_population(population)
   chk_string(x)
   chk_subset(x, c("Age", "Length", "Weight"))
   chk_whole_number(binwidth)

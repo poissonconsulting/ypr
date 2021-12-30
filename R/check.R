@@ -1,4 +1,4 @@
-chk_population <- function(x, x_name = NULL) {
+check_population <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
   chk_string(x_name, x_name = "x_name")
 
@@ -11,7 +11,7 @@ chk_population <- function(x, x_name = NULL) {
   x
 }
 
-chk_populations <- function(x, x_name = NULL) {
+check_populations <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
 
   chk_list(x, x_name = x_name)
@@ -20,23 +20,12 @@ chk_populations <- function(x, x_name = NULL) {
   x_name <- paste("elements of", x_name)
 
 
-  chk_all(x, chk_population, x_name = x_name)
+  chk_all(x, check_population, x_name = x_name)
 
   x
 }
 
-check_same <- function(populations, parameter) {
-  param_list <- numeric(length(populations))
-  for (i in seq_len(length(populations))) {
-    val <- populations[[i]][[parameter]]
-    param_list[i] <- val
-  }
-  if (length(unique(param_list)) != 1) {
-    chk::abort_chk(parameter, " must be the same across all ecotypes")
-  }
-}
-
-chk_ecotypes <- function(x, x_name = NULL) {
+check_ecotypes <- function(x, x_name = NULL) {
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
 
   chk_list(x, x_name = x_name)
@@ -44,7 +33,7 @@ chk_ecotypes <- function(x, x_name = NULL) {
   chk_s3_class(x, "ypr_ecotypes", x_name)
   x_name <- paste("elements of", x_name)
 
-  chk_all(x, chk_population, x_name = x_name)
+  chk_all(x, check_population, x_name = x_name)
 
   check_same(x, "BH")
   check_same(x, "Rk")
@@ -58,3 +47,13 @@ chk_ecotypes <- function(x, x_name = NULL) {
   x
 }
 
+check_same <- function(populations, parameter) {
+  param_list <- numeric(length(populations))
+  for (i in seq_len(length(populations))) {
+    val <- populations[[i]][[parameter]]
+    param_list[i] <- val
+  }
+  if (length(unique(param_list)) != 1) {
+    chk::abort_chk(parameter, " must be the same across all ecotypes")
+  }
+}

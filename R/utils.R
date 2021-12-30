@@ -60,7 +60,7 @@ get_par <- function(object, par) {
 #' @examples
 #' ypr_length_at_age(ypr_population(), seq(0, 5, by = 0.5))
 ypr_length_at_age <- function(population, age) {
-  chk_population(population)
+  check_population(population)
   chk_numeric(age)
   chk_vector(age)
   chk_gte(age)
@@ -77,7 +77,7 @@ ypr_length_at_age <- function(population, age) {
 #' @examples
 #' ypr_age_at_length(ypr_population(), seq(0, 100, by = 10))
 ypr_age_at_length <- function(population, length) {
-  chk_population(population)
+  check_population(population)
   chk_numeric(length)
   chk_vector(length)
   chk_gte(length)

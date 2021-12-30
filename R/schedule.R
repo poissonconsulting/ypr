@@ -17,7 +17,7 @@ ypr_tabulate_schedule <- function(object, ...) {
 #' @describeIn ypr_tabulate_schedule Tabulate Schedule
 #' @export
 ypr_tabulate_schedule.ypr_population <- function(object, ...) {
-  chk_population(object)
+  check_population(object)
   chk::chk_unused(...)
 
   schedule <- impl_tabulate_schedule(object)
@@ -28,7 +28,7 @@ ypr_tabulate_schedule.ypr_population <- function(object, ...) {
 #' @describeIn ypr_tabulate_schedule Tabulate Schedule
 #' @export
 ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
-  chk_ecotypes(object)
+  check_ecotypes(object)
   chk::chk_unused(...)
 
   schedules <- lapply(object, impl_tabulate_schedule)

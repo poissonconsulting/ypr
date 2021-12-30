@@ -21,7 +21,7 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
                            q = 0.1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
-  chk_population(population)
+  check_population(population)
   population
 }
 
@@ -36,9 +36,9 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
 #' @examples
 #' ypr_population_update(ypr_population(), Rk = 2.5)
 ypr_population_update <- function(population, ...) {
-  chk_population(population)
+  check_population(population)
   parameters <- list(...)
   population[names(parameters)] <- unname(parameters)
-  chk_population(population)
+  check_population(population)
   population
 }

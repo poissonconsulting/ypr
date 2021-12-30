@@ -67,7 +67,7 @@ ypr_sr <- function(object, ...) {
 #' @describeIn ypr_sr Stock-Recruitment Parameters Population
 #' @export
 ypr_sr.ypr_population <- function(object, ...) {
-  chk_population(object)
+  check_population(object)
   chk::chk_unused(...)
 
   schedule <- ypr_tabulate_schedule(object)
@@ -81,7 +81,7 @@ ypr_sr.ypr_population <- function(object, ...) {
 #' @describeIn ypr_sr Stock-Recruitment Parameters Population
 #' @export
 ypr_sr.ypr_ecotypes <- function(object, ...) {
-  chk_ecotypes(object)
+  check_ecotypes(object)
   chk::chk_unused(...)
 
   schedule <- ypr_tabulate_schedule(object)

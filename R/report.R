@@ -37,7 +37,7 @@ ypr_report <- function(population,
                        file = "report",
                        view = FALSE,
                        ask = TRUE) {
-  chk_population(population)
+  check_population(population)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)

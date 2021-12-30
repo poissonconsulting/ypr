@@ -12,7 +12,7 @@
 #' plot(ypr_population())
 #' }
 plot.ypr_population <- function(x, type = "b", ...) {
-  chk_population(x)
+  check_population(x)
 
   schedule <- ypr_tabulate_schedule(x)
 
@@ -230,7 +230,7 @@ ypr_plot_sr <- function(population,
                         plot_values = TRUE) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
-  chk_population(population)
+  check_population(population)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -315,7 +315,7 @@ ypr_plot_yield.ypr_population <- function(object,
                                           ...) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
-  chk_population(object)
+  check_population(object)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
