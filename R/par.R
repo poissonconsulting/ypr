@@ -13,5 +13,5 @@ get_par <- function(object, par) {
   if(is.ypr_population(object)) {
     return(object[[par]])
   }
-  unname(sapply(object, get_par, par))
+  unname(purrr::map_dbl(object, get_par, par))
 }
