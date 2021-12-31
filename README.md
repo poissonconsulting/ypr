@@ -22,9 +22,9 @@ status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/pa
 [`ypr`](https://github.com/poissonconsulting/ypr) is an R package that
 implements equilibrium-based yield per recruit methods. Yield per
 recruit methods can used to estimate the optimal yield for a fish
-population (Walters and Martell 2004) or multiple ecotypes. The yield
-can be based on the number of fish caught (or harvested) or biomass for
-all fish or just large (trophy) individuals.
+population (Walters and Martell 2004) consisting of one or more
+ecotypes. The yield can be based on the number of fish caught (or
+harvested) or biomass for all fish or just large (trophy) individuals.
 
 The key life history parameters are
 
@@ -42,9 +42,6 @@ and in the case of ecotypes
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
-
-A shiny app is available at
-<https://poissonconsulting.shinyapps.io/shinyypr/>.
 
 ## Installation
 
@@ -141,17 +138,6 @@ ypr_plot_yield(population)
 ```
 
 ![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
-
-### Uncertainty
-
-``` r
-library(ggplot2)
-populations <- ypr_populations(Rk = c(3, 7), Ls = c(40, 60), Rmax = 100)
-ypr_plot_yield(populations, plot_values = FALSE) +
-  facet_grid(Rk ~ Ls)
-```
-
-![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
 ## Information
 
