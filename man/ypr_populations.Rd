@@ -4,12 +4,14 @@
 \alias{ypr_populations}
 \title{Populations}
 \usage{
-ypr_populations(..., expand = TRUE)
+ypr_populations(..., expand = TRUE, names = NULL)
 }
 \arguments{
 \item{...}{Unused parameters.}
 
 \item{expand}{A flag specifying whether to expand parameter combinations.}
+
+\item{names}{A character vector of unique ecotype names.}
 }
 \value{
 A list of \code{\link[=ypr_population]{ypr_population()}} objects

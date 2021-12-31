@@ -95,3 +95,8 @@ test_that("populations expand = FALSE", {
     c("Ls_60_Rk_2_5_Pop_1", "Ls_50_Rk_4_6", "Ls_60_Rk_2_5_Pop_2")
   )
 })
+
+test_that("populations names", {
+  populations <- ypr_populations(Ls = c(50, 60), names = c("Name1", "Name2"))
+  expect_identical(names(populations), c("Name1", "Name2"))
+})

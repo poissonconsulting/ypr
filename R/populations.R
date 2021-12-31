@@ -8,8 +8,10 @@
 #' @export
 #' @examples
 #' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
-ypr_populations <- function(..., expand = TRUE) {
+ypr_populations <- function(..., expand = TRUE, names = NULL) {
   chk_flag(expand)
+  chk_null_or(names, vld = vld_character)
+
   population <- ypr_population()
 
   parameters <- list(...)
@@ -45,6 +47,18 @@ ypr_populations <- function(..., expand = TRUE) {
     populations[[i]] <- do.call("ypr_population", population)
   }
   class(populations) <- "ypr_populations"
-  names(populations) <- ypr_names(populations)
+
+  if(!is.null(names)) {
+    chk_not_any_na(names)
+    chk_unique(names)
+    if (!chk::vld_equal(length(populations), length(names))) {
+      chk::abort_chk(paste0("Number of populations and names do not match. ",
+                            length(populations), " != ", length(names)))
+    }
+  } else {
+    names <- ypr_names(populations)
+  }
+
+  names(populations) <- names
   populations
 }
