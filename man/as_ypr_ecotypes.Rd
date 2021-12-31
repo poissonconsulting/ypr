@@ -4,20 +4,21 @@
 \alias{as_ypr_ecotypes}
 \alias{as_ypr_ecotypes.ypr_population}
 \alias{as_ypr_ecotypes.ypr_populations}
+\alias{as_ypr_ecotypes.ypr_ecotypes}
 \title{Coerce to an Ecotypes Object}
 \usage{
 as_ypr_ecotypes(x, ...)
 
 \method{as_ypr_ecotypes}{ypr_population}(x, ...)
 
-\method{as_ypr_ecotypes}{ypr_populations}(x, names = NULL, ...)
+\method{as_ypr_ecotypes}{ypr_populations}(x, ...)
+
+\method{as_ypr_ecotypes}{ypr_ecotypes}(x, ...)
 }
 \arguments{
 \item{x}{The object to coerce.}
 
 \item{...}{Additional arguments.}
-
-\item{names}{A character vector providing names for each ecotype.}
 }
 \value{
 An object of class ypr_ecotypes.
@@ -30,11 +31,14 @@ Coerce to an Ecotypes Object
 \item \code{ypr_population}: Coerce a Population Object to an Ecotypes Object
 
 \item \code{ypr_populations}: Coerce a Populations Object to an Ecotypes Object
+
+\item \code{ypr_ecotypes}: Coerce an Ecotypes Object to an Ecotypes Object
 }}
 
 \examples{
 as_ypr_ecotypes(ypr_population())
-as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)), c("river", "deep", "shallow"))
+as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)))
+as_ypr_ecotypes(ypr_ecotypes(Ls = c(10, 15, 20)))
 }
 \seealso{
 Other ecotypes: 
