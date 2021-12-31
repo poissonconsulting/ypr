@@ -77,13 +77,9 @@ check_ecotypes <- function(x, x_name = NULL) {
   invisible(x)
 }
 
-check_same <- function(populations, parameter) {
-  param_list <- numeric(length(populations))
-  for (i in seq_len(length(populations))) {
-    val <- populations[[i]][[parameter]]
-    param_list[i] <- val
-  }
-  if (length(unique(param_list)) != 1) {
+check_same <- function(x, parameter) {
+  values <- get_parameter(x, parameter)
+  if (length(unique(values)) != 1) {
     chk::abort_chk(parameter, " must be the same across all elements")
   }
 }
