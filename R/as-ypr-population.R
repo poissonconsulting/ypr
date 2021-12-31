@@ -39,11 +39,11 @@ as_ypr_population.ypr_population <- function(x, ...) {
 #' @examples
 #' as_ypr_population(ypr_populations())
 as_ypr_population.ypr_populations <- function(x, ...) {
-  check_populations(x)
+  chk_list(x)
   chk_unused(...)
 
   check_dim(x, dim = length, values = 1L)
-  x[[1]]
+  check_population(x[[1]])
 }
 
 #' @describeIn as_ypr_population Coerce a Ecotypes Object of length 1 to a Population Object
@@ -52,9 +52,9 @@ as_ypr_population.ypr_populations <- function(x, ...) {
 #' @examples
 #' as_ypr_population(ypr_ecotypes())
 as_ypr_population.ypr_ecotypes <- function(x, ...) {
-  check_ecotypes(x)
+  chk_list(x)
   chk_unused(...)
 
   check_dim(x, dim = length, values = 1L)
-  x[[1]]
+  check_population(x[[1]])
 }

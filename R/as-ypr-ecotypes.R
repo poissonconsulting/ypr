@@ -33,7 +33,6 @@ as_ypr_ecotypes.ypr_populations <- function(x, ...) {
 
   class(x) <- c("ypr_ecotypes")
   check_ecotypes(x)
-  x
 }
 
 #' @describeIn as_ypr_ecotypes Coerce an Ecotypes Object to an Ecotypes Object
