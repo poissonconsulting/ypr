@@ -6,13 +6,31 @@
 #' distinguish between ecotypes.
 #'
 #' @param x An object of class ypr_population, ypr_populations or ypr_ecotypes.
+#' @param ... Unused.
 #'
 #' @return A character vector of the unique parameter based names.
 #' @export
+ypr_names <- function(x, ...) {
+  UseMethod("ypr_names")
+}
+
+#' @describeIn ypr_names Population Names
+#' @export
 #' @examples
-#' ypr_names(ypr_populations(Rk = c(2.5, 3, 2.5)))
-ypr_names <- function(x) {
+#' ypr_names(ypr_population())
+ypr_names.ypr_population <- function(x, ...) {
+  chk_unused(...)
+  "Popn_1"
+}
+
+#' @describeIn ypr_names Populations Names
+#' @export
+#' @examples
+#' ypr_names(ypr_populations())
+ypr_names.ypr_populations <- function(x, ...) {
+  chk_unused(...)
   x <- as_tibble(x)
+#  x$RPR <- NULL
   x <- x[, vapply(
     x,
     FUN = function(x) length(unique(x)) > 1,
@@ -48,5 +66,17 @@ ypr_names <- function(x) {
     bol <- names == duplicate
     names[bol] <- paste(names[bol], "Popn", 1:sum(bol), sep = "_")
   }
+  names
+}
+
+#' @describeIn ypr_names Ecotypes Names
+#' @export
+#' @examples
+#' ypr_names(ypr_populations())
+ypr_names.ypr_ecotypes <- function(x, ...) {
+  chk_unused(...)
+  x <- as_ypr_populations(x)
+  names <- ypr_names(x)
+#  names <- sub("^Popn_", "Ecotype_", names)
   names
 }
