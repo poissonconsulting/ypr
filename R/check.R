@@ -69,6 +69,8 @@ check_ecotypes <- function(x, x_name = NULL) {
   check_same(x, "tR")
   check_same(x, "Rmax")
   check_same(x, "pi")
+  check_same(x, "Nc")
+  check_same(x, "Hm") # not sure if this needs to be the same?
   check_same(x, "Llo")
   check_same(x, "Lup")
   check_same(x, "rho")
