@@ -40,7 +40,7 @@ The key life history parameters are
 
 and in the case of ecotypes
 
-- The relative proportion of recruits that belong to that ecotype and which is assumed to be independent of parent ecotype (`RPR`)
+- The relative proportion of recruits that belong to that ecotype (`RPR`)
 
 The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.
 
