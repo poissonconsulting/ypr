@@ -29,10 +29,6 @@ age_at_length <- function(population, length) {
   })
 }
 
-is.ypr_population <- function(x) {
-  inherits(x, "ypr_population")
-}
-
 set_par <- function(object, par, value) {
   if(is.ypr_population(object)) {
     object[[par]] <- value

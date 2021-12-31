@@ -3,7 +3,7 @@
 \name{ypr_population_names}
 \alias{ypr_population_names}
 \alias{ypr_names}
-\title{Population or Ecotype Names}
+\title{Population(s) or Ecotype Names}
 \usage{
 ypr_population_names(populations)
 
