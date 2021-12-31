@@ -8,8 +8,8 @@ test_that("outputs proper weight proportions when all the same", {
   expect_identical(populations[[2]]$RPR, 1)
 
   ecotypes <- as_ypr_ecotypes(populations)
-  expect_identical(ecotypes[[1]]$RPR, 1/2)
-  expect_identical(ecotypes[[2]]$RPR, 1/2)
+  expect_identical(ecotypes[[1]]$RPR, 1)
+  expect_identical(ecotypes[[2]]$RPR, 1)
 })
 
 
@@ -19,8 +19,8 @@ test_that("outputs proper weight proportions when not all the same", {
   expect_identical(populations[[2]]$RPR, 1/2)
 
   ecotypes <- as_ypr_ecotypes(populations)
-  expect_identical(ecotypes[[1]]$RPR, 2/3)
-  expect_identical(ecotypes[[2]]$RPR, 1/3)
+  expect_identical(ecotypes[[1]]$RPR, 1)
+  expect_identical(ecotypes[[2]]$RPR, 1/2)
 })
 
 test_that("ecotypes names can be null and default names are used", {

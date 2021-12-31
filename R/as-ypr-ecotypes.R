@@ -36,10 +36,6 @@ as_ypr_ecotypes.ypr_populations <- function(x, names = NULL, ...) {
 
   chk_gt(length(x))
 
-  rpr <- get_parameter(x, "RPR")
-  rpr <- rpr/sum(rpr)
-  x <- set_parameter(x, rpr, "RPR")
-
   if(is.null(names)) {
     names <- ypr_population_names(x)
   }
