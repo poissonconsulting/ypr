@@ -22,9 +22,9 @@ status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/pa
 [`ypr`](https://github.com/poissonconsulting/ypr) is an R package that
 implements equilibrium-based yield per recruit methods. Yield per
 recruit methods can used to estimate the optimal yield for a fish
-population (Walters and Martell 2004). The yield can be based on the
-number of fish caught (or harvested) or biomass for all fish or just
-large (trophy) individuals.
+population (Walters and Martell 2004) or multiple ecotypes. The yield
+can be based on the number of fish caught (or harvested) or biomass for
+all fish or just large (trophy) individuals.
 
 The key life history parameters are
 
@@ -35,11 +35,32 @@ The key life history parameters are
 -   The interval annual natural mortality rate (`n`)
 -   The lifetime number of spawners per spawner at low density (`Rk`)
 
+and in the case of ecotypes
+
+-   The relative proportion of recruits that belong to that ecotype and
+    which is assumed to be independent of parent ecotype (`RPR`)
+
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
 
 A shiny app is available at
 <https://poissonconsulting.shinyapps.io/shinyypr/>.
+
+## Installation
+
+To install the latest release from [CRAN](https://cran.r-project.org)
+
+``` r
+install.packages("ypr")
+```
+
+To install the developmental version from
+[GitHub](https://github.com/poissonconsulting/ypr)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/ypr")
+```
 
 ## Demonstration
 
@@ -51,7 +72,7 @@ population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```
 
-![](man/figures/README-unnamed-chunk-1-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 head(ypr_tabulate_schedule(population))
@@ -74,7 +95,7 @@ head(ypr_tabulate_schedule(population))
 ypr_plot_fish(population, color = "white")
 ```
 
-![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 head(ypr_tabulate_fish(population))
@@ -95,7 +116,7 @@ head(ypr_tabulate_fish(population))
 ypr_plot_sr(population)
 ```
 
-![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 ypr_tabulate_sr(population)
@@ -119,7 +140,7 @@ ypr_tabulate_yield(population)
 ypr_plot_yield(population)
 ```
 
-![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
 ### Uncertainty
 
@@ -130,23 +151,7 @@ ypr_plot_yield(populations, plot_values = FALSE) +
   facet_grid(Rk ~ Ls)
 ```
 
-![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
-
-## Installation
-
-To install the latest release from [CRAN](https://cran.r-project.org)
-
-``` r
-install.packages("ypr")
-```
-
-To install the developmental version from
-[GitHub](https://github.com/poissonconsulting/ypr)
-
-``` r
-# install.packages("remotes")
-remotes::install_github("poissonconsulting/ypr")
-```
+![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
 ## Information
 
