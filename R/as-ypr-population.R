@@ -29,6 +29,7 @@ as_ypr_population.data.frame <- function(x, ...) {
 as_ypr_population.ypr_population <- function(x, ...) {
   check_population(x)
   chk_unused(...)
+
   x
 }
 

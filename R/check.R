@@ -84,6 +84,6 @@ check_same <- function(populations, parameter) {
     param_list[i] <- val
   }
   if (length(unique(param_list)) != 1) {
-    chk::abort_chk(parameter, " must be the same across all ecotypes")
+    chk::abort_chk(parameter, " must be the same across all elements")
   }
 }

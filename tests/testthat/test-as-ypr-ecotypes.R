@@ -25,16 +25,16 @@ test_that("ecotypes default names are used", {
 test_that("ecotypes will throw error if sr values are not the same", {
   expect_error(
     as_ypr_ecotypes(ypr_populations(Rk = c(10, 20))),
-    "Rk must be the same across all ecotypes."
+    "Rk must be the same across all elements."
   )
 
   expect_error(
     as_ypr_ecotypes(ypr_populations(pi = c(0.1, 0.2))),
-    "Pi must be the same across all ecotypes."
+    "Pi must be the same across all elements."
   )
 
   expect_error(
     as_ypr_ecotypes(ypr_populations(BH = c(1L, 0L))),
-    "BH must be the same across all ecotypes."
+    "BH must be the same across all elements."
   )
 })
