@@ -21,7 +21,7 @@ as_ypr_populations.data.frame <- function(x, ...) {
   x <- split(x, seq_len(nrow(x)))
   x <- lapply(x, as_ypr_population)
   class(x) <- "ypr_populations"
-  names(x) <- ypr_population_names(x)
+  names(x) <- ypr_names(x)
   x
 }
 
@@ -36,7 +36,7 @@ as_ypr_populations.ypr_population <- function(x, ...) {
 
   x <- list(x)
   class(x) <- "ypr_populations"
-  names(x) <- ypr_population_names(x)
+  names(x) <- ypr_names(x)
   x
 }
 

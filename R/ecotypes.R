@@ -22,7 +22,7 @@ ypr_ecotypes <- function(..., names = NULL) {
                             length(x), " != ", length(names)))
     }
   } else {
-    names <- ypr_population_names(x)
+    names <- ypr_names(x)
   }
   names(x) <- names
   x
@@ -42,6 +42,6 @@ ypr_ecotypes <- function(..., names = NULL) {
 ypr_ecotypes_update <- function(ecotypes, ...) {
   ecotypes <- lapply(ecotypes, ypr_population_update, ...)
   class(ecotypes) <- "ypr_ecotypes"
-  names(ecotypes) <- ypr_population_names(ecotypes)
+  names(ecotypes) <- ypr_names(ecotypes)
   ecotypes
 }

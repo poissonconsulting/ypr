@@ -45,7 +45,7 @@ ypr_populations <- function(..., expand = TRUE) {
     populations[[i]] <- do.call("ypr_population", population)
   }
   class(populations) <- "ypr_populations"
-  names(populations) <- ypr_population_names(populations)
+  names(populations) <- ypr_names(populations)
   populations
 }
 
@@ -63,7 +63,7 @@ ypr_populations <- function(..., expand = TRUE) {
 ypr_populations_update <- function(populations, ...) {
   populations <- lapply(populations, ypr_population_update, ...)
   class(populations) <- "ypr_populations"
-  names(populations) <- ypr_population_names(populations)
+  names(populations) <- ypr_names(populations)
   populations
 }
 

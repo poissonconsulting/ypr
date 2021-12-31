@@ -1,44 +1,48 @@
-#' Population Names
+#' Population(s) or Ecotype Names
 #'
-#' @inheritParams params
+#' Generates set of unique names based on differences in parameter values.
 #'
-#' @return A character vector of the unique population names.
-#' @family populations
+#' Parameter RPR is ignored because it is irrelevant to population(s) and does not
+#' distinguish between ecotypes.
+#'
+#' @param x An object of class ypr_population, ypr_populations or ypr_ecotypes.
+#'
+#' @return A character vector of the unique parameter based names.
 #' @export
 #' @examples
-#' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
-ypr_population_names <- function(populations) {
-  populations <- as_tibble(populations)
-  populations <- populations[, vapply(
-    populations,
+#' ypr_names(ypr_populations(Rk = c(2.5, 3, 2.5)))
+ypr_names <- function(x) {
+  x <- as_tibble(x)
+  x <- x[, vapply(
+    x,
     FUN = function(x) length(unique(x)) > 1,
     TRUE
   )]
-  if (!ncol(populations)) {
-    return(paste0("Popn_", seq_len(nrow(populations))))
+  if (!ncol(x)) {
+    return(paste0("Popn_", seq_len(nrow(x))))
   }
-  populations <- as.list(populations)
-  populations <- purrr::map(
-    populations,
+  x <- as.list(x)
+  x <- purrr::map(
+    x,
     .sub,
     pattern = "[.]",
     replacement = "_"
   )
-  populations <- purrr::map2(
-    populations,
-    names(populations),
+  x <- purrr::map2(
+    x,
+    names(x),
     function(x, y) paste(y, x, sep = "_")
   )
-  populations <- purrr::transpose(populations)
-  populations <- purrr::map(
-    populations,
+  x <- purrr::transpose(x)
+  x <- purrr::map(
+    x,
     function(x) {
       paste0(unname(unlist(x)),
              collapse = "_"
       )
     }
   )
-  names <- unlist(populations)
+  names <- unlist(x)
   duplicates <- unique(names[duplicated(names)])
   for (duplicate in duplicates) {
     bol <- names == duplicate

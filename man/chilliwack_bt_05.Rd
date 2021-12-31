@@ -36,7 +36,6 @@ Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
 Other populations: 
 \code{\link{as_ypr_populations}()},
 \code{\link{ypr_plot_yield}()},
-\code{\link{ypr_population_names}()},
 \code{\link{ypr_populations_expand}()},
 \code{\link{ypr_populations_update}()},
 \code{\link{ypr_populations}()},
