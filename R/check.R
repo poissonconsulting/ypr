@@ -17,7 +17,7 @@ check_population <- function(x, x_name = NULL) {
   chk_unique(names(x), x_name = x_name)
   chk_superset(names(x), .parameters$Parameter, x_name = x_name)
 
-  do.call("chk_parameters", x)
+  do.call("check_parameters", x)
   invisible(x)
 }
 

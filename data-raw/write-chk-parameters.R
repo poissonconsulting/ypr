@@ -14,7 +14,7 @@ body <- paste0("chk_s3_class(", parameter, ",'",
 )
 
 args <- paste0(
-  "chk_parameters <- function(",
+  "check_parameters <- function(",
   chk::cc(ypr:::.parameters$Parameter, ellipsis = Inf, brac = ""),
   ") {\n"
 )
