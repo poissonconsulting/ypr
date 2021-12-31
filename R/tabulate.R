@@ -236,7 +236,7 @@ ypr_tabulate_sr.ypr_ecotypes <- function(object,
                biomass = biomass, all = TRUE, ...
   )
 
-  proportions <- get_proportions(object)
+  proportions <- get_prop(object)
   eco_names <- names(object)
 
   sr <- mapply(function(sr, proportions, eco_names) {
@@ -358,7 +358,7 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                   biomass = biomass, type = type, all = TRUE, ...
   )
 
-  proportions <- get_proportions(object)
+  proportions <- get_prop(object)
 
   eco_names <- names(object)
 

@@ -33,7 +33,7 @@ ypr_tabulate_schedule.ypr_ecotypes <- function(object, ...) {
 
   schedules <- lapply(object, impl_tabulate_schedule)
 
-  proportions <- get_proportions(object)
+  proportions <- get_prop(object)
   eco_names <- names(object)
 
   schedules <- mapply(function(schedules, proportions, eco_names) {
