@@ -1,7 +1,7 @@
 test_that("unique", {
   pops <- ypr_populations(Rk = c(3, 3), expand = FALSE)
-  expect_identical(names(pops), c("Popn_1", "Popn_2"))
-  expect_identical(unique(pops), structure(list(Popn_1 = structure(list(
+  expect_identical(names(pops), c("Pop_1", "Pop_2"))
+  expect_identical(unique(pops), structure(list(Pop_1 = structure(list(
     tmax = 20L, k = 0.15,
     Linf = 100, t0 = 0, k2 = 0.15, Linf2 = 100, L2 = 1000, Wb = 3,
     Ls = 50, Sp = 100, es = 1, Sm = 0, fb = 1, tR = 1L, BH = 1L,

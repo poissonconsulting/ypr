@@ -20,7 +20,7 @@ ypr_names <- function(x, ...) {
 #' ypr_names(ypr_population())
 ypr_names.ypr_population <- function(x, ...) {
   chk_unused(...)
-  "Popn_1"
+  "Pop_1"
 }
 
 #' @describeIn ypr_names Populations Names
@@ -37,7 +37,7 @@ ypr_names.ypr_populations <- function(x, ...) {
     TRUE
   )]
   if (!ncol(x)) {
-    return(paste0("Popn_", seq_len(nrow(x))))
+    return(paste0("Pop_", seq_len(nrow(x))))
   }
   x <- as.list(x)
   x <- purrr::map(
@@ -64,7 +64,7 @@ ypr_names.ypr_populations <- function(x, ...) {
   duplicates <- unique(names[duplicated(names)])
   for (duplicate in duplicates) {
     bol <- names == duplicate
-    names[bol] <- paste(names[bol], "Popn", 1:sum(bol), sep = "_")
+    names[bol] <- paste(names[bol], "Pop", 1:sum(bol), sep = "_")
   }
   names
 }
@@ -77,6 +77,6 @@ ypr_names.ypr_ecotypes <- function(x, ...) {
   chk_unused(...)
   x <- as_ypr_populations(x)
   names <- ypr_names(x)
-#  names <- sub("^Popn_", "Ecotype_", names)
+  names <- sub("^Pop_", "Eco_", names)
   names
 }
