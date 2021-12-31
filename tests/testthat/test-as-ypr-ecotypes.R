@@ -1,8 +1,12 @@
-test_that("ecotype now converts population", {
-  expect_s3_class(as_ypr_ecotypes(ypr_population()), "ypr_ecotypes")
+test_that("ecotype converts data.frame", {
+  expect_identical(as_ypr_ecotypes(as.data.frame(ypr_ecotypes())), ypr_ecotypes())
 })
 
-test_that("ecotype now converts and ecotypes", {
+test_that("ecotype converts population", {
+  expect_identical(as_ypr_ecotypes(ypr_population()), ypr_ecotypes())
+})
+
+test_that("ecotype converts ecotypes", {
   expect_identical(as_ypr_ecotypes(ypr_ecotypes()), ypr_ecotypes())
 })
 

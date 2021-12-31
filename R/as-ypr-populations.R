@@ -62,5 +62,6 @@ as_ypr_populations.ypr_ecotypes <- function(x, ...) {
   chk_unused(...)
 
   class(x) <- "ypr_populations"
+  names(x) <- ypr_names(x)
   x
 }

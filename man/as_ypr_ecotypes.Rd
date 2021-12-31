@@ -2,12 +2,15 @@
 % Please edit documentation in R/as-ypr-ecotypes.R
 \name{as_ypr_ecotypes}
 \alias{as_ypr_ecotypes}
+\alias{as_ypr_ecotypes.data.frame}
 \alias{as_ypr_ecotypes.ypr_population}
 \alias{as_ypr_ecotypes.ypr_populations}
 \alias{as_ypr_ecotypes.ypr_ecotypes}
 \title{Coerce to an Ecotypes Object}
 \usage{
 as_ypr_ecotypes(x, ...)
+
+\method{as_ypr_ecotypes}{data.frame}(x, ...)
 
 \method{as_ypr_ecotypes}{ypr_population}(x, ...)
 
@@ -28,6 +31,8 @@ Coerce to an Ecotypes Object
 }
 \section{Methods (by class)}{
 \itemize{
+\item \code{data.frame}: Coerce a data.frame to an Ecotypes Object
+
 \item \code{ypr_population}: Coerce a Population Object to an Ecotypes Object
 
 \item \code{ypr_populations}: Coerce a Populations Object to an Ecotypes Object
@@ -36,6 +41,7 @@ Coerce to an Ecotypes Object
 }}
 
 \examples{
+as_ypr_ecotypes(as.data.frame(ypr_ecotypes(Ls = c(10, 15, 20))))
 as_ypr_ecotypes(ypr_population())
 as_ypr_ecotypes(ypr_populations(Ls = c(10, 15, 20)))
 as_ypr_ecotypes(ypr_ecotypes(Ls = c(10, 15, 20)))
