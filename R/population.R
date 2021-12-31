@@ -25,21 +25,3 @@ ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
   check_population(population)
   population
 }
-
-#' Update Population Parameters
-#'
-#' Updates an object of class [ypr_population()].
-#'
-#' @inheritParams params
-#' @param ... One or more of the arguments from `ypr_population()`.
-#' @return An object of class `ypr_population`.
-#' @export
-#' @examples
-#' ypr_population_update(ypr_population(), Rk = 2.5)
-ypr_population_update <- function(population, ...) {
-  check_population(population)
-  parameters <- list(...)
-  population[names(parameters)] <- unname(parameters)
-  check_population(population)
-  population
-}
