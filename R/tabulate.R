@@ -76,8 +76,8 @@ ypr_tabulate_parameters <- function(population) {
   rd <- regmatches(rd, gp)[[1]]
 
   data <- data.frame(
-    Parameter = sub(pattern, "\\2", rd),
-    Description = sub(pattern, "\\5", rd),
+    Parameter = .sub(rd, pattern, "\\2"),
+    Description = .sub(rd, pattern, "\\5"),
     stringsAsFactors = FALSE
   )
 

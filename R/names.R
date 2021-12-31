@@ -77,6 +77,6 @@ ypr_names.ypr_ecotypes <- function(x, ...) {
   chk_unused(...)
   x <- as_ypr_populations(x)
   names <- ypr_names(x)
-  names <- sub("^Pop_", "Eco_", names)
+  names <- .sub(names, "^Pop_", "Eco_")
   names
 }
