@@ -1,0 +1,32 @@
+---
+title: "Ecotypes"
+author: "Joe Thorley and Ayla Pearson"
+date: "`r Sys.Date()`"
+bibliography: bibliography.bib
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Ecotypes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 4
+)
+```
+
+
+```{r, echo=FALSE}
+library(ypr)
+```
+
+## Ecotypes
+
+In the ypr package a population can consist of more than one ecotype.
+A population is considered to be group of panmictic fish that are indistinguishable to anglers
+while ecotypes are considered to be subsets of a population that follow alternative life-history strategies.
+Consequently, ecotypes in the same population must share the key stock recruitment (`BH`, `RK`, `tR` and `Rmax`) and fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) parameters.
+Finally, in order to use a yield-per-recruit approach it is necessary to assume that the relative proportion of recruits adopting each life-history strategy (`RPR`) is independent of the parental stock.
