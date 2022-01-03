@@ -43,22 +43,22 @@ test_that("ypr_ecotypes preserves RPR", {
 test_that("as_ypr_ecotypes throws error if sr values are not the same", {
   expect_error(
     ypr_ecotypes(Rk = c(10, 20)),
-    "Rk must be the same across all elements."
+    "`Rk` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(BH = c(1L, 0L)),
-    "BH must be the same across all elements."
+    "`BH` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(tR = c(1L, 2L)),
-    "tR must be the same across all elements."
+    "`tR` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(Rmax = c(2, 3)),
-    "Rmax must be the same across all elements."
+    "`Rmax` must be the same across all elements."
   )
 
 })
@@ -66,36 +66,36 @@ test_that("as_ypr_ecotypes throws error if sr values are not the same", {
 test_that("as_ypr_ecotypes throws error if fishery values are not the same", {
   expect_error(
     ypr_ecotypes(pi = c(0.1, 0.2)),
-    "pi must be the same across all elements."
+    "`pi` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(Nc = c(0, 1)),
-    "Nc must be the same across all elements."
+    "`Nc` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(Hm = c(0, 1)),
-    "Hm must be the same across all elements."
+    "`Hm` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(Llo = c(10, 100)),
-    "Llo must be the same across all elements."
+    "`Llo` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(Lup = c(10, 100)),
-    "Lup must be the same across all elements."
+    "`Lup` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(rho = c(0, 1)),
-    "rho must be the same across all elements."
+    "`rho` must be the same across all elements."
   )
 
   expect_error(
     ypr_ecotypes(q = c(0, 1)),
-    "q must be the same across all elements."
+    "`q` must be the same across all elements."
   )
 })

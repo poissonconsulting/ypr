@@ -1,21 +1,21 @@
-test_that("population", {
+test_that("ypr_population works", {
   population <- ypr_population()
-  expect_identical(check_population(population), population)
-  population2 <- ypr_population()
-  population2$Rk <- 2.5
-  expect_identical(ypr_population_update(population, Rk = 2.5), population2)
-  expect_error(
-    ypr_population_update(
-      population,
-      Rk = 0.5
-    ),
-    "^`Rk` must be between 1 and 100, not 0.5[.]$",
-    class = "chk_error"
-  )
-  expect_s3_class(
-    ypr_population_update(population, pi = 0.23456),
-    "ypr_population"
-  )
+  expect_s3_class(population, "ypr_population")
+  expect_length(population, 32L)
+  expect_snapshot_output(population)
+})
 
-  ypr_population_update(population, n = ypr:::inst2inter(0.2), nL = 0.3)
+test_that("ypr_population set values", {
+  population <- ypr_population(Rk = 2.5)
+  expect_identical(population$Rk, 2.5)
+})
+
+test_that("ypr_population errors multiple values", {
+  expect_error(ypr_population(Rk = c(2.5, 5)),
+               "`Rk` must be a scalar \\(length 1\\)\\.")
+})
+
+test_that("ypr_population errors outside range", {
+  expect_error(ypr_population(pi = 1.1),
+               "`pi` must be between 0 and 1, not 1.1.")
 })
