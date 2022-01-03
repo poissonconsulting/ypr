@@ -5,11 +5,28 @@ test_that("ypr_ecotypes works", {
   expect_snapshot_output(ecotypes)
 })
 
+test_that("ypr_ecotypes element is a population", {
+  ecotypes <- ypr_ecotypes()
+  expect_identical(ecotypes[[1]], ypr_population())
+})
+
 test_that("ypr_ecotypes creates an ecotype with 2 elements", {
   ecotypes <- ypr_ecotypes(Linf = c(1, 2))
   expect_s3_class(ecotypes, "ypr_ecotypes")
   expect_length(ecotypes, 2L)
   expect_snapshot_output(ecotypes)
+})
+
+test_that("ypr_ecotypes creates an ecotype with 2 elements even when parameters same", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 1))
+  expect_s3_class(ecotypes, "ypr_ecotypes")
+  expect_length(ecotypes, 2L)
+  expect_snapshot_output(ecotypes)
+})
+
+test_that("ypr_ecotypes creates names", {
+  ecotypes <- ypr_ecotypes(Linf = c(1, 2.5))
+  expect_named(ecotypes, c("Linf_1", "Linf_2_5"))
 })
 
 test_that("ypr_ecotypes allows names to be specified", {
@@ -35,7 +52,6 @@ test_that("ypr_ecotypes creates an ecotype when 3 parameters are provided", {
 
 test_that("ypr_ecotypes preserves RPR", {
   ecotypes <- ypr_ecotypes(Linf = c(1, 2), RPR = c(1, 3.5))
-  proportions <- attr(ecotypes, "proportions")
   expect_equal(ecotypes[[1]]$RPR, 1)
   expect_equal(ecotypes[[2]]$RPR, 3.5)
 })
