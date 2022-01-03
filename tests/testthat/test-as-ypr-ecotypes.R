@@ -34,11 +34,51 @@ test_that("ecotypes will throw error if sr values are not the same", {
 
   expect_error(
     as_ypr_ecotypes(ypr_populations(pi = c(0.1, 0.2))),
-    "Pi must be the same across all elements."
+    "pi must be the same across all elements."
   )
 
   expect_error(
     as_ypr_ecotypes(ypr_populations(BH = c(1L, 0L))),
     "BH must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(tR = c(1L, 2L))),
+    "tR must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Rmax = c(2, 3))),
+    "Rmax must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Nc = c(0, 1))),
+    "Nc must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Hm = c(0, 1))),
+    "Hm must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Llo = c(10, 100))),
+    "Llo must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Lup = c(10, 100))),
+    "Lup must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(rho = c(0, 1))),
+    "rho must be the same across all elements."
+  )
+
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(q = c(0, 1))),
+    "q must be the same across all elements."
   )
 })

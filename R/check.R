@@ -82,6 +82,6 @@ check_ecotypes <- function(x, x_name = NULL) {
 check_same <- function(x, parameter) {
   values <- get_par(x, parameter)
   if (length(unique(values)) != 1) {
-    chk::abort_chk(parameter, " must be the same across all elements")
+    chk::abort_chk(parameter, " must be the same across all elements.", tidy = FALSE)
   }
 }
