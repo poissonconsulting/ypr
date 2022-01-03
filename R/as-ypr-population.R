@@ -43,7 +43,8 @@ as_ypr_population.ypr_populations <- function(x, ...) {
   chk_unused(...)
 
   check_dim(x, dim = length, values = 1L)
-  check_population(x[[1]])
+  x <- check_population(x[[1]])
+  x
 }
 
 #' @describeIn as_ypr_population Coerce a Ecotypes Object of length 1 to a Population Object
@@ -56,5 +57,6 @@ as_ypr_population.ypr_ecotypes <- function(x, ...) {
   chk_unused(...)
 
   check_dim(x, dim = length, values = 1L)
-  check_population(x[[1]])
+  x <- check_population(x[[1]])
+  x
 }

@@ -20,8 +20,10 @@ as_ypr_ecotypes.data.frame <- function(x, ...) {
 
   x <- split(x, seq_len(nrow(x)))
   x <- lapply(x, as_ypr_population)
-  class(x) <- "ypr_populations"
-  as_ypr_ecotypes(x)
+  class(x) <- "ypr_ecotypes"
+  check_ecotypes(x)
+  names(x) <- ypr_names(x)
+  x
 }
 
 #' @describeIn as_ypr_ecotypes Coerce a Population Object to an Ecotypes Object
@@ -33,8 +35,9 @@ as_ypr_ecotypes.ypr_population <- function(x, ...) {
   chk_unused(...)
 
   x <- list(x)
-  class(x) <- "ypr_populations"
-  as_ypr_ecotypes(x)
+  class(x) <- "ypr_ecotypes"
+  names(x) <- ypr_names(x)
+  x
 }
 
 #' @describeIn as_ypr_ecotypes Coerce a Populations Object to an Ecotypes Object
@@ -47,7 +50,6 @@ as_ypr_ecotypes.ypr_populations <- function(x, ...) {
   chk_unused(...)
 
   class(x) <- c("ypr_ecotypes")
-  names(x) <- ypr_names(x)
   check_ecotypes(x)
   x
 }
