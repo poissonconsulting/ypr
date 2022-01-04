@@ -68,7 +68,7 @@
     q:     0.1
     RPR:   1
 
-# ypr_populations creates populations with 2 elements even when parameters same if not expand
+# ypr_populations creates populations with 1 element when parameters same if expand
 
     tmax:  20
     k:     0.15
@@ -103,7 +103,7 @@
     q:     0.1
     RPR:   1
 
----
+# ypr_populations creates populations with 2 elements even when parameters same if not expand
 
     tmax:  20
     k:     0.15

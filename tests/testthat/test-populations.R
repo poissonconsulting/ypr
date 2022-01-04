@@ -29,7 +29,7 @@ test_that("ypr_populations allows names to be specified", {
   expect_named(populations, c("t2", "t1"))
 })
 
-test_that("ypr_populations creates populations with 2 elements even when parameters same if not expand", {
+test_that("ypr_populations creates populations with 1 element when parameters same if expand", {
   populations <- ypr_populations(Linf = c(1, 1), expand = TRUE)
   expect_s3_class(populations, "ypr_populations")
   expect_length(populations, 1L)
@@ -40,6 +40,52 @@ test_that("ypr_populations creates populations with 2 elements even when paramet
   populations <- ypr_populations(Linf = c(1, 1), expand = FALSE)
   expect_s3_class(populations, "ypr_populations")
   expect_length(populations, 2L)
+  expect_named(populations, c("Pop_1", "Pop_2"))
+  expect_snapshot_output(populations)
+})
+
+test_that("ypr_populations make unique names for duplicates when not expand", {
+  populations <- ypr_populations(Rk = c(2.5, 4.6, 2.5), expand = FALSE)
+  expect_s3_class(populations, "ypr_populations")
+  expect_length(populations, 3L)
+  expect_named(populations, c("Rk_2_5_Pop_1", "Rk_4_6", "Rk_2_5_Pop_2"))
+  expect_snapshot_output(populations)
+})
+
+test_that("ypr_populations names when not expand preserves order", {
+  populations <- ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 50), expand = FALSE)
+  expect_s3_class(populations, "ypr_populations")
+  expect_length(populations, 3L)
+  expect_named(populations, c("Ls_60_Rk_2_5", "Ls_50_Rk_4_6", "Ls_50_Rk_2_5"))
+  expect_snapshot_output(populations)
+})
+
+test_that("ypr_populations names when expand reorders", {
+  populations <- ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 50), expand = TRUE)
+  expect_s3_class(populations, "ypr_populations")
+  expect_length(populations, 4L)
+  expect_named(populations, c("Ls_50_Rk_2_5", "Ls_50_Rk_4_6", "Ls_60_Rk_2_5", "Ls_60_Rk_4_6"))
+  expect_snapshot_output(populations)
+})
+
+test_that("ypr_populations make unique names for duplicates even with multiple parameters when not expand", {
+  populations <- ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 60), expand = FALSE)
+  expect_s3_class(populations, "ypr_populations")
+  expect_length(populations, 3L)
+  expect_named(populations, c("Ls_60_Rk_2_5_Pop_1", "Ls_50_Rk_4_6", "Ls_60_Rk_2_5_Pop_2"))
+  expect_snapshot_output(populations)
+})
+
+test_that("ypr_populations fails when different length parameters if not expand", {
+  expect_error(ypr_populations(Linf = c(1, 1), k = c(0.1, 0.2, 0.3), expand = FALSE),
+               "Non-scalar parameter values must all be the same length \\(not 2 and 3\\)\\.")
+})
+
+test_that("ypr_populations but works when different length parameters if expand", {
+  populations <- ypr_populations(Linf = c(1, 1), k = c(0.2, 0.1, 0.3), expand = TRUE)
+  expect_s3_class(populations, "ypr_populations")
+  expect_length(populations, 3L)
+  expect_named(populations, c("k_0_1", "k_0_2", "k_0_3"))
   expect_snapshot_output(populations)
 })
 
@@ -93,89 +139,4 @@ test_that("as_ypr_populations works if fishery values are not the same", {
 
   expect_length(populations, 2L)
   expect_snapshot_output(populations)
-})
-
-test_that("populations", {
-  populations <- ypr_populations()
-  expect_identical(length(populations), 1L)
-  expect_identical(populations[[1]], ypr_population())
-})
-
-test_that("populations expand = FALSE", {
-  populations <- ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
-  expect_identical(
-    names(populations),
-    c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2")
-  )
-  expect_identical(check_populations(populations), populations)
-  expect_identical(length(populations), 4L)
-  expect_identical(check_population(populations[[1]]), populations[[1]])
-
-  populations <- ypr_populations(k = 0.12, Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
-  expect_identical(
-    names(populations),
-    c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2")
-  )
-  expect_identical(check_populations(populations), populations)
-  expect_identical(length(populations), 4L)
-  expect_identical(check_population(populations[[1]]), populations[[1]])
-})
-
-test_that("populations expand = FALSE", {
-  populations <- ypr_populations(k = 0.12, Rk = c(2.5, 4.6, 5.0), Hm = c(0.2, 0.05))
-  expect_identical(
-    names(populations),
-    c(
-      "Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_5_Hm_0_05", "Rk_2_5_Hm_0_2",
-      "Rk_4_6_Hm_0_2", "Rk_5_Hm_0_2"
-    )
-  )
-  expect_error(
-    ypr_populations(
-      k = 0.12, Rk = c(2.5, 4.6, 5.0),
-      Hm = c(0.2, 0.05), expand = FALSE
-    ),
-    "^Non-scalar parameter values must all be the same length [(]not 2 and 3[)][.]$"
-  )
-  expect_error(
-    ypr_populations(
-      k = 0.12, Rk = c(2.5, 4.6, 5.0),
-      Hm = c(0.2, 0.05), expand = FALSE
-    ),
-    "^Non-scalar parameter values must all be the same length [(]not 2 and 3[)][.]$"
-  )
-
-  expect_identical(
-    names(ypr_populations(
-      k = 0.12, Rk = c(2.5, 4.6),
-      Hm = c(0.2, 0.05), expand = TRUE
-    )),
-    c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2")
-  )
-
-  expect_identical(
-    names(ypr_populations(
-      k = 0.12, Rk = c(2.5, 4.6),
-      Hm = c(0.2, 0.05), expand = FALSE
-    )),
-    c("Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_05")
-  )
-
-  expect_identical(
-    names(ypr_populations(Rk = c(2.5, 4.6, 2.5), expand = FALSE)),
-    c("Rk_2_5_Pop_1", "Rk_4_6", "Rk_2_5_Pop_2")
-  )
-  expect_identical(
-    names(ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 50), expand = FALSE)),
-    c("Ls_60_Rk_2_5", "Ls_50_Rk_4_6", "Ls_50_Rk_2_5")
-  )
-  expect_identical(
-    names(ypr_populations(Rk = c(2.5, 4.6, 2.5), Ls = c(60, 50, 60), expand = FALSE)),
-    c("Ls_60_Rk_2_5_Pop_1", "Ls_50_Rk_4_6", "Ls_60_Rk_2_5_Pop_2")
-  )
-})
-
-test_that("populations names", {
-  populations <- ypr_populations(Ls = c(50, 60), names = c("Name1", "Name2"))
-  expect_identical(names(populations), c("Name1", "Name2"))
 })
