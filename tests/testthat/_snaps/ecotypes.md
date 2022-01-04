@@ -139,5 +139,5 @@
     fa:    1
     q:     0.1
     RPR:   2, 1
-    Ecotype: Linf_1_k2_0_15_RPR_2, Linf_2_k2_0_25_RPR_1
+    Ecotype: Linf_1_k2_0_15, Linf_2_k2_0_25
 

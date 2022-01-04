@@ -30,7 +30,7 @@ ypr_names.ypr_population <- function(x, ...) {
 ypr_names.ypr_populations <- function(x, ...) {
   chk_unused(...)
   x <- as_tibble(x)
-#  x$RPR <- NULL
+  x$RPR <- NULL
   x <- x[, vapply(
     x,
     FUN = function(x) length(unique(x)) > 1,
