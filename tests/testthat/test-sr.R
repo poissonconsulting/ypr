@@ -33,10 +33,10 @@ test_that("ypr_sr extinct population", {
   expect_equal(bh$R0F, 0, ignore_attr = TRUE, tolerance = 1e-06)
 })
 
-test_that("ypr_sr works identical ecotypes with same weighting", {
+test_that("ypr_sr works almost identical ecotypes with same weighting", {
   popn <- ypr_population(Linf = 100)
   sr <- ypr_sr(popn)
-  ecotypes <- ypr_ecotypes(Linf = c(100, 100), RPR = c(0.5, 0.5))
+  ecotypes <- ypr_ecotypes(Linf = c(100, 100.0000001), RPR = c(0.5, 0.5))
   expect_equal(ypr_sr(ecotypes), sr)
 })
 

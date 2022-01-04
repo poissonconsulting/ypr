@@ -17,11 +17,14 @@ test_that("ypr_ecotypes creates an ecotype with 2 elements", {
   expect_snapshot_output(ecotypes)
 })
 
-test_that("ypr_ecotypes creates an ecotype with 2 elements even when parameters same", {
-  ecotypes <- ypr_ecotypes(Linf = c(1, 1))
-  expect_s3_class(ecotypes, "ypr_ecotypes")
-  expect_length(ecotypes, 2L)
-  expect_snapshot_output(ecotypes)
+test_that("ypr_ecotypes errors if identical ecotypes", {
+  expect_error(ypr_ecotypes(Linf = c(1, 1)),
+               "ecotypes must have unique life-histories\\.")
+})
+
+test_that("ypr_ecotypes errors if identical ecotypes even with multiples", {
+  expect_error(ypr_ecotypes(Linf = c(1, 2, 2), k = c(0.1, 0.2, 0.2)),
+               "ecotypes must have unique life-histories\\.")
 })
 
 test_that("ypr_ecotypes creates names", {

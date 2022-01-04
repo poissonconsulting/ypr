@@ -28,7 +28,7 @@ Allows updates to a parameter of an object of class \code{\link[=ypr_ecotypes]{y
 }}
 
 \examples{
-ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4)), Linf = 2.5)
+ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4)), k = 1.5)
 }
 \seealso{
 Other ecotypes: 

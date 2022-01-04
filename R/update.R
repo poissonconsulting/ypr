@@ -62,7 +62,7 @@ ypr_populations_update <- function(populations, ...) {
 #' @family ecotypes
 #' @export
 #' @examples
-#' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4)), Linf = 2.5)
+#' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4)), k = 1.5)
 ypr_ecotypes_update <- function(ecotypes, ...) {
   ecotypes <- lapply(ecotypes, ypr_population_update, ...)
   class(ecotypes) <- "ypr_ecotypes"

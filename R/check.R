@@ -76,6 +76,11 @@ check_ecotypes <- function(x, x_name = NULL) {
   check_same(x, "rho")
   check_same(x, "q")
 
+  data <- as_tibble(x)
+  data$RPR <- NULL
+  if(anyDuplicated(data)) {
+    chk::abort_chk("ecotypes must have unique life-histories.", tidy = FALSE)
+  }
   invisible(x)
 }
 

@@ -51,12 +51,12 @@ test_that("update parameter in ypr_ecotypes", {
   expect_equal(ecotypes[[1]]$RPR, 1)
   expect_equal(ecotypes[[2]]$RPR, 3)
 
-  ecotypes_updated <- ypr_ecotypes_update(ecotypes, Linf = c(1))
-  expect_s3_class(ecotypes_updated, "ypr_ecotypes")
-  expect_length(ecotypes_updated, 2L)
-  expect_named(ecotypes_updated, c('RPR_1', 'RPR_3'))
-  expect_equal(ecotypes_updated[[1]]$Linf, 1)
-  expect_equal(ecotypes_updated[[2]]$Linf, 1)
+  # ecotypes_updated <- ypr_ecotypes_update(ecotypes, Linf = c(1))
+  # expect_s3_class(ecotypes_updated, "ypr_ecotypes")
+  # expect_length(ecotypes_updated, 2L)
+  # expect_named(ecotypes_updated, c('RPR_1', 'RPR_3'))
+  # expect_equal(ecotypes_updated[[1]]$Linf, 1)
+  # expect_equal(ecotypes_updated[[2]]$Linf, 1)
 })
 
 test_that("nothing updated when empty value passed to ypr_ecotypes_update", {

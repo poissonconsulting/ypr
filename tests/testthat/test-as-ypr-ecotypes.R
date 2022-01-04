@@ -10,6 +10,11 @@ test_that("as_ypr_ecotypes converts populations", {
   expect_identical(as_ypr_ecotypes(ypr_populations(Linf = c(100, 200))), ypr_ecotypes(Linf = c(100, 200)))
 })
 
+test_that("as_ypr_ecotypes will error if populations not unique histories", {
+  expect_error(as_ypr_ecotypes(ypr_populations(Linf = c(100, 100), expand = FALSE)),
+               "ecotypes must have unique life-histories\\.")
+})
+
 test_that("as_ypr_ecotypes converts ecotypes", {
   expect_identical(as_ypr_ecotypes(ypr_ecotypes()), ypr_ecotypes())
 })
