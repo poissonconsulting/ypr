@@ -28,12 +28,9 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   } else {
     ggplot2::waiver()
   }
-  gp <- ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y))
-  if("Ecotype" %in% names(schedule)) {
-    gp <- ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y, group = "Ecotype"))
-  }
+  group <- if("Ecotype" %in% names(schedule)) "Ecotype" else NULL
 
-  gp +
+  ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y, group = group)) +
     ggplot2::geom_line() +
     ggplot2::scale_y_continuous(y, labels = labels) +
     ggplot2::expand_limits(x = 0, y = 0)
