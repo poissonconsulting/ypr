@@ -287,7 +287,7 @@ ypr_tabulate_yield.ypr_population <- function(object,
       biomass = biomass
     )
 
-    object <- ypr_population_update(object, pi = optimal_pi)
+    object <- ypr_update(object, pi = optimal_pi)
 
     optimal_yield <- ypr_yield(object,
       Ly = Ly, harvest = harvest,

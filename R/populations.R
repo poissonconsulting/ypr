@@ -1,7 +1,7 @@
 #' Populations
 #'
 #' @inheritParams params
-#' @inheritParams ypr_population_update
+#' @inheritParams ypr_update
 #'
 #' @return A list of [ypr_population()] objects
 #' @family populations

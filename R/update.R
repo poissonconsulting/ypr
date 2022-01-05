@@ -1,73 +1,61 @@
-#' @describeIn ypr_population_update Update Population Parameters
+#' Update a YPR Object
+#' Currently just works with scalar parameters for populations and ecotypes.
+#'
+#' @param x A population, populations or ecotypes object to update.
+#' @param ... One or more parameter values from `ypr_population()`.
+#' @export
+ypr_update <- function(x, ...) {
+  UseMethod("ypr_update")
+}
+
 #' @export
 update.ypr_population <- function(object, ...) {
-  ypr_population_update(object, ...)
+  ypr_update(object, ...)
 }
 
-#' @describeIn ypr_populations_update Update Populations Parameters
 #' @export
 update.ypr_populations <- function(object, ...) {
-  ypr_population_update(object, ...)
+  ypr_update(object, ...)
 }
 
-#' @describeIn ypr_ecotypes_update Update Ecotypes Parameters
 #' @export
 update.ypr_ecotypes <- function(object, ...) {
-  ypr_ecotypes_update(object, ...)
+  ypr_update(object, ...)
 }
 
-#' Update Population Parameters
+#' @describeIn ypr_update Update Population Parameters
 #'
-#' Updates an object of class [ypr_population()].
-#'
-#' @inheritParams params
-#' @param ... One or more of the arguments from `ypr_population()`.
-#' @return An object of class `ypr_population`.
 #' @export
 #' @examples
-#' ypr_population_update(ypr_population(), Rk = 2.5)
-ypr_population_update <- function(population, ...) {
-  check_population(population)
+#' ypr_update(ypr_population(), Rk = 2.5)
+ypr_update.ypr_population <- function(x, ...) {
   parameters <- list(...)
-  population[names(parameters)] <- unname(parameters)
-  check_population(population)
-  population
+  x[names(parameters)] <- unname(parameters)
+  check_population(x)
+  x
 }
 
-#' Update Population Parameters
+#' @describeIn ypr_update Update Populations Parameters
 #'
-#' Updates an object of class [ypr_population()].
-#'
-#' @inheritParams params
-#' @param ... One or more of the arguments from `ypr_population()`.
-#' @return An object of class `ypr_population`.
-#' @family populations
 #' @export
 #' @examples
-#' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
-ypr_populations_update <- function(populations, ...) {
-  populations <- lapply(populations, ypr_population_update, ...)
-  class(populations) <- "ypr_populations"
-  names(populations) <- ypr_names(populations)
-  populations
+#' ypr_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
+ypr_update.ypr_populations <- function(x, ...) {
+  x <- lapply(x, ypr_update, ...)
+  class(x) <- "ypr_populations"
+  names(x) <- ypr_names(x)
+  x
 }
 
-#' Update Ecotypes Parameters
+#' @describeIn ypr_update Update Populations Parameters
 #'
-#' Allows updates to a parameter of an object of class [ypr_ecotypes()].
-#'
-#' @inheritParams params
-#' @param ... One or more of the arguments from `ypr_population()`.
-#' @return An object of class `ypr_ecotypes`.
-#' @family ecotypes
 #' @export
 #' @examples
-#' ypr_ecotypes_update(ypr_ecotypes(Linf = c(2.5, 4)), k = 1.5)
-ypr_ecotypes_update <- function(ecotypes, ...) {
-  ecotypes <- lapply(ecotypes, ypr_population_update, ...)
-  class(ecotypes) <- "ypr_ecotypes"
-  names(ecotypes) <- ypr_names(ecotypes)
-  ecotypes
+#' ypr_update(ypr_ecotypes(Linf = c(2.5, 4)), k = 1.5)
+ypr_update.ypr_ecotypes <- function(x, ...) {
+  x <- lapply(x, ypr_update, ...)
+  class(x) <- "ypr_ecotypes"
+  names(x) <- ypr_names(x)
+  check_ecotypes(x)
+  x
 }
-
-
