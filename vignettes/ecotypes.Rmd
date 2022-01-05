@@ -32,7 +32,7 @@ Consider a population with a small, fast-growing ecotype and a large, slow-growi
 ```{r}
 library(ypr)
 population <- ypr_ecotypes(Linf = c(200, 800), k = c(0.2, 0.1), names = c("fast", "slow"))
-ypr_plot_schedule(population)
+ypr_plot_schedule(population) + ggplot2::scale_color_manual(values = c("black", "blue"))
 ypr_tabulate_schedule(population)
 ```
 
