@@ -4,11 +4,6 @@ test_that("plot population", {
   expect_silent(plot(ypr_population()))
 })
 
-test_that("ypr_plot_schedule", {
-  gp <- ypr_plot_schedule(ypr_population())
-  expect_snapshot_plot(gp, "ypr_plot_schedule")
-})
-
 test_that("ypr_plot_fish", {
   gp <- ypr_plot_fish(ypr_population(Rmax = 1000), y = "Caught", binwidth = 1L)
   expect_snapshot_plot(gp, "ypr_plot_fish")
