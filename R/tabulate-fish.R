@@ -13,13 +13,12 @@
 #' @examples
 #' ypr_tabulate_fish(ypr_population())
 ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
-  check_population(population)
   chk_string(x)
   chk_subset(x, c("Age", "Length", "Weight"))
   chk_whole_number(binwidth)
   chk_range(binwidth, c(1L, 1000L))
 
-  table <- ypr_tabulate_schedule(object = population)
+  table <- ypr_tabulate_schedule(population)
   table <- as.data.frame(table)
 
   R0F <- sr(table, population)$R0F
