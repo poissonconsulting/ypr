@@ -65,14 +65,14 @@ remotes::install_github("poissonconsulting/ypr")
 library(ypr)
 population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
-head(ypr_tabulate_schedule(population))
+ypr_tabulate_schedule(population)
 ```
 
 ### Fish
 
 ```{r, fig.width=6, fig.height=4}
 ypr_plot_fish(population, color = "white")
-head(ypr_tabulate_fish(population))
+ypr_tabulate_fish(population)
 ```
 
 ### Stock-Recruitment

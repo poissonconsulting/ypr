@@ -18,25 +18,42 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-```{r, echo=FALSE}
-library(ypr)
-```
-
 ## Ecotypes
 
 In the ypr package a population can consist of more than one *ecotype*.
 A population is considered to be group of panmictic fish that are indistinguishable to anglers while ecotypes are considered to be subsets of a population that follow alternative life-history strategies.
 Consequently, ecotypes in the same population must share the key stock recruitment (`BH`, `RK`, `tR` and `Rmax`) and fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) parameters.
-In addition, in order to use a yield-per-recruit approach it is necessary to assume that the relative proportion of recruits adopting each life-history strategy (`RPR`) is independent of the parental stock.
+In order to use a yield-per-recruit approach it is also necessary to assume that the relative proportion of recruits adopting each life-history strategy which is specified by `RPR` is independent of the parental stock.
 
 ## Two Ecotypes
 
 Consider a population with a small, fast-growing ecotype and a large, slow-growing ecotype.
 
 ```{r}
-popn <- ypr_ecotypes(Linf = c(200, 800), k = c(1, 0.1), names = c("fast", "slow"))
-popn
-schedule <- ypr_plot_schedule(popn)
+library(ypr)
+population <- ypr_ecotypes(Linf = c(200, 800), k = c(0.2, 0.1), names = c("fast", "slow"))
+ypr_plot_schedule(population)
+ypr_tabulate_schedule(population)
+```
+
+### Fish
+
+```{r, fig.width=6, fig.height=4}
+#ypr_plot_fish(population, color = "white")
+#ypr_tabulate_fish(population)
+```
+
+### Stock-Recruitment
+
+```{r, fig.width=6, fig.height=4}
+#ypr_plot_sr(population)
+ypr_tabulate_sr(population)
+```
+
+### Yield
+
+```{r, fig.width=6, fig.height=4}
+#ypr_tabulate_yield(population)
+#ypr_plot_yield(population)
 ```
 
