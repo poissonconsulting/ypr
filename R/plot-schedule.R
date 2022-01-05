@@ -23,11 +23,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   chk_string(y)
   chk_subset(y, values = colnames(schedule))
 
-  labels <- if (sum(schedule[[y]]) >= 1000) {
-    scales::comma
-  } else {
-    ggplot2::waiver()
-  }
+  labels <- if (sum(schedule[[y]]) >= 1000) scales::comma else ggplot2::waiver()
   group <- if("Ecotype" %in% names(schedule)) "Ecotype" else NULL
 
   ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y, group = group)) +

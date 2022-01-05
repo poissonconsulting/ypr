@@ -3,6 +3,11 @@ test_that("ypr_plot_schedule population", {
   expect_snapshot_plot(gp, "ypr_plot_schedule")
 })
 
+test_that("ypr_plot_schedule population 1000s comma", {
+  gp <- ypr_plot_schedule(ypr_population(Linf = 1000, k = 1), y = "Weight")
+  expect_snapshot_plot(gp, "ypr_plot_schedule_comma")
+})
+
 test_that("ypr_plot_schedule ecotypes 1", {
   gp <- ypr_plot_schedule(ypr_ecotypes())
   expect_snapshot_plot(gp, "ypr_plot_schedule1")
