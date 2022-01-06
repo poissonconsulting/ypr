@@ -26,6 +26,11 @@ test_that("ypr_tabulate_fish population no fish", {
   expect_snapshot_data(fish, "lowmortality")
 })
 
+test_that("ypr_tabulate_fish ecotype no fish", {
+  expect_identical(ypr_tabulate_fish(ypr_ecotypes(n = 0.1)),
+                   ypr_tabulate_fish(ypr_population(n = 0.1)))
+})
+
 test_that("ypr_tabulate_fish ecotypes 2 same", {
   expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 100.0000001))),
                    ypr_tabulate_fish(ypr_population(Linf = 100)))
