@@ -53,7 +53,7 @@ ypr_tabulate_fish(population)
 ### Stock-Recruitment
 
 ```{r, fig.width=6, fig.height=4}
-#ypr_plot_sr(population)
+ypr_plot_sr(population)
 ypr_tabulate_sr(population)
 ```
 

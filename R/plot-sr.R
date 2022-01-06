@@ -15,7 +15,6 @@ ypr_plot_sr <- function(population,
                         plot_values = TRUE) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
-  check_population(population)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -23,9 +22,12 @@ ypr_plot_sr <- function(population,
   chk_flag(plot_values)
   schedule <- ypr_tabulate_schedule(population)
 
+  BH <- get_par(population, "BH")[1]
+  Rmax <- get_par(population, "Rmax")[1]
+
   schedule <- as.list(schedule)
-  schedule$BH <- population$BH
-  schedule$Rmax <- population$Rmax
+  schedule$BH <- BH
+  schedule$Rmax <- Rmax
   schedule <- c(schedule, sr(schedule, population))
 
   data <- with(schedule, {
