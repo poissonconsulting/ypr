@@ -46,7 +46,7 @@ ypr_tabulate_schedule(population)
 ### Fish
 
 ```{r, fig.width=6, fig.height=4}
-#ypr_plot_fish(population, color = "white")
+ypr_plot_fish(population, color = "white")
 ypr_tabulate_fish(population)
 ```
 
