@@ -20,6 +20,12 @@ test_that("ypr_tabulate_fish population Length", {
   expect_snapshot_data(fish, "length")
 })
 
+test_that("ypr_tabulate_fish population no fish", {
+  fish <- ypr_tabulate_fish(ypr_population(n = 0.1))
+  expect_s3_class(fish, "tbl_df")
+  expect_snapshot_data(fish, "lowmortality")
+})
+
 test_that("ypr_tabulate_fish ecotypes 2 same", {
   expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 100.0000001))),
                    ypr_tabulate_fish(ypr_population(Linf = 100)))

@@ -28,6 +28,12 @@ test_that("tabulate schedule with biphasic length loss", {
   expect_snapshot_data(schedule, "populationbiphasic")
 })
 
+test_that("tabulate schedule low mortality", {
+  schedule <- ypr_tabulate_schedule(ypr_population(n = 0.1))
+  expect_s3_class(schedule, "tbl_df")
+  expect_snapshot_data(schedule, "lowmortality")
+})
+
 test_that("tabulate schedule errors populations", {
   expect_error(ypr_tabulate_schedule(ypr_populations()),
                "no applicable method for 'ypr_tabulate_schedule' applied to an object of class \"ypr_populations\"")
