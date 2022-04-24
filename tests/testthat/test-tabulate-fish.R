@@ -64,6 +64,11 @@ test_that("ypr_tabulate_fish ecotypes 2 diff more", {
   expect_snapshot_data(fish, "2diff")
 })
 
+test_that("ypr_tabulate_fish ecotypes rebalances rpr", {
+  expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 100))),
+               ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1))))
+})
+
 test_that("ypr_tabulate_fish ecotypes weights correctly", {
   expect_identical(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1))),
                    ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 100))))
