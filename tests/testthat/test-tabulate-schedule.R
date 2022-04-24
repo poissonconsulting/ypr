@@ -51,6 +51,12 @@ test_that("tabulate schedule ecotypes 2", {
   expect_snapshot_data(schedule, "ecotypes2")
 })
 
+test_that("tabulate schedule ecotypes 2 diff proportion", {
+  schedule <- ypr_tabulate_schedule(ypr_ecotypes(Linf = c(70, 80), RPR = c(0.8, 0.2)))
+  expect_s3_class(schedule, "tbl_df")
+  expect_snapshot_data(schedule, "ecotypes2rpr")
+})
+
 test_that("tabulate schedule ecotypes 3 produces 60 rows", {
   schedule <- ypr_tabulate_schedule(ypr_ecotypes(Linf = c(10, 100, 1000)))
   expect_s3_class(schedule, "tbl_df")
