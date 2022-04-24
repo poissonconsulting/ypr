@@ -26,6 +26,12 @@ test_that("ypr_tabulate_fish population no fish", {
   expect_snapshot_data(fish, "lowmortality")
 })
 
+test_that("ypr_tabulate_fish high Linf", {
+  fish <- ypr_tabulate_fish(ypr_population(Linf = 140))
+  expect_s3_class(fish, "tbl_df")
+  expect_snapshot_data(fish, "highlinf")
+})
+
 test_that("ypr_tabulate_fish ecotype no fish", {
   expect_identical(ypr_tabulate_fish(ypr_ecotypes(n = 0.1)),
                    ypr_tabulate_fish(ypr_population(n = 0.1)))
@@ -33,7 +39,7 @@ test_that("ypr_tabulate_fish ecotype no fish", {
 
 test_that("ypr_tabulate_fish ecotypes 2 same", {
   expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 100.0000001))),
-                   ypr_tabulate_fish(ypr_population(Linf = 100)))
+               ypr_tabulate_fish(ypr_population(Linf = 100)))
 })
 
 test_that("ypr_tabulate_fish ecotypes 2 diff", {
