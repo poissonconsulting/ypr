@@ -26,17 +26,18 @@ In order to use a yield-per-recruit approach it is also necessary to assume that
 
 ## Two Ecotypes
 
-Consider a population with a small, fast-growing, early-maturing ecotype and a large, slow-growing late-maturing ecotype.
+Consider a population with a rarer smaller, fast-growing, earlier-maturing ecotype and a more common larger, slow-growing later-maturing ecotype.
 
 ```{r}
 library(ypr)
 library(ggplot2) # for plotting
 
 population <- ypr_ecotypes(
-  Linf = c(200, 600), 
-  k = c(0.2, 0.1), 
-  Ls = c(150, 400), 
-  names = c("small", "large"))
+  Linf = c(50, 100), 
+  k = c(0.2, 0.15), 
+  Ls = c(20, 50), 
+  names = c("small", "large"),
+  RPR = c(0.3, 0.7))
 
 ypr_plot_schedule(population) + scale_color_manual(values = c("black", "blue"))
 ypr_tabulate_schedule(population)
