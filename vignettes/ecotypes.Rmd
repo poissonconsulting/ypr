@@ -20,10 +20,9 @@ knitr::opts_chunk$set(
 
 ## Ecotypes
 
-In the ypr package a population can consist of more than one *ecotype*.
-A population is considered to be group of panmictic fish that are indistinguishable to anglers while ecotypes are considered to be subsets of a population that follow alternative life-history strategies.
-Consequently, ecotypes in the same population must share the key stock recruitment (`BH`, `RK`, `tR` and `Rmax`) and fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) parameters.
-In order to use a yield-per-recruit approach it is also necessary to assume that the relative proportion of recruits adopting each life-history strategy which is specified by `RPR` is independent of the parental stock.
+In the `ypr` package a population is considered to be group of interbreeding fish that are indistinguishable to anglers while ecotypes are subgroupings of individuals that follow alternative life-history strategies.
+Consequently, ecotypes must share the key stock recruitment (`BH`, `RK`, `tR` and `Rmax`) and fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) parameters.
+In order to use a yield-per-recruit approach it is also necessary to assume that the relative proportion of recruits (`RPR`) adopting each life-history strategy is independent of the parental stock.
 
 ## Two Ecotypes
 
