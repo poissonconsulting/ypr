@@ -26,10 +26,16 @@ test_that("ypr_tabulate_fish population no fish", {
   expect_snapshot_data(fish, "lowmortality")
 })
 
-test_that("ypr_tabulate_fish high Linf", {
+test_that("ypr_tabulate_fish high Linf no fish as too quickly harvested", {
   fish <- ypr_tabulate_fish(ypr_population(Linf = 140))
   expect_s3_class(fish, "tbl_df")
   expect_snapshot_data(fish, "highlinf")
+})
+
+test_that("ypr_tabulate_fish high Linf fish if vulnerable bigger", {
+  fish <- ypr_tabulate_fish(ypr_population(Linf = 140, Lv = 51))
+  expect_s3_class(fish, "tbl_df")
+  expect_snapshot_data(fish, "highlinflv51")
 })
 
 test_that("ypr_tabulate_fish ecotype no fish", {
