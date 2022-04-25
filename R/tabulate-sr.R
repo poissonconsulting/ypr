@@ -71,8 +71,6 @@ ypr_tabulate_sr.ypr_populations <- function(object,
   as_tibble(sr)
 }
 
-### double check function output correct items
-### write tests for output
 #' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
 #' @export
 ypr_tabulate_sr.ypr_ecotypes <- function(object,
