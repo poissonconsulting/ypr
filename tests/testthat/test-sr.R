@@ -4,6 +4,11 @@ test_that("ypr_sr population", {
   expect_snapshot_data(sr, "pop")
 })
 
+test_that("ypr_sr errors populations", {
+  populations <- ypr_populations(Linf = c(10, 100))
+  expect_error(ypr_sr(populations))
+})
+
 test_that("ypr_sr ecotype 1", {
   expect_identical(ypr_sr(ypr_ecotypes()), ypr_sr(ypr_population()))
 })

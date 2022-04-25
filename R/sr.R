@@ -60,30 +60,8 @@ sr <- function(schedule, object) {
 #' @examples
 #' ypr_sr(ypr_population()) # Beverton-Holt
 #' ypr_sr(ypr_population(BH = 0L)) # Ricker
-ypr_sr <- function(object, ...) {
-  UseMethod("ypr_sr")
-}
-
-#' @describeIn ypr_sr Stock-Recruitment Parameters Population
-#' @export
-ypr_sr.ypr_population <- function(object, ...) {
-  check_population(object)
-  chk::chk_unused(...)
-
-  schedule <- ypr_tabulate_schedule(object)
-
-  sr <- sr(schedule, object)
-  sr$R0F <- max(sr$R0F, 0)
-  sr$S0F <- max(sr$S0F, 0)
-  sr
-}
-
-#' @describeIn ypr_sr Stock-Recruitment Parameters Population
-#' @export
-ypr_sr.ypr_ecotypes <- function(object, ...) {
-  check_ecotypes(object)
-  chk::chk_unused(...)
-
+ypr_sr <- function(object) {
+  if(!inherits(object, "ypr"))
   schedule <- ypr_tabulate_schedule(object)
 
   sr <- sr(schedule, object)
