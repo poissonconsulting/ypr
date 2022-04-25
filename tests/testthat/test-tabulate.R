@@ -87,51 +87,6 @@ test_that("ypr_tabulate_yield", {
   expect_identical(ncol(yields), 38L)
   expect_identical(nrow(yields), 4L)
 
-  sr <- ypr_tabulate_sr(ypr_population())
-
-  expect_error(chk::check_data(
-    sr,
-    values = list(
-      Type = c("unfished", "actual", "optimal"),
-      pi = c(0, 1),
-      u = c(0, 1),
-      Eggs = c(0, .Machine$double.xmax),
-      Recruits = c(0, .Machine$double.xmax),
-      Spawners = c(0, .Machine$double.xmax),
-      Fecundity = c(0, .Machine$double.xmax)
-    ),
-    nrow = TRUE,
-    exclusive = TRUE,
-    order = TRUE
-  ), NA)
-
-  expect_identical(sr$Type, c("unfished", "actual", "optimal"))
-
-  sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3, 5)))
-
-  expect_error(chk::check_data(
-    sr,
-    values = list(
-      Type = c("unfished", "actual", "optimal"),
-      pi = c(0, 1),
-      u = c(0, 1),
-      Eggs = c(0, .Machine$double.xmax),
-      Recruits = c(0, .Machine$double.xmax),
-      Spawners = c(0, .Machine$double.xmax),
-      Fecundity = c(0, .Machine$double.xmax),
-      Rk = c(3, 3, 5)
-    ),
-    nrow = TRUE,
-    exclusive = TRUE,
-    order = TRUE
-  ), NA)
-
-  expect_identical(colnames(sr), c(
-    "Type", "pi", "u", "Eggs", "Recruits",
-    "Spawners", "Fecundity", "Rk"
-  ))
-  expect_identical(sr$Rk, c(3, 3, 3, 5, 5, 5))
-
   skip_if(length(tools::Rd_db("ypr")) == 0)
   parameters <- ypr_tabulate_parameters(ypr_population())
   expect_identical(parameters$Description[1], "The maximum age (yr).")
@@ -148,8 +103,6 @@ test_that("ypr_tabulate_yield", {
     nrow = c(nrow(ypr:::.parameters) - 1, nrow(ypr:::.parameters)),
     key = "Parameter"
   ), NA)
-
-
 
   expect_identical(
     ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population(BH = 1L))),
