@@ -13,7 +13,7 @@ test_that("ypr_plot_sr ecotype1", {
   expect_snapshot_plot(gp, "eco1")
 })
 
-# test_that("ypr_plot_sr ecotype2", {
-#   gp <- ypr_plot_sr(ypr_ecotypes(Linf = c(100, 50)))
-#   expect_snapshot_plot(gp, "eco2")
-# })
+test_that("ypr_plot_sr ecotype2", {
+  gp <- ypr_plot_sr(ypr_ecotypes(Linf = c(100, 50)))
+  expect_snapshot_plot(gp, "eco2")
+})
