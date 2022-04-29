@@ -1,9 +1,9 @@
 sr <- function(schedule, object) {
   schedule <- as.list(schedule)
 
-  schedule$BH <- get_par(object, "BH")[1]
-  schedule$Rk <- get_par(object, "Rk")[1]
-  schedule$Rmax <- get_par(object, "Rmax")[1]
+  schedule$BH <- ypr_get_par(object, "BH")
+  schedule$Rk <- ypr_get_par(object, "Rk")
+  schedule$Rmax <- ypr_get_par(object, "Rmax")
 
   R0 <- 1
 

@@ -20,7 +20,8 @@ test_that(".data", {
         Lower = c(-100, 2),
         Upper = c(0.1, 1e+06),
         Integer = c(0L, 1L),
-        Log = c(0L, 1L)
+        Log = c(0L, 1L),
+        EcoAll = c(0L, 1L)
       ),
       key = "Parameter", exclusive = TRUE, order = TRUE
     ), NA

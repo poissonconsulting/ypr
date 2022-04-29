@@ -22,7 +22,7 @@ ypr_populations <- function(..., expand = TRUE, names = NULL) {
     return(populations)
   }
   chk_named(parameters, x_name = "`...`")
-  chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
+  chk_subset(names(parameters), parameters(), x_name = "`names(...)`")
   chk_unique(names(parameters), x_name = "`names(...)`")
 
   if (expand) {

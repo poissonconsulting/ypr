@@ -16,6 +16,5 @@ test_that("ypr_tabulate_sr ecotypes", {
   sr <- ypr_tabulate_sr(ypr_ecotypes(Linf = c(70, 80), RPR = c(0.8, 0.2)))
 
   expect_s3_class(sr, "tbl_df")
-  skip("this is wrong")
-  expect_snapshot_data(sr, "srecotypes") # this is wrong!
+  expect_snapshot_data(sr, "srecotypes")
 })

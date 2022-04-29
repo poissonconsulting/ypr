@@ -15,15 +15,17 @@ ypr_plot_sr <- function(population,
                         plot_values = TRUE) {
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
   if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
   chk_flag(harvest)
   chk_flag(plot_values)
+
   schedule <- ypr_tabulate_schedule(population)
 
-  BH <- get_par(population, "BH")[1]
-  Rmax <- get_par(population, "Rmax")[1]
+  BH <- ypr_get_par(population, "BH")
+  Rmax <- ypr_get_par(population, "Rmax")
 
   schedule <- as.list(schedule)
   schedule$BH <- BH
@@ -31,7 +33,7 @@ ypr_plot_sr <- function(population,
   schedule <- c(schedule, sr(schedule, population))
 
   data <- with(schedule, {
-    data <- data.frame(Eggs = seq(0, to = phi * R0 * 2, length.out = 100))
+    data <- data.frame(Eggs = seq(0, to = only(phi) * only(R0) * 2, length.out = 100))
     fun <- if (BH == 1L) bh else ri
     data$Recruits <- fun(data$Eggs, alpha, beta)
     data

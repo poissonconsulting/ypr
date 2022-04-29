@@ -13,7 +13,7 @@ ypr_detabulate_parameters <- function(x) {
   chk_superset(colnames(x), c("Parameter", "Value"))
   chk_s3_class(x$Parameter, "character")
   chk_not_any_na(x$Parameter)
-  chk_subset(x$Parameter, .parameters$Parameter)
+  chk_subset(x$Parameter, parameters())
   chk_unique(x$Parameter)
 
   chk_numeric(x$Value)

@@ -23,7 +23,7 @@ add_parameters <- function(x, object) {
 }
 
 drop_constant_parameters <- function(x) {
-  parameters <- .parameters$Parameter
+  parameters <- parameters()
   parameters <- parameters[parameters != "pi"]
   bol <- vapply(parameters, function(y) length(unique(x[[y]])) == 1, TRUE)
   parameters <- parameters[bol]

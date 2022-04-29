@@ -32,6 +32,7 @@ Imports:
     purrr,
     stats,
     tibble,
+    tidyplus,
     tools,
     yesno
 Suggests:

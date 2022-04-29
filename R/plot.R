@@ -237,7 +237,7 @@ ypr_plot_yield.ypr_populations <- function(object,
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
 
-  parameters <- setdiff(intersect(colnames(data), .parameters$Parameter), "pi")
+  parameters <- setdiff(intersect(colnames(data), parameters()), "pi")
 
   for (parameter in parameters) {
     data[[parameter]] <- factor(
@@ -316,7 +316,7 @@ ypr_plot_yield.ypr_ecotypes <- function(object,
   data$YPUE <- data$Yield / data$Effort
   data2$YPUE <- data2$Yield / data2$Effort
 
-  parameters <- setdiff(intersect(colnames(data), .parameters$Parameter), "pi")
+  parameters <- setdiff(intersect(colnames(data), parameters()), "pi")
 
   for (parameter in parameters) {
     data[[parameter]] <- factor(

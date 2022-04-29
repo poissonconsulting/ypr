@@ -24,8 +24,8 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   R0F <- sr(table, population)$R0F
   R0F <- max(0, R0F)
 
-  pi <- get_par(population, "pi")[1]
-  Hm <- get_par(population, "Hm")[1]
+  pi <- ypr_get_par(population)
+  Hm <- ypr_get_par(population, "Hm")
 
   table$Survivors <- table$FishedSurvivorship * R0F
   table$Spawners <- table$Survivors * table$Spawning

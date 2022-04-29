@@ -2,14 +2,13 @@
 % Please edit documentation in R/tabulate-sr.R
 \name{ypr_tabulate_sr}
 \alias{ypr_tabulate_sr}
-\alias{ypr_tabulate_sr.ypr_population}
+\alias{ypr_tabulate_sr.default}
 \alias{ypr_tabulate_sr.ypr_populations}
-\alias{ypr_tabulate_sr.ypr_ecotypes}
 \title{Tabulate Stock-Recruitment Parameters}
 \usage{
 ypr_tabulate_sr(object, ...)
 
-\method{ypr_tabulate_sr}{ypr_population}(
+\method{ypr_tabulate_sr}{default}(
   object,
   Ly = 0,
   harvest = TRUE,
@@ -19,15 +18,6 @@ ypr_tabulate_sr(object, ...)
 )
 
 \method{ypr_tabulate_sr}{ypr_populations}(
-  object,
-  Ly = 0,
-  harvest = TRUE,
-  biomass = FALSE,
-  all = FALSE,
-  ...
-)
-
-\method{ypr_tabulate_sr}{ypr_ecotypes}(
   object,
   Ly = 0,
   harvest = TRUE,
@@ -60,11 +50,9 @@ Tabulate Stock-Recruitment Parameters
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Tabulate Stock-Recruitment Parameters
+\item \code{default}: Tabulate Stock-Recruitment Parameters
 
 \item \code{ypr_populations}: Tabulate Stock-Recruitment Parameters
-
-\item \code{ypr_ecotypes}: Tabulate Stock-Recruitment Parameters
 }}
 
 \examples{

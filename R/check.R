@@ -15,7 +15,7 @@ check_population <- function(x, x_name = NULL) {
   chk_s3_class(x, "ypr_population", x_name = x_name)
   chk_named(x, x_name = x_name)
   chk_unique(names(x), x_name = x_name)
-  chk_superset(names(x), .parameters$Parameter, x_name = x_name)
+  chk_superset(names(x), parameters(), x_name = x_name)
 
   do.call("check_parameters", x)
   invisible(x)
@@ -70,7 +70,7 @@ check_ecotypes <- function(x, x_name = NULL) {
   check_same(x, "Rmax")
   check_same(x, "pi")
   check_same(x, "Nc")
-  check_same(x, "Hm") # not sure if this needs to be the same?
+  check_same(x, "Hm")
   check_same(x, "Llo")
   check_same(x, "Lup")
   check_same(x, "rho")
@@ -85,7 +85,9 @@ check_ecotypes <- function(x, x_name = NULL) {
 }
 
 check_same <- function(x, parameter) {
-  values <- get_par(x, parameter)
+  class(x) <- "ypr_populations"
+
+  values <- ypr_get_par(x, parameter)
   if (length(unique(values)) != 1) {
     chk::abort_chk("`", parameter, "` must be the same across all elements.", tidy = FALSE)
   }

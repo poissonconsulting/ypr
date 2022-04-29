@@ -5,8 +5,8 @@ yield <- function(schedule,
                   biomass = FALSE) {
   schedule <- as.list(schedule)
 
-  schedule$pi <- get_par(object, "pi")[1]
-  schedule$q <- get_par(object, "q")[1]
+  schedule$pi <- ypr_get_par(object)
+  schedule$q <- ypr_get_par(object, "q")
   schedule <- c(schedule, sr(schedule, object))
 
   yield <- with(schedule, {

@@ -2,6 +2,14 @@ integer_parameters <- function() {
   .parameters$Parameter[.parameters$Integer == 1]
 }
 
+parameters <- function() {
+  .parameters$Parameter
+}
+
+ecoall_parameters <- function() {
+  .parameters$Parameter[.parameters$EcoAll == 1]
+}
+
 lines_population <- function(population) {
   population <- unclass(population)
   population <- lapply(population, as.character)
