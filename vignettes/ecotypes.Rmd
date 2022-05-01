@@ -49,7 +49,7 @@ ypr_plot_schedule(ecotypes, x = "Age", y  = "Spawning") + scale_color_manual(val
 
 ```{r, fig.width=6, fig.height=4}
 ypr_plot_fish(ecotypes, color = "white") + scale_fill_manual(values = c("black", "blue"))
-ypr_plot_fish(ecotypes, x = "Length", y = "Spawners", color = "white", binwidth = 15) + scale_fill_manual(values = c("black", "blue"))
+ypr_plot_fish(ecotypes, x = "Length", y = "Caught", color = "white", binwidth = 15) + scale_fill_manual(values = c("black", "blue"))
 ```
 
 ### Stock-Recruitment
@@ -62,7 +62,7 @@ ypr_tabulate_sr(ecotypes)
 ### Yield
 
 ```{r, fig.width=6, fig.height=4}
-#ypr_tabulate_yield(ecotypes)
+ypr_tabulate_yield(ecotypes)
 #ypr_plot_yield(ecotypes)
 ```
 
