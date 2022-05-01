@@ -1,3 +1,14 @@
+sum_fish_table <- function(table, binwidth) {
+  breaks <- seq(0, max(table[[1]] + binwidth), by = binwidth)
+  table[[1]] <- cut(table[[1]], breaks = breaks)
+  table[[1]] <- as.integer(table[[1]]) * binwidth
+  table <- split(table, table[[1]])
+  table <- lapply(table, sum_fish)
+  table <- do.call("rbind", table)
+  row.names(table) <- NULL
+  table
+}
+
 #' Tabulate Fish Numbers
 #'
 #' Produces a data frame of the number of fish in the 'Survivors', 'Spawners',
@@ -33,19 +44,21 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table$Harvested <- table$Caught * table$Retention
   table$Released <- table$Caught * (1 - table$Retention)
   table$HandlingMortalities <- table$Released * Hm
+#  if(!"Ecotype" %in% colnames(table))
+    table$Ecotype <- 1
 
   table <- table[c(
     x, "Survivors", "Spawners", "Caught", "Harvested",
-    "Released", "HandlingMortalities"
+    "Released", "HandlingMortalities", "Ecotype"
   )]
 
-  breaks <- seq(0, max(table[[1]] + binwidth), by = binwidth)
-  table[[1]] <- cut(table[[1]], breaks = breaks)
-  table[[1]] <- as.integer(table[[1]]) * binwidth
-  table <- split(table, table[[1]])
-  table <- lapply(table, sum_fish)
+  table <- split(table, table$Ecotype)
+  table <- lapply(table, sum_fish_table, binwidth)
   table <- do.call("rbind", table)
   row.names(table) <- NULL
+
+#  if(length(unique(table$Ecotype)) == 1L)
+    table$Ecotype <- NULL
 
   as_tibble(table)
 }

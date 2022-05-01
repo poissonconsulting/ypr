@@ -55,9 +55,13 @@ tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
 }
 
 sum_fish <- function(x) {
+  ecotype <- x$Ecotype[1]
+  x$Ecotype <- NULL
   x[] <- lapply(x, sum)
   x[[1]] <- x[[1]] / nrow(x)
-  x[1, ]
+  x <- x[1, ]
+  x$Ecotype <- ecotype
+  x
 }
 
 .sub <- function(x, pattern, replacement) {

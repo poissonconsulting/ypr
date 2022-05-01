@@ -43,21 +43,6 @@ test_that("ypr_tabulate_fish ecotype no fish", {
                    ypr_tabulate_fish(ypr_population(n = 0.1)))
 })
 
-test_that("ypr_tabulate_fish ecotypes 2 same", {
-  expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 100.0000001))),
-               ypr_tabulate_fish(ypr_population(Linf = 100)))
-})
-
-test_that("ypr_tabulate_fish ecotypes 2 diff", {
-  expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 0.00000000001))),
-               ypr_tabulate_fish(ypr_population(Linf = 100)))
-})
-
-test_that("ypr_tabulate_fish ecotypes 2 other diff", {
-  expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(0.00000000001, 100))),
-               ypr_tabulate_fish(ypr_population(Linf = 50)))
-})
-
 test_that("ypr_tabulate_fish ecotypes 2 diff more", {
   fish <- ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1)))
   expect_s3_class(fish, "tbl_df")
