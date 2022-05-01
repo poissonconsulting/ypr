@@ -161,6 +161,8 @@ ypr_tabulate_yield.ypr_populations <- function(object,
 #' @param average A flag to either give each ecotype separately or averaged
 #'   based on the proportions
 #' @export
+#' @examples
+#' ypr_tabulate_yield(ypr_ecotypes(Ls = c(40, 50)))
 ypr_tabulate_yield.ypr_ecotypes <- function(object,
                                             Ly = 0,
                                             harvest = TRUE,
@@ -177,19 +179,19 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                   biomass = biomass, type = type, all = TRUE, ...
   )
 
-  proportions <- get_prop(object)
-
+  print(yield)
   eco_names <- names(object)
 
-  yield <- mapply(function(yield, proportions, eco_names) {
+  yield <- mapply(function(yield, eco_names) {
     yield[["Ecotype"]] <- eco_names
-    yield[["Proportion"]] <- proportions
     yield
 
-  }, yield, proportions, eco_names, SIMPLIFY = FALSE)
+  }, yield, eco_names, SIMPLIFY = FALSE)
 
   yield <- do.call("rbind", yield)
-  if (!all) yield <- drop_constant_parameters(yield)
+  if (!all) {
+    yield <- drop_all_parameters(yield)
+  }
   as_tibble(yield)
 
   if (!average) {

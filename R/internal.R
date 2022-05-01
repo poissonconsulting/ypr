@@ -31,6 +31,13 @@ drop_constant_parameters <- function(x) {
   x
 }
 
+drop_all_parameters <- function(x) {
+  parameters <- parameters()
+  parameters <- parameters[parameters != "pi"]
+  x[parameters] <- NULL
+  x
+}
+
 quantiles <- function(x, level) {
   x <- unlist(x)
   x <- stats::quantile(x, c(0.5, (1 - level) / 2, (1 - level) / 2 + level))

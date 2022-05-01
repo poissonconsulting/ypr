@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.R
 \name{ypr_tabulate_biomass}
 \alias{ypr_tabulate_biomass}
-\title{Tablulate Biomass (and Eggs)}
+\title{Tabulate Biomass (and Eggs)}
 \usage{
 ypr_tabulate_biomass(population)
 }

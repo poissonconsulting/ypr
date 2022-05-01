@@ -14,8 +14,6 @@ ypr_tabulate_biomass <- function(population) {
   schedule <- ypr_tabulate_schedule(population)
   fish <- ypr_tabulate_fish(population)
 
-  print(schedule)
-  print(fish)
   schedule <- schedule[c("Age", "Length", "Weight", "Fecundity")]
   fish <- fish[c("Survivors", "Spawners")]
 
