@@ -20,47 +20,51 @@ knitr::opts_chunk$set(
 
 ## Ecotypes
 
-In the `ypr` package a population is considered to be group of interbreeding fish that are indistinguishable to anglers while ecotypes are subgroupings of individuals that follow alternative life-history strategies.
-Consequently, ecotypes must share the key stock recruitment (`BH`, `RK`, `tR` and `Rmax`) and fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) parameters.
-In order to use a yield-per-recruit approach it is also necessary to assume that the relative proportion of recruits (`RPR`) adopting each life-history strategy is independent of the parental stock.
+In the `ypr` package a population is considered to be group of interbreeding fish that are indistinguishable to anglers. 
+Ecotypes are groups of individuals with a population that have different life-history strategies.
+Consequently, ecotypes must share key fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) and stock recruitment (`BH`, `RK`, `tR` and `Rmax`) parameters.y 
+To use a yield-per-recruit approach it is also necessary to assume that the relative proportion of recruits (`RPR`) adopting each life-history strategy is independent of the size and composition of the parental stock.
 
 ## Two Ecotypes
 
-Consider a population with a rarer smaller, fast-growing, earlier-maturing ecotype and a more common larger, slow-growing later-maturing ecotype.
+Consider a population with a smaller ecotype and a second larger ecotype that delays maturation in order to achieve sufficient size to switch to piscivory which allows it to grow much larger.
 
 ```{r}
 library(ypr)
 library(ggplot2) # for plotting
 
-population <- ypr_ecotypes(
-  Linf = c(50, 100), 
-  k = c(0.2, 0.15), 
-  Ls = c(20, 50), 
+ecotypes <- ypr_ecotypes(
+  Linf2 = 200,
+  L2 = c(100, 50),
+  Ls = c(50, 75), 
+  pi = 0.05,
   names = c("small", "large"),
-  RPR = c(0.3, 0.7))
+  RPR = c(0.8, 0.2))
 
-ypr_plot_schedule(population) + scale_color_manual(values = c("black", "blue"))
-ypr_tabulate_schedule(population)
+ypr_plot_schedule(ecotypes) + scale_color_manual(values = c("black", "blue"))
+```
+
+```{r}
+ypr_plot_schedule(ecotypes, x = "Age", y  = "Spawning") + scale_color_manual(values = c("black", "blue"))
 ```
 
 ### Fish
 
 ```{r, fig.width=6, fig.height=4}
-ypr_plot_fish(population, color = "white")
-ypr_tabulate_fish(population)
+ypr_plot_fish(ecotypes, color = "white")
 ```
 
 ### Stock-Recruitment
 
 ```{r, fig.width=6, fig.height=4}
-ypr_plot_sr(population)
-ypr_tabulate_sr(population)
+ypr_plot_sr(ecotypes)
+ypr_tabulate_sr(ecotypes)
 ```
 
 ### Yield
 
 ```{r, fig.width=6, fig.height=4}
-#ypr_tabulate_yield(population)
-#ypr_plot_yield(population)
+#ypr_tabulate_yield(ecotypes)
+#ypr_plot_yield(ecotypes)
 ```
 
