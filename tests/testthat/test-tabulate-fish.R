@@ -43,6 +43,12 @@ test_that("ypr_tabulate_fish ecotype no fish", {
                    ypr_tabulate_fish(ypr_population(n = 0.1)))
 })
 
+test_that("ypr_tabulate_fish ecotypes 1", {
+  fish <- ypr_tabulate_fish(ypr_ecotypes())
+  expect_s3_class(fish, "tbl_df")
+  expect_snapshot_data(fish, "fish1")
+})
+
 test_that("ypr_tabulate_fish ecotypes 2 diff more", {
   fish <- ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1)))
   expect_s3_class(fish, "tbl_df")

@@ -42,17 +42,14 @@ ecotypes <- ypr_ecotypes(
   RPR = c(0.8, 0.2))
 
 ypr_plot_schedule(ecotypes) + scale_color_manual(values = c("black", "blue"))
-```
-
-```{r}
 ypr_plot_schedule(ecotypes, x = "Age", y  = "Spawning") + scale_color_manual(values = c("black", "blue"))
 ```
 
 ### Fish
 
 ```{r, fig.width=6, fig.height=4}
-ypr_plot_fish(ecotypes, color = "white")
-ypr_tabulate_fish(ecotypes)
+ypr_plot_fish(ecotypes, color = "white") + scale_fill_manual(values = c("black", "blue"))
+ypr_plot_fish(ecotypes, x = "Length", y = "Spawners", color = "white", binwidth = 15) + scale_fill_manual(values = c("black", "blue"))
 ```
 
 ### Stock-Recruitment
