@@ -14,41 +14,6 @@ ypr_tabulate_yield <- function(object, ...) {
   UseMethod("ypr_tabulate_yield")
 }
 
-#' Tabulate Population Parameters
-#'
-#' @inheritParams params
-#' @return A table of population parameters
-#' @family tabulate
-#' @family parameters
-#' @export
-#' @examples
-#' ypr_tabulate_parameters(ypr_population())
-ypr_tabulate_parameters <- function(population) {
-  check_population(population)
-
-  parameters <- data.frame(
-    Parameter = names(population),
-    Value = unname(unlist(population)),
-    stringsAsFactors = FALSE
-  )
-
-  pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
-  rd <- tools::Rd_db("ypr")$ypr_population.Rd
-  rd <- paste0(as.character(rd), collapse = "")
-  gp <- gregexpr(pattern, rd)
-  rd <- regmatches(rd, gp)[[1]]
-
-  data <- data.frame(
-    Parameter = .sub(rd, pattern, "\\2"),
-    Description = .sub(rd, pattern, "\\5"),
-    stringsAsFactors = FALSE
-  )
-
-  parameters <- merge(parameters, data, by = "Parameter", sort = FALSE)
-
-  as_tibble(parameters)
-}
-
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
 ypr_tabulate_yield.ypr_population <- function(object,
@@ -158,7 +123,6 @@ ypr_tabulate_yield.ypr_ecotypes <- function(object,
                   biomass = biomass, type = type, all = TRUE, ...
   )
 
-  print(yield)
   eco_names <- names(object)
 
   yield <- mapply(function(yield, eco_names) {
