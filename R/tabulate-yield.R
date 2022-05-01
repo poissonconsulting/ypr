@@ -16,16 +16,18 @@ ypr_tabulate_yield <- function(object, ...) {
 
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
-ypr_tabulate_yield.ypr_population <- function(object,
+ypr_tabulate_yield.default <- function(object,
                                               Ly = 0,
                                               harvest = TRUE,
                                               biomass = FALSE,
                                               type = "both",
                                               all = FALSE,
                                               ...) {
+  chkor_vld(vld_is(object, "ypr_population"), vld_is(object, "ypr_ecotypes"))
   chk_string(type)
   chk_subset(type, c("both", "actual", "optimal"))
-  actual_pi <- object$pi
+
+  actual_pi <- ypr_get_par(object)
 
   actual_yield <- ypr_yield(object,
     Ly = Ly, harvest = harvest,
@@ -99,46 +101,4 @@ ypr_tabulate_yield.ypr_populations <- function(object,
   if (!all) yield <- drop_constant_parameters(yield)
 
   as_tibble(yield)
-}
-
-#' @describeIn ypr_tabulate_yield Tabulate Yield
-#' @param average A flag to either give each ecotype separately or averaged
-#'   based on the proportions
-#' @export
-#' @examples
-#' ypr_tabulate_yield(ypr_ecotypes(Ls = c(40, 50)))
-ypr_tabulate_yield.ypr_ecotypes <- function(object,
-                                            Ly = 0,
-                                            harvest = TRUE,
-                                            biomass = FALSE,
-                                            type = "both",
-                                            all = FALSE,
-                                            average = TRUE,
-                                            ...) {
-  chk::chk_flag(all)
-  chk::chk_flag(average)
-
-  yield <- lapply(object, ypr_tabulate_yield,
-                  Ly = Ly, harvest = harvest,
-                  biomass = biomass, type = type, all = TRUE, ...
-  )
-
-  eco_names <- names(object)
-
-  yield <- mapply(function(yield, eco_names) {
-    yield[["Ecotype"]] <- eco_names
-    yield
-
-  }, yield, eco_names, SIMPLIFY = FALSE)
-
-  yield <- do.call("rbind", yield)
-  if (!all) {
-    yield <- drop_all_parameters(yield)
-  }
-  as_tibble(yield)
-
-  if (!average) {
-    return(yield)
-  }
-  yield
 }

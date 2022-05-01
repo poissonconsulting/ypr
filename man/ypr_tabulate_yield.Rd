@@ -2,14 +2,13 @@
 % Please edit documentation in R/tabulate-yield.R
 \name{ypr_tabulate_yield}
 \alias{ypr_tabulate_yield}
-\alias{ypr_tabulate_yield.ypr_population}
+\alias{ypr_tabulate_yield.default}
 \alias{ypr_tabulate_yield.ypr_populations}
-\alias{ypr_tabulate_yield.ypr_ecotypes}
 \title{Tabulate Yield}
 \usage{
 ypr_tabulate_yield(object, ...)
 
-\method{ypr_tabulate_yield}{ypr_population}(
+\method{ypr_tabulate_yield}{default}(
   object,
   Ly = 0,
   harvest = TRUE,
@@ -26,17 +25,6 @@ ypr_tabulate_yield(object, ...)
   biomass = FALSE,
   type = "both",
   all = FALSE,
-  ...
-)
-
-\method{ypr_tabulate_yield}{ypr_ecotypes}(
-  object,
-  Ly = 0,
-  harvest = TRUE,
-  biomass = FALSE,
-  type = "both",
-  all = FALSE,
-  average = TRUE,
   ...
 )
 }
@@ -58,9 +46,6 @@ the biomass versus number of individuals.}
 'actual' or 'optimal' yield.}
 
 \item{all}{A flag specifying whether to include all parameter values.}
-
-\item{average}{A flag to either give each ecotype separately or averaged
-based on the proportions}
 }
 \value{
 A data frame.
@@ -70,17 +55,14 @@ Tabulate Yield
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Tabulate Yield
+\item \code{default}: Tabulate Yield
 
 \item \code{ypr_populations}: Tabulate Yield
-
-\item \code{ypr_ecotypes}: Tabulate Yield
 }}
 
 \examples{
 ypr_tabulate_yield(ypr_population())
 ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
-ypr_tabulate_yield(ypr_ecotypes(Ls = c(40, 50)))
 }
 \seealso{
 Other tabulate: 

@@ -55,14 +55,14 @@ ypr_plot_fish(ecotypes, x = "Length", y = "Caught", color = "white", binwidth = 
 ### Stock-Recruitment
 
 ```{r, fig.width=6, fig.height=4}
-ypr_plot_sr(ecotypes)
-ypr_tabulate_sr(ecotypes)
+ypr_plot_sr(ecotypes, biomass = TRUE)
+ypr_tabulate_sr(ecotypes, biomass = TRUE)
 ```
 
 ### Yield
 
 ```{r, fig.width=6, fig.height=4}
-ypr_tabulate_yield(ecotypes)
-#ypr_plot_yield(ecotypes)
+ypr_tabulate_yield(ecotypes, biomass = TRUE)
+ypr_plot_yield(ecotypes, biomass = TRUE)
 ```
 
