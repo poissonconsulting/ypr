@@ -52,6 +52,7 @@ ypr_plot_schedule(ecotypes, x = "Age", y  = "Spawning") + scale_color_manual(val
 
 ```{r, fig.width=6, fig.height=4}
 ypr_plot_fish(ecotypes, color = "white")
+ypr_tabulate_fish(ecotypes)
 ```
 
 ### Stock-Recruitment

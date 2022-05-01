@@ -13,7 +13,7 @@ sum_fish_table <- function(table, binwidth) {
 #'
 #' Produces a data frame of the number of fish in the 'Survivors', 'Spawners',
 #' 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
-#' 'Length', 'Age' or 'Weight' class.
+#' 'Length', 'Age' or 'Weight' class and 'Ecotype' (NA if not applicable)
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule
@@ -44,7 +44,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table$Harvested <- table$Caught * table$Retention
   table$Released <- table$Caught * (1 - table$Retention)
   table$HandlingMortalities <- table$Released * Hm
-#  if(!"Ecotype" %in% colnames(table))
+  if(!"Ecotype" %in% colnames(table))
     table$Ecotype <- 1
 
   table <- table[c(
@@ -57,8 +57,8 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table <- do.call("rbind", table)
   row.names(table) <- NULL
 
-#  if(length(unique(table$Ecotype)) == 1L)
-    table$Ecotype <- NULL
+  if(length(unique(table$Ecotype)) == 1L)
+    table$Ecotype <- NA_character_
 
   as_tibble(table)
 }
