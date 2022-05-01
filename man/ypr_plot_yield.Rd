@@ -2,14 +2,13 @@
 % Please edit documentation in R/plot-yield.R
 \name{ypr_plot_yield}
 \alias{ypr_plot_yield}
-\alias{ypr_plot_yield.ypr_population}
+\alias{ypr_plot_yield.default}
 \alias{ypr_plot_yield.ypr_populations}
-\alias{ypr_plot_yield.ypr_ecotypes}
 \title{Plot Yield by Capture}
 \usage{
 ypr_plot_yield(object, ...)
 
-\method{ypr_plot_yield}{ypr_population}(
+\method{ypr_plot_yield}{default}(
   object,
   y = "Yield",
   pi = seq(0, 1, length.out = 100),
@@ -22,18 +21,6 @@ ypr_plot_yield(object, ...)
 )
 
 \method{ypr_plot_yield}{ypr_populations}(
-  object,
-  y = "Yield",
-  pi = seq(0, 1, length.out = 100),
-  Ly = 0,
-  harvest = TRUE,
-  biomass = FALSE,
-  u = harvest,
-  plot_values = TRUE,
-  ...
-)
-
-\method{ypr_plot_yield}{ypr_ecotypes}(
   object,
   y = "Yield",
   pi = seq(0, 1, length.out = 100),
@@ -78,11 +65,9 @@ annual interval capture/exploitation probability.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Plot Yield by Capture
+\item \code{default}: Plot Yield by Capture
 
 \item \code{ypr_populations}: Plot Yield by Capture
-
-\item \code{ypr_ecotypes}: Plot Yield by Capture
 }}
 
 \examples{

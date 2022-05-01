@@ -22,7 +22,7 @@ test_that("ypr_plot_yield ecotypes1", {
 })
 
 test_that("ypr_plot_yield ecotypes2", {
-  gp <- ypr_plot_yield(ypr_ecotypes(Ls = c(40, 50)),
+  gp <- ypr_plot_yield(ypr_ecotypes(Ls = c(30, 10)),
                        pi = seq(0, 1, length.out = 2), plot_values = FALSE)
 
   expect_snapshot_plot(gp, "ecotypes2")
