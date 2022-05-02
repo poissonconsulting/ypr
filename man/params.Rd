@@ -70,6 +70,8 @@ rate switches from n to nL (cm or yr).}
 \item{q}{The catchability (annual probability of capture) for a unit of
 effort.}
 
+\item{RPR}{The relative proportion of recruits that are of the ecotype.}
+
 \item{all}{A flag specifying whether to include all parameter values.}
 
 \item{u}{A flag specifying whether to plot the exploitation rate as opposed
@@ -83,6 +85,8 @@ percent or frequency (the default).}
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{populations}{An object of class \code{\link[=ypr_populations]{ypr_populations()}}.}
+
+\item{ecotypes}{An object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.}
 
 \item{plot_values}{A flag specifying whether to plot the actual and optimal
 values.}
@@ -124,6 +128,8 @@ file.}
 \item{age}{A numeric vector of the age (yr).}
 
 \item{length}{A numeric vector of the length (cm).}
+
+\item{names}{A character vector of unique ecotype names.}
 
 \item{x}{The object to coerce.}
 }

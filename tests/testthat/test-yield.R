@@ -121,3 +121,27 @@ test_that("yield", {
     ignore_attr = TRUE
   )
 })
+
+test_that("ypr_yield same for two copies of population with same weighting", {
+  popn <- ypr_population(Linf = 100)
+  yield <- ypr_yield(popn)
+  ecotypes <- ypr_ecotypes(Linf = c(100, 100.00000001), RPR = c(0.5, 0.5))
+  expect_equal(ypr_yield(ecotypes), yield)
+})
+
+test_that("ypr_yield same for two copies with unequal weighting", {
+  popn <- ypr_population(Linf = 100)
+  yield <- ypr_yield(popn)
+  ecotypes <- ypr_ecotypes(Linf = c(100, 100.000000001), RPR = c(0.75, 0.25))
+  expect_equal(ypr_yield(ecotypes), yield)
+})
+
+test_that("ypr_yield ecotypes 1", {
+  expect_identical(ypr_yield(ypr_ecotypes()),
+                   ypr_yield(ypr_population()))
+})
+
+test_that("ypr_yield ecotypes 2", {
+  yield <- ypr_yield(ypr_ecotypes(Ls = c(40, 60)))
+  expect_equal(yield, structure(0.0326319712181924, Age = 6.76869977432548, Length = 62.1306770584528, Weight = 2580.2719304368, Effort = 2.11790488990108))
+})

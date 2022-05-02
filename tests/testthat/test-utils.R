@@ -31,9 +31,9 @@ test_that("ypr_length_at_age", {
 test_that("ypr_length_at_age with biphasic growth and t0 != 0", {
   pop0 <- ypr_population(tmax = 9L, k = 0.54, Linf = 43.90, t0 = 0.65)
 
-  pop1 <- ypr_population_update(pop0, k2 = 0.7, Linf2 = 82.56, L2 = -3.6)
+  pop1 <- ypr_update(pop0, k2 = 0.7, Linf2 = 82.56, L2 = -3.6)
 
-  pop2 <- ypr_population_update(pop1, k2 = 0.27, Linf2 = 54.2)
+  pop2 <- ypr_update(pop1, k2 = 0.27, Linf2 = 54.2)
 
   length0 <- ypr_length_at_age(pop0, 1:9L)
   length1 <- ypr_length_at_age(pop1, 1:9L)

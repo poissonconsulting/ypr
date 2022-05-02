@@ -34,6 +34,7 @@
 #' @param fa The (theoretical) fecundity of a 1 g female (eggs).
 #' @param q The catchability (annual probability of capture) for a unit of
 #'   effort.
+#' @param RPR The relative proportion of recruits that are of the ecotype.
 #' @param all A flag specifying whether to include all parameter values.
 #' @param u A flag specifying whether to plot the exploitation rate as opposed
 #'   to the capture rate.
@@ -42,6 +43,7 @@
 #' @param color A string of the color around each bar (or NULL).
 #' @param population An object of class [ypr_population()].
 #' @param populations An object of class [ypr_populations()].
+#' @param ecotypes An object of class [ypr_ecotypes()].
 #' @param plot_values A flag specifying whether to plot the actual and optimal
 #'   values.
 #' @param Ly The minimum length (trophy) fish to consider when calculating the
@@ -66,6 +68,7 @@
 #' @param description A string describing the population.
 #' @param age A numeric vector of the age (yr).
 #' @param length A numeric vector of the length (cm).
+#' @param names A character vector of unique ecotype names.
 #' @param x The object to coerce.
 #' @keywords internal
 #' @name params

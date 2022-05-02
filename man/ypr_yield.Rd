@@ -4,10 +4,10 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
+ypr_yield(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the
 yield (cm).}
@@ -17,6 +17,8 @@ fish or captures.}
 
 \item{biomass}{A flag specifying whether to calculate the yield in terms of
 the biomass versus number of individuals.}
+
+\item{...}{Unused parameters.}
 }
 \value{
 The yield as number of fish or biomass.
@@ -31,6 +33,7 @@ biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
 \examples{
 ypr_yield(ypr_population())
+ypr_yield(ypr_ecotypes(Linf = c(100, 200)))
 }
 \seealso{
 Other yield: 

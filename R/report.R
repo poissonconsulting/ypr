@@ -2,6 +2,14 @@ integer_parameters <- function() {
   .parameters$Parameter[.parameters$Integer == 1]
 }
 
+parameters <- function() {
+  .parameters$Parameter
+}
+
+ecoall_parameters <- function() {
+  .parameters$Parameter[.parameters$EcoAll == 1]
+}
+
 lines_population <- function(population) {
   population <- unclass(population)
   population <- lapply(population, as.character)
@@ -37,7 +45,7 @@ ypr_report <- function(population,
                        file = "report",
                        view = FALSE,
                        ask = TRUE) {
-  chk_population(population)
+  check_population(population)
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -52,7 +60,7 @@ ypr_report <- function(population,
 
   if (grepl("[.](R|r)md$", file)) {
     wrn("File extension on argument `file` is deprecated (please remove).")
-    file <- sub("[.](R|r)md$", "", file)
+    file <- .sub(file, "[.](R|r)md$", "")
   }
   file <- p0(file, ".Rmd")
 
@@ -82,7 +90,7 @@ ypr_report <- function(population,
       err("Package 'rmarkdown' is required to render the report to html.")
     }
 
-    file_html <- p0(sub("[.](R|r)md$", "", file), ".html")
+    file_html <- p0(.sub(file, "[.](R|r)md$", ""), ".html")
     if (!ask_file(file_html, ask)) {
       return(invisible(readLines(file)))
     }

@@ -1,14 +1,13 @@
 yield <- function(schedule,
-                  population,
+                  object,
                   Ly = 0,
                   harvest = TRUE,
                   biomass = FALSE) {
   schedule <- as.list(schedule)
 
-  schedule$pi <- population$pi
-  schedule$q <- population$q
-
-  schedule <- c(schedule, sr(schedule, population))
+  schedule$pi <- ypr_get_par(object)
+  schedule$q <- ypr_get_par(object, "q")
+  schedule <- c(schedule, sr(schedule, object))
 
   yield <- with(schedule, {
     FishedSurvivorship[Length < Ly] <- 0
@@ -37,10 +36,10 @@ yield <- function(schedule,
   yield
 }
 
-yield_pi <- function(pi, population, Ly, harvest, biomass) {
-  population$pi <- pi
-  schedule <- ypr_tabulate_schedule(population)
-  yield(schedule, population, Ly = Ly, harvest = harvest, biomass = biomass)
+yield_pi <- function(pi, object, Ly, harvest, biomass) {
+  object <- set_par(object, "pi", pi)
+  schedule <- ypr_tabulate_schedule(object)
+  yield(schedule, object, Ly = Ly, harvest = harvest, biomass = biomass)
 }
 
 #' Yield
@@ -58,18 +57,22 @@ yield_pi <- function(pi, population, Ly, harvest, biomass) {
 #' @export
 #' @examples
 #' ypr_yield(ypr_population())
-ypr_yield <- function(population, Ly = 0, harvest = TRUE, biomass = FALSE) {
-  chk_population(population)
+#' ypr_yield(ypr_ecotypes(Linf = c(100, 200)))
+ypr_yield <- function(object,
+                      Ly = 0,
+                      harvest = TRUE,
+                      biomass = FALSE,
+                      ...) {
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
   chk_flag(harvest)
 
-  schedule <- ypr_tabulate_schedule(population)
+  schedule <- ypr_tabulate_schedule(object)
 
   yield <- yield(
     schedule,
-    population,
+    object,
     Ly = Ly,
     harvest = harvest,
     biomass = biomass

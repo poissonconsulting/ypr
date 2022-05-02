@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields(
-  population,
+  object,
   pi = seq(0, 1, length.out = 100),
   Ly = 0,
   harvest = TRUE,
@@ -13,7 +13,7 @@ ypr_yields(
 )
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
