@@ -47,6 +47,12 @@ test_that("ypr_tabulate_yield populations all", {
   expect_snapshot_data(yield, "populationsall")
 })
 
+test_that("ypr_tabulate_yield ecotypes 1", {
+  yield <- ypr_tabulate_yield(ypr_ecotypes())
+
+  expect_s3_class(yield, "tbl_df")
+  expect_snapshot_data(yield, "ecotypes1")
+})
 
 test_that("ypr_tabulate_yield ecotypes 2", {
   yield <- ypr_tabulate_yield(ypr_ecotypes(Ls = c(40, 60)))
