@@ -46,6 +46,8 @@ Suggests:
     tidyr,
     usethis,
     withr
+Remotes:
+    poissonconsulting/tidyplus
 VignetteBuilder: 
     knitr
 ByteCompile: true
