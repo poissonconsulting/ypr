@@ -29,6 +29,16 @@ annual interval capture/exploitation probability."><meta property="og:image" con
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/ecotypes.html">Ecotypes</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -48,7 +58,7 @@ annual interval capture/exploitation probability."><meta property="og:image" con
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Plot Yield by Capture</h1>
-    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/ypr/blob/HEAD/R/plot.R" class="external-link"><code>R/plot.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/ypr/blob/HEAD/R/plot-yield.R" class="external-link"><code>R/plot-yield.R</code></a></small>
     <div class="hidden name"><code>ypr_plot_yield.Rd</code></div>
     </div>
 
@@ -57,9 +67,10 @@ annual interval capture/exploitation probability."><meta property="og:image" con
 annual interval capture/exploitation probability.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_plot_yield</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_plot_yield</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
 
-<span class="co"># S3 method for ypr_population</span>
+<span class="co"># S3 method for default</span>
 <span class="fu">ypr_plot_yield</span><span class="op">(</span>
   <span class="va">object</span>,
   y <span class="op">=</span> <span class="st">"Yield"</span>,
@@ -84,8 +95,8 @@ annual interval capture/exploitation probability.</p>
   plot_values <span class="op">=</span> <span class="cn">TRUE</span>,
   <span class="va">...</span>
 <span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
@@ -119,7 +130,7 @@ values.</p></dd>
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
     
-<ul><li><p><code>ypr_population</code>: Plot Yield by Capture</p></li>
+<ul><li><p><code>default</code>: Plot Yield by Capture</p></li>
 <li><p><code>ypr_populations</code>: Plot Yield by Capture</p></li>
 </ul></div>
     <div id="see-also">
@@ -127,8 +138,6 @@ values.</p></dd>
     <div class="dont-index"><p>Other populations: 
 <code><a href="as_ypr_populations.html">as_ypr_populations</a>()</code>,
 <code><a href="chilliwack_bt_05.html">chilliwack_bt_05</a></code>,
-<code><a href="ypr_populations_update.html">update.ypr_populations</a>()</code>,
-<code><a href="ypr_population_names.html">ypr_population_names</a>()</code>,
 <code><a href="ypr_populations_expand.html">ypr_populations_expand</a>()</code>,
 <code><a href="ypr_populations.html">ypr_populations</a>()</code>,
 <code><a href="ypr_tabulate_sr.html">ypr_tabulate_sr</a>()</code>,
@@ -144,11 +153,10 @@ values.</p></dd>
 <code><a href="ypr_plot_schedule.html">ypr_plot_schedule</a>()</code>,
 <code><a href="ypr_plot_sr.html">ypr_plot_sr</a>()</code></p></div>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in"><span class="fu">ypr_plot_yield</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span></span>
 <span class="r-in">  Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4.6</span><span class="op">)</span>,</span>
 <span class="r-in">  Llo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">60</span><span class="op">)</span></span>
@@ -179,7 +187,7 @@ values.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer></div>

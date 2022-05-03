@@ -57,6 +57,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/ecotypes.html">Ecotypes</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
@@ -84,11 +96,10 @@
 <div class="page-header"><h1 id="ypr-">ypr <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#ypr-"></a>
 </h1></div>
 <!-- badges: start -->
-
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p><a href="https://github.com/poissonconsulting/ypr" class="external-link"><code>ypr</code></a> is an R package that implements equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population (Walters and Martell 2004). The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.</p>
+<p><a href="https://github.com/poissonconsulting/ypr" class="external-link"><code>ypr</code></a> is an R package that implements equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield (Walters and Martell 2004) of a fish population with one or more ecotypes. The yield can be based on the number of fish caught (or harvested) or biomass for all fish or just large (trophy) individuals.</p>
 <p>The key life history parameters are</p>
 <ul>
 <li>The growth coefficient (<code>k</code>) and mean maximum length (<code>Linf</code>) from the Von Bertalanffy growth curve</li>
@@ -97,8 +108,20 @@
 <li>The interval annual natural mortality rate (<code>n</code>)</li>
 <li>The lifetime number of spawners per spawner at low density (<code>Rk</code>)</li>
 </ul>
+<p>and in the case of ecotypes</p>
+<ul><li>The relative proportion of recruits that belong to that ecotype (<code>RPR</code>)</li></ul>
 <p>The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.</p>
-<p>A shiny app is available at <a href="https://poissonconsulting.shinyapps.io/shinyypr/" class="external-link uri">https://poissonconsulting.shinyapps.io/shinyypr/</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ypr"</span><span class="op">)</span></code></pre></div>
+<p>To install the developmental version from <a href="https://github.com/poissonconsulting/ypr" class="external-link">GitHub</a></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/ypr"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
@@ -106,52 +129,80 @@
 <div class="section level3">
 <h3 id="schedule">Schedule<a class="anchor" aria-label="anchor" href="#schedule"></a>
 </h3>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/ypr" class="external-link">ypr</a></span><span class="op">)</span>
 <span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ypr_population.html">ypr_population</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fl">5</span>, Ls <span class="op">=</span> <span class="fl">50</span>, Rmax <span class="op">=</span> <span class="fl">100</span>, rho <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>
 <span class="fu"><a href="reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, x <span class="op">=</span> <span class="st">"Length"</span>, y <span class="op">=</span> <span class="st">"Spawning"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-1-1.png"><!-- --></p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="reference/ypr_tabulate_schedule.html">ypr_tabulate_schedule</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 x 11</span>
-<span class="co">#&gt;     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability</span>
-<span class="co">#&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1   13.9   27.0      27.0 3.13e-56              0.2      3.13e-56</span>
-<span class="co">#&gt; 2     2   25.9  174.      174.  2.91e-29              0.2      2.91e-29</span>
-<span class="co">#&gt; 3     3   36.2  476.      476.  1.04e-14              0.2      1.04e-14</span>
-<span class="co">#&gt; 4     4   45.1  918.      918.  3.46e- 5              0.2      3.46e- 5</span>
-<span class="co">#&gt; 5     5   52.8 1469.     1469.  9.95e- 1              0.2      9.95e- 1</span>
-<span class="co">#&gt; 6     6   59.3 2090.     2090.  1.00e+ 0              0.2      1.00e+ 0</span>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png"><!-- --></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ypr_tabulate_schedule.html">ypr_tabulate_schedule</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 20 × 11</span>
+<span class="co">#&gt;      Age Length Weight Fecundity Spawning NaturalMortality Vulnerability</span>
+<span class="co">#&gt;    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt;  1     1   13.9   27.0      27.0 3.13e-56              0.2      3.13e-56</span>
+<span class="co">#&gt;  2     2   25.9  174.      174.  2.91e-29              0.2      2.91e-29</span>
+<span class="co">#&gt;  3     3   36.2  476.      476.  1.04e-14              0.2      1.04e-14</span>
+<span class="co">#&gt;  4     4   45.1  918.      918.  3.46e- 5              0.2      3.46e- 5</span>
+<span class="co">#&gt;  5     5   52.8 1469.     1469.  9.95e- 1              0.2      9.95e- 1</span>
+<span class="co">#&gt;  6     6   59.3 2090.     2090.  1.00e+ 0              0.2      1.00e+ 0</span>
+<span class="co">#&gt;  7     7   65.0 2747.     2747.  1.00e+ 0              0.2      1.00e+ 0</span>
+<span class="co">#&gt;  8     8   69.9 3412.     3412.  1.00e+ 0              0.2      1.00e+ 0</span>
+<span class="co">#&gt;  9     9   74.1 4065.     4065.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 10    10   77.7 4689.     4689.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 11    11   80.8 5274.     5274.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 12    12   83.5 5816.     5816.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 13    13   85.8 6310.     6310.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 14    14   87.8 6758.     6758.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 15    15   89.5 7160.     7160.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 16    16   90.9 7518.     7518.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 17    17   92.2 7836.     7836.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 18    18   93.3 8116.     8116.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 19    19   94.2 8363.     8363.  1   e+ 0              0.2      1   e+ 0</span>
+<span class="co">#&gt; 20    20   95.0 8580.     8580.  1   e+ 0              0.2      1   e+ 0</span>
 <span class="co">#&gt; # … with 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="fish">Fish<a class="anchor" aria-label="anchor" href="#fish"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">population</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-2-1.png"><!-- --></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 x 7</span>
-<span class="co">#&gt;     Age Survivors Spawners   Caught Harvested Released HandlingMortalities</span>
-<span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;</span>
-<span class="co">#&gt; 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0</span>
-<span class="co">#&gt; 2     2      56.1 1.63e-27 3.26e-28  1.30e-28 1.96e-28                   0</span>
-<span class="co">#&gt; 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0</span>
-<span class="co">#&gt; 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0</span>
-<span class="co">#&gt; 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0</span>
-<span class="co">#&gt; 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png"><!-- --></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 20 × 7</span>
+<span class="co">#&gt;      Age Survivors Spawners   Caught Harvested Released HandlingMortalities</span>
+<span class="co">#&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;</span>
+<span class="co">#&gt;  1     1    70.1   2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0</span>
+<span class="co">#&gt;  2     2    56.1   1.63e-27 3.26e-28  1.30e-28 1.96e-28                   0</span>
+<span class="co">#&gt;  3     3    44.9   4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0</span>
+<span class="co">#&gt;  4     4    35.9   1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0</span>
+<span class="co">#&gt;  5     5    28.7   2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0</span>
+<span class="co">#&gt;  6     6    21.1   2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span>
+<span class="co">#&gt;  7     7    15.6   1.56e+ 1 3.11e+ 0  1.24e+ 0 1.87e+ 0                   0</span>
+<span class="co">#&gt;  8     8    11.5   1.15e+ 1 2.29e+ 0  9.16e- 1 1.37e+ 0                   0</span>
+<span class="co">#&gt;  9     9     8.43  8.43e+ 0 1.69e+ 0  6.74e- 1 1.01e+ 0                   0</span>
+<span class="co">#&gt; 10    10     6.20  6.20e+ 0 1.24e+ 0  4.96e- 1 7.44e- 1                   0</span>
+<span class="co">#&gt; 11    11     4.57  4.57e+ 0 9.13e- 1  3.65e- 1 5.48e- 1                   0</span>
+<span class="co">#&gt; 12    12     3.36  3.36e+ 0 6.72e- 1  2.69e- 1 4.03e- 1                   0</span>
+<span class="co">#&gt; 13    13     2.47  2.47e+ 0 4.95e- 1  1.98e- 1 2.97e- 1                   0</span>
+<span class="co">#&gt; 14    14     1.82  1.82e+ 0 3.64e- 1  1.46e- 1 2.18e- 1                   0</span>
+<span class="co">#&gt; 15    15     1.34  1.34e+ 0 2.68e- 1  1.07e- 1 1.61e- 1                   0</span>
+<span class="co">#&gt; 16    16     0.986 9.86e- 1 1.97e- 1  7.89e- 2 1.18e- 1                   0</span>
+<span class="co">#&gt; 17    17     0.726 7.26e- 1 1.45e- 1  5.81e- 2 8.71e- 2                   0</span>
+<span class="co">#&gt; 18    18     0.534 5.34e- 1 1.07e- 1  4.27e- 2 6.41e- 2                   0</span>
+<span class="co">#&gt; 19    19     0.393 3.93e- 1 7.86e- 2  3.15e- 2 4.72e- 2                   0</span>
+<span class="co">#&gt; 20    20     0.289 2.89e- 1 5.79e- 2  2.31e- 2 3.47e- 2                   0</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="stock-recruitment">Stock-Recruitment<a class="anchor" aria-label="anchor" href="#stock-recruitment"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_plot_sr.html">ypr_plot_sr</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-3-1.png"><!-- --></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png"><!-- --></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 3 x 7</span>
+<span class="co">#&gt; # A tibble: 3 × 7</span>
 <span class="co">#&gt;   Type        pi     u    Eggs Recruits Spawners Fecundity</span>
 <span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 unfished 0     0     286350.     80      159.      3600.</span>
@@ -161,37 +212,16 @@
 <div class="section level3">
 <h3 id="yield">Yield<a class="anchor" aria-label="anchor" href="#yield"></a>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 x 8</span>
+<span class="co">#&gt; # A tibble: 2 × 8</span>
 <span class="co">#&gt;   Type       pi     u Yield   Age Length Weight Effort</span>
 <span class="co">#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 actual  0.2   0.08   8.63  7.67   65.8  3112.   2.12</span>
 <span class="co">#&gt; 2 optimal 0.458 0.183 11.7   6.87   62.6  2641.   5.82</span>
 <span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png"><!-- --></p>
+<p><img src="reference/figures/README-unnamed-chunk-6-1.png"><!-- --></p>
 </div>
-<div class="section level3">
-<h3 id="uncertainty">Uncertainty<a class="anchor" aria-label="anchor" href="#uncertainty"></a>
-</h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
-<span class="va">populations</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">7</span><span class="op">)</span>, Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span><span class="op">)</span>, Rmax <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
-<span class="fu"><a href="reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">populations</span>, plot_values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span><span class="va">Rk</span> <span class="op">~</span> <span class="va">Ls</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-5-1.png"><!-- --></p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ypr"</span><span class="op">)</span></code></pre></div>
-<p>To install the developmental version from <a href="https://github.com/poissonconsulting/ypr" class="external-link">GitHub</a></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/ypr"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="information">Information<a class="anchor" aria-label="anchor" href="#information"></a>
@@ -221,16 +251,12 @@
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
-<p>Please note that the ypr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the ypr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms</p>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-walters_fisheries_2004" class="csl-entry">
-<p>Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.</p>
-</div>
-</div>
+<div id="refs" class="references csl-bib-body hanging-indent"><div id="ref-walters_fisheries_2004" class="csl-entry"><p>Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.</p></div></div>
 </div>
 </div>
   </div>
@@ -258,6 +284,13 @@
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing ypr</a></li>
 </ul>
 </div>
 
@@ -292,7 +325,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer>

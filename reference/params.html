@@ -28,6 +28,16 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/ecotypes.html">Ecotypes</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -56,7 +66,6 @@
     </div>
 
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>tmax</dt>
@@ -91,7 +100,7 @@ first to second phase (cm or yr).</p></dd>
 <dt>BH</dt>
 <dd><p>Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.</p></dd>
 <dt>Rk</dt>
-<dd><p>The lifetime spawners per spawner at low density.</p></dd>
+<dd><p>The lifetime spawners per spawner at low density (or the egg to tR survival if between 0 and 1).</p></dd>
 <dt>n</dt>
 <dd><p>The annual interval natural mortality rate from age tR.</p></dd>
 <dt>nL</dt>
@@ -125,6 +134,8 @@ rate switches from n to nL (cm or yr).</p></dd>
 <dt>q</dt>
 <dd><p>The catchability (annual probability of capture) for a unit of
 effort.</p></dd>
+<dt>RPR</dt>
+<dd><p>The relative proportion of recruits that are of the ecotype.</p></dd>
 <dt>all</dt>
 <dd><p>A flag specifying whether to include all parameter values.</p></dd>
 <dt>u</dt>
@@ -139,6 +150,8 @@ percent or frequency (the default).</p></dd>
 <dd><p>An object of class <code><a href="ypr_population.html">ypr_population()</a></code>.</p></dd>
 <dt>populations</dt>
 <dd><p>An object of class <code><a href="ypr_populations.html">ypr_populations()</a></code>.</p></dd>
+<dt>ecotypes</dt>
+<dd><p>An object of class <code><a href="ypr_ecotypes.html">ypr_ecotypes()</a></code>.</p></dd>
 <dt>plot_values</dt>
 <dd><p>A flag specifying whether to plot the actual and optimal
 values.</p></dd>
@@ -180,10 +193,11 @@ file.</p></dd>
 <dd><p>A numeric vector of the age (yr).</p></dd>
 <dt>length</dt>
 <dd><p>A numeric vector of the length (cm).</p></dd>
+<dt>names</dt>
+<dd><p>A character vector of unique ecotype names.</p></dd>
 <dt>x</dt>
 <dd><p>The object to coerce.</p></dd>
 </dl></div>
-    </div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -197,7 +211,7 @@ file.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer></div>

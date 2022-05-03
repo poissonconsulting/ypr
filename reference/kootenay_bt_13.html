@@ -29,6 +29,16 @@ Thorley (2013)"><meta property="og:image" content="/logo.png"><!-- mathjax --><s
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/ecotypes.html">Ecotypes</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -57,9 +67,10 @@ Thorley (2013)"><meta property="og:image" content="/logo.png"><!-- mathjax --><s
 Thorley (2013)</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="va">kootenay_bt_13</span></code></pre></div>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="va">kootenay_bt_13</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="format">
     <h2>Format</h2>
     <p>An object of class <code><a href="ypr_population.html">ypr_population()</a></code>.</p>
@@ -87,16 +98,15 @@ BC.</p>
 <code><a href="quesnel_lt.html">quesnel_lt</a></code>,
 <code><a href="quesnel_rb.html">quesnel_rb</a></code></p></div>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">kootenay_bt_13</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">kootenay_bt_13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> t0:    0.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> k2:    0.19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> k2:    0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf2: 100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> L2:    1000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Wb:    3.04</span>
@@ -109,8 +119,8 @@ BC.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BH:    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rk:    5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> n:     0.29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> nL:    0.29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ln:    50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nL:    0.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ln:    1000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Lv:    40</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Vp:    5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Llo:   0</span>
@@ -123,6 +133,7 @@ BC.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Wa:    0.01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> fa:    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
 <span class="r-in"><span class="fu"><a href="ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">kootenay_bt_13</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="kootenay_bt_13-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
@@ -139,7 +150,7 @@ BC.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer></div>

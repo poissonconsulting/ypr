@@ -28,6 +28,16 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/ecotypes.html">Ecotypes</a>
+    </li>
+  </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -106,6 +116,10 @@
         </td>
         <td><p>Optimize Capture</p></td>
       </tr><tr><td>
+          <p><code><a href="ypr_sr.html">ypr_sr()</a></code> </p>
+        </td>
+        <td><p>Stock-Recruitment Parameters</p></td>
+      </tr><tr><td>
           <p><code><a href="ypr_yield.html">ypr_yield()</a></code> </p>
         </td>
         <td><p>Yield</p></td>
@@ -114,29 +128,50 @@
         </td>
         <td><p>Yields</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
-          <h2 id="population-parameters">Population Parameters <a href="#population-parameters" class="anchor" aria-hidden="true"></a></h2>
-          <p class="section-desc"></p><p>Population parameters</p>
+          <h2 id="populate">Populate <a href="#populate" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>Population Objects</p>
         </th>
       </tr></tbody><tbody><tr><td>
-          <p><code><a href="as_ypr_population.html">as_ypr_population()</a></code> </p>
+          <p><code><a href="as_ypr_population.html">as_ypr_population()</a></code> <code><a href="as_ypr_population.html">as_ypr_populations(<i>&lt;data.frame&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Coerce to a Population Parameter Object</p></td>
+        <td><p>Coerce to a Population Object</p></td>
+      </tr><tr><td>
+          <p><code><a href="as_ypr_ecotypes.html">as_ypr_ecotypes()</a></code> </p>
+        </td>
+        <td><p>Coerce to an Ecotypes Object</p></td>
       </tr><tr><td>
           <p><code><a href="as_ypr_populations.html">as_ypr_populations()</a></code> </p>
         </td>
-        <td><p>Coerce to a Populations Parameter Object</p></td>
+        <td><p>Coerce to a Populations Object</p></td>
       </tr><tr><td>
-          <p><code><a href="ypr_populations_update.html">update(<i>&lt;ypr_populations&gt;</i>)</a></code> <code><a href="ypr_populations_update.html">ypr_populations_update()</a></code> </p>
+          <p><code><a href="is.ypr_population.html">is.ypr_population()</a></code> <code><a href="is.ypr_population.html">is_ypr_population()</a></code> <code><a href="is.ypr_population.html">is.ypr_populations()</a></code> <code><a href="is.ypr_population.html">is_ypr_populations()</a></code> <code><a href="is.ypr_population.html">is.ypr_ecotypes()</a></code> <code><a href="is.ypr_population.html">is_ypr_ecotypes()</a></code> </p>
         </td>
-        <td><p>Update Population Parameters</p></td>
+        <td><p>Tests if is a Population, Populations or Ecotypes</p></td>
       </tr><tr><td>
           <p><code><a href="ypr_population.html">ypr_population()</a></code> </p>
         </td>
         <td><p>Population Parameters</p></td>
       </tr><tr><td>
+          <p><code><a href="ypr_ecotypes.html">ypr_ecotypes()</a></code> </p>
+        </td>
+        <td><p>Create Ecotypes Object</p></td>
+      </tr><tr><td>
           <p><code><a href="ypr_populations.html">ypr_populations()</a></code> </p>
         </td>
         <td><p>Populations</p></td>
+      </tr><tr><td>
+          <p><code><a href="ypr_update.html">ypr_update()</a></code> </p>
+        </td>
+        <td><p>Update a YPR Object
+Currently just works with scalar parameters for populations and ecotypes.</p></td>
+      </tr><tr><td>
+          <p><code><a href="ypr_get_par.html">ypr_get_par()</a></code> </p>
+        </td>
+        <td><p>Get Parameter Value</p></td>
+      </tr><tr><td>
+          <p><code><a href="ypr_names.html">ypr_names()</a></code> </p>
+        </td>
+        <td><p>Population(s) or Ecotype Names</p></td>
       </tr><tr><td>
           <p><code><a href="ypr_population_names.html">ypr_population_names()</a></code> </p>
         </td>
@@ -146,13 +181,9 @@
         </td>
         <td><p>Expand Populations</p></td>
       </tr><tr><td>
-          <p><code><a href="ypr_population_update.html">update(<i>&lt;ypr_population&gt;</i>)</a></code> <code><a href="ypr_population_update.html">ypr_population_update()</a></code> </p>
+          <p><code><a href="ypr_population_update.html">ypr_population_update()</a></code> </p>
         </td>
-        <td><p>Update Population Parameters</p></td>
-      </tr><tr><td>
-          <p><code><a href="ypr_sr.html">ypr_sr()</a></code> </p>
-        </td>
-        <td><p>Stock-Recruitment Parameters</p></td>
+        <td><p>Update a Population Object</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="plot">Plot <a href="#plot" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p><p>Generate plots</p>
@@ -172,19 +203,11 @@
       </tr><tr><td>
           <p><code><a href="ypr_plot_schedule.html">ypr_plot_schedule()</a></code> </p>
         </td>
-        <td><p>Plot Population Schedule Terms</p></td>
+        <td><p>Plot Population or Ecotypes Schedule Terms</p></td>
       </tr><tr><td>
           <p><code><a href="ypr_plot_sr.html">ypr_plot_sr()</a></code> </p>
         </td>
         <td><p>Plot Stock-Recruitment Curve</p></td>
-      </tr><tr><td>
-          <p><code><a href="ypr_plot_yield.html">ypr_plot_yield()</a></code> </p>
-        </td>
-        <td><p>Plot Yield by Capture</p></td>
-      </tr><tr><td>
-          <p><code><a href="ypr_plot_yield.html">ypr_plot_yield()</a></code> </p>
-        </td>
-        <td><p>Plot Yield by Capture</p></td>
       </tr><tr><td>
           <p><code><a href="ypr_plot_yield.html">ypr_plot_yield()</a></code> </p>
         </td>
@@ -208,7 +231,7 @@
       </tr><tr><td>
           <p><code><a href="ypr_tabulate_biomass.html">ypr_tabulate_biomass()</a></code> </p>
         </td>
-        <td><p>Tablulate Biomass (and Eggs)</p></td>
+        <td><p>Tabulate Biomass (and Eggs)</p></td>
       </tr><tr><td>
           <p><code><a href="ypr_tabulate_fish.html">ypr_tabulate_fish()</a></code> </p>
         </td>
@@ -233,6 +256,22 @@
           <p><code><a href="ypr_tabulate_yields.html">ypr_tabulate_yields()</a></code> </p>
         </td>
         <td><p>Tabulate Yields</p></td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="check">Check <a href="#check" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>Check objects</p>
+        </th>
+      </tr></tbody><tbody><tr><td>
+          <p><code><a href="check_population.html">check_population()</a></code> </p>
+        </td>
+        <td><p>Check Population</p></td>
+      </tr><tr><td>
+          <p><code><a href="check_ecotypes.html">check_ecotypes()</a></code> </p>
+        </td>
+        <td><p>Check Ecotypes</p></td>
+      </tr><tr><td>
+          <p><code><a href="check_populations.html">check_populations()</a></code> </p>
+        </td>
+        <td><p>Check Populations</p></td>
       </tr></tbody></table></div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -246,7 +285,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
 </div>
 
       </footer></div>
