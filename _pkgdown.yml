@@ -19,20 +19,25 @@ reference:
   - '`ypr_exploitation`'
   - '`ypr_length_at_age`'
   - '`ypr_optimize`'
+  - '`ypr_sr`'
   - '`ypr_yield`'
   - '`ypr_yields`'
-- title: Population Parameters
-  desc: Population parameters
+- title: Populate
+  desc: Population Objects
   contents:
   - '`as_ypr_population`'
+  - '`as_ypr_ecotypes`'
   - '`as_ypr_populations`'
-  - '`update.ypr_populations`'
+  - '`is.ypr_population`'
   - '`ypr_population`'
+  - '`ypr_ecotypes`'
   - '`ypr_populations`'
+  - '`ypr_update`'
+  - '`ypr_get_par`'
+  - '`ypr_names`'
   - '`ypr_population_names`'
   - '`ypr_populations_expand`'
   - '`ypr_population_update`'
-  - '`ypr_sr`'
 - title: Plot
   desc: Generate plots
   contents:
@@ -42,8 +47,6 @@ reference:
   - '`ypr_plot_schedule`'
   - '`ypr_plot_sr`'
   - '`ypr_plot_yield`'
-  - '`ypr_plot_yield.ypr_population`'
-  - '`ypr_plot_yield.ypr_populations`'
 - title: Tabulate
   desc: Tabulate values or generate report
   contents:
@@ -57,3 +60,9 @@ reference:
   - '`ypr_tabulate_sr`'
   - '`ypr_tabulate_yield`'
   - '`ypr_tabulate_yields`'
+- title: Check
+  desc: Check objects
+  contents:
+  - '`check_population`'
+  - '`check_ecotypes`'
+  - '`check_populations`'
