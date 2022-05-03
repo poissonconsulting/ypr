@@ -110,7 +110,7 @@ check_parameters <- function(tmax, k, Linf, t0, k2, Linf2, L2, Wb, Ls, Sp, es, t
   chk_s3_class(Wa, "numeric")
   chk_scalar(Wa)
   chk_not_any_na(Wa)
-  chk_range(Wa, c(0.001, 0.1))
+  chk_range(Wa, c(0.001, 10))
   chk_s3_class(fa, "numeric")
   chk_scalar(fa)
   chk_not_any_na(fa)
