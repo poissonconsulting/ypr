@@ -45,8 +45,8 @@ test_that("ypr_update population errors if missing value", {
 })
 
 test_that("ypr_update population errors if outside range", {
-  expect_error(ypr_update(ypr_population(), Rk = 0.5),
-               "`Rk` must be between 1 and 100, not 0.5\\.")
+  expect_error(ypr_update(ypr_population(), Rk = 1001),
+               "`Rk` must be between 0 and 100, not 1001\\.")
 })
 
 test_that("ypr_update populations renames", {

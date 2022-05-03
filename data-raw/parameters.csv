@@ -11,7 +11,7 @@ Ls,Ecological,Reproduction,Fundamental,-100,1000,0,0,0
 Sp,Ecological,Reproduction,Advanced,0,1000,0,1,0
 es,Ecological,Reproduction,Advanced,0.01,1,0,0,0
 tR,Ecological,Reproduction,Advanced,0,10,1,0,1
-Rk,Ecological,Reproduction,Fundamental,1,100,0,1,1
+Rk,Ecological,Reproduction,Fundamental,0,100,0,1,1
 BH,Ecological,Reproduction,Advanced,0,1,1,0,1
 fb,Ecological,Reproduction,Advanced,0.5,2,0,0,0
 n,Ecological,Mortality,Fundamental,0,1,0,0,0

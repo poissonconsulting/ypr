@@ -50,7 +50,7 @@ check_parameters <- function(tmax, k, Linf, t0, k2, Linf2, L2, Wb, Ls, Sp, es, t
   chk_s3_class(Rk, "numeric")
   chk_scalar(Rk)
   chk_not_any_na(Rk)
-  chk_range(Rk, c(1, 100))
+  chk_range(Rk, c(0, 100))
   chk_s3_class(BH, "integer")
   chk_scalar(BH)
   chk_not_any_na(BH)

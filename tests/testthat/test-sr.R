@@ -4,6 +4,18 @@ test_that("ypr_sr population", {
   expect_snapshot_data(sr, "pop")
 })
 
+test_that("ypr_sr population Rk", {
+  sr <- ypr_sr(ypr_population(Rk = 0.000838134626091548))
+  expect_s3_class(sr, "tbl_df")
+  expect_snapshot_data(sr, "Rkegg")
+})
+
+test_that("ypr_sr population Rk1", {
+  sr <- ypr_sr(ypr_population(Rk = 1))
+  expect_s3_class(sr, "tbl_df")
+  expect_snapshot_data(sr, "Rkegg1")
+})
+
 test_that("ypr_sr errors populations", {
   populations <- ypr_populations(Linf = c(10, 100))
   expect_error(ypr_sr(populations))

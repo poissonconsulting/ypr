@@ -71,7 +71,7 @@ first to second phase (cm or yr).}
 
 \item{BH}{Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.}
 
-\item{Rk}{The lifetime spawners per spawner at low density.}
+\item{Rk}{The lifetime spawners per spawner at low density (or the egg to tR survival if between 0 and 1).}
 
 \item{n}{The annual interval natural mortality rate from age tR.}
 

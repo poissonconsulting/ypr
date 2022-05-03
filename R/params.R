@@ -15,7 +15,7 @@
 #' @param fb The fecundity (as a function of weight) scaling exponent.
 #' @param tR The age from which survival is density-independent (yr).
 #' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
-#' @param Rk The lifetime spawners per spawner at low density.
+#' @param Rk The lifetime spawners per spawner at low density (or the egg to tR survival if between 0 and 1).
 #' @param n The annual interval natural mortality rate from age tR.
 #' @param nL The annual interval natural mortality rate from length Ln.
 #' @param Ln The length  (or age if negative) at which the natural mortality
