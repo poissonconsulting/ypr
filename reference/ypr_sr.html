@@ -123,17 +123,20 @@ Spawners at the fished equilibrium
 </dl></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_sr</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ypr_sr</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>The population or populations.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A data frame of the SR parameters.</p>
+    
+
+<p>A data frame of the SR parameters.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -144,12 +147,12 @@ Spawners at the fished equilibrium
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ypr_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># Beverton-Holt</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ypr_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># Beverton-Holt</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 0.000<span style="text-decoration: underline;">838</span> 0.000<span style="text-decoration: underline;">838</span>     3 <span style="text-decoration: underline;">3</span>579. <span style="text-decoration: underline;">1</span>465. 0.667 0.186  1.33 0.211</span>
-<span class="r-in"><span class="fu">ypr_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span><span class="op">)</span> <span class="co"># Ricker</span></span>
+<span class="r-in"><span><span class="fu">ypr_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span><span class="op">)</span> <span class="co"># Ricker</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      alpha     beta    Rk   phi  phiF    R0   R0F    S0   S0F</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -168,7 +171,7 @@ Spawners at the fished equilibrium
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

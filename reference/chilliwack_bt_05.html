@@ -68,7 +68,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="va">chilliwack_bt_05</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">chilliwack_bt_05</span></span></code></pre></div>
     </div>
 
     <div id="format">
@@ -102,7 +102,7 @@ Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">chilliwack_bt_05</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">chilliwack_bt_05</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  86</span>
@@ -135,12 +135,12 @@ Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> fa:    2.29</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
-<span class="r-in"><span class="va">yield</span> <span class="op">&lt;-</span> <span class="fu"><a href="ypr_tabulate_yield.html">ypr_tabulate_yield</a></span><span class="op">(</span><span class="va">chilliwack_bt_05</span>, type <span class="op">=</span> <span class="st">"optimal"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">yield</span><span class="op">$</span><span class="va">pi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">yield</span><span class="op">$</span><span class="va">pi</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">yield</span> <span class="op">&lt;-</span> <span class="va">yield</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Llo"</span>, <span class="st">"Hm"</span>, <span class="st">"Rk"</span>, <span class="st">"pi"</span><span class="op">)</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">yield</span> <span class="op">&lt;-</span> <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/spread.html" class="external-link">spread</a></span><span class="op">(</span><span class="va">yield</span>, <span class="va">Rk</span>, <span class="va">pi</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">yield</span> <span class="op">&lt;-</span> <span class="va">yield</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">yield</span><span class="op">$</span><span class="va">Hm</span><span class="op">)</span>, <span class="op">]</span></span>
-<span class="r-in"><span class="va">yield</span></span>
+<span class="r-in"><span><span class="va">yield</span> <span class="op">&lt;-</span> <span class="fu"><a href="ypr_tabulate_yield.html">ypr_tabulate_yield</a></span><span class="op">(</span><span class="va">chilliwack_bt_05</span>, type <span class="op">=</span> <span class="st">"optimal"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">yield</span><span class="op">$</span><span class="va">pi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">yield</span><span class="op">$</span><span class="va">pi</span>, <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">yield</span> <span class="op">&lt;-</span> <span class="va">yield</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Llo"</span>, <span class="st">"Hm"</span>, <span class="st">"Rk"</span>, <span class="st">"pi"</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">yield</span> <span class="op">&lt;-</span> <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/spread.html" class="external-link">spread</a></span><span class="op">(</span><span class="va">yield</span>, <span class="va">Rk</span>, <span class="va">pi</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">yield</span> <span class="op">&lt;-</span> <span class="va">yield</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">yield</span><span class="op">$</span><span class="va">Hm</span><span class="op">)</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">yield</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     Llo    Hm `2.5` `4.6`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -150,11 +150,11 @@ Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     0  0.05  0.08  0.14</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>    60  0.05  0.17  0.37</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">1</span>000  0.05  0.41  0.74</span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu"><a href="ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">chilliwack_bt_05</span>, plot_values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span><span class="va">Rk</span> <span class="op">~</span> <span class="va">Hm</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">Llo</span>, linetype <span class="op">=</span> <span class="va">Llo</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">chilliwack_bt_05</span>, plot_values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span><span class="va">Rk</span> <span class="op">~</span> <span class="va">Hm</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">Llo</span>, linetype <span class="op">=</span> <span class="va">Llo</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -169,7 +169,7 @@ Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

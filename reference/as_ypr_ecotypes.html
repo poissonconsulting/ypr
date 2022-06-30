@@ -66,31 +66,36 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for data.frame</span>
-<span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for ypr_population</span>
-<span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for ypr_populations</span>
-<span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for ypr_ecotypes</span>
-<span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for data.frame</span></span>
+<span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_population</span></span>
+<span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_populations</span></span>
+<span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_ecotypes</span></span>
+<span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>The object to coerce.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Additional arguments.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class ypr_ecotypes.</p>
+    
+
+<p>An object of class ypr_ecotypes.</p>
     </div>
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
@@ -108,7 +113,7 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
@@ -142,7 +147,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Ecotype: Ls_10, Ls_15, Ls_20</span>
-<span class="r-in"><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
@@ -175,7 +180,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> fa:    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
-<span class="r-in"><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
@@ -209,7 +214,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Ecotype: Ls_10, Ls_15, Ls_20</span>
-<span class="r-in"><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">as_ypr_ecotypes</span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
@@ -257,7 +262,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

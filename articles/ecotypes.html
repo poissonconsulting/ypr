@@ -91,7 +91,7 @@
       <h1 data-toc-skip>Ecotypes</h1>
                         <h4 data-toc-skip class="author">Joe Thorley and Ayla Pearson</h4>
             
-            <h4 data-toc-skip class="date">2022-05-03</h4>
+            <h4 data-toc-skip class="date">2022-06-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/ypr/blob/HEAD/vignettes/ecotypes.Rmd" class="external-link"><code>vignettes/ecotypes.Rmd</code></a></small>
       <div class="hidden name"><code>ecotypes.Rmd</code></div>
@@ -110,58 +110,58 @@
 </h2>
 <p>Consider a population with a smaller ecotype and a second larger ecotype that delays maturation in order to achieve sufficient size to switch to piscivory which allows it to grow much larger.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/ypr" class="external-link">ypr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span> <span class="co"># for plotting</span>
-
-<span class="va">ecotypes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>
-  Linf2 <span class="op">=</span> <span class="fl">200</span>,
-  L2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span>,
-  Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">75</span><span class="op">)</span>, 
-  pi <span class="op">=</span> <span class="fl">0.05</span>,
-  names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"small"</span>, <span class="st">"large"</span><span class="op">)</span>,
-  RPR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">ecotypes</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/ypr" class="external-link">ypr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span> <span class="co"># for plotting</span></span>
+<span></span>
+<span><span class="va">ecotypes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span></span>
+<span>  Linf2 <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>  L2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span>,</span>
+<span>  Ls <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">75</span><span class="op">)</span>, </span>
+<span>  pi <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"small"</span>, <span class="st">"large"</span><span class="op">)</span>,</span>
+<span>  RPR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">ecotypes</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ecotypes_files/figure-html/unnamed-chunk-1-1.png" width="384"></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">ecotypes</span>, x <span class="op">=</span> <span class="st">"Age"</span>, y  <span class="op">=</span> <span class="st">"Spawning"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">ecotypes</span>, x <span class="op">=</span> <span class="st">"Age"</span>, y  <span class="op">=</span> <span class="st">"Spawning"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ecotypes_files/figure-html/unnamed-chunk-1-2.png" width="384"></p>
 <div class="section level3">
 <h3 id="fish">Fish<a class="anchor" aria-label="anchor" href="#fish"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">ecotypes</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">ecotypes</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ecotypes_files/figure-html/unnamed-chunk-2-1.png" width="576"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">ecotypes</span>, x <span class="op">=</span> <span class="st">"Length"</span>, y <span class="op">=</span> <span class="st">"Caught"</span>, color <span class="op">=</span> <span class="st">"white"</span>, binwidth <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">ecotypes</span>, x <span class="op">=</span> <span class="st">"Length"</span>, y <span class="op">=</span> <span class="st">"Caught"</span>, color <span class="op">=</span> <span class="st">"white"</span>, binwidth <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ecotypes_files/figure-html/unnamed-chunk-2-2.png" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="stock-recruitment">Stock-Recruitment<a class="anchor" aria-label="anchor" href="#stock-recruitment"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ecotypes_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 7</span></span>
-<span class="co">#&gt;   Type         pi      u  Eggs Recruits Spawners Fecundity</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> unfished 0      0      <span style="text-decoration: underline;">4</span>085.    0.667    1.27      <span style="text-decoration: underline;">6</span>431.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> actual   0.05   0.05   <span style="text-decoration: underline;">2</span>483.    0.549    0.879     <span style="text-decoration: underline;">5</span>653.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> optimal  0.083<span style="text-decoration: underline;">3</span> 0.083<span style="text-decoration: underline;">3</span> <span style="text-decoration: underline;">1</span>705.    0.455    0.656     <span style="text-decoration: underline;">5</span>200.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_tabulate_sr.html">ypr_tabulate_sr</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 7</span></span></span>
+<span><span class="co">#&gt;   Type         pi      u  Eggs Recruits Spawners Fecundity</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> unfished 0      0      <span style="text-decoration: underline;">4</span>085.    0.667    1.27      <span style="text-decoration: underline;">6</span>431.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> actual   0.05   0.05   <span style="text-decoration: underline;">2</span>483.    0.549    0.879     <span style="text-decoration: underline;">5</span>653.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> optimal  0.083<span style="text-decoration: underline;">3</span> 0.083<span style="text-decoration: underline;">3</span> <span style="text-decoration: underline;">1</span>705.    0.455    0.656     <span style="text-decoration: underline;">5</span>200.</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="yield">Yield<a class="anchor" aria-label="anchor" href="#yield"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span>
-<span class="co">#&gt;   Type        pi      u Yield   Age Length Weight Effort</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> actual  0.05   0.05   0.253  7.97   73.6  <span style="text-decoration: underline;">5</span>474.  0.487</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> optimal 0.083<span style="text-decoration: underline;">3</span> 0.083<span style="text-decoration: underline;">3</span> 0.290  7.64   71.9  <span style="text-decoration: underline;">5</span>026.  0.825</span>
-<span class="fu"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_tabulate_yield.html">ypr_tabulate_yield</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
+<span><span class="co">#&gt;   Type        pi      u Yield   Age Length Weight Effort</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> actual  0.05   0.05   0.253  7.97   73.6  <span style="text-decoration: underline;">5</span>474.  0.487</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> optimal 0.083<span style="text-decoration: underline;">3</span> 0.083<span style="text-decoration: underline;">3</span> 0.290  7.64   71.9  <span style="text-decoration: underline;">5</span>026.  0.825</span></span>
+<span><span class="fu"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">ecotypes</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ecotypes_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
 </div>
 </div>
@@ -184,7 +184,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer>

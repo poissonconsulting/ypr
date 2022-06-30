@@ -71,24 +71,27 @@ Currently just works with scalar parameters for populations and ecotypes.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for ypr_population</span>
-<span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for ypr_populations</span>
-<span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for ypr_ecotypes</span>
-<span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_population</span></span>
+<span><span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_populations</span></span>
+<span><span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_ecotypes</span></span>
+<span><span class="fu">ypr_update</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A population, populations or ecotypes object to update.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>One or more parameter values from <code><a href="ypr_population.html">ypr_population()</a></code>.</p></dd>
+
 </dl></div>
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
@@ -100,7 +103,7 @@ Currently just works with scalar parameters for populations and ecotypes.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ypr_update</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span>, Rk <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ypr_update</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span>, Rk <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
@@ -133,7 +136,7 @@ Currently just works with scalar parameters for populations and ecotypes.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> fa:    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
-<span class="r-in"><span class="fu">ypr_update</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, Rk <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ypr_update</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, Rk <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  100</span>
@@ -166,7 +169,7 @@ Currently just works with scalar parameters for populations and ecotypes.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> fa:    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> q:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RPR:   1</span>
-<span class="r-in"><span class="fu">ypr_update</span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Linf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, k <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ypr_update</span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Linf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, k <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     1.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  2.5, 4</span>
@@ -214,7 +217,7 @@ Currently just works with scalar parameters for populations and ecotypes.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

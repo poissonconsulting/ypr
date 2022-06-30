@@ -66,50 +66,63 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for default</span>
-<span class="fu">ypr_tabulate_sr</span><span class="op">(</span>
-  <span class="va">object</span>,
-  Ly <span class="op">=</span> <span class="fl">0</span>,
-  harvest <span class="op">=</span> <span class="cn">TRUE</span>,
-  biomass <span class="op">=</span> <span class="cn">FALSE</span>,
-  all <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for ypr_populations</span>
-<span class="fu">ypr_tabulate_sr</span><span class="op">(</span>
-  <span class="va">object</span>,
-  Ly <span class="op">=</span> <span class="fl">0</span>,
-  harvest <span class="op">=</span> <span class="cn">TRUE</span>,
-  biomass <span class="op">=</span> <span class="cn">FALSE</span>,
-  all <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for default</span></span>
+<span><span class="fu">ypr_tabulate_sr</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  Ly <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  harvest <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  biomass <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  all <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_populations</span></span>
+<span><span class="fu">ypr_tabulate_sr</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  Ly <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  harvest <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  biomass <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  all <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>The population or populations.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Unused parameters.</p></dd>
+
+
 <dt>Ly</dt>
 <dd><p>The minimum length (trophy) fish to consider when calculating the
 yield (cm).</p></dd>
+
+
 <dt>harvest</dt>
 <dd><p>A flag specifying whether to calculate the yield for harvested
 fish or captures.</p></dd>
+
+
 <dt>biomass</dt>
 <dd><p>A flag specifying whether to calculate the yield in terms of
 the biomass versus number of individuals.</p></dd>
+
+
 <dt>all</dt>
 <dd><p>A flag specifying whether to include all parameter values.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A data.frame of stock-recruitment parameters.</p>
+    
+
+<p>A data.frame of stock-recruitment parameters.</p>
     </div>
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
@@ -143,21 +156,21 @@ the biomass versus number of individuals.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># Beverton-Holt</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># Beverton-Holt</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type        pi     u  Eggs Recruits Spawners Fecundity</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> unfished 0     0     <span style="text-decoration: underline;">2</span>386.    0.667    1.33      <span style="text-decoration: underline;">3</span>600.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> actual   0.2   0.2    272.    0.186    0.211     <span style="text-decoration: underline;">2</span>580.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> optimal  0.115 0.115  853.    0.417    0.582     <span style="text-decoration: underline;">2</span>933.</span>
-<span class="r-in"><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span><span class="op">)</span> <span class="co"># Ricker</span></span>
+<span class="r-in"><span><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span><span class="op">)</span> <span class="co"># Ricker</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type        pi     u  Eggs Recruits Spawners Fecundity</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> unfished 0     0     <span style="text-decoration: underline;">3</span>563.    0.995    1.98      <span style="text-decoration: underline;">3</span>600.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> actual   0.2   0.2    667.    0.455    0.517     <span style="text-decoration: underline;">2</span>580.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> optimal  0.135 0.135 <span style="text-decoration: underline;">1</span>485.    0.787    1.04      <span style="text-decoration: underline;">2</span>844.</span>
-<span class="r-in"><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4.6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ypr_tabulate_sr</span><span class="op">(</span><span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4.6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type         pi      u   Eggs Recruits Spawners Fecundity    Rk</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -181,7 +194,7 @@ the biomass versus number of individuals.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

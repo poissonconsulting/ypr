@@ -66,35 +66,46 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_plot_sr</span><span class="op">(</span>
-  <span class="va">population</span>,
-  Ly <span class="op">=</span> <span class="fl">0</span>,
-  harvest <span class="op">=</span> <span class="cn">TRUE</span>,
-  biomass <span class="op">=</span> <span class="cn">FALSE</span>,
-  plot_values <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ypr_plot_sr</span><span class="op">(</span></span>
+<span>  <span class="va">population</span>,</span>
+<span>  Ly <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  harvest <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  biomass <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  plot_values <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>population</dt>
 <dd><p>An object of class <code><a href="ypr_population.html">ypr_population()</a></code>.</p></dd>
+
+
 <dt>Ly</dt>
 <dd><p>The minimum length (trophy) fish to consider when calculating the
 yield (cm).</p></dd>
+
+
 <dt>harvest</dt>
 <dd><p>A flag specifying whether to calculate the yield for harvested
 fish or captures.</p></dd>
+
+
 <dt>biomass</dt>
 <dd><p>A flag specifying whether to calculate the yield in terms of
 the biomass versus number of individuals.</p></dd>
+
+
 <dt>plot_values</dt>
 <dd><p>A flag specifying whether to plot the actual and optimal
 values.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A ggplot2 object.</p>
+    
+
+<p>A ggplot2 object.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -110,9 +121,9 @@ values.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ypr_plot_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ypr_plot_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ypr_plot_sr-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu">ypr_plot_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fl">10</span>, BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ypr_plot_sr</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span>Rk <span class="op">=</span> <span class="fl">10</span>, BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ypr_plot_sr-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -128,7 +139,7 @@ values.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

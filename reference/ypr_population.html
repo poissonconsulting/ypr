@@ -66,121 +66,186 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_population</span><span class="op">(</span>
-  tmax <span class="op">=</span> <span class="fl">20L</span>,
-  k <span class="op">=</span> <span class="fl">0.15</span>,
-  Linf <span class="op">=</span> <span class="fl">100</span>,
-  t0 <span class="op">=</span> <span class="fl">0</span>,
-  k2 <span class="op">=</span> <span class="fl">0.15</span>,
-  Linf2 <span class="op">=</span> <span class="fl">100</span>,
-  L2 <span class="op">=</span> <span class="fl">1000</span>,
-  Wb <span class="op">=</span> <span class="fl">3</span>,
-  Ls <span class="op">=</span> <span class="fl">50</span>,
-  Sp <span class="op">=</span> <span class="fl">100</span>,
-  es <span class="op">=</span> <span class="fl">1</span>,
-  Sm <span class="op">=</span> <span class="fl">0</span>,
-  fb <span class="op">=</span> <span class="fl">1</span>,
-  tR <span class="op">=</span> <span class="fl">1L</span>,
-  BH <span class="op">=</span> <span class="fl">1L</span>,
-  Rk <span class="op">=</span> <span class="fl">3</span>,
-  n <span class="op">=</span> <span class="fl">0.2</span>,
-  nL <span class="op">=</span> <span class="fl">0.2</span>,
-  Ln <span class="op">=</span> <span class="fl">1000</span>,
-  Lv <span class="op">=</span> <span class="fl">50</span>,
-  Vp <span class="op">=</span> <span class="fl">100</span>,
-  Llo <span class="op">=</span> <span class="fl">0</span>,
-  Lup <span class="op">=</span> <span class="fl">1000</span>,
-  Nc <span class="op">=</span> <span class="fl">0</span>,
-  pi <span class="op">=</span> <span class="fl">0.2</span>,
-  rho <span class="op">=</span> <span class="fl">0</span>,
-  Hm <span class="op">=</span> <span class="fl">0</span>,
-  Rmax <span class="op">=</span> <span class="fl">1</span>,
-  Wa <span class="op">=</span> <span class="fl">0.01</span>,
-  fa <span class="op">=</span> <span class="fl">1</span>,
-  q <span class="op">=</span> <span class="fl">0.1</span>,
-  RPR <span class="op">=</span> <span class="fl">1</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ypr_population</span><span class="op">(</span></span>
+<span>  tmax <span class="op">=</span> <span class="fl">20L</span>,</span>
+<span>  k <span class="op">=</span> <span class="fl">0.15</span>,</span>
+<span>  Linf <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  t0 <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  k2 <span class="op">=</span> <span class="fl">0.15</span>,</span>
+<span>  Linf2 <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  L2 <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>  Wb <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  Ls <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>  Sp <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  es <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  Sm <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  fb <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  tR <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  BH <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  Rk <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  n <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>  nL <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>  Ln <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>  Lv <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>  Vp <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  Llo <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  Lup <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>  Nc <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  pi <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>  rho <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  Hm <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  Rmax <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  Wa <span class="op">=</span> <span class="fl">0.01</span>,</span>
+<span>  fa <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  q <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>  RPR <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>tmax</dt>
 <dd><p>The maximum age (yr).</p></dd>
+
+
 <dt>k</dt>
 <dd><p>The VB growth coefficient (yr-1).</p></dd>
+
+
 <dt>Linf</dt>
 <dd><p>The VB mean maximum length (cm).</p></dd>
+
+
 <dt>t0</dt>
 <dd><p>The (theoretical) age at zero length (yr).</p></dd>
+
+
 <dt>k2</dt>
 <dd><p>The VB growth coefficient after length L2 (yr-1).</p></dd>
+
+
 <dt>Linf2</dt>
 <dd><p>The VB mean maximum length after length L2 (cm).</p></dd>
+
+
 <dt>L2</dt>
 <dd><p>The length (or age if negative) at which growth switches from the
 first to second phase (cm or yr).</p></dd>
+
+
 <dt>Wb</dt>
 <dd><p>The weight (as a function of length) scaling exponent.</p></dd>
+
+
 <dt>Ls</dt>
 <dd><p>The length (or age if negative) at which 50 % mature (cm or yr).</p></dd>
+
+
 <dt>Sp</dt>
 <dd><p>The maturity (as a function of length) power.</p></dd>
+
+
 <dt>es</dt>
 <dd><p>The annual probability of a mature fish spawning.</p></dd>
+
+
 <dt>Sm</dt>
 <dd><p>The spawning mortality probability.</p></dd>
+
+
 <dt>fb</dt>
 <dd><p>The fecundity (as a function of weight) scaling exponent.</p></dd>
+
+
 <dt>tR</dt>
 <dd><p>The age from which survival is density-independent (yr).</p></dd>
+
+
 <dt>BH</dt>
 <dd><p>Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.</p></dd>
+
+
 <dt>Rk</dt>
 <dd><p>The lifetime spawners per spawner at low density (or the egg to tR survival if between 0 and 1).</p></dd>
+
+
 <dt>n</dt>
 <dd><p>The annual interval natural mortality rate from age tR.</p></dd>
+
+
 <dt>nL</dt>
 <dd><p>The annual interval natural mortality rate from length Ln.</p></dd>
+
+
 <dt>Ln</dt>
 <dd><p>The length  (or age if negative) at which the natural mortality
 rate switches from n to nL (cm or yr).</p></dd>
+
+
 <dt>Lv</dt>
 <dd><p>The length (or age if negative) at which 50 % vulnerable to harvest
 (cm or yr).</p></dd>
+
+
 <dt>Vp</dt>
 <dd><p>The vulnerability to harvest (as a function of length) power.</p></dd>
+
+
 <dt>Llo</dt>
 <dd><p>The lower harvest slot length (cm).</p></dd>
+
+
 <dt>Lup</dt>
 <dd><p>The upper harvest slot length (cm).</p></dd>
+
+
 <dt>Nc</dt>
 <dd><p>The slot limits non-compliance probability.</p></dd>
+
+
 <dt>pi</dt>
 <dd><p>The annual capture probability.</p></dd>
+
+
 <dt>rho</dt>
 <dd><p>The release probability.</p></dd>
+
+
 <dt>Hm</dt>
 <dd><p>The hooking mortality probability.</p></dd>
+
+
 <dt>Rmax</dt>
 <dd><p>The number of recruits at the carrying capacity (ind).</p></dd>
+
+
 <dt>Wa</dt>
 <dd><p>The (extrapolated) weight of a 1 cm individual (g).</p></dd>
+
+
 <dt>fa</dt>
 <dd><p>The (theoretical) fecundity of a 1 g female (eggs).</p></dd>
+
+
 <dt>q</dt>
 <dd><p>The catchability (annual probability of capture) for a unit of
 effort.</p></dd>
+
+
 <dt>RPR</dt>
 <dd><p>The relative proportion of recruits that are of the ecotype.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of class <code>ypr_population</code>.</p>
+    
+
+<p>An object of class <code>ypr_population</code>.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ypr_population</span><span class="op">(</span>k <span class="op">=</span> <span class="fl">0.1</span>, Linf <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ypr_population</span><span class="op">(</span>k <span class="op">=</span> <span class="fl">0.1</span>, Linf <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tmax:  20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> k:     0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Linf:  90</span>
@@ -227,7 +292,7 @@ effort.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

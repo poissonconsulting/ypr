@@ -66,54 +66,69 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ypr_tabulate_yields</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for default</span>
-<span class="fu">ypr_tabulate_yields</span><span class="op">(</span>
-  <span class="va">object</span>,
-  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,
-  Ly <span class="op">=</span> <span class="fl">0</span>,
-  harvest <span class="op">=</span> <span class="cn">TRUE</span>,
-  biomass <span class="op">=</span> <span class="cn">FALSE</span>,
-  all <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for ypr_populations</span>
-<span class="fu">ypr_tabulate_yields</span><span class="op">(</span>
-  <span class="va">object</span>,
-  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,
-  Ly <span class="op">=</span> <span class="fl">0</span>,
-  harvest <span class="op">=</span> <span class="cn">TRUE</span>,
-  biomass <span class="op">=</span> <span class="cn">FALSE</span>,
-  all <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ypr_tabulate_yields</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for default</span></span>
+<span><span class="fu">ypr_tabulate_yields</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  Ly <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  harvest <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  biomass <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  all <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for ypr_populations</span></span>
+<span><span class="fu">ypr_tabulate_yields</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  Ly <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  harvest <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  biomass <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  all <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>The population or populations.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Unused parameters.</p></dd>
+
+
 <dt>pi</dt>
 <dd><p>A vector of probabilities of capture to calculate the yield for.</p></dd>
+
+
 <dt>Ly</dt>
 <dd><p>The minimum length (trophy) fish to consider when calculating the
 yield (cm).</p></dd>
+
+
 <dt>harvest</dt>
 <dd><p>A flag specifying whether to calculate the yield for harvested
 fish or captures.</p></dd>
+
+
 <dt>biomass</dt>
 <dd><p>A flag specifying whether to calculate the yield in terms of
 the biomass versus number of individuals.</p></dd>
+
+
 <dt>all</dt>
 <dd><p>A flag specifying whether to include all parameter values.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A data frame.</p>
+    
+
+<p>A data frame.</p>
     </div>
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
@@ -144,7 +159,7 @@ the biomass versus number of individuals.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">ypr_tabulate_yields</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ypr_tabulate_yields</span><span class="op">(</span><span class="fu"><a href="ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        pi      u  Yield   Age Length Weight Effort</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -159,12 +174,12 @@ the biomass versus number of individuals.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 0.080<span style="text-decoration: underline;">8</span> 0.080<span style="text-decoration: underline;">8</span> 0.062<span style="text-decoration: underline;">0</span>  7.66   65.7  <span style="text-decoration: underline;">3</span>108. 0.800 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 0.090<span style="text-decoration: underline;">9</span> 0.090<span style="text-decoration: underline;">9</span> 0.064<span style="text-decoration: underline;">6</span>  7.57   65.4  <span style="text-decoration: underline;">3</span>054. 0.905 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 90 more rows</span></span>
-<span class="r-in"><span class="fu">ypr_tabulate_yields</span><span class="op">(</span></span>
-<span class="r-in">  <span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span></span>
-<span class="r-in">    Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">)</span>,</span>
-<span class="r-in">  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ypr_tabulate_yields</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="ypr_populations.html">ypr_populations</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    Rk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       pi     u   Yield   Age Length Weight Effort    Rk</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -188,7 +203,7 @@ the biomass versus number of individuals.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> 0.778 0.778 0       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>   14.3      5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> 0.889 0.889 0       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>   20.9      5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> 1     1     0       <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>  <span style="color: #BB0000;">Inf</span>        5</span>
-<span class="r-in"><span class="fu">ypr_tabulate_yields</span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Linf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ypr_tabulate_yields</span><span class="op">(</span><span class="fu"><a href="ypr_ecotypes.html">ypr_ecotypes</a></span><span class="op">(</span>Linf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        pi      u    Yield   Age Length Weight Effort</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -217,7 +232,7 @@ the biomass versus number of individuals.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>
