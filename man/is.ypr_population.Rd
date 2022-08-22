@@ -29,17 +29,17 @@ Tests if is a Population, Populations or Ecotypes
 }
 \section{Functions}{
 \itemize{
-\item \code{is_ypr_population}: Test if is a Population
+\item \code{is_ypr_population()}: Test if is a Population
 
-\item \code{is.ypr_populations}: Test if is a Populations
+\item \code{is.ypr_populations()}: Test if is a Populations
 
-\item \code{is_ypr_populations}: Test if is a Populations
+\item \code{is_ypr_populations()}: Test if is a Populations
 
-\item \code{is.ypr_ecotypes}: Test if is an Ecotypes
+\item \code{is.ypr_ecotypes()}: Test if is an Ecotypes
 
-\item \code{is_ypr_ecotypes}: Test if is an Ecotypes
+\item \code{is_ypr_ecotypes()}: Test if is an Ecotypes
+
 }}
-
 \examples{
 is.ypr_population(ypr_population())
 is_ypr_population(ypr_population())

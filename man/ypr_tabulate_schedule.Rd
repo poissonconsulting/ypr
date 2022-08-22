@@ -25,11 +25,11 @@ Generates the life-history schedule by age for a population.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Tabulate Schedule
+\item \code{ypr_tabulate_schedule(ypr_population)}: Tabulate Schedule
 
-\item \code{ypr_ecotypes}: Tabulate Schedule
+\item \code{ypr_tabulate_schedule(ypr_ecotypes)}: Tabulate Schedule
+
 }}
-
 \examples{
 ypr_tabulate_schedule(ypr_population())
 ypr_tabulate_schedule(ypr_ecotypes(Linf = c(10, 20)))

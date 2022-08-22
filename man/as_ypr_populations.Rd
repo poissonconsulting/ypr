@@ -28,13 +28,13 @@ Coerce to a Populations Object
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Coerce a Population Object to an Population Object
+\item \code{as_ypr_populations(ypr_population)}: Coerce a Population Object to an Population Object
 
-\item \code{ypr_populations}: Coerce a Populations Object of length 1 to a Population Object
+\item \code{as_ypr_populations(ypr_populations)}: Coerce a Populations Object of length 1 to a Population Object
 
-\item \code{ypr_ecotypes}: Coerce a Ecotypes Object of length 1 to a Population Object
+\item \code{as_ypr_populations(ypr_ecotypes)}: Coerce a Ecotypes Object of length 1 to a Population Object
+
 }}
-
 \examples{
 as_ypr_populations(ypr_population())
 as_ypr_populations(ypr_populations())

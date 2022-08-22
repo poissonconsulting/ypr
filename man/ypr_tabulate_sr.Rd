@@ -50,11 +50,11 @@ Tabulate Stock-Recruitment Parameters
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Tabulate Stock-Recruitment Parameters
+\item \code{ypr_tabulate_sr(default)}: Tabulate Stock-Recruitment Parameters
 
-\item \code{ypr_populations}: Tabulate Stock-Recruitment Parameters
+\item \code{ypr_tabulate_sr(ypr_populations)}: Tabulate Stock-Recruitment Parameters
+
 }}
-
 \examples{
 ypr_tabulate_sr(ypr_population()) # Beverton-Holt
 ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker

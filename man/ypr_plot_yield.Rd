@@ -65,11 +65,11 @@ annual interval capture/exploitation probability.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Plot Yield by Capture
+\item \code{ypr_plot_yield(default)}: Plot Yield by Capture
 
-\item \code{ypr_populations}: Plot Yield by Capture
+\item \code{ypr_plot_yield(ypr_populations)}: Plot Yield by Capture
+
 }}
-
 \examples{
 \dontrun{
 ypr_plot_yield(ypr_populations(

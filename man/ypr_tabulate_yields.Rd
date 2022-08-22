@@ -54,11 +54,11 @@ Tabulate Yields
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Tabulate Yields
+\item \code{ypr_tabulate_yields(default)}: Tabulate Yields
 
-\item \code{ypr_populations}: Tabulate Yields
+\item \code{ypr_tabulate_yields(ypr_populations)}: Tabulate Yields
+
 }}
-
 \examples{
 ypr_tabulate_yields(ypr_population())
 ypr_tabulate_yields(
