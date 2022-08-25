@@ -32,13 +32,13 @@ distinguish between ecotypes.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Population Names
+\item \code{ypr_names(ypr_population)}: Population Names
 
-\item \code{ypr_populations}: Populations Names
+\item \code{ypr_names(ypr_populations)}: Populations Names
 
-\item \code{ypr_ecotypes}: Ecotypes Names
+\item \code{ypr_names(ypr_ecotypes)}: Ecotypes Names
+
 }}
-
 \examples{
 ypr_names(ypr_population())
 ypr_names(ypr_populations())

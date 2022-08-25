@@ -34,17 +34,20 @@ Coerce to a Population Object
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{data.frame}: Coerce a data.frame to an Population Object
+\item \code{as_ypr_population(data.frame)}: Coerce a data.frame to an Population Object
 
-\item \code{ypr_population}: Coerce a Population Object to an Population Object
+\item \code{as_ypr_population(ypr_population)}: Coerce a Population Object to an Population Object
 
-\item \code{ypr_populations}: Coerce a Populations Object of length 1 to a Population Object
+\item \code{as_ypr_population(ypr_populations)}: Coerce a Populations Object of length 1 to a Population Object
 
-\item \code{ypr_ecotypes}: Coerce a Ecotypes Object of length 1 to a Population Object
+\item \code{as_ypr_population(ypr_ecotypes)}: Coerce a Ecotypes Object of length 1 to a Population Object
 
-\item \code{data.frame}: Coerce a data.frame to a Populations Object
 }}
+\section{Functions}{
+\itemize{
+\item \code{as_ypr_populations(data.frame)}: Coerce a data.frame to a Populations Object
 
+}}
 \examples{
 as_ypr_population(as.data.frame(ypr_population()))
 as_ypr_population(ypr_populations())

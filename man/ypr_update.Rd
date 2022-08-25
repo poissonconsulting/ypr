@@ -27,13 +27,13 @@ Currently just works with scalar parameters for populations and ecotypes.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ypr_population}: Update Population Parameters
+\item \code{ypr_update(ypr_population)}: Update Population Parameters
 
-\item \code{ypr_populations}: Update Populations Parameters
+\item \code{ypr_update(ypr_populations)}: Update Populations Parameters
 
-\item \code{ypr_ecotypes}: Update Populations Parameters
+\item \code{ypr_update(ypr_ecotypes)}: Update Populations Parameters
+
 }}
-
 \examples{
 ypr_update(ypr_population(), Rk = 2.5)
 ypr_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)

@@ -31,15 +31,15 @@ Coerce to an Ecotypes Object
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{data.frame}: Coerce a data.frame to an Ecotypes Object
+\item \code{as_ypr_ecotypes(data.frame)}: Coerce a data.frame to an Ecotypes Object
 
-\item \code{ypr_population}: Coerce a Population Object to an Ecotypes Object
+\item \code{as_ypr_ecotypes(ypr_population)}: Coerce a Population Object to an Ecotypes Object
 
-\item \code{ypr_populations}: Coerce a Populations Object to an Ecotypes Object
+\item \code{as_ypr_ecotypes(ypr_populations)}: Coerce a Populations Object to an Ecotypes Object
 
-\item \code{ypr_ecotypes}: Coerce an Ecotypes Object to an Ecotypes Object
+\item \code{as_ypr_ecotypes(ypr_ecotypes)}: Coerce an Ecotypes Object to an Ecotypes Object
+
 }}
-
 \examples{
 as_ypr_ecotypes(as.data.frame(ypr_ecotypes(Ls = c(10, 15, 20))))
 as_ypr_ecotypes(ypr_population())
