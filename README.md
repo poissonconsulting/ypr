@@ -8,8 +8,7 @@
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
-[![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
+[![codecov](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg?token=yNrtS5b8uZ)](https://app.codecov.io/gh/poissonconsulting/ypr)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN
@@ -99,6 +98,7 @@ ypr_tabulate_schedule(population)
 #> # … with 2 more variables: Survivorship <dbl>, FishedSurvivorship <dbl>, and
 #> #   abbreviated variable names ¹​NaturalMortality, ²​Vulnerability, ³​Retention,
 #> #   ⁴​FishingMortality
+#> # ℹ Use `colnames()` to see all variable names
 ```
 
 ### Fish
