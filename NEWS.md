@@ -1,5 +1,13 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ypr 0.6.0
+
+- Now depends R 3.6
+- Rk is now the egg to tR survival if between 0 and 1.
+- Decrease upper limit of Wa back to 0.1
+- Increase upper limit of Wa to 10
+
+
 # ypr 0.5.2.9000
 
 - Same as previous version.
