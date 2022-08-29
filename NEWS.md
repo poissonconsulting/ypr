@@ -2,33 +2,24 @@
 
 # ypr 0.6.0
 
-- Now depends R 3.6
-- Rk is now the egg to tR survival if between 0 and 1.
-- Decrease upper limit of Wa back to 0.1
-- Increase upper limit of Wa to 10
-
-
-# ypr 0.5.2.9000
-
-- Same as previous version.
+- `Rk` is now the egg to tR survival if between 0 and 1.
 
 
 # ypr 0.5.2
 
 - Internal changes only. 
 
-# ypr 0.5.1.9000
-
-- Same as previous version.
 
 # ypr 0.5.1
 
 - House-keeping.
 
+
 # ypr 0.5.0
 
 - Pass yield parameters Ly, harvest and biomass to ypr_report().
 - Removed suggests dependency on checkr.
+
 
 # ypr 0.4.0
 
