@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# ypr 0.6.0.9000
+
+- Same as previous version.
+
+
 # ypr 0.6.0
 
 - `Rk` is now the egg to tR survival if between 0 and 1.
