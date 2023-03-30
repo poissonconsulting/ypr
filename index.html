@@ -96,6 +96,7 @@
 <div class="page-header"><h1 id="ypr-">ypr <img src="reference/figures/logo.png" style="float: right;"><a class="anchor" aria-label="anchor" href="#ypr-"></a>
 </h1></div>
 <!-- badges: start -->
+
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -109,7 +110,9 @@
 <li>The lifetime number of spawners per spawner at low density (<code>Rk</code>)</li>
 </ul>
 <p>and in the case of ecotypes</p>
-<ul><li>The relative proportion of recruits that belong to that ecotype (<code>RPR</code>)</li></ul>
+<ul>
+<li>The relative proportion of recruits that belong to that ecotype (<code>RPR</code>)</li>
+</ul>
 <p>The calculations do not account for stochasticity, predator-prey dynamics, angler responses or density-dependent growth.</p>
 </div>
 <div class="section level2">
@@ -121,7 +124,7 @@
 <p>To install the developmental version from <a href="https://github.com/poissonconsulting/ypr" class="external-link">GitHub</a></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/ypr"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"poissonconsulting/ypr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
@@ -161,8 +164,7 @@
 <span><span class="co">#&gt; 20    20   95.0 8580.     8580.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
 <span><span class="co">#&gt; # … with 2 more variables: Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;, and</span></span>
 <span><span class="co">#&gt; #   abbreviated variable names ¹​NaturalMortality, ²​Vulnerability, ³​Retention,</span></span>
-<span><span class="co">#&gt; #   ⁴​FishingMortality</span></span>
-<span><span class="co">#&gt; # ℹ Use `colnames()` to see all variable names</span></span></code></pre></div>
+<span><span class="co">#&gt; #   ⁴​FishingMortality</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="fish">Fish<a class="anchor" aria-label="anchor" href="#fish"></a>
@@ -257,7 +259,11 @@
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent"><div id="ref-walters_fisheries_2004" class="csl-entry"><p>Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.</p></div></div>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-walters_fisheries_2004" class="csl-entry">
+Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.
+</div>
+</div>
 </div>
 </div>
   </div>
@@ -309,7 +315,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/poissonconsulting/ypr/actions" class="external-link"><img src="https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/poissonconsulting/ypr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/poissonconsulting/ypr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/poissonconsulting/ypr" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg?token=yNrtS5b8uZ" alt="codecov"></a></li>
 <li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
 <li><a href="https://cran.r-project.org/package=ypr" class="external-link"><img src="https://www.r-pkg.org/badges/version/ypr" alt="CRAN status"></a></li>
@@ -327,7 +333,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
