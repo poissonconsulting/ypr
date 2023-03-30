@@ -7,7 +7,7 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R-CMD-check](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/ypr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/ypr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg?token=yNrtS5b8uZ)](https://app.codecov.io/gh/poissonconsulting/ypr)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -27,17 +27,17 @@ all fish or just large (trophy) individuals.
 
 The key life history parameters are
 
--   The growth coefficient (`k`) and mean maximum length (`Linf`) from
-    the Von Bertalanffy growth curve
--   The length at which 50% mature (`Ls`)
--   The length at which 50% vulnerable to harvest (`Lv`)
--   The interval annual natural mortality rate (`n`)
--   The lifetime number of spawners per spawner at low density (`Rk`)
+- The growth coefficient (`k`) and mean maximum length (`Linf`) from the
+  Von Bertalanffy growth curve
+- The length at which 50% mature (`Ls`)
+- The length at which 50% vulnerable to harvest (`Lv`)
+- The interval annual natural mortality rate (`n`)
+- The lifetime number of spawners per spawner at low density (`Rk`)
 
 and in the case of ecotypes
 
--   The relative proportion of recruits that belong to that ecotype
-    (`RPR`)
+- The relative proportion of recruits that belong to that ecotype
+  (`RPR`)
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
@@ -98,7 +98,6 @@ ypr_tabulate_schedule(population)
 #> # … with 2 more variables: Survivorship <dbl>, FishedSurvivorship <dbl>, and
 #> #   abbreviated variable names ¹​NaturalMortality, ²​Vulnerability, ³​Retention,
 #> #   ⁴​FishingMortality
-#> # ℹ Use `colnames()` to see all variable names
 ```
 
 ### Fish
