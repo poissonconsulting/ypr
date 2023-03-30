@@ -1,7 +1,7 @@
 #' Plot Yield by Capture
 #'
 #' Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
-#' annual interval capture/exploitation probability.
+#' **annual interval** capture/exploitation probability.
 #'
 #' @inheritParams params
 #' @inheritParams ypr_plot_schedule

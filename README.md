@@ -31,7 +31,7 @@ The key life history parameters are
   Von Bertalanffy growth curve
 - The length at which 50% mature (`Ls`)
 - The length at which 50% vulnerable to harvest (`Lv`)
-- The interval annual natural mortality rate (`n`)
+- The **annual interval** natural mortality rate (`n`)
 - The lifetime number of spawners per spawner at low density (`Rk`)
 
 and in the case of ecotypes

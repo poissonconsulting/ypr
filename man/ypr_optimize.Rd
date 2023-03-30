@@ -20,11 +20,11 @@ fish or captures.}
 the biomass versus number of individuals.}
 }
 \value{
-The interval annual capture probability (pi) that maximises the
+The \strong{annual interval} capture probability (pi) that maximises the
 yield.
 }
 \description{
-Finds the interval annual capture probability (pi) that maximises the yield
+Finds the \strong{annual interval} capture probability (pi) that maximises the yield
 for a given population.
 }
 \examples{

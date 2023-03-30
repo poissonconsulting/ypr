@@ -61,7 +61,7 @@ A ggplot2 object.
 }
 \description{
 Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
-annual interval capture/exploitation probability.
+\strong{annual interval} capture/exploitation probability.
 }
 \section{Methods (by class)}{
 \itemize{
