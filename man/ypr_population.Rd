@@ -73,12 +73,12 @@ first to second phase (cm or yr).}
 
 \item{Rk}{The lifetime spawners per spawner at low density (or the egg to tR survival if between 0 and 1).}
 
-\item{n}{The annual interval natural mortality rate from age tR.}
+\item{n}{The \strong{annual interval} natural mortality rate from age tR.}
 
-\item{nL}{The annual interval natural mortality rate from length Ln.}
+\item{nL}{The \strong{annual interval} natural mortality rate from length Ln.}
 
-\item{Ln}{The length  (or age if negative) at which the natural mortality
-rate switches from n to nL (cm or yr).}
+\item{Ln}{The length  (or age if negative) at which the
+annual interval natural mortality rate switches from n to nL (cm or yr).}
 
 \item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest
 (cm or yr).}
