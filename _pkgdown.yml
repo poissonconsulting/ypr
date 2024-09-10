@@ -1,5 +1,4 @@
 destination: docs
-
 reference:
 - title: Reference Data Parameters
   desc: Reference data population parameters
@@ -66,3 +65,5 @@ reference:
   - '`check_population`'
   - '`check_ecotypes`'
   - '`check_populations`'
+template:
+  package: poissontemplate
