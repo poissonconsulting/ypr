@@ -1,5 +1,5 @@
 destination: docs
-
+url: https://poissonconsulting.github.io/ypr/
 reference:
 - title: Reference Data Parameters
   desc: Reference data population parameters
@@ -66,3 +66,5 @@ reference:
   - '`check_population`'
   - '`check_ecotypes`'
   - '`check_populations`'
+template:
+  package: poissontemplate
