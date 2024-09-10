@@ -1,195 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/SUPPORT.html</loc>
-  </url>
-  <url>
-    <loc>/articles/ecotypes.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/ypr.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/pull_request_template.html</loc>
-  </url>
-  <url>
-    <loc>/reference/adams_bt_03.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_ypr_ecotypes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_ypr_population.html</loc>
-  </url>
-  <url>
-    <loc>/reference/as_ypr_populations.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_ecotypes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_population.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_populations.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chilliwack_bt_05.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/is.ypr_population.html</loc>
-  </url>
-  <url>
-    <loc>/reference/kootenay_bt_13.html</loc>
-  </url>
-  <url>
-    <loc>/reference/kootenay_rb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/kootenay_rb_13.html</loc>
-  </url>
-  <url>
-    <loc>/reference/params.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.ypr_population.html</loc>
-  </url>
-  <url>
-    <loc>/reference/quesnel_bt.html</loc>
-  </url>
-  <url>
-    <loc>/reference/quesnel_lt.html</loc>
-  </url>
-  <url>
-    <loc>/reference/quesnel_rb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/reexports.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_age_at_length.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_detabulate_parameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_ecotypes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_exploitation.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_get_par.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_length_at_age.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_names.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_optimize.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_plot_biomass.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_plot_fish.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_plot_schedule.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_plot_sr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_plot_yield.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_population.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_population_names.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_population_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_populations.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_populations_expand.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_report.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_schedule.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_sr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_biomass.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_fish.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_parameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_schedule.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_sr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_yield.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_tabulate_yields.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_update.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_yield.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ypr_yields.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://poissonconsulting.github.io/ypr/404.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/CONTRIBUTING.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/LICENSE-text.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/LICENSE.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/SUPPORT.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/articles/ecotypes.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/articles/index.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/articles/ypr.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/authors.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/index.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/news/index.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/adams_bt_03.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/as_ypr_ecotypes.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/as_ypr_population.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/as_ypr_populations.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/check_ecotypes.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/check_population.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/check_populations.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/chilliwack_bt_05.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/index.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/is.ypr_population.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/kootenay_bt_13.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/kootenay_rb.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/kootenay_rb_13.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/params.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/plot.ypr_population.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/quesnel_bt.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/quesnel_lt.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/quesnel_rb.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/reexports.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr-package.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_age_at_length.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_detabulate_parameters.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_ecotypes.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_exploitation.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_get_par.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_length_at_age.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_names.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_optimize.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_plot_biomass.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_plot_fish.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_plot_schedule.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_plot_sr.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_plot_yield.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_population.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_population_names.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_population_update.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_populations.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_populations_expand.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_report.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_schedule.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_sr.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_biomass.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_fish.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_parameters.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_schedule.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_sr.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_yield.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_tabulate_yields.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_update.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_yield.html</loc></url>
+<url><loc>https://poissonconsulting.github.io/ypr/reference/ypr_yields.html</loc></url>
 </urlset>
+

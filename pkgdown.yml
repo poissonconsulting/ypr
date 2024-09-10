@@ -1,8 +1,10 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   ecotypes: ecotypes.html
   ypr: ypr.html
-last_built: 2023-03-30T20:23Z
-
+last_built: 2024-09-10T12:30Z
+urls:
+  reference: https://poissonconsulting.github.io/ypr/reference
+  article: https://poissonconsulting.github.io/ypr/articles
