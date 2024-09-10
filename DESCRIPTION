@@ -15,7 +15,7 @@ Description: An implementation of equilibrium-based yield per recruit
     caught (or harvested) or biomass caught for all fish or just large
     (trophy) individuals.
 License: MIT + file LICENSE
-URL: https://github.com/poissonconsulting/ypr
+URL: https://poissonconsulting.github.io/ypr/, https://github.com/poissonconsulting/ypr
 BugReports: https://github.com/poissonconsulting/ypr/issues
 Depends:
     R (>= 3.6)
