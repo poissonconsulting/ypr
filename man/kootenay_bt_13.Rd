@@ -32,8 +32,8 @@ BC.
 Other data: 
 \code{\link{adams_bt_03}},
 \code{\link{chilliwack_bt_05}},
-\code{\link{kootenay_rb_13}},
 \code{\link{kootenay_rb}},
+\code{\link{kootenay_rb_13}},
 \code{\link{quesnel_bt}},
 \code{\link{quesnel_lt}},
 \code{\link{quesnel_rb}}

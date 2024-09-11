@@ -35,7 +35,7 @@ Other calculate:
 \code{\link{ypr_age_at_length}()},
 \code{\link{ypr_exploitation}()},
 \code{\link{ypr_length_at_age}()},
-\code{\link{ypr_yields}()},
-\code{\link{ypr_yield}()}
+\code{\link{ypr_yield}()},
+\code{\link{ypr_yields}()}
 }
 \concept{calculate}

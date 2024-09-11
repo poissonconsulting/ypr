@@ -31,7 +31,7 @@ Other populations:
 \code{\link{ypr_plot_yield}()},
 \code{\link{ypr_populations}()},
 \code{\link{ypr_tabulate_sr}()},
-\code{\link{ypr_tabulate_yields}()},
-\code{\link{ypr_tabulate_yield}()}
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_tabulate_yields}()}
 }
 \concept{populations}

@@ -26,8 +26,8 @@ Other tabulate:
 \code{\link{ypr_tabulate_fish}()},
 \code{\link{ypr_tabulate_schedule}()},
 \code{\link{ypr_tabulate_sr}()},
-\code{\link{ypr_tabulate_yields}()},
-\code{\link{ypr_tabulate_yield}()}
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_tabulate_yields}()}
 
 Other parameters: 
 \code{\link{ypr_detabulate_parameters}()}

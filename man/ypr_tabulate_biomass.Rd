@@ -27,8 +27,8 @@ Other tabulate:
 \code{\link{ypr_tabulate_parameters}()},
 \code{\link{ypr_tabulate_schedule}()},
 \code{\link{ypr_tabulate_sr}()},
-\code{\link{ypr_tabulate_yields}()},
-\code{\link{ypr_tabulate_yield}()}
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_tabulate_yields}()}
 
 Other biomass: 
 \code{\link{ypr_plot_biomass}()}
