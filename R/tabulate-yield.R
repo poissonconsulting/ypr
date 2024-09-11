@@ -17,12 +17,12 @@ ypr_tabulate_yield <- function(object, ...) {
 #' @describeIn ypr_tabulate_yield Tabulate Yield
 #' @export
 ypr_tabulate_yield.default <- function(object,
-                                              Ly = 0,
-                                              harvest = TRUE,
-                                              biomass = FALSE,
-                                              type = "both",
-                                              all = FALSE,
-                                              ...) {
+                                       Ly = 0,
+                                       harvest = TRUE,
+                                       biomass = FALSE,
+                                       type = "both",
+                                       all = FALSE,
+                                       ...) {
   chkor_vld(vld_is(object, "ypr_population"), vld_is(object, "ypr_ecotypes"))
   chk_string(type)
   chk_subset(type, c("both", "actual", "optimal"))

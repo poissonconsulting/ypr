@@ -44,7 +44,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table$Harvested <- table$Caught * table$Retention
   table$Released <- table$Caught * (1 - table$Retention)
   table$HandlingMortalities <- table$Released * Hm
-  if(!"Ecotype" %in% colnames(table))
+  if (!"Ecotype" %in% colnames(table))
     table$Ecotype <- 1
 
   table <- table[c(
@@ -57,7 +57,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table <- do.call("rbind", table)
   row.names(table) <- NULL
 
-  if(length(unique(table$Ecotype)) == 1L)
+  if (length(unique(table$Ecotype)) == 1L)
     table$Ecotype <- NA_character_
 
   as_tibble(table)

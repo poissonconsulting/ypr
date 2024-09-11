@@ -11,8 +11,10 @@ test_that("as_ypr_ecotypes converts populations", {
 })
 
 test_that("as_ypr_ecotypes will error if populations not unique histories", {
-  expect_error(as_ypr_ecotypes(ypr_populations(Linf = c(100, 100), expand = FALSE)),
-               "ecotypes must have unique life-histories\\.")
+  expect_error(
+    as_ypr_ecotypes(ypr_populations(Linf = c(100, 100), expand = FALSE)),
+    "ecotypes must have unique life-histories\\."
+  )
 })
 
 test_that("as_ypr_ecotypes converts ecotypes", {
@@ -49,7 +51,6 @@ test_that("as_ypr_ecotypes throws error if sr values are not the same", {
     as_ypr_ecotypes(ypr_populations(Rmax = c(2, 3))),
     "`Rmax` must be the same across all elements."
   )
-
 })
 
 test_that("as_ypr_ecotypes throws error if fishery values are not the same", {

@@ -89,4 +89,3 @@ ypr_plot_sr <- function(population,
     ggplot2::scale_color_manual(values = c("red", "blue", "black")) +
     NULL
 }
-

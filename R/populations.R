@@ -48,12 +48,14 @@ ypr_populations <- function(..., expand = TRUE, names = NULL) {
   }
   class(populations) <- "ypr_populations"
 
-  if(!is.null(names)) {
+  if (!is.null(names)) {
     chk_not_any_na(names)
     chk_unique(names)
     if (!chk::vld_equal(length(populations), length(names))) {
-      chk::abort_chk(paste0("Number of populations and names do not match. ",
-                            length(populations), " != ", length(names)))
+      chk::abort_chk(paste0(
+        "Number of populations and names do not match. ",
+        length(populations), " != ", length(names)
+      ))
     }
   } else {
     names <- ypr_names(populations)

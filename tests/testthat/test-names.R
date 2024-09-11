@@ -19,7 +19,7 @@ test_that("names populations two", {
 })
 
 test_that("names populations two", {
-  expect_identical(ypr_names(ypr_populations(Rk = c(3,4), Linf = c(200, 300), expand = FALSE)), c("Linf_200_Rk_3", "Linf_300_Rk_4"))
+  expect_identical(ypr_names(ypr_populations(Rk = c(3, 4), Linf = c(200, 300), expand = FALSE)), c("Linf_200_Rk_3", "Linf_300_Rk_4"))
 })
 
 test_that("names ecotypes", {
@@ -35,5 +35,5 @@ test_that("names populations two", {
 })
 
 test_that("names populations two", {
-  expect_identical(ypr_names(ypr_ecotypes(fa = c(3,4), Linf = c(200, 300))), c("Linf_200_fa_3", "Linf_300_fa_4"))
+  expect_identical(ypr_names(ypr_ecotypes(fa = c(3, 4), Linf = c(200, 300))), c("Linf_200_fa_3", "Linf_300_fa_4"))
 })

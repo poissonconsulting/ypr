@@ -18,13 +18,17 @@ test_that("ypr_ecotypes creates an ecotype with 2 elements", {
 })
 
 test_that("ypr_ecotypes errors if identical ecotypes", {
-  expect_error(ypr_ecotypes(Linf = c(1, 1)),
-               "ecotypes must have unique life-histories\\.")
+  expect_error(
+    ypr_ecotypes(Linf = c(1, 1)),
+    "ecotypes must have unique life-histories\\."
+  )
 })
 
 test_that("ypr_ecotypes errors if identical ecotypes even with multiples", {
-  expect_error(ypr_ecotypes(Linf = c(1, 2, 2), k = c(0.1, 0.2, 0.2)),
-               "ecotypes must have unique life-histories\\.")
+  expect_error(
+    ypr_ecotypes(Linf = c(1, 2, 2), k = c(0.1, 0.2, 0.2)),
+    "ecotypes must have unique life-histories\\."
+  )
 })
 
 test_that("ypr_ecotypes creates names", {
@@ -79,7 +83,6 @@ test_that("as_ypr_ecotypes throws error if sr values are not the same", {
     ypr_ecotypes(Rmax = c(2, 3)),
     "`Rmax` must be the same across all elements."
   )
-
 })
 
 test_that("as_ypr_ecotypes throws error if fishery values are not the same", {

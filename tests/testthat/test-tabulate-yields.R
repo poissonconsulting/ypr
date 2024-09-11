@@ -6,8 +6,10 @@ test_that("ypr_tabulate_yields populations", {
 })
 
 test_that("ypr_tabulate_yields populations all", {
-  yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)), pi = seq(0, 1, length.out = 2),
-                                all = TRUE)
+  yields <- ypr_tabulate_yields(ypr_populations(Rk = c(3, 5)),
+    pi = seq(0, 1, length.out = 2),
+    all = TRUE
+  )
 
   expect_s3_class(yields, "tbl_df")
   expect_snapshot_data(yields, "populations01all")

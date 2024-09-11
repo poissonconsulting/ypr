@@ -1,8 +1,8 @@
 set_par <- function(object, par, value) {
-  if(is.ypr_population(object)) {
+  if (is.ypr_population(object)) {
     object[[par]] <- value
   } else {
-    for(i in seq_len(length(object))) {
+    for (i in seq_len(length(object))) {
       object[[i]] <- set_par(object[[i]], par, value = value)
     }
   }
@@ -32,14 +32,14 @@ ypr_get_par <- function(object, par = "pi") {
   chk_string(par)
   chk_subset(par, parameters())
 
-  if(is.ypr_population(object)) {
+  if (is.ypr_population(object)) {
     return(get_par(object, par))
   }
   pars <- get_pars(object, par)
-  if(is.ypr_populations(object)) {
+  if (is.ypr_populations(object)) {
     return(pars)
   }
-  if(!par %in% ecoall_parameters()) {
+  if (!par %in% ecoall_parameters()) {
     return(pars)
   }
   only(pars)

@@ -1,4 +1,3 @@
-
 #' Plot Fish
 #'
 #' Produces a frequency histogram of the number of fish in the 'Survivors',
@@ -38,7 +37,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
   }
 
   gp <- ggplot2::ggplot(data = fish) +
-    (if(length(unique(fish$Ecotype)) == 1) {
+    (if (length(unique(fish$Ecotype)) == 1) {
       ggplot2::aes_string(x = x, weight = y)
     } else {
       ggplot2::aes_string(x = x, weight = y, fill = "Ecotype")

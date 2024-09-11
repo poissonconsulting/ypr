@@ -12,7 +12,7 @@ sr <- function(schedule, object) {
 
     phiF <- sum(Fecundity * Spawning / 2 * FishedSurvivorship)
 
-    if(Rk <= 1) {
+    if (Rk <= 1) {
       Rk <- Rk * phi
     }
     alpha <- Rk / phi
@@ -64,7 +64,7 @@ sr <- function(schedule, object) {
 #' ypr_sr(ypr_population()) # Beverton-Holt
 #' ypr_sr(ypr_population(BH = 0L)) # Ricker
 ypr_sr <- function(object) {
-  if(!inherits(object, "ypr"))
+  if (!inherits(object, "ypr"))
     schedule <- ypr_tabulate_schedule(object)
 
   sr <- sr(schedule, object)

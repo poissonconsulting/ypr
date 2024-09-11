@@ -56,7 +56,7 @@ ypr_names.ypr_populations <- function(x, ...) {
     x,
     function(x) {
       paste0(unname(unlist(x)),
-             collapse = "_"
+        collapse = "_"
       )
     }
   )

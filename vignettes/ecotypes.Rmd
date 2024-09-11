@@ -36,13 +36,14 @@ library(ggplot2) # for plotting
 ecotypes <- ypr_ecotypes(
   Linf2 = 200,
   L2 = c(100, 50),
-  Ls = c(50, 75), 
+  Ls = c(50, 75),
   pi = 0.05,
   names = c("small", "large"),
-  RPR = c(0.8, 0.2))
+  RPR = c(0.8, 0.2)
+)
 
 ypr_plot_schedule(ecotypes) + scale_color_manual(values = c("black", "blue"))
-ypr_plot_schedule(ecotypes, x = "Age", y  = "Spawning") + scale_color_manual(values = c("black", "blue"))
+ypr_plot_schedule(ecotypes, x = "Age", y = "Spawning") + scale_color_manual(values = c("black", "blue"))
 ```
 
 ### Fish
