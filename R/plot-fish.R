@@ -38,9 +38,9 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
 
   gp <- ggplot2::ggplot(data = fish) +
     (if (length(unique(fish$Ecotype)) == 1) {
-      ggplot2::aes_string(x = x, weight = y)
+      ggplot2::aes(x = .data[[x]], weight = .data[[y]])
     } else {
-      ggplot2::aes_string(x = x, weight = y, fill = "Ecotype")
+      ggplot2::aes(x = .data[[x]], weight = .data[[y]], fill = Ecotype)
     }) +
     (if (is.null(color)) {
       ggplot2::geom_bar(width = binwidth)

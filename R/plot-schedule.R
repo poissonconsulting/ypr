@@ -28,7 +28,7 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
   group <- if (ecotype) "Ecotype" else NULL
   color <- if (ecotype) "Ecotype" else NULL
 
-  ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y, group = group, color = color)) +
+  ggplot2::ggplot(data = schedule, ggplot2::aes(x = .data[[x]], y = .data[[y]], group = group, color = color)) +
     ggplot2::geom_line() +
     ggplot2::scale_y_continuous(y, labels = labels) +
     ggplot2::expand_limits(x = 0, y = 0)

@@ -19,7 +19,7 @@
 #'   plot_values = FALSE
 #' ) +
 #'   ggplot2::facet_wrap(~Llo) +
-#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
+#'   ggplot2::aes(group = Rk, color = Rk) +
 #'   ggplot2::scale_color_manual(values = c("black", "blue"))
 #'
 #' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
@@ -86,15 +86,15 @@ ypr_plot_yield.default <- function(object,
   xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
   x <- if (u) "u" else "pi"
 
-  ggplot2::ggplot(data = data, ggplot2::aes_string(x = x, y = y)) +
+  ggplot2::ggplot(data = data, ggplot2::aes(x = .data[[x]], y = .data[[y]])) +
     (
       if (plot_values) {
         list(
           ggplot2::geom_path(
             data = data2,
-            ggplot2::aes_string(
-              group = "Type",
-              color = "Type"
+            ggplot2::aes(
+              group = Type,
+              color = Type
             ),
             linetype = "dotted"
           ),
@@ -165,15 +165,15 @@ ypr_plot_yield.ypr_populations <- function(object,
   xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
   x <- if (u) "u" else "pi"
 
-  ggplot2::ggplot(data = data, ggplot2::aes_string(x = x, y = y)) +
+  ggplot2::ggplot(data = data, ggplot2::aes(x = .data[[x]], y = .data[[y]])) +
     (
       if (plot_values) {
         list(
           ggplot2::geom_path(
             data = data2,
-            ggplot2::aes_string(
-              group = "Type",
-              color = "Type"
+            ggplot2::aes(
+              group = Type,
+              color = Type
             ),
             linetype = "dotted"
           ),

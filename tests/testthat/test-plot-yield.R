@@ -8,7 +8,7 @@ test_that("ypr_plot_yield2", {
     pi = seq(0, 1, length.out = 2), plot_values = FALSE
   ) +
     ggplot2::facet_wrap(~Llo) +
-    ggplot2::aes_string(group = "Rk", color = "Rk") +
+    ggplot2::aes(group = Rk, color = Rk) +
     ggplot2::scale_color_manual(values = c("black", "blue"))
 
   expect_snapshot_plot(gp, "ypr_plot_yield2")
