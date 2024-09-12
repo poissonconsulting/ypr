@@ -72,14 +72,15 @@ Plots the 'Yield', 'Age', 'Length', 'Weight', 'Effort', or 'YPUE' by the
 }}
 \examples{
 \dontrun{
-ypr_plot_yield(ypr_populations(
-  Rk = c(2.5, 4.6),
-  Llo = c(0, 60)
-),
-plot_values = FALSE
+ypr_plot_yield(
+  ypr_populations(
+    Rk = c(2.5, 4.6),
+    Llo = c(0, 60)
+  ),
+  plot_values = FALSE
 ) +
   ggplot2::facet_wrap(~Llo) +
-  ggplot2::aes_string(group = "Rk", color = "Rk") +
+  ggplot2::aes(group = Rk, color = Rk) +
   ggplot2::scale_color_manual(values = c("black", "blue"))
 
 ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
