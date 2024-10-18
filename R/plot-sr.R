@@ -64,18 +64,18 @@ ypr_plot_sr <- function(population,
 
   ggplot2::ggplot(
     data = data,
-    ggplot2::aes_string(
-      x = "Eggs",
-      y = "Recruits"
+    ggplot2::aes(
+      x = Eggs,
+      y = Recruits
     )
   ) +
     (
       if (plot_values) {
         ggplot2::geom_path(
           data = data2,
-          ggplot2::aes_string(
-            group = "Type",
-            color = "Type"
+          ggplot2::aes(
+            group = Type,
+            color = Type
           ),
           linetype = "dotted"
         )
@@ -89,4 +89,3 @@ ypr_plot_sr <- function(population,
     ggplot2::scale_color_manual(values = c("red", "blue", "black")) +
     NULL
 }
-

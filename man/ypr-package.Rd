@@ -13,6 +13,7 @@ An implementation of equilibrium-based yield per recruit methods. Yield per recr
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://poissonconsulting.github.io/ypr/}
   \item \url{https://github.com/poissonconsulting/ypr}
   \item Report bugs at \url{https://github.com/poissonconsulting/ypr/issues}
 }

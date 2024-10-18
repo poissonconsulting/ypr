@@ -12,4 +12,3 @@ test_that("check_ecotypes", {
   expect_identical(check_ecotypes(ypr_ecotypes()), ypr_ecotypes())
   expect_error(check_ecotypes(ypr_populations()))
 })
-

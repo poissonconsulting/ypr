@@ -36,17 +36,17 @@ Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.
 Other populations: 
 \code{\link{as_ypr_populations}()},
 \code{\link{ypr_plot_yield}()},
-\code{\link{ypr_populations_expand}()},
 \code{\link{ypr_populations}()},
+\code{\link{ypr_populations_expand}()},
 \code{\link{ypr_tabulate_sr}()},
-\code{\link{ypr_tabulate_yields}()},
-\code{\link{ypr_tabulate_yield}()}
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_tabulate_yields}()}
 
 Other data: 
 \code{\link{adams_bt_03}},
 \code{\link{kootenay_bt_13}},
-\code{\link{kootenay_rb_13}},
 \code{\link{kootenay_rb}},
+\code{\link{kootenay_rb_13}},
 \code{\link{quesnel_bt}},
 \code{\link{quesnel_lt}},
 \code{\link{quesnel_rb}}

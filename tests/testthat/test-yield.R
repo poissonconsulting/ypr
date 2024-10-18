@@ -137,8 +137,10 @@ test_that("ypr_yield same for two copies with unequal weighting", {
 })
 
 test_that("ypr_yield ecotypes 1", {
-  expect_identical(ypr_yield(ypr_ecotypes()),
-                   ypr_yield(ypr_population()))
+  expect_identical(
+    ypr_yield(ypr_ecotypes()),
+    ypr_yield(ypr_population())
+  )
 })
 
 test_that("ypr_yield ecotypes 2", {

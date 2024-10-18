@@ -68,17 +68,17 @@ Other tabulate:
 \code{\link{ypr_tabulate_fish}()},
 \code{\link{ypr_tabulate_parameters}()},
 \code{\link{ypr_tabulate_schedule}()},
-\code{\link{ypr_tabulate_yields}()},
-\code{\link{ypr_tabulate_yield}()}
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_tabulate_yields}()}
 
 Other populations: 
 \code{\link{as_ypr_populations}()},
 \code{\link{chilliwack_bt_05}},
 \code{\link{ypr_plot_yield}()},
-\code{\link{ypr_populations_expand}()},
 \code{\link{ypr_populations}()},
-\code{\link{ypr_tabulate_yields}()},
-\code{\link{ypr_tabulate_yield}()}
+\code{\link{ypr_populations_expand}()},
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_tabulate_yields}()}
 
 Other sr: 
 \code{\link{ypr_plot_sr}()},

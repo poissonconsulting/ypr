@@ -25,10 +25,10 @@ ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
 
   labels <- if (sum(schedule[[y]]) >= 1000) scales::comma else ggplot2::waiver()
   ecotype <- "Ecotype" %in% names(schedule) && length(unique(schedule$Ecotype)) > 1
-  group <- if(ecotype) "Ecotype" else NULL
-  color <- if(ecotype) "Ecotype" else NULL
+  group <- if (ecotype) "Ecotype" else NULL
+  color <- if (ecotype) "Ecotype" else NULL
 
-  ggplot2::ggplot(data = schedule, ggplot2::aes_string(x = x, y = y, group = group, color = color)) +
+  ggplot2::ggplot(data = schedule, ggplot2::aes(x = .data[[x]], y = .data[[y]], group = group, color = color)) +
     ggplot2::geom_line() +
     ggplot2::scale_y_continuous(y, labels = labels) +
     ggplot2::expand_limits(x = 0, y = 0)

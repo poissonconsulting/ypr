@@ -39,8 +39,10 @@ test_that("ypr_tabulate_fish high Linf fish if vulnerable bigger", {
 })
 
 test_that("ypr_tabulate_fish ecotype no fish", {
-  expect_identical(ypr_tabulate_fish(ypr_ecotypes(n = 0.1)),
-                   ypr_tabulate_fish(ypr_population(n = 0.1)))
+  expect_identical(
+    ypr_tabulate_fish(ypr_ecotypes(n = 0.1)),
+    ypr_tabulate_fish(ypr_population(n = 0.1))
+  )
 })
 
 test_that("ypr_tabulate_fish ecotypes 1", {
@@ -56,11 +58,15 @@ test_that("ypr_tabulate_fish ecotypes 2 diff more", {
 })
 
 test_that("ypr_tabulate_fish ecotypes rebalances rpr", {
-  expect_equal(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 100))),
-               ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1))))
+  expect_equal(
+    ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 100))),
+    ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1)))
+  )
 })
 
 test_that("ypr_tabulate_fish ecotypes weights correctly", {
-  expect_identical(ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1))),
-                   ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 100))))
+  expect_identical(
+    ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(1, 1))),
+    ypr_tabulate_fish(ypr_ecotypes(Linf = c(100, 50), RPR = c(100, 100)))
+  )
 })

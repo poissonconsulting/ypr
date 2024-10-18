@@ -11,14 +11,15 @@
 #' @family plot
 #' @examples
 #' \dontrun{
-#' ypr_plot_yield(ypr_populations(
-#'   Rk = c(2.5, 4.6),
-#'   Llo = c(0, 60)
-#' ),
-#' plot_values = FALSE
+#' ypr_plot_yield(
+#'   ypr_populations(
+#'     Rk = c(2.5, 4.6),
+#'     Llo = c(0, 60)
+#'   ),
+#'   plot_values = FALSE
 #' ) +
 #'   ggplot2::facet_wrap(~Llo) +
-#'   ggplot2::aes_string(group = "Rk", color = "Rk") +
+#'   ggplot2::aes(group = Rk, color = Rk) +
 #'   ggplot2::scale_color_manual(values = c("black", "blue"))
 #'
 #' ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60))) +
@@ -35,14 +36,14 @@ ypr_plot_yield <- function(object, ...) {
 #' @describeIn ypr_plot_yield Plot Yield by Capture
 #' @export
 ypr_plot_yield.default <- function(object,
-                                          y = "Yield",
-                                          pi = seq(0, 1, length.out = 100),
-                                          Ly = 0,
-                                          harvest = TRUE,
-                                          biomass = FALSE,
-                                          u = harvest,
-                                          plot_values = TRUE,
-                                          ...) {
+                                   y = "Yield",
+                                   pi = seq(0, 1, length.out = 100),
+                                   Ly = 0,
+                                   harvest = TRUE,
+                                   biomass = FALSE,
+                                   u = harvest,
+                                   plot_values = TRUE,
+                                   ...) {
   chkor_vld(vld_is(object, "ypr_population"), vld_is(object, "ypr_ecotypes"))
 
   if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
@@ -85,15 +86,15 @@ ypr_plot_yield.default <- function(object,
   xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
   x <- if (u) "u" else "pi"
 
-  ggplot2::ggplot(data = data, ggplot2::aes_string(x = x, y = y)) +
+  ggplot2::ggplot(data = data, ggplot2::aes(x = .data[[x]], y = .data[[y]])) +
     (
       if (plot_values) {
         list(
           ggplot2::geom_path(
             data = data2,
-            ggplot2::aes_string(
-              group = "Type",
-              color = "Type"
+            ggplot2::aes(
+              group = Type,
+              color = Type
             ),
             linetype = "dotted"
           ),
@@ -126,8 +127,8 @@ ypr_plot_yield.ypr_populations <- function(object,
   chk_flag(u)
 
   data <- ypr_tabulate_yields(object,
-                              pi = pi, Ly = Ly, harvest = harvest,
-                              biomass = biomass
+    pi = pi, Ly = Ly, harvest = harvest,
+    biomass = biomass
   )
 
   data2 <- ypr_tabulate_yield(
@@ -164,15 +165,15 @@ ypr_plot_yield.ypr_populations <- function(object,
   xlab <- if (u) "Exploitation Probability (%)" else "Capture Probability (%)"
   x <- if (u) "u" else "pi"
 
-  ggplot2::ggplot(data = data, ggplot2::aes_string(x = x, y = y)) +
+  ggplot2::ggplot(data = data, ggplot2::aes(x = .data[[x]], y = .data[[y]])) +
     (
       if (plot_values) {
         list(
           ggplot2::geom_path(
             data = data2,
-            ggplot2::aes_string(
-              group = "Type",
-              color = "Type"
+            ggplot2::aes(
+              group = Type,
+              color = Type
             ),
             linetype = "dotted"
           ),

@@ -22,7 +22,7 @@ check_ecotypes(ypr_ecotypes())
 }
 \seealso{
 Other check: 
-\code{\link{check_populations}()},
-\code{\link{check_population}()}
+\code{\link{check_population}()},
+\code{\link{check_populations}()}
 }
 \concept{check}

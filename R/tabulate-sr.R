@@ -17,8 +17,7 @@ ypr_tabulate_sr <- function(object, ...) {
 #' @describeIn ypr_tabulate_sr Tabulate Stock-Recruitment Parameters
 #' @export
 ypr_tabulate_sr.default <- function(object, Ly = 0, harvest = TRUE,
-                                           biomass = FALSE, all = FALSE, ...) {
-
+                                    biomass = FALSE, all = FALSE, ...) {
   chkor_vld(vld_is(object, "ypr_population"), vld_is(object, "ypr_ecotypes"))
 
   sr <- ypr_sr(object)
@@ -65,8 +64,8 @@ ypr_tabulate_sr.ypr_populations <- function(object,
   chk_flag(all)
 
   sr <- lapply(object, ypr_tabulate_sr,
-               Ly = Ly, harvest = harvest,
-               biomass = biomass, all = TRUE, ...
+    Ly = Ly, harvest = harvest,
+    biomass = biomass, all = TRUE, ...
   )
 
   sr <- do.call("rbind", sr)

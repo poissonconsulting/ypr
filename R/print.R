@@ -1,4 +1,3 @@
-
 #' @export
 print.ypr_population <- function(x, ...) {
   suppressWarnings(check_population(x))

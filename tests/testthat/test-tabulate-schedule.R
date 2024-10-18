@@ -5,8 +5,10 @@ test_that("tabulate schedule population", {
 })
 
 test_that("tabulate schedule complex population", {
-  schedule <- ypr_tabulate_schedule(ypr_population(Rmax = 100, Rk = 2, Wa = 0.01,
-                                                   n = ypr:::inst2inter(0.2), fa = 0.1))
+  schedule <- ypr_tabulate_schedule(ypr_population(
+    Rmax = 100, Rk = 2, Wa = 0.01,
+    n = ypr:::inst2inter(0.2), fa = 0.1
+  ))
   expect_s3_class(schedule, "tbl_df")
   expect_equal(schedule$Weight[20], 8579.51642)
   expect_equal(schedule$Fecundity[20], 857.9516, tolerance = 1e-6)
@@ -35,8 +37,10 @@ test_that("tabulate schedule low mortality", {
 })
 
 test_that("tabulate schedule errors populations", {
-  expect_error(ypr_tabulate_schedule(ypr_populations()),
-               "no applicable method for 'ypr_tabulate_schedule' applied to an object of class \"ypr_populations\"")
+  expect_error(
+    ypr_tabulate_schedule(ypr_populations()),
+    "no applicable method for 'ypr_tabulate_schedule' applied to an object of class \"ypr_populations\""
+  )
 })
 
 test_that("tabulate schedule ecotypes 1", {

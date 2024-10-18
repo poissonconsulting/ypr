@@ -84,8 +84,8 @@ Other populations:
 \code{\link{as_ypr_populations}()},
 \code{\link{chilliwack_bt_05}},
 \code{\link{ypr_plot_yield}()},
-\code{\link{ypr_populations_expand}()},
 \code{\link{ypr_populations}()},
+\code{\link{ypr_populations_expand}()},
 \code{\link{ypr_tabulate_sr}()},
 \code{\link{ypr_tabulate_yield}()}
 }

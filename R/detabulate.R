@@ -31,8 +31,8 @@ ypr_detabulate_parameters <- function(x) {
   names(parameters) <- x$Parameter
 
   parameters <- mapply(function(x, y) if (y == 1) as.integer(x) else x,
-                       parameters, x$Integer,
-                       SIMPLIFY = FALSE
+    parameters, x$Integer,
+    SIMPLIFY = FALSE
   )
 
   population <- do.call("ypr_population", parameters)

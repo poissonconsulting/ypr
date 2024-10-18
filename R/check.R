@@ -78,7 +78,7 @@ check_ecotypes <- function(x, x_name = NULL) {
 
   data <- as_tibble(x)
   data$RPR <- NULL
-  if(anyDuplicated(data)) {
+  if (anyDuplicated(data)) {
     chk::abort_chk("ecotypes must have unique life-histories.", tidy = FALSE)
   }
   invisible(x)

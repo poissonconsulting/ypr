@@ -77,8 +77,10 @@ test_that("ypr_populations make unique names for duplicates even with multiple p
 })
 
 test_that("ypr_populations fails when different length parameters if not expand", {
-  expect_error(ypr_populations(Linf = c(1, 1), k = c(0.1, 0.2, 0.3), expand = FALSE),
-               "Non-scalar parameter values must all be the same length \\(not 2 and 3\\)\\.")
+  expect_error(
+    ypr_populations(Linf = c(1, 1), k = c(0.1, 0.2, 0.3), expand = FALSE),
+    "Non-scalar parameter values must all be the same length \\(not 2 and 3\\)\\."
+  )
 })
 
 test_that("ypr_populations but works when different length parameters if expand", {
@@ -104,8 +106,10 @@ test_that("ypr_populations creates 2 populations when 3 parameters are provided 
 })
 
 test_that("ypr_populations creates 8 populations when 3 parameters are provided and expand", {
-  populations <- ypr_populations(Linf = c(1, 2), k2 = c(0.15, 0.25), RPR = c(2, 1),
-                                 expand = TRUE)
+  populations <- ypr_populations(
+    Linf = c(1, 2), k2 = c(0.15, 0.25), RPR = c(2, 1),
+    expand = TRUE
+  )
   expect_s3_class(populations, "ypr_populations")
   expect_length(populations, 8L)
   expect_snapshot_output(populations)
@@ -118,24 +122,27 @@ test_that("ypr_populations preserves RPR", {
 })
 
 test_that("as_ypr_populations works if sr values are not the same", {
-  populations <- ypr_populations(Rk = c(10, 20),
-                                 BH = c(1L, 0L),
-                                 tR = c(1L, 2L),
-                                 Rmax = c(2, 3), expand = FALSE)
+  populations <- ypr_populations(
+    Rk = c(10, 20),
+    BH = c(1L, 0L),
+    tR = c(1L, 2L),
+    Rmax = c(2, 3), expand = FALSE
+  )
 
   expect_length(populations, 2L)
   expect_snapshot_output(populations)
 })
 
 test_that("as_ypr_populations works if fishery values are not the same", {
-
-  populations <- ypr_populations(  pi = c(0.1, 0.2),
-                                   Nc = c(0, 1),
-                                   Hm = c(0, 1),
-                                   Llo = c(10, 100),
-                                   Lup = c(10, 100),
-                                   rho = c(0, 1),
-                                   q = c(0, 1), expand = FALSE)
+  populations <- ypr_populations(
+    pi = c(0.1, 0.2),
+    Nc = c(0, 1),
+    Hm = c(0, 1),
+    Llo = c(10, 100),
+    Lup = c(10, 100),
+    rho = c(0, 1),
+    q = c(0, 1), expand = FALSE
+  )
 
   expect_length(populations, 2L)
   expect_snapshot_output(populations)
