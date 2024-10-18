@@ -46,8 +46,8 @@ ypr_plot_yield.default <- function(object,
                                    ...) {
   chkor_vld(vld_is(object, "ypr_population"), vld_is(object, "ypr_ecotypes"))
 
-  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
-  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+  rlang::check_installed("ggplot2")
+  rlang::check_installed("scales")
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -120,8 +120,8 @@ ypr_plot_yield.ypr_populations <- function(object,
                                            u = harvest,
                                            plot_values = TRUE,
                                            ...) {
-  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
-  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+  rlang::check_installed("ggplot2")
+  rlang::check_installed("scales")
   chk_string(y)
   chk_subset(y, c("Yield", "Age", "Length", "Weight", "Effort", "YPUE"))
   chk_flag(u)

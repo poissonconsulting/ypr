@@ -25,6 +25,7 @@ Imports:
     graphics,
     lifecycle,
     purrr,
+    rlang,
     stats,
     tibble,
     tidyplus,

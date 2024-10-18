@@ -13,8 +13,8 @@ ypr_plot_sr <- function(population,
                         harvest = TRUE,
                         biomass = FALSE,
                         plot_values = TRUE) {
-  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
-  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+  rlang::check_installed("ggplot2")
+  rlang::check_installed("scales")
 
   chk_number(Ly)
   chk_gte(Ly)

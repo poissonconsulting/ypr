@@ -13,8 +13,8 @@
 #' @examples
 #' ypr_plot_biomass(ypr_population(), color = "white")
 ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
-  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
-  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+  rlang::check_installed("ggplot2")
+  rlang::check_installed("scales")
   chk_string(y)
   chk_subset(y, c("Biomass", "Eggs"))
 

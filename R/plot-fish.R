@@ -16,8 +16,8 @@
 ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
                           percent = FALSE,
                           binwidth = 1L, color = NULL) {
-  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
-  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+  rlang::check_installed("ggplot2")
+  rlang::check_installed("scales")
   chk_string(y)
   chk_subset(y, c(
     "Survivors", "Spawners", "Caught", "Harvested",

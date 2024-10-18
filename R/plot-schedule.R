@@ -12,8 +12,8 @@
 #' @examples
 #' ypr_plot_schedule(ypr_population())
 ypr_plot_schedule <- function(population, x = "Age", y = "Length") {
-  if (!requireNamespace("ggplot2")) err("Package 'ggplot2' must be installed.")
-  if (!requireNamespace("scales")) err("Package 'scales' must be installed.")
+  rlang::check_installed("ggplot2")
+  rlang::check_installed("scales")
 
   schedule <- ypr_tabulate_schedule(object = population)
 

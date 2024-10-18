@@ -56,7 +56,7 @@ ypr_report <- function(population,
   chk_string(file)
   chk_flag(view)
   chk_flag(ask)
-  if (!requireNamespace("usethis")) err("Package 'usethis' must be installed.")
+  rlang::check_installed("usethis")
 
   if (grepl("[.](R|r)md$", file)) {
     wrn("File extension on argument `file` is deprecated (please remove).")
@@ -86,9 +86,7 @@ ypr_report <- function(population,
   )
 
   if (view) {
-    if (!requireNamespace("rmarkdown")) {
-      err("Package 'rmarkdown' is required to render the report to html.")
-    }
+    rlang::check_installed("rmarkdown", reason = "to render the report to html.")
 
     file_html <- p0(.sub(file, "[.](R|r)md$", ""), ".html")
     if (!ask_file(file_html, ask)) {
@@ -96,10 +94,7 @@ ypr_report <- function(population,
     }
 
     rmarkdown::render(file, output_format = "html_document", quiet = TRUE)
-    if (!requireNamespace("rstudioapi")) {
-      err("Package 'rstudioapi' is required to view the html report.")
-    }
-
+    rlang::check_installed("rstudioapi", reason = "to view the html report.")
     rstudioapi::viewer(file_html)
   }
   invisible(readLines(file))
