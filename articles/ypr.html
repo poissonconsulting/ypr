@@ -12,13 +12,15 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../katex-auto.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto_Condensed-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/Playfair_Display-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Started with ypr">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><link href="../deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
+<script src="../deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Started with ypr">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -68,7 +70,7 @@
                         <h4 data-toc-skip class="author">Joe
 Thorley</h4>
             
-            <h4 data-toc-skip class="date">2024-09-10</h4>
+            <h4 data-toc-skip class="date">2024-10-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/poissonconsulting/ypr/blob/main/vignettes/ypr.Rmd" class="external-link"><code>vignettes/ypr.Rmd</code></a></small>
       <div class="d-none name"><code>ypr.Rmd</code></div>
@@ -288,10 +290,10 @@ ecotype.</td>
 <div class="section level3">
 <h3 id="length">Length<a class="anchor" aria-label="anchor" href="#length"></a>
 </h3>
-<p>In <code>ypr</code> length (in cm) at age
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>)
-is assumed to follow a Von Bertalanffy growth curve</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msub><mi>L</mi><mi>∞</mi></msub><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>k</mi><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L = L_{\infty} \cdot (1 - \exp(-k \cdot (t-t_0)))</annotation></semantics></math></p>
+<p>In <code>ypr</code> length (in cm) at age (<span class="math inline">t</span>) is assumed to follow a Von Bertalanffy
+growth curve</p>
+<p><span class="math display">L = L_{\infty} \cdot (1 - \exp(-k \cdot
+(t-t_0)))</span></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population.html">ypr_population</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Age"</span>, <span class="st">"Length"</span><span class="op">)</span></span></code></pre></div>
@@ -309,17 +311,14 @@ is assumed to follow a Von Bertalanffy growth curve</p>
 <div class="section level3">
 <h3 id="weight">Weight<a class="anchor" aria-label="anchor" href="#weight"></a>
 </h3>
-<p>The weight
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>)
-at a given length is assumed to follow the classic allometric
-relationship</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msub><mi>w</mi><mi>α</mi></msub><mo>⋅</mo><msup><mi>L</mi><msub><mi>w</mi><mi>β</mi></msub></msup></mrow><annotation encoding="application/x-tex">W = w_\alpha \cdot L^{w_\beta}</annotation></semantics></math></p>
+<p>The weight (<span class="math inline">W</span>) at a given length is
+assumed to follow the classic allometric relationship</p>
+<p><span class="math display">W = w_\alpha \cdot L^{w_\beta}</span></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, Wa <span class="op">=</span> <span class="fl">0.01</span>, Wb <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Length"</span>, <span class="st">"Weight"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-4-1.png" width="384"></p>
-<p>Its worth noting that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>α</mi></msub><annotation encoding="application/x-tex">w_\alpha</annotation></semantics></math>,
+<p>Its worth noting that <span class="math inline">w_\alpha</span>,
 which is the extrapolated weight (g) of a 1 cm individual, is a scaling
 constant that only affects the estimate of the yield (when calculated in
 terms of the biomass), ie, it does not affect the estimate of the
@@ -332,26 +331,23 @@ optimal capture rate.</p>
 <div class="section level3">
 <h3 id="fecundity">Fecundity<a class="anchor" aria-label="anchor" href="#fecundity"></a>
 </h3>
-<p>The fecundity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>)
-is assumed to scale allometrically with the weight according to the
-equation</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><msub><mi>f</mi><mi>α</mi></msub><mo>⋅</mo><msup><mi>W</mi><msub><mi>f</mi><mi>β</mi></msub></msup></mrow><annotation encoding="application/x-tex">F = f_\alpha \cdot W^{f_\beta}</annotation></semantics></math></p>
+<p>The fecundity (<span class="math inline">F</span>) is assumed to
+scale allometrically with the weight according to the equation</p>
+<p><span class="math display">F = f_\alpha \cdot W^{f_\beta}</span></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, fa <span class="op">=</span> <span class="fl">1</span>, fb <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Weight"</span>, <span class="st">"Fecundity"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-5-1.png" width="384"></p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>α</mi></msub><annotation encoding="application/x-tex">f_\alpha</annotation></semantics></math>,
-which is the extrapolated eggs produced by a 1 g female, is a scaling
-constant with no effect on the yield or optimal capture rate.</p>
+<p><span class="math inline">f_\alpha</span>, which is the extrapolated
+eggs produced by a 1 g female, is a scaling constant with no effect on
+the yield or optimal capture rate.</p>
 </div>
 <div class="section level3">
 <h3 id="spawning">Spawning<a class="anchor" aria-label="anchor" href="#spawning"></a>
 </h3>
-<p>The probability of spawning at length
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
-is determined by the equation</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mfrac><msup><mi>L</mi><msub><mi>S</mi><mi>p</mi></msub></msup><mrow><msubsup><mi>L</mi><mi>s</mi><msub><mi>S</mi><mi>p</mi></msub></msubsup><mo>+</mo><msup><mi>L</mi><msub><mi>S</mi><mi>p</mi></msub></msup></mrow></mfrac><mo>⋅</mo><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">S = \frac{L^{S_p}}{L_s^{S_p} + L^{S_p}} \cdot es</annotation></semantics></math></p>
+<p>The probability of spawning at length <span class="math inline">L</span> is determined by the equation</p>
+<p><span class="math display">S = \frac{L^{S_p}}{L_s^{S_p} + L^{S_p}}
+\cdot es</span></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, Ls <span class="op">=</span> <span class="fl">50</span>, Sp <span class="op">=</span> <span class="fl">10</span>, es <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Length"</span>, <span class="st">"Spawning"</span><span class="op">)</span></span></code></pre></div>
@@ -364,9 +360,7 @@ is determined by the equation</p>
 <div class="section level3">
 <h3 id="natural-mortality">Natural Mortality<a class="anchor" aria-label="anchor" href="#natural-mortality"></a>
 </h3>
-<p>By default the natural annual interval mortality rate
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>)
-is assumed to be constant</p>
+<p>By default the natural annual interval mortality rate (<span class="math inline">n</span>) is assumed to be constant</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Length"</span>, <span class="st">"NaturalMortality"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
@@ -384,41 +378,27 @@ mortality</p>
 <div class="section level3">
 <h3 id="fishing-mortality">Fishing Mortality<a class="anchor" aria-label="anchor" href="#fishing-mortality"></a>
 </h3>
-<p>The vulnerability to capture
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>)
-is assumed to vary by length as follows</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mfrac><msup><mi>L</mi><msub><mi>V</mi><mi>p</mi></msub></msup><mrow><msubsup><mi>L</mi><mi>v</mi><msub><mi>V</mi><mi>p</mi></msub></msubsup><mo>+</mo><msup><mi>L</mi><msub><mi>V</mi><mi>p</mi></msub></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">V = \frac{L^{V_p}}{L_v^{V_p} + L^{V_p}}</annotation></semantics></math></p>
+<p>The vulnerability to capture (<span class="math inline">V</span>) is
+assumed to vary by length as follows</p>
+<p><span class="math display">V = \frac{L^{V_p}}{L_v^{V_p} +
+L^{V_p}}</span></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, Lv <span class="op">=</span> <span class="fl">50</span>, Vp <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Length"</span>, <span class="st">"Vulnerability"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-10-1.png" width="384"></p>
-<p>If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>p</mi></msub><annotation encoding="application/x-tex">V_p</annotation></semantics></math>
-is 100 then vulnerability is effectively knife-edged.</p>
-<p>The probabilty of being retained if captured
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>)
-depends on the release rate
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>),
-the slot limits
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mrow><mi>l</mi><mi>o</mi></mrow></msub><annotation encoding="application/x-tex">L_{lo}</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mrow><mi>u</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">L_{up}</annotation></semantics></math>)
-and the non-compliance with the limits
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>c</mi></msub><annotation encoding="application/x-tex">N_c</annotation></semantics></math>)</p>
+<p>If <span class="math inline">V_p</span> is 100 then vulnerability is
+effectively knife-edged.</p>
+<p>The probabilty of being retained if captured (<span class="math inline">R</span>) depends on the release rate (<span class="math inline">\rho</span>), the slot limits (<span class="math inline">L_{lo}</span> and <span class="math inline">L_{up}</span>) and the non-compliance with the
+limits (<span class="math inline">N_c</span>)</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, rho <span class="op">=</span> <span class="fl">0.5</span>, Llo <span class="op">=</span> <span class="fl">40</span>, Lup <span class="op">=</span> <span class="fl">70</span>, Nc <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Length"</span>, <span class="st">"Retention"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-11-1.png" width="384"></p>
-<p>The fishing mortality
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>)
-depends on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
-and the probability of capture when fully vulnerable
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">pi</annotation></semantics></math>)
-as well as the hooking mortality
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>m</mi></msub><annotation encoding="application/x-tex">H_m</annotation></semantics></math>)</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>V</mi><mo>⋅</mo><mi>π</mi><mo>⋅</mo><mi>R</mi><mo>+</mo><mi>V</mi><mo>⋅</mo><mi>π</mi><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><msub><mi>H</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">U =  V \cdot \pi \cdot  R +  V \cdot \pi \cdot (1 - R) \cdot H_m</annotation></semantics></math></p>
+<p>The fishing mortality (<span class="math inline">U</span>) depends on
+<span class="math inline">V</span>, <span class="math inline">R</span>
+and the probability of capture when fully vulnerable (<span class="math inline">pi</span>) as well as the hooking mortality (<span class="math inline">H_m</span>)</p>
+<p><span class="math display">U =  V \cdot \pi \cdot  R +  V \cdot \pi
+\cdot (1 - R) \cdot H_m</span></p>
 <p>The calculation assumes that a released fish cannot be recaught in
 the same year.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -433,131 +413,124 @@ the same year.</p>
 <p>With growth, reproduction and death defined, the final task is to
 estimate the recruitment (birth) rate.</p>
 <p>This requires the lifetime number of spawners per spawner at low
-density
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>k</mi></msub><annotation encoding="application/x-tex">R_k</annotation></semantics></math>)
-and the recruitment age
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>t</mi></msub><annotation encoding="application/x-tex">R_t</annotation></semantics></math>;
-by default 1) to be defined.</p>
-<p>If recruitment follows a Beverton-Holt
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>H</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">BH = 1</annotation></semantics></math>)
-curve then</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mfrac><mrow><mi>α</mi><mo>⋅</mo><mi>E</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>β</mi><mo>⋅</mo><mi>E</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">R = \frac{\alpha \cdot E}{(\beta \cdot E + 1)}</annotation></semantics></math></p>
+density (<span class="math inline">R_k</span>) and the recruitment age
+(<span class="math inline">R_t</span>; by default 1) to be defined.</p>
+<p>If recruitment follows a Beverton-Holt (<span class="math inline">BH
+= 1</span>) curve then</p>
+<p><span class="math display">R = \frac{\alpha \cdot E}{(\beta \cdot E +
+1)}</span></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, Rk <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span><span class="op">(</span><span class="va">population</span>, plot_values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-13-1.png" width="384"></p>
-<p>where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
-is the annual eggs (stock) and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
-is the annual recruits at age
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>t</mi></msub><annotation encoding="application/x-tex">R_t</annotation></semantics></math>.</p>
-<p>With a Ricker curve
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>H</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">BH = 0</annotation></semantics></math>)
-the relationship is as follows</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mi>α</mi><mo>⋅</mo><mi>E</mi><mo>⋅</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>β</mi><mo>⋅</mo><mi>E</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R = \alpha \cdot E \cdot \exp (-\beta \cdot E)</annotation></semantics></math></p>
+<p>where <span class="math inline">E</span> is the annual eggs (stock)
+and <span class="math inline">R</span> is the annual recruits at age
+<span class="math inline">R_t</span>.</p>
+<p>With a Ricker curve (<span class="math inline">BH = 0</span>) the
+relationship is as follows</p>
+<p><span class="math display">R = \alpha \cdot E \cdot \exp (-\beta
+\cdot E)</span></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ypr_population_update.html">ypr_population_update</a></span><span class="op">(</span><span class="va">population</span>, BH <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/ypr_plot_sr.html">ypr_plot_sr</a></span><span class="op">(</span><span class="va">population</span>, plot_values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-14-1.png" width="384"></p>
-<p>The number of recruits at the carrying capacity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mtext mathvariant="normal">max</mtext></msub><annotation encoding="application/x-tex">R_\text{max}</annotation></semantics></math>)
-is a scaling constant that only affects the estimate of the yield.</p>
+<p>The number of recruits at the carrying capacity (<span class="math inline">R_\text{max}</span>) is a scaling constant that only
+affects the estimate of the yield.</p>
 <p>Before calculating the recruitment it is important to introduce the
-concept of the (unfished) survivorship
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><msub><mi>x</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">lx_a</annotation></semantics></math>)
-which is the probability of a recruit surviving to age
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
-in the absence of fish mortality.</p>
+concept of the (unfished) survivorship (<span class="math inline">lx_a</span>) which is the probability of a recruit
+surviving to age <span class="math inline">a</span> in the absence of
+fish mortality.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_schedule.html">ypr_plot_schedule</a></span><span class="op">(</span><span class="va">population</span>, <span class="st">"Age"</span>, <span class="st">"Survivorship"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-15-1.png" width="384"></p>
-<p>The unfished survivorship
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><msub><mi>x</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">lx_a</annotation></semantics></math>)
-is defined recursively by</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><msub><mi>x</mi><msub><mi>R</mi><mi>t</mi></msub></msub><mo>=</mo><mn>1</mn><mo>,</mo><mi>l</mi><msub><mi>x</mi><mi>a</mi></msub><mo>=</mo><mi>l</mi><msub><mi>x</mi><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>N</mi><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.278em"></mspace><mtext mathvariant="normal">for</mtext><mspace width="0.278em"></mspace><mi>a</mi><mo>&gt;</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">lx_{R_t} = 1, lx_a = lx_{a-1} \cdot (1-N_{a-1}) \;\text{for}\; a &gt; R_t</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>a</mi></msub><annotation encoding="application/x-tex">N_a</annotation></semantics></math>
-is the annual interval natural mortality at age
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</p>
-<p>And the fished survivorship
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><msubsup><mi>x</mi><mi>a</mi><mi>F</mi></msubsup></mrow><annotation encoding="application/x-tex">lx_a^F</annotation></semantics></math>)
+<p>The unfished survivorship (<span class="math inline">lx_a</span>) is
+defined recursively by</p>
+<p><span class="math display">lx_{R_t} = 1, lx_a = lx_{a-1} \cdot
+(1-N_{a-1}) \;\text{for}\; a &gt; R_t</span> where <span class="math inline">N_a</span> is the annual interval natural mortality
+at age <span class="math inline">a</span>.</p>
+<p>And the fished survivorship (<span class="math inline">lx_a^F</span>)
 is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><msubsup><mi>x</mi><msub><mi>R</mi><mi>t</mi></msub><mi>F</mi></msubsup><mo>=</mo><mn>1</mn><mo>,</mo><mi>l</mi><msubsup><mi>x</mi><mi>a</mi><mi>F</mi></msubsup><mo>=</mo><mi>l</mi><msubsup><mi>x</mi><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow><mi>F</mi></msubsup><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>N</mi><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>U</mi><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.278em"></mspace><mtext mathvariant="normal">for</mtext><mspace width="0.278em"></mspace><mi>a</mi><mo>&gt;</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">lx_{R_t}^F = 1, lx_a^F = lx_{a-1}^F \cdot (1 - (1 - N_{a-1}) \cdot (1 - U_{a-1})) \;\text{for}\; a &gt; R_t</annotation></semantics></math></p>
-<p>The lifetime number of eggs deposited per (unfished) recruit
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>)
-is then just</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><msub><mi>t</mi><mtext mathvariant="normal">max</mtext></msub></munderover><mi>l</mi><msub><mi>x</mi><mi>a</mi></msub><mo>⋅</mo><msub><mi>F</mi><mi>a</mi></msub><mi>/</mi><mn>2</mn><mo>⋅</mo><msub><mi>S</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">\phi = \sum_{a = R_t}^{t_\text{max}} lx_a \cdot F_a/2 \cdot S_a</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mtext mathvariant="normal">max</mtext></msub><annotation encoding="application/x-tex">t_\text{max}</annotation></semantics></math>
-is the maximum age considered (by default 20) and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>a</mi></msub><annotation encoding="application/x-tex">F_a</annotation></semantics></math>
-the fecundity at age
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
-is divided by two as the sex ratio is assumed to 1:1 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>a</mi></msub><annotation encoding="application/x-tex">S_a</annotation></semantics></math>
-is the probability of spawning.</p>
-<p>The fished equivalent is denoted
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mi>F</mi></msub><annotation encoding="application/x-tex">\phi_F</annotation></semantics></math>.</p>
+<p><span class="math display">lx_{R_t}^F = 1, lx_a^F = lx_{a-1}^F \cdot
+(1 - (1 - N_{a-1}) \cdot (1 - U_{a-1})) \;\text{for}\; a &gt;
+R_t</span></p>
+<p>The lifetime number of eggs deposited per (unfished) recruit (<span class="math inline">\phi</span>) is then just</p>
+<p><span class="math display">\phi = \sum_{a = R_t}^{t_\text{max}} lx_a
+\cdot F_a/2 \cdot S_a</span> where <span class="math inline">t_\text{max}</span> is the maximum age considered
+(by default 20) and <span class="math inline">F_a</span> the fecundity
+at age <span class="math inline">a</span> is divided by two as the sex
+ratio is assumed to 1:1 and <span class="math inline">S_a</span> is the
+probability of spawning.</p>
+<p>The fished equivalent is denoted <span class="math inline">\phi_F</span>.</p>
 <p>It important to realize that at the unfished equilibrium the annual
-number of recruits
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mn>0</mn></msub><annotation encoding="application/x-tex">R_0</annotation></semantics></math>)
-is related to the annual egg deposition according to the following
-equation</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mn>0</mn></msub><mo>=</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">E_0 = \phi \cdot R_0</annotation></semantics></math></p>
+number of recruits (<span class="math inline">R_0</span>) is related to
+the annual egg deposition according to the following equation</p>
+<p><span class="math display">E_0 = \phi \cdot R_0</span></p>
 <p>By definition</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mfrac><mrow><msub><mi>R</mi><mi>k</mi></msub><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub></mrow><msub><mi>E</mi><mn>0</mn></msub></mfrac><mo>=</mo><mfrac><msub><mi>R</mi><mi>k</mi></msub><mi>ϕ</mi></mfrac></mrow><annotation encoding="application/x-tex">\alpha = \frac{R_k \cdot R_0}{E_0} = \frac{R_k}{\phi}</annotation></semantics></math></p>
-<p>The
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
-term of the Beverton-Holt curve can then be found by rearranging the
-following formula</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub><mo>=</mo><mfrac><mrow><mi>α</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub></mrow><mrow><mi>β</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_0 = \frac{\alpha \cdot \phi \cdot R_0}{\beta \cdot \phi \cdot R_0 + 1}</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub><mo>+</mo><mn>1</mn><mo>=</mo><mi>α</mi><mo>⋅</mo><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\beta \cdot \phi \cdot R_0 + 1 = \alpha \cdot \phi</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mfrac><mrow><mi>α</mi><mo>⋅</mo><mi>ϕ</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\beta = \frac{\alpha \cdot \phi - 1}{\phi \cdot R_0}</annotation></semantics></math></p>
+<p><span class="math display">\alpha = \frac{R_k \cdot R_0}{E_0} =
+\frac{R_k}{\phi}</span></p>
+<p>The <span class="math inline">\beta</span> term of the Beverton-Holt
+curve can then be found by rearranging the following formula</p>
+<p><span class="math display">R_0 = \frac{\alpha \cdot \phi \cdot
+R_0}{\beta \cdot \phi \cdot R_0 + 1}</span></p>
+<p><span class="math display">\beta \cdot \phi \cdot R_0 + 1 = \alpha
+\cdot \phi</span></p>
+<p><span class="math display">\beta = \frac{\alpha \cdot \phi - 1}{\phi
+\cdot R_0}</span></p>
 <p>The equivalent equation for the Ricker curve is arrived at as
 follows</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub><mo>=</mo><mi>α</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub><mo>⋅</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>β</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R_0 = \alpha \cdot \phi \cdot R_0 \cdot \exp (-\beta \cdot \phi \cdot R_0)</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>β</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>=</mo><mi>α</mi><mo>⋅</mo><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\frac{1}{\exp (-\beta \cdot \phi \cdot R_0)} = \alpha \cdot \phi</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>⋅</mo><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>α</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\beta \cdot \phi \cdot R_0 = \log(\alpha \cdot \phi)</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mfrac><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>α</mi><mo>⋅</mo><mi>ϕ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>ϕ</mi><mo>⋅</mo><msub><mi>R</mi><mn>0</mn></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\beta = \frac{\log(\alpha \cdot \phi)}{\phi \cdot R_0}</annotation></semantics></math></p>
-<p>The number of recruits at the fished equilibrium
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><annotation encoding="application/x-tex">R_{0F}</annotation></semantics></math>)
-can then be found for the Beverton-Holt curve as follows</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub></mrow><mrow><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_{0F} = \frac{\alpha \cdot \phi_F \cdot R_{0F}}{\beta \cdot \phi_F \cdot R_{0F} + 1}</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>+</mo><mn>1</mn><mo>=</mo><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub></mrow><annotation encoding="application/x-tex">\beta \cdot \phi_F \cdot R_{0F} + 1 = \alpha \cdot \phi_F</annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>−</mo><mn>1</mn></mrow><mrow><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_{0F} = \frac{\alpha \cdot \phi_F - 1}{\beta \cdot \phi_F}</annotation></semantics></math></p>
+<p><span class="math display">R_0 = \alpha \cdot \phi \cdot R_0 \cdot
+\exp (-\beta \cdot \phi \cdot R_0)</span></p>
+<p><span class="math display">\frac{1}{\exp (-\beta \cdot \phi \cdot
+R_0)} = \alpha \cdot \phi</span></p>
+<p><span class="math display">\beta \cdot \phi \cdot R_0 = \log(\alpha
+\cdot \phi)</span></p>
+<p><span class="math display">\beta = \frac{\log(\alpha \cdot
+\phi)}{\phi \cdot R_0}</span></p>
+<p>The number of recruits at the fished equilibrium (<span class="math inline">R_{0F}</span>) can then be found for the
+Beverton-Holt curve as follows</p>
+<p><span class="math display">R_{0F} = \frac{\alpha \cdot \phi_F \cdot
+R_{0F}}{\beta \cdot \phi_F \cdot R_{0F} + 1}</span></p>
+<p><span class="math display">\beta \cdot \phi_F \cdot R_{0F} + 1 =
+\alpha \cdot \phi_F</span> <span class="math display">R_{0F} =
+\frac{\alpha \cdot \phi_F - 1}{\beta \cdot \phi_F}</span></p>
 <p>and for the Ricker</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>=</mo><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>⋅</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R_{0F} = \alpha \cdot \phi_F \cdot R_{0F} \cdot \exp (-\beta \cdot \phi_F \cdot R_{0F})</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>=</mo><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub></mrow><annotation encoding="application/x-tex">\frac{1}{\exp(-\beta \cdot \phi_F \cdot R_{0F})} = \alpha \cdot \phi_F</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo>⋅</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\beta \cdot \phi_F \cdot R_{0F} = \log(\alpha \cdot \phi_F)</annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>=</mo><mfrac><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>α</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>β</mi><mo>⋅</mo><msub><mi>ϕ</mi><mi>F</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_{0F} = \frac{\log(\alpha \cdot \phi_F)}{\beta \cdot \phi_F}</annotation></semantics></math></p>
+<p><span class="math display">R_{0F} = \alpha \cdot \phi_F \cdot R_{0F}
+\cdot \exp (-\beta \cdot \phi_F \cdot R_{0F})</span></p>
+<p><span class="math display">\frac{1}{\exp(-\beta \cdot \phi_F \cdot
+R_{0F})} = \alpha \cdot \phi_F</span></p>
+<p><span class="math display">\beta \cdot \phi_F \cdot R_{0F} =
+\log(\alpha \cdot \phi_F)</span></p>
+<p><span class="math display">R_{0F} = \frac{\log(\alpha \cdot
+\phi_F)}{\beta \cdot \phi_F}</span></p>
 <p>Finally the estimates are rescaled so that the carrying capacity is
-identical to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mtext mathvariant="normal">max</mtext></msub><annotation encoding="application/x-tex">R_\text{max}</annotation></semantics></math>
-through the following transformations</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mi>β</mi><mo>⋅</mo><mi>κ</mi><mi>/</mi><msub><mi>R</mi><mtext mathvariant="normal">max</mtext></msub></mrow><annotation encoding="application/x-tex">    \beta = \beta \cdot \kappa / R_\text{max} </annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub><mo>=</mo><msub><mi>R</mi><mn>0</mn></msub><mi>/</mi><mi>κ</mi><mo>⋅</mo><msub><mi>R</mi><mtext mathvariant="normal">max</mtext></msub></mrow><annotation encoding="application/x-tex">    R_0 = R_0 / \kappa \cdot R_\text{max} </annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mi>/</mi><mi>κ</mi><mo>⋅</mo><msub><mi>R</mi><mtext mathvariant="normal">max</mtext></msub></mrow><annotation encoding="application/x-tex">    R_{0F} = R_{0F} / \kappa \cdot R_\text{max} </annotation></semantics></math></p>
-<p>where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>,
-which is the carrying capacity in the original scale, is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mi>/</mi><mi>β</mi></mrow><annotation encoding="application/x-tex">\alpha/\beta</annotation></semantics></math>
-for the Beverton-Holt and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>β</mi><mo>⋅</mo><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\alpha/(\beta \cdot e)</annotation></semantics></math>
-for the Ricker curve.</p>
+identical to <span class="math inline">R_\text{max}</span> through the
+following transformations</p>
+<p><span class="math display">    \beta = \beta \cdot \kappa /
+R_\text{max} </span> <span class="math display">    R_0 = R_0 / \kappa
+\cdot R_\text{max} </span> <span class="math display">    R_{0F} =
+R_{0F} / \kappa \cdot R_\text{max} </span></p>
+<p>where <span class="math inline">\kappa</span>, which is the carrying
+capacity in the original scale, is <span class="math inline">\alpha/\beta</span> for the Beverton-Holt and <span class="math inline">\alpha/(\beta \cdot e)</span> for the Ricker
+curve.</p>
 </div>
 <div class="section level2">
 <h2 id="yield">Yield<a class="anchor" aria-label="anchor" href="#yield"></a>
 </h2>
 <p>When the yield is simply the number of fish caught (irrespective of
 the weight or whether or not its harvested) then it is given by</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><msub><mi>t</mi><mtext mathvariant="normal">max</mtext></msub></munderover><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>⋅</mo><mi>l</mi><msubsup><mi>x</mi><mi>a</mi><mi>F</mi></msubsup><mo>⋅</mo><mi>π</mi><mo>⋅</mo><msub><mi>V</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">Y = \sum_{a = R_t}^{t_\text{max}} R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a</annotation></semantics></math></p>
+<p><span class="math display">Y = \sum_{a = R_t}^{t_\text{max}} R_{0F}
+\cdot lx_a^F \cdot \pi \cdot V_a</span></p>
 <p>if only harvested fish are considered it becomes</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><msub><mi>t</mi><mtext mathvariant="normal">max</mtext></msub></munderover><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>⋅</mo><mi>l</mi><msubsup><mi>x</mi><mi>a</mi><mi>F</mi></msubsup><mo>⋅</mo><mi>π</mi><mo>⋅</mo><msub><mi>V</mi><mi>a</mi></msub><mo>⋅</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">Y = \sum_{a = R_t}^{t_\text{max}} R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R</annotation></semantics></math></p>
+<p><span class="math display">Y = \sum_{a = R_t}^{t_\text{max}} R_{0F}
+\cdot lx_a^F \cdot \pi \cdot V_a \cdot R</span></p>
 <p>and if the total weight (in kg) is important then its</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><msub><mi>t</mi><mtext mathvariant="normal">max</mtext></msub></munderover><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>⋅</mo><mi>l</mi><msubsup><mi>x</mi><mi>a</mi><mi>F</mi></msubsup><mo>⋅</mo><mi>π</mi><mo>⋅</mo><msub><mi>V</mi><mi>a</mi></msub><mo>⋅</mo><mi>R</mi><mo>⋅</mo><msub><mi>W</mi><mi>a</mi></msub><mi>/</mi><mn>1000</mn></mrow><annotation encoding="application/x-tex">Y = \sum_{a = R_t}^{t_\text{max}} R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000</annotation></semantics></math></p>
+<p><span class="math display">Y = \sum_{a = R_t}^{t_\text{max}} R_{0F}
+\cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000</span></p>
 <p>and if only trophy fish are to be considered then its</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><msub><mi>t</mi><mtext mathvariant="normal">max</mtext></msub></munderover><mtext mathvariant="normal">if</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mi>a</mi><mo>&lt;</mo><msub><mi>L</mi><mi>y</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">else</mtext><mspace width="0.222em"></mspace><msub><mi>R</mi><mrow><mn>0</mn><mi>F</mi></mrow></msub><mo>⋅</mo><mi>l</mi><msubsup><mi>x</mi><mi>a</mi><mi>F</mi></msubsup><mo>⋅</mo><mi>π</mi><mo>⋅</mo><msub><mi>V</mi><mi>a</mi></msub><mo>⋅</mo><mi>R</mi><mo>⋅</mo><msub><mi>W</mi><mi>a</mi></msub><mi>/</mi><mn>1000</mn></mrow><annotation encoding="application/x-tex">Y = \sum_{a = R_t}^{t_\text{max}} \text{if}(La &lt; L_y)\ 0\ \text{else}\ R_{0F} \cdot lx_a^F \cdot \pi \cdot V_a \cdot R \cdot W_a/1000</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mi>y</mi></msub><annotation encoding="application/x-tex">L_y</annotation></semantics></math>
-is the minimum length of a trophy fish.</p>
+<p><span class="math display">Y = \sum_{a = R_t}^{t_\text{max}}
+\text{if}(La &lt; L_y)\ 0\ \text{else}\ R_{0F} \cdot lx_a^F \cdot \pi
+\cdot V_a \cdot R \cdot W_a/1000</span> where <span class="math inline">L_y</span> is the minimum length of a trophy
+fish.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">population</span>, harvest <span class="op">=</span> <span class="cn">TRUE</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span>, Ly <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-16-1.png" width="384"></p>
@@ -573,14 +546,11 @@ is the minimum length of a trophy fish.</p>
 <h2 id="efficiency">Efficiency<a class="anchor" aria-label="anchor" href="#efficiency"></a>
 </h2>
 <p>The catchability <code>q</code> indicates the probability of capture
-for a unit of effort
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>).
-It is assumed to be related to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>
-according to the relationship
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo>=</mo><mn>1</mn><mo>−</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mi>E</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi = 1 - \exp(\log(1-q)\cdot E)</annotation></semantics></math>
-which can be rearranged to give
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mfrac><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">E = \frac{\log(1-\pi)}{\log(1-q)}.</annotation></semantics></math></p>
+for a unit of effort (<span class="math inline">E</span>). It is assumed
+to be related to <span class="math inline">\pi</span> according to the
+relationship <span class="math display">\pi = 1 - \exp(\log(1-q)\cdot
+E)</span> which can be rearranged to give <span class="math display">E =
+\frac{\log(1-\pi)}{\log(1-q)}.</span></p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ypr_plot_yield.html">ypr_plot_yield</a></span><span class="op">(</span><span class="va">population</span>, y <span class="op">=</span> <span class="st">"Effort"</span>, harvest <span class="op">=</span> <span class="cn">TRUE</span>, biomass <span class="op">=</span> <span class="cn">TRUE</span>, Ly <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ypr_files/figure-html/unnamed-chunk-17-1.png" width="384"></p>
@@ -617,7 +587,7 @@ Princeton University Press.
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>

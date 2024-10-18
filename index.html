@@ -12,13 +12,15 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="katex-auto.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto_Condensed-0.4.9/font.css" rel="stylesheet">
+<link href="deps/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
 <link href="deps/Playfair_Display-0.4.9/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Yield Per Recruit">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><link href="deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
+<script src="deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Yield Per Recruit">
 <meta name="description" content="An implementation of equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population as described by Walters and Martell (2004) &lt;isbn:0-691-11544-3&gt;. The yield can be based on the number of fish caught (or harvested) or biomass caught for all fish or just large (trophy) individuals.">
 <meta property="og:description" content="An implementation of equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population as described by Walters and Martell (2004) &lt;isbn:0-691-11544-3&gt;. The yield can be based on the number of fish caught (or harvested) or biomass caught for all fish or just large (trophy) individuals.">
 <meta property="og:image" content="https://poissonconsulting.github.io/ypr/logo.png">
@@ -112,31 +114,30 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/ypr_tabulate_schedule.html">ypr_tabulate_schedule</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 20 × 11</span></span>
-<span><span class="co">#&gt;      Age Length Weight Fecundity Spawning NaturalMor…¹ Vulner…² Reten…³ Fishin…⁴</span></span>
-<span><span class="co">#&gt;    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1     1   13.9   27.0      27.0 3.13e-56          0.2 3.13e-56     0.4 2.50e-57</span></span>
-<span><span class="co">#&gt;  2     2   25.9  174.      174.  2.91e-29          0.2 2.91e-29     0.4 2.33e-30</span></span>
-<span><span class="co">#&gt;  3     3   36.2  476.      476.  1.04e-14          0.2 1.04e-14     0.4 8.35e-16</span></span>
-<span><span class="co">#&gt;  4     4   45.1  918.      918.  3.46e- 5          0.2 3.46e- 5     0.4 2.77e- 6</span></span>
-<span><span class="co">#&gt;  5     5   52.8 1469.     1469.  9.95e- 1          0.2 9.95e- 1     0.4 7.96e- 2</span></span>
-<span><span class="co">#&gt;  6     6   59.3 2090.     2090.  1.00e+ 0          0.2 1.00e+ 0     0.4 8.00e- 2</span></span>
-<span><span class="co">#&gt;  7     7   65.0 2747.     2747.  1.00e+ 0          0.2 1.00e+ 0     0.4 8.00e- 2</span></span>
-<span><span class="co">#&gt;  8     8   69.9 3412.     3412.  1.00e+ 0          0.2 1.00e+ 0     0.4 8.00e- 2</span></span>
-<span><span class="co">#&gt;  9     9   74.1 4065.     4065.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 10    10   77.7 4689.     4689.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 11    11   80.8 5274.     5274.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 12    12   83.5 5816.     5816.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 13    13   85.8 6310.     6310.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 14    14   87.8 6758.     6758.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 15    15   89.5 7160.     7160.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 16    16   90.9 7518.     7518.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 17    17   92.2 7836.     7836.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 18    18   93.3 8116.     8116.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 19    19   94.2 8363.     8363.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; 20    20   95.0 8580.     8580.  1   e+ 0          0.2 1   e+ 0     0.4 8   e- 2</span></span>
-<span><span class="co">#&gt; # … with 2 more variables: Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;, and</span></span>
-<span><span class="co">#&gt; #   abbreviated variable names ¹​NaturalMortality, ²​Vulnerability, ³​Retention,</span></span>
-<span><span class="co">#&gt; #   ⁴​FishingMortality</span></span></code></pre></div>
+<span><span class="co">#&gt;      Age Length Weight Fecundity Spawning NaturalMortality Vulnerability</span></span>
+<span><span class="co">#&gt;    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1     1   13.9   27.0      27.0 3.13e-56              0.2      3.13e-56</span></span>
+<span><span class="co">#&gt;  2     2   25.9  174.      174.  2.91e-29              0.2      2.91e-29</span></span>
+<span><span class="co">#&gt;  3     3   36.2  476.      476.  1.04e-14              0.2      1.04e-14</span></span>
+<span><span class="co">#&gt;  4     4   45.1  918.      918.  3.46e- 5              0.2      3.46e- 5</span></span>
+<span><span class="co">#&gt;  5     5   52.8 1469.     1469.  9.95e- 1              0.2      9.95e- 1</span></span>
+<span><span class="co">#&gt;  6     6   59.3 2090.     2090.  1.00e+ 0              0.2      1.00e+ 0</span></span>
+<span><span class="co">#&gt;  7     7   65.0 2747.     2747.  1.00e+ 0              0.2      1.00e+ 0</span></span>
+<span><span class="co">#&gt;  8     8   69.9 3412.     3412.  1.00e+ 0              0.2      1.00e+ 0</span></span>
+<span><span class="co">#&gt;  9     9   74.1 4065.     4065.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 10    10   77.7 4689.     4689.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 11    11   80.8 5274.     5274.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 12    12   83.5 5816.     5816.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 13    13   85.8 6310.     6310.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 14    14   87.8 6758.     6758.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 15    15   89.5 7160.     7160.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 16    16   90.9 7518.     7518.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 17    17   92.2 7836.     7836.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 18    18   93.3 8116.     8116.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 19    19   94.2 8363.     8363.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; 20    20   95.0 8580.     8580.  1   e+ 0              0.2      1   e+ 0</span></span>
+<span><span class="co">#&gt; # ℹ 4 more variables: Retention &lt;dbl&gt;, FishingMortality &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   Survivorship &lt;dbl&gt;, FishedSurvivorship &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="fish">Fish<a class="anchor" aria-label="anchor" href="#fish"></a>
@@ -145,29 +146,29 @@
 <code class="sourceCode R"><span><span class="fu"><a href="reference/ypr_plot_fish.html">ypr_plot_fish</a></span><span class="op">(</span><span class="va">population</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/ypr_tabulate_fish.html">ypr_tabulate_fish</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 20 × 8</span></span>
-<span><span class="co">#&gt;      Age Survivors Spawners   Caught Harvested Released HandlingMortal…¹ Ecotype</span></span>
-<span><span class="co">#&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1     1    70.1   2.19e-54 4.39e-55  1.76e-55 2.63e-55                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  2     2    56.1   1.63e-27 3.26e-28  1.30e-28 1.96e-28                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  3     3    44.9   4.68e-13 9.36e-14  3.74e-14 5.62e-14                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  4     4    35.9   1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  5     5    28.7   2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  6     6    21.1   2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  7     7    15.6   1.56e+ 1 3.11e+ 0  1.24e+ 0 1.87e+ 0                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  8     8    11.5   1.15e+ 1 2.29e+ 0  9.16e- 1 1.37e+ 0                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  9     9     8.43  8.43e+ 0 1.69e+ 0  6.74e- 1 1.01e+ 0                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 10    10     6.20  6.20e+ 0 1.24e+ 0  4.96e- 1 7.44e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 11    11     4.57  4.57e+ 0 9.13e- 1  3.65e- 1 5.48e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 12    12     3.36  3.36e+ 0 6.72e- 1  2.69e- 1 4.03e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 13    13     2.47  2.47e+ 0 4.95e- 1  1.98e- 1 2.97e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 14    14     1.82  1.82e+ 0 3.64e- 1  1.46e- 1 2.18e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 15    15     1.34  1.34e+ 0 2.68e- 1  1.07e- 1 1.61e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 16    16     0.986 9.86e- 1 1.97e- 1  7.89e- 2 1.18e- 1                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 17    17     0.726 7.26e- 1 1.45e- 1  5.81e- 2 8.71e- 2                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 18    18     0.534 5.34e- 1 1.07e- 1  4.27e- 2 6.41e- 2                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 19    19     0.393 3.93e- 1 7.86e- 2  3.15e- 2 4.72e- 2                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 20    20     0.289 2.89e- 1 5.79e- 2  2.31e- 2 3.47e- 2                0 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; # … with abbreviated variable name ¹​HandlingMortalities</span></span></code></pre></div>
+<span><span class="co">#&gt;      Age Survivors Spawners   Caught Harvested Released HandlingMortalities</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1     1    70.1   2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0</span></span>
+<span><span class="co">#&gt;  2     2    56.1   1.63e-27 3.26e-28  1.30e-28 1.96e-28                   0</span></span>
+<span><span class="co">#&gt;  3     3    44.9   4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0</span></span>
+<span><span class="co">#&gt;  4     4    35.9   1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0</span></span>
+<span><span class="co">#&gt;  5     5    28.7   2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0</span></span>
+<span><span class="co">#&gt;  6     6    21.1   2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0</span></span>
+<span><span class="co">#&gt;  7     7    15.6   1.56e+ 1 3.11e+ 0  1.24e+ 0 1.87e+ 0                   0</span></span>
+<span><span class="co">#&gt;  8     8    11.5   1.15e+ 1 2.29e+ 0  9.16e- 1 1.37e+ 0                   0</span></span>
+<span><span class="co">#&gt;  9     9     8.43  8.43e+ 0 1.69e+ 0  6.74e- 1 1.01e+ 0                   0</span></span>
+<span><span class="co">#&gt; 10    10     6.20  6.20e+ 0 1.24e+ 0  4.96e- 1 7.44e- 1                   0</span></span>
+<span><span class="co">#&gt; 11    11     4.57  4.57e+ 0 9.13e- 1  3.65e- 1 5.48e- 1                   0</span></span>
+<span><span class="co">#&gt; 12    12     3.36  3.36e+ 0 6.72e- 1  2.69e- 1 4.03e- 1                   0</span></span>
+<span><span class="co">#&gt; 13    13     2.47  2.47e+ 0 4.95e- 1  1.98e- 1 2.97e- 1                   0</span></span>
+<span><span class="co">#&gt; 14    14     1.82  1.82e+ 0 3.64e- 1  1.46e- 1 2.18e- 1                   0</span></span>
+<span><span class="co">#&gt; 15    15     1.34  1.34e+ 0 2.68e- 1  1.07e- 1 1.61e- 1                   0</span></span>
+<span><span class="co">#&gt; 16    16     0.986 9.86e- 1 1.97e- 1  7.89e- 2 1.18e- 1                   0</span></span>
+<span><span class="co">#&gt; 17    17     0.726 7.26e- 1 1.45e- 1  5.81e- 2 8.71e- 2                   0</span></span>
+<span><span class="co">#&gt; 18    18     0.534 5.34e- 1 1.07e- 1  4.27e- 2 6.41e- 2                   0</span></span>
+<span><span class="co">#&gt; 19    19     0.393 3.93e- 1 7.86e- 2  3.15e- 2 4.72e- 2                   0</span></span>
+<span><span class="co">#&gt; 20    20     0.289 2.89e- 1 5.79e- 2  2.31e- 2 3.47e- 2                   0</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: Ecotype &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="stock-recruitment">Stock-Recruitment<a class="anchor" aria-label="anchor" href="#stock-recruitment"></a>
@@ -206,9 +207,9 @@
 <h3 id="interaction">Interaction<a class="anchor" aria-label="anchor" href="#interaction"></a>
 </h3>
 <p>To interactively explore the effects of altering individual parameters on the schedule, stock-recruitment and yield see the ypr shiny <a href="https://poissonconsulting.shinyapps.io/shinyypr/" class="external-link">app</a>.</p>
-<div class="float">
-<img src="reference/figures/yield.png" alt="A screenshot of the yield from the ypr shiny app"><div class="figcaption">A screenshot of the yield from the ypr shiny app</div>
-</div>
+<figure><img src="reference/figures/yield.png" alt="A screenshot of the yield from the ypr shiny app"><figcaption aria-hidden="true">
+A screenshot of the yield from the ypr shiny app
+</figcaption></figure>
 </div>
 </div>
 <div class="section level2">
@@ -231,7 +232,7 @@
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-walters_fisheries_2004" class="csl-entry">
 Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Management</em>. Princeton, N.J: Princeton University Press.
 </div>
@@ -287,7 +288,7 @@ Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Mana
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/poissonconsulting/ypr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/poissonconsulting/ypr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/poissonconsulting/ypr" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg?token=yNrtS5b8uZ" alt="codecov"></a></li>
+<li><a href="https://app.codecov.io/gh/poissonconsulting/ypr" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/ypr/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
 <li><a href="https://cran.r-project.org/package=ypr" class="external-link"><img src="https://www.r-pkg.org/badges/version/ypr" alt="CRAN status"></a></li>
 </ul>
@@ -302,7 +303,7 @@ Walters, Carl J., and Steven J. D. Martell. 2004. <em>Fisheries Ecology and Mana
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
