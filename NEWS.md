@@ -1,4 +1,27 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# ypr 0.6.0.9001
+
+## Continuous integration
+
+- Fetch tags for fledge workflow to avoid unnecessary NEWS entries (#78).
+
+- Use larger retry count for lock-threads workflow (#77).
+
+- Overwrite from actions-sync (#76).
+
+## Documentation
+
+- Register poissontemplate usage (@maelle, #71).
+
+## Uncategorized
+
+- Merge pull request #75 from poissonconsulting/reqName.
+
+  replaced `requireNamespace()` with `rlang::check_installed()`
+
+- Merge pull request #72 from poissonconsulting/before.
+
 
 # ypr 0.6.0.9000
 
