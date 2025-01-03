@@ -31,7 +31,7 @@ ypr_tabulate_yields(object, ...)
 \arguments{
 \item{object}{The population or populations.}
 
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 

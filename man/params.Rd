@@ -2,8 +2,13 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Parameter Descriptions for ypr Functions}
+\alias{parameters}
+\alias{arguments}
+\alias{args}
+\title{Parameter Descriptions for ypr Package}
 \arguments{
+\item{...}{These dots are for future extensions and must be empty.}
+
 \item{tmax}{The maximum age (yr).}
 
 \item{k}{The VB growth coefficient (yr-1).}
@@ -113,8 +118,6 @@ the biomass versus number of individuals.}
 
 \item{object}{The population or populations.}
 
-\item{...}{Unused parameters.}
-
 \item{expand}{A flag specifying whether to expand parameter combinations.}
 
 \item{view}{A flag specifying whether to view the report (after rendering it
@@ -134,6 +137,12 @@ file.}
 \item{x}{The object to coerce.}
 }
 \description{
-Parameter Descriptions for ypr Functions
+Default parameter descriptions which may be overridden in individual
+functions.
+}
+\details{
+A flag is a non-missing logical scalar.
+
+A string is a non-missing character scalar.
 }
 \keyword{internal}

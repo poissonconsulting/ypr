@@ -65,8 +65,8 @@ ypr_plot_sr <- function(population,
   ggplot2::ggplot(
     data = data,
     ggplot2::aes(
-      x = Eggs,
-      y = Recruits
+      x = .data$Eggs,
+      y = .data$Recruits
     )
   ) +
     (
@@ -74,8 +74,8 @@ ypr_plot_sr <- function(population,
         ggplot2::geom_path(
           data = data2,
           ggplot2::aes(
-            group = Type,
-            color = Type
+            group = .data$Type,
+            color = .data$Type
           ),
           linetype = "dotted"
         )

@@ -93,8 +93,8 @@ ypr_plot_yield.default <- function(object,
           ggplot2::geom_path(
             data = data2,
             ggplot2::aes(
-              group = Type,
-              color = Type
+              group = .data$Type,
+              color = .data$Type
             ),
             linetype = "dotted"
           ),
@@ -172,8 +172,8 @@ ypr_plot_yield.ypr_populations <- function(object,
           ggplot2::geom_path(
             data = data2,
             ggplot2::aes(
-              group = Type,
-              color = Type
+              group = .data$Type,
+              color = .data$Type
             ),
             linetype = "dotted"
           ),

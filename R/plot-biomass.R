@@ -26,7 +26,7 @@ ypr_plot_biomass <- function(population, y = "Biomass", color = NULL) {
     ggplot2::waiver()
   }
 
-  ggplot2::ggplot(data = biomass, ggplot2::aes(x = Age, weight = .data[[y]])) +
+  ggplot2::ggplot(data = biomass, ggplot2::aes(x = .data$Age, weight = .data[[y]])) +
     (if (is.null(color)) {
       ggplot2::geom_bar(width = 1)
     } else {
