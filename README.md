@@ -88,6 +88,11 @@ ypr_tabulate_schedule(population)
 
 ``` r
 ypr_plot_fish(population, color = "white")
+```
+
+![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
+
+``` r
 ypr_tabulate_fish(population)
 #> # A tibble: 20 × 8
 #>      Age Survivors Spawners   Caught Harvested Released HandlingMortalities
@@ -183,7 +188,7 @@ The website for the release version is at
 ### Development
 
 To install the development version from
-[r-universe](https://bcgov.r-universe.dev/ssdtools).
+[r-universe](https://poissonconsulting.r-universe.dev/ypr).
 
 ``` r
 install.packages("ypr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))

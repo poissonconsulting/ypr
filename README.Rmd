@@ -99,7 +99,7 @@ The website for the release version is at <https://poissonconsulting.github.io/y
 
 ### Development
 
-To install the development version from [r-universe](https://bcgov.r-universe.dev/ssdtools).
+To install the development version from [r-universe](https://poissonconsulting.r-universe.dev/ypr).
 ```r
 install.packages("ypr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
 ```
