@@ -17,7 +17,7 @@ Tabulate Population Parameters
 }
 \examples{
 \dontrun{
-  ypr_tabulate_parameters(ypr_population())
+ypr_tabulate_parameters(ypr_population())
 }
 }
 \seealso{

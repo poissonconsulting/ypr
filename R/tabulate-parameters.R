@@ -7,7 +7,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#'   ypr_tabulate_parameters(ypr_population())
+#' ypr_tabulate_parameters(ypr_population())
 #' }
 ypr_tabulate_parameters <- function(population) {
   check_population(population)
@@ -19,7 +19,7 @@ ypr_tabulate_parameters <- function(population) {
 
   pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
   rd <- try(tools::Rd_db("ypr")$ypr_population.Rd, silent = TRUE)
-  if(inherits(rd, "try-error")) {
+  if (inherits(rd, "try-error")) {
     parameters$Description = NA_character_
     return(parameters)
   }
