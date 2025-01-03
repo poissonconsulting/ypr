@@ -14,7 +14,7 @@ coverage](https://codecov.io/gh/poissonconsulting/ypr/graph/badge.svg)](https://
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/ypr)
 <!-- badges: end -->
 
 ## Introduction
