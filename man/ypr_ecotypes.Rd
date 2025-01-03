@@ -7,7 +7,7 @@
 ypr_ecotypes(..., names = NULL)
 }
 \arguments{
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 
 \item{names}{A character vector of unique ecotype names.}
 }

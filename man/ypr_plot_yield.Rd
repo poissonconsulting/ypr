@@ -35,7 +35,7 @@ ypr_plot_yield(object, ...)
 \arguments{
 \item{object}{The population or populations.}
 
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 
 \item{y}{A string of the term on the y-axis.}
 

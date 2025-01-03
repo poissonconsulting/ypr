@@ -18,7 +18,7 @@ fish or captures.}
 \item{biomass}{A flag specifying whether to calculate the yield in terms of
 the biomass versus number of individuals.}
 
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 }
 \value{
 The yield as number of fish or biomass.

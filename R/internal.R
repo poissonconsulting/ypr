@@ -74,3 +74,5 @@ sum_fish <- function(x) {
 .sub <- function(x, pattern, replacement) {
   sub(pattern, replacement, x)
 }
+
+.data <- NULL

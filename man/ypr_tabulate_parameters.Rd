@@ -16,7 +16,9 @@ A table of population parameters
 Tabulate Population Parameters
 }
 \examples{
-ypr_tabulate_parameters(ypr_population())
+\dontrun{
+  ypr_tabulate_parameters(ypr_population())
+}
 }
 \seealso{
 Other tabulate: 

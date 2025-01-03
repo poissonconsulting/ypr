@@ -6,18 +6,23 @@
 #' @family parameters
 #' @export
 #' @examples
-#' ypr_tabulate_parameters(ypr_population())
+#' \dontrun{
+#'   ypr_tabulate_parameters(ypr_population())
+#' }
 ypr_tabulate_parameters <- function(population) {
   check_population(population)
 
-  parameters <- data.frame(
+  parameters <- tibble::tibble(
     Parameter = names(population),
-    Value = unname(unlist(population)),
-    stringsAsFactors = FALSE
+    Value = unname(unlist(population))
   )
 
   pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
-  rd <- tools::Rd_db("ypr")$ypr_population.Rd
+  rd <- try(tools::Rd_db("ypr")$ypr_population.Rd, silent = TRUE)
+  if(inherits(rd, "try-error")) {
+    parameters$Description = NA_character_
+    return(parameters)
+  }
   rd <- paste0(as.character(rd), collapse = "")
   gp <- gregexpr(pattern, rd)
   rd <- regmatches(rd, gp)[[1]]

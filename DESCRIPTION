@@ -18,7 +18,7 @@ License: MIT + file LICENSE
 URL: https://poissonconsulting.github.io/ypr/, https://github.com/poissonconsulting/ypr
 BugReports: https://github.com/poissonconsulting/ypr/issues
 Depends:
-    R (>= 3.6)
+    R (>= 4.0)
 Imports:
     chk,
     ggplot2,
@@ -50,5 +50,5 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2.9000
+RoxygenNote: 7.3.2
 Config/Needs/website: poissonconsulting/poissontemplate

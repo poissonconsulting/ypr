@@ -15,7 +15,7 @@ ypr_tabulate_schedule(object, ...)
 \arguments{
 \item{object}{The population or populations.}
 
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 }
 \value{
 A tibble of the life-history schedule by age.

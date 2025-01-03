@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ypr <img src="man/figures/logo.png" style="float: right;" />
+# ypr <img src="man/figures/logo.png" align="right" alt="ypr logo of balance scale with a single large fish on one side and five small fish on the other" />
 
 <!-- badges: start -->
 
@@ -11,10 +11,10 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/ypr/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/ypr)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/ypr)
 <!-- badges: end -->
 
 ## Introduction
@@ -43,22 +43,6 @@ and in the case of ecotypes
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
 
-## Installation
-
-To install the latest release from [CRAN](https://cran.r-project.org)
-
-``` r
-install.packages("ypr")
-```
-
-To install the developmental version from
-[GitHub](https://github.com/poissonconsulting/ypr)
-
-``` r
-# install.packages("remotes")
-remotes::install_github("poissonconsulting/ypr")
-```
-
 ## Demonstration
 
 ### Schedule
@@ -69,7 +53,7 @@ population <- ypr_population(Rk = 5, Ls = 50, Rmax = 100, rho = 0.6)
 ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ```
 
-![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-1-1.png)<!-- -->
 
 ``` r
 ypr_tabulate_schedule(population)
@@ -137,7 +121,7 @@ ypr_tabulate_fish(population)
 ypr_plot_sr(population)
 ```
 
-![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 ypr_tabulate_sr(population)
@@ -161,7 +145,7 @@ ypr_tabulate_yield(population)
 ypr_plot_yield(population)
 ```
 
-![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 ## Information
 
@@ -181,6 +165,36 @@ alt="A screenshot of the yield from the ypr shiny app" />
 <figcaption aria-hidden="true">A screenshot of the yield from the ypr
 shiny app</figcaption>
 </figure>
+
+## Installation
+
+### Release
+
+To install the release version from
+[CRAN](https://CRAN.R-project.org/package=ypr).
+
+``` r
+install.packages("ypr")
+```
+
+The website for the release version is at
+<https://poissonconsulting.github.io/ypr/>.
+
+### Development
+
+To install the development version from
+[r-universe](https://bcgov.r-universe.dev/ssdtools).
+
+``` r
+install.packages("ypr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/poissonconsulting/ypr)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/ypr")
+```
 
 ## Creditation
 

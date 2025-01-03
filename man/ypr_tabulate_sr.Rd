@@ -29,7 +29,7 @@ ypr_tabulate_sr(object, ...)
 \arguments{
 \item{object}{The population or populations.}
 
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 
 \item{Ly}{The minimum length (trophy) fish to consider when calculating the
 yield (cm).}

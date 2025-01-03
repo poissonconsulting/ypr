@@ -7,7 +7,7 @@
 ypr_populations(..., expand = TRUE, names = NULL)
 }
 \arguments{
-\item{...}{Unused parameters.}
+\item{...}{These dots are for future extensions and must be empty.}
 
 \item{expand}{A flag specifying whether to expand parameter combinations.}
 
