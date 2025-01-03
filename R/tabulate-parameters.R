@@ -20,7 +20,7 @@ ypr_tabulate_parameters <- function(population) {
   pattern <- "(\\\\item[{])([^}]+)([}])([{])([^}]+)([}])"
   rd <- try(tools::Rd_db("ypr")$ypr_population.Rd, silent = TRUE)
   if (inherits(rd, "try-error")) {
-    parameters$Description = NA_character_
+    parameters$Description <- NA_character_
     return(parameters)
   }
   rd <- paste0(as.character(rd), collapse = "")

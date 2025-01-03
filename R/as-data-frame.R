@@ -15,7 +15,6 @@ as.data.frame.ypr_populations <- function(x, ...) {
 #' @export
 as.data.frame.ypr_ecotypes <- function(x, ...) {
   chk_unused(...)
-  rname <- attr(x, "names")
   x <- lapply(x, as.data.frame)
   do.call("rbind", x)
 }

@@ -36,7 +36,7 @@ ypr_plot_fish <- function(population, x = "Age", y = "Survivors",
     ggplot2::waiver()
   }
 
-  gp <- ggplot2::ggplot(data = fish) +
+  ggplot2::ggplot(data = fish) +
     (if (length(unique(fish$Ecotype)) == 1) {
       ggplot2::aes(x = .data[[x]], weight = .data[[y]])
     } else {
