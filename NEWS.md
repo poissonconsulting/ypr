@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# ypr 0.6.0.9010
+
+## fledge
+
+- Bump version to 0.6.0.9009 (#91).
+
+
 # ypr 0.6.0.9009
 
 ## fledge
