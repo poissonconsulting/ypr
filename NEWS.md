@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# ypr 0.6.0.9011
+
+- Merge branch 'main' of github.com:poissonconsulting/ypr.
+
+- Have parameter description NA if documentation corrupted.
+
+
 # ypr 0.6.0.9010
 
 ## fledge
