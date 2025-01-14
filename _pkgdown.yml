@@ -1,7 +1,6 @@
 url: https://poissonconsulting.github.io/ypr/
 
 template:
-  bootstrap: 5
   package: poissontemplate
 
 development:
@@ -73,4 +72,3 @@ reference:
   - '`check_population`'
   - '`check_ecotypes`'
   - '`check_populations`'
-
