@@ -1,4 +1,7 @@
 test_that("report", {
+  skip_if_not_installed("rstudioapi")
+  skip_if_not_installed("usethis")
+
   expect_identical(integer_parameters(), c("tmax", "tR", "BH"))
   # used to create temp package for testing
   suppressMessages(create_local_package())
@@ -17,6 +20,9 @@ test_that("report", {
 })
 
 test_that("report setting yield parameters", {
+  skip_if_not_installed("rstudioapi")
+  skip_if_not_installed("usethis")
+
   expect_identical(integer_parameters(), c("tmax", "tR", "BH"))
   # used to create temp package for testing
   suppressMessages(create_local_package())
