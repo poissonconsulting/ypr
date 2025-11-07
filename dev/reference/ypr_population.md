@@ -1,0 +1,218 @@
+# Population Parameters
+
+Generates an object of class `ypr_population`.
+
+## Usage
+
+``` r
+ypr_population(
+  tmax = 20L,
+  k = 0.15,
+  Linf = 100,
+  t0 = 0,
+  k2 = 0.15,
+  Linf2 = 100,
+  L2 = 1000,
+  Wb = 3,
+  Ls = 50,
+  Sp = 100,
+  es = 1,
+  Sm = 0,
+  fb = 1,
+  tR = 1L,
+  BH = 1L,
+  Rk = 3,
+  n = 0.2,
+  nL = 0.2,
+  Ln = 1000,
+  Lv = 50,
+  Vp = 100,
+  Llo = 0,
+  Lup = 1000,
+  Nc = 0,
+  pi = 0.2,
+  rho = 0,
+  Hm = 0,
+  Rmax = 1,
+  Wa = 0.01,
+  fa = 1,
+  q = 0.1,
+  RPR = 1
+)
+```
+
+## Arguments
+
+- tmax:
+
+  The maximum age (yr).
+
+- k:
+
+  The VB growth coefficient (yr-1).
+
+- Linf:
+
+  The VB mean maximum length (cm).
+
+- t0:
+
+  The (theoretical) age at zero length (yr).
+
+- k2:
+
+  The VB growth coefficient after length L2 (yr-1).
+
+- Linf2:
+
+  The VB mean maximum length after length L2 (cm).
+
+- L2:
+
+  The length (or age if negative) at which growth switches from the
+  first to second phase (cm or yr).
+
+- Wb:
+
+  The weight (as a function of length) scaling exponent.
+
+- Ls:
+
+  The length (or age if negative) at which 50 % mature (cm or yr).
+
+- Sp:
+
+  The maturity (as a function of length) power.
+
+- es:
+
+  The annual probability of a mature fish spawning.
+
+- Sm:
+
+  The spawning mortality probability.
+
+- fb:
+
+  The fecundity (as a function of weight) scaling exponent.
+
+- tR:
+
+  The age from which survival is density-independent (yr).
+
+- BH:
+
+  Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
+
+- Rk:
+
+  The lifetime spawners per spawner at low density (or the egg to tR
+  survival if between 0 and 1).
+
+- n:
+
+  The **annual interval** natural mortality rate from age tR.
+
+- nL:
+
+  The **annual interval** natural mortality rate from length Ln.
+
+- Ln:
+
+  The length (or age if negative) at which the annual interval natural
+  mortality rate switches from n to nL (cm or yr).
+
+- Lv:
+
+  The length (or age if negative) at which 50 % vulnerable to harvest
+  (cm or yr).
+
+- Vp:
+
+  The vulnerability to harvest (as a function of length) power.
+
+- Llo:
+
+  The lower harvest slot length (cm).
+
+- Lup:
+
+  The upper harvest slot length (cm).
+
+- Nc:
+
+  The slot limits non-compliance probability.
+
+- pi:
+
+  The annual capture probability.
+
+- rho:
+
+  The release probability.
+
+- Hm:
+
+  The hooking mortality probability.
+
+- Rmax:
+
+  The number of recruits at the carrying capacity (ind).
+
+- Wa:
+
+  The (extrapolated) weight of a 1 cm individual (g).
+
+- fa:
+
+  The (theoretical) fecundity of a 1 g female (eggs).
+
+- q:
+
+  The catchability (annual probability of capture) for a unit of effort.
+
+- RPR:
+
+  The relative proportion of recruits that are of the ecotype.
+
+## Value
+
+An object of class `ypr_population`.
+
+## Examples
+
+``` r
+ypr_population(k = 0.1, Linf = 90)
+#> tmax:  20
+#> k:     0.1
+#> Linf:  90
+#> t0:    0
+#> k2:    0.15
+#> Linf2: 100
+#> L2:    1000
+#> Wb:    3
+#> Ls:    50
+#> Sp:    100
+#> es:    1
+#> Sm:    0
+#> fb:    1
+#> tR:    1
+#> BH:    1
+#> Rk:    3
+#> n:     0.2
+#> nL:    0.2
+#> Ln:    1000
+#> Lv:    50
+#> Vp:    100
+#> Llo:   0
+#> Lup:   1000
+#> Nc:    0
+#> pi:    0.2
+#> rho:   0
+#> Hm:    0
+#> Rmax:  1
+#> Wa:    0.01
+#> fa:    1
+#> q:     0.1
+#> RPR:   1
+```
