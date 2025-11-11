@@ -1,5 +1,38 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# ypr 0.6.0.9012
+
+## Chore
+
+- Auto-update from GitHub Actions (#112).
+
+## Continuous integration
+
+- Use workflows for fledge (#115).
+
+- Sync (#114).
+
+- Use reviewdog for external PRs (#113).
+
+- Cleanup and fix macOS (#111).
+
+- Format with air, check detritus, better handling of `extra-packages` (#110).
+
+- Enhance permissions for workflow (#108).
+
+- Permissions, better tests for missing suggests, lints (#107).
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false` (#106).
+
+- Correct installation of xml2 (#105).
+
+- Sync (#104).
+
+## Testing
+
+- Skip if packages missing (#109).
+
+
 # ypr 0.6.0.9011
 
 - Merge branch 'main' of github.com:poissonconsulting/ypr.
