@@ -1,5 +1,47 @@
 # Changelog
 
+## ypr 0.6.0.9012
+
+### Chore
+
+- Auto-update from GitHub Actions
+  ([\#112](https://github.com/poissonconsulting/ypr/issues/112)).
+
+### Continuous integration
+
+- Use workflows for fledge
+  ([\#115](https://github.com/poissonconsulting/ypr/issues/115)).
+
+- Sync ([\#114](https://github.com/poissonconsulting/ypr/issues/114)).
+
+- Use reviewdog for external PRs
+  ([\#113](https://github.com/poissonconsulting/ypr/issues/113)).
+
+- Cleanup and fix macOS
+  ([\#111](https://github.com/poissonconsulting/ypr/issues/111)).
+
+- Format with air, check detritus, better handling of `extra-packages`
+  ([\#110](https://github.com/poissonconsulting/ypr/issues/110)).
+
+- Enhance permissions for workflow
+  ([\#108](https://github.com/poissonconsulting/ypr/issues/108)).
+
+- Permissions, better tests for missing suggests, lints
+  ([\#107](https://github.com/poissonconsulting/ypr/issues/107)).
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false`
+  ([\#106](https://github.com/poissonconsulting/ypr/issues/106)).
+
+- Correct installation of xml2
+  ([\#105](https://github.com/poissonconsulting/ypr/issues/105)).
+
+- Sync ([\#104](https://github.com/poissonconsulting/ypr/issues/104)).
+
+### Testing
+
+- Skip if packages missing
+  ([\#109](https://github.com/poissonconsulting/ypr/issues/109)).
+
 ## ypr 0.6.0.9011
 
 - Merge branch ‘main’ of github.com:poissonconsulting/ypr.
