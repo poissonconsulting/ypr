@@ -1,5 +1,12 @@
 # Changelog
 
+## ypr 0.6.0.9013
+
+### Continuous integration
+
+- Fix reviewdog and add commenting workflow
+  ([\#117](https://github.com/poissonconsulting/ypr/issues/117)).
+
 ## ypr 0.6.0.9012
 
 ### Chore
