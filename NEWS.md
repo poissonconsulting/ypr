@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# ypr 0.6.0.9014
+
+## Continuous integration
+
+- Install binaries from r-universe for dev workflow (#119).
+
+
 # ypr 0.6.0.9013
 
 ## Continuous integration
